@@ -4417,8 +4417,9 @@
             display: grid;
             place-items: center;
             color: var(--white);
-            background: rgba(30, 12, 22, 0.32);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(30, 12, 22, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px -8px rgba(20, 8, 15, 0.75);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             pointer-events: auto;
@@ -4449,8 +4450,9 @@
             gap: 0.85rem;
             padding: 0.4rem 0.75rem;
             border-radius: 999px;
-            background: rgba(20, 8, 15, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(20, 8, 15, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            box-shadow: 0 6px 20px -8px rgba(20, 8, 15, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             pointer-events: auto;
@@ -4515,10 +4517,14 @@
             --pm-hot: #FF2E88;
             --pm-hot-deep: #A8004F;
             --pm-ink: #3A0A22;
-            /* Позиция на снимката — отделно за desktop и mobile,
-               така че лицата на сестрите да остават видими */
-            --pm-photo-pos: 50% 26%;
-            --pm-photo-pos-mobile: 52% 20%;
+            /* ── Кадриране на реалния asset (1086×1448, portrait 3:4) ──
+               Landscape viewport реже ВЕРТИКАЛНО (ширината се вижда цяла),
+               затова води Y стойността: държи двете лица под nav-а.
+               Portrait viewport реже ХОРИЗОНТАЛНО — там води X: 62% дърпа
+               кадъра надясно, за да остане розовата crossbody чанта в кадър
+               (лявата tote чанта може да се отреже — лицата са приоритет). */
+            --pm-photo-pos: 50% 13%;
+            --pm-photo-pos-mobile: 62% 50%;
             background: var(--magenta-dark);
             isolation: isolate;
             overflow: hidden;
@@ -4548,31 +4554,35 @@
             display: block;
         }
 
-        /* Лек scrim — само колкото трябва за четимост, лицата остават светли */
+        /* Локален, посочен scrim — само зад текста.
+           Горната половина остава с оригиналните топли orange/pink тонове
+           на снимката, за да не подкалва цветовете. */
         .pinkmall-hero-scrim {
             position: absolute;
             inset: 0;
             z-index: 1;
             pointer-events: none;
             background:
+                /* мек долен слой за копитекста */
                 linear-gradient(180deg,
-                    rgba(58, 10, 34, 0.42) 0%,
-                    rgba(58, 10, 34, 0.10) 24%,
-                    rgba(58, 10, 34, 0.00) 46%,
-                    rgba(48, 8, 28, 0.52) 78%,
-                    rgba(30, 5, 18, 0.86) 100%),
-                linear-gradient(90deg,
-                    rgba(40, 6, 24, 0.55) 0%,
-                    rgba(40, 6, 24, 0.18) 34%,
-                    rgba(40, 6, 24, 0.00) 58%);
+                    rgba(58, 10, 34, 0.00) 0%,
+                    rgba(58, 10, 34, 0.00) 44%,
+                    rgba(52, 9, 30, 0.22) 66%,
+                    rgba(40, 7, 24, 0.55) 84%,
+                    rgba(28, 5, 17, 0.78) 100%),
+                /* много лек ляв wash точно зад копитекста */
+                linear-gradient(100deg,
+                    rgba(40, 6, 24, 0.34) 0%,
+                    rgba(40, 6, 24, 0.10) 26%,
+                    rgba(40, 6, 24, 0.00) 46%);
         }
 
-        /* Y2K gloss vignette */
+        /* Съвсем лек glare отгоре — пази гланца, без да измива снимката */
         .pinkmall-hero-scrim::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(120% 90% at 50% 8%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 45%);
+            background: radial-gradient(120% 70% at 50% 4%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 42%);
             mix-blend-mode: screen;
         }
 
@@ -4598,7 +4608,7 @@
         }
 
         .pinkmall-hero-copy {
-            max-width: min(640px, 100%);
+            max-width: min(30rem, 100%);
             animation: pmRise 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
         }
 
@@ -4654,7 +4664,7 @@
             flex-wrap: wrap;
             gap: 0 0.26em;
             font-family: var(--font-retro);
-            font-size: clamp(2.5rem, 11.5vw, 7.2rem);
+            font-size: clamp(2.4rem, 8.5vw, 5.4rem);
             line-height: 0.94;
             letter-spacing: -0.01em;
         }
@@ -4698,14 +4708,23 @@
         .pinkmall-subline .pm-heart { color: var(--pink-baby); }
 
         /* ── Sisters curation stickers ──────────────────────────── */
-        .pinkmall-stickers {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: clamp(1.1rem, 2.8vh, 1.7rem);
+        /* Анотационен слой — labels стоят ВЪРХУ съответната сестра.
+           Позициите се смятат в image-space от JS (виж pmAnchorLayout). */
+        .pinkmall-annotations {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
         }
 
         .pinkmall-sticker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%) rotate(-2.5deg);
+            pointer-events: auto;
+            opacity: 0;
+            transition: opacity 0.35s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
@@ -4718,22 +4737,43 @@
             background: var(--cream);
             border: 2px solid var(--magenta-dark);
             border-radius: 20px 6px 20px 6px;
+            white-space: nowrap;
             box-shadow: 3px 3px 0 rgba(90, 38, 64, 0.9);
             transform: rotate(-2.5deg);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
+        /* JS вдига .is-placed чак след като изчисли позицията,
+           за да няма прескачане от 0,0 */
+        .pinkmall-sticker.is-placed {
+            opacity: 1;
+        }
+
         .pinkmall-sticker--sis {
             background: var(--pink-baby);
-            transform: rotate(2deg);
+            transform: translate(-50%, -50%) rotate(2deg);
             border-radius: 6px 20px 6px 20px;
         }
 
         .pinkmall-sticker:hover,
         .pinkmall-sticker:focus-visible {
-            transform: rotate(0deg) translateY(-2px);
+            transform: translate(-50%, -50%) rotate(0deg) scale(1.04);
             box-shadow: 4px 5px 0 rgba(90, 38, 64, 0.95);
         }
+
+        /* Малка стрелка-показалец към фигурата (fashion annotation) */
+        .pinkmall-sticker::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 26px;
+            height: 2px;
+            background: var(--magenta-dark);
+            opacity: 0.75;
+        }
+
+        .pinkmall-sticker::after { right: -26px; }
+        .pinkmall-sticker--sis::after { right: auto; left: -26px; }
 
         .pinkmall-sticker .pm-sticker-mark {
             font-family: var(--font-body);
@@ -4810,9 +4850,11 @@
 
         .pinkmall-hotspot {
             position: absolute;
-            left: var(--hx);
-            top: var(--hy);
+            left: 0;
+            top: 0;
             transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
             width: 46px;
             height: 46px;
             display: grid;
@@ -4822,6 +4864,11 @@
             border: 0;
             pointer-events: auto;
             z-index: 1;
+        }
+
+        /* JS вдига .is-placed след като изчисли позицията върху продукта */
+        .pinkmall-hotspot.is-placed {
+            opacity: 1;
         }
 
         .pinkmall-hotspot.is-open,
@@ -4836,55 +4883,59 @@
             border-radius: 50%;
         }
 
+        /* Видимата точка е 15px, но touch зоната остава 46–48px.
+           Glass/chrome ръб вместо силен neon glow. */
         .pinkmall-hotspot-dot {
             position: relative;
             display: block;
-            width: 17px;
-            height: 17px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FFD7E8 26%, var(--pm-hot) 62%, var(--pm-hot-deep) 100%);
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9),
-                        0 2px 10px rgba(30, 5, 18, 0.45),
-                        0 0 20px 5px rgba(255, 46, 136, 0.55);
-            animation: pmDotPulse 2.6s ease-in-out infinite;
+            background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 247, 0.75) 30%, rgba(255, 46, 136, 0.55) 68%, rgba(168, 0, 79, 0.6) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 1px 5px rgba(30, 5, 18, 0.35),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            animation: pmDotPulse 3.4s ease-in-out infinite;
         }
 
         .pinkmall-hotspot-ring {
             position: absolute;
-            width: 17px;
-            height: 17px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            border: 1.5px solid rgba(255, 255, 255, 0.85);
-            animation: pmRing 2.6s ease-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            animation: pmRing 3.4s ease-out infinite;
             pointer-events: none;
         }
 
         .pinkmall-hotspot-spark {
             position: absolute;
-            top: -9px;
-            right: -8px;
-            font-size: 0.62rem;
+            top: -7px;
+            right: -7px;
+            font-size: 0.52rem;
             line-height: 1;
-            color: var(--cream-bright);
-            text-shadow: 0 0 8px rgba(253, 245, 154, 0.9);
-            animation: pmSpark 2.6s ease-in-out infinite;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 6px rgba(255, 46, 136, 0.8);
+            animation: pmSpark 3.4s ease-in-out infinite;
             pointer-events: none;
         }
 
         @keyframes pmDotPulse {
-            0%, 100% { transform: scale(1); }
-            50%      { transform: scale(1.18); }
+            0%, 100% { transform: scale(1);    opacity: 0.88; }
+            50%      { transform: scale(1.09); opacity: 1; }
         }
 
         @keyframes pmRing {
-            0%   { transform: scale(1);   opacity: 0.85; }
-            70%  { transform: scale(2.6); opacity: 0; }
-            100% { transform: scale(2.6); opacity: 0; }
+            0%   { transform: scale(1);   opacity: 0.55; }
+            75%  { transform: scale(1.9); opacity: 0; }
+            100% { transform: scale(1.9); opacity: 0; }
         }
 
         @keyframes pmSpark {
-            0%, 100% { opacity: 0.45; transform: scale(0.8) rotate(0deg); }
-            50%      { opacity: 1;    transform: scale(1.15) rotate(90deg); }
+            0%, 100% { opacity: 0.35; transform: scale(0.85) rotate(0deg); }
+            50%      { opacity: 0.9;  transform: scale(1.1)  rotate(90deg); }
         }
 
         /* ── Floating product card ──────────────────────────────── */
@@ -4982,6 +5033,52 @@
             color: var(--pm-hot-deep);
         }
 
+        /* Ниски екрани (landscape лаптопи 1366×768, нисък телефон 375×667):
+           копитекстът се свива, за да не се качи върху лицата.
+           CTA-ите остават над 44px. */
+        @media (max-height: 820px) {
+            .pinkmall-hero-inner {
+                padding-top: clamp(5rem, 10vh, 6.5rem);
+                padding-bottom: clamp(4.25rem, 8vh, 5.25rem);
+            }
+
+            .pinkmall-kicker {
+                font-size: 0.62rem;
+                letter-spacing: 0.22em;
+                padding: 0.32rem 0.75rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .pinkmall-title {
+                margin-bottom: 0.45rem;
+            }
+
+            .pinkmall-title-welcome {
+                font-size: clamp(0.85rem, 2.4vw, 1.1rem);
+                letter-spacing: 0.26em;
+                margin-bottom: 0.15em;
+            }
+
+            .pinkmall-title-main {
+                font-size: clamp(2rem, 6.5vw, 3.6rem);
+            }
+
+            .pinkmall-subline {
+                font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+                margin-bottom: 0.8rem;
+            }
+
+            .pinkmall-cta {
+                min-height: 46px;
+                padding: 0.7rem 1.3rem;
+            }
+
+            .pinkmall-cta--ghost {
+                min-height: 44px;
+                padding: 0.62rem 1.05rem;
+            }
+        }
+
         /* ── Pink Mall hero — таблет / телефон ──────────────────── */
         @media (max-width: 768px) {
             .pinkmall-hero-photo {
@@ -5003,8 +5100,6 @@
             }
 
             .pinkmall-hotspot {
-                left: var(--hx-m, var(--hx));
-                top: var(--hy-m, var(--hy));
                 width: 48px;
                 height: 48px;
             }
@@ -5017,46 +5112,23 @@
                 top: calc(100% + 12px);
             }
 
+            .pinkmall-sticker {
+                font-size: 0.72rem;
+                padding: 0.42rem 0.7rem;
+                min-height: 44px;
+            }
+
+            .pinkmall-sticker::after,
+            .pinkmall-sticker--sis::after {
+                display: none;
+            }
+
             .pinkmall-cta-row {
                 width: 100%;
             }
 
             .pinkmall-cta--primary {
                 flex: 1 1 100%;
-            }
-        }
-
-        /* Тесни лаптопи и таблети в landscape (769–1199px): копитекстовата
-           колона заема голяма част от ширината, затова там ползваме
-           мобилния набор координати. */
-        @media (min-width: 769px) and (max-width: 1199px) {
-            .pinkmall-hotspot {
-                left: var(--hx-m, var(--hx));
-                top: var(--hy-m, var(--hy));
-            }
-        }
-
-        /* Ниски телефони (iPhone SE / 375×667): копитекстът заема
-           почти целия видим екран, затова hotspot-ите се качват в
-           тясната свободна лента между навигацията и текста. */
-        @media (max-width: 768px) and (max-height: 720px) {
-            .pinkmall-hotspot {
-                left: var(--hx-s, var(--hx-m, var(--hx)));
-                top: var(--hy-s, var(--hy-m, var(--hy)));
-            }
-        }
-
-        /* Много ниски екрани (320×568, 360×640): свободната лента между
-           навигацията и копитекста стига за един ред — показваме 2 hotspot-а
-           (лимитът в брифа е „максимум 4", не минимум). */
-        @media (max-width: 768px) and (max-height: 660px) {
-            .pinkmall-hotspot {
-                left: var(--hx-xs, var(--hx-m, var(--hx)));
-                top: var(--hy-xs, 62px);
-            }
-
-            .pinkmall-hotspot:nth-of-type(n+3) {
-                display: none;
             }
         }
 
@@ -5087,6 +5159,27 @@
             .pinkmall-sticker {
                 font-size: 0.74rem;
                 padding: 0.45rem 0.8rem;
+            }
+        }
+
+        /* Много ниски екрани (375×667): CTA-ите минават на един ред,
+           за да остане копитекстът под лицата. Височините остават ≥44px. */
+        @media (max-height: 700px) {
+            .pinkmall-cta-row {
+                flex-wrap: nowrap;
+            }
+
+            .pinkmall-cta--primary {
+                flex: 0 1 auto;
+                font-size: 0.74rem;
+                padding: 0.65rem 1rem;
+                min-height: 46px;
+            }
+
+            .pinkmall-cta--ghost {
+                font-size: 0.68rem;
+                padding: 0.6rem 0.85rem;
+                min-height: 44px;
             }
         }
 
@@ -5391,9 +5484,12 @@
                     <div class="pinkmall-hero-media" aria-hidden="true">
                         <img id="pinkMallHeroImage"
                              class="pinkmall-hero-photo"
-                             src="assets/pinkmall-hero.jpg"
+                             src="assets/pinkmall-sisters-hero.png"
+                             width="1086"
+                             height="1448"
                              alt=""
-                             loading="lazy"
+                             loading="eager"
+                             fetchpriority="low"
                              decoding="async"
                              onerror="this.style.display='none';">
                     </div>
@@ -5406,74 +5502,109 @@
                          ──────────────────────────────────────────────────── -->
                     <div class="pinkmall-hotspots">
 
+                        <!-- 1 · Жълтите очила на лявата сестра -->
                         <button type="button"
-                                class="pinkmall-hotspot pinkmall-hotspot--card-below"
-                                style="--hx: 32%; --hy: 22%; --hx-m: 34%; --hy-m: 10%; --hx-s: 30%; --hy-s: 5.7%; --hx-xs: 32%;"
-                                data-pm-product="pm-sunglasses-01"
+                                class="pinkmall-hotspot"
+                                data-pm-ix="33.9" data-pm-iy="21.3"
+                                data-pm-product="pm-shades-yellow"
                                 aria-expanded="false"
-                                aria-label="Виж продукт: Chrome Shield очила">
+                                aria-label="Виж продукт: Yellow Candy Shades, аксесоари, 39 лева">
                             <span class="pinkmall-hotspot-ring" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-dot" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-spark" aria-hidden="true">✦</span>
                             <span class="pinkmall-hotcard">
                                 <span class="pinkmall-hotcard-cat">Аксесоари</span>
-                                <span class="pinkmall-hotcard-name">Chrome Shield очила</span>
-                                <span class="pinkmall-hotcard-price">69 лв <span class="pm-eur">/ 35 €</span></span>
-                                <span class="pinkmall-hotcard-link">VIEW ITEM →</span>
-                            </span>
-                        </button>
-
-                        <button type="button"
-                                class="pinkmall-hotspot pinkmall-hotspot--card-below pinkmall-hotspot--card-right"
-                                style="--hx: 66%; --hy: 31%; --hx-m: 66%; --hy-m: 13.5%; --hx-s: 70%; --hy-s: 5.7%; --hx-xs: 66%;"
-                                data-pm-product="pm-earrings-01"
-                                aria-expanded="false"
-                                aria-label="Виж продукт: Y2K Heart обеци">
-                            <span class="pinkmall-hotspot-ring" aria-hidden="true"></span>
-                            <span class="pinkmall-hotspot-dot" aria-hidden="true"></span>
-                            <span class="pinkmall-hotspot-spark" aria-hidden="true">✦</span>
-                            <span class="pinkmall-hotcard">
-                                <span class="pinkmall-hotcard-cat">Бижута &amp; аксесоари</span>
-                                <span class="pinkmall-hotcard-name">Y2K Heart обеци</span>
+                                <span class="pinkmall-hotcard-name">Yellow Candy Shades</span>
                                 <span class="pinkmall-hotcard-price">39 лв <span class="pm-eur">/ 20 €</span></span>
                                 <span class="pinkmall-hotcard-link">VIEW ITEM →</span>
                             </span>
                         </button>
 
+                        <!-- 2 · Розовите очила на дясната сестра -->
                         <button type="button"
                                 class="pinkmall-hotspot"
-                                style="--hx: 60%; --hy: 55%; --hx-m: 38%; --hy-m: 17%; --hx-s: 40%; --hy-s: 11.2%;"
-                                data-pm-product="pm-tee-01"
+                                data-pm-ix="67.7" data-pm-iy="18.8"
+                                data-pm-product="pm-shades-pink"
                                 aria-expanded="false"
-                                aria-label="Виж продукт: Pink Mall crop тениска">
+                                aria-label="Виж продукт: Pink Candy Shades, аксесоари, 39 лева">
+                            <span class="pinkmall-hotspot-ring" aria-hidden="true"></span>
+                            <span class="pinkmall-hotspot-dot" aria-hidden="true"></span>
+                            <span class="pinkmall-hotspot-spark" aria-hidden="true">✦</span>
+                            <span class="pinkmall-hotcard">
+                                <span class="pinkmall-hotcard-cat">Аксесоари</span>
+                                <span class="pinkmall-hotcard-name">Pink Candy Shades</span>
+                                <span class="pinkmall-hotcard-price">39 лв <span class="pm-eur">/ 20 €</span></span>
+                                <span class="pinkmall-hotcard-link">VIEW ITEM →</span>
+                            </span>
+                        </button>
+
+                        <!-- 3 · Тениската „Designer Pussy" -->
+                        <button type="button"
+                                class="pinkmall-hotspot"
+                                data-pm-ix="71.1" data-pm-iy="41.4"
+                                data-pm-product="pm-tee-designer"
+                                aria-expanded="false"
+                                aria-label="Виж продукт: Designer Pussy Tee, merch, 59 лева">
                             <span class="pinkmall-hotspot-ring" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-dot" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-spark" aria-hidden="true">✦</span>
                             <span class="pinkmall-hotcard">
                                 <span class="pinkmall-hotcard-cat">Merch</span>
-                                <span class="pinkmall-hotcard-name">Pink Mall crop тениска</span>
-                                <span class="pinkmall-hotcard-price">55 лв <span class="pm-eur">/ 28 €</span></span>
+                                <span class="pinkmall-hotcard-name">Designer Pussy Tee</span>
+                                <span class="pinkmall-hotcard-price">59 лв <span class="pm-eur">/ 30 €</span></span>
                                 <span class="pinkmall-hotcard-link">VIEW ITEM →</span>
                             </span>
                         </button>
 
+                        <!-- 4 · Розовата crossbody чанта -->
                         <button type="button"
-                                class="pinkmall-hotspot pinkmall-hotspot--card-right"
-                                style="--hx: 78%; --hy: 70%; --hx-m: 64%; --hy-m: 20.5%; --hx-s: 76%; --hy-s: 11.2%;"
-                                data-pm-product="pm-bag-01"
+                                class="pinkmall-hotspot"
+                                data-pm-ix="78.9" data-pm-iy="72.3"
+                                data-pm-product="pm-bag-mini"
                                 aria-expanded="false"
-                                aria-label="Виж продукт: Glossy Mini Bag">
+                                aria-label="Виж продукт: Pink Mini Bag, чанти, 89 лева">
                             <span class="pinkmall-hotspot-ring" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-dot" aria-hidden="true"></span>
                             <span class="pinkmall-hotspot-spark" aria-hidden="true">✦</span>
                             <span class="pinkmall-hotcard">
                                 <span class="pinkmall-hotcard-cat">Чанти</span>
-                                <span class="pinkmall-hotcard-name">Glossy Mini Bag</span>
+                                <span class="pinkmall-hotcard-name">Pink Mini Bag</span>
                                 <span class="pinkmall-hotcard-price">89 лв <span class="pm-eur">/ 45 €</span></span>
                                 <span class="pinkmall-hotcard-link">VIEW ITEM →</span>
                             </span>
                         </button>
 
+                    </div>
+
+                    <!-- ── Sisters curation labels ─────────────────────────
+                         Editorial анотации, закотвени към конкретната сестра.
+                         data-pm-ix/iy са в image-space (% от 1086×1448), с
+                         отделни стойности за tablet (-t) и mobile (-m), защото
+                         кадърът се реже различно при различните пропорции.
+                         ──────────────────────────────────────────────────── -->
+                    <div class="pinkmall-annotations">
+                        <a href="#ina-picks"
+                           class="pinkmall-sticker"
+                           data-pm-anchor="#ina-picks"
+                           data-pm-ix="13"   data-pm-iy="20"
+                           data-pm-ix-t="14" data-pm-iy-t="17"
+                           data-pm-ix-m="36" data-pm-iy-m="32"
+                           data-pm-ix-s="39" data-pm-iy-s="8.5"
+                           aria-label="INA'S PICKS — селекцията на Ина">
+                            INA’S PICKS
+                            <span class="pm-sticker-mark" aria-hidden="true">✦</span>
+                        </a>
+                        <a href="#sis-picks"
+                           class="pinkmall-sticker pinkmall-sticker--sis"
+                           data-pm-anchor="#sis-picks"
+                           data-pm-ix="91"   data-pm-iy="22"
+                           data-pm-ix-t="89" data-pm-iy-t="17"
+                           data-pm-ix-m="72" data-pm-iy-m="32"
+                           data-pm-ix-s="72" data-pm-iy-s="8.5"
+                           aria-label="SIS' FAVES — селекцията на сестра ѝ">
+                            SIS’ FAVES
+                            <span class="pm-sticker-mark" aria-hidden="true">♡</span>
+                        </a>
                     </div>
 
                     <!-- ── Съдържание ──────────────────────────────────── -->
@@ -5496,22 +5627,6 @@
                             <span class="pinkmall-subline">
                                 all things pink, picked by the&nbsp;sisters&nbsp;<span class="pm-heart" aria-hidden="true">♡</span>
                             </span>
-
-                            <!-- Sisters curation — hook-ове към бъдещите секции -->
-                            <div class="pinkmall-stickers">
-                                <a href="#ina-picks"
-                                   class="pinkmall-sticker"
-                                   data-pm-anchor="#ina-picks">
-                                    INA’S PICKS
-                                    <span class="pm-sticker-mark" aria-hidden="true">✦</span>
-                                </a>
-                                <a href="#sis-picks"
-                                   class="pinkmall-sticker pinkmall-sticker--sis"
-                                   data-pm-anchor="#sis-picks">
-                                    SIS’ FAVES
-                                    <span class="pm-sticker-mark" aria-hidden="true">♡</span>
-                                </a>
-                            </div>
 
                             <div class="pinkmall-cta-row">
                                 <a href="#pink-mall"
@@ -8447,6 +8562,186 @@
             resume: resumeAuto,
             current: function () { return index; }
         };
+    })();
+    </script>
+
+
+    <!-- ============================================================
+         PINK MALL — IMAGE-SPACE ANCHOR LAYOUT
+         ------------------------------------------------------------
+         Hotspot-ите и sister label-ите носят координати в
+         IMAGE-SPACE (% от оригиналния asset 1086×1448), а не в % от
+         контейнера. Причината: `object-fit: cover` реже снимката
+         различно при всяка пропорция на екрана, така че фиксирани
+         контейнерни проценти се разминават с продукта.
+         Тук повтаряме същата cover математика като браузъра и
+         превеждаме image-space → container px, така че точката винаги
+         стои ВЪРХУ предмета на всеки viewport.
+         Ако asset-ът бъде сменен, обнови само PM_IMG_W / PM_IMG_H.
+         ============================================================ -->
+    <script>
+    (function () {
+        'use strict';
+
+        var PM_IMG_W = 1086;   // натурална ширина на hero asset-а
+        var PM_IMG_H = 1448;   // натурална височина на hero asset-а
+
+        var slide  = document.getElementById('pinkMallSlide');
+        if (!slide) return;
+
+        var media  = slide.querySelector('.pinkmall-hero-media');
+        var photo  = document.getElementById('pinkMallHeroImage');
+        var copy   = slide.querySelector('.pinkmall-hero-copy');
+        var nav    = document.querySelector('.nav');
+        var nodes  = Array.prototype.slice.call(slide.querySelectorAll('[data-pm-ix]'));
+        if (!media || !nodes.length) return;
+
+        /* Кои набори координати важат за текущия екран, в ред на приоритет */
+        function tiers() {
+            var w = window.innerWidth;
+            var h = window.innerHeight;
+            if (w <= 768 && h <= 700) return ['-s', '-m', ''];  // нисък телефон
+            if (w <= 768)             return ['-m', ''];        // mobile portrait
+            if (w <= 1199)            return ['-t', ''];        // tablet / тесен лаптоп
+            return [''];                                        // desktop
+        }
+
+        function coord(node, axis, list) {
+            for (var i = 0; i < list.length; i++) {
+                var v = node.getAttribute('data-pm-i' + axis + list[i]);
+                if (v !== null) return parseFloat(v) / 100;
+            }
+            return 0.5;
+        }
+
+        /* object-position → две части 0..1 (percent или px) */
+        function objectPosition(cw, ch, dw, dh) {
+            var pos = photo ? getComputedStyle(photo).objectPosition : '50% 50%';
+            var parts = String(pos).trim().split(/\s+/);
+            if (parts.length < 2) parts = ['50%', '50%'];
+
+            function frac(raw, cSize, dSize) {
+                if (raw.indexOf('%') > -1) return parseFloat(raw) / 100;
+                var px = parseFloat(raw);
+                if (isNaN(px)) return 0.5;
+                var slack = cSize - dSize;
+                return slack === 0 ? 0.5 : px / slack;
+            }
+            return { x: frac(parts[0], cw, dw), y: frac(parts[1], ch, dh) };
+        }
+
+        var raf = null;
+
+        function layout() {
+            raf = null;
+
+            var cw = media.clientWidth;
+            var ch = media.clientHeight;
+            if (!cw || !ch) return;
+
+            /* Същата математика като object-fit: cover */
+            var scale = Math.max(cw / PM_IMG_W, ch / PM_IMG_H);
+            var dw = PM_IMG_W * scale;
+            var dh = PM_IMG_H * scale;
+            var p  = objectPosition(cw, ch, dw, dh);
+            var ox = (cw - dw) * p.x;
+            var oy = (ch - dh) * p.y;
+
+            var t = tiers();
+            var mediaTop = media.getBoundingClientRect().top;
+
+            /* Горна граница: фиксираната навигация не бива да яде точките */
+            var minY = 12;
+            if (nav) {
+                minY = Math.max(minY, nav.getBoundingClientRect().bottom - mediaTop + 10);
+            }
+
+            /* Долна граница */
+            var maxY = ch - 12;
+
+            /* Правоъгълниците на реалните текстови блокове (а не на целия
+               контейнер) — така точка, която стои встрани от текста, остава
+               видима вместо да се скрие излишно. */
+            var mediaLeft = media.getBoundingClientRect().left;
+            var textBoxes = [];
+            if (copy) {
+                copy.querySelectorAll('.pinkmall-kicker, .pinkmall-title, .pinkmall-subline, .pinkmall-cta')
+                    .forEach(function (el) {
+                        var r = el.getBoundingClientRect();
+                        if (!r.width || !r.height) return;
+                        textBoxes.push({
+                            top:    r.top    - mediaTop,
+                            bottom: r.bottom - mediaTop,
+                            left:   r.left   - mediaLeft,
+                            right:  r.right  - mediaLeft
+                        });
+                    });
+            }
+
+            nodes.forEach(function (node) {
+                var x = ox + coord(node, 'x', t) * dw;
+                var y = oy + coord(node, 'y', t) * dh;
+
+                var half = node.offsetWidth ? node.offsetWidth / 2 : 24;
+
+                /* Извън кадъра, под nav-а или върху копитекста → крием */
+                var inFrame = x > half + 4 && x < cw - half - 4 && y > minY && y < maxY;
+                var onCopy  = textBoxes.some(function (b) {
+                    return x > b.left - 10 && x < b.right + 10 &&
+                           y > b.top  - 10 && y < b.bottom + 10;
+                });
+
+                if (!inFrame || onCopy) {
+                    node.classList.remove('is-placed');
+                    node.style.visibility = 'hidden';
+                    node.setAttribute('aria-hidden', 'true');
+                    return;
+                }
+
+                node.style.left = Math.round(x) + 'px';
+                node.style.top  = Math.round(y) + 'px';
+                node.style.visibility = '';
+                node.removeAttribute('aria-hidden');
+                node.classList.add('is-placed');
+
+                /* Картата се обръща сама, ако точката е близо до ръб */
+                if (node.classList.contains('pinkmall-hotspot')) {
+                    node.classList.toggle('pinkmall-hotspot--card-left',  x < cw * 0.30);
+                    node.classList.toggle('pinkmall-hotspot--card-right', x > cw * 0.70);
+                    node.classList.toggle('pinkmall-hotspot--card-below', y < ch * 0.45);
+                }
+            });
+        }
+
+        function schedule() {
+            if (raf) return;
+            raf = window.requestAnimationFrame(layout);
+        }
+
+        schedule();
+        window.addEventListener('resize', schedule, { passive: true });
+        window.addEventListener('orientationchange', schedule, { passive: true });
+        window.addEventListener('load', schedule);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(schedule).catch(function () {});
+        }
+
+        /* Снимката влияе на нищо в математиката, но щом се зареди,
+           преизчисляваме за всеки случай (и махаме празното премигване). */
+        if (photo) {
+            photo.addEventListener('load', schedule);
+            photo.addEventListener('error', schedule);
+        }
+
+        /* Копитекстът мени височина при смяна на слайд/шрифт */
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(schedule);
+            ro.observe(media);
+            if (copy) ro.observe(copy);
+        }
+
+        /* Публичен hook за следващата фаза */
+        window.PinkMallAnchors = { relayout: schedule };
     })();
     </script>
 
