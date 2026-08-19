@@ -740,7 +740,10 @@
            ============================================ */
         .hero {
             position: relative;
-            min-height: 100vh;
+            /* Височината идва ЕДИНСТВЕНО от .hero-slider-viewport
+               (canonical --hero-h). Тук няма собствен min-height, за да
+               не съществуват две конкуриращи се height системи. */
+            min-height: 0;
             display: block;
             overflow: hidden;
             background: var(--magenta-dark);
@@ -810,8 +813,11 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            min-height: 100vh;
-            padding: 120px 1.5rem 90px;
+            height: 100%;
+            min-height: 0;
+            /* Вертикалният padding се задава САМО от
+               `.hero-slider-slide .hero-grid` (една стълбица от tier-и). */
+            padding: 0 1.5rem;
             box-sizing: border-box;
         }
         
@@ -3985,7 +3991,9 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 60px;
+                /* --nav-height се задава от JS = реалната височина на
+                   .nav (логото и padding-ът се менят при .scrolled) */
+                top: var(--nav-height, 96px);
                 left: 0;
                 right: 0;
                 background: var(--white);
@@ -4329,37 +4337,47 @@
            височината на билборда = височината на най-високия слайд
            (без absolute positioning => нищо не колабира).
            ============================================================ */
-        /* Височината на ПЪРВИЯ видим екран на билборда.
-           --pm-billboard-top се задава от JS = разстоянието от върха на
-           документа до .hero (retro marquee-то стои над него). */
+        /* ─────────────────────────────────────────────────────────
+           CANONICAL HERO HEIGHT — единствената височинна система.
+           Всичко вътре в билборда се подчинява на --hero-h.
+           Няма JS измервания, няма втора система, няма зависимост
+           от „най-високия слайд".
+           ───────────────────────────────────────────────────────── */
         #heroBillboard {
-            --pm-visible-h: calc(100vh - var(--pm-billboard-top, 0px));
+            /* --hero-offset е ЕДИНСТВЕНАТА корекция в системата: над
+               билборда стои .retro-marquee, така че „един екран" е
+               100dvh МИНУС неговата височина. Задава се веднъж от JS
+               (syncHeroOffset) и се ползва само тук. */
+            --hero-h: calc(100vh - var(--hero-offset, 0px));
         }
 
-        @supports (height: 100svh) {
+        @supports (height: 100dvh) {
             #heroBillboard {
-                --pm-visible-h: calc(100svh - var(--pm-billboard-top, 0px));
+                --hero-h: calc(100dvh - var(--hero-offset, 0px));
             }
         }
 
         .hero-slider-viewport {
             position: relative;
             width: 100%;
+            height: var(--hero-h);
+            min-height: 0;
             overflow: hidden;
             touch-action: pan-y;
         }
 
         .hero-slider-track {
-            display: grid;
+            position: relative;
             width: 100%;
+            height: 100%;
         }
 
         .hero-slider-slide {
-            grid-area: 1 / 1;
-            position: relative;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            min-height: 100vh;      /* fallback за стари браузъри */
-            min-height: 100svh;     /* dynamic mobile viewport */
+            height: 100%;
+            min-height: 0;
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
@@ -4388,21 +4406,81 @@
             z-index: 1;
         }
 
-        /* Малко допълнително долно поле, за да не се блъска
-           съществуващият „BY INA" блок в индикаторите на билборда */
+        /* ─────────────────────────────────────────────────────────
+           SLIDE 01 В КРАТЪК VIEWPORT
+           Билбордът вече има фиксирана височина (--hero-h), затова
+           съдържанието на Pierciina слайда се СВИВА по вертикала,
+           вместо да излиза извън кадъра. Нищо не се маха — само
+           отстъпи и размери. Две стъпки: ≤900px и ≤720px височина.
+           ───────────────────────────────────────────────────────── */
+        /* Базови отстъпи на слайд 01 вътре в билборда */
         .hero-slider-slide .hero-grid {
-            padding-bottom: 126px;
+            padding-top: 104px;
+            padding-bottom: 92px;
+        }
+
+        @media (max-height: 960px) {
+            .hero-slider-slide .hero-grid {
+                padding-top: 92px;
+                padding-bottom: 84px;
+            }
+
+            .hero-slide-pierciina .hero-badge        { margin-bottom: 0.9rem; }
+            .hero-slide-pierciina .hero-main-title   { margin-bottom: 0.5rem; }
+            .hero-slide-pierciina .hero-club-teaser  { padding: 0.7rem 1rem; margin-bottom: 1.1rem; }
+            .hero-slide-pierciina .hero-meta         { margin-top: 0.8rem; }
+            .hero-slide-pierciina .hero-by-ina-arrow { margin-top: 0.85rem; }
+        }
+
+        @media (max-height: 880px) {
+            .hero-slider-slide .hero-grid {
+                padding-top: 74px;
+                padding-bottom: 78px;
+            }
+
+            .hero-slide-pierciina .hero-badge       { margin-bottom: 0.7rem; }
+            .hero-slide-pierciina .hero-club-teaser { margin-bottom: 0.85rem; }
+        }
+
+        @media (max-height: 800px) {
+            .hero-slider-slide .hero-grid {
+                padding-top: 62px;
+                padding-bottom: 74px;
+            }
+
+            .hero-slide-pierciina .hero-badge {
+                margin-bottom: 0.6rem;
+                padding: 0.42rem 0.95rem;
+                font-size: 0.72rem;
+            }
+            .hero-slide-pierciina .hero-title-line   { font-size: clamp(1.9rem, 5vw, 3rem); }
+            .hero-slide-pierciina .hero-title-accent { font-size: clamp(2.3rem, 6.5vw, 4rem); }
+            .hero-slide-pierciina .hero-main-title   { margin-bottom: 0.35rem; }
+            .hero-slide-pierciina .hero-club-teaser  { padding: 0.55rem 0.9rem; margin-bottom: 0.7rem; font-size: 0.84rem; }
+            .hero-slide-pierciina .hero-cta          { gap: 0.6rem; }
+            .hero-slide-pierciina .hero-meta         { margin-top: 0.55rem; gap: 1rem; font-size: 0.76rem; }
+            .hero-slide-pierciina .hero-by-ina-arrow { margin-top: 0.55rem; }
+        }
+
+        @media (max-height: 700px) {
+            .hero-slider-slide .hero-grid {
+                padding-top: 34px;
+                padding-bottom: 64px;
+            }
+
+            .hero-slide-pierciina .hero-club-teaser  { padding: 0.45rem 0.75rem; margin-bottom: 0.5rem; font-size: 0.78rem; }
+            .hero-slide-pierciina .hero-cta          { gap: 0.45rem; }
+            .hero-slide-pierciina .hero-cta .btn     { padding: 0.6rem 1.1rem; }
+            .hero-slide-pierciina .hero-meta         { margin-top: 0.4rem; font-size: 0.72rem; }
+            .hero-slide-pierciina .hero-by-ina-arrow { margin-top: 0.35rem; }
+            .hero-slide-pierciina .hero-portfolio-arrows svg { width: 15px; height: 15px; }
         }
 
         /* ── Billboard контроли ─────────────────────────────────── */
         .hero-slider-ui {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            /* Ограничени до първия видим екран, за да не паднат
-               под сгъвката, когато слайд 01 е по-висок от viewport-а */
-            height: min(100%, var(--pm-visible-h, 100vh));
+            inset: 0;
+            height: 100%;
             z-index: 6;
             pointer-events: none;
         }
@@ -4443,7 +4521,7 @@
         .hero-slider-dots {
             position: absolute;
             left: 50%;
-            bottom: clamp(1rem, 2.6vh, 1.9rem);
+            bottom: calc(clamp(1rem, 2.6vh, 1.9rem) + env(safe-area-inset-bottom, 0px));
             transform: translateX(-50%);
             display: flex;
             align-items: center;
@@ -4507,7 +4585,6 @@
         /* Стрелките са desktop-only — на телефон работи swipe */
         @media (max-width: 768px) {
             .hero-slider-arrow { display: none; }
-            .hero-slider-slide .hero-grid { padding-bottom: 118px; }
         }
 
         /* ============================================================
@@ -4523,7 +4600,7 @@
                Portrait viewport реже ХОРИЗОНТАЛНО — там води X: 62% дърпа
                кадъра надясно, за да остане розовата crossbody чанта в кадър
                (лявата tote чанта може да се отреже — лицата са приоритет). */
-            --pm-photo-pos: 50% 13%;
+            --pm-photo-pos: 50% 11%;
             --pm-photo-pos-mobile: 62% 50%;
             background: var(--magenta-dark);
             isolation: isolate;
@@ -4542,6 +4619,17 @@
                 radial-gradient(120% 80% at 78% 18%, rgba(255, 46, 136, 0.55) 0%, rgba(255, 46, 136, 0) 60%),
                 radial-gradient(90% 70% at 12% 82%, rgba(253, 245, 154, 0.35) 0%, rgba(253, 245, 154, 0) 62%),
                 linear-gradient(155deg, #F7C1D3 0%, #E86FA6 42%, #8B3A5C 100%);
+        }
+
+        /* Няма снимка → скриваме hotspot-ите и label-ите: продуктови
+           точки върху празен градиент нямат смисъл. Градиентът остава. */
+        .pm-image-missing .pinkmall-hotspots,
+        .pm-image-missing .pinkmall-annotations {
+            display: none;
+        }
+
+        .pm-image-missing .pinkmall-hero-photo {
+            display: none;
         }
 
         .pinkmall-hero-photo {
@@ -4590,9 +4678,8 @@
             position: relative;
             z-index: 3;
             width: 100%;
-            /* Съдържанието стои в първия видим екран, а не в дъното на
-               слайда — слайд 01 може да е по-висок и да го избута под сгъвката */
-            min-height: var(--pm-visible-h, 100vh);
+            height: 100%;
+            min-height: 0;
             max-width: var(--container);
             margin: 0 auto;
             display: flex;
@@ -4603,7 +4690,7 @@
             padding:
                 clamp(6.5rem, 13vh, 9rem)
                 clamp(1.25rem, 4vw, 2.5rem)
-                clamp(6rem, 12vh, 8rem);
+                calc(clamp(6rem, 12vh, 8rem) + env(safe-area-inset-bottom, 0px));
             box-sizing: border-box;
         }
 
@@ -4724,7 +4811,6 @@
             transform: translate(-50%, -50%) rotate(-2.5deg);
             pointer-events: auto;
             opacity: 0;
-            transition: opacity 0.35s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
@@ -4739,8 +4825,7 @@
             border-radius: 20px 6px 20px 6px;
             white-space: nowrap;
             box-shadow: 3px 3px 0 rgba(90, 38, 64, 0.9);
-            transform: rotate(-2.5deg);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.35s ease;
         }
 
         /* JS вдига .is-placed чак след като изчисли позицията,
@@ -4964,8 +5049,9 @@
         }
 
         /* Подравняване, за да не излиза картата извън екрана */
-        .pinkmall-hotspot--card-left  .pinkmall-hotcard { left: 0;    transform: translate(-14%, 8px) scale(0.96); }
-        .pinkmall-hotspot--card-right .pinkmall-hotcard { left: auto; right: 0; transform: translate(14%, 8px) scale(0.96); }
+        .pinkmall-hotspot--card-left  .pinkmall-hotcard { left: 0;    transform: translate(0, 8px) scale(0.96); }
+        .pinkmall-hotspot--card-right .pinkmall-hotcard { left: auto; right: 0; transform: translate(0, 8px) scale(0.96); }
+        .pinkmall-hotspot--card-above .pinkmall-hotcard { top: auto;  bottom: calc(100% + 12px); }
         .pinkmall-hotspot--card-below .pinkmall-hotcard { bottom: auto; top: calc(100% + 12px); }
 
         .pinkmall-hotspot.is-open .pinkmall-hotcard,
@@ -4978,9 +5064,9 @@
         }
 
         .pinkmall-hotspot--card-left.is-open .pinkmall-hotcard,
-        .pinkmall-hotspot--card-left:focus-visible .pinkmall-hotcard  { transform: translate(-14%, 0) scale(1); }
+        .pinkmall-hotspot--card-left:focus-visible .pinkmall-hotcard  { transform: translate(0, 0) scale(1); }
         .pinkmall-hotspot--card-right.is-open .pinkmall-hotcard,
-        .pinkmall-hotspot--card-right:focus-visible .pinkmall-hotcard { transform: translate(14%, 0) scale(1); }
+        .pinkmall-hotspot--card-right:focus-visible .pinkmall-hotcard { transform: translate(0, 0) scale(1); }
 
         @media (hover: hover) and (pointer: fine) {
             .pinkmall-hotspot:hover .pinkmall-hotcard {
@@ -4990,8 +5076,8 @@
                 transform: translate(-50%, 0) scale(1);
                 transition-delay: 0s;
             }
-            .pinkmall-hotspot--card-left:hover .pinkmall-hotcard  { transform: translate(-14%, 0) scale(1); }
-            .pinkmall-hotspot--card-right:hover .pinkmall-hotcard { transform: translate(14%, 0) scale(1); }
+            .pinkmall-hotspot--card-left:hover .pinkmall-hotcard  { transform: translate(0, 0) scale(1); }
+            .pinkmall-hotspot--card-right:hover .pinkmall-hotcard { transform: translate(0, 0) scale(1); }
         }
 
         .pinkmall-hotcard-cat {
@@ -5104,14 +5190,6 @@
                 height: 48px;
             }
 
-            /* На телефон картата винаги пада надолу — така не се
-               скрива под фиксираната навигация */
-            /* (виж и --hx-s / --hy-s по-долу за ниски екрани) */
-            .pinkmall-hotspot .pinkmall-hotcard {
-                bottom: auto;
-                top: calc(100% + 12px);
-            }
-
             .pinkmall-sticker {
                 font-size: 0.72rem;
                 padding: 0.42rem 0.7rem;
@@ -5159,27 +5237,6 @@
             .pinkmall-sticker {
                 font-size: 0.74rem;
                 padding: 0.45rem 0.8rem;
-            }
-        }
-
-        /* Много ниски екрани (375×667): CTA-ите минават на един ред,
-           за да остане копитекстът под лицата. Височините остават ≥44px. */
-        @media (max-height: 700px) {
-            .pinkmall-cta-row {
-                flex-wrap: nowrap;
-            }
-
-            .pinkmall-cta--primary {
-                flex: 0 1 auto;
-                font-size: 0.74rem;
-                padding: 0.65rem 1rem;
-                min-height: 46px;
-            }
-
-            .pinkmall-cta--ghost {
-                font-size: 0.68rem;
-                padding: 0.6rem 0.85rem;
-                min-height: 44px;
             }
         }
 
@@ -5484,21 +5541,21 @@
                     <div class="pinkmall-hero-media" aria-hidden="true">
                         <img id="pinkMallHeroImage"
                              class="pinkmall-hero-photo"
-                             src="assets/pinkmall-sisters-hero.png"
+                             src="assets/pinkmall-sisters-hero.webp"
                              width="1086"
                              height="1448"
                              alt=""
                              loading="eager"
                              fetchpriority="low"
-                             decoding="async"
-                             onerror="this.style.display='none';">
+                             decoding="async">
                     </div>
                     <div class="pinkmall-hero-scrim" aria-hidden="true"></div>
 
                     <!-- ── Интерактивни hotspots (demo данни) ──────────────
                          data-pm-product = бъдещ ключ към Pink Mall каталога.
-                         --hx / --hy   = позиция в % (desktop)
-                         --hx-m / --hy-m = позиция в % (≤768px)
+                         data-pm-ix / -iy = позиция в IMAGE-SPACE (% от
+                         оригинала 1086×1448) — една стойност за всички
+                         екрани; преводът към пиксели прави pmAnchorLayout.
                          ──────────────────────────────────────────────────── -->
                     <div class="pinkmall-hotspots">
 
@@ -5589,7 +5646,7 @@
                            data-pm-ix="13"   data-pm-iy="20"
                            data-pm-ix-t="14" data-pm-iy-t="17"
                            data-pm-ix-m="36" data-pm-iy-m="32"
-                           data-pm-ix-s="39" data-pm-iy-s="8.5"
+                           data-pm-ix-s="38" data-pm-iy-s="34"
                            aria-label="INA'S PICKS — селекцията на Ина">
                             INA’S PICKS
                             <span class="pm-sticker-mark" aria-hidden="true">✦</span>
@@ -5600,7 +5657,7 @@
                            data-pm-ix="91"   data-pm-iy="22"
                            data-pm-ix-t="89" data-pm-iy-t="17"
                            data-pm-ix-m="72" data-pm-iy-m="32"
-                           data-pm-ix-s="72" data-pm-iy-s="8.5"
+                           data-pm-ix-s="70" data-pm-iy-s="34"
                            aria-label="SIS' FAVES — селекцията на сестра ѝ">
                             SIS’ FAVES
                             <span class="pm-sticker-mark" aria-hidden="true">♡</span>
@@ -7810,8 +7867,35 @@
         window.addEventListener('scroll', () => {
             if (nav) {
                 nav.classList.toggle('scrolled', window.scrollY > 60);
+                syncNavHeight();
             }
         }, { passive: true });
+
+        // Реалната височина на навигацията → --nav-height.
+        // Мобилното меню се закача под нея (вместо hardcoded 60px),
+        // а тя се мени при .scrolled, защото логото се смалява.
+        let navHeightRaf = null;
+        function syncNavHeight() {
+            if (!nav || navHeightRaf) return;
+            navHeightRaf = requestAnimationFrame(() => {
+                navHeightRaf = null;
+                const h = Math.round(nav.getBoundingClientRect().height);
+                if (h > 0) {
+                    document.documentElement.style.setProperty('--nav-height', h + 'px');
+                }
+            });
+        }
+
+        syncNavHeight();
+        window.addEventListener('resize', syncNavHeight, { passive: true });
+        window.addEventListener('orientationchange', syncNavHeight, { passive: true });
+        window.addEventListener('load', syncNavHeight);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(syncNavHeight).catch(() => {});
+        }
+        if (window.ResizeObserver && nav) {
+            new ResizeObserver(syncNavHeight).observe(nav);
+        }
 
         // ── FAQ Accordion ────────────────────────────────────────
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -8529,19 +8613,33 @@
             });
         });
 
-        /* ── Височина на първия видим екран ─────────────────────── */
+        /* ── Единствената корекция на canonical височината ────────
+           Над билборда стои .retro-marquee; измерваме го веднъж и го
+           изваждаме от 100dvh чрез --hero-offset. Няма друго измерване
+           на височина в целия hero. */
         var heroRoot = document.getElementById('heroBillboard');
+        var aboveHero = document.querySelector('.retro-marquee');
+        var offsetRaf = null;
 
-        function syncBillboardTop() {
-            if (!heroRoot) return;
-            var top = heroRoot.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
-            heroRoot.style.setProperty('--pm-billboard-top', Math.max(0, Math.round(top)) + 'px');
+        function syncHeroOffset() {
+            if (!heroRoot || offsetRaf) return;
+            offsetRaf = window.requestAnimationFrame(function () {
+                offsetRaf = null;
+                var above = aboveHero ? aboveHero.getBoundingClientRect().height : 0;
+                heroRoot.style.setProperty('--hero-offset', Math.round(above) + 'px');
+            });
         }
 
-        syncBillboardTop();
-        window.addEventListener('resize', syncBillboardTop, { passive: true });
-        window.addEventListener('orientationchange', syncBillboardTop, { passive: true });
-        window.addEventListener('load', syncBillboardTop);
+        syncHeroOffset();
+        window.addEventListener('resize', syncHeroOffset, { passive: true });
+        window.addEventListener('orientationchange', syncHeroOffset, { passive: true });
+        window.addEventListener('load', syncHeroOffset);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(syncHeroOffset).catch(function () {});
+        }
+        if (window.ResizeObserver && aboveHero) {
+            new ResizeObserver(syncHeroOffset).observe(aboveHero);
+        }
 
         /* ── Старт ──────────────────────────────────────────────── */
         syncUi();
@@ -8706,9 +8804,14 @@
 
                 /* Картата се обръща сама, ако точката е близо до ръб */
                 if (node.classList.contains('pinkmall-hotspot')) {
+                    /* Близо до ляв/десен ръб → картата се обръща навътре */
                     node.classList.toggle('pinkmall-hotspot--card-left',  x < cw * 0.30);
                     node.classList.toggle('pinkmall-hotspot--card-right', x > cw * 0.70);
-                    node.classList.toggle('pinkmall-hotspot--card-below', y < ch * 0.45);
+                    /* Горна половина → картата пада надолу; долна → нагоре.
+                       Задаваме и двата класа изрично, за да няма implicit state. */
+                    var below = y < ch * 0.5;
+                    node.classList.toggle('pinkmall-hotspot--card-below', below);
+                    node.classList.toggle('pinkmall-hotspot--card-above', !below);
                 }
             });
         }
@@ -8726,11 +8829,27 @@
             document.fonts.ready.then(schedule).catch(function () {});
         }
 
-        /* Снимката влияе на нищо в математиката, но щом се зареди,
-           преизчисляваме за всеки случай (и махаме празното премигване). */
+        /* ── Състояние на hero снимката ──────────────────────────
+           Без валидна снимка слайдът получава .pm-image-missing и
+           hotspot-ите/label-ите се скриват — точки върху празен
+           градиент нямат смисъл. */
+        function markImage(ok) {
+            slide.classList.toggle('pm-image-missing', !ok);
+            schedule();
+        }
+
         if (photo) {
-            photo.addEventListener('load', schedule);
-            photo.addEventListener('error', schedule);
+            photo.addEventListener('load', function () { markImage(true); });
+            photo.addEventListener('error', function () { markImage(false); });
+
+            if (photo.complete) {
+                markImage(photo.naturalWidth > 0);
+            } else {
+                /* докато се зарежда, не показваме точки върху празен фон */
+                slide.classList.add('pm-image-missing');
+            }
+        } else {
+            slide.classList.add('pm-image-missing');
         }
 
         /* Копитекстът мени височина при смяна на слайд/шрифт */
