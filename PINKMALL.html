@@ -4831,7 +4831,7 @@
             width: auto;
             overflow: visible;
             /* Отделя фигурата от розовия фон без да я потъмнява */
-            filter: drop-shadow(0 16px 22px rgba(58, 10, 34, 0.34));
+            filter: drop-shadow(0 18px 26px rgba(58, 10, 34, 0.3));
         }
 
         /* Desktop: фигурите държат дясната половина, центърът долу
@@ -4854,17 +4854,35 @@
         .pm-mannequin--left  .pm-figure { animation: pmSwayA 7.5s ease-in-out infinite; }
         .pm-mannequin--right .pm-figure { animation: pmSwayB 8.5s ease-in-out infinite; }
 
+        /* 34 · Едва доловимо присъствие — без „плаваща играчка" */
         @keyframes pmSwayA {
-            0%, 100% { transform: translateY(0)      rotate(0deg); }
-            50%      { transform: translateY(-2px)   rotate(0.35deg); }
+            0%, 100% { transform: translateY(0)    rotate(0deg); }
+            50%      { transform: translateY(-1px) rotate(0.22deg); }
         }
 
         @keyframes pmSwayB {
-            0%, 100% { transform: translateY(0)      rotate(0deg); }
-            50%      { transform: translateY(-1.5px) rotate(-0.3deg); }
+            0%, 100% { transform: translateY(0)    rotate(0deg); }
+            50%      { transform: translateY(-1px) rotate(-0.16deg); }
         }
 
-        /* ── 7 · HEAD SLOT ───────────────────────────────────────── */
+        /* 26 · Анатомията не е продукт — не улавя pointer събития.
+           Затова pm-body-front може да лежи ВЪРХУ дрехите, без да им
+           краде кликовете. */
+        .pm-body,
+        .pm-body-back,
+        .pm-body-front,
+        .pm-head,
+        .pm-platform {
+            pointer-events: none;
+        }
+
+        /* 25 · Невидими hit-area пътища за тесните аксесоари */
+        .pm-product-hitarea {
+            fill: transparent;
+            stroke: none;
+        }
+
+        /* ── 7/13/14 · HEAD SLOT ─────────────────────────────────── */
         .pm-head-image { opacity: 0; transition: opacity 0.4s ease; }
         .pm-mannequin.has-head .pm-head-image { opacity: 1; }
         .pm-mannequin.has-head .pm-head-placeholder { opacity: 0; }
@@ -4885,15 +4903,15 @@
         .pm-product-layer:hover,
         .pm-product-layer:focus-visible,
         .pm-product-layer.is-selected {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             /* Cream/chrome контур — editorial selection, не neon */
             filter:
-                drop-shadow(0  3px 0 var(--cream-soft))
-                drop-shadow(0 -3px 0 var(--cream-soft))
-                drop-shadow( 3px 0 0 var(--cream-soft))
-                drop-shadow(-3px 0 0 var(--cream-soft))
-                drop-shadow(0 10px 14px rgba(58, 10, 34, 0.45))
-                brightness(1.06);
+                drop-shadow(0  2.4px 0 var(--cream-soft))
+                drop-shadow(0 -2.4px 0 var(--cream-soft))
+                drop-shadow( 2.4px 0 0 var(--cream-soft))
+                drop-shadow(-2.4px 0 0 var(--cream-soft))
+                drop-shadow(0 10px 14px rgba(58, 10, 34, 0.42))
+                brightness(1.05);
         }
 
         .pm-product-layer:focus-visible {
@@ -5518,146 +5536,239 @@
 
                     <div class="pinkmall-stage" id="pinkMallStage">
                     <!-- ════════════════════════════════════════════════════
-                         GARMENT ART SPRITE
-                         Всяко облекло е <g id="pm-art-*"> в общ <defs>.
-                         Look config-ът реферира art id-то, а JS вмъква
-                         <use href="#pm-art-*"> в съответния slot.
-                         Всички форми ползват fill="currentColor", така че
-                         цветът идва от look config-а (CSS `color` на слоя).
-                         Координатната система е СЪЩАТА като на манекена
-                         (viewBox 0 0 360 760) — затова една дреха пасва
-                         на всеки манекен.
+                         GARMENT ART SPRITE — launch01
+                         Артът е СПЕЦИФИЧЕН ЗА СТРАНА, защото двете пози са
+                         различни: #pm-art-left-* пасва на LEFT anatomy,
+                         #pm-art-right-* на RIGHT anatomy.
+                         Всичко е в общата viewBox 0 0 360 760.
+                         fill="currentColor" → цветът идва от look config-а.
+                         Обем: базов fill + една мека сянка + един мек
+                         акцент + шевове. Без десетки дребни пътища.
                          ════════════════════════════════════════════════════ -->
                     <svg class="pm-art-sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
                         <defs>
-                            <linearGradient id="pmSkin" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#FFF6FA"/>
-                                <stop offset="0.45" stop-color="#F7D8E6"/>
-                                <stop offset="1" stop-color="#E3AEC6"/>
+                            <!-- 12 · Матова, топло-неутрална кожа. Без хром. -->
+                            <linearGradient id="pmSkin" x1="0.15" y1="0" x2="0.9" y2="1">
+                                <stop offset="0" stop-color="#F8E5DA"/>
+                                <stop offset="0.45" stop-color="#F0CFC1"/>
+                                <stop offset="1" stop-color="#DCB0A1"/>
                             </linearGradient>
-                            <linearGradient id="pmChrome" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0" stop-color="#FFFFFF"/>
-                                <stop offset="0.4" stop-color="#FFE4F0"/>
-                                <stop offset="1" stop-color="#D79BB8"/>
+                            <linearGradient id="pmSkinShade" x1="0" y1="0" x2="1" y2="0.4">
+                                <stop offset="0" stop-color="#D6A797"/>
+                                <stop offset="1" stop-color="#C4907F"/>
                             </linearGradient>
                             <linearGradient id="pmPlinth" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0" stop-color="#FFD4E6"/>
                                 <stop offset="1" stop-color="#C46893"/>
                             </linearGradient>
-                            <linearGradient id="pmGloss" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"/>
-                                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-                            </linearGradient>
 
-                            <!-- Каре за полата -->
-                            <pattern id="pmPlaid" width="26" height="26" patternUnits="userSpaceOnUse">
-                                <rect width="26" height="26" fill="#F49BC0"/>
-                                <rect width="26" height="9" y="0" fill="#E273A2" opacity="0.55"/>
-                                <rect width="9" height="26" x="0" fill="#E273A2" opacity="0.55"/>
-                                <rect width="26" height="2.5" y="13" fill="#5A2640" opacity="0.55"/>
-                                <rect width="2.5" height="26" x="13" fill="#5A2640" opacity="0.55"/>
-                                <rect width="26" height="1" y="20" fill="#FFF6FA" opacity="0.8"/>
-                                <rect width="1" height="26" x="20" fill="#FFF6FA" opacity="0.8"/>
+                            <!-- Каре, което следва посоката на полата -->
+                            <pattern id="pmPlaid" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(-4)">
+                                <rect width="24" height="24" fill="#EE8FB6"/>
+                                <rect width="24" height="8" fill="#DE6C9C" opacity="0.6"/>
+                                <rect width="8" height="24" fill="#DE6C9C" opacity="0.6"/>
+                                <rect width="24" height="2.4" y="12" fill="#5A2640" opacity="0.5"/>
+                                <rect width="2.4" height="24" x="12" fill="#5A2640" opacity="0.5"/>
+                                <rect width="24" height="1" y="19" fill="#FFF3F7" opacity="0.75"/>
+                                <rect width="1" height="24" x="19" fill="#FFF3F7" opacity="0.75"/>
                             </pattern>
 
-                            <!-- ── OUTERWEAR · oversized яке ── -->
-                            <g id="pm-art-jacket">
-                                <path d="M138,146 C112,152 96,172 90,204 C83,242 80,300 82,352 C82,362 88,368 97,368 C106,368 111,361 111,352 C110,306 112,264 118,232 L126,368 L152,368 L148,146 Z" fill="currentColor"/>
-                                <path d="M222,146 C248,152 264,172 270,204 C277,242 280,300 278,352 C278,362 272,368 263,368 C254,368 249,361 249,352 C250,306 248,264 242,232 L234,368 L208,368 L212,146 Z" fill="currentColor"/>
-                                <path d="M148,146 L180,178 L212,146 C202,138 190,134 180,134 C170,134 158,138 148,146 Z" fill="currentColor" opacity="0.85"/>
-                                <path d="M148,146 L180,178 L212,146" fill="none" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2.5" stroke-linejoin="round"/>
-                                <path d="M126,368 L152,368 L148,146" fill="none" stroke="#FFF6FA" stroke-opacity="0.35" stroke-width="2"/>
-                                <circle cx="163" cy="228" r="3.4" fill="#FFF6FA" opacity="0.75"/>
-                                <circle cx="163" cy="272" r="3.4" fill="#FFF6FA" opacity="0.75"/>
-                                <circle cx="163" cy="316" r="3.4" fill="#FFF6FA" opacity="0.75"/>
+                            <!-- ═══════════ LEFT LOOK ═══════════ -->
+
+                            <!-- Прилепнал бледорозов топ: деколте, драперия, талия -->
+                            <g id="pm-art-left-top-launch01">
+                                <path d="M148,150 C160,144 168,142 178,142 C190,142 200,145 210,150
+                                         C216,164 219,182 220,202 C221,224 218,246 214,266
+                                         C211,282 210,292 212,304 L142,304
+                                         C144,292 143,282 140,266 C136,246 133,224 134,202
+                                         C135,182 140,164 148,150 Z" fill="currentColor"/>
+                                <path d="M210,150 C216,164 219,182 220,202 C221,224 218,246 214,266 C211,282 210,292 212,304 L196,304 C195,292 196,280 199,266 C203,246 205,224 204,202 C203,182 200,164 195,148 Z" fill="#C4708F" opacity="0.16"/>
+                                <path d="M158,148 C164,162 170,169 178,169 C186,169 193,162 199,148" fill="none" stroke="#FFF6FA" stroke-opacity="0.65" stroke-width="2.6"/>
+                                <path d="M150,196 C147,222 148,252 152,276" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M141,286 C158,292 200,292 213,286" fill="none" stroke="#C4708F" stroke-opacity="0.22" stroke-width="2.4"/>
                             </g>
 
-                            <!-- ── TOP · прилепнал топ ── -->
-                            <g id="pm-art-top">
-                                <path d="M144,150 L216,150 C231,154 239,165 237,181 L229,254 C227,272 225,284 227,300 L133,300 C135,284 133,272 131,254 L123,181 C121,165 129,154 144,150 Z" fill="currentColor"/>
-                                <path d="M154,151 C160,166 172,174 180,174 C188,174 200,166 206,151" fill="none" stroke="#FFF6FA" stroke-opacity="0.55" stroke-width="2.5"/>
-                                <path d="M135,166 C140,200 138,240 134,268" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"/>
+                            <!-- Карирана пола: колан, лека клош форма, плохи -->
+                            <g id="pm-art-left-skirt-launch01">
+                                <path d="M136,296 L226,296 C234,332 244,376 250,412
+                                         C226,428 148,430 118,414 C124,378 130,332 136,296 Z" fill="url(#pmPlaid)"/>
+                                <path d="M136,296 L226,296 L228,316 L134,316 Z" fill="currentColor"/>
+                                <path d="M134,316 L228,316" stroke="#FFF3F7" stroke-opacity="0.5" stroke-width="2"/>
+                                <path d="M155,318 C150,354 143,388 133,416 M181,318 C180,356 180,392 180,424 M207,318 C211,354 218,388 228,414"
+                                      fill="none" stroke="#5A2640" stroke-opacity="0.26" stroke-width="2.2"/>
+                                <path d="M226,300 C234,336 243,378 249,412 C242,417 234,420 226,422 C224,384 222,338 219,300 Z" fill="#5A2640" opacity="0.14"/>
+                                <path d="M118,414 C148,430 226,428 250,412" fill="none" stroke="#FFF3F7" stroke-opacity="0.55" stroke-width="2.6"/>
                             </g>
 
-                            <!-- ── TOP · графична тениска ── -->
-                            <g id="pm-art-tee">
-                                <path d="M140,148 L220,148 C238,152 248,164 250,182 L256,224 C257,234 250,240 241,239 L233,236 L231,306 L129,306 L127,236 L119,239 C110,240 103,234 104,224 L110,182 C112,164 122,152 140,148 Z" fill="currentColor"/>
-                                <path d="M152,149 C160,166 172,174 180,174 C188,174 200,166 208,149" fill="none" stroke="#FFF6FA" stroke-opacity="0.6" stroke-width="2.5"/>
-                                <rect x="146" y="204" width="68" height="15" rx="7.5" fill="#FFF6FA" opacity="0.92"/>
-                                <rect x="152" y="226" width="56" height="12" rx="6" fill="#FFF6FA" opacity="0.8"/>
-                                <path d="M131,240 L231,240" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="2"/>
+                            <!-- Oversized дънково яке: обем в рамото, ревери,
+                                 маншети, копчета, гънки, подгъв -->
+                            <g id="pm-art-left-jacket-launch01">
+                                <!-- ръкави: следват ръцете, с обем в рамото и маншет -->
+                                <path d="M142,148 C126,154 116,178 111,210 C107,240 107,270 111,296
+                                         C115,320 121,344 128,364 L153,355
+                                         C147,333 141,311 138,292 C135,270 136,244 141,220
+                                         C146,192 154,170 164,156 Z" fill="currentColor"/>
+                                <path d="M218,148 C234,154 244,178 249,210 C253,240 253,270 249,296
+                                         C245,320 239,344 232,364 L207,355
+                                         C213,333 219,311 222,292 C225,270 224,244 219,220
+                                         C214,192 206,170 196,156 Z" fill="currentColor"/>
+                                <path d="M218,148 C234,154 244,178 249,210 C253,240 253,270 249,296 C245,320 239,344 232,364 L221,360 C227,340 232,316 235,294 C238,268 237,240 231,212 C226,184 217,162 206,150 Z" fill="#C4708F" opacity="0.2"/>
+                                <!-- маншети -->
+                                <path d="M128,364 C137,369 148,369 156,364 L160,347 C150,353 136,353 127,347 Z" fill="currentColor"/>
+                                <path d="M232,364 C223,369 212,369 204,364 L200,347 C210,353 224,353 233,347 Z" fill="currentColor"/>
+                                <path d="M127,347 C137,353 150,353 160,347 M233,347 C223,353 210,353 200,347" fill="none" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2.2"/>
+                                <!-- ляв преден панел -->
+                                <path d="M150,144 C136,148 126,164 122,188 C116,222 116,264 118,302
+                                         C119,332 122,356 125,376 C139,382 157,384 171,383
+                                         C173,338 175,278 176,218 C177,188 178,164 179,148 Z" fill="currentColor"/>
+                                <!-- десен преден панел -->
+                                <path d="M212,144 C226,148 236,164 240,188 C246,222 246,264 244,302
+                                         C243,332 240,356 237,376 C223,382 205,384 191,383
+                                         C189,338 187,278 186,218 C185,188 184,164 183,148 Z" fill="currentColor"/>
+                                <path d="M212,144 C226,148 236,164 240,188 C246,222 246,264 244,302 C243,332 240,356 237,376 C231,379 224,381 217,382 C221,352 224,308 224,262 C224,214 220,174 213,148 Z" fill="#C4708F" opacity="0.18"/>
+                                <!-- ревери -->
+                                <path d="M164,146 C170,142 176,141 179,144 L181,180 L166,159 Z" fill="currentColor" opacity="0.92"/>
+                                <path d="M198,146 C192,142 186,141 183,144 L181,180 L196,159 Z" fill="currentColor" opacity="0.92"/>
+                                <path d="M164,146 L181,180 L198,146" fill="none" stroke="#FFF6FA" stroke-opacity="0.6" stroke-width="2.6" stroke-linejoin="round"/>
+                                <!-- копчета -->
+                                <circle cx="180" cy="228" r="3.4" fill="#FFF6FA" opacity="0.9"/>
+                                <circle cx="180" cy="278" r="3.4" fill="#FFF6FA" opacity="0.9"/>
+                                <circle cx="180" cy="328" r="3.4" fill="#FFF6FA" opacity="0.9"/>
+                                <!-- гънки -->
+                                <path d="M138,214 C134,250 134,296 138,344 M224,214 C228,250 228,296 224,344"
+                                      fill="none" stroke="#C4708F" stroke-opacity="0.26" stroke-width="2.2"/>
+                                <path d="M152,206 C148,244 148,300 152,352" fill="none" stroke="#FFFFFF" stroke-opacity="0.26" stroke-width="5" stroke-linecap="round"/>
+                                <!-- подгъв -->
+                                <path d="M125,376 C140,382 158,384 171,383 L181,382 L191,383 C205,384 224,382 237,376" fill="none" stroke="#FFF6FA" stroke-opacity="0.45" stroke-width="2.4"/>
                             </g>
 
-                            <!-- ── BOTTOM · карирана пола ── -->
-                            <g id="pm-art-skirt-plaid">
-                                <path d="M128,292 L232,292 L252,424 C222,438 138,438 108,424 Z" fill="url(#pmPlaid)"/>
-                                <path d="M128,292 L232,292 L234,308 L126,308 Z" fill="currentColor" opacity="0.9"/>
-                                <path d="M160,300 L150,430 M180,300 L180,434 M200,300 L210,430" stroke="#5A2640" stroke-opacity="0.28" stroke-width="2"/>
-                                <path d="M108,424 C138,438 222,438 252,424" fill="none" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2.5"/>
+                            <!-- Tote: презрамка през рамото, тяло с дълбочина и шев -->
+                            <g id="pm-art-left-tote-launch01">
+                                <path class="pm-product-hitarea" d="M92,150 L152,150 L152,440 L74,440 L74,300 Z" fill="transparent"/>
+                                <path d="M158,152 C148,188 136,238 128,288" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M158,152 C148,188 136,238 128,288" fill="none" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="2.6" stroke-linecap="round"/>
+                                <path d="M96,288 L146,288 C150,288 152,291 152,295 L150,388 C150,397 144,402 136,402 L108,402 C100,402 95,397 94,388 L92,295 C92,291 93,288 96,288 Z" fill="currentColor"/>
+                                <path d="M132,288 L146,288 C150,288 152,291 152,295 L150,388 C150,397 144,402 136,402 L124,402 C132,402 137,397 137,388 Z" fill="#C4708F" opacity="0.24"/>
+                                <path d="M92,300 C108,307 138,307 152,300" fill="none" stroke="#FFF3F7" stroke-opacity="0.5" stroke-width="2.2"/>
+                                <path d="M104,330 C114,335 130,335 140,330" fill="none" stroke="#C4708F" stroke-opacity="0.3" stroke-width="2"/>
+                                <path d="M102,298 C100,332 100,368 103,396" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="4.5" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── BOTTOM · висока талия панталон ── -->
-                            <g id="pm-art-trousers">
-                                <path d="M126,286 L234,286 L240,360 C240,420 236,500 230,566 C227,616 226,654 226,688 L198,688 C198,652 196,614 192,566 C188,510 184,462 180,428 C176,462 172,510 168,566 C164,614 162,652 162,688 L134,688 C134,654 133,616 130,566 C124,500 120,420 120,360 Z" fill="currentColor"/>
-                                <path d="M126,286 L234,286 L235,312 L125,312 Z" fill="currentColor" opacity="0.75"/>
-                                <path d="M125,312 L235,312" stroke="#FFF6FA" stroke-opacity="0.45" stroke-width="2"/>
-                                <path d="M180,318 L180,428" stroke="#FFF6FA" stroke-opacity="0.3" stroke-width="2"/>
-                                <rect x="169" y="292" width="22" height="9" rx="4.5" fill="#FFF6FA" opacity="0.55"/>
-                                <path d="M148,330 C146,404 145,486 143,556" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="3"/>
+                            <!-- Токчета -->
+                            <g id="pm-art-left-heels-launch01">
+                                <path class="pm-product-hitarea" d="M124,626 L250,626 L250,724 L124,724 Z" fill="transparent"/>
+                                <path d="M143,648 L169,648 C172,666 178,678 185,684 C190,689 188,696 180,696 L146,696 C138,696 135,690 137,682 Z" fill="currentColor"/>
+                                <path d="M175,688 L179,714 L169,714 L165,692 Z" fill="currentColor"/>
+                                <path d="M204,648 L230,648 C232,666 238,678 245,684 C250,689 248,696 240,696 L206,696 C198,696 195,690 197,682 Z" fill="currentColor"/>
+                                <path d="M234,688 L238,714 L228,714 L218,692 Z" fill="currentColor"/>
+                                <path d="M143,653 L169,653 M204,653 L230,653" stroke="#FFF3F7" stroke-opacity="0.5" stroke-width="2"/>
+                                <path d="M137,682 C150,689 170,691 183,687 M197,682 C210,689 230,691 243,687" fill="none" stroke="#5A2640" stroke-opacity="0.22" stroke-width="2"/>
                             </g>
 
-                            <!-- ── BAG · tote ── -->
-                            <g id="pm-art-tote">
-                                <path d="M120,262 C110,286 104,306 100,320" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-                                <path d="M74,318 L124,318 L130,404 C130,412 124,417 116,417 L82,417 C74,417 68,412 68,404 Z" fill="currentColor"/>
-                                <path d="M84,318 C84,300 90,290 99,290 C108,290 114,300 114,318" fill="none" stroke="currentColor" stroke-width="5.5"/>
-                                <rect x="80" y="342" width="38" height="26" rx="5" fill="#FFF6FA" opacity="0.55"/>
-                                <path d="M68,404 C68,412 74,417 82,417 L116,417 C124,417 130,412 130,404" fill="none" stroke="#FFF6FA" stroke-opacity="0.45" stroke-width="2"/>
+                            <!-- Жълти очила — мащаб спрямо бъдещата реална глава -->
+                            <g id="pm-art-left-glasses-launch01">
+                                <path class="pm-product-hitarea" d="M132,50 L226,50 L226,110 L132,110 Z" fill="transparent"/>
+                                <path d="M168,74 L190,74" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M146,66 C156,62 168,63 170,70 C172,79 166,88 156,89 C147,90 142,84 142,76 C142,71 143,68 146,66 Z" fill="currentColor" opacity="0.55"/>
+                                <path d="M212,66 C202,62 190,63 188,70 C186,79 192,88 202,89 C211,90 216,84 216,76 C216,71 215,68 212,66 Z" fill="currentColor" opacity="0.55"/>
+                                <path d="M146,66 C156,62 168,63 170,70 C172,79 166,88 156,89 C147,90 142,84 142,76 C142,71 143,68 146,66 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                                <path d="M212,66 C202,62 190,63 188,70 C186,79 192,88 202,89 C211,90 216,84 216,76 C216,71 215,68 212,66 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                                <path d="M142,72 L134,74 M216,72 L224,74" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M149,70 C154,67 161,67 164,69" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
+                                <path d="M209,70 C204,67 197,67 194,69" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── BAG · mini crossbody ── -->
-                            <g id="pm-art-crossbody">
-                                <path d="M138,168 C170,214 208,272 240,330" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-                                <rect x="222" y="330" width="66" height="50" rx="16" fill="currentColor"/>
-                                <path d="M222,348 L288,348" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2.5"/>
-                                <circle cx="255" cy="360" r="6" fill="#FFF6FA" opacity="0.75"/>
-                                <path d="M226,336 C238,326 272,326 284,336" fill="none" stroke="#FFF6FA" stroke-opacity="0.4" stroke-width="2"/>
+                            <!-- ═══════════ RIGHT LOOK ═══════════ -->
+
+                            <!-- Тениска: къс ръкав с подгъната следа, шев на рамото,
+                                 драперия по торса, леко набиране при талията -->
+                            <g id="pm-art-right-tee-launch01">
+                                <path d="M152,146 C166,139 176,137 186,137 C198,137 210,140 220,146
+                                         C232,150 242,160 246,174 L254,212 C256,222 250,229 241,228 L232,225
+                                         C233,252 232,278 230,300 C229,308 230,314 232,320
+                                         C210,328 158,328 138,320 C140,314 141,308 140,300
+                                         C138,278 137,252 138,225 L129,228 C120,229 114,222 116,212
+                                         L124,174 C128,160 138,150 152,146 Z" fill="currentColor"/>
+                                <path d="M220,146 C232,150 242,160 246,174 L254,212 C256,222 250,229 241,228 L232,225 C233,252 232,278 230,300 C229,308 230,314 232,320 C226,322 218,324 210,325 C213,300 215,268 214,238 C213,206 210,172 204,144 Z" fill="#8B3A5C" opacity="0.16"/>
+                                <path d="M158,146 C166,162 176,170 186,170 C196,170 205,162 212,146" fill="none" stroke="#FFF6FA" stroke-opacity="0.7" stroke-width="2.6"/>
+                                <path d="M138,225 C132,227 128,224 128,218 M232,225 C238,227 242,224 242,218" fill="none" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2.4"/>
+                                <path d="M146,152 C142,166 140,186 140,204 M226,152 C230,166 232,186 232,204" fill="none" stroke="#FFF6FA" stroke-opacity="0.38" stroke-width="2.2"/>
+                                <!-- стилизиран графичен принт (placeholder) -->
+                                <rect x="152" y="196" width="66" height="14" rx="7" fill="#FFF6FA" opacity="0.94"/>
+                                <rect x="160" y="216" width="50" height="12" rx="6" fill="#FFF6FA" opacity="0.86"/>
+                                <rect x="168" y="234" width="34" height="8" rx="4" fill="#FFF6FA" opacity="0.6"/>
+                                <!-- набиране при талията -->
+                                <path d="M142,296 C158,304 210,304 228,296 M144,308 C160,315 208,315 226,308"
+                                      fill="none" stroke="#8B3A5C" stroke-opacity="0.2" stroke-width="2.2"/>
+                                <path d="M158,180 C154,214 154,258 158,292" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="6" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── GLASSES ── -->
-                            <g id="pm-art-glasses">
-                                <path d="M150,78 L210,78" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
-                                <rect x="144" y="70" width="30" height="22" rx="10" fill="currentColor" opacity="0.62"/>
-                                <rect x="186" y="70" width="30" height="22" rx="10" fill="currentColor" opacity="0.62"/>
-                                <rect x="144" y="70" width="30" height="22" rx="10" fill="none" stroke="currentColor" stroke-width="3.2"/>
-                                <rect x="186" y="70" width="30" height="22" rx="10" fill="none" stroke="currentColor" stroke-width="3.2"/>
-                                <path d="M144,79 L132,84 M216,79 L228,84" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-                                <path d="M149,75 L158,75" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="2.5" stroke-linecap="round"/>
-                                <path d="M191,75 L200,75" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Розови дънки: колан, цип, джобове, шевове, таперване -->
+                            <g id="pm-art-right-jeans-launch01">
+                                <path d="M132,298 L242,298 C248,318 252,342 252,366
+                                         C252,410 248,474 241,532 C236,576 234,630 234,676
+                                         L195,676 C195,630 193,578 189,532 C186,496 185,464 184,438
+                                         C182,464 179,496 176,532 C171,578 168,630 168,676
+                                         L129,676 C129,630 127,576 123,532 C117,474 113,410 113,366
+                                         C113,342 121,318 132,298 Z" fill="currentColor"/>
+                                <path d="M242,298 C248,318 252,342 252,366 C252,410 248,474 241,532 C236,576 234,630 234,676 L216,676 C216,630 219,576 223,532 C230,474 234,410 233,366 C233,342 230,318 226,298 Z" fill="#8B3A5C" opacity="0.18"/>
+                                <path d="M128,298 L246,298 L248,326 L124,326 Z" fill="currentColor"/>
+                                <path d="M124,326 L248,326" stroke="#FFF3F7" stroke-opacity="0.5" stroke-width="2.2"/>
+                                <path d="M124,312 L248,312" stroke="#8B3A5C" stroke-opacity="0.22" stroke-width="2"/>
+                                <rect x="176" y="303" width="20" height="9" rx="4" fill="#FFF3F7" opacity="0.55"/>
+                                <path d="M186,328 L186,372" stroke="#FFF3F7" stroke-opacity="0.42" stroke-width="2.4"/>
+                                <path d="M136,330 C147,346 154,360 156,378 M236,330 C225,346 218,360 216,378"
+                                      fill="none" stroke="#FFF3F7" stroke-opacity="0.4" stroke-width="2.4"/>
+                                <path d="M162,380 C160,442 156,524 152,606 M210,380 C212,442 216,524 220,606"
+                                      fill="none" stroke="#8B3A5C" stroke-opacity="0.16" stroke-width="2"/>
+                                <path d="M142,352 C138,412 138,490 142,560" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="6" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── ACCESSORY · колие ── -->
-                            <g id="pm-art-necklace">
-                                <path d="M162,152 C168,172 192,172 198,152" fill="none" stroke="currentColor" stroke-width="3.4"/>
-                                <path d="M180,170 l5,9 -5,9 -5,-9 Z" fill="currentColor"/>
-                                <circle cx="180" cy="179" r="2" fill="#FFF6FA" opacity="0.9"/>
+                            <!-- Crossbody: диагонална презрамка по торса, тяло с дълбочина и цип -->
+                            <g id="pm-art-right-crossbody-launch01">
+                                <path class="pm-product-hitarea" d="M130,146 L250,146 L296,364 L296,464 L206,464 L130,200 Z" fill="transparent"/>
+                                <path d="M148,158 C172,208 208,292 234,376" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M148,158 C172,208 208,292 234,376" fill="none" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2.6" stroke-linecap="round"/>
+                                <path d="M222,376 L278,376 C286,376 290,382 290,390 L290,426 C290,436 283,442 274,442 L228,442 C219,442 214,436 214,426 L214,390 C214,382 216,376 222,376 Z" fill="currentColor"/>
+                                <path d="M264,376 L278,376 C286,376 290,382 290,390 L290,426 C290,436 283,442 274,442 L258,442 C268,442 274,436 274,426 L274,390 C274,382 271,376 264,376 Z" fill="#8B3A5C" opacity="0.24"/>
+                                <path d="M214,396 L290,396" stroke="#FFF3F7" stroke-opacity="0.55" stroke-width="2.4"/>
+                                <circle cx="250" cy="408" r="4.6" fill="#FFF3F7" opacity="0.8"/>
+                                <path d="M220,384 C234,378 270,378 284,384" fill="none" stroke="#FFF3F7" stroke-opacity="0.38" stroke-width="2"/>
+                                <path d="M220,402 C218,416 218,428 221,438" fill="none" stroke="#FFFFFF" stroke-opacity="0.26" stroke-width="4" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── SHOES · токчета ── -->
-                            <g id="pm-art-heels">
-                                <path d="M128,682 L158,682 L160,706 C160,714 154,720 145,720 L124,720 C118,720 115,714 118,708 Z" fill="currentColor"/>
-                                <path d="M150,712 L155,736 L146,736 L143,714 Z" fill="currentColor"/>
-                                <path d="M202,682 L232,682 L242,708 C245,714 242,720 236,720 L215,720 C206,720 200,714 200,706 Z" fill="currentColor"/>
-                                <path d="M210,712 L213,736 L204,736 L209,714 Z" fill="currentColor"/>
-                                <path d="M128,688 L158,688 M202,688 L232,688" stroke="#FFF6FA" stroke-opacity="0.5" stroke-width="2"/>
+                            <!-- Ботуши на платформа -->
+                            <g id="pm-art-right-boots-launch01">
+                                <path class="pm-product-hitarea" d="M124,556 L246,556 L246,724 L124,724 Z" fill="transparent"/>
+                                <path d="M136,574 L172,574 C172,608 170,646 168,670 C167,684 159,692 148,692 L134,692 C125,692 120,685 123,676 L131,648 Z" fill="currentColor"/>
+                                <path d="M122,678 L170,678 L170,696 C170,703 165,708 157,708 L131,708 C123,708 119,703 119,696 Z" fill="#5A2640" opacity="0.42"/>
+                                <path d="M202,576 L238,576 C240,610 242,648 244,672 C245,686 239,694 228,694 L214,694 C205,694 200,687 200,678 C201,650 201,610 202,576 Z" fill="currentColor"/>
+                                <path d="M198,680 L246,682 L246,700 C246,707 241,712 233,712 L207,712 C199,712 195,707 195,700 Z" fill="#5A2640" opacity="0.42"/>
+                                <path d="M136,590 L172,590 M202,592 L238,592" stroke="#FFF3F7" stroke-opacity="0.45" stroke-width="2.4"/>
+                                <path d="M142,606 C140,640 139,662 137,674 M208,608 C210,644 212,666 214,678" fill="none" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="4" stroke-linecap="round"/>
                             </g>
 
-                            <!-- ── SHOES · високи ботуши ── -->
-                            <g id="pm-art-boots">
-                                <path d="M126,610 L160,610 L160,700 C160,712 152,720 141,720 L124,720 C116,720 112,712 116,704 L124,690 Z" fill="currentColor"/>
-                                <path d="M200,610 L234,610 L242,690 L246,704 C250,712 246,720 238,720 L221,720 C210,720 202,712 202,700 Z" fill="currentColor"/>
-                                <path d="M126,624 L160,624 M200,624 L234,624" stroke="#FFF6FA" stroke-opacity="0.45" stroke-width="2.5"/>
-                                <path d="M116,704 L160,704 M202,704 L246,704" stroke="#5A2640" stroke-opacity="0.35" stroke-width="3"/>
+                            <!-- Розови очила -->
+                            <g id="pm-art-right-glasses-launch01">
+                                <path class="pm-product-hitarea" d="M140,50 L234,50 L234,110 L140,110 Z" fill="transparent"/>
+                                <path d="M176,74 L198,74" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M154,66 C164,61 176,63 178,70 C180,79 174,88 164,89 C155,90 150,84 150,76 C150,71 151,68 154,66 Z" fill="currentColor" opacity="0.55"/>
+                                <path d="M220,66 C210,61 198,63 196,70 C194,79 200,88 210,89 C219,90 224,84 224,76 C224,71 223,68 220,66 Z" fill="currentColor" opacity="0.55"/>
+                                <path d="M154,66 C164,61 176,63 178,70 C180,79 174,88 164,89 C155,90 150,84 150,76 C150,71 151,68 154,66 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                                <path d="M220,66 C210,61 198,63 196,70 C194,79 200,88 210,89 C219,90 224,84 224,76 C224,71 223,68 220,66 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                                <path d="M150,72 L142,74 M224,72 L232,74" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M157,70 C162,67 169,67 172,69" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
+                                <path d="M217,70 C212,67 205,67 202,69" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- Колие + дискретна слушалка (както в референса) -->
+                            <g id="pm-art-right-necklace-launch01">
+                                <path class="pm-product-hitarea" d="M158,140 L216,140 L216,196 L158,196 Z" fill="transparent"/>
+                                <path d="M170,146 C176,166 198,166 204,146" fill="none" stroke="currentColor" stroke-width="3.2"/>
+                                <path d="M187,164 l5,9 -5,9 -5,-9 Z" fill="currentColor"/>
+                                <path d="M164,150 C170,164 186,170 194,168" fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.6"/>
+                                <ellipse cx="215" cy="96" rx="4.6" ry="6" fill="#2A1F23" opacity="0.88" transform="rotate(8 215 96)"/>
+                                <ellipse cx="214" cy="93" rx="2" ry="2.4" fill="#FFFFFF" opacity="0.35"/>
                             </g>
                         </defs>
                     </svg>
@@ -5723,56 +5834,73 @@
                         <div class="pm-mannequin pm-mannequin--left" data-pm-side="left">
                             <svg class="pm-mannequin-svg" viewBox="0 0 360 760" role="img"
                                  aria-label="Манекен вляво — Pink Mall лук" focusable="false">
-                                <defs>
-                                    <clipPath id="pmHeadClipLeft">
-                                        <ellipse cx="180" cy="88" rx="37" ry="47"/>
-                                    </clipPath>
-                                </defs>
-
                                 <g class="pm-figure">
 
-                                    <!-- 25 · Витринен подиум -->
+                                    <!-- Витринен подиум -->
                                     <g class="pm-platform" aria-hidden="true">
-                                        <ellipse cx="180" cy="726" rx="104" ry="20" fill="rgba(58,10,34,0.28)"/>
-                                        <ellipse cx="180" cy="718" rx="98" ry="18" fill="url(#pmPlinth)"/>
-                                        <path d="M82,718 C82,730 126,740 180,740 C234,740 278,730 278,718 L278,730 C278,742 234,752 180,752 C126,752 82,742 82,730 Z" fill="url(#pmPlinth)" opacity="0.75"/>
-                                        <ellipse cx="180" cy="716" rx="72" ry="10" fill="#FFFFFF" opacity="0.28"/>
+                                        <ellipse cx="180" cy="740" rx="98" ry="17" fill="rgba(58,10,34,0.26)"/>
+                                        <ellipse cx="180" cy="732" rx="92" ry="15" fill="url(#pmPlinth)"/>
+                                        <path d="M88,732 C88,743 129,752 180,752 C231,752 272,743 272,732 L272,742 C272,753 231,762 180,762 C129,762 88,753 88,742 Z" fill="url(#pmPlinth)" opacity="0.72"/>
+                                        <ellipse cx="180" cy="730" rx="66" ry="8" fill="#FFFFFF" opacity="0.22"/>
                                     </g>
 
-                                    <!-- Тяло: stylized fashion mannequin, не анатомия -->
-                                    <g class="pm-body" aria-hidden="true">
-                                        <path class="pm-limb" d="M122,360 L176,360 C174,446 168,538 158,618 C155,653 154,675 154,690 L132,690 C132,672 130,650 128,618 C120,538 118,446 122,360 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M184,360 L238,360 C238,446 240,538 232,618 C230,650 228,672 228,690 L206,690 C206,675 205,653 202,618 C192,538 186,446 184,360 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M120,166 C108,182 100,214 96,252 C93,290 92,326 93,356 C93,366 88,372 81,372 C74,372 70,366 70,356 C68,320 70,278 76,238 C82,196 96,168 110,156 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M240,166 C252,182 260,214 264,252 C267,290 268,326 267,356 C267,366 272,372 279,372 C286,372 290,366 290,356 C292,320 290,278 284,238 C278,196 264,168 250,156 Z" fill="url(#pmSkin)"/>
-                                        <path d="M142,152 L218,152 C236,156 244,168 242,184 L232,252 C228,268 226,278 228,292 L238,352 C240,364 232,372 220,372 L140,372 C128,372 120,364 122,352 L132,292 C134,278 132,268 128,252 L118,184 C116,168 124,156 142,152 Z" fill="url(#pmSkin)"/>
-                                        <rect x="168" y="120" width="24" height="40" rx="11" fill="url(#pmSkin)"/>
-                                        <path d="M150,170 C154,214 152,266 146,304" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="4" fill="none" stroke-linecap="round"/>
-                                    </g>
-
-                                    <!-- 7 · HEAD SLOT — placeholder + бъдещ cut-out -->
-                                    <g class="pm-head">
-                                        <g class="pm-head-placeholder" aria-hidden="true">
-                                            <ellipse cx="180" cy="88" rx="41" ry="51" fill="var(--cream)" opacity="0.9"/>
-                                            <ellipse cx="180" cy="88" rx="37" ry="47" fill="url(#pmChrome)"/>
-                                            <ellipse cx="168" cy="72" rx="12" ry="17" fill="#FFFFFF" opacity="0.6"/>
-                                            <path d="M164,102 C170,110 190,110 196,102" stroke="#C4708F" stroke-opacity="0.55" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                            <circle cx="158" cy="96" r="6.5" fill="#F49BC0" opacity="0.5"/>
-                                            <circle cx="202" cy="96" r="6.5" fill="#F49BC0" opacity="0.5"/>
-                                            <path d="M206,52 l2.6,6 6,2.6 -6,2.6 -2.6,6 -2.6,-6 -6,-2.6 6,-2.6 Z" fill="var(--cream-bright)" opacity="0.95"/>
+                                    <!-- ═══ BODY BACK — всичко зад дрехите ═══ -->
+                                    <g class="pm-body pm-body-back" aria-hidden="true">
+                                        <g class="pm-body-leg pm-body-leg--back">
+                                            <path d="M186,344 C186,382 189,424 194,466 C196,486 198,502 199,516 C200,536 201,562 203,590 C205,616 206,642 206,664 L231,664 C231,642 232,616 234,590 C237,562 239,536 240,516 C241,502 242,486 244,466 C248,424 247,382 245,344 Z" fill="url(#pmSkin)"/>
                                         </g>
-                                        <image class="pm-head-image" clip-path="url(#pmHeadClipLeft)"
-                                               x="143" y="41" width="74" height="94"
-                                               preserveAspectRatio="xMidYMid slice"/>
+                                        <g class="pm-body-leg pm-body-leg--front">
+                                            <path d="M126,344 C124,382 126,424 131,466 C133,486 134,502 134,514 C133,532 136,558 140,586 C143,614 145,642 145,664 L170,664 C170,642 170,614 172,586 C175,558 177,532 176,514 C176,502 177,486 179,466 C183,424 184,382 183,344 Z" fill="url(#pmSkin)"/>
+                                            <path d="M216,352 C220,398 218,452 212,506 C208,548 208,614 209,660" fill="none" stroke="url(#pmSkinShade)" stroke-opacity="0.4" stroke-width="7" stroke-linecap="round"/>
+                                        </g>
+                                        <g class="pm-body-arm pm-body-arm--back">
+                                            <path d="M144,156 C126,164 114,190 109,222 C105,250 105,270 108,288 C112,310 118,334 125,356 L150,347 C143,326 137,304 134,288 C131,270 132,250 136,228 C140,202 148,180 159,164 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-hand pm-body-hand--back">
+                                            <path d="M125,352 C116,362 111,376 113,390 C115,403 126,410 137,406 C146,402 150,391 148,378 C146,366 141,357 137,348 ZM116,364 C109,366 106,375 111,381 C116,387 122,384 124,378 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-torso">
+                                            <path d="M132,160 C126,150 148,142 178,141 C208,140 232,148 227,159 C231,176 234,196 235,214 C236,232 232,252 228,268 C225,282 224,292 226,304 C229,322 231,336 231,350 L136,350 C136,336 138,322 141,304 C143,292 142,282 139,268 C135,252 131,232 132,214 C133,196 130,176 132,160 Z" fill="url(#pmSkin)"/>
+                                            <path d="M227,159 C231,176 234,196 235,214 C236,232 232,252 228,268 C225,282 224,292 226,304 C229,322 231,336 231,350 L214,350 C214,334 213,318 211,304 C209,290 210,280 213,266 C217,250 220,230 219,212 C218,192 216,174 212,158 Z" fill="url(#pmSkinShade)" opacity="0.5"/>
+                                            <path d="M147,190 C143,214 143,246 147,272 C150,290 149,306 146,322" fill="none" stroke="#FFF1E8" stroke-opacity="0.42" stroke-width="8" stroke-linecap="round"/>
+                                        </g>
+                                        <g class="pm-body-neck">
+                                            <path d="M167,112 L191,112 L193,138 C196,146 202,152 209,156 L149,156 C156,152 162,146 165,138 Z" fill="url(#pmSkin)"/>
+                                            <path d="M191,112 L193,138 C196,146 202,152 209,156 L196,156 C190,150 186,140 185,128 L185,112 Z" fill="url(#pmSkinShade)" opacity="0.5"/>
+                                        </g>
                                     </g>
 
-                                    <!-- 5/23 · LOOK LAYERS — по един slot, пълнят се от look config-а -->
+                                    <!-- ═══ HEAD ═══ placeholder + неограничен фотографски слой -->
+                                    <g class="pm-head">
+                                        <g class="pm-head-placeholder" transform="rotate(-2.5 178 118)" aria-hidden="true">
+                                            <path d="M143,68 C138,67 136,74 138,80 C140,85 143,86 144,84 Z" fill="url(#pmSkinShade)" opacity="0.85"/><path d="M213,68 C218,67 220,74 218,80 C216,85 213,86 212,84 Z" fill="url(#pmSkinShade)" opacity="0.85"/>
+                                            <path d="M178,30 C158,30 145,41 143,60 C142,72 143,82 146,91 C149,100 154,107 161,112 C167,116 173,118 178,118 C183,118 189,116 195,112 C202,107 207,100 210,91 C213,82 214,72 213,60 C211,41 198,30 178,30 Z" fill="url(#pmSkin)"/>
+                                            <path d="M192,44 C204,52 208,74 204,94 C201,105 194,113 186,117 C196,115 205,106 209,93 C213,80 213,58 204,45 Z" fill="url(#pmSkinShade)" opacity="0.55"/>
+                                        </g>
+                                        <!-- 14 · БЕЗ елипсовиден clip: реалният cut-out носи коса,
+                                             която трябва да излиза над черепа и извън ширината на лицето -->
+                                        <image class="pm-head-image" preserveAspectRatio="xMidYMid meet"/>
+                                    </g>
+
+                                    <!-- ═══ ДРЕХИ ═══ -->
                                     <g class="pm-look-layer pm-look-layer--shoes"     data-pm-slot="shoes"></g>
                                     <g class="pm-look-layer pm-look-layer--bottom"    data-pm-slot="bottom"></g>
                                     <g class="pm-look-layer pm-look-layer--top"       data-pm-slot="top"></g>
                                     <g class="pm-look-layer pm-look-layer--outerwear" data-pm-slot="outerwear"></g>
-                                    <g class="pm-look-layer pm-look-layer--bag"       data-pm-slot="bag"></g>
                                     <g class="pm-look-layer pm-look-layer--accessory" data-pm-slot="accessory"></g>
+                                    <g class="pm-look-layer pm-look-layer--bag"       data-pm-slot="bag"></g>
+
+                                    <!-- ═══ BODY FRONT — ръката/дланта пред дрехите и чантата ═══ -->
+                                    <g class="pm-body pm-body-front" aria-hidden="true">
+                                        <g class="pm-body-arm pm-body-arm--front">
+                                            <path d="M216,156 C234,166 246,192 251,224 C255,252 255,272 252,290 C248,312 243,336 237,358 L212,349 C219,328 225,306 228,290 C231,272 230,252 226,230 C222,204 214,180 203,164 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-hand pm-body-hand--front">
+                                            <path d="M237,354 C246,364 251,378 249,392 C247,405 236,412 225,408 C216,404 212,393 214,380 C216,368 221,359 225,350 ZM246,366 C253,368 256,377 251,383 C246,389 240,386 238,380 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                    </g>
+
+                                    <!-- Очилата винаги последни — върху главата -->
                                     <g class="pm-look-layer pm-look-layer--glasses"   data-pm-slot="glasses"></g>
                                 </g>
                             </svg>
@@ -5786,56 +5914,73 @@
                         <div class="pm-mannequin pm-mannequin--right" data-pm-side="right">
                             <svg class="pm-mannequin-svg" viewBox="0 0 360 760" role="img"
                                  aria-label="Манекен вдясно — Pink Mall лук" focusable="false">
-                                <defs>
-                                    <clipPath id="pmHeadClipRight">
-                                        <ellipse cx="180" cy="88" rx="37" ry="47"/>
-                                    </clipPath>
-                                </defs>
-
                                 <g class="pm-figure">
 
-                                    <!-- 25 · Витринен подиум -->
+                                    <!-- Витринен подиум -->
                                     <g class="pm-platform" aria-hidden="true">
-                                        <ellipse cx="180" cy="726" rx="104" ry="20" fill="rgba(58,10,34,0.28)"/>
-                                        <ellipse cx="180" cy="718" rx="98" ry="18" fill="url(#pmPlinth)"/>
-                                        <path d="M82,718 C82,730 126,740 180,740 C234,740 278,730 278,718 L278,730 C278,742 234,752 180,752 C126,752 82,742 82,730 Z" fill="url(#pmPlinth)" opacity="0.75"/>
-                                        <ellipse cx="180" cy="716" rx="72" ry="10" fill="#FFFFFF" opacity="0.28"/>
+                                        <ellipse cx="180" cy="740" rx="98" ry="17" fill="rgba(58,10,34,0.26)"/>
+                                        <ellipse cx="180" cy="732" rx="92" ry="15" fill="url(#pmPlinth)"/>
+                                        <path d="M88,732 C88,743 129,752 180,752 C231,752 272,743 272,732 L272,742 C272,753 231,762 180,762 C129,762 88,753 88,742 Z" fill="url(#pmPlinth)" opacity="0.72"/>
+                                        <ellipse cx="180" cy="730" rx="66" ry="8" fill="#FFFFFF" opacity="0.22"/>
                                     </g>
 
-                                    <!-- Тяло: stylized fashion mannequin, не анатомия -->
-                                    <g class="pm-body" aria-hidden="true">
-                                        <path class="pm-limb" d="M122,360 L176,360 C174,446 168,538 158,618 C155,653 154,675 154,690 L132,690 C132,672 130,650 128,618 C120,538 118,446 122,360 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M184,360 L238,360 C238,446 240,538 232,618 C230,650 228,672 228,690 L206,690 C206,675 205,653 202,618 C192,538 186,446 184,360 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M120,166 C108,182 100,214 96,252 C93,290 92,326 93,356 C93,366 88,372 81,372 C74,372 70,366 70,356 C68,320 70,278 76,238 C82,196 96,168 110,156 Z" fill="url(#pmSkin)"/>
-                                        <path class="pm-limb" d="M240,166 C252,182 260,214 264,252 C267,290 268,326 267,356 C267,366 272,372 279,372 C286,372 290,366 290,356 C292,320 290,278 284,238 C278,196 264,168 250,156 Z" fill="url(#pmSkin)"/>
-                                        <path d="M142,152 L218,152 C236,156 244,168 242,184 L232,252 C228,268 226,278 228,292 L238,352 C240,364 232,372 220,372 L140,372 C128,372 120,364 122,352 L132,292 C134,278 132,268 128,252 L118,184 C116,168 124,156 142,152 Z" fill="url(#pmSkin)"/>
-                                        <rect x="168" y="120" width="24" height="40" rx="11" fill="url(#pmSkin)"/>
-                                        <path d="M150,170 C154,214 152,266 146,304" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="4" fill="none" stroke-linecap="round"/>
-                                    </g>
-
-                                    <!-- 7 · HEAD SLOT — placeholder + бъдещ cut-out -->
-                                    <g class="pm-head">
-                                        <g class="pm-head-placeholder" aria-hidden="true">
-                                            <ellipse cx="180" cy="88" rx="41" ry="51" fill="var(--cream)" opacity="0.9"/>
-                                            <ellipse cx="180" cy="88" rx="37" ry="47" fill="url(#pmChrome)"/>
-                                            <ellipse cx="168" cy="72" rx="12" ry="17" fill="#FFFFFF" opacity="0.6"/>
-                                            <path d="M164,102 C170,110 190,110 196,102" stroke="#C4708F" stroke-opacity="0.55" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                            <circle cx="158" cy="96" r="6.5" fill="#F49BC0" opacity="0.5"/>
-                                            <circle cx="202" cy="96" r="6.5" fill="#F49BC0" opacity="0.5"/>
-                                            <path d="M206,52 l2.6,6 6,2.6 -6,2.6 -2.6,6 -2.6,-6 -6,-2.6 6,-2.6 Z" fill="var(--cream-bright)" opacity="0.95"/>
+                                    <!-- ═══ BODY BACK — всичко зад дрехите ═══ -->
+                                    <g class="pm-body pm-body-back" aria-hidden="true">
+                                        <g class="pm-body-leg pm-body-leg--back">
+                                            <path d="M126,348 C124,386 126,428 131,468 C133,488 134,504 134,516 C132,536 134,562 138,590 C141,618 143,644 143,666 L168,666 C168,644 169,618 172,590 C176,562 178,536 177,516 C177,504 178,488 180,468 C184,428 185,386 184,348 Z" fill="url(#pmSkin)"/>
                                         </g>
-                                        <image class="pm-head-image" clip-path="url(#pmHeadClipRight)"
-                                               x="143" y="41" width="74" height="94"
-                                               preserveAspectRatio="xMidYMid slice"/>
+                                        <g class="pm-body-leg pm-body-leg--front">
+                                            <path d="M190,350 C191,388 194,430 198,470 C200,490 201,506 202,518 C203,538 204,564 206,592 C208,618 209,644 209,666 L234,666 C234,644 235,618 237,592 C240,564 242,538 243,518 C244,506 245,490 247,470 C251,430 250,388 248,350 Z" fill="url(#pmSkin)"/>
+                                            <path d="M222,358 C226,404 224,458 218,512 C214,554 214,616 215,662" fill="none" stroke="url(#pmSkinShade)" stroke-opacity="0.4" stroke-width="7" stroke-linecap="round"/>
+                                        </g>
+                                        <g class="pm-body-arm pm-body-arm--back">
+                                            <path d="M142,152 C124,162 112,190 107,224 C103,252 104,274 108,294 C112,318 119,344 127,368 L152,358 C144,336 138,312 134,294 C131,274 132,252 136,230 C140,204 149,180 160,162 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-hand pm-body-hand--back">
+                                            <path d="M127,364 C118,374 113,388 115,402 C117,415 128,422 139,418 C148,414 152,403 150,390 C148,378 143,369 139,360 ZM118,376 C111,378 108,387 113,393 C118,399 124,396 126,390 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-torso">
+                                            <path d="M136,156 C131,146 152,138 184,138 C214,137 238,146 234,163 C238,180 240,198 240,216 C240,234 236,252 232,268 C229,282 229,292 231,304 C235,322 239,338 240,354 L134,352 C136,336 139,320 142,304 C145,290 144,280 141,266 C137,250 134,232 134,214 C134,194 135,174 136,156 Z" fill="url(#pmSkin)"/>
+                                            <path d="M234,163 C238,180 240,198 240,216 C240,234 236,252 232,268 C229,282 229,292 231,304 C235,322 239,338 240,354 L222,354 C221,336 219,320 217,304 C215,290 216,280 219,266 C223,250 226,232 225,212 C224,192 222,174 218,160 Z" fill="url(#pmSkinShade)" opacity="0.5"/>
+                                            <path d="M152,186 C147,212 147,244 151,270 C154,288 153,304 150,320" fill="none" stroke="#FFF1E8" stroke-opacity="0.42" stroke-width="8" stroke-linecap="round"/>
+                                        </g>
+                                        <g class="pm-body-neck">
+                                            <path d="M175,112 L199,112 L200,138 C203,147 209,152 216,156 L157,156 C164,152 170,146 173,138 Z" fill="url(#pmSkin)"/>
+                                            <path d="M199,112 L200,138 C203,147 209,152 216,156 L203,156 C197,150 194,140 193,128 L193,112 Z" fill="url(#pmSkinShade)" opacity="0.5"/>
+                                        </g>
                                     </g>
 
-                                    <!-- 5/23 · LOOK LAYERS — по един slot, пълнят се от look config-а -->
+                                    <!-- ═══ HEAD ═══ placeholder + неограничен фотографски слой -->
+                                    <g class="pm-head">
+                                        <g class="pm-head-placeholder" transform="rotate(3.0 186 118)" aria-hidden="true">
+                                            <path d="M151,68 C146,67 144,74 146,80 C148,85 151,86 152,84 Z" fill="url(#pmSkinShade)" opacity="0.85"/><path d="M221,68 C226,67 228,74 226,80 C224,85 221,86 220,84 Z" fill="url(#pmSkinShade)" opacity="0.85"/>
+                                            <path d="M186,30 C166,30 153,41 151,60 C150,72 151,82 154,91 C157,100 162,107 169,112 C175,116 181,118 186,118 C191,118 197,116 203,112 C210,107 215,100 218,91 C221,82 222,72 221,60 C219,41 206,30 186,30 Z" fill="url(#pmSkin)"/>
+                                            <path d="M200,44 C212,52 216,74 212,94 C209,105 202,113 194,117 C204,115 213,106 217,93 C221,80 221,58 212,45 Z" fill="url(#pmSkinShade)" opacity="0.55"/>
+                                        </g>
+                                        <!-- 14 · БЕЗ елипсовиден clip: реалният cut-out носи коса,
+                                             която трябва да излиза над черепа и извън ширината на лицето -->
+                                        <image class="pm-head-image" preserveAspectRatio="xMidYMid meet"/>
+                                    </g>
+
+                                    <!-- ═══ ДРЕХИ ═══ -->
                                     <g class="pm-look-layer pm-look-layer--shoes"     data-pm-slot="shoes"></g>
                                     <g class="pm-look-layer pm-look-layer--bottom"    data-pm-slot="bottom"></g>
                                     <g class="pm-look-layer pm-look-layer--top"       data-pm-slot="top"></g>
                                     <g class="pm-look-layer pm-look-layer--outerwear" data-pm-slot="outerwear"></g>
-                                    <g class="pm-look-layer pm-look-layer--bag"       data-pm-slot="bag"></g>
                                     <g class="pm-look-layer pm-look-layer--accessory" data-pm-slot="accessory"></g>
+                                    <g class="pm-look-layer pm-look-layer--bag"       data-pm-slot="bag"></g>
+
+                                    <!-- ═══ BODY FRONT — ръката/дланта пред дрехите и чантата ═══ -->
+                                    <g class="pm-body pm-body-front" aria-hidden="true">
+                                        <g class="pm-body-arm pm-body-arm--front">
+                                            <path d="M226,158 C244,170 257,196 263,226 C268,250 268,268 264,284 C258,304 247,326 238,344 L216,332 C224,314 232,296 236,282 C240,266 238,248 233,228 C227,200 216,178 205,164 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                        <g class="pm-body-hand pm-body-hand--front">
+                                            <path d="M238,340 C230,350 226,362 229,374 C232,386 244,391 254,385 C262,380 264,368 260,357 C257,348 252,341 249,334 ZM231,348 C224,350 221,359 226,365 C231,371 237,368 239,362 Z" fill="url(#pmSkin)"/>
+                                        </g>
+                                    </g>
+
+                                    <!-- Очилата винаги последни — върху главата -->
                                     <g class="pm-look-layer pm-look-layer--glasses"   data-pm-slot="glasses"></g>
                                 </g>
                             </svg>
@@ -8835,9 +8980,13 @@
              head · glasses · outerwear · top · bottom · bag · shoes · accessory
          Празен slot просто остава празен.
 
+         Артът е СПЕЦИФИЧЕН ЗА СТРАНА, защото двете пози са различни:
+         #pm-art-left-* пасва на LEFT anatomy, #pm-art-right-* на RIGHT.
+
          Всеки продукт в look config-а може да бъде:
-           { art: '#pm-art-jacket', ... }        → inline SVG artwork
-           { image: 'assets/look01-jacket.webp' } → прозрачен overlay
+           { art: '#pm-art-left-jacket-launch01', ... } → inline SVG
+           { image: 'assets/look01-jacket.webp',
+             x, y, width, height }                      → прозрачен overlay
          Interaction логиката е една и съща и в двата случая.
          ============================================================ -->
     <script>
@@ -8862,73 +9011,85 @@
                 title: 'PINK MALL LAUNCH',
                 left: {
                     role: 'ina',              /* 18 · коя сестра е тази фигура */
-                    headSrc: null,            /* 8 · null → stylized placeholder */
+                    /* 15 · Геометрия на фотографската глава за ТАЗИ страна.
+                       Кутията е нарочно по-голяма от лицето — реалният
+                       cut-out носи коса, която трябва да излиза над черепа
+                       и извън ширината на лицето. Няма елипсовиден clip. */
+                    head: {
+                        src: null,            /* null → неутрален placeholder */
+                        x: 116, y: 2, width: 124, height: 150,
+                        rotate: -2.5, originX: 178, originY: 118
+                    },
                     products: {
                         outerwear: {
                             id: 'pm-jacket-01', name: 'Oversized Pink Jacket',
                             category: 'Връхни дрехи', price: '129 лв / 66 €',
-                            art: '#pm-art-jacket', color: '#F7A9C6'
+                            art: '#pm-art-left-jacket-launch01', color: '#F0A9C4'
                         },
                         top: {
                             id: 'pm-top-01', name: 'Baby Pink Fitted Top',
                             category: 'Топове', price: '45 лв / 23 €',
-                            art: '#pm-art-top', color: '#FBD3E2'
+                            art: '#pm-art-left-top-launch01', color: '#FBD3E2'
                         },
                         bottom: {
                             id: 'pm-skirt-01', name: 'Plaid Mini Skirt',
                             category: 'Поли', price: '75 лв / 38 €',
-                            art: '#pm-art-skirt-plaid', color: '#E273A2'
+                            art: '#pm-art-left-skirt-launch01', color: '#E273A2'
                         },
                         bag: {
                             id: 'pm-tote-01', name: 'Pink Tote Bag',
                             category: 'Чанти', price: '69 лв / 35 €',
-                            art: '#pm-art-tote', color: '#F6BFD4'
+                            art: '#pm-art-left-tote-launch01', color: '#F3C9D8'
                         },
                         glasses: {
                             id: 'pm-shades-yellow', name: 'Yellow Candy Shades',
                             category: 'Аксесоари', price: '39 лв / 20 €',
-                            art: '#pm-art-glasses', color: '#F5D34A'
+                            art: '#pm-art-left-glasses-launch01', color: '#F5D34A'
                         },
                         shoes: {
                             id: 'pm-heels-01', name: 'Pink Gloss Heels',
                             category: 'Обувки', price: '99 лв / 51 €',
-                            art: '#pm-art-heels', color: '#F08FBA'
+                            art: '#pm-art-left-heels-launch01', color: '#F08FBA'
                         }
                     }
                 },
                 right: {
                     role: 'sis',
-                    headSrc: null,
+                    head: {
+                        src: null,
+                        x: 124, y: 0, width: 126, height: 152,
+                        rotate: 3, originX: 186, originY: 118
+                    },
                     products: {
                         top: {
                             id: 'pm-tee-01', name: 'Designer Pussy Tee',
                             category: 'Merch', price: '59 лв / 30 €',
-                            art: '#pm-art-tee', color: '#F2569B'
+                            art: '#pm-art-right-tee-launch01', color: '#F2569B'
                         },
                         bottom: {
                             id: 'pm-trousers-01', name: 'High-Waist Pink Jeans',
                             category: 'Долнища', price: '89 лв / 45 €',
-                            art: '#pm-art-trousers', color: '#EC7FAE'
+                            art: '#pm-art-right-jeans-launch01', color: '#EC7FAE'
                         },
                         bag: {
                             id: 'pm-bag-01', name: 'Pink Mini Bag',
                             category: 'Чанти', price: '89 лв / 45 €',
-                            art: '#pm-art-crossbody', color: '#F7A9C6'
+                            art: '#pm-art-right-crossbody-launch01', color: '#F3B3CC'
                         },
                         glasses: {
                             id: 'pm-shades-pink', name: 'Pink Candy Shades',
                             category: 'Аксесоари', price: '39 лв / 20 €',
-                            art: '#pm-art-glasses', color: '#FF7FB5'
+                            art: '#pm-art-right-glasses-launch01', color: '#FF7FB5'
                         },
                         accessory: {
                             id: 'pm-necklace-01', name: 'Heart Charm Necklace',
                             category: 'Аксесоари', price: '35 лв / 18 €',
-                            art: '#pm-art-necklace', color: '#F5D34A'
+                            art: '#pm-art-right-necklace-launch01', color: '#E8C36A'
                         },
                         shoes: {
                             id: 'pm-boots-01', name: 'Pink Platform Boots',
                             category: 'Обувки', price: '119 лв / 61 €',
-                            art: '#pm-art-boots', color: '#E8639C'
+                            art: '#pm-art-right-boots-launch01', color: '#E8639C'
                         }
                     }
                 }
@@ -9100,20 +9261,57 @@
                     s.svg.setAttribute('aria-label', role.label + ' — Pink Mall лук');
                 }
 
-                setHead(side, cfg.headSrc);
+                setHead(side, (cfg.head && cfg.head.src) || cfg.headSrc || null);
             });
 
             stage.classList.toggle('pm-debug', PM_DEBUG);
             return true;
         }
 
-        /* ── 8 · setHead ───────────────────────────────────────── */
-        function setHead(side, src) {
+        /* ── 8/15/16 · setHead ─────────────────────────────────────
+           Публичният подпис не се променя:
+               setHead('left', src)                     ← още валидно
+               setHead('left', src, { x, y, width, height, rotate })
+           Геометрията по подразбиране идва от look config-а.
+           Кутията НЕ е ограничена до елипса — косата може да излиза
+           над черепа, извън ширината на лицето и над раменете. */
+        var DEFAULT_HEAD = {
+            x: 118, y: 2, width: 124, height: 150,
+            rotate: 0, originX: 180, originY: 118
+        };
+
+        function headConfig(side) {
+            var look = PINK_MALL_LOOKS[currentLookId];
+            var cfg  = look && look[side] ? look[side].head : null;
+            return Object.assign({}, DEFAULT_HEAD, cfg || {});
+        }
+
+        function applyHeadGeometry(side, geo) {
+            var s = sides[side];
+            if (!s || !s.head) return;
+            s.head.setAttribute('x', geo.x);
+            s.head.setAttribute('y', geo.y);
+            s.head.setAttribute('width', geo.width);
+            s.head.setAttribute('height', geo.height);
+            if (geo.rotate) {
+                s.head.setAttribute('transform',
+                    'rotate(' + geo.rotate + ' ' + geo.originX + ' ' + geo.originY + ')');
+            } else {
+                s.head.removeAttribute('transform');
+            }
+        }
+
+        function setHead(side, src, opts) {
             var s = sides[side];
             if (!s || !s.head) return false;
-            if (src) {
-                s.head.setAttribute('href', src);
-                s.head.setAttributeNS(XLINK, 'xlink:href', src);
+
+            var geo = Object.assign(headConfig(side), opts || {});
+            applyHeadGeometry(side, geo);
+
+            var value = src !== undefined ? src : geo.src;
+            if (value) {
+                s.head.setAttribute('href', value);
+                s.head.setAttributeNS(XLINK, 'xlink:href', value);
                 s.root.classList.add('has-head');
             } else {
                 s.head.removeAttribute('href');
