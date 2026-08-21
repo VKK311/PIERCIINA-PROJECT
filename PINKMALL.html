@@ -5269,6 +5269,1047 @@
                 padding-top: 0;
             }
         }
+
+        /* ════════════════════════════════════════════════════════════
+           PINK MALL STORE — WORLD 02  (.pms-*)
+           ------------------------------------------------------------
+           Phase 2A: mall threshold, mall mode, directory навигация,
+           campaign банери, продуктова решетка от централен каталог,
+           INA vs SIS, wishlist (localStorage), search основа.
+           Не пипа манекенната .pm-* архитектура.
+           ════════════════════════════════════════════════════════════ */
+        :root {
+            --pms-hot: #FF2E88;
+            --pms-hot-deep: #A8004F;
+            --pms-ink: #3A0A22;
+            --pms-night: #2A0618;
+            --pms-cream-bg: #FFF7EC;
+            --pms-blush-bg: #FDEDF3;
+            --pms-radius: 18px;
+        }
+
+        /* ── Прагът: две вселени в една страница ── */
+        #pink-mall {
+            position: relative;
+            background: var(--pms-blush-bg);
+            isolation: isolate;
+            /* Светът се отличава още от фона */
+            background-image:
+                radial-gradient(70% 40% at 50% 0%, rgba(255, 46, 136, 0.07), transparent 70%);
+        }
+
+        /* ════════ A · ВХОД / MALL GATE ════════ */
+        .pms-gate {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(90% 70% at 50% 108%, rgba(255, 214, 232, 0.5), transparent 60%),
+                linear-gradient(168deg, #F9A08C 0%, #F27BA5 40%, #C23A78 78%, #8B2458 100%);
+            color: var(--white);
+        }
+
+        /* LED ticker над вратите */
+        .pms-ticker {
+            overflow: hidden;
+            background: var(--pms-night);
+            border-top: 2px solid rgba(255, 246, 201, 0.35);
+            border-bottom: 2px solid rgba(255, 246, 201, 0.35);
+            padding: 0.45rem 0;
+            font-family: var(--font-retro);
+            font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+            letter-spacing: 0.18em;
+            color: var(--cream-bright);
+            text-shadow: 0 0 9px rgba(253, 245, 154, 0.65);
+            white-space: nowrap;
+        }
+
+        .pms-ticker-track {
+            display: inline-flex;
+            gap: 3rem;
+            padding-left: 1rem;
+            animation: pmsTicker 22s linear infinite;
+            will-change: transform;
+        }
+
+        .pms-ticker-track span { flex: none; }
+
+        @keyframes pmsTicker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        .pms-gate-inner {
+            position: relative;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(3.5rem, 7vw, 6rem);
+            text-align: center;
+        }
+
+        .pms-gate-level {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.1rem;
+            border-radius: 8px;
+            background: rgba(42, 6, 24, 0.55);
+            border: 1.5px solid rgba(255, 246, 201, 0.5);
+            font-family: var(--font-retro);
+            font-size: clamp(0.62rem, 1.6vw, 0.78rem);
+            letter-spacing: 0.28em;
+            color: var(--cream-bright);
+            margin-bottom: clamp(1.2rem, 3vw, 2rem);
+        }
+
+        .pms-gate-level .pms-led {
+            width: 9px; height: 9px; border-radius: 50%;
+            background: #7CFF3D;
+            box-shadow: 0 0 8px #7CFF3D;
+            animation: pmsBlink 1.6s steps(2, end) infinite;
+        }
+
+        @keyframes pmsBlink { 50% { opacity: 0.25; } }
+
+        .pms-gate-title {
+            font-family: var(--font-retro-shade);
+            font-size: clamp(2.4rem, 8.5vw, 6rem);
+            line-height: 0.95;
+            color: var(--cream);
+            text-shadow: 0 6px 0 rgba(90, 38, 64, 0.4);
+            margin: 0 0 0.4em;
+        }
+
+        .pms-gate-sub {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2.4vw, 1.1rem);
+            max-width: 44ch;
+            margin: 0 auto clamp(1.4rem, 3vw, 2.2rem);
+            color: rgba(255, 255, 255, 0.94);
+        }
+
+        /* Плъзгащи се витринни врати */
+        .pms-doors {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: flex;
+            pointer-events: none;
+        }
+
+        .pms-door {
+            flex: 1;
+            background:
+                linear-gradient(105deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.18) 100%),
+                linear-gradient(180deg, rgba(243, 170, 200, 0.92), rgba(194, 58, 120, 0.94));
+            backdrop-filter: blur(4px);
+            border-right: 3px solid rgba(255, 246, 201, 0.6);
+            transition: transform 0.85s cubic-bezier(0.7, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            will-change: transform;
+        }
+
+        .pms-door--right { border-right: 0; border-left: 3px solid rgba(255, 246, 201, 0.6); justify-content: flex-start; }
+
+        .pms-door .pms-door-handle {
+            width: 10px; height: 34%;
+            margin: 0 clamp(0.6rem, 2vw, 1.4rem);
+            border-radius: 8px;
+            background: linear-gradient(180deg, #FFF6D4, #E8C547);
+            box-shadow: 0 0 14px rgba(253, 245, 154, 0.5);
+        }
+
+        .pms-gate.is-open .pms-door--left  { transform: translateX(-101%); }
+        .pms-gate.is-open .pms-door--right { transform: translateX(101%); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pms-ticker-track { animation: none; }
+            .pms-door { transition: none; }
+            .pms-gate-level .pms-led { animation: none; }
+        }
+
+        /* ════════ MALL MODE ════════ */
+        body.pms-mall-mode .sticky-book-cta { opacity: 0 !important; pointer-events: none !important; }
+        body.pms-mall-mode .nav { background: rgba(255, 236, 244, 0.92); }
+        body.pms-mall-mode .nav-links a.btn.btn-primary {
+            background: transparent;
+            color: var(--magenta);
+            border: 1.5px solid rgba(195, 83, 125, 0.45);
+            box-shadow: none;
+        }
+        body.pms-mall-mode .nav-pinkmall {
+            background: linear-gradient(135deg, var(--pms-hot) 0%, var(--magenta) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 14px -4px rgba(255, 46, 136, 0.7);
+        }
+        body.pms-mall-mode .nav-pinkmall .nav-pinkmall-spark { color: var(--cream-bright); }
+
+        /* ════════ DIRECTORY BAR (sticky mall навигация) ════════ */
+        .pms-dirbar {
+            position: sticky;
+            top: calc(var(--nav-height, 96px) - 2px);
+            z-index: 80;
+            background: rgba(58, 10, 34, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1.5px solid rgba(255, 246, 201, 0.28);
+            color: var(--white);
+        }
+
+        .pms-dirbar-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0.55rem clamp(1rem, 3vw, 2.5rem);
+        }
+
+        .pms-dirbar-brand {
+            font-family: var(--font-retro);
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            color: var(--cream-bright);
+            white-space: nowrap;
+            text-decoration: none;
+            flex: none;
+        }
+
+        .pms-dirbar-cats {
+            display: flex;
+            gap: 0.35rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            flex: 1;
+            padding: 0.2rem 0;
+        }
+
+        .pms-dirbar-cats::-webkit-scrollbar { display: none; }
+
+        .pms-cat-chip {
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            min-height: 40px;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            color: rgba(255, 255, 255, 0.88);
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
+            cursor: pointer;
+            background: transparent;
+            transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .pms-cat-chip .pms-cat-num {
+            font-family: var(--font-retro);
+            font-size: 0.6rem;
+            color: var(--cream-bright);
+            opacity: 0.8;
+        }
+
+        .pms-cat-chip:hover { border-color: rgba(255, 246, 201, 0.7); }
+
+        .pms-cat-chip.is-active {
+            background: var(--cream);
+            border-color: var(--cream);
+            color: var(--pms-ink);
+        }
+
+        .pms-cat-chip.is-active .pms-cat-num { color: var(--pms-hot-deep); opacity: 1; }
+
+        .pms-dirbar-tools {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex: none;
+        }
+
+        .pms-tool-btn {
+            position: relative;
+            width: 42px; height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .pms-tool-btn:hover { background: rgba(255, 255, 255, 0.14); }
+
+        .pms-tool-btn:focus-visible,
+        .pms-cat-chip:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+
+        .pms-wish-count {
+            position: absolute;
+            top: -4px; right: -4px;
+            min-width: 18px; height: 18px;
+            padding: 0 4px;
+            border-radius: 999px;
+            background: var(--pms-hot);
+            color: var(--white);
+            font: 700 0.62rem/18px var(--font-body);
+            text-align: center;
+            display: none;
+        }
+
+        .pms-wish-count.has { display: block; }
+
+        .pms-dirbar-exit {
+            flex: none;
+            font-family: var(--font-body);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 0.5rem 0.4rem;
+        }
+
+        .pms-dirbar-exit:hover { color: var(--cream-bright); }
+
+        /* ════════ ОБЩИ СЕКЦИОННИ СТИЛОВЕ ════════ */
+        .pms-section {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: clamp(2.6rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem);
+        }
+
+        .pms-h {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+            margin-bottom: clamp(1.3rem, 3vw, 2rem);
+        }
+
+        .pms-h-title {
+            font-family: var(--font-retro);
+            font-size: clamp(1.35rem, 4vw, 2.2rem);
+            color: var(--pms-ink);
+            margin: 0;
+        }
+
+        .pms-h-quip {
+            font-family: var(--font-script);
+            font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+            color: var(--magenta);
+        }
+
+        /* ════════ B · MALL DIRECTORY (категорийни табели) ════════ */
+        .pms-directory {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: clamp(0.6rem, 1.6vw, 1rem);
+        }
+
+        .pms-dir-tile {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 1rem 1rem 0.85rem;
+            min-height: 108px;
+            border-radius: 14px;
+            border: 2px solid var(--pms-ink);
+            background: var(--white);
+            box-shadow: 4px 4px 0 rgba(58, 10, 34, 0.85);
+            cursor: pointer;
+            text-align: left;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+        }
+
+        .pms-dir-tile:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(58, 10, 34, 0.9); }
+        .pms-dir-tile:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 3px; }
+        .pms-dir-tile:nth-child(odd)  { background: var(--pms-cream-bg); }
+        .pms-dir-tile:nth-child(3n)   { background: var(--pink-soft); }
+
+        .pms-dir-num {
+            font-family: var(--font-retro);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            color: var(--pms-hot-deep);
+        }
+
+        .pms-dir-name {
+            font-family: var(--font-retro);
+            font-size: clamp(0.95rem, 2.4vw, 1.2rem);
+            color: var(--pms-ink);
+        }
+
+        .pms-dir-count {
+            margin-top: auto;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .pms-dir-arrow {
+            position: absolute;
+            right: 0.85rem; bottom: 0.7rem;
+            font-size: 1rem;
+            color: var(--pms-hot);
+            transition: transform 0.22s ease;
+        }
+
+        .pms-dir-tile:hover .pms-dir-arrow { transform: translateX(4px); }
+
+        /* ════════ CAMPAIGN БАНЕРИ (config-driven) ════════ */
+        .pms-campaign {
+            position: relative;
+            overflow: hidden;
+            border-radius: clamp(16px, 3vw, 26px);
+            padding: clamp(2.2rem, 6vw, 4.5rem) clamp(1.4rem, 5vw, 4rem);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+            min-height: 240px;
+            isolation: isolate;
+        }
+
+        .pms-campaign[data-theme="grand"] {
+            background:
+                radial-gradient(80% 90% at 85% 15%, rgba(253, 245, 154, 0.35), transparent 55%),
+                linear-gradient(135deg, var(--pms-hot) 0%, var(--magenta-deep) 70%, var(--pms-night) 110%);
+        }
+
+        .pms-campaign[data-theme="dark"] {
+            background:
+                radial-gradient(60% 80% at 15% 100%, rgba(255, 46, 136, 0.35), transparent 60%),
+                linear-gradient(160deg, #3A0A22 0%, #2A0618 100%);
+        }
+
+        .pms-campaign[data-theme="split"] {
+            background:
+                linear-gradient(104deg, var(--cream) 0 49.6%, transparent 49.6%),
+                linear-gradient(104deg, transparent 0 50.4%, var(--pink-baby) 50.4%),
+                linear-gradient(104deg, var(--pms-ink) 49%, var(--pms-ink) 51%);
+            color: var(--pms-ink);
+        }
+
+        /* декоративни искри */
+        .pms-campaign::after {
+            content: '✦     ✦          ✦';
+            position: absolute;
+            inset: auto 6% 8% auto;
+            font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+            color: rgba(255, 246, 201, 0.75);
+            letter-spacing: 0.6em;
+            pointer-events: none;
+        }
+
+        .pms-campaign[data-theme="split"]::after { color: rgba(58, 10, 34, 0.4); }
+
+        .pms-campaign-badge {
+            position: absolute;
+            top: clamp(0.9rem, 2.5vw, 1.6rem);
+            right: clamp(0.9rem, 2.5vw, 1.6rem);
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px 14px 4px 14px;
+            background: var(--cream);
+            color: var(--pms-ink);
+            border: 2px solid var(--pms-ink);
+            font-family: var(--font-groovy);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            transform: rotate(4deg);
+            box-shadow: 3px 3px 0 rgba(58, 10, 34, 0.6);
+        }
+
+        .pms-campaign-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .pms-campaign-title {
+            font-family: var(--font-retro);
+            font-size: clamp(1.7rem, 5.5vw, 3.6rem);
+            line-height: 1;
+            margin: 0;
+            max-width: 16ch;
+        }
+
+        .pms-campaign[data-theme="grand"] .pms-campaign-title { font-family: var(--font-retro-shade); color: var(--cream); }
+        .pms-campaign[data-theme="dark"]  .pms-campaign-title {
+            color: var(--pms-hot);
+            text-shadow: 0 0 18px rgba(255, 46, 136, 0.65);
+        }
+
+        .pms-campaign-sub {
+            font-family: var(--font-body);
+            font-size: clamp(0.85rem, 2.2vw, 1rem);
+            max-width: 46ch;
+            opacity: 0.94;
+        }
+
+        .pms-campaign-cta {
+            margin-top: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-height: 48px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            background: var(--cream);
+            color: var(--pms-ink);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 0;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .pms-campaign-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(42, 6, 24, 0.6); }
+        .pms-campaign-cta:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+
+        .pms-campaign[data-theme="split"] .pms-campaign-cta { background: var(--pms-ink); color: var(--cream); }
+
+        /* ════════ ПРОДУКТОВИ КАРТИ ════════ */
+        .pms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: clamp(0.9rem, 2vw, 1.4rem);
+        }
+
+        .pms-rail {
+            min-width: 0;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: clamp(200px, 24vw, 250px);
+            gap: clamp(0.8rem, 2vw, 1.2rem);
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            scroll-snap-type: x proximity;
+            scrollbar-width: thin;
+            scrollbar-color: var(--magenta) transparent;
+        }
+
+        .pms-rail .pms-card { scroll-snap-align: start; }
+
+        .pms-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--pms-radius);
+            background: var(--white);
+            border: 1.5px solid rgba(58, 10, 34, 0.12);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .pms-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px -16px rgba(139, 58, 92, 0.45);
+        }
+
+        .pms-card.is-soldout .pms-media { filter: saturate(0.35) opacity(0.75); }
+
+        /* ── PHOTO-READY placeholder медия ── */
+        .pms-media {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .pms-media[data-field="cream"]  { background: linear-gradient(165deg, #FFF7EC, #F9E3CE); }
+        .pms-media[data-field="blush"]  { background: linear-gradient(165deg, #FDEDF3, #F7CBDD); }
+        .pms-media[data-field="magenta"]{ background: linear-gradient(165deg, #F6CFE0, #E393B8); }
+        .pms-media[data-field="dots"]   {
+            background:
+                radial-gradient(rgba(195, 83, 125, 0.25) 1.5px, transparent 1.6px) 0 0 / 14px 14px,
+                linear-gradient(165deg, #FDF1F5, #FBD9E6);
+        }
+        .pms-media[data-field="stripe"] {
+            background:
+                repeating-linear-gradient(-45deg, rgba(255,255,255,0.55) 0 10px, transparent 10px 22px),
+                linear-gradient(165deg, #F9C8DA, #EFA5C4);
+        }
+
+        .pms-media svg {
+            width: 52%;
+            height: auto;
+            max-height: 62%;
+            color: rgba(139, 58, 92, 0.8);
+            filter: drop-shadow(0 8px 14px rgba(139, 58, 92, 0.25));
+            transition: transform 0.3s ease;
+        }
+
+        .pms-card:hover .pms-media svg { transform: translateY(-4px) rotate(-2deg); }
+
+        .pms-media .pms-media-tag {
+            position: absolute;
+            left: 0.7rem; bottom: 0.6rem;
+            font-family: var(--font-retro);
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            color: rgba(58, 10, 34, 0.5);
+        }
+
+        .pms-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* бадж лента */
+        .pms-badges {
+            position: absolute;
+            top: 0.65rem; left: 0.65rem;
+            max-width: calc(100% - 64px);   /* не влиза под сърцето */
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            align-items: flex-start;
+            pointer-events: none;
+        }
+
+        .pms-badge {
+            padding: 0.28rem 0.6rem;
+            white-space: nowrap;
+            font-size: 0.58rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            background: var(--pms-ink);
+            color: var(--cream);
+        }
+
+        .pms-badge--new     { background: var(--cream); color: var(--pms-ink); border: 1.5px solid var(--pms-ink); }
+        .pms-badge--sale    { background: var(--pms-hot); color: var(--white); }
+        .pms-badge--low     { background: #FFE9C9; color: #8A4B00; border: 1.5px solid #C97F1B; }
+        .pms-badge--soldout { background: rgba(58, 10, 34, 0.85); color: var(--white); }
+
+        /* wishlist сърце */
+        .pms-heart {
+            position: absolute;
+            top: 0.55rem; right: 0.55rem;
+            width: 42px; height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1.5px solid rgba(58, 10, 34, 0.15);
+            color: var(--magenta-deep);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .pms-heart:hover { transform: scale(1.08); }
+        .pms-heart:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-heart svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+        .pms-heart[aria-pressed="true"] { background: var(--pms-hot); border-color: var(--pms-hot); color: var(--white); }
+        .pms-heart[aria-pressed="true"] svg { fill: currentColor; }
+
+        .pms-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.8rem 0.9rem 0.95rem;
+        }
+
+        .pms-card-sister {
+            display: inline-flex;
+            gap: 0.35rem;
+            font-family: var(--font-groovy);
+            font-size: 0.62rem;
+            letter-spacing: 0.05em;
+        }
+
+        .pms-card-sister .s-ina { color: #B8860B; }
+        .pms-card-sister .s-sis { color: var(--pms-hot-deep); }
+
+        .pms-card-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--pms-ink);
+            line-height: 1.25;
+        }
+
+        .pms-card-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+        }
+
+        .pms-price-now { font-weight: 800; font-size: 0.98rem; color: var(--pms-ink); }
+        .pms-price-old { font-size: 0.8rem; color: var(--text-muted); text-decoration: line-through; }
+        .pms-price-off { font-size: 0.68rem; font-weight: 800; color: var(--pms-hot); }
+
+        .pms-quick {
+            margin-top: 0.45rem;
+            align-self: flex-start;
+            min-height: 40px;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1.5px solid rgba(58, 10, 34, 0.25);
+            background: transparent;
+            color: var(--pms-ink);
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+        }
+
+        .pms-quick:hover { background: var(--pms-ink); color: var(--cream); border-color: var(--pms-ink); }
+        .pms-quick:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+
+        /* ════════ INA vs SIS ════════ */
+        .pms-duel {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(0.9rem, 2.4vw, 1.6rem);
+        }
+
+        .pms-duel-side {
+            min-width: 0;    /* рейлът вътре не бива да разпъва grid колоната */
+            border-radius: clamp(16px, 3vw, 24px);
+            padding: clamp(1.3rem, 3.4vw, 2.2rem);
+            border: 2px solid var(--pms-ink);
+            box-shadow: 6px 6px 0 rgba(58, 10, 34, 0.85);
+            scroll-margin-top: 130px;
+        }
+
+        .pms-duel-side--ina { background: linear-gradient(170deg, #FFF9E3, #FBEEC0); }
+        .pms-duel-side--sis { background: linear-gradient(170deg, #FDECF4, #F9CFE2); }
+
+        .pms-duel-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.35rem; }
+
+        .pms-duel-name {
+            font-family: var(--font-retro);
+            font-size: clamp(1.15rem, 3vw, 1.7rem);
+            color: var(--pms-ink);
+            margin: 0;
+        }
+
+        .pms-duel-score {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(58, 10, 34, 0.08);
+            border: 1.5px solid rgba(58, 10, 34, 0.3);
+            color: var(--pms-ink);
+            white-space: nowrap;
+        }
+
+        .pms-duel-quip {
+            font-family: var(--font-script);
+            font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+            color: var(--magenta-deep);
+            margin-bottom: 1rem;
+        }
+
+        .pms-duel .pms-rail { grid-auto-columns: clamp(185px, 22vw, 225px); }
+
+        .pms-vs {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-6deg);
+            z-index: 3;
+            width: 64px; height: 64px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(160deg, #FFF6D4, #E8C547);
+            border: 3px solid var(--pms-ink);
+            box-shadow: 0 10px 22px -8px rgba(58, 10, 34, 0.6);
+            font-family: var(--font-retro);
+            font-size: 1.15rem;
+            color: var(--pms-ink);
+            pointer-events: none;
+        }
+
+        /* ════════ IRL TEASER ════════ */
+        .pms-irl-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: clamp(0.8rem, 2vw, 1.3rem);
+        }
+
+        .pms-polaroid {
+            background: var(--white);
+            border: 1.5px solid rgba(58, 10, 34, 0.15);
+            border-radius: 10px;
+            padding: 0.7rem 0.7rem 1rem;
+            box-shadow: 0 12px 24px -14px rgba(139, 58, 92, 0.4);
+            transform: rotate(var(--tilt, -2deg));
+            transition: transform 0.25s ease;
+        }
+
+        .pms-polaroid:hover { transform: rotate(0deg) translateY(-4px); }
+
+        .pms-polaroid-ph {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(60% 60% at 50% 40%, rgba(255, 46, 136, 0.18), transparent 70%),
+                linear-gradient(160deg, #FBD9E6, #F0A9C6);
+            font-size: 1.6rem;
+        }
+
+        .pms-polaroid-cap {
+            margin-top: 0.55rem;
+            font-family: var(--font-script);
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ════════ EXIT ════════ */
+        .pms-exit {
+            background: var(--pms-night);
+            color: var(--white);
+            text-align: center;
+            padding: clamp(2rem, 5vw, 3.2rem) 1.5rem;
+        }
+
+        .pms-exit-sign {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--font-retro);
+            font-size: clamp(0.85rem, 2.4vw, 1.1rem);
+            letter-spacing: 0.2em;
+            color: var(--cream-bright);
+            text-decoration: none;
+            padding: 0.9rem 1.6rem;
+            border: 2px solid rgba(255, 246, 201, 0.5);
+            border-radius: 12px;
+            text-shadow: 0 0 10px rgba(253, 245, 154, 0.5);
+            transition: background 0.25s ease;
+        }
+
+        .pms-exit-sign:hover { background: rgba(255, 246, 201, 0.12); }
+
+        /* ════════ OVERLAYS: search / sheet ════════ */
+        .pms-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 130;
+            background: rgba(42, 6, 24, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .pms-overlay.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+
+        .pms-sheet {
+            width: min(560px, 100%);
+            max-height: min(78vh, 640px);
+            overflow-y: auto;
+            background: var(--pms-cream-bg);
+            border-radius: 22px 22px 0 0;
+            padding: 1.2rem 1.2rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
+            transform: translateY(24px);
+            transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .pms-overlay.is-open .pms-sheet { transform: translateY(0); }
+
+        @media (min-width: 769px) {
+            .pms-overlay { align-items: center; }
+            .pms-sheet { border-radius: 22px; }
+        }
+
+        .pms-sheet-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .pms-sheet-title {
+            font-family: var(--font-retro);
+            font-size: 1.1rem;
+            color: var(--pms-ink);
+            margin: 0;
+        }
+
+        .pms-sheet-close {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            display: grid; place-items: center;
+            background: rgba(58, 10, 34, 0.08);
+            color: var(--pms-ink);
+            border: 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .pms-sheet-close:hover { background: rgba(58, 10, 34, 0.16); }
+        .pms-sheet-close:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+
+        .pms-search-input {
+            width: 100%;
+            min-height: 52px;
+            border-radius: 14px;
+            border: 2px solid var(--pms-ink);
+            background: var(--white);
+            padding: 0.8rem 1rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--pms-ink);
+            margin-bottom: 0.9rem;
+        }
+
+        .pms-search-input:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 1px; }
+
+        .pms-sheet .pms-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.7rem; }
+
+        .pms-empty {
+            padding: 1.6rem 1rem;
+            text-align: center;
+            font-family: var(--font-script);
+            font-size: 1.3rem;
+            color: var(--text-muted);
+        }
+
+        /* Peek (quick view) */
+        .pms-peek-body { display: grid; grid-template-columns: 128px 1fr; gap: 1rem; align-items: start; }
+        .pms-peek-body .pms-media { border-radius: 12px; aspect-ratio: 3/4; }
+        .pms-peek-name { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--pms-ink); margin: 0 0 0.2rem; }
+        .pms-peek-price { font-family: var(--font-body); font-weight: 800; color: var(--pms-ink); margin-bottom: 0.5rem; }
+        .pms-peek-desc { font-size: 0.82rem; color: var(--text-dark); line-height: 1.55; margin-bottom: 0.6rem; }
+        .pms-peek-meta { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.7rem; }
+
+        .pms-size-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+
+        .pms-size {
+            min-width: 44px; min-height: 40px;
+            display: grid; place-items: center;
+            padding: 0 0.5rem;
+            border-radius: 10px;
+            border: 1.5px solid rgba(58, 10, 34, 0.35);
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--pms-ink);
+            background: var(--white);
+        }
+
+        .pms-size.is-out { opacity: 0.4; text-decoration: line-through; }
+        .pms-size.is-low { border-color: #C97F1B; }
+        .pms-size.is-low::after { content: '·'; color: #C97F1B; font-size: 1.4rem; line-height: 0; margin-left: 2px; }
+
+        .pms-peek-note {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border-top: 1px dashed rgba(58, 10, 34, 0.25);
+            padding-top: 0.6rem;
+            line-height: 1.6;
+        }
+
+        /* ════════ MOBILE MALL BAR ════════ */
+        .pms-mobilebar {
+            position: fixed;
+            left: 0.9rem; right: 0.9rem;
+            bottom: calc(0.8rem + env(safe-area-inset-bottom, 0px));
+            z-index: 96;
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.2rem;
+            padding: 0.4rem;
+            border-radius: 999px;
+            background: rgba(58, 10, 34, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(255, 246, 201, 0.3);
+            box-shadow: 0 14px 32px -10px rgba(42, 6, 24, 0.7);
+            transform: translateY(140%);
+            transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .pms-mobilebar-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            min-height: 50px;
+            justify-content: center;
+            border-radius: 999px;
+            background: transparent;
+            border: 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: var(--font-body);
+            font-size: 0.56rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+        }
+
+        .pms-mobilebar-item svg { width: 19px; height: 19px; }
+        .pms-mobilebar-item.is-active { background: rgba(255, 246, 201, 0.16); color: var(--cream-bright); }
+        .pms-mobilebar-item:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+        .pms-mobilebar-item .pms-wish-count { top: 2px; right: 12%; }
+
+        @media (max-width: 768px) {
+            body.pms-mall-mode .pms-mobilebar { display: grid; transform: translateY(0); }
+            /* Viber бутонът се вдига над mall бара */
+            body.pms-mall-mode .viber-fab {
+                bottom: calc(5.4rem + env(safe-area-inset-bottom, 0px));
+                width: 52px; height: 52px;
+            }
+            .pms-dirbar-brand { display: none; }
+            .pms-dirbar-exit { display: none; }
+            .pms-duel { grid-template-columns: 1fr; }
+            .pms-vs { top: 50%; }
+            .pms-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+            .pms-card-name { font-size: 0.88rem; }
+            .pms-quick { display: inline-flex; }
+            .pms-peek-body { grid-template-columns: 104px 1fr; }
+            /* mall секциите дишат над мобилния бар */
+            .pms-exit { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px)); }
+        }
+
+        @media (max-width: 400px) {
+            .pms-grid { gap: 0.55rem; }
+            .pms-card-body { padding: 0.6rem 0.65rem 0.8rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pms-card, .pms-dir-tile, .pms-polaroid, .pms-campaign-cta,
+            .pms-media svg, .pms-mobilebar, .pms-sheet { transition: none !important; }
+        }
+
     </style>
 </head>
 <body>
@@ -7329,6 +8370,213 @@
     <!-- ============================================
          REVIEWS
          ============================================ -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         WORLD 02 · PIERCIINA PINK MALL  (Phase 2A storefront)
+         Порталът, който hero-то и навигацията вече таргетират.
+         Продуктите се рендерират от PINK_MALL_PRODUCTS (виж скрипта
+         PINK MALL STORE) — тук има само шел + slots.
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="pink-mall" aria-label="Pierciina Pink Mall">
+
+        <!-- Силуетни символи за photo-ready placeholder медията -->
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+            <defs>
+                <symbol id="pms-ph-clothing" viewBox="0 0 100 120">
+                    <path fill="currentColor" d="M35 8 L45 4 C46 12 54 12 55 4 L65 8 L82 18 L74 38 L66 33 L66 112 L34 112 L34 33 L26 38 L18 18 Z"/>
+                </symbol>
+                <symbol id="pms-ph-dress" viewBox="0 0 100 120">
+                    <path fill="currentColor" d="M38 6 L46 10 L50 22 L54 10 L62 6 L58 34 C58 40 62 44 66 50 L74 104 C60 112 40 112 26 104 L34 50 C38 44 42 40 42 34 Z"/>
+                </symbol>
+                <symbol id="pms-ph-bags" viewBox="0 0 100 120">
+                    <path fill="none" stroke="currentColor" stroke-width="5" d="M35 38 C35 18 65 18 65 38"/>
+                    <rect x="20" y="38" width="60" height="52" rx="12" fill="currentColor"/>
+                    <circle cx="50" cy="60" r="6" fill="#FFF7EC"/>
+                </symbol>
+                <symbol id="pms-ph-shoes" viewBox="0 0 100 120">
+                    <path fill="currentColor" d="M24 24 L46 24 L48 60 C60 68 78 72 84 84 C88 92 84 98 74 98 L24 98 Z"/>
+                    <path fill="currentColor" d="M20 100 L88 100 L88 110 L20 110 Z" opacity="0.7"/>
+                </symbol>
+                <symbol id="pms-ph-accessories" viewBox="0 0 100 120">
+                    <circle cx="32" cy="62" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
+                    <circle cx="68" cy="62" r="16" fill="none" stroke="currentColor" stroke-width="6"/>
+                    <path d="M48 60 C49 56 51 56 52 60" fill="none" stroke="currentColor" stroke-width="5"/>
+                    <path d="M16 58 L8 52 M84 58 L92 52" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                </symbol>
+                <symbol id="pms-ph-home" viewBox="0 0 100 120">
+                    <path fill="currentColor" d="M38 16 L62 16 L58 34 C74 42 78 62 74 84 C71 100 62 108 50 108 C38 108 29 100 26 84 C22 62 26 42 42 34 Z"/>
+                </symbol>
+                <symbol id="pms-ph-candles" viewBox="0 0 100 120">
+                    <path d="M50 12 C56 20 56 26 50 30 C44 26 44 20 50 12" fill="currentColor" opacity="0.75"/>
+                    <rect x="30" y="36" width="40" height="66" rx="8" fill="currentColor"/>
+                    <rect x="38" y="52" width="24" height="18" rx="4" fill="#FFF7EC" opacity="0.8"/>
+                </symbol>
+                <symbol id="pms-ph-heart" viewBox="0 0 24 24">
+                    <path d="M12 21 C7 16.5 2 12.8 2 8.4 C2 5.4 4.4 3 7.4 3 C9.2 3 10.9 3.9 12 5.3 C13.1 3.9 14.8 3 16.6 3 C19.6 3 22 5.4 22 8.4 C22 12.8 17 16.5 12 21 Z"/>
+                </symbol>
+            </defs>
+        </svg>
+
+        <!-- ════════ A · MALL GATE ════════ -->
+        <div class="pms-gate" id="pmsGate">
+            <div class="pms-ticker" aria-hidden="true">
+                <div class="pms-ticker-track" id="pmsTicker">
+                    <span>✦ PIERCIINA PINK MALL</span><span>NOW OPEN</span><span>ВСИЧКО Е РОЗОВО</span>
+                    <span>INA’S PICKS ✦</span><span>SIS’ FAVES ♡</span><span>НОВА ДОСТАВКА ВСЕКИ ПЕТЪК</span>
+                    <span>✦ PIERCIINA PINK MALL</span><span>NOW OPEN</span><span>ВСИЧКО Е РОЗОВО</span>
+                    <span>INA’S PICKS ✦</span><span>SIS’ FAVES ♡</span><span>НОВА ДОСТАВКА ВСЕКИ ПЕТЪК</span>
+                </div>
+            </div>
+
+            <div class="pms-gate-inner">
+                <span class="pms-gate-level"><span class="pms-led"></span> НИВО P · СЕКТОР РОЗОВО · ОТВОРЕНО</span>
+                <h2 class="pms-gate-title">PINK MALL</h2>
+                <p class="pms-gate-sub">Прекрачи прага. Тук Pierciina спира да е студио и става мол —
+                   мода, чанти, свещи и всичко розово, избрано от двете сестри.</p>
+                <button type="button" class="pms-campaign-cta" id="pmsGateCta">РАЗГЛЕДАЙ МОЛА ↓</button>
+            </div>
+
+            <!-- Витринните врати (отварят се при първо влизане) -->
+            <div class="pms-doors" aria-hidden="true">
+                <div class="pms-door pms-door--left"><span class="pms-door-handle"></span></div>
+                <div class="pms-door pms-door--right"><span class="pms-door-handle"></span></div>
+            </div>
+        </div>
+
+        <!-- ════════ DIRECTORY BAR (sticky mall навигация) ════════ -->
+        <nav class="pms-dirbar" id="pmsDirbar" aria-label="Pink Mall навигация">
+            <div class="pms-dirbar-inner">
+                <a href="#pink-mall" class="pms-dirbar-brand">PINK MALL ✦</a>
+                <div class="pms-dirbar-cats" id="pmsDirbarCats" role="tablist" aria-label="Категории"></div>
+                <div class="pms-dirbar-tools">
+                    <button type="button" class="pms-tool-btn" id="pmsSearchBtn" aria-label="Търсене в мола">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                    </button>
+                    <button type="button" class="pms-tool-btn" id="pmsWishBtn" aria-label="Любими продукти">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><use href="#pms-ph-heart"/></svg>
+                        <span class="pms-wish-count" data-pms-wishcount>0</span>
+                    </button>
+                </div>
+                <a href="#services" class="pms-dirbar-exit">← КЪМ СТУДИОТО</a>
+            </div>
+        </nav>
+
+        <!-- ════════ B · MALL DIRECTORY ════════ -->
+        <div class="pms-section" aria-label="Указател на мола">
+            <div class="pms-h">
+                <h3 class="pms-h-title">УКАЗАТЕЛ</h3>
+                <span class="pms-h-quip">изгуби се красиво</span>
+            </div>
+            <div class="pms-directory" id="pmsDirectory"></div>
+        </div>
+
+        <!-- ════════ C · CAMPAIGN SLOT 1 ════════ -->
+        <div class="pms-section" data-pms-campaign-slot="grand-opening"></div>
+
+        <!-- ════════ D · NEW IN ════════ -->
+        <div class="pms-section" aria-label="Нови продукти">
+            <div class="pms-h">
+                <h3 class="pms-h-title">NEW IN</h3>
+                <span class="pms-h-quip">още миришат на опаковка</span>
+            </div>
+            <div class="pms-rail" id="pmsNewRail"></div>
+        </div>
+
+        <!-- ════════ E · INA vs SIS ════════ -->
+        <div class="pms-section" aria-label="Изборът на сестрите">
+            <div class="pms-h">
+                <h3 class="pms-h-title">СЕСТРИТЕ НЕ СА СЪГЛАСНИ</h3>
+                <span class="pms-h-quip">и двете са прави. едновременно.</span>
+            </div>
+            <div class="pms-duel">
+                <div class="pms-duel-side pms-duel-side--ina" id="ina-picks">
+                    <div class="pms-duel-head">
+                        <h4 class="pms-duel-name">INA’S PICKS ✦</h4>
+                        <span class="pms-duel-score" data-pms-score="ina">♥ 0</span>
+                    </div>
+                    <p class="pms-duel-quip">„обективно по-добрият рафт."</p>
+                    <div class="pms-rail" id="pmsInaRail"></div>
+                </div>
+                <span class="pms-vs" aria-hidden="true">VS</span>
+                <div class="pms-duel-side pms-duel-side--sis" id="sis-picks">
+                    <div class="pms-duel-head">
+                        <h4 class="pms-duel-name">SIS’ FAVES ♡</h4>
+                        <span class="pms-duel-score" data-pms-score="sis">♥ 0</span>
+                    </div>
+                    <p class="pms-duel-quip">„тя не е съгласна. на висок глас."</p>
+                    <div class="pms-rail" id="pmsSisRail"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════ F · CAMPAIGN SLOT 2 ════════ -->
+        <div class="pms-section" data-pms-campaign-slot="rivalry"></div>
+
+        <!-- ════════ G · ЦЕЛИЯТ МОЛ ════════ -->
+        <div class="pms-section" id="pmsShop" aria-label="Всички продукти">
+            <div class="pms-h">
+                <h3 class="pms-h-title" id="pmsShopTitle">ЦЕЛИЯТ МОЛ</h3>
+                <span class="pms-h-quip" id="pmsShopQuip">разгледай всичко, съжалявай после</span>
+            </div>
+            <div class="pms-grid" id="pmsShopGrid"></div>
+        </div>
+
+        <!-- ════════ CAMPAIGN SLOT 3 ════════ -->
+        <div class="pms-section" data-pms-campaign-slot="after-dark"></div>
+
+        <!-- ════════ H · PINK MALL IRL ════════ -->
+        <div class="pms-section" aria-label="Pink Mall в реалния живот">
+            <div class="pms-h">
+                <h3 class="pms-h-title">SPOTTED IN PINK</h3>
+                <span class="pms-h-quip">скоро: вие, в мола</span>
+            </div>
+            <!-- Placeholder слотове — по-късно тук влизат реални Instagram/UGC постове.
+                 НЕ са фалшиви клиентски снимки. -->
+            <div class="pms-irl-row">
+                <figure class="pms-polaroid" style="--tilt:-3deg"><div class="pms-polaroid-ph">✦</div><figcaption class="pms-polaroid-cap">тук ще е твоята снимка</figcaption></figure>
+                <figure class="pms-polaroid" style="--tilt:2deg"><div class="pms-polaroid-ph">♡</div><figcaption class="pms-polaroid-cap">tag @pierciina</figcaption></figure>
+                <figure class="pms-polaroid" style="--tilt:-1.5deg"><div class="pms-polaroid-ph">✦</div><figcaption class="pms-polaroid-cap">#pinkmall</figcaption></figure>
+                <figure class="pms-polaroid" style="--tilt:2.5deg"><div class="pms-polaroid-ph">♡</div><figcaption class="pms-polaroid-cap">spotted in pink</figcaption></figure>
+            </div>
+        </div>
+
+        <!-- ════════ I · EXIT ════════ -->
+        <div class="pms-exit">
+            <a href="#services" class="pms-exit-sign">← EXIT · ОБРАТНО КЪМ PIERCIINA STUDIO</a>
+        </div>
+    </section>
+
+    <!-- ════════ MOBILE MALL BAR (появява се само в mall mode) ════════ -->
+    <nav class="pms-mobilebar" id="pmsMobilebar" aria-label="Pink Mall мобилна навигация">
+        <button type="button" class="pms-mobilebar-item" data-pms-mnav="mall" aria-label="Начало на мола">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 L12 3 L21 10 V21 H3 Z"/><path d="M9 21 V13 H15 V21"/></svg>
+            МОЛ
+        </button>
+        <button type="button" class="pms-mobilebar-item" data-pms-mnav="shop" aria-label="Категории">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7 V6 a6 6 0 0 1 12 0 v1"/><path d="M4 7 H20 L19 21 H5 Z"/></svg>
+            ШОПИНГ
+        </button>
+        <button type="button" class="pms-mobilebar-item" data-pms-mnav="search" aria-label="Търсене">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            ТЪРСИ
+        </button>
+        <button type="button" class="pms-mobilebar-item" data-pms-mnav="wish" aria-label="Любими">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pms-ph-heart"/></svg>
+            ЛЮБИМИ
+            <span class="pms-wish-count" data-pms-wishcount>0</span>
+        </button>
+    </nav>
+
+    <!-- ════════ SHARED OVERLAY (search / wishlist / категории / peek) ════════ -->
+    <div class="pms-overlay" id="pmsOverlay" role="dialog" aria-modal="true" aria-label="Pink Mall панел">
+        <div class="pms-sheet" id="pmsSheet">
+            <div class="pms-sheet-head">
+                <h4 class="pms-sheet-title" id="pmsSheetTitle2"></h4>
+                <button type="button" class="pms-sheet-close" id="pmsSheetClose2" aria-label="Затвори">✕</button>
+            </div>
+            <div id="pmsSheetBody"></div>
+        </div>
+    </div>
+
     <section class="reviews-section">
         <div class="container">
             <div class="section-header reveal">
@@ -9551,6 +10799,597 @@
         };
 
         setLook('launch01');
+    })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PINK MALL STORE — Phase 2A engine  (window.PinkMallStore)
+         Централен каталог + campaign config + data-driven рендер +
+         wishlist (localStorage) + search основа + mall mode.
+         Отделен IIFE — не пипа PinkMallStage / PierciinaBillboard.
+         ═══════════════════════════════════════════════════════════════ -->
+    <script>
+    (function () {
+        'use strict';
+
+        /* ── Конфигурация ────────────────────────────────────────────
+           Viber дестинацията се преизползва от съществуващия бутон —
+           НЕ се въвежда нов номер. Поръчките през Viber са Phase 2C. */
+        var CONFIG = {
+            viberUrl: (document.querySelector('.viber-fab') || {}).href || '',
+            wishlistKey: 'pinkmall_wishlist_v1',
+            enteredKey: 'pms_entered_v1',
+            shipping: {
+                country: 'България',
+                couriers: ['Econt', 'Speedy'],
+                payment: 'Наложен платеж',
+                returns: 'Връщане с наложен платеж — транспортът е за сметка на клиента.'
+            }
+        };
+
+        /* ── Категории (mall указател) ── */
+        var CATEGORIES = [
+            { slug: 'new',         num: '01', label: 'NEW IN',      bg: 'ново нови',              ph: 'clothing' },
+            { slug: 'clothing',    num: '02', label: 'CLOTHING',    bg: 'дрехи облекло',          ph: 'clothing' },
+            { slug: 'bags',        num: '03', label: 'BAGS',        bg: 'чанта чанти',            ph: 'bags' },
+            { slug: 'shoes',       num: '04', label: 'SHOES',       bg: 'обувки ботуши',          ph: 'shoes' },
+            { slug: 'accessories', num: '05', label: 'ACCESSORIES', bg: 'аксесоари очила колие',  ph: 'accessories' },
+            { slug: 'home',        num: '06', label: 'HOME',        bg: 'дом ваза',               ph: 'home' },
+            { slug: 'candles',     num: '07', label: 'CANDLES',     bg: 'свещ свещи',             ph: 'candles' }
+        ];
+
+        /* ════════════════════════════════════════════════════════════
+           ЦЕНТРАЛЕН КАТАЛОГ — ДЕМО ДАННИ (Phase 2A)
+           ------------------------------------------------------------
+           ⚠ ДЕМО продукти. Наличностите НЕ са синхронизирани с
+           реалност — при живи данни/АPI се подменя само този масив.
+           inventory е ПО РАЗМЕР; малки количества са очаквани.
+           media.image = null → елегантен photo-ready placeholder;
+           слага се път към реална снимка, когато я има.
+           ════════════════════════════════════════════════════════════ */
+        var SIZES_CLOTHING = ['XS', 'S', 'M', 'L', 'XL'];
+
+        var PINK_MALL_PRODUCTS = [
+            /* ── CLOTHING (6) ── */
+            { id:'PM-001', name:'Pink Motel Baby Tee', slug:'pink-motel-baby-tee', category:'clothing', subcategory:'tops',
+              priceEUR:29, oldPriceEUR:null, description:'Къса памучна тениска с ретро „Pink Motel" принт — за дни, в които молът е дом.',
+              composition:'100% памук', fit:'Slim / скъсена', care:'30°, наопаки', selectedBy:'sis',
+              tags:['tee','y2k','motel'], featured:true, isNew:true, campaign:'grand-opening',
+              inventory:{ XS:1, S:2, M:2, L:1, XL:0 }, media:{ image:null, ph:'clothing', field:'blush' }, related:['PM-004','PM-013'] },
+            { id:'PM-002', name:'Heartbreaker Slip Dress', slug:'heartbreaker-slip-dress', category:'clothing', subcategory:'dresses',
+              priceEUR:59, oldPriceEUR:74, description:'Сатенена slip рокля в горещо розово. Идва с драма по подразбиране.',
+              composition:'95% полиестер, 5% еластан', fit:'По тялото', care:'Деликатно пране', selectedBy:'ina',
+              tags:['dress','satin','night'], featured:true, isNew:false, campaign:null,
+              inventory:{ XS:0, S:1, M:1, L:0, XL:0 }, media:{ image:null, ph:'dress', field:'magenta' }, related:['PM-010'] },
+            { id:'PM-003', name:'Mall Rat Plaid Mini Skirt', slug:'mall-rat-plaid-skirt', category:'clothing', subcategory:'bottoms',
+              priceEUR:45, oldPriceEUR:null, description:'Каре в три нюанса розово. Като на манекена от витрината — буквално.',
+              composition:'65% полиестер, 35% вискоза', fit:'Висока талия', care:'30°', selectedBy:'both',
+              tags:['skirt','plaid','y2k'], featured:true, isNew:true, campaign:null,
+              inventory:{ XS:1, S:1, M:2, L:1, XL:1 }, media:{ image:null, ph:'dress', field:'dots' }, related:['PM-001'] },
+            { id:'PM-004', name:'Bubblegum Oversized Jacket', slug:'bubblegum-oversized-jacket', category:'clothing', subcategory:'jackets',
+              priceEUR:89, oldPriceEUR:null, description:'Обемно дънково яке в дъвка-розово. Краде се от сестри без предупреждение.',
+              composition:'100% памук деним', fit:'Oversized', care:'30°, без сушилня', selectedBy:'ina',
+              tags:['jacket','denim','oversized'], featured:false, isNew:true, campaign:null,
+              inventory:{ XS:0, S:1, M:1, L:1, XL:1 }, media:{ image:null, ph:'clothing', field:'cream' }, related:['PM-003'] },
+            { id:'PM-005', name:'Sugar Rush Knit Top', slug:'sugar-rush-knit-top', category:'clothing', subcategory:'tops',
+              priceEUR:35, oldPriceEUR:44, description:'Мек плетен топ с деколте „сърце". Сладко, но с характер.',
+              composition:'70% вискоза, 30% полиамид', fit:'По тялото', care:'Ръчно пране', selectedBy:null,
+              tags:['knit','top','heart'], featured:false, isNew:false, campaign:null,
+              inventory:{ XS:1, S:0, M:0, L:1, XL:0 }, media:{ image:null, ph:'clothing', field:'stripe' }, related:[] },
+            { id:'PM-006', name:'After Hours Cargo Pants', slug:'after-hours-cargo', category:'clothing', subcategory:'bottoms',
+              priceEUR:65, oldPriceEUR:null, description:'Розово карго с достатъчно джобове за гланц, телефон и тайни.',
+              composition:'98% памук, 2% еластан', fit:'Relaxed', care:'30°', selectedBy:'sis',
+              tags:['cargo','streetwear'], featured:false, isNew:false, campaign:null,
+              inventory:{ XS:0, S:0, M:0, L:0, XL:0 }, media:{ image:null, ph:'clothing', field:'blush' }, related:[] },
+
+            /* ── BAGS (4) ── */
+            { id:'PM-007', name:'Pink Mini Bag', slug:'pink-mini-bag', category:'bags', subcategory:null,
+              priceEUR:49, oldPriceEUR:null, description:'Малка, гланцова, побира точно гланц и его. Като от Pink Mall билборда.',
+              composition:'Веган кожа', fit:null, care:'Влажна кърпа', selectedBy:'sis',
+              tags:['bag','mini','crossbody'], featured:true, isNew:true, campaign:'grand-opening',
+              inventory:{ 'ONE SIZE':2 }, media:{ image:null, ph:'bags', field:'magenta' }, related:['PM-008'] },
+            { id:'PM-008', name:'Cherry Gloss Shoulder Bag', slug:'cherry-gloss-shoulder-bag', category:'bags', subcategory:null,
+              priceEUR:69, oldPriceEUR:85, description:'Лачена чанта за рамо в черешово розово. Свети по-силно от витрините.',
+              composition:'Лачена веган кожа', fit:null, care:'Влажна кърпа', selectedBy:'ina',
+              tags:['bag','gloss','shoulder'], featured:true, isNew:false, campaign:null,
+              inventory:{ 'ONE SIZE':1 }, media:{ image:null, ph:'bags', field:'cream' }, related:['PM-007'] },
+            { id:'PM-009', name:'Mall Haul Tote XXL', slug:'mall-haul-tote', category:'bags', subcategory:null,
+              priceEUR:39, oldPriceEUR:null, description:'Толкова голяма, че побира цял shopping haul. Тествано от сестрите.',
+              composition:'Плътен канвас', fit:null, care:'30°', selectedBy:'both',
+              tags:['tote','canvas','xxl'], featured:false, isNew:true, campaign:null,
+              inventory:{ 'ONE SIZE':4 }, media:{ image:null, ph:'bags', field:'dots' }, related:[] },
+            { id:'PM-010', name:'Heart Lock Evening Bag', slug:'heart-lock-evening-bag', category:'bags', subcategory:null,
+              priceEUR:79, oldPriceEUR:null, description:'Вечерна чанта със закопчалка-сърце. За PINK AFTER DARK настроение.',
+              composition:'Сатен + метал', fit:null, care:'Суха кърпа', selectedBy:'ina',
+              tags:['bag','evening','heart'], featured:false, isNew:false, campaign:'after-dark',
+              inventory:{ 'ONE SIZE':0 }, media:{ image:null, ph:'bags', field:'stripe' }, related:['PM-002'] },
+
+            /* ── SHOES (4) ── */
+            { id:'PM-011', name:'Bubblegum Platform Boots', slug:'bubblegum-platform-boots', category:'shoes', subcategory:null,
+              priceEUR:119, oldPriceEUR:null, description:'Платформени ботуши, +7см самочувствие. Розови, естествено.',
+              composition:'Веган кожа, гумена платформа', fit:'Стандартен EU', care:'Влажна кърпа', selectedBy:'sis',
+              tags:['boots','platform','y2k'], featured:true, isNew:true, campaign:'grand-opening',
+              inventory:{ '36':1, '37':1, '38':2, '39':1, '40':0, '41':1 }, media:{ image:null, ph:'shoes', field:'blush' }, related:['PM-012'] },
+            { id:'PM-012', name:'Gloss Heel Mules', slug:'gloss-heel-mules', category:'shoes', subcategory:null,
+              priceEUR:85, oldPriceEUR:99, description:'Лачени мюли с ток-чаша. Звучат като решителност по плочките на мола.',
+              composition:'Лачена веган кожа', fit:'Стандартен EU', care:'Влажна кърпа', selectedBy:'ina',
+              tags:['heels','mules','gloss'], featured:false, isNew:false, campaign:null,
+              inventory:{ '36':0, '37':1, '38':0, '39':1, '40':0, '41':0 }, media:{ image:null, ph:'shoes', field:'cream' }, related:['PM-011'] },
+            { id:'PM-013', name:'Cloud Nine Sneakers', slug:'cloud-nine-sneakers', category:'shoes', subcategory:null,
+              priceEUR:75, oldPriceEUR:null, description:'Бяло-розови маратонки, меки като облак номер девет.',
+              composition:'Текстил + гума', fit:'Стандартен EU', care:'30°, без сушилня', selectedBy:'both',
+              tags:['sneakers','cloud'], featured:false, isNew:true, campaign:null,
+              inventory:{ '36':1, '37':2, '38':1, '39':1, '40':1, '41':0 }, media:{ image:null, ph:'shoes', field:'dots' }, related:[] },
+            { id:'PM-014', name:'Ballet Flat Slingbacks', slug:'ballet-flat-slingbacks', category:'shoes', subcategory:null,
+              priceEUR:55, oldPriceEUR:null, description:'Балеринки с каишка — балеткор, одобрен и от двете сестри. Рядкост.',
+              composition:'Сатен', fit:'Стандартен EU', care:'Суха кърпа', selectedBy:null,
+              tags:['flats','balletcore'], featured:false, isNew:false, campaign:null,
+              inventory:{ '36':0, '37':0, '38':1, '39':0, '40':1, '41':0 }, media:{ image:null, ph:'shoes', field:'stripe' }, related:[] },
+
+            /* ── ACCESSORIES (4) ── */
+            { id:'PM-015', name:'Mall Rat Sunglasses', slug:'mall-rat-sunglasses', category:'accessories', subcategory:null,
+              priceEUR:25, oldPriceEUR:null, description:'Розови очила като от витрината. Виждаш всичко в правилния цвят.',
+              composition:'Ацетат, UV400', fit:null, care:'Кърпичка от микрофибър', selectedBy:'sis',
+              tags:['sunglasses','pink','y2k'], featured:true, isNew:true, campaign:null,
+              inventory:{ 'ONE SIZE':3 }, media:{ image:null, ph:'accessories', field:'magenta' }, related:['PM-016'] },
+            { id:'PM-016', name:'Candy Shades — Lemon', slug:'candy-shades-lemon', category:'accessories', subcategory:null,
+              priceEUR:25, oldPriceEUR:32, description:'Жълтите очила на Ина. Единственото не-розово нещо тук. По изключение.',
+              composition:'Ацетат, UV400', fit:null, care:'Кърпичка от микрофибър', selectedBy:'ina',
+              tags:['sunglasses','yellow','ina'], featured:true, isNew:false, campaign:null,
+              inventory:{ 'ONE SIZE':1 }, media:{ image:null, ph:'accessories', field:'cream' }, related:['PM-015'] },
+            { id:'PM-017', name:'Heart Charm Necklace', slug:'heart-charm-necklace', category:'accessories', subcategory:null,
+              priceEUR:19, oldPriceEUR:null, description:'Нежен синджир със сърце-талисман. Върви с всичко розово (тоест — с всичко тук).',
+              composition:'Неръждаема стомана, позлата', fit:null, care:'Суха кърпа', selectedBy:'both',
+              tags:['necklace','heart','gold'], featured:false, isNew:false, campaign:null,
+              inventory:{ 'ONE SIZE':5 }, media:{ image:null, ph:'accessories', field:'blush' }, related:[] },
+            { id:'PM-018', name:'Sister Scrunchie Set ×3', slug:'sister-scrunchie-set', category:'accessories', subcategory:null,
+              priceEUR:15, oldPriceEUR:null, description:'Три сатенени скрънчита: розово, по-розово, най-розово.',
+              composition:'Сатен', fit:null, care:'Ръчно пране', selectedBy:null,
+              tags:['scrunchie','satin','set'], featured:false, isNew:true, campaign:null,
+              inventory:{ 'ONE SIZE':0 }, media:{ image:null, ph:'accessories', field:'dots' }, related:[] },
+
+            /* ── HOME (3) ── */
+            { id:'PM-019', name:'Wavy Pink Vase', slug:'wavy-pink-vase', category:'home', subcategory:null,
+              priceEUR:42, oldPriceEUR:null, description:'Керамична ваза с вълнообразен силует. Цветята са по избор, розовото — не.',
+              composition:'Глазирана керамика', fit:null, care:'Ръчно измиване', selectedBy:'ina',
+              tags:['vase','ceramic','wavy'], featured:false, isNew:true, campaign:null,
+              inventory:{ 'ONE SIZE':2 }, media:{ image:null, ph:'home', field:'cream' }, related:['PM-020'] },
+            { id:'PM-020', name:'Mirror Mirror Tray', slug:'mirror-mirror-tray', category:'home', subcategory:null,
+              priceEUR:35, oldPriceEUR:45, description:'Огледален поднос за бижута, гланцове и дребни съкровища от мола.',
+              composition:'Огледално стъкло + метал', fit:null, care:'Суха кърпа', selectedBy:'sis',
+              tags:['tray','mirror','vanity'], featured:false, isNew:false, campaign:null,
+              inventory:{ 'ONE SIZE':1 }, media:{ image:null, ph:'home', field:'blush' }, related:['PM-019'] },
+            { id:'PM-021', name:'Plush Heart Cushion', slug:'plush-heart-cushion', category:'home', subcategory:null,
+              priceEUR:29, oldPriceEUR:null, description:'Плюшена възглавница-сърце. Мека страна на сестринското съперничество.',
+              composition:'Полиестер плюш', fit:null, care:'30°', selectedBy:'both',
+              tags:['cushion','heart','plush'], featured:false, isNew:false, campaign:null,
+              inventory:{ 'ONE SIZE':3 }, media:{ image:null, ph:'home', field:'stripe' }, related:[] },
+
+            /* ── CANDLES (3) ── */
+            { id:'PM-022', name:'Heartbreaker Candle', slug:'heartbreaker-candle', category:'candles', subcategory:null,
+              priceEUR:22, oldPriceEUR:null, description:'Соева свещ с аромат на череша и дим. Пали се след залез.',
+              composition:'Соев восък, памучен фитил', fit:null, care:'Първо горене ≥ 2ч', selectedBy:'ina',
+              tags:['candle','cherry','dark'], featured:true, isNew:true, campaign:'after-dark',
+              inventory:{ 'ONE SIZE':2 }, media:{ image:null, ph:'candles', field:'magenta' }, related:['PM-023'] },
+            { id:'PM-023', name:'Mall at Midnight Candle', slug:'mall-at-midnight', category:'candles', subcategory:null,
+              priceEUR:24, oldPriceEUR:null, description:'Мирише на празен мол в полунощ: ванилия, неон и малко тайна.',
+              composition:'Соев восък', fit:null, care:'Първо горене ≥ 2ч', selectedBy:'sis',
+              tags:['candle','vanilla','midnight'], featured:false, isNew:false, campaign:'after-dark',
+              inventory:{ 'ONE SIZE':1 }, media:{ image:null, ph:'candles', field:'blush' }, related:['PM-022'] },
+            { id:'PM-024', name:'Bubble Bath Candle Duo', slug:'bubble-bath-duo', category:'candles', subcategory:null,
+              priceEUR:34, oldPriceEUR:40, description:'Две свещи-балончета. Едната за теб, другата пак за теб.',
+              composition:'Соев восък', fit:null, care:'Върху чинийка', selectedBy:null,
+              tags:['candle','bubble','duo'], featured:false, isNew:true, campaign:null,
+              inventory:{ 'ONE SIZE':0 }, media:{ image:null, ph:'candles', field:'cream' }, related:[] }
+        ];
+
+        /* ── CAMPAIGN CONFIG (банерите се рендерират от данни) ── */
+        var PINK_MALL_CAMPAIGNS = [
+            { id:'grand-opening', active:true, theme:'grand', badge:'GRAND OPENING',
+              eyebrow:'PIERCIINA PRESENTS', title:'PINK MALL ГОЛЯМОТО ОТВАРЯНЕ',
+              subtitle:'Първата доставка е тук: малки количества, нула повторения. Каквото си харесаш — то е последното.',
+              cta:'РАЗГЛЕДАЙ NEW IN', target:'new', image:null },
+            { id:'rivalry', active:true, theme:'split', badge:'СЕСТРИНСКА ДРАМА',
+              eyebrow:'INA MADE ME BUY IT', title:'SIS STOLE MY BAG',
+              subtitle:'Две сестри. Един рафт. Нула шанс да се разберат. Избери страна (или вземи и двете).',
+              cta:'КЪМ ИЗБОРА ИМ', target:'#ina-picks', image:null },
+            { id:'after-dark', active:true, theme:'dark', badge:'ПОСЛЕДНИ БРОЙКИ',
+              eyebrow:'СЛЕД ЗАЛЕЗ', title:'PINK AFTER DARK',
+              subtitle:'Свещи, сатен и вечерни чанти за часовете, в които молът вече е затворил.',
+              cta:'КЪМ СВЕЩИТЕ', target:'candles', image:null }
+        ];
+
+        /* ════════════════════════════════════════════════════════════
+           STATE + HELPERS
+           ════════════════════════════════════════════════════════════ */
+        var mall = document.getElementById('pink-mall');
+        if (!mall) return;
+
+        var els = {
+            gate: document.getElementById('pmsGate'),
+            dirCats: document.getElementById('pmsDirbarCats'),
+            directory: document.getElementById('pmsDirectory'),
+            newRail: document.getElementById('pmsNewRail'),
+            inaRail: document.getElementById('pmsInaRail'),
+            sisRail: document.getElementById('pmsSisRail'),
+            shopGrid: document.getElementById('pmsShopGrid'),
+            shopTitle: document.getElementById('pmsShopTitle'),
+            shopQuip: document.getElementById('pmsShopQuip'),
+            overlay: document.getElementById('pmsOverlay'),
+            sheetTitle: document.getElementById('pmsSheetTitle2'),
+            sheetBody: document.getElementById('pmsSheetBody'),
+            mobilebar: document.getElementById('pmsMobilebar')
+        };
+
+        var activeCategory = 'all';
+        var lastFocus = null;
+
+        function esc(t){ var d=document.createElement('div'); d.textContent=t==null?'':String(t); return d.innerHTML; }
+        function byId(id){ return PINK_MALL_PRODUCTS.find(function(p){ return p.id===id; }); }
+        function stockTotal(p){ return Object.values(p.inventory).reduce(function(a,v){ return a+v; },0); }
+        function isSoldOut(p){ return stockTotal(p)===0; }
+        function isLowStock(p){ var t=stockTotal(p); return t>0 && t<=2; }
+        function discount(p){ return p.oldPriceEUR ? Math.round((1-p.priceEUR/p.oldPriceEUR)*100) : 0; }
+        function catLabel(slug){ var c=CATEGORIES.find(function(x){return x.slug===slug;}); return c?c.label:slug; }
+        function reduceMotion(){ return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+        /* ── Wishlist (localStorage) ── */
+        function getWishlist(){
+            try { return JSON.parse(localStorage.getItem(CONFIG.wishlistKey)) || []; }
+            catch(e){ return []; }
+        }
+        function setWishlist(list){
+            try { localStorage.setItem(CONFIG.wishlistKey, JSON.stringify(list)); } catch(e){}
+            syncWishUI();
+        }
+        function toggleWishlist(id){
+            var list=getWishlist(); var i=list.indexOf(id);
+            if(i>-1){ list.splice(i,1); } else if(byId(id)){ list.push(id); }
+            setWishlist(list);
+            return list.indexOf(id)>-1;
+        }
+        function syncWishUI(){
+            var list=getWishlist();
+            document.querySelectorAll('[data-pms-wishcount]').forEach(function(el){
+                el.textContent=list.length;
+                el.classList.toggle('has', list.length>0);
+            });
+            document.querySelectorAll('.pms-heart[data-pms-id]').forEach(function(btn){
+                var on=list.indexOf(btn.getAttribute('data-pms-id'))>-1;
+                btn.setAttribute('aria-pressed', on?'true':'false');
+            });
+            /* Сестрински „резултат": колко от нейните продукти са в любими */
+            ['ina','sis'].forEach(function(who){
+                var n=list.filter(function(id){ var p=byId(id); return p&&(p.selectedBy===who||p.selectedBy==='both'); }).length;
+                var el=document.querySelector('[data-pms-score="'+who+'"]');
+                if(el) el.textContent='♥ '+n;
+            });
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           РЕНДЕР
+           ════════════════════════════════════════════════════════════ */
+        function mediaHTML(p, small){
+            if(p.media && p.media.image){
+                return '<div class="pms-media" data-pms-id="'+p.id+'"><img src="'+esc(p.media.image)+'" alt="'+esc(p.name)+'" loading="lazy"></div>';
+            }
+            var field=(p.media&&p.media.field)||'blush';
+            var ph=(p.media&&p.media.ph)||'clothing';
+            return '<div class="pms-media" data-field="'+field+'" data-pms-id="'+p.id+'" role="img" aria-label="'+esc(p.name)+' — снимката очаквайте скоро">'
+                 + '<svg aria-hidden="true"><use href="#pms-ph-'+ph+'"/></svg>'
+                 + (small?'':'<span class="pms-media-tag">'+p.id+' · СНИМКА СКОРО</span>')
+                 + '</div>';
+        }
+
+        function badgesHTML(p){
+            var b=[];
+            if(isSoldOut(p)) b.push('<span class="pms-badge pms-badge--soldout">ИЗЧЕРПАН</span>');
+            else if(isLowStock(p)) b.push('<span class="pms-badge pms-badge--low">ПОСЛЕДНИ БРОЙКИ</span>');
+            else if(p.isNew) b.push('<span class="pms-badge pms-badge--new">NEW</span>');
+            var d=discount(p);
+            if(d && !isSoldOut(p)) b.push('<span class="pms-badge pms-badge--sale">−'+d+'%</span>');
+            return b.length?'<div class="pms-badges">'+b.join('')+'</div>':'';
+        }
+
+        function sisterHTML(p){
+            if(!p.selectedBy) return '';
+            var bits=[];
+            if(p.selectedBy==='ina'||p.selectedBy==='both') bits.push('<span class="s-ina">INA’S PICK ✦</span>');
+            if(p.selectedBy==='sis'||p.selectedBy==='both') bits.push('<span class="s-sis">SIS’ FAVE ♡</span>');
+            return '<span class="pms-card-sister">'+bits.join('')+'</span>';
+        }
+
+        function priceHTML(p){
+            var h='<span class="pms-price-now">€'+p.priceEUR+'</span>';
+            if(p.oldPriceEUR){
+                h+='<span class="pms-price-old">€'+p.oldPriceEUR+'</span>'
+                 +'<span class="pms-price-off">−'+discount(p)+'%</span>';
+            }
+            return '<div class="pms-card-price">'+h+'</div>';
+        }
+
+        function cardHTML(p){
+            return '<article class="pms-card'+(isSoldOut(p)?' is-soldout':'')+'" data-pms-card="'+p.id+'" data-pms-cat="'+p.category+'">'
+                + mediaHTML(p)
+                + badgesHTML(p)
+                + '<button type="button" class="pms-heart" data-pms-id="'+p.id+'" aria-pressed="false" aria-label="Добави '+esc(p.name)+' в любими">'
+                +   '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pms-ph-heart"/></svg>'
+                + '</button>'
+                + '<div class="pms-card-body">'
+                +   sisterHTML(p)
+                +   '<h4 class="pms-card-name">'+esc(p.name)+'</h4>'
+                +   priceHTML(p)
+                +   '<button type="button" class="pms-quick" data-pms-quick="'+p.id+'">БЪРЗ ПОГЛЕД</button>'
+                + '</div>'
+                + '</article>';
+        }
+
+        function renderCards(container, list){
+            if(!container) return;
+            container.innerHTML = list.length
+                ? list.map(cardHTML).join('')
+                : '<p class="pms-empty">рафтът е празен… сестрите пазаруват нова доставка ✦</p>';
+            syncWishUI();
+        }
+
+        function renderDirbar(){
+            var chips='<button type="button" class="pms-cat-chip is-active" data-pms-cat-btn="all" role="tab" aria-selected="true"><span class="pms-cat-num">✦</span>ВСИЧКО</button>';
+            CATEGORIES.forEach(function(c){
+                chips+='<button type="button" class="pms-cat-chip" data-pms-cat-btn="'+c.slug+'" role="tab" aria-selected="false">'
+                    +'<span class="pms-cat-num">'+c.num+'</span>'+c.label+'</button>';
+            });
+            els.dirCats.innerHTML=chips;
+        }
+
+        function renderDirectory(){
+            els.directory.innerHTML=CATEGORIES.map(function(c){
+                var n = c.slug==='new'
+                    ? PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;}).length
+                    : PINK_MALL_PRODUCTS.filter(function(p){return p.category===c.slug;}).length;
+                return '<button type="button" class="pms-dir-tile" data-pms-cat-btn="'+c.slug+'">'
+                    +'<span class="pms-dir-num">ЕТАЖ '+c.num+'</span>'
+                    +'<span class="pms-dir-name">'+c.label+'</span>'
+                    +'<span class="pms-dir-count">'+n+' находки</span>'
+                    +'<span class="pms-dir-arrow" aria-hidden="true">→</span>'
+                    +'</button>';
+            }).join('');
+        }
+
+        function renderCampaigns(){
+            PINK_MALL_CAMPAIGNS.forEach(function(c){
+                var slot=document.querySelector('[data-pms-campaign-slot="'+c.id+'"]');
+                if(!slot) return;
+                if(!c.active){ slot.hidden=true; return; }
+                slot.innerHTML='<div class="pms-campaign" data-theme="'+c.theme+'"'
+                    +(c.image?' style="background-image:url(\''+esc(c.image)+'\');background-size:cover;background-position:center"':'')+'>'
+                    +(c.badge?'<span class="pms-campaign-badge">'+esc(c.badge)+'</span>':'')
+                    +'<span class="pms-campaign-eyebrow">'+esc(c.eyebrow)+'</span>'
+                    +'<h3 class="pms-campaign-title">'+esc(c.title)+'</h3>'
+                    +'<p class="pms-campaign-sub">'+esc(c.subtitle)+'</p>'
+                    +'<button type="button" class="pms-campaign-cta" data-pms-target="'+esc(c.target)+'">'+esc(c.cta)+' →</button>'
+                    +'</div>';
+            });
+        }
+
+        function filteredProducts(cat){
+            if(cat==='all') return PINK_MALL_PRODUCTS;
+            if(cat==='new') return PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;});
+            return PINK_MALL_PRODUCTS.filter(function(p){return p.category===cat;});
+        }
+
+        var QUIPS = {
+            all:'разгледай всичко, съжалявай после', 'new':'още миришат на опаковка',
+            clothing:'дрехите, за които сестрите спорят', bags:'носи повече, отколкото трябва',
+            shoes:'+7см самочувствие', accessories:'малките неща правят драмата',
+            home:'молът, но у вас', candles:'пали след залез'
+        };
+
+        function goToCategory(slug, scroll){
+            activeCategory=slug;
+            document.querySelectorAll('[data-pms-cat-btn]').forEach(function(btn){
+                var on=btn.getAttribute('data-pms-cat-btn')===slug;
+                if(btn.classList.contains('pms-cat-chip')){
+                    btn.classList.toggle('is-active', on);
+                    btn.setAttribute('aria-selected', on?'true':'false');
+                }
+            });
+            els.shopTitle.textContent = slug==='all' ? 'ЦЕЛИЯТ МОЛ' : catLabel(slug);
+            els.shopQuip.textContent = QUIPS[slug]||'';
+            renderCards(els.shopGrid, filteredProducts(slug));
+            if(scroll!==false){
+                document.getElementById('pmsShop').scrollIntoView({behavior:reduceMotion()?'auto':'smooth', block:'start'});
+            }
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           SHEETS (search / wishlist / категории / quick view)
+           ════════════════════════════════════════════════════════════ */
+        function openSheet(title, bodyHTML, focusSel){
+            lastFocus=document.activeElement;
+            els.sheetTitle.textContent=title;
+            els.sheetBody.innerHTML=bodyHTML;
+            els.overlay.classList.add('is-open');
+            document.body.style.overflow='hidden';
+            var f=focusSel&&els.sheetBody.querySelector(focusSel);
+            (f||document.getElementById('pmsSheetClose2')).focus();
+        }
+        function closeSheet(){
+            els.overlay.classList.remove('is-open');
+            document.body.style.overflow='';
+            if(lastFocus&&lastFocus.focus) lastFocus.focus();
+        }
+
+        function openSearch(){
+            openSheet('ТЪРСИ В МОЛА',
+                '<input type="search" class="pms-search-input" id="pmsSearchInput" placeholder="розово, чанта, свещ…" aria-label="Търсене">'
+                +'<div class="pms-grid" id="pmsSearchResults"></div>', '#pmsSearchInput');
+            var input=document.getElementById('pmsSearchInput');
+            var res=document.getElementById('pmsSearchResults');
+            function run(){
+                var q=input.value.trim().toLowerCase();
+                if(!q){ res.innerHTML='<p class="pms-empty">напиши нещо розово ✦</p>'; return; }
+                var hits=PINK_MALL_PRODUCTS.filter(function(p){
+                    var c=CATEGORIES.find(function(x){return x.slug===p.category;})||{};
+                    return p.name.toLowerCase().indexOf(q)>-1
+                        || p.category.indexOf(q)>-1
+                        || catLabel(p.category).toLowerCase().indexOf(q)>-1
+                        || (c.bg||'').indexOf(q)>-1
+                        || p.description.toLowerCase().indexOf(q)>-1
+                        || p.tags.some(function(t){return t.indexOf(q)>-1;});
+                });
+                renderCards(res, hits);
+            }
+            input.addEventListener('input', run); run();
+        }
+
+        function openWishlist(){
+            var list=getWishlist().map(byId).filter(Boolean);
+            openSheet('ЛЮБИМИ ♥',
+                list.length?'<div class="pms-grid">'+list.map(cardHTML).join('')+'</div>'
+                :'<p class="pms-empty">празно е… сърцето чака да натиснеш ♥</p>');
+            syncWishUI();
+        }
+
+        function openCategorySheet(){
+            openSheet('УКАЗАТЕЛ',
+                '<div class="pms-directory">'+CATEGORIES.map(function(c){
+                    return '<button type="button" class="pms-dir-tile" data-pms-cat-btn="'+c.slug+'">'
+                        +'<span class="pms-dir-num">ЕТАЖ '+c.num+'</span>'
+                        +'<span class="pms-dir-name">'+c.label+'</span>'
+                        +'<span class="pms-dir-arrow" aria-hidden="true">→</span></button>';
+                }).join('')+'</div>');
+        }
+
+        function openPeek(id){
+            var p=byId(id); if(!p) return;
+            var sizes=Object.keys(p.inventory).map(function(s){
+                var n=p.inventory[s];
+                return '<span class="pms-size'+(n===0?' is-out':(n===1?' is-low':''))+'" '
+                    +'aria-label="Размер '+s+(n===0?' — изчерпан':(n===1?' — последна бройка':''))+'">'+s+'</span>';
+            }).join('');
+            openSheet(p.id,
+                '<div class="pms-peek-body">'
+                + mediaHTML(p,true)
+                + '<div>'
+                +   sisterHTML(p)
+                +   '<h4 class="pms-peek-name">'+esc(p.name)+'</h4>'
+                +   '<div class="pms-peek-price">€'+p.priceEUR+(p.oldPriceEUR?' <span class="pms-price-old">€'+p.oldPriceEUR+'</span>':'')+'</div>'
+                +   '<p class="pms-peek-desc">'+esc(p.description)+'</p>'
+                +   '<p class="pms-peek-meta">'+esc(p.composition)+(p.fit?' · '+esc(p.fit):'')+' · '+esc(p.care)+'</p>'
+                +   '<div class="pms-size-row" role="list" aria-label="Налични размери">'+sizes+'</div>'
+                +   '<button type="button" class="pms-quick" data-pms-wish-toggle="'+p.id+'">♥ В ЛЮБИМИ</button>'
+                +   '<p class="pms-peek-note">Доставка: '+CONFIG.shipping.couriers.join(' / ')+' · само за '+CONFIG.shipping.country
+                +   ' · '+CONFIG.shipping.payment+'.<br>Поръчки през Viber — идват в следващата фаза на мола. ✦</p>'
+                + '</div></div>');
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           MALL MODE + врати + мобилен бар
+           ════════════════════════════════════════════════════════════ */
+        if('IntersectionObserver' in window){
+            new IntersectionObserver(function(entries){
+                entries.forEach(function(en){
+                    document.body.classList.toggle('pms-mall-mode', en.isIntersecting);
+                });
+            },{rootMargin:'-45% 0px -45% 0px'}).observe(mall);
+
+            /* Вратите се отварят при първо приближаване (веднъж на сесия) */
+            var doorsIO=new IntersectionObserver(function(entries){
+                entries.forEach(function(en){
+                    if(!en.isIntersecting) return;
+                    var open=function(){ els.gate.classList.add('is-open'); };
+                    var seen=false;
+                    try{ seen=sessionStorage.getItem(CONFIG.enteredKey)==='1'; }catch(e){}
+                    if(seen||reduceMotion()){ open(); }
+                    else{
+                        setTimeout(open, 180);
+                        try{ sessionStorage.setItem(CONFIG.enteredKey,'1'); }catch(e){}
+                    }
+                    doorsIO.disconnect();
+                });
+            },{threshold:0.25});
+            doorsIO.observe(els.gate);
+        } else {
+            document.body.classList.add('pms-mall-mode');
+            els.gate.classList.add('is-open');
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           СЪБИТИЯ (делегирани)
+           ════════════════════════════════════════════════════════════ */
+        document.addEventListener('click', function(e){
+            var t=e.target;
+            var catBtn=t.closest&&t.closest('[data-pms-cat-btn]');
+            if(catBtn){ closeSheet(); goToCategory(catBtn.getAttribute('data-pms-cat-btn')); return; }
+            var heart=t.closest&&t.closest('.pms-heart[data-pms-id]');
+            if(heart){ toggleWishlist(heart.getAttribute('data-pms-id')); return; }
+            var wt=t.closest&&t.closest('[data-pms-wish-toggle]');
+            if(wt){ toggleWishlist(wt.getAttribute('data-pms-wish-toggle')); return; }
+            var quick=t.closest&&t.closest('[data-pms-quick]');
+            if(quick){ openPeek(quick.getAttribute('data-pms-quick')); return; }
+            var media=t.closest&&t.closest('.pms-media[data-pms-id]');
+            if(media&&t.closest('#pink-mall, #pmsSheet')){ openPeek(media.getAttribute('data-pms-id')); return; }
+            var target=t.closest&&t.closest('[data-pms-target]');
+            if(target){
+                var v=target.getAttribute('data-pms-target');
+                if(v.charAt(0)==='#'){
+                    var elT=document.querySelector(v);
+                    if(elT) elT.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'});
+                } else { goToCategory(v); }
+                return;
+            }
+        });
+
+        document.getElementById('pmsSearchBtn').addEventListener('click', openSearch);
+        document.getElementById('pmsWishBtn').addEventListener('click', openWishlist);
+        document.getElementById('pmsSheetClose2').addEventListener('click', closeSheet);
+        document.getElementById('pmsGateCta').addEventListener('click', function(){
+            els.gate.classList.add('is-open');
+            document.getElementById('pmsDirbar').nextElementSibling
+                .scrollIntoView({behavior:reduceMotion()?'auto':'smooth'});
+        });
+
+        els.overlay.addEventListener('click', function(e){ if(e.target===els.overlay) closeSheet(); });
+        document.addEventListener('keydown', function(e){
+            if(e.key==='Escape'&&els.overlay.classList.contains('is-open')) closeSheet();
+        });
+
+        /* Мобилен mall бар */
+        els.mobilebar.addEventListener('click', function(e){
+            var item=e.target.closest('[data-pms-mnav]'); if(!item) return;
+            els.mobilebar.querySelectorAll('.pms-mobilebar-item').forEach(function(b){b.classList.remove('is-active');});
+            item.classList.add('is-active');
+            var act=item.getAttribute('data-pms-mnav');
+            if(act==='mall') mall.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'});
+            else if(act==='shop') openCategorySheet();
+            else if(act==='search') openSearch();
+            else if(act==='wish') openWishlist();
+        });
+
+        /* ════════════════════════════════════════════════════════════
+           INIT + PUBLIC API
+           ════════════════════════════════════════════════════════════ */
+        renderDirbar();
+        renderDirectory();
+        renderCampaigns();
+        renderCards(els.newRail, PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;}));
+        renderCards(els.inaRail, PINK_MALL_PRODUCTS.filter(function(p){return p.selectedBy==='ina'||p.selectedBy==='both';}));
+        renderCards(els.sisRail, PINK_MALL_PRODUCTS.filter(function(p){return p.selectedBy==='sis'||p.selectedBy==='both';}));
+        goToCategory('all', false);
+        syncWishUI();
+
+        window.PinkMallStore = {
+            open: function(){ mall.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'}); },
+            goToCategory: goToCategory,
+            search: openSearch,
+            getProduct: byId,
+            getWishlist: getWishlist,
+            toggleWishlist: toggleWishlist,
+            products: PINK_MALL_PRODUCTS,
+            campaigns: PINK_MALL_CAMPAIGNS,
+            categories: CATEGORIES,
+            config: CONFIG
+        };
     })();
     </script>
 
