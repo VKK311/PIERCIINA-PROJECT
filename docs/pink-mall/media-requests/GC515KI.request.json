@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "brand": "New Balance",
+  "manufacturerItemNo": "GC515KI",
+  "model": "515 V1",
+  "variant": "Rose Sugar",
+
+  "candidateMedia": [],
+
+  "discoveryPages": [
+    "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
+    "https://www.newbalance.eu/search?q=GC515KI",
+    "https://www.newbalance.co.uk/search?q=GC515KI"
+  ],
+
+  "resolution": { "widthLadder": [1600, 1200, 1000] },
+
+  "requestedBy": "claude",
+  "requestedFor": "PM-026 (proposed, not published)",
+  "notes": [
+    "ZERO-SEED TEST: candidateMedia is deliberately empty. The user supplied no product URL, no image URLs and no files. Every candidate must come from the automation's own discovery — page scraping or official-CDN probing.",
+    "Discovery pages are leads only; any asset whose URL does not carry GC515KI is rejected, so a neighbouring colourway cannot slip in.",
+    "Manufacturer classifies this as a grade-school/girls series item. Internal only; never in public PINK MALL content."
+  ]
+}

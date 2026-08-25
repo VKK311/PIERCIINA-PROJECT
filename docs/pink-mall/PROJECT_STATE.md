@@ -93,4 +93,4 @@ before a publication is considered reviewed:
 
 ## Next step
 
-Explicit PM-025 approval, then a publication task.
+PM-025 is published. Next Mall ID is **PM-026**.

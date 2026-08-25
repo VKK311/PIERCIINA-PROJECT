@@ -39,6 +39,34 @@ BRANDS = {
         # candidates and propose a MAIN; a human still confirms visually.
         "view_re": r"_(\d{2})(?:_\d{2})?_standard",
     },
+
+    "new balance": {
+        "allowed_hosts": [
+            "www.newbalance.co.uk", "newbalance.co.uk",
+            "www.newbalance.eu", "newbalance.eu",
+            "nl.newbalance.eu", "at.newbalance.eu", "de.newbalance.eu",
+            "fr.newbalance.eu", "si.newbalance.eu", "ie.newbalance.eu",
+            "www.newbalance.com", "newbalance.com",
+            "nb.scene7.com",
+        ],
+        "page_templates": [
+            "https://www.newbalance.co.uk/search?q={sku}",
+            "https://www.newbalance.eu/search?q={sku}",
+            "https://www.newbalance.com/search?q={sku}",
+        ],
+        "cdn_hosts": ["nb.scene7.com"],
+        # New Balance publishes on Scene7 under the style code itself. These are
+        # probes, not assertions: a probe only becomes a candidate if it
+        # downloads, decodes, and carries the exact SKU in its own path — and a
+        # human still confirms the variant visually on the contact sheet.
+        "cdn_probe": [
+            "https://nb.scene7.com/is/image/NB/{sku_lower}_nb_{view}_i?$pdpflexf2$&wid=1600&hei=1600",
+        ],
+        "cdn_probe_views": ["02", "03", "04", "05", "06", "07", "08"],
+        "width_ladder": [1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": r"_nb_(\d{2})_i",
+    },
 }
 
 DEFAULT = {
@@ -48,6 +76,8 @@ DEFAULT = {
     "width_ladder": [1880, 1600, 1200, 1000],
     "sku_in_url": True,
     "view_re": None,
+    "cdn_probe": [],
+    "cdn_probe_views": [],
 }
 
 

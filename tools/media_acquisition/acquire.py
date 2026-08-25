@@ -190,20 +190,36 @@ def _decode_transform(url):
     return url.replace("%2C", ",").replace("%2c", ",")
 
 
+QUERY_SIZE_RE = re.compile(r"([?&])(wid|hei)=(\d+)", re.I)
+
+
 def resolution_variants(url, ladder):
-    """Same asset, larger width. Only the transform segment changes; the asset
-    hash and filename are left alone, so this can never yield a different
-    product or colorway."""
+    """Same asset, larger. Only the sizing instruction changes — never the
+    asset identifier — so this can never yield a different product or colorway.
+
+    Two shapes are handled: a path transform segment (Cloudinary-style,
+    /images/w_500,.../) and query sizing (Scene7-style, ?wid=440&hei=440)."""
     u = _decode_transform(url)
-    m = TRANSFORM_RE.search(u)
-    if not m:
-        return []
-    current = int(m.group(3))
     out = []
-    for w in ladder:
-        if w <= current:
-            continue
-        out.append(TRANSFORM_RE.sub(lambda mm, w=w: "%s%s%d%s" % (mm.group(1), mm.group(2), w, mm.group(4)), u, count=1))
+
+    m = TRANSFORM_RE.search(u)
+    if m:
+        current = int(m.group(3))
+        for w in ladder:
+            if w <= current:
+                continue
+            out.append(TRANSFORM_RE.sub(
+                lambda mm, w=w: "%s%s%d%s" % (mm.group(1), mm.group(2), w, mm.group(4)), u, count=1))
+        return out
+
+    sizes = QUERY_SIZE_RE.findall(u)
+    if sizes:
+        current = max(int(v) for _, _, v in sizes)
+        for w in ladder:
+            if w <= current:
+                continue
+            out.append(QUERY_SIZE_RE.sub(
+                lambda mm, w=w: "%s%s=%d" % (mm.group(1), mm.group(2), w), u))
     return out
 
 
@@ -294,6 +310,18 @@ def acquire(request, outroot, log):
         u = seed["url"] if isinstance(seed, dict) else seed
         candidates.append((u, "request-seed"))
 
+    # Official-CDN probing. Brands that publish under the style code expose a
+    # predictable asset path; we try it and keep only what actually downloads,
+    # decodes and carries the exact SKU. A probe is a lead, never evidence:
+    # the variant is still confirmed visually before any approval package.
+    probes = list(request.get("cdnProbe", [])) or rule.get("cdn_probe", [])
+    views = request.get("cdnProbeViews") or rule.get("cdn_probe_views", [])
+    for tpl in probes:
+        for view in views:
+            candidates.append((tpl.format(sku=sku, sku_lower=sku.lower(),
+                                          sku_upper=sku.upper(), view=view),
+                               "cdn-probe"))
+
     pages = list(request.get("discoveryPages", []))
     if request.get("officialProductPage"):
         pages.insert(0, request["officialProductPage"])
@@ -367,6 +395,15 @@ def acquire(request, outroot, log):
                     continue
             if best is None or meta["longest_edge"] > best["longest_edge"]:
                 best = meta
+
+        # For brands that put the style code in the asset path, an image whose
+        # URL lacks the SKU is not provably this product. That matters most on a
+        # zero-seed run, where a search or category page can easily surface a
+        # neighbouring colourway.
+        if best and rule.get("sku_in_url") and not sku_signal(best["url"], sku):
+            log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
+                        "error": "asset URL does not carry SKU %s; rejected" % sku})
+            best = None
 
         if best:
             best["discovery_method"] = method
