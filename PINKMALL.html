@@ -11583,7 +11583,44 @@
                   fit:'contain', surface:'#F1F1F1',
                   ph:'shoes', field:'blush'
               },
-              related:['PM-025'] }
+              related:['PM-025'] },
+
+            /* ── SHOES · трети реален доставчиков продукт ── */
+            { id:'PM-027', brand:'Converse', manufacturerItemNo:'A08745C',
+              name:'Chuck Taylor All Star Move', slug:'converse-chuck-taylor-all-star-move-pink',
+              category:'shoes', subcategory:'sneakers',
+              color:'Pink',
+              /* composition умишлено липсва — съставът не е установен от
+                 самата верига на снабдяване, затова не се публикува */
+              priceEUR:49, oldPriceEUR:null,
+              description:'Converse Chuck Taylor All Star Move в розово, на платформа. Класическият силует, но вдигнат — high-top energy без излишна драма.',
+              fit:null, care:null, selectedBy:null,
+              tags:['converse','chuck taylor','all star','move','sneakers','shoes','pink','platform','high-top'],
+              featured:false, isNew:false, newUntil:'2026-09-08', campaign:null,
+              inventoryMode:'availability',
+              /* Само потвърдените от доставчика размери. Точната размерна
+                 стълбица на този SKU не е доказана, затова НЕ се твърдят
+                 изчерпани размери. */
+              availability:{ '36':'available', '37.5':'available', '38':'available', '39':'available' },
+              media:{
+                  image:'assets/pink-mall/products/PM-027/PM-027-main.webp',
+                  imageAlt:'Розови Converse Chuck Taylor All Star Move високи кецове на платформа, страничен изглед',
+                  gallery:[
+                      'assets/pink-mall/products/PM-027/PM-027-02.webp',
+                      'assets/pink-mall/products/PM-027/PM-027-03.webp',
+                      'assets/pink-mall/products/PM-027/PM-027-04.webp',
+                      'assets/pink-mall/products/PM-027/PM-027-05.webp'
+                  ],
+                  galleryAlt:[
+                      'Розови Converse Chuck Taylor All Star Move, изглед под ъгъл отпред',
+                      'Розови Converse Chuck Taylor All Star Move, чифт под ъгъл',
+                      'Розови Converse Chuck Taylor All Star Move, изглед от вътрешната страна',
+                      'Розови Converse Chuck Taylor All Star Move, изглед отгоре'
+                  ],
+                  fit:'contain', surface:'#FFFFFF',
+                  ph:'shoes', field:'blush'
+              },
+              related:['PM-025','PM-026'] }
         ];
 
         /* ── CAMPAIGN CONFIG (банерите се рендерират от данни) ── */
@@ -11658,12 +11695,24 @@
            преобразува — '37 1/3' се съхранява, сравнява, показва и
            изпраща във Viber точно така. Тук се смята само наредба. */
         function sizeSortKey(s){
-            var m = /^(\d+)(?:\s+(\d+)\/(\d+))?$/.exec(String(s).trim());
-            if (!m) return null;
-            var whole = parseInt(m[1], 10);
-            if (!isFinite(whole)) return null;
-            var frac = (m[2] && m[3]) ? (parseInt(m[2], 10) / parseInt(m[3], 10)) : 0;
-            return whole + (isFinite(frac) ? frac : 0);
+            var t = String(s).trim();
+            var m = /^(\d+)(?:\s+(\d+)\/(\d+))?$/.exec(t);
+            if (m) {
+                var whole = parseInt(m[1], 10);
+                if (!isFinite(whole)) return null;
+                var frac = (m[2] && m[3]) ? (parseInt(m[2], 10) / parseInt(m[3], 10)) : 0;
+                return whole + (isFinite(frac) ? frac : 0);
+            }
+            /* Десетичната форма е също толкова реална, колкото дробната:
+               Converse изписва половинките като '37.5', adidas — като
+               '37 1/3'. И двете се подреждат числово; етикетът пак остава
+               непокътнат. */
+            var d = /^(\d+)[.,](\d+)$/.exec(t);
+            if (d) {
+                var v = parseFloat(d[1] + '.' + d[2]);
+                return isFinite(v) ? v : null;
+            }
+            return null;
         }
 
         function sortSizes(list){

@@ -4,7 +4,7 @@
 `VARIANT_CONFIDENCE_PASS` — exact-SKU evidence on every image, and all three
 official colour terms (`pink`, `green`, `gold`) detected in frame.
 
-**Mall ID: not allocated.** If A08745C publishes first, this becomes **PM-028**.
+**Mall ID: PM-028.** A08745C was published as PM-027 on 2026-08-25, so this product takes **PM-028** on approval. The ID is still unallocated in the catalogue — it is claimed only at publication.
 
 ---
 
@@ -144,7 +144,7 @@ VARIANT:  VARIANT_CONFIDENCE_PASS
 BRAND:    adidas
 MODEL:    Gazelle Bold Shoes
 ITEM:     JR5952
-MALL ID:  not allocated — PM-028 if A08745C publishes first
+MALL ID:  PM-028 (proposed — claimed only at publication)
 CATEGORY: SHOES > Sneakers
 COLOR:    Pink / Green / Gold  (manufacturer: Almost Pink / Court Green / Gold Metallic)
 MATERIAL: omitted — not established by this pipeline
