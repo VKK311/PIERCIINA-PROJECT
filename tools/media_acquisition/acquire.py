@@ -304,8 +304,31 @@ def validate_bytes(body, ctype):
     }, None
 
 
+# Image CDNs in the Thumbor / imgproxy family put the real asset id inside
+# parentheses and append a cosmetic, SEO-friendly slug after it:
+#
+#   https://img.eobuwie.cloud/product(<real-asset-id>)/<decorative-slug>.jpg
+#
+# The slug is chosen by the page, not by the asset. A page for one product can
+# therefore serve a completely different product's bytes under a slug naming
+# the SKU you asked for — which is exactly how a white-and-green Gazelle Bold
+# was once accepted as evidence for the pink JR5952. Only the identifier
+# counts.
+TRANSFORM_WRAP_RE = re.compile(r"\(([^)]*)\)")
+
+
+def asset_identity(url):
+    """The part of a URL that actually identifies the bytes."""
+    parts = urllib.parse.urlsplit(urllib.parse.unquote(url))
+    wraps = TRANSFORM_WRAP_RE.findall(parts.path)
+    if wraps:
+        return (parts.netloc + " " + " ".join(wraps)).lower()
+    return (parts.netloc + parts.path).lower()
+
+
 def sku_signal(url, sku):
-    return sku.lower() in urllib.parse.unquote(url).lower()
+    """True only when the SKU is in the asset's identifying portion."""
+    return sku.lower() in asset_identity(url)
 
 
 def backdrop(img, tol=6):
