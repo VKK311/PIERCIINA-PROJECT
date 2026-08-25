@@ -198,6 +198,31 @@ Required:
 - Browser console clean
 - Existing products/filters/wishlist unaffected
 
+### Portable review verification
+
+Repository verification is not the same as review verification.
+
+`PINKMALL.html` references product media at `assets/pink-mall/products/<PM-ID>/`.
+That is correct for production and passes every repository test — but the file a
+reviewer downloads on its own has dangling relative paths and no product
+photography. A product is not fully reviewed until both hold:
+
+1. **Production** — fresh clone, `PINKMALL.html` + `assets/`, all checks above.
+2. **Portable review** — `PINKMALL_REVIEW_STANDALONE.html` copied alone into an
+   empty directory, with card image, every gallery image, gallery navigation,
+   authored alt text and mobile layout all working from that single file.
+
+Regenerate the artifact after every successful publication:
+
+```bash
+python tools/build_standalone_review.py
+```
+
+It reads the canonical HTML read-only, inlines local images as `data:` URIs,
+and fails if any required local path survives. It is a generated human-review
+artifact — never the canonical website, and never a reason to change the
+production media architecture.
+
 Only then:
 
 ```text

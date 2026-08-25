@@ -24,6 +24,22 @@ Two rules follow, and neither has an exception:
 - **Verify by hash, not by filename.** `PROJECT_STATE.md` records the canonical
   SHA-256. Check it before treating a file as the canonical build.
 
+## Two builds, and they verify different things
+
+| File | What it is | Verified by |
+|---|---|---|
+| `PINKMALL.html` + `assets/` | the canonical website | fresh clone, full regression |
+| `PINKMALL_REVIEW_STANDALONE.html` | generated review artifact, images inlined | copied alone into an empty directory |
+
+**Production verification is not portable review verification.** The canonical
+HTML references product media at `assets/pink-mall/products/<PM-ID>/`, so a
+reviewer who downloads that one file gets dangling paths and no photography.
+Both builds must pass before a publication counts as reviewed.
+
+Regenerate the artifact with `python tools/build_standalone_review.py`. It is
+never the canonical website, and it is never a reason to change the production
+media architecture.
+
 ## The canonical website is `PINKMALL.html`
 
 One file. There is no second "latest" HTML in this repository, by design —

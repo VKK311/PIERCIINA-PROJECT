@@ -1,0 +1,53 @@
+name: Pink Mall standalone review build
+
+# Repository regression passing is not the same as the file a human downloads
+# working. PINKMALL.html plus assets/ is correct for production, but on its own
+# it has dangling relative paths and no product photography.
+#
+# So every change to the canonical HTML regenerates a portable review artifact
+# with its local images inlined as data: URIs.
+#
+# Loop safety: the output PINKMALL_REVIEW_STANDALONE.html is deliberately not in
+# the trigger paths, so this cannot retrigger itself.
+
+on:
+  push:
+    branches: [claude/pink-mall-development]
+    paths:
+      - 'PINKMALL.html'
+      - 'assets/**'
+      - 'tools/build_standalone_review.py'
+      - '.github/workflows/standalone-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: standalone-review
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/pink-mall-development
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build standalone review artifact
+        run: python tools/build_standalone_review.py
+
+      - name: Prove it works with no assets/ tree
+        run: bash tools/verify_standalone.sh
+
+      - name: Commit artifact
+        run: bash tools/commit_standalone.sh

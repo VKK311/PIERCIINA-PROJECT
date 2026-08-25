@@ -159,7 +159,10 @@ After approval:
 - never overwrite the stable baseline;
 - store canonical images locally;
 - validate the live result;
-- report `PUBLISHED` only after PASS.
+- regenerate the portable review artifact
+  (`python tools/build_standalone_review.py`) and verify it from an empty
+  directory — production verification is not review verification;
+- report `PUBLISHED` only after BOTH pass.
 
 ## Universal skill / calibrated scope
 

@@ -75,6 +75,21 @@ the product. No site CSS was changed.
 The manufacturer's juniors-series classification is internal only and appears
 nowhere in the build — verified with base64 payloads excluded.
 
+## Review artifact
+
+| | |
+|---|---|
+| FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
+| SHA-256 | `7fe51a8a0b04c868d902d99673d390bf9d6c38fdfcf07ca461139d071657d143` |
+| BUILDER | `python tools/build_standalone_review.py` |
+| AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
+
+**Production verification is not portable review verification.** Both must PASS
+before a publication is considered reviewed:
+
+- **Production** — fresh clone, `PINKMALL.html` + `assets/`
+- **Portable review** — the standalone file alone in an empty directory
+
 ## Next step
 
 Explicit PM-025 approval, then a publication task.
