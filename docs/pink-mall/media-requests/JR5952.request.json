@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "brand": "adidas",
+  "manufacturerItemNo": "JR5952",
+  "model": "Gazelle Bold Shoes",
+  "variant": "Almost Pink / Court Green / Gold Metallic",
+
+  "candidateMedia": [],
+
+  "discoveryPages": [
+    "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+    "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815",
+    "https://www.shooos.pl/product/adidas-gazelle-bold-j-jr5952"
+  ],
+  "discoveryRoutes": {
+    "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815": "TRUSTED_RETAILER_SEARCH",
+    "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815": "TRUSTED_RETAILER_SEARCH",
+    "https://www.shooos.pl/product/adidas-gazelle-bold-j-jr5952": "TRUSTED_RETAILER_SEARCH"
+  },
+  "allowedHostSuffixes": [
+    "eobuwie.com.pl", "modivo.pl", "shooos.pl",
+    "modivo.cloud", "eobuwie.cloud", "assets.adidas.com"
+  ],
+  "resolution": { "widthLadder": [1880, 1600, 1200, 1000] },
+  "requestedBy": "claude",
+  "notes": [
+    "Reopened after a false-negative rejection. The official colourway is Almost Pink / Court Green / Gold Metallic — a very pale upper with GREEN stripes and gold lettering. The earlier 'not pink enough' rejection was wrong; Court Green is part of the official variant.",
+    "No official image anchor is available: adidas hashes its CDN paths and every adidas page returns 403 to the runner. Variant confidence therefore rests on exact-SKU evidence plus agreement with the official colour text, and cannot reach anchor-backed certainty."
+  ]
+}

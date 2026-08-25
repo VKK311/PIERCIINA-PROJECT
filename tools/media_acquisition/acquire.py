@@ -40,6 +40,7 @@ MAX_BYTES = 25 * 1024 * 1024
 MIN_BYTES = 1024
 MAX_PAGE_BYTES = 6 * 1024 * 1024
 MAX_CANDIDATES = 60
+MAX_LINK_HOPS = 6
 OK_MIME = {"image/jpeg", "image/png", "image/webp", "image/avif"}
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
@@ -128,6 +129,7 @@ def http_get(url, allowed, max_bytes=MAX_BYTES, accept="*/*"):
 # ── Discovery ─────────────────────────────────────────────────────────────
 IMG_RE = re.compile(r"https?://[^\s\"'\\<>]+?\.(?:jpg|jpeg|png|webp|avif)(?:\?[^\s\"'\\<>]*)?", re.I)
 SRCSET_RE = re.compile(r"srcset\s*=\s*[\"']([^\"']+)[\"']", re.I)
+HREF_RE = re.compile(r"<a[^>]+href\s*=\s*[\"']([^\"'#]+)[\"']", re.I)
 OG_RE = re.compile(r"<meta[^>]+property=[\"']og:image[\"'][^>]+content=[\"']([^\"']+)[\"']", re.I)
 JSONLD_RE = re.compile(r"<script[^>]+type=[\"']application/ld\+json[\"'][^>]*>(.*?)</script>", re.I | re.S)
 
@@ -164,7 +166,31 @@ def _from_jsonld(html):
     return out
 
 
-def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_OFFICIAL_PAGE"):
+def outbound_links(html, base, sku):
+    """Link targets on an indexed/official page that point at the exact SKU.
+
+    A search or category page rarely carries the product's media itself; it
+    carries the link to the page that does. Reading only <img> stops one hop
+    short of the authority, which is how an official regional source gets
+    misfiled as unreachable.
+    """
+    out = []
+    for href in HREF_RE.findall(html):
+        target = urllib.parse.urljoin(base, href.strip())
+        if not target.lower().startswith(("http://", "https://")):
+            continue
+        if sku and sku.lower() in urllib.parse.unquote(target).lower():
+            out.append(target)
+    seen, uniq = set(), []
+    for t in out:
+        if t not in seen:
+            seen.add(t)
+            uniq.append(t)
+    return uniq[:MAX_LINK_HOPS]
+
+
+def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_OFFICIAL_PAGE",
+                       collect_links=None):
     """Pull image candidates out of one page. Returns
     [(url, method, source_page, page_has_sku)].
 
@@ -208,6 +234,14 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
 
     # Does the page itself name the exact SKU? Checked in its URL and body.
     page_has_sku = bool(sku) and (sku.lower() in final.lower() or sku.lower() in html.lower())
+
+    # One hop: hand back SKU-bearing link targets for the caller to follow.
+    if collect_links is not None:
+        links = outbound_links(html, final, sku)
+        if links:
+            log.append({"stage": "link-target", "url": final, "ok": True,
+                        "targets": len(links), "sample": links[0][:140]})
+        collect_links.extend(links)
 
     log.append({"stage": "discover", "url": final, "ok": True,
                 "raw_candidates": len(found), "page_has_sku": page_has_sku})
@@ -351,6 +385,135 @@ def backdrop(img, tol=6):
     return "#%02X%02X%02X" % avg
 
 
+# ── Variant confidence ────────────────────────────────────────────────────
+# Two rules had already failed in opposite directions. "URL evidence -> PASS"
+# accepted a page that misdeclared its own product. "This does not look pink
+# enough -> reject" threw away correct official-matching imagery, because
+# adidas's Almost Pink / Court Green / Gold Metallic is a pale upper with green
+# stripes and reads nothing like the word "pink" on its own.
+#
+# So neither a single URL signal nor a single visual impression decides.
+# Signals are fused, official image evidence outranks retailer image evidence,
+# and a strong contradiction is surfaced rather than silently resolved.
+
+# Chromatic terms are matched by hue, which is what actually separates green
+# from blue; a plain RGB distance does not — a blue upper sits well inside any
+# tolerance generous enough to accept real-world greens.
+# hue is degrees, with a permitted window; sat/val floors keep near-greys out.
+HUE_TERMS = {
+    "pink":     (335, 30, 0.10, 0.45),
+    "rose":     (340, 30, 0.10, 0.40),
+    "pembe":    (335, 30, 0.10, 0.45),
+    "red":       (2, 18, 0.35, 0.25),
+    "burgundy": (350, 22, 0.30, 0.12),
+    "orange":   (28, 20, 0.35, 0.30),
+    "gold":     (43, 18, 0.25, 0.30),
+    "yellow":   (55, 18, 0.35, 0.40),
+    "green":   (140, 45, 0.20, 0.15),
+    "blue":    (220, 40, 0.20, 0.15),
+    "purple":  (280, 35, 0.15, 0.15),
+}
+# Achromatic terms are matched on lightness and low saturation instead.
+GREY_TERMS = {
+    "white":  (0.86, 1.01, 0.16),
+    "beige":  (0.68, 0.92, 0.30),
+    "silver": (0.60, 0.85, 0.12),
+    "grey":   (0.30, 0.70, 0.12),
+    "gray":   (0.30, 0.70, 0.12),
+    "black":  (0.00, 0.22, 0.35),
+}
+COLOUR_TERMS = dict.fromkeys(list(HUE_TERMS) + list(GREY_TERMS), True)
+
+
+def palette(img, k=6):
+    """Coarse dominant colours of the product area, background excluded."""
+    im = img.convert("RGB").resize((64, 64), Image.LANCZOS)
+    px = list(im.getdata())
+    bg = im.getpixel((1, 1))
+    keep = [p for p in px if sum(abs(a - b) for a, b in zip(p, bg)) > 40]
+    if len(keep) < 40:
+        keep = px
+    buckets = {}
+    for r, g, b in keep:
+        key = (r // 48, g // 48, b // 48)
+        acc = buckets.setdefault(key, [0, 0, 0, 0])
+        acc[0] += r; acc[1] += g; acc[2] += b; acc[3] += 1
+    top = sorted(buckets.values(), key=lambda a: -a[3])[:k]
+    return [(a[0] // a[3], a[1] // a[3], a[2] // a[3], a[3]) for a in top]
+
+
+def colour_terms_present(img, terms):
+    """Which of the named colour terms are plausibly present in the image.
+
+    Deliberately coarse. It exists to catch a flat contradiction — a colourway
+    naming green with no green anywhere in frame — not to grade shades.
+    """
+    import colorsys
+    pal = palette(img)
+    total = sum(c[3] for c in pal) or 1
+    hsv = [(colorsys.rgb_to_hsv(c[0] / 255, c[1] / 255, c[2] / 255), c[3] / total)
+           for c in pal]
+    found = {}
+    for term in terms:
+        t = term.lower()
+        if t in HUE_TERMS:
+            hue, win, smin, vmin = HUE_TERMS[t]
+            found[term] = any(
+                s >= smin and v >= vmin and share >= 0.04
+                and min(abs(h * 360 - hue), 360 - abs(h * 360 - hue)) <= win
+                for (h, s, v), share in hsv)
+        elif t in GREY_TERMS:
+            lo, hi, smax = GREY_TERMS[t]
+            found[term] = any(
+                s <= smax and lo <= v < hi and share >= 0.04 for (h, s, v), share in hsv)
+    return found
+
+
+def variant_confidence(entries, official_colour, official_anchor_dhashes=None):
+    """Fuse the signals into one of three states."""
+    signals, conflicts = [], []
+
+    sku_ok = bool(entries) and all(e.get("sku_evidence") for e in entries)
+    if sku_ok:
+        signals.append("exact-SKU evidence on every image")
+
+    terms = re.findall(r"[A-Za-z]+", (official_colour or "").lower())
+    terms = [t for t in terms if t in COLOUR_TERMS]
+
+    if official_anchor_dhashes:
+        agree = 0
+        for e in entries:
+            d = min(hamming(int(e["dhash"], 16), int(a, 16)) for a in official_anchor_dhashes)
+            if d <= 40:
+                agree += 1
+        if agree:
+            signals.append("%d/%d images agree perceptually with the official anchor"
+                           % (agree, len(entries)))
+        else:
+            conflicts.append("no image agrees perceptually with the official anchor")
+
+    if terms and entries:
+        present = entries[0].get("_colour_terms") or {}
+        missing = [t for t in terms if present.get(t) is False]
+        hit = [t for t in terms if present.get(t) is True]
+        if hit:
+            signals.append("official colour term(s) present in frame: %s" % ", ".join(hit))
+        if missing and not hit:
+            conflicts.append("no official colour term found in frame (%s)" % ", ".join(missing))
+
+    if conflicts and official_anchor_dhashes:
+        state = "VARIANT_EVIDENCE_CONFLICT"
+    elif conflicts:
+        state = "HUMAN_VARIANT_REVIEW_REQUIRED"
+    elif sku_ok and signals:
+        state = "VARIANT_CONFIDENCE_PASS"
+    else:
+        state = "HUMAN_VARIANT_REVIEW_REQUIRED"
+    return {"state": state, "signals": signals, "conflicts": conflicts,
+            "officialColour": official_colour,
+            "officialAnchor": bool(official_anchor_dhashes)}
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 def acquire(request, outroot, log):
     sku = request["manufacturerItemNo"].strip()
@@ -392,12 +555,24 @@ def acquire(request, outroot, log):
         pages.append(tpl.format(sku=sku))
     routes = request.get("discoveryRoutes") or {}
     seen_pages = set()
+    hop_targets = []
     for page in pages:
         if page in seen_pages:
             continue
         seen_pages.add(page)
         candidates += discover_from_page(page, allowed, log, sku=sku, ledger=ledger,
-                                         route=routes.get(page, "DIRECT_OFFICIAL_PAGE"))
+                                         route=routes.get(page, "DIRECT_OFFICIAL_PAGE"),
+                                         collect_links=hop_targets)
+
+    # Second hop. The authority is the destination, not the page that linked to
+    # it: a product page reached from an official category listing is official
+    # media, and stays official even though the direct URL refuses the runner.
+    for target in hop_targets:
+        if target in seen_pages:
+            continue
+        seen_pages.add(target)
+        candidates += discover_from_page(target, allowed, log, sku=sku, ledger=ledger,
+                                         route="INDEXED_OUTBOUND_MEDIA")
 
     # normalise, de-dup by URL, keep discovery order
     ordered, seen_url = [], set()
@@ -668,7 +843,10 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
             warnings.append("SKU not present in asset URL")
         warnings += m.get("notes", [])
 
+        terms = re.findall(r"[A-Za-z]+", (request.get("variant") or "").lower())
+        terms = [t for t in terms if t in COLOUR_TERMS]
         entries.append({
+            "_colour_terms": colour_terms_present(m["_img"], terms) if terms else {},
             "index": i,
             "role": "MAIN" if i == 1 else "gallery",
             "file": os.path.relpath(spath, base),
@@ -693,7 +871,17 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
             "warnings": warnings,
         })
 
+    vc = variant_confidence(entries, request.get("variant"),
+                            request.get("officialAnchorDHashes"))
+    for e in entries:
+        e.pop("_colour_terms", None)
+
     status = "PASS" if len(entries) >= MIN_KEEP else ("PARTIAL" if entries else "BLOCKED")
+    # A run must not report PASS while variant evidence conflicts.
+    if status == "PASS" and vc["state"] == "VARIANT_EVIDENCE_CONFLICT":
+        status = "VARIANT_EVIDENCE_CONFLICT"
+    elif status == "PASS" and vc["state"] == "HUMAN_VARIANT_REVIEW_REQUIRED":
+        status = "HUMAN_VARIANT_REVIEW_REQUIRED"
     sheet_rel = None
     if entries:
         sheet_path = os.path.join(base, "CONTACT_SHEET.webp")
@@ -732,6 +920,7 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
             "unique_selected": len(entries),
             "duplicates_collapsed": sum(len(e["duplicates_collapsed"]) for e in entries),
         },
+        "variantConfidence": vc,
         "proposedMain": entries[0]["file"] if entries else None,
         # Shared backdrop across the whole set, when the images agree. The
         # storefront uses it as media.surface so a contained image sits on a
