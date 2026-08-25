@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "HUMAN_VARIANT_REVIEW_REQUIRED",
+  "status": "PASS",
   "sku": "A08745C",
   "brand": "Converse",
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:28:20Z",
+  "generatedAt": "2026-08-25T17:31:51Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32877978337",
+    "githubRunId": "32878290869",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "f4c3f8e64f4bcd4a386ae5e75ebff621d64062db"
+    "githubSha": "d1cce5a72d7ac9296e61bfcfb8f0ba94afc5d0a8"
   },
   "counts": {
     "acquired": 6,
@@ -19,13 +19,12 @@
     "duplicates_collapsed": 1
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "state": "VARIANT_CONFIDENCE_PASS",
     "signals": [
-      "exact-SKU evidence on every image"
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
     ],
-    "conflicts": [
-      "no official colour term found in frame (pink)"
-    ],
+    "conflicts": [],
     "officialColour": "Pink",
     "officialAnchor": false
   },
@@ -43,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-25T17:27:48Z",
+      "acquired_at": "2026-08-25T17:31:05Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -78,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:27:48Z",
+      "acquired_at": "2026-08-25T17:31:04Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -107,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:27:48Z",
+      "acquired_at": "2026-08-25T17:31:05Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -136,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:27:47Z",
+      "acquired_at": "2026-08-25T17:31:04Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -165,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:27:48Z",
+      "acquired_at": "2026-08-25T17:31:04Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
