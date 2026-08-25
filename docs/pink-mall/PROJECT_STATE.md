@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: media presentation hardening.
-Status: **PM-025 PUBLISHED · MEDIA PRESENTATION HARDENED.**
+Updated: PM-026 publication.
+Status: **PM-001…PM-026 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `eb914a56f6c84b4671d32939684f48205199b2ade2d623c3c3246afa3eff3d57` |
-| CANONICAL WEBSITE BYTES | 2543561 |
+| CANONICAL WEBSITE SHA-256 | `11a75766466dfc16656e3a0f952bccc35b9c21ad1b302ad20f7cea501fdad748` |
+| CANONICAL WEBSITE BYTES | 2546247 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-025 |
-| NEXT ID | PM-026 |
+| PUBLIC CATALOG | PM-001 … PM-026 |
+| NEXT ID | PM-027 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 
 ## Media acquisition automation
@@ -81,7 +81,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `84b8032e1064dcf0f2d98fd9d352b8e2d55856c68584a2387dfdf35242eaaeac` |
+| SHA-256 | `f84b25de0227f11badab1ad49d4db33e0a4618ed780741937e3e8c7f62d548f3` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -91,30 +91,29 @@ before a publication is considered reviewed:
 - **Production** — fresh clone, `PINKMALL.html` + `assets/`
 - **Portable review** — the standalone file alone in an empty directory
 
-## PM-026 — awaiting approval
+## PM-026 — published
 
 | | |
 |---|---|
+| PUBLISHED | 2026-08-25 |
 | BRAND / MODEL | New Balance / 515 V1 |
 | MANUFACTURER ITEM | GC515KI (Rose Sugar) |
-| PRICE | €54 |
-| AVAILABLE SIZES | 37, 38, 40 — **ladder carries these only** |
-| EXACT-MODEL SIZE RUN | NOT VERIFIED — no sold-out states asserted |
-| MEDIA | 5 × 1600×1600, official `nb.scene7.com`, backdrop `#F1F1F1` |
+| PUBLIC COLOUR | Pink |
+| MATERIAL | omitted — never confirmed from an official source |
+| PRICE | €54, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 37, 38, 40 — available. **No sold-out sizes asserted** |
+| EXACT-MODEL SIZE RUN | NOT VERIFIED |
+| NEW UNTIL | 2026-09-08 |
+| MAIN | IMAGE 01 |
+| GALLERY ORDER | 01 → 04 → 02 → 03 → 05 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-026/` — 5 × 1600×1600 WebP, byte-identical to the acquired originals |
 | ACQUISITION | **zero-seed** — no user URL, no user images |
-| STATUS | READY FOR APPROVAL — **not published** |
-| PACKAGE | `docs/pink-mall/checkpoints/PM026_APPROVAL_PREVIEW.md` |
 
-One non-blocking warning: material unconfirmed, so the field is omitted —
-every New Balance product page returns `403` to the runner.
-
-The exact-model size run could not be proven on any route (runner `403`,
-container egress blocked, no exact-SKU official structured data), so the ladder
-carries only the user-supplied sizes. Sold-out states derived from a generic
-brand size chart were removed: a chart maps EU to UK to cm and says nothing
-about which sizes a given SKU was offered in. The rule is now in the skill —
-exact-model scale proven → full ladder; not proven → user-supplied sizes only.
+First product published end-to-end from four facts. The size ladder carries only
+the supplied sizes because the exact-model run could not be proven; a generic
+brand size chart is not evidence of what this SKU was offered in.
 
 ## Next step
 
-Explicit PM-026 approval, then a publication task.
+Next Mall ID is **PM-027**.

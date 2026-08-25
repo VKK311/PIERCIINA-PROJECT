@@ -1,6 +1,6 @@
 # PINK MALL — PM-026 approval preview
 
-**STATUS: READY FOR APPROVAL — NOT PUBLISHED**
+**STATUS: APPROVED AND PUBLISHED — 2026-08-25**
 
 First **zero-seed** onboarding: the user supplied brand, SKU, price and sizes
 and nothing else — no product URL, no image URLs, no files. Identity, media
@@ -256,5 +256,5 @@ WARNINGS:
 1. Material not confirmed from an official source; field omitted.
 ```
 
-**Awaiting explicit instruction:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /
-`REMOVE IMAGE 0X` / `REORDER` / `CHANGE COPY` / `ADD MATERIAL` / `REJECT`.
+**Approved and published 2026-08-25** as PM-026. This file is the historical
+record of what was approved; live state is in `PROJECT_STATE.md`.
