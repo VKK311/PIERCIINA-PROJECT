@@ -78,12 +78,10 @@ Approved JQ4556 media, restored byte-exact and hash-verified:
 
 ## Known open items
 
-Carried forward; see `PROJECT_STATE.md` for live status.
-
-1. Staged PM-025 images are 500×500 `w_500` web derivatives — soft at large PDP
-   zoom. Higher-resolution exact duplicates preferred before launch. Do not
-   AI-upscale.
+None. See `PROJECT_STATE.md` for live status.
 
 Resolved since this policy was written: the per-image alt gap (the engine now
-renders authored `media.imageAlt` / `media.galleryAlt[]`), and the calibration
-fixture (removed from the canonical build).
+renders authored `media.imageAlt` / `media.galleryAlt[]`), the calibration
+fixture (removed from the canonical build), and PM-025 media resolution (the
+500×500 derivatives were replaced by the automatically acquired 1880×1880
+official set).

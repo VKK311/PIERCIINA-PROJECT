@@ -1,49 +1,56 @@
 # PM-025 — approved media archive (NOT PUBLISHED)
 
-Approved-but-unpublished canonical media for adidas `JQ4556`, proposed as
-Mall ID `PM-025`.
+Approved canonical media for adidas `JQ4556`, proposed as Mall ID `PM-025`.
 
-These files are archived here, not under `assets/pink-mall/products/PM-025/`,
-precisely because PM-025 is not published. They move to `assets/` only at
-publication, after explicit user approval.
+Archived here rather than under `assets/pink-mall/products/PM-025/` precisely
+because PM-025 is not published. The files move to `assets/` only at
+publication, after explicit approval.
 
-## Source originals — byte-exact, never modified
+## Source originals — 1880×1880, byte-exact, never modified
 
-| Image | Role | Bytes | SHA-256 |
+| Image | Gallery slot | Role / view | SHA-256 |
 |---|---|---|---|
-| `source/JQ4556-01-original.jpg` | **PROPOSED MAIN** — lateral side view | 9 164 | `3940078ed620b96e0582ff94089281500d387294f9c5ac6ff4d30f716fbfce5c` |
-| `source/JQ4556-02-original.jpg` | top-down view | 9 790 | `a4b11cc7d607559815ad46216eab9b432fc7b22c741255645606426b03ad5976` |
-| `source/JQ4556-03-original.jpg` | outsole / detail | 10 290 | `7109e8007d878498c7935f33b19464d3e20fded2d70d618719e03cd113dae6a1` |
-| `source/JQ4556-04-original.jpg` | three-quarter front angle | 10 242 | `36c7c06e99cebbe8b58ef675b14417fa8b04edd4c25b75b21a656b029a11e13e` |
+| `source/JQ4556-01-original.jpg` | **MAIN** | lateral side profile, full product | `cd35da4bc75864eb854c1735d69ef07c2fbf1a4d6335e975c3fef6be67fad7f4` |
+| `source/JQ4556-04-original.jpg` | `gallery[0]` | three-quarter front angle, full product | `d7cb5f1b4a8eb723e937bf765a574e7c45c9f88340f6e65c07d8928f3b328f94` |
+| `source/JQ4556-02-original.jpg` | `gallery[1]` | top-down — lacing, tongue, collar | `0a0270dc1c9f63a5526c16db855c8d99c52774ebd80092476cd88505ad5bc96d` |
+| `source/JQ4556-03-original.jpg` | `gallery[2]` | outsole, gum rubber tread | `656cd37b2912f1a35136cc9c1dfa2685f9a9e3cba71ebf776052bba645be1bfb` |
 
-All four are 500×500 JPEG, product-only, exact SKU and exact pink/silver/gold
-variant, supplied by the user from official adidas media.
+Filenames keep their **source image numbers** (`01`–`04`); the gallery order is
+`01 → 04 → 02 → 03`. The two are deliberately not renumbered to match, so that
+approval decisions referring to "IMAGE 04" stay meaningful.
+
+All four are 1880×1880 JPEG, product-only, exact SKU `JQ4556` and exact
+`Clear Pink / Silver Metallic / Gold Metallic` variant.
+
+## Provenance
+
+Acquired automatically from `assets.adidas.com` by the media acquisition
+pipeline — no manual download, rename or upload. Each asset was seeded at
+`w_500` and upgraded to `w_1880`: the CDN's own larger copy of the same
+photograph, with only the transform segment of the URL rewritten, and each
+upgrade verified perceptually against its 500px anchor before acceptance.
+
+No AI upscaling, no generative edits, no recolouring.
+
+Full provenance per image — source URL, anchor URL, discovery method,
+dimensions, MIME, SHA-256, dHash — is in
+`docs/pink-mall/media-acquisition/JQ4556/result.json`.
 
 ## Contact sheet
 
-`PINK_MALL_JQ4556_CONTACT_SHEET.webp` — 1136×1720, the approval instrument.
-Regenerated from the four originals; every tile is a real asset.
+`PINK_MALL_JQ4556_CONTACT_SHEET.webp` — the approval instrument, laid out in
+**gallery order** with the authored Bulgarian alt text on each tile.
 
-WebP previews are not archived: they are derivable from the originals by a
-lossless-quality WebP re-encode at the original 500×500, and archiving them
-would duplicate bytes that git already stores.
+WebP previews are not archived: they derive from the originals, and archiving
+them would duplicate bytes git already stores.
 
-## Quality warning — non-blocking
+## Resolution
 
-The originals are 500×500 web derivatives (`w_500`). Acceptable for approval
-and card preview. Higher-resolution exact duplicates are preferred before
-launch and full PDP display.
+No outstanding resolution warning. The previous 500×500 set has been fully
+replaced by this 1880×1880 set, which is adequate for card, PDP and zoom.
 
-Do not AI-upscale. Replacement bytes may only be swapped in after visual
-identity verification, and must preserve image number, order and MAIN.
+## History
 
-## Approved gallery order
-
-```text
-IMAGE 01 — MAIN
-IMAGE 04 — three-quarter front
-IMAGE 02 — top-down
-IMAGE 03 — outsole / detail
-```
-
-See `docs/pink-mall/checkpoints/PM025_APPROVAL_PREVIEW.md` for the full package.
+The earlier approved package was the 500×500 `w_500` derivatives, carried as a
+non-blocking quality warning. Those bytes remain recoverable through git
+history; they are not the approved set any more.
