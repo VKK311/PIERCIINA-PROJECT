@@ -91,6 +91,23 @@ before a publication is considered reviewed:
 - **Production** — fresh clone, `PINKMALL.html` + `assets/`
 - **Portable review** — the standalone file alone in an empty directory
 
+## PM-026 — awaiting approval
+
+| | |
+|---|---|
+| BRAND / MODEL | New Balance / 515 V1 |
+| MANUFACTURER ITEM | GC515KI (Rose Sugar) |
+| PRICE | €54 |
+| AVAILABLE SIZES | 37, 38, 40 |
+| MEDIA | 5 × 1600×1600, official `nb.scene7.com`, backdrop `#F1F1F1` |
+| ACQUISITION | **zero-seed** — no user URL, no user images |
+| STATUS | READY FOR APPROVAL — **not published** |
+| PACKAGE | `docs/pink-mall/checkpoints/PM026_APPROVAL_PREVIEW.md` |
+
+Two non-blocking warnings: material unconfirmed (field omitted), and the
+sold-out ladder is size-chart derived. Both because every New Balance product
+page returns `403` to the runner.
+
 ## Next step
 
-PM-025 is published. Next Mall ID is **PM-026**.
+Explicit PM-026 approval, then a publication task.
