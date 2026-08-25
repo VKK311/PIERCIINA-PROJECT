@@ -1,148 +1,101 @@
-# PINK MALL — PM-025 APPROVAL PREVIEW
+# PINK MALL — PM-025 approval preview
 
-**STATUS: READY FOR APPROVAL**
-Staging only. PM-025 is **not** published, the calibrated HTML is **not** modified,
-nothing is committed.
+**STATUS: READY FOR APPROVAL — NOT PUBLISHED**
+
+Reconciled during the structure-cleanup + pre-publish-hardening task.
+PM-025 is not in `PINK_MALL_PRODUCTS`, and `JQ4556` appears nowhere in the
+canonical `PINKMALL.html`.
 
 ---
 
-## 1. SOURCE GATE
+## 1. Product
 
-| Check | Result |
+| | |
 |---|---|
-| SHA-256 of attached calibrated HTML | `dc7050ba22862b4f4f1a07cae0365e6f648dde9d726475223279fd839962a2f0` — exact match | 
-| Catalog IDs | PM-001 → PM-024, contiguous, 24 total |
-| PM-025 in catalog | Absent (0 occurrences) |
-| JQ4556 in public catalog | Absent |
-| Next proposed ID | PM-025 |
+| Brand | adidas |
+| Model | VL Court Bold Shoes |
+| Manufacturer item | JQ4556 |
+| Mall ID | PM-025 (proposed) |
+| Category | SHOES > Sneakers |
+| Color | Pink / Silver / Gold |
+| Material | Leather / Textile / Rubber |
+| Price | €54 |
+| oldPriceEUR | null — no SALE |
+| selectedBy | null |
+| NEW | active for 14 days from first approved publication; `newUntil` not yet assigned |
+| Delivery | global — `4–7 работни дни` |
 
-**Note:** the string `JQ4556` occurs once in the file, at line 13531, inside
-`__calibrationFixture` (`id: 'FIXTURE-AVAIL'`) — the non-public availability-mode test
-object added during calibration. It is not in `PINK_MALL_PRODUCTS`, is not rendered,
-searched, filtered or counted. **It must be deleted at publication time.**
+Manufacturer color of record is `Clear Pink / Silver Metallic / Gold Metallic`,
+simplified for the Mall to `Pink / Silver / Gold` per the skill's naming rules.
+No fourth public color is claimed.
 
----
-
-## 2. MEDIA VALIDATION
-
-Four images supplied locally. All four inspected visually, individually.
-
-| # | View | Exact SKU | Exact variant | Product-only | Unique | Verdict |
-|---|---|---|---|---|---|---|
-| 01 | Lateral side, left profile | ✅ | ✅ | ✅ | ✅ | **ACCEPT — PROPOSED MAIN** |
-| 02 | Top-down, lacing / tongue / collar | ✅ | ✅ | ✅ | ✅ | ACCEPT |
-| 03 | Outsole, gum rubber tread | ✅ | ✅ | ✅ | ✅ | ACCEPT |
-| 04 | Three-quarter front angle | ✅ | ✅ | ✅ | ✅ | ACCEPT |
-
-**Rejects: 0. Duplicates: 0.**
-
-Uniqueness was checked byte-wise (4 distinct SHA-256) and perceptually
-(16×16 dHash, minimum pairwise Hamming distance 48/256 — well clear of duplicate range).
-
-Identity markers confirmed in-frame: pink upper, **silver metallic 3-stripes**,
-**gold adidas wordmark badge** on the quarter panel, **gum platform midsole** with
-embossed `adidas`, periwinkle heel tab. Consistent across all four frames.
-
-| File | Format | Size | Bytes | SHA-256 (first 16) |
-|---|---|---|---|---|
-| `JQ4556-01-original.jpg` | JPEG RGB | 500×500 | 9 164 | `3940078ed620b96e` |
-| `JQ4556-02-original.jpg` | JPEG RGB | 500×500 | 9 790 | `a4b11cc7d6075598` |
-| `JQ4556-03-original.jpg` | JPEG RGB | 500×500 | 10 290 | `7109e8007d878498` |
-| `JQ4556-04-original.jpg` | JPEG RGB | 500×500 | 10 242 | `36c7c06e99cebbe8` |
-
-Technical operations applied: **JPEG → WebP re-encode only**, quality 90, at the
-original 500×500. No resize, no crop, no retouch, no generative change.
-
----
-
-## 3. STAGING TREE
+## 2. Sizes — resolved
 
 ```text
-.pink-mall-staging/JQ4556/
-    PINK_MALL_JQ4556_CONTACT_SHEET.webp     (copy, see note)
-    source/
-        JQ4556-01-original.jpg              (untouched)
-        JQ4556-02-original.jpg              (untouched)
-        JQ4556-03-original.jpg              (untouched)
-        JQ4556-04-original.jpg              (untouched)
-    preview/
-        JQ4556-01.webp
-        JQ4556-02.webp
-        JQ4556-03.webp
-        JQ4556-04.webp
-        PINK_MALL_JQ4556_CONTACT_SHEET.webp
+36       — available
+36 2/3   — ИЗЧЕРПАН
+37 1/3   — available
+38       — ИЗЧЕРПАН
+38 2/3   — available
+39 1/3   — ИЗЧЕРПАН
+40       — available
 ```
 
-`assets/pink-mall/products/PM-025/` was **not** created, as instructed.
+`inventoryMode: 'availability'`. No quantities are known and none are invented,
+so there is no `ПОСЛЕДНА БРОЙКА` and no product-level scarcity claim. Size
+labels are canonical strings; `37 1/3` is never normalised to `37`.
 
-**Path note:** section F places the contact sheet under `preview/`, section M names it at
-`.pink-mall-staging/JQ4556/`. The two disagree, so the identical file exists at both paths.
+## 3. Media — approved set and order
 
----
+MAIN is **IMAGE 01**.
 
-## 4. CONTACT SHEET
+| Position | Source image | Role | Future path |
+|---|---|---|---|
+| MAIN | IMAGE 01 | lateral side view, full product | `assets/pink-mall/products/PM-025/PM-025-main.webp` |
+| gallery[0] | IMAGE 04 | three-quarter front angle | `assets/pink-mall/products/PM-025/PM-025-02.webp` |
+| gallery[1] | IMAGE 02 | top-down, lacing and collar | `assets/pink-mall/products/PM-025/PM-025-03.webp` |
+| gallery[2] | IMAGE 03 | outsole, gum rubber tread | `assets/pink-mall/products/PM-025/PM-025-04.webp` |
 
-`.pink-mall-staging/JQ4556/preview/PINK_MALL_JQ4556_CONTACT_SHEET.webp`
-1136 × 1720, 143 KB, 2×2 grid.
+Full-product frames lead; the technical outsole view is last. All four are
+exact-SKU, exact-variant, product-only, with no people. Rejects: 0.
+Duplicates: 0.
 
-Every tile is a real supplied asset — no placeholder tiles. Each tile carries: image
-number, view/role, provenance, and a quality note. IMAGE 01 is marked `PROPOSED MAIN`
-with a pink frame and badge.
+Archived originals and the contact sheet:
+`docs/pink-mall/approval-media/PM-025/`
 
----
+Those paths are **proposed future** locations. The files do not exist under
+`assets/` and will not until publication.
 
-## 5. PROPOSED MAIN
+## 4. Alt text — canonical schema
 
-**IMAGE 01 — lateral side view.**
-
-Rationale: it is the only frame that shows the complete silhouette unobstructed — upper,
-stripe placement, gold badge and the full gum platform stack all read at card size.
-It is the frame that survives being scaled down to a grid thumbnail. IMAGE 04 is the
-runner-up; IMAGE 03 (outsole) is deliberately last, being a technical view.
-
----
-
-## 6. ALT TEXT
-
-Written in Bulgarian, matching the language of the rest of the storefront, so Bulgarian
-screen readers announce it correctly. (Section H's example was English; if you want
-English alt text instead, say so and it is a one-line change.)
+Bulgarian, matching the storefront language. Carried as `media.imageAlt` and
+`media.galleryAlt[]`, the schema defined in the skill's product contract, and
+now actually rendered by the engine.
 
 ```text
-01 — Розови adidas VL Court Bold Shoes със сребърни ленти и gum платформа, страничен изглед
-02 — Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език
-03 — Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу
-04 — Розови adidas VL Court Bold Shoes, изглед под ъгъл отпред
+imageAlt      — Розови adidas VL Court Bold Shoes със сребърни ленти и gum платформа, страничен изглед
+galleryAlt[0] — Розови adidas VL Court Bold Shoes, изглед под ъгъл отпред
+galleryAlt[1] — Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език
+galleryAlt[2] — Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу
 ```
 
-No `kids` / `junior` / `youth` / `J` anywhere. No comfort, fit, performance or care claims.
+No `kids` / `junior` / `youth` / `J`. No comfort, fit, performance or care claims.
 
----
-
-## 7. SHORT MALL COPY
+## 5. Mall copy
 
 ```text
-Розово adidas VL Court Bold върху дебела gum платформа, със сребърни метални ленти
-и златно лого. Court силует, вдигнат нагоре — full pink mall energy.
+adidas VL Court Bold в розово, със сребърни метални ленти, златно лого и дебела
+gum подметка. Court silhouette с повече attitude — full PINK MALL energy.
 ```
 
-Every concrete noun is visually confirmed or comes from the locked facts. Nothing is
-claimed about comfort, fit, performance, exclusivity or care.
-
----
-
-## 8. INTERNAL SEARCH TAGS (never rendered as public specs)
+## 6. Internal search tags — never rendered as public specs
 
 ```text
 adidas, VL Court Bold, sneakers, shoes, pink, silver, gold, leather,
 skate-inspired, platform, gum sole, court
 ```
 
-No `kids`, `junior`, `boys`, `girls`, `youth`.
-
----
-
-## 9. STAGED PRODUCT OBJECT — NOT PUBLISHED
+## 7. Staged product object — NOT PUBLISHED
 
 ```js
 {
@@ -150,14 +103,15 @@ No `kids`, `junior`, `boys`, `girls`, `youth`.
     brand: 'adidas',
     manufacturerItemNo: 'JQ4556',
     name: 'VL Court Bold Shoes',
-    slug: 'adidas-vl-court-bold-pink',
+    slug: 'adidas-vl-court-bold-shoes',
     category: 'shoes', subcategory: 'sneakers',
     color: 'Pink / Silver / Gold',
     composition: 'Leather / Textile / Rubber',
     priceEUR: 54,
     oldPriceEUR: null,
-    description: 'Розово adidas VL Court Bold върху дебела gum платформа, със сребърни '
-               + 'метални ленти и златно лого. Court силует, вдигнат нагоре — full pink mall energy.',
+    description: 'adidas VL Court Bold в розово, със сребърни метални ленти, златно '
+               + 'лого и дебела gum подметка. Court silhouette с повече attitude — '
+               + 'full PINK MALL energy.',
     selectedBy: null,
     tags: ['adidas','VL Court Bold','sneakers','shoes','pink','silver','gold',
            'leather','skate-inspired','platform','gum sole','court'],
@@ -165,7 +119,7 @@ No `kids`, `junior`, `boys`, `girls`, `youth`.
     campaign: null,
     related: [],
 
-    /* NEW: to be switched on at first approved publication, for 14 days.
+    /* NEW switches on at first approved publication, for 14 days.
        newUntil is deliberately NOT assigned yet. */
     isNew: false,
     newUntil: null,
@@ -182,44 +136,33 @@ No `kids`, `junior`, `boys`, `girls`, `youth`.
     },
 
     media: {
-        image:   'assets/pink-mall/products/PM-025/PM-025-01.webp',
-        gallery: ['assets/pink-mall/products/PM-025/PM-025-02.webp',
-                  'assets/pink-mall/products/PM-025/PM-025-03.webp',
-                  'assets/pink-mall/products/PM-025/PM-025-04.webp'],
-        alt: ['Розови adidas VL Court Bold Shoes със сребърни ленти и gum платформа, страничен изглед',
-              'Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език',
-              'Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу',
-              'Розови adidas VL Court Bold Shoes, изглед под ъгъл отпред'],
+        image:      'assets/pink-mall/products/PM-025/PM-025-main.webp',
+        imageAlt:   'Розови adidas VL Court Bold Shoes със сребърни ленти и gum платформа, страничен изглед',
+        gallery:   ['assets/pink-mall/products/PM-025/PM-025-02.webp',
+                    'assets/pink-mall/products/PM-025/PM-025-03.webp',
+                    'assets/pink-mall/products/PM-025/PM-025-04.webp'],
+        galleryAlt:['Розови adidas VL Court Bold Shoes, изглед под ъгъл отпред',
+                    'Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език',
+                    'Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу'],
         ph: 'shoes', field: 'blush'
     }
 }
 ```
 
-Media paths are **proposed future** locations. Those files do not exist yet.
+## 8. Warnings
 
----
+**One, non-blocking.** Source media is 500×500 web derivatives. Acceptable for
+approval and card preview; higher-resolution exact official duplicates are
+preferred before launch and full PDP display. Do not AI-upscale. Replacement
+bytes may be swapped in only after visual identity verification, preserving
+image number, order and MAIN.
 
-## 10. OPEN POINTS FOR YOUR DECISION
+The per-image alt gap flagged in the previous revision is **resolved** — the
+engine now renders authored `imageAlt` / `galleryAlt[n]`, proven by runtime
+test with distinct Bulgarian strings across forward, backward and
+thumbnail-jump navigation.
 
-Three things surfaced during validation. None blocks approval; all need a decision before
-publication.
-
-1. **Per-image alt is not consumable by the current engine.** `galleryOf()` returns bare
-   strings, and both `mediaHTML()` and `detailMediaHTML()` synthesise alt text as
-   `p.name + ' — снимка N от M'`. The staged `media.alt` array is therefore inert until a
-   small engine change reads it. That change is an HTML edit, which this turn forbids.
-
-2. **Image resolution is 500×500.** These are the `w_500` web derivatives. Fine for grid
-   cards and a modest PDP, but they will visibly soften on a large desktop PDP or under
-   zoom. Higher-resolution originals would be worth requesting before launch.
-
-3. **A periwinkle/purple heel tab is clearly visible** on images 01, 02 and 04. The locked
-   colour string is `Pink / Silver / Gold`, which I have kept exactly as specified — but
-   the product has a fourth visible accent colour that the string does not mention.
-
----
-
-## 11. APPROVAL PREVIEW
+## 9. Approval preview
 
 ```text
 STATUS:
@@ -262,40 +205,24 @@ NEW:
 YES for 14 days after first approved publication
 
 SHORT MALL COPY:
-Розово adidas VL Court Bold върху дебела gum платформа, със сребърни метални ленти
-и златно лого. Court силует, вдигнат нагоре — full pink mall energy.
+adidas VL Court Bold в розово, със сребърни метални ленти, златно лого и дебела
+gum подметка. Court silhouette с повече attitude — full PINK MALL energy.
 
 PHOTO MATERIAL:
-.pink-mall-staging/JQ4556/preview/PINK_MALL_JQ4556_CONTACT_SHEET.webp
+docs/pink-mall/approval-media/PM-025/PINK_MALL_JQ4556_CONTACT_SHEET.webp
 
 MAIN:
 IMAGE 01
 
-ALT TEXT:
-01 — Розови adidas VL Court Bold Shoes със сребърни ленти и gum платформа, страничен изглед
-02 — Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език
-03 — Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу
-04 — Розови adidas VL Court Bold Shoes, изглед под ъгъл отпред
+GALLERY ORDER:
+IMAGE 01 (MAIN) → IMAGE 04 → IMAGE 02 → IMAGE 03
 
 SOURCE STATUS:
 EXACT OFFICIAL JQ4556
 
 WARNINGS:
-1. Per-image alt not consumable by current engine (needs a small change at publication).
-2. Images are 500x500 web derivatives — soft at large PDP zoom.
-3. Visible periwinkle heel tab not covered by the locked colour string.
+500×500 source media; higher-resolution exact duplicates preferred before launch.
 ```
-
----
-
-## 12. NOT DONE, DELIBERATELY
-
-- PM-025 not published, not added to `PINK_MALL_PRODUCTS`.
-- Calibrated HTML not modified — still `dc7050ba…`.
-- `assets/pink-mall/products/PM-025/` not created.
-- No `newUntil` date assigned.
-- Final Release Audit not started.
-- Nothing committed, pushed, merged, or opened as a pull request.
 
 **Awaiting explicit instruction:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /
 `REMOVE IMAGE 0X` / `REORDER` / `CHANGE COPY` / `REJECT`.

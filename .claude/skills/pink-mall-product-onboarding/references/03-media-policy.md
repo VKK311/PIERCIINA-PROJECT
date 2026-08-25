@@ -173,6 +173,28 @@ Rules:
 - no child-series markers;
 - different images should have appropriately different alt text.
 
+### Canonical alt schema
+
+Authored alt text is carried by the media object itself:
+
+```js
+media: {
+  image:      '...',        // MAIN
+  imageAlt:   '...',        // alt for MAIN
+  gallery:    ['...','...'],
+  galleryAlt: ['...','...'] // galleryAlt[n] belongs to gallery[n]
+}
+```
+
+`imageAlt` belongs to `image`. `galleryAlt[n]` belongs to `gallery[n]`; the
+pairing is by index, so a gap in one array must not shift the other.
+
+Do not introduce a different alt field name. See
+`references/01-product-contract.md` for the full product shape.
+
+Legacy string-only media carries no authored alt and must keep working: the
+renderer falls back to a safe generated alt for those entries.
+
 ## Approval contact sheet
 
 Approval preview must include a visual contact sheet showing all proposed 3–5 images.

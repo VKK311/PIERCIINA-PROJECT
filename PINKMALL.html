@@ -86,6 +86,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* overflow-x:hidden прави от <html>/<body> скрол-контейнер, което
+           убива position:sticky на вложените ленти (Pink Mall указателя).
+           overflow:clip реже същото, без да създава скрол-контейнер. */
+        @supports (overflow: clip) {
+            html, body { overflow-x: clip; }
+        }
         
         img {
             max-width: 100%;
@@ -5468,6 +5475,10 @@
         }
 
         .pms-dirbar-brand {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0 0.35rem;
             font-family: var(--font-retro);
             font-size: 0.82rem;
             letter-spacing: 0.14em;
@@ -5494,7 +5505,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            min-height: 40px;
+            min-height: 44px;
             padding: 0.4rem 0.85rem;
             border-radius: 999px;
             border: 1.5px solid rgba(255, 255, 255, 0.28);
@@ -5535,7 +5546,7 @@
 
         .pms-tool-btn {
             position: relative;
-            width: 42px; height: 42px;
+            width: 44px; height: 44px;
             display: grid;
             place-items: center;
             border-radius: 50%;
@@ -5568,6 +5579,9 @@
 
         .pms-dirbar-exit {
             flex: none;
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
             font-family: var(--font-body);
             font-size: 0.66rem;
             font-weight: 700;
@@ -5905,7 +5919,7 @@
         .pms-heart {
             position: absolute;
             top: 0.55rem; right: 0.55rem;
-            width: 42px; height: 42px;
+            width: 44px; height: 44px;
             display: grid;
             place-items: center;
             border-radius: 50%;
@@ -5962,7 +5976,7 @@
         .pms-quick {
             margin-top: 0.45rem;
             align-self: flex-start;
-            min-height: 40px;
+            min-height: 44px;
             padding: 0.5rem 1rem;
             border-radius: 999px;
             border: 1.5px solid rgba(58, 10, 34, 0.25);
@@ -6164,7 +6178,7 @@
         }
 
         .pms-sheet-close {
-            width: 42px; height: 42px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             display: grid; place-items: center;
             background: rgba(58, 10, 34, 0.08);
@@ -6303,6 +6317,458 @@
         @media (max-width: 400px) {
             .pms-grid { gap: 0.55rem; }
             .pms-card-body { padding: 0.6rem 0.65rem 0.8rem; }
+        }
+
+        /* ════════ DISCOVERY TOOLBAR + ФИЛТРИ ════════ */
+        .pms-sr-only {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+        }
+        .pms-toolbar { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.6rem; margin: 0 0 0.9rem; }
+        .pms-search-wrap { position: relative; flex: 3 1 260px; display: flex; align-items: center; }
+        .pms-search-icon { position: absolute; left: 0.85rem; color: var(--pms-hot-deep); pointer-events: none; }
+        .pms-search {
+            width: 100%; min-height: 44px; padding: 0.55rem 2.6rem 0.55rem 2.5rem;
+            font-family: var(--font-body); font-size: 0.95rem; color: var(--pms-ink);
+            background: var(--pms-cream-bg); border: 2px solid var(--pms-ink);
+            border-radius: 999px; appearance: none; -webkit-appearance: none;
+        }
+        .pms-search::-webkit-search-decoration,
+        .pms-search::-webkit-search-cancel-button { -webkit-appearance: none; }
+        .pms-search::placeholder { color: rgba(58, 10, 34, 0.45); }
+        .pms-search:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-search-clear {
+            position: absolute; right: 0.35rem; width: 44px; height: 44px;
+            display: grid; place-items: center; font-size: 0.8rem; color: var(--pms-ink);
+            background: transparent; border: 0; border-radius: 50%; cursor: pointer;
+        }
+        .pms-search-clear[hidden] { display: none; }
+        .pms-search-clear:hover { background: rgba(255, 46, 136, 0.14); }
+        .pms-search-clear:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 1px; }
+        .pms-filters-toggle {
+            flex: 1 1 0; min-width: 118px; min-height: 44px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+            padding: 0.5rem 0.9rem; font-family: var(--font-body);
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+            color: var(--pms-ink); background: var(--white);
+            border: 2px solid var(--pms-ink); border-radius: 999px; cursor: pointer;
+        }
+        .pms-filters-toggle:hover { background: var(--pms-cream-bg); }
+        .pms-filters-toggle:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-filters-count {
+            display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px;
+            font-size: 0.68rem; color: var(--white); background: var(--pms-hot); border-radius: 999px;
+        }
+        .pms-filters-count[hidden] { display: none; }
+        .pms-sort-wrap { flex: 1.5 1 0; min-width: 150px; display: flex; }
+        .pms-sort {
+            width: 100%; min-height: 44px; padding: 0.5rem 0.9rem;
+            font-family: var(--font-body); font-size: 0.82rem;
+            color: var(--pms-ink); background: var(--white);
+            border: 2px solid var(--pms-ink); border-radius: 999px; cursor: pointer;
+        }
+        .pms-sort:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-resultline { display: flex; align-items: center; margin-bottom: 0.5rem; }
+        .pms-result-count {
+            font-family: var(--font-body); font-size: 0.76rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--pms-hot-deep);
+        }
+        .pms-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
+        .pms-chips[hidden] { display: none; }
+        .pms-chip {
+            min-height: 44px; display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 0.85rem; font-family: var(--font-body);
+            font-size: 0.76rem; font-weight: 600; color: var(--pms-ink);
+            background: var(--white); border: 1.5px solid var(--pms-ink);
+            border-radius: 999px; cursor: pointer;
+        }
+        .pms-chip:hover { background: var(--pms-blush-bg); }
+        .pms-chip:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-clearall {
+            min-height: 44px; padding: 0.4rem 1rem; font-family: var(--font-body);
+            font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em;
+            color: var(--pms-hot-deep); background: transparent;
+            border: 1.5px dashed var(--pms-hot-deep); border-radius: 999px; cursor: pointer;
+        }
+        .pms-clearall:hover { background: rgba(255, 46, 136, 0.1); }
+        .pms-clearall:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-shop-layout { display: block; }
+        .pms-filters {
+            background: var(--pms-cream-bg); border: 2px solid var(--pms-ink);
+            border-radius: var(--pms-radius); padding: 1rem;
+        }
+        .pms-filters[hidden] { display: none; }
+        .pms-filters-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.8rem; }
+        .pms-filters-title { font-family: var(--font-retro); font-size: 1rem; letter-spacing: 0.1em; color: var(--pms-ink); }
+        .pms-filters-close {
+            width: 44px; height: 44px; display: none; place-items: center;
+            font-size: 0.95rem; color: var(--pms-ink); background: transparent;
+            border: 1.5px solid var(--pms-ink); border-radius: 50%; cursor: pointer;
+        }
+        .pms-filters-close:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-fset { border: 0; padding: 0; margin: 0 0 1.05rem; }
+        .pms-legend {
+            display: block; padding: 0; font-family: var(--font-body);
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--pms-hot-deep); margin-bottom: 0.5rem;
+        }
+        .pms-fhint { margin-top: 0.45rem; font-size: 0.72rem; line-height: 1.45; color: rgba(58, 10, 34, 0.62); }
+        .pms-size-group { margin-bottom: 0.6rem; }
+        .pms-size-group-label {
+            display: block; margin-bottom: 0.3rem; font-size: 0.62rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; color: rgba(58, 10, 34, 0.5);
+        }
+        .pms-size-btns { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+        .pms-size-btn {
+            min-width: 44px; min-height: 44px; padding: 0 0.6rem;
+            font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+            color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 10px; cursor: pointer;
+        }
+        .pms-size-btn.is-on { background: var(--pms-ink); color: var(--pms-cream-bg); }
+        .pms-size-btn:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-presets { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+        .pms-preset {
+            min-height: 44px; padding: 0.35rem 0.75rem;
+            font-family: var(--font-body); font-size: 0.74rem; font-weight: 700;
+            color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 999px; cursor: pointer;
+        }
+        .pms-preset.is-on { background: var(--pms-hot); color: var(--white); border-color: var(--pms-hot); }
+        .pms-preset:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-price-row { display: flex; gap: 0.5rem; }
+        .pms-price-field { flex: 1 1 0; display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: rgba(58, 10, 34, 0.7); }
+        .pms-price-field input {
+            width: 100%; min-height: 44px; padding: 0.4rem 0.6rem;
+            font-family: var(--font-body); font-size: 0.85rem; color: var(--pms-ink);
+            background: var(--white); border: 1.5px solid var(--pms-ink); border-radius: 10px;
+        }
+        .pms-price-field input:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 1px; }
+        .pms-seg { display: flex; gap: 0.35rem; }
+        .pms-seg--wrap { flex-wrap: wrap; }
+        .pms-seg-btn {
+            flex: 1 1 auto; min-width: 64px; min-height: 44px; padding: 0 0.5rem;
+            font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+            color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 10px; cursor: pointer;
+        }
+        .pms-seg-btn.is-on { background: var(--pms-hot); color: var(--white); border-color: var(--pms-hot); }
+        .pms-seg-btn:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-check { display: flex; align-items: center; gap: 0.55rem; min-height: 44px; font-size: 0.85rem; color: var(--pms-ink); cursor: pointer; }
+        .pms-check input { width: 20px; height: 20px; accent-color: var(--pms-hot); }
+        .pms-check input:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-filters-foot { display: flex; gap: 0.5rem; }
+        .pms-applybtn {
+            flex: 1 1 auto; display: none; min-height: 44px; padding: 0.5rem 1rem;
+            font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+            color: var(--white); background: var(--pms-hot);
+            border: 2px solid var(--pms-hot); border-radius: 999px; cursor: pointer;
+        }
+        .pms-applybtn:focus-visible { outline: 3px solid var(--pms-ink); outline-offset: 2px; }
+
+        @media (min-width: 900px) {
+            .pms-shop-layout.is-split {
+                display: grid; grid-template-columns: 250px minmax(0, 1fr);
+                gap: 1.2rem; align-items: start;
+            }
+            .pms-filters {
+                position: sticky;
+                top: calc(var(--nav-height, 96px) + var(--pms-dirbar-h, 56px) + 12px);
+                max-height: calc(100vh - var(--nav-height, 96px) - var(--pms-dirbar-h, 56px) - 24px);
+                overflow-y: auto;
+            }
+        }
+
+        .pms-filters-backdrop {
+            position: fixed; inset: 0; background: rgba(42, 6, 24, 0.5);
+            backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+        }
+        .pms-filters-backdrop[hidden] { display: none; }
+
+        @media (max-width: 899px) {
+            .pms-filters.is-drawer {
+                position: fixed; left: 0; right: 0; bottom: 0;
+                max-height: min(84vh, 640px); overflow-y: auto;
+                border-radius: 22px 22px 0 0; border-width: 2px 0 0;
+                padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+                transform: translateY(100%);
+                transition: transform 0.24s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+            .pms-filters.is-drawer.is-open { transform: translateY(0); }
+            .pms-filters.is-drawer .pms-filters-close { display: grid; }
+            .pms-filters.is-drawer .pms-applybtn { display: inline-flex; align-items: center; justify-content: center; }
+        }
+
+        /* ════════ ПРОДУКТОВ ДЕТАЙЛ + ГАЛЕРИЯ ════════ */
+        .pms-detail { display: grid; gap: 1.1rem; }
+        .pms-detail-main {
+            position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+            background: var(--pms-blush-bg); border: 2px solid var(--pms-ink);
+            border-radius: var(--pms-radius);
+        }
+        .pms-detail-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .pms-gal-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px; display: grid; place-items: center;
+            font-size: 1.5rem; line-height: 1; color: var(--pms-ink);
+            background: rgba(255, 255, 255, 0.9); border: 1.5px solid var(--pms-ink);
+            border-radius: 50%; cursor: pointer;
+        }
+        .pms-gal-prev { left: 0.5rem; }
+        .pms-gal-next { right: 0.5rem; }
+        .pms-gal-nav:hover { background: var(--white); }
+        .pms-gal-nav:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-gal-counter {
+            position: absolute; bottom: 0.55rem; left: 50%; transform: translateX(-50%);
+            padding: 0.2rem 0.6rem; font-family: var(--font-body);
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+            color: var(--pms-cream-bg); background: rgba(42, 6, 24, 0.78);
+            border-radius: 999px; font-variant-numeric: tabular-nums;
+        }
+        .pms-detail-thumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+        .pms-thumb {
+            width: 56px; height: 56px; padding: 0; overflow: hidden;
+            background: var(--pms-blush-bg); border: 2px solid rgba(58, 10, 34, 0.3);
+            border-radius: 10px; cursor: pointer;
+        }
+        .pms-thumb.is-on { border-color: var(--pms-hot); }
+        .pms-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .pms-thumb:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-detail-name { font-family: var(--font-retro); font-size: 1.25rem; line-height: 1.2; color: var(--pms-ink); margin: 0.35rem 0 0.4rem; }
+        .pms-detail-price .pms-card-price { margin: 0 0 0.5rem; }
+        .pms-detail-desc { font-size: 0.92rem; line-height: 1.6; color: rgba(58, 10, 34, 0.85); margin: 0.55rem 0 0.9rem; }
+        .pms-variants { margin: 0 0 1rem; }
+        .pms-variant-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; }
+        .pms-variant-stock { font-family: var(--font-body); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; color: var(--pms-hot-deep); }
+        .pms-variant-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .pms-variant {
+            min-width: 48px; min-height: 48px; padding: 0 0.7rem;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+            color: var(--pms-ink); background: var(--white);
+            border: 2px solid var(--pms-ink); border-radius: 12px; cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .pms-variant.is-on { background: var(--pms-ink); color: var(--pms-cream-bg); }
+        .pms-variant.is-out {
+            color: rgba(58, 10, 34, 0.35); border-color: rgba(58, 10, 34, 0.25);
+            background:
+                linear-gradient(to top left, transparent calc(50% - 1px), rgba(58, 10, 34, 0.28) 50%, transparent calc(50% + 1px)),
+                var(--white);
+            cursor: not-allowed;
+        }
+        .pms-variant:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-variant-note { margin-top: 0.5rem; font-size: 0.78rem; line-height: 1.45; color: rgba(58, 10, 34, 0.7); }
+        .pms-variant-note.is-low { color: var(--pms-hot-deep); font-weight: 600; }
+        .pms-variant-note.is-out { color: var(--pms-hot-deep); }
+        .pms-order {
+            padding: 0.9rem; background: var(--pms-blush-bg);
+            border: 2px solid var(--pms-ink); border-radius: var(--pms-radius); margin-bottom: 1rem;
+        }
+        .pms-order-btn {
+            width: 100%; min-height: 50px; display: inline-flex; align-items: center; justify-content: center;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em;
+            text-decoration: none; color: rgba(58, 10, 34, 0.5);
+            background: rgba(58, 10, 34, 0.09); border: 2px solid rgba(58, 10, 34, 0.22);
+            border-radius: 999px; cursor: not-allowed;
+        }
+        .pms-order-btn.is-ready {
+            color: var(--white); background: #7360F2;
+            border-color: #5b49d6; cursor: pointer;
+        }
+        .pms-order-btn.is-ready:hover { background: #5f4de0; }
+        .pms-order-btn:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 3px; }
+        .pms-order-note { margin-top: 0.6rem; font-size: 0.74rem; line-height: 1.5; color: rgba(58, 10, 34, 0.7); }
+        .pms-order-msg {
+            margin-top: 0.35rem; padding: 0.5rem 0.65rem; font-family: var(--font-body);
+            font-size: 0.78rem; line-height: 1.45; color: var(--pms-ink); background: var(--white);
+            border: 1.5px dashed var(--pms-ink); border-radius: 10px;
+            overflow-wrap: anywhere; user-select: all;
+        }
+        .pms-copy {
+            margin-top: 0.5rem; min-height: 44px; padding: 0.45rem 1rem;
+            font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+            color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 999px; cursor: pointer;
+        }
+        .pms-copy:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-copy-hint { margin-top: 0.35rem; min-height: 1.1em; font-size: 0.74rem; color: var(--pms-hot-deep); }
+        .pms-wishbtn { width: 100%; min-height: 44px; margin-bottom: 1rem; }
+        .pms-card-brand {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--pms-hot-deep);
+            margin-bottom: 0.15rem;
+        }
+        .pms-detail-brand { font-size: 0.7rem; margin-bottom: 0.2rem; }
+        .pms-detail-specs { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.8rem; margin: 0 0 0.9rem; font-size: 0.8rem; }
+        .pms-detail-specs dt { font-weight: 700; color: var(--pms-hot-deep); }
+        .pms-detail-specs dd { margin: 0; color: rgba(58, 10, 34, 0.82); }
+        .pms-detail-ship {
+            font-size: 0.75rem; line-height: 1.55; color: rgba(58, 10, 34, 0.65);
+            padding-top: 0.7rem; border-top: 1.5px dashed rgba(58, 10, 34, 0.25);
+        }
+        .pms-detail-related { grid-column: 1 / -1; }
+        .pms-detail-related .pms-legend { margin-bottom: 0.6rem; }
+        .pms-grid--rel { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+        .pms-sheet-hint {
+            margin: 0.5rem 0 0.7rem; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase; color: var(--pms-hot-deep);
+        }
+        .pms-badge--limited { background: var(--pms-hot-deep); color: var(--white); }
+        .pms-card-sister .s-both { color: var(--pms-hot); font-weight: 800; }
+
+        @media (min-width: 700px) {
+            .pms-overlay .pms-sheet { width: min(860px, 100%); max-height: min(86vh, 760px); }
+            .pms-detail { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 1.4rem; }
+            .pms-detail-media { position: sticky; top: 0; align-self: start; }
+        }
+        @media (max-width: 699px) { .pms-detail { grid-template-columns: 1fr; } }
+
+        /* ════════ ОСНОВНА КАМПАНИЙНА ВЪРТЕЛЕЖКА (auto-only) ════════
+           Без видими контроли — само крос-фейд с лек хоризонтален
+           отмест, ~0.55s. Всички слайдове стоят в една grid клетка
+           (grid-area 1/1), за да няма скок във височината. */
+        .pms-campaign-carousel-section { margin-bottom: 0; }
+        .pms-campaign-carousel { position: relative; }
+        .pms-campaign-track { display: grid; }
+        .pms-campaign-track .pms-campaign {
+            grid-area: 1 / 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease, visibility 0s linear 0.55s;
+            pointer-events: none;
+        }
+        .pms-campaign-track .pms-campaign.is-active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            pointer-events: auto;
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pms-campaign-track .pms-campaign {
+                transition: opacity 0.12s linear, visibility 0s linear;
+                transform: none;
+            }
+            .pms-campaign-track .pms-campaign.is-active { transition: opacity 0.12s linear; transform: none; }
+        }
+
+        /* ════════ ТАБЛОТО — СЕСТРИНСКО СЪПЕРНИЧЕСТВО ════════ */
+        .pms-h--center {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.25rem;
+        }
+
+        .pms-rivalry { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 0.9rem; }
+        .pms-riv-side {
+            padding: 1rem 1.1rem 1.15rem; background: var(--pms-cream-bg);
+            border: 2px solid var(--pms-ink); border-radius: var(--pms-radius);
+        }
+        .pms-riv-side--sis { background: var(--pms-blush-bg); }
+        .pms-riv-top {
+            display: flex; align-items: baseline; justify-content: space-between;
+            gap: 0.6rem; padding-bottom: 0.5rem; border-bottom: 1.5px dashed rgba(58, 10, 34, 0.28);
+        }
+        .pms-riv-name { font-family: var(--font-retro); font-size: 1.05rem; letter-spacing: 0.08em; color: var(--pms-ink); }
+        .pms-riv-side--sis .pms-riv-name { color: var(--pms-hot-deep); }
+        .pms-riv-hearts { font-family: var(--font-body); font-size: 0.85rem; font-weight: 800; color: var(--pms-hot); font-variant-numeric: tabular-nums; }
+        .pms-riv-line { margin: 0.6rem 0 0.8rem; font-size: 0.85rem; font-style: italic; line-height: 1.45; color: rgba(58, 10, 34, 0.8); }
+        .pms-riv-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem 0.7rem; margin: 0 0 0.85rem; }
+        .pms-riv-stats > div { padding: 0.4rem 0.55rem; background: var(--white); border: 1.5px solid rgba(58, 10, 34, 0.22); border-radius: 10px; }
+        .pms-riv-stats dt { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(58, 10, 34, 0.55); }
+        .pms-riv-stats dd { margin: 0.1rem 0 0; font-family: var(--font-retro); font-size: 1.15rem; line-height: 1; color: var(--pms-ink); font-variant-numeric: tabular-nums; }
+        .pms-riv-cat, .pms-riv-top-item {
+            display: block; width: 100%; min-height: 44px; margin-top: 0.4rem; padding: 0.5rem 0.7rem;
+            font-family: var(--font-body); font-size: 0.76rem; font-weight: 600; text-align: left;
+            color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 10px; cursor: pointer;
+            transition: transform 0.16s ease, background 0.16s ease;
+        }
+        .pms-riv-cat:hover, .pms-riv-top-item:hover { background: var(--pms-blush-bg); transform: translateX(2px); }
+        .pms-riv-cat:focus-visible, .pms-riv-top-item:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+
+        /* .pms-vs (база, дуелът) е position:absolute с
+           transform: translate(-50%,-50%) rotate(-6deg). Таблото слага
+           VS-а СТАТИЧНО в auto-колоната (1fr auto 1fr) — наследеният
+           central translate иначе го измества с половината му кутия. */
+        .pms-vs--riv {
+            position: static;
+            transform: rotate(-6deg);
+            justify-self: center;
+            align-self: center;
+        }
+
+        .pms-riv-foot { grid-column: 1 / -1; margin-top: 0.2rem; font-size: 0.8rem; line-height: 1.5; text-align: center; color: rgba(58, 10, 34, 0.75); }
+        .pms-riv-shared {
+            min-height: 44px; padding: 0.35rem 0.9rem; margin: 0.25rem 0;
+            font-family: var(--font-body); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em;
+            color: var(--white); background: var(--pms-hot);
+            border: 2px solid var(--pms-hot); border-radius: 999px; cursor: pointer;
+        }
+        .pms-riv-shared:focus-visible { outline: 3px solid var(--pms-ink); outline-offset: 2px; }
+        .pms-riv-note { display: block; margin-top: 0.25rem; font-size: 0.7rem; color: rgba(58, 10, 34, 0.5); }
+
+        @media (max-width: 768px) {
+            .pms-rivalry { grid-template-columns: 1fr; }
+            .pms-vs--riv { justify-self: center; }
+            .pms-riv-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        @media (max-width: 430px) { .pms-riv-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+        /* ════════ SPOTTED IN PINK — UGC СТЕНА ════════ */
+        .pms-polaroid-link { display: block; line-height: 0; border-radius: 4px; }
+        .pms-polaroid-link:focus-visible { outline: 3px solid var(--pms-hot); outline-offset: 3px; }
+        .pms-polaroid-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: var(--pms-blush-bg); }
+        .pms-polaroid.is-placeholder .pms-polaroid-cap { color: rgba(58, 10, 34, 0.5); }
+        .pms-polaroid-handle { font-weight: 700; color: var(--pms-hot-deep); }
+        .pms-polaroid-shop { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem; }
+        .pms-polaroid-tag {
+            min-height: 44px; padding: 0.3rem 0.6rem; font-family: var(--font-body);
+            font-size: 0.68rem; font-weight: 700; color: var(--pms-ink); background: var(--white);
+            border: 1.5px solid var(--pms-ink); border-radius: 999px; cursor: pointer;
+        }
+        .pms-polaroid-tag:hover { background: var(--pms-blush-bg); }
+        .pms-polaroid-tag:focus-visible { outline: 2.5px solid var(--pms-hot); outline-offset: 2px; }
+        .pms-irl-note { margin-top: 0.8rem; font-size: 0.76rem; line-height: 1.5; text-align: center; color: rgba(58, 10, 34, 0.55); }
+
+        /* ════════ МИКРО-ВЗАИМОДЕЙСТВИЯ ════════ */
+        .pms-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+        @media (hover: hover) {
+            .pms-card:hover { transform: translateY(-3px); }
+            .pms-card:hover .pms-heart { opacity: 1; }
+            .pms-campaign-cta:hover { transform: translateY(-2px); }
+        }
+        .pms-heart { transition: transform 0.14s ease, background 0.16s ease, border-color 0.16s ease; }
+        .pms-heart:active { transform: scale(0.9); }
+        .pms-heart[aria-pressed="true"] { transform: none; }
+        .pms-quick, .pms-variant, .pms-size-btn, .pms-chip, .pms-order-btn, .pms-campaign-cta {
+            transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease;
+        }
+        .pms-quick:active, .pms-variant:active, .pms-size-btn:active, .pms-chip:active { transform: scale(0.97); }
+        .pms-order-btn.is-ready:active { transform: scale(0.985); }
+
+        /* ════════ СЛОЕВЕ НА МОДАЛИТЕ ════════
+           Банерът за съгласие е z-index:1000. Всеки Pink Mall слой
+           стои над него, докато е отворен. Съгласието НЕ се пипа. */
+        :root { --pms-modal-z: 1100; }
+        .pms-overlay { z-index: var(--pms-modal-z); }
+        .pms-filters-backdrop { z-index: calc(var(--pms-modal-z) - 1); }
+        .pms-filters.is-drawer { z-index: var(--pms-modal-z); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pms-card, .pms-heart, .pms-quick, .pms-variant, .pms-size-btn,
+            .pms-chip, .pms-order-btn, .pms-campaign-cta, .pms-preset, .pms-seg-btn,
+            .pms-riv-cat, .pms-riv-top-item, .pms-filters.is-drawer, .pms-gal-nav {
+                transition: none !important;
+            }
+            .pms-card:hover, .pms-campaign-cta:hover,
+            .pms-riv-cat:hover, .pms-riv-top-item:hover { transform: none !important; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -8430,8 +8896,7 @@
             <div class="pms-gate-inner">
                 <span class="pms-gate-level"><span class="pms-led"></span> НИВО P · СЕКТОР РОЗОВО · ОТВОРЕНО</span>
                 <h2 class="pms-gate-title">PINK MALL</h2>
-                <p class="pms-gate-sub">Прекрачи прага. Тук Pierciina спира да е студио и става мол —
-                   мода, чанти, свещи и всичко розово, избрано от двете сестри.</p>
+                <p class="pms-gate-sub">Оттук започва PINK MALL — малки количества, много розово и две сестрички, които рядко са на едно мнение за стил.</p>
                 <button type="button" class="pms-campaign-cta" id="pmsGateCta">РАЗГЛЕДАЙ МОЛА ↓</button>
             </div>
 
@@ -8469,8 +8934,12 @@
             <div class="pms-directory" id="pmsDirectory"></div>
         </div>
 
-        <!-- ════════ C · CAMPAIGN SLOT 1 ════════ -->
-        <div class="pms-section" data-pms-campaign-slot="grand-opening"></div>
+        <!-- ════════ C · ОСНОВНА КАМПАНИЙНА ВЪРТЕЛЕЖКА (auto-only) ════════ -->
+        <div class="pms-section pms-campaign-carousel-section" aria-label="Основни кампании">
+            <div class="pms-campaign-carousel" id="pmsCampaignCarousel" role="region" aria-roledescription="карусел" aria-label="Основни кампании на Pink Mall">
+                <div class="pms-campaign-track" id="pmsCampaignTrack"></div>
+            </div>
+        </div>
 
         <!-- ════════ D · NEW IN ════════ -->
         <div class="pms-section" aria-label="Нови продукти">
@@ -8508,8 +8977,14 @@
             </div>
         </div>
 
-        <!-- ════════ F · CAMPAIGN SLOT 2 ════════ -->
-        <div class="pms-section" data-pms-campaign-slot="rivalry"></div>
+        <!-- ════════ E2 · СЪПЕРНИЧЕСТВО (числа от каталога) ════════ -->
+        <div class="pms-section" aria-label="Сестринско съперничество">
+            <div class="pms-h pms-h--center">
+                <h3 class="pms-h-title">ТАБЛОТО</h3>
+                <span class="pms-h-quip">никоя не гледа. и двете гледат.</span>
+            </div>
+            <div class="pms-rivalry" id="pmsRivalry"></div>
+        </div>
 
         <!-- ════════ G · ЦЕЛИЯТ МОЛ ════════ -->
         <div class="pms-section" id="pmsShop" aria-label="Всички продукти">
@@ -8517,7 +8992,41 @@
                 <h3 class="pms-h-title" id="pmsShopTitle">ЦЕЛИЯТ МОЛ</h3>
                 <span class="pms-h-quip" id="pmsShopQuip">разгледай всичко, съжалявай после</span>
             </div>
-            <div class="pms-grid" id="pmsShopGrid"></div>
+
+            <!-- ════ DISCOVERY TOOLBAR (търсене / филтри / сортиране) ════ -->
+            <div class="pms-toolbar" role="search">
+                <div class="pms-search-wrap">
+                    <svg class="pms-search-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <label class="pms-sr-only" for="pmsSearch">Търси в Pink Mall</label>
+                    <input type="search" id="pmsSearch" class="pms-search" placeholder="търси: чанта, свещ, розово…" autocomplete="off">
+                    <button type="button" class="pms-search-clear" id="pmsSearchClear" aria-label="Изчисти търсенето" hidden>✕</button>
+                </div>
+                <button type="button" class="pms-filters-toggle" id="pmsFiltersToggle" aria-expanded="false" aria-controls="pmsFilters">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+                    ФИЛТРИ<span class="pms-filters-count" id="pmsFiltersCount" hidden></span>
+                </button>
+                <div class="pms-sort-wrap">
+                    <label class="pms-sr-only" for="pmsSort">Подреди по</label>
+                    <select id="pmsSort" class="pms-sort">
+                        <option value="recommended">Подредба: препоръчано</option>
+                        <option value="newest">Първо новите</option>
+                        <option value="price-asc">Цена: ниска → висока</option>
+                        <option value="price-desc">Цена: висока → ниска</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pms-resultline">
+                <span class="pms-result-count" id="pmsResultCount"></span>
+                <span class="pms-sr-only" id="pmsLive" role="status" aria-live="polite"></span>
+            </div>
+
+            <div class="pms-chips" id="pmsActiveChips" aria-label="Активни филтри" hidden></div>
+
+            <div class="pms-shop-layout">
+                <div class="pms-filters" id="pmsFilters" hidden></div>
+                <div class="pms-grid" id="pmsShopGrid"></div>
+            </div>
         </div>
 
         <!-- ════════ CAMPAIGN SLOT 3 ════════ -->
@@ -8529,14 +9038,9 @@
                 <h3 class="pms-h-title">SPOTTED IN PINK</h3>
                 <span class="pms-h-quip">скоро: вие, в мола</span>
             </div>
-            <!-- Placeholder слотове — по-късно тук влизат реални Instagram/UGC постове.
-                 НЕ са фалшиви клиентски снимки. -->
-            <div class="pms-irl-row">
-                <figure class="pms-polaroid" style="--tilt:-3deg"><div class="pms-polaroid-ph">✦</div><figcaption class="pms-polaroid-cap">тук ще е твоята снимка</figcaption></figure>
-                <figure class="pms-polaroid" style="--tilt:2deg"><div class="pms-polaroid-ph">♡</div><figcaption class="pms-polaroid-cap">tag @pierciina</figcaption></figure>
-                <figure class="pms-polaroid" style="--tilt:-1.5deg"><div class="pms-polaroid-ph">✦</div><figcaption class="pms-polaroid-cap">#pinkmall</figcaption></figure>
-                <figure class="pms-polaroid" style="--tilt:2.5deg"><div class="pms-polaroid-ph">♡</div><figcaption class="pms-polaroid-cap">spotted in pink</figcaption></figure>
-            </div>
+            <!-- UGC стена — рендерира се от PINK_MALL_UGC в скрипта долу. -->
+            <div class="pms-irl-row" id="pmsIrlRow"></div>
+            <p class="pms-irl-note" id="pmsIrlNote"></p>
         </div>
 
         <!-- ════════ I · EXIT ════════ -->
@@ -8566,8 +9070,11 @@
         </button>
     </nav>
 
-    <!-- ════════ SHARED OVERLAY (search / wishlist / категории / peek) ════════ -->
-    <div class="pms-overlay" id="pmsOverlay" role="dialog" aria-modal="true" aria-label="Pink Mall панел">
+    <!-- ════════ ФОН НА МОБИЛНОТО ЧЕКМЕДЖЕ С ФИЛТРИ ════════ -->
+    <div class="pms-filters-backdrop" id="pmsFiltersBackdrop" hidden></div>
+
+    <!-- ════════ SHARED OVERLAY (search / wishlist / категории / детайл) ════════ -->
+    <div class="pms-overlay" id="pmsOverlay" role="dialog" aria-modal="true" aria-labelledby="pmsSheetTitle2">
         <div class="pms-sheet" id="pmsSheet">
             <div class="pms-sheet-head">
                 <h4 class="pms-sheet-title" id="pmsSheetTitle2"></h4>
@@ -9893,8 +10400,8 @@
            RESUME_AFTER_MS — пауза след ръчна интеракция, преди
                             авторотацията да продължи.
            ============================================================ */
-        var AUTO_ROTATE_MS  = 8000;
-        var RESUME_AFTER_MS = 12000;
+        var AUTO_ROTATE_MS  = 3000;
+        var RESUME_AFTER_MS = 3000;
         var SWIPE_THRESHOLD = 45;   // px хоризонтално, за да се брои за swipe
         var SWIPE_MAX_OFF   = 70;   // px вертикално отклонение, над което е scroll
 
@@ -10042,11 +10549,6 @@
         if (nextEl) nextEl.addEventListener('click', manual(goNext));
 
 
-        /* Hover пауза — само на устройства с истински курсор */
-        if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            slider.addEventListener('mouseenter', pauseAuto);
-            slider.addEventListener('mouseleave', function () { resumeAuto(0); });
-        }
 
         /* Скрит таб → спираме таймера */
         document.addEventListener('visibilitychange', function () {
@@ -10803,10 +11305,12 @@
     </script>
 
     <!-- ═══════════════════════════════════════════════════════════════
-         PINK MALL STORE — Phase 2A engine  (window.PinkMallStore)
-         Централен каталог + campaign config + data-driven рендер +
-         wishlist (localStorage) + search основа + mall mode.
-         Отделен IIFE — не пипа PinkMallStage / PierciinaBillboard.
+         PINK MALL STORE — Pre-release polish engine  (window.PinkMallStore)
+         Централен каталог + campaign config + discovery engine
+         (search / филтри / сортиране) + продуктов детайл + галерия +
+         вариантен избор + Viber предаване + сестринско съперничество
+         + основна кампанийна въртележка (auto-rotation only) + UGC
+         стена + аналитика след съгласие. wishlist, mall mode.
          ═══════════════════════════════════════════════════════════════ -->
     <script>
     (function () {
@@ -10823,7 +11327,8 @@
                 country: 'България',
                 couriers: ['Econt', 'Speedy'],
                 payment: 'Наложен платеж',
-                returns: 'Връщане с наложен платеж — транспортът е за сметка на клиента.'
+                returns: 'Връщане с наложен платеж — транспортът е за сметка на клиента.',
+                deliveryEstimate: '4–7 работни дни'
             }
         };
 
@@ -10995,9 +11500,10 @@
               cta:'КЪМ ИЗБОРА ИМ', target:'#ina-picks', image:null },
             { id:'after-dark', active:true, theme:'dark', badge:'ПОСЛЕДНИ БРОЙКИ',
               eyebrow:'СЛЕД ЗАЛЕЗ', title:'PINK AFTER DARK',
-              subtitle:'Свещи, сатен и вечерни чанти за часовете, в които молът вече е затворил.',
+              subtitle:'Свещи, сатен и луксозно бельо за часовете, в които молът вече е затворил.',
               cta:'КЪМ СВЕЩИТЕ', target:'candles', image:null }
         ];
+
 
         /* ════════════════════════════════════════════════════════════
            STATE + HELPERS
@@ -11012,42 +11518,273 @@
             newRail: document.getElementById('pmsNewRail'),
             inaRail: document.getElementById('pmsInaRail'),
             sisRail: document.getElementById('pmsSisRail'),
+            shop: document.getElementById('pmsShop'),
             shopGrid: document.getElementById('pmsShopGrid'),
             shopTitle: document.getElementById('pmsShopTitle'),
             shopQuip: document.getElementById('pmsShopQuip'),
             overlay: document.getElementById('pmsOverlay'),
+            sheet: document.getElementById('pmsSheet'),
             sheetTitle: document.getElementById('pmsSheetTitle2'),
             sheetBody: document.getElementById('pmsSheetBody'),
             mobilebar: document.getElementById('pmsMobilebar')
         };
 
-        var activeCategory = 'all';
-        var lastFocus = null;
+        /* ── ЦЕНТРАЛЕН STATE (единствен източник на истина за витрината) ── */
+        var STATE = {
+            query: '',
+            category: 'all',
+            sizes: [],
+            priceMin: null,
+            priceMax: null,
+            selectedBy: 'all',   /* all | ina | sis | both */
+            newOnly: false,
+            saleOnly: false,
+            availability: 'all', /* all | in | out */
+            sort: 'recommended'  /* recommended | newest | price-asc | price-desc */
+        };
+
+        var DEFAULT_STATE = JSON.parse(JSON.stringify(STATE));
+
+        var PRICE_BOUNDS = (function () {
+            var lo = Infinity, hi = -Infinity;
+            PINK_MALL_PRODUCTS.forEach(function (p) {
+                if (p.priceEUR < lo) lo = p.priceEUR;
+                if (p.priceEUR > hi) hi = p.priceEUR;
+            });
+            return { min: Math.floor(lo), max: Math.ceil(hi) };
+        })();
+
+        var SIZE_ORDER = ['XS', 'S', 'M', 'L', 'XL', 'ONE SIZE'];
+
+        /* Ключ САМО за подредба. Етикетът на размера НИКОГА не се
+           преобразува — '37 1/3' се съхранява, сравнява, показва и
+           изпраща във Viber точно така. Тук се смята само наредба. */
+        function sizeSortKey(s){
+            var m = /^(\d+)(?:\s+(\d+)\/(\d+))?$/.exec(String(s).trim());
+            if (!m) return null;
+            var whole = parseInt(m[1], 10);
+            if (!isFinite(whole)) return null;
+            var frac = (m[2] && m[3]) ? (parseInt(m[2], 10) / parseInt(m[3], 10)) : 0;
+            return whole + (isFinite(frac) ? frac : 0);
+        }
+
+        function sortSizes(list){
+            return list.slice().sort(function (a, b) {
+                var ka = sizeSortKey(a), kb = sizeSortKey(b);
+                if (ka !== null && kb !== null) return ka - kb;   /* 36 < 36 2/3 < 37 1/3 */
+                var ia = SIZE_ORDER.indexOf(a), ib = SIZE_ORDER.indexOf(b);
+                if (ia === -1 && ib === -1) return a.localeCompare(b, 'bg');
+                if (ia === -1) return 1;
+                if (ib === -1) return -1;
+                return ia - ib;
+            });
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           ДВОЕН РЕЖИМ НА НАЛИЧНОСТТА
+           ------------------------------------------------------------
+           quantity   (наследен) — inventory:{ '38': 2 }  числа
+           availability (реален) — availability:{ '38': 'available' }
+           Целият останал код минава през sizeState()/sizesOf() и не
+           знае в кой режим е продуктът. Нищо наследено не се пипа.
+           ════════════════════════════════════════════════════════════ */
+        var AVAIL_STATES = ['available', 'last', 'soldout'];
+
+        function isAvailabilityMode(p){
+            return !!p && p.inventoryMode === 'availability'
+                && !!p.availability && typeof p.availability === 'object';
+        }
+
+        /* Канонично състояние на един размер: 'available' | 'last' | 'soldout' */
+        function sizeState(p, size){
+            if (!p) return 'soldout';
+            if (isAvailabilityMode(p)) {
+                if (!Object.prototype.hasOwnProperty.call(p.availability, size)) return 'soldout';
+                var v = p.availability[size];
+                return AVAIL_STATES.indexOf(v) > -1 ? v : 'soldout';
+            }
+            if (!p.inventory || !Object.prototype.hasOwnProperty.call(p.inventory, size)) return 'soldout';
+            var n = p.inventory[size];
+            if (!(n > 0)) return 'soldout';
+            return n === 1 ? 'last' : 'available';
+        }
+
+        function hasSize(p, size){
+            if (!p) return false;
+            var bag = isAvailabilityMode(p) ? p.availability : p.inventory;
+            return !!bag && Object.prototype.hasOwnProperty.call(bag, size);
+        }
+
+        var ALL_SIZES = (function () {
+            var seen = {}, out = [];
+            PINK_MALL_PRODUCTS.forEach(function (p) {
+                var bag = (p.inventoryMode === 'availability' && p.availability) ? p.availability : p.inventory;
+                Object.keys(bag || {}).forEach(function (s) {
+                    if (!seen[s]) { seen[s] = 1; out.push(s); }
+                });
+            });
+            return sortSizes(out);
+        })();
+
+        var SIZE_GROUPS = (function () {
+            var clothing = [], shoes = [], one = [];
+            ALL_SIZES.forEach(function (s) {
+                if (SIZE_ORDER.indexOf(s) > -1 && s !== 'ONE SIZE') clothing.push(s);
+                else if (s === 'ONE SIZE') one.push(s);
+                else shoes.push(s);
+            });
+            var g = [];
+            if (clothing.length) g.push({ id: 'clothing', label: 'ОБЛЕКЛО', sizes: sortSizes(clothing) });
+            if (shoes.length)    g.push({ id: 'shoes',    label: 'ОБУВКИ',   sizes: sortSizes(shoes) });
+            if (one.length)      g.push({ id: 'one',      label: 'УНИВЕРСАЛЕН', sizes: one });
+            return g;
+        })();
+
+        var PRICE_PRESETS = [
+            { id: 'p1', label: 'до €40',   min: null, max: 40 },
+            { id: 'p2', label: '€40–€70',  min: 40,   max: 70 },
+            { id: 'p3', label: '€70+',     min: 70,   max: null }
+        ];
+
+        var SORTS = [
+            { id: 'recommended', label: 'Подредба: препоръчано' },
+            { id: 'newest',      label: 'Първо новите' },
+            { id: 'price-asc',   label: 'Цена: ниска → висока' },
+            { id: 'price-desc',  label: 'Цена: висока → ниска' }
+        ];
 
         function esc(t){ var d=document.createElement('div'); d.textContent=t==null?'':String(t); return d.innerHTML; }
         function byId(id){ return PINK_MALL_PRODUCTS.find(function(p){ return p.id===id; }); }
-        function stockTotal(p){ return Object.values(p.inventory).reduce(function(a,v){ return a+v; },0); }
-        function isSoldOut(p){ return stockTotal(p)===0; }
-        function isLowStock(p){ var t=stockTotal(p); return t>0 && t<=2; }
+        /* Само за quantity режим. При availability бройките са
+           неизвестни и НЕ се измислят — връща null. */
+        function stockTotal(p){
+            if (isAvailabilityMode(p)) return null;
+            return Object.values(p.inventory).reduce(function(a,v){ return a+v; },0);
+        }
         function discount(p){ return p.oldPriceEUR ? Math.round((1-p.priceEUR/p.oldPriceEUR)*100) : 0; }
         function catLabel(slug){ var c=CATEGORIES.find(function(x){return x.slug===slug;}); return c?c.label:slug; }
         function reduceMotion(){ return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+        function sizesOf(p){
+            if (!p) return [];
+            var bag = isAvailabilityMode(p) ? p.availability : p.inventory;
+            return bag ? sortSizes(Object.keys(bag)) : [];
+        }
+        function inStockSizes(p){
+            return sizesOf(p).filter(function(s){ return sizeState(p, s) !== 'soldout'; });
+        }
+        function canOrder(p, size){
+            return !!p && hasSize(p, size) && sizeState(p, size) !== 'soldout';
+        }
 
-        /* ── Wishlist (localStorage) ── */
-        function getWishlist(){
-            try { return JSON.parse(localStorage.getItem(CONFIG.wishlistKey)) || []; }
-            catch(e){ return []; }
+        /* ════════════════════════════════════════════════════════════
+           ЕДИН МОДУЛ ЗА НАЛИЧНОСТТА — ползва се навсякъде
+           soldout / last / limited / ok
+           ════════════════════════════════════════════════════════════ */
+        function getStockState(product){
+            var p = (product && typeof product === 'object') ? product : byId(product);
+            if (!p) return null;
+            var sizes = sizesOf(p);
+            var avail = inStockSizes(p);
+
+            /* ── Реален доставчиков продукт: бройките са НЕИЗВЕСТНИ ──
+               Затова тук НЕ се раждат продуктови твърдения за
+               недостиг. 'ПОСЛЕДНА БРОЙКА' съществува само на ниво
+               размер и само ако потребителят изрично е казал '1 бр.'. */
+            if (isAvailabilityMode(p)) {
+                if (avail.length === 0) {
+                    return { state:'soldout', total:null, sizes:sizes.length, available:0, label:'ИЗЧЕРПАН' };
+                }
+                return { state:'ok', total:null, sizes:sizes.length, available:avail.length, label:'' };
+            }
+
+            /* ── Наследен quantity режим: непроменен ── */
+            var total = stockTotal(p);
+            if (total <= 0 || avail.length === 0) {
+                return { state:'soldout', total:0, sizes:sizes.length, available:0, label:'ИЗЧЕРПАН' };
+            }
+            if (total <= 2) {
+                return { state:'last', total:total, sizes:sizes.length, available:avail.length, label:'ПОСЛЕДНИ БРОЙКИ' };
+            }
+            if (sizes.length > 1 && avail.length < sizes.length) {
+                return { state:'limited', total:total, sizes:sizes.length, available:avail.length, label:'МАЛКО РАЗМЕРИ' };
+            }
+            return { state:'ok', total:total, sizes:sizes.length, available:avail.length, label:'' };
         }
-        function setWishlist(list){
-            try { localStorage.setItem(CONFIG.wishlistKey, JSON.stringify(list)); } catch(e){}
-            syncWishUI();
+
+        function isSoldOut(p){ var s=getStockState(p); return !!s && s.state==='soldout'; }
+
+        /* ════════════════════════════════════════════════════════════
+           NEW — единствен централен помощник
+           Реален продукт: newUntil (дата на първа публикация + 14 дни).
+           Наследен демо продукт: булевото isNew остава както си е.
+           Няма ръчно чистене след 14 дни.
+           ════════════════════════════════════════════════════════════ */
+        /* Срокът е ГЛОБАЛЕН — държи се в CONFIG.shipping и се чете
+           оттам. Продукт може да го замени само ако потребителят
+           изрично е подал друг срок за него. */
+        function deliveryEstimate(product){
+            if (product && product.deliveryEstimate) return product.deliveryEstimate;
+            return (CONFIG.shipping && CONFIG.shipping.deliveryEstimate) || '';
         }
+
+        function isProductNew(p){
+            if (!p) return false;
+            if (p.newUntil) {
+                var until = Date.parse(p.newUntil + 'T23:59:59');
+                if (isFinite(until)) return Date.now() <= until;
+            }
+            return !!p.isNew;
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           WISHLIST — устойчив на повредено/чуждо съдържание в storage
+           ════════════════════════════════════════════════════════════ */
+        var WISH_MAX = 200;
+
+        function normalizeWishlist(raw){
+            if (!Array.isArray(raw)) return [];
+            var seen = {}, out = [];
+            for (var i = 0; i < raw.length && out.length < WISH_MAX; i++) {
+                var id = raw[i];
+                if (typeof id !== 'string' || !id) continue;
+                if (seen[id]) continue;
+                if (!byId(id)) continue;
+                seen[id] = 1;
+                out.push(id);
+            }
+            return out;
+        }
+
+        function readWishlistRaw(){
+            var txt = null;
+            try { txt = localStorage.getItem(CONFIG.wishlistKey); } catch(e){ return []; }
+            if (txt == null) return [];
+            var parsed;
+            try { parsed = JSON.parse(txt); } catch(e){ return []; }
+            return normalizeWishlist(parsed);
+        }
+
+        function getWishlist(){ return readWishlistRaw(); }
+
+        function writeWishlist(list){
+            var clean = normalizeWishlist(list);
+            try { localStorage.setItem(CONFIG.wishlistKey, JSON.stringify(clean)); }
+            catch(e){ /* private mode / quota */ }
+            return clean;
+        }
+
+        function setWishlist(list){ var clean = writeWishlist(list); syncWishUI(); return clean; }
+        function isWishlisted(id){ return getWishlist().indexOf(id) > -1; }
+
         function toggleWishlist(id){
-            var list=getWishlist(); var i=list.indexOf(id);
-            if(i>-1){ list.splice(i,1); } else if(byId(id)){ list.push(id); }
-            setWishlist(list);
-            return list.indexOf(id)>-1;
+            if (typeof id !== 'string' || !byId(id)) return false;
+            var list = getWishlist();
+            var i = list.indexOf(id);
+            if (i > -1) list.splice(i, 1); else list.push(id);
+            var clean = setWishlist(list);
+            return clean.indexOf(id) > -1;
         }
+
         function syncWishUI(){
             var list=getWishlist();
             document.querySelectorAll('[data-pms-wishcount]').forEach(function(el){
@@ -11057,21 +11794,163 @@
             document.querySelectorAll('.pms-heart[data-pms-id]').forEach(function(btn){
                 var on=list.indexOf(btn.getAttribute('data-pms-id'))>-1;
                 btn.setAttribute('aria-pressed', on?'true':'false');
+                var p=byId(btn.getAttribute('data-pms-id'));
+                if(p) btn.setAttribute('aria-label', (on?'Премахни ':'Добави ')+p.name+(on?' от любими':' в любими'));
             });
-            /* Сестрински „резултат": колко от нейните продукти са в любими */
+            document.querySelectorAll('[data-pms-wish-toggle]').forEach(function(btn){
+                var on=list.indexOf(btn.getAttribute('data-pms-wish-toggle'))>-1;
+                btn.setAttribute('aria-pressed', on?'true':'false');
+                btn.textContent = on ? '♥ В ЛЮБИМИ' : '♡ ДОБАВИ В ЛЮБИМИ';
+            });
             ['ina','sis'].forEach(function(who){
                 var n=list.filter(function(id){ var p=byId(id); return p&&(p.selectedBy===who||p.selectedBy==='both'); }).length;
-                var el=document.querySelector('[data-pms-score="'+who+'"]');
-                if(el) el.textContent='♥ '+n;
+                document.querySelectorAll('[data-pms-score="'+who+'"]').forEach(function(el){ el.textContent='♥ '+n; });
             });
+        }
+
+        window.addEventListener('storage', function(e){
+            if (!e || e.key !== CONFIG.wishlistKey) return;
+            syncWishUI();
+            refreshWishlistSheet();
+            renderRivalry();
+        });
+
+        /* ════════════════════════════════════════════════════════════
+           ТЪРСЕНЕ — лек български стемър
+           ════════════════════════════════════════════════════════════ */
+        var HAS_DIGIT = /[0-9]/;
+
+        function normalize(s){
+            return String(s == null ? '' : s)
+                .toLowerCase()
+                .replace(/[‘’“”„"']/g, '')
+                .replace(/[^\p{L}\p{N}]+/gu, ' ')
+                .trim();
+        }
+        function tokens(s){ var n = normalize(s); return n ? n.split(' ') : []; }
+        function tokenMatch(needle, hay){
+            if (needle === hay) return true;
+            if (HAS_DIGIT.test(needle) || HAS_DIGIT.test(hay)) {
+                return hay.indexOf(needle) === 0 && needle.length >= 4;
+            }
+            if (needle.length >= 3 && hay.indexOf(needle) === 0) return true;
+            if (hay.length >= 3 && needle.indexOf(hay) === 0) return true;
+            var min = Math.min(needle.length, hay.length);
+            if (min >= 5 && Math.abs(needle.length - hay.length) <= 3) {
+                var shared = 0;
+                while (shared < min && needle.charAt(shared) === hay.charAt(shared)) shared++;
+                if (shared >= 5) return true;
+            }
+            return false;
+        }
+        function haystack(p){
+            if (p.__hay) return p.__hay;
+            var c = CATEGORIES.find(function(x){ return x.slug === p.category; }) || {};
+            var raw = [p.id, p.name, p.brand || '', p.manufacturerItemNo || '',
+                       p.category, catLabel(p.category), p.subcategory || '',
+                       c.bg || '', p.description, (p.tags || []).join(' '),
+                       p.color || '', p.composition || '', p.fit || ''].join(' ');
+            Object.defineProperty(p, '__hay', { value: tokens(raw), enumerable: false });
+            return p.__hay;
+        }
+        function matchesQuery(p, q){
+            var qt = tokens(q);
+            if (!qt.length) return true;
+            var hay = haystack(p);
+            return qt.every(function(needle){
+                return hay.some(function(word){ return tokenMatch(needle, word); });
+            });
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           DERIVE — единственият конвейер продукти → витрина
+           ════════════════════════════════════════════════════════════ */
+        function inCategory(p, cat){
+            if (cat === 'all') return true;
+            if (cat === 'new') return isProductNew(p);
+            return p.category === cat;
+        }
+        function matchesSizes(p, sizes){
+            if (!sizes.length) return true;
+            /* Размерът има смисъл само ако е НАЛИЧЕН — през адаптера,
+               за да работи и за availability продукти. */
+            return sizes.some(function(s){ return sizeState(p, s) !== 'soldout'; });
+        }
+        function matchesPrice(p, lo, hi){
+            if (lo != null && p.priceEUR < lo) return false;
+            if (hi != null && p.priceEUR > hi) return false;
+            return true;
+        }
+        function matchesSelectedBy(p, who){
+            if (who === 'all') return true;
+            if (who === 'both') return p.selectedBy === 'both';
+            return p.selectedBy === who || p.selectedBy === 'both';
+        }
+        function matchesAvailability(p, mode){
+            if (mode === 'in')  return !isSoldOut(p);
+            if (mode === 'out') return isSoldOut(p);
+            return true;
+        }
+
+        var CATALOG_INDEX = (function(){
+            var m = {};
+            PINK_MALL_PRODUCTS.forEach(function(p, i){ m[p.id] = i; });
+            return m;
+        })();
+
+        function withSoldOutLast(cmp){
+            return function(a, b){
+                var sa = isSoldOut(a) ? 1 : 0, sb = isSoldOut(b) ? 1 : 0;
+                if (sa !== sb) return sa - sb;
+                var r = cmp(a, b);
+                if (r) return r;
+                return CATALOG_INDEX[a.id] - CATALOG_INDEX[b.id];
+            };
+        }
+
+        var SORTERS = {
+            'recommended': withSoldOutLast(function(a,b){ return (b.featured?1:0) - (a.featured?1:0); }),
+            'newest':      withSoldOutLast(function(a,b){ return (isProductNew(b)?1:0) - (isProductNew(a)?1:0); }),
+            'price-asc':   withSoldOutLast(function(a,b){ return a.priceEUR - b.priceEUR; }),
+            'price-desc':  withSoldOutLast(function(a,b){ return b.priceEUR - a.priceEUR; }),
+            'name':        withSoldOutLast(function(a,b){ return a.name.localeCompare(b.name, 'bg'); })
+        };
+
+        function derive(){
+            var out = PINK_MALL_PRODUCTS.filter(function(p){
+                if (!matchesQuery(p, STATE.query)) return false;
+                if (!inCategory(p, STATE.category)) return false;
+                if (!matchesSizes(p, STATE.sizes)) return false;
+                if (!matchesPrice(p, STATE.priceMin, STATE.priceMax)) return false;
+                if (!matchesSelectedBy(p, STATE.selectedBy)) return false;
+                if (STATE.newOnly && !isProductNew(p)) return false;
+                if (STATE.saleOnly && !p.oldPriceEUR) return false;
+                if (!matchesAvailability(p, STATE.availability)) return false;
+                return true;
+            });
+            var cmp = SORTERS[STATE.sort] || SORTERS.recommended;
+            return out.slice().sort(cmp);
+        }
+
+        function activeFilterCount(){
+            var n = 0;
+            if (STATE.query) n++;
+            n += STATE.sizes.length;
+            if (STATE.priceMin != null || STATE.priceMax != null) n++;
+            if (STATE.selectedBy !== 'all') n++;
+            if (STATE.newOnly) n++;
+            if (STATE.saleOnly) n++;
+            if (STATE.availability !== 'all') n++;
+            return n;
         }
 
         /* ════════════════════════════════════════════════════════════
            РЕНДЕР
            ════════════════════════════════════════════════════════════ */
         function mediaHTML(p, small){
-            if(p.media && p.media.image){
-                return '<div class="pms-media" data-pms-id="'+p.id+'"><img src="'+esc(p.media.image)+'" alt="'+esc(p.name)+'" loading="lazy"></div>';
+            var g = galleryOf(p);
+            if (g.length){
+                return '<div class="pms-media" data-pms-id="'+p.id+'"><img src="'+esc(g[0].src)+'" alt="'+esc(g[0].alt || p.name)+'" loading="lazy" decoding="async"></div>';
             }
             var field=(p.media&&p.media.field)||'blush';
             var ph=(p.media&&p.media.ph)||'clothing';
@@ -11083,19 +11962,25 @@
 
         function badgesHTML(p){
             var b=[];
-            if(isSoldOut(p)) b.push('<span class="pms-badge pms-badge--soldout">ИЗЧЕРПАН</span>');
-            else if(isLowStock(p)) b.push('<span class="pms-badge pms-badge--low">ПОСЛЕДНИ БРОЙКИ</span>');
-            else if(p.isNew) b.push('<span class="pms-badge pms-badge--new">NEW</span>');
+            var st=getStockState(p);
+            if(st.state==='soldout')      b.push('<span class="pms-badge pms-badge--soldout">ИЗЧЕРПАН</span>');
+            else if(st.state==='last')    b.push('<span class="pms-badge pms-badge--low">ПОСЛЕДНИ БРОЙКИ</span>');
+            else if(st.state==='limited') b.push('<span class="pms-badge pms-badge--limited">МАЛКО РАЗМЕРИ</span>');
+            else if(isProductNew(p))      b.push('<span class="pms-badge pms-badge--new">NEW</span>');
             var d=discount(p);
-            if(d && !isSoldOut(p)) b.push('<span class="pms-badge pms-badge--sale">−'+d+'%</span>');
+            if(d && st.state!=='soldout') b.push('<span class="pms-badge pms-badge--sale">−'+d+'%</span>');
             return b.length?'<div class="pms-badges">'+b.join('')+'</div>':'';
         }
 
         function sisterHTML(p){
             if(!p.selectedBy) return '';
             var bits=[];
-            if(p.selectedBy==='ina'||p.selectedBy==='both') bits.push('<span class="s-ina">INA’S PICK ✦</span>');
-            if(p.selectedBy==='sis'||p.selectedBy==='both') bits.push('<span class="s-sis">SIS’ FAVE ♡</span>');
+            if(p.selectedBy==='both'){
+                bits.push('<span class="s-both">ОБЩ ИЗБОР ⚡</span>');
+            } else {
+                if(p.selectedBy==='ina') bits.push('<span class="s-ina">INA’S PICK ✦</span>');
+                if(p.selectedBy==='sis') bits.push('<span class="s-sis">SIS’ FAVE ♡</span>');
+            }
             return '<span class="pms-card-sister">'+bits.join('')+'</span>';
         }
 
@@ -11109,7 +11994,8 @@
         }
 
         function cardHTML(p){
-            return '<article class="pms-card'+(isSoldOut(p)?' is-soldout':'')+'" data-pms-card="'+p.id+'" data-pms-cat="'+p.category+'">'
+            var st=getStockState(p);
+            return '<article class="pms-card'+(st.state==='soldout'?' is-soldout':'')+'" data-pms-card="'+p.id+'" data-pms-cat="'+p.category+'" data-pms-stock="'+st.state+'">'
                 + mediaHTML(p)
                 + badgesHTML(p)
                 + '<button type="button" class="pms-heart" data-pms-id="'+p.id+'" aria-pressed="false" aria-label="Добави '+esc(p.name)+' в любими">'
@@ -11117,18 +12003,19 @@
                 + '</button>'
                 + '<div class="pms-card-body">'
                 +   sisterHTML(p)
+                +   (p.brand ? '<span class="pms-card-brand">'+esc(p.brand)+'</span>' : '')
                 +   '<h4 class="pms-card-name">'+esc(p.name)+'</h4>'
                 +   priceHTML(p)
-                +   '<button type="button" class="pms-quick" data-pms-quick="'+p.id+'">БЪРЗ ПОГЛЕД</button>'
+                +   '<button type="button" class="pms-quick" data-pms-open="'+p.id+'">РАЗГЛЕДАЙ</button>'
                 + '</div>'
                 + '</article>';
         }
 
-        function renderCards(container, list){
+        function renderCards(container, list, emptyMsg){
             if(!container) return;
             container.innerHTML = list.length
                 ? list.map(cardHTML).join('')
-                : '<p class="pms-empty">рафтът е празен… сестрите пазаруват нова доставка ✦</p>';
+                : '<p class="pms-empty">'+(emptyMsg||'рафтът е празен… сестрите пазаруват нова доставка ✦')+'</p>';
             syncWishUI();
         }
 
@@ -11144,7 +12031,7 @@
         function renderDirectory(){
             els.directory.innerHTML=CATEGORIES.map(function(c){
                 var n = c.slug==='new'
-                    ? PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;}).length
+                    ? PINK_MALL_PRODUCTS.filter(isProductNew).length
                     : PINK_MALL_PRODUCTS.filter(function(p){return p.category===c.slug;}).length;
                 return '<button type="button" class="pms-dir-tile" data-pms-cat-btn="'+c.slug+'">'
                     +'<span class="pms-dir-num">ЕТАЖ '+c.num+'</span>'
@@ -11155,11 +12042,16 @@
             }).join('');
         }
 
+        /* Grand Opening + Rivalry се рендерират в основната кампанийна
+           въртележка (виж renderCampaignCarousel по-долу) — тук се
+           пропускат, за да няма дублирано показване. */
         function renderCampaigns(){
             PINK_MALL_CAMPAIGNS.forEach(function(c){
+                if (CAROUSEL_CAMPAIGN_IDS.indexOf(c.id) > -1) return;
                 var slot=document.querySelector('[data-pms-campaign-slot="'+c.id+'"]');
                 if(!slot) return;
                 if(!c.active){ slot.hidden=true; return; }
+                slot.hidden=false;
                 slot.innerHTML='<div class="pms-campaign" data-theme="'+c.theme+'"'
                     +(c.image?' style="background-image:url(\''+esc(c.image)+'\');background-size:cover;background-position:center"':'')+'>'
                     +(c.badge?'<span class="pms-campaign-badge">'+esc(c.badge)+'</span>':'')
@@ -11171,12 +12063,6 @@
             });
         }
 
-        function filteredProducts(cat){
-            if(cat==='all') return PINK_MALL_PRODUCTS;
-            if(cat==='new') return PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;});
-            return PINK_MALL_PRODUCTS.filter(function(p){return p.category===cat;});
-        }
-
         var QUIPS = {
             all:'разгледай всичко, съжалявай после', 'new':'още миришат на опаковка',
             clothing:'дрехите, за които сестрите спорят', bags:'носи повече, отколкото трябва',
@@ -11184,107 +12070,1085 @@
             home:'молът, но у вас', candles:'пали след залез'
         };
 
-        function goToCategory(slug, scroll){
-            activeCategory=slug;
+        /* ════════════════════════════════════════════════════════════
+           ТУЛБАР + ФИЛТРИ + ЧИПОВЕ
+           ════════════════════════════════════════════════════════════ */
+        var tb = {
+            search:   document.getElementById('pmsSearch'),
+            clear:    document.getElementById('pmsSearchClear'),
+            sort:     document.getElementById('pmsSort'),
+            filters:  document.getElementById('pmsFilters'),
+            toggle:   document.getElementById('pmsFiltersToggle'),
+            fcount:   document.getElementById('pmsFiltersCount'),
+            chips:    document.getElementById('pmsActiveChips'),
+            count:    document.getElementById('pmsResultCount'),
+            live:     document.getElementById('pmsLive'),
+            backdrop: document.getElementById('pmsFiltersBackdrop')
+        };
+
+        function renderFilterPanel(){
+            if (!tb.filters) return;
+
+            var sizeGroupsHTML = SIZE_GROUPS.map(function(g){
+                var btns = g.sizes.map(function(s){
+                    var on = STATE.sizes.indexOf(s) > -1;
+                    return '<button type="button" class="pms-size-btn'+(on?' is-on':'')+'" data-pms-size="'+esc(s)+'" '
+                         + 'aria-pressed="'+(on?'true':'false')+'">'+esc(s)+'</button>';
+                }).join('');
+                return '<div class="pms-size-group"><span class="pms-size-group-label">'+esc(g.label)+'</span>'
+                     + '<div class="pms-size-btns">'+btns+'</div></div>';
+            }).join('');
+
+            var presetBtns = PRICE_PRESETS.map(function(pp){
+                var on = STATE.priceMin === pp.min && STATE.priceMax === pp.max;
+                return '<button type="button" class="pms-preset'+(on?' is-on':'')+'" data-pms-preset="'+pp.id+'" '
+                     + 'aria-pressed="'+(on?'true':'false')+'">'+esc(pp.label)+'</button>';
+            }).join('');
+
+            var byBtns = [['all','ВСИЧКИ'],['ina','INA ✦'],['sis','SIS ♡'],['both','ОБЩ ИЗБОР ⚡']].map(function(o){
+                var on = STATE.selectedBy === o[0];
+                return '<button type="button" class="pms-seg-btn'+(on?' is-on':'')+'" data-pms-selectedby="'+o[0]+'" '
+                     + 'aria-pressed="'+(on?'true':'false')+'">'+o[1]+'</button>';
+            }).join('');
+
+            var availBtns = [['all','ВСИЧКИ'],['in','НАЛИЧНИ'],['out','ИЗЧЕРПАНИ']].map(function(o){
+                var on = STATE.availability === o[0];
+                return '<button type="button" class="pms-seg-btn'+(on?' is-on':'')+'" data-pms-avail="'+o[0]+'" '
+                     + 'aria-pressed="'+(on?'true':'false')+'">'+o[1]+'</button>';
+            }).join('');
+
+            tb.filters.innerHTML =
+                '<div class="pms-filters-head">'
+              +   '<h4 id="pmsFiltersTitle" class="pms-filters-title">ФИЛТРИ</h4>'
+              +   '<button type="button" class="pms-filters-close" id="pmsFiltersClose" aria-label="Затвори филтрите">✕</button>'
+              + '</div>'
+              + '<div class="pms-filters-body">'
+              +   '<fieldset class="pms-fset"><legend class="pms-legend">РАЗМЕР</legend>'
+              +     sizeGroupsHTML
+              +     '<p class="pms-fhint">показват се само артикули, налични в избрания размер</p>'
+              +   '</fieldset>'
+              +   '<fieldset class="pms-fset"><legend class="pms-legend">ЦЕНА (EUR)</legend>'
+              +     '<div class="pms-presets">'+presetBtns+'</div>'
+              +     '<div class="pms-price-row">'
+              +       '<label class="pms-price-field"><span>от</span><input type="number" inputmode="numeric" id="pmsPriceMin" '
+              +         'min="'+PRICE_BOUNDS.min+'" max="'+PRICE_BOUNDS.max+'" placeholder="'+PRICE_BOUNDS.min+'" '
+              +         'value="'+(STATE.priceMin==null?'':STATE.priceMin)+'" aria-label="Минимална цена в евро"></label>'
+              +       '<label class="pms-price-field"><span>до</span><input type="number" inputmode="numeric" id="pmsPriceMax" '
+              +         'min="'+PRICE_BOUNDS.min+'" max="'+PRICE_BOUNDS.max+'" placeholder="'+PRICE_BOUNDS.max+'" '
+              +         'value="'+(STATE.priceMax==null?'':STATE.priceMax)+'" aria-label="Максимална цена в евро"></label>'
+              +     '</div>'
+              +   '</fieldset>'
+              +   '<fieldset class="pms-fset"><legend class="pms-legend">ИЗБОР НА СЕСТРА</legend>'
+              +     '<div class="pms-seg pms-seg--wrap">'+byBtns+'</div>'
+              +   '</fieldset>'
+              +   '<fieldset class="pms-fset"><legend class="pms-legend">НАЛИЧНОСТ</legend>'
+              +     '<div class="pms-seg">'+availBtns+'</div>'
+              +   '</fieldset>'
+              +   '<fieldset class="pms-fset"><legend class="pms-legend">ОЩЕ</legend>'
+              +     '<label class="pms-check"><input type="checkbox" id="pmsNewOnly"'+(STATE.newOnly?' checked':'')+'> само NEW IN</label>'
+              +     '<label class="pms-check"><input type="checkbox" id="pmsSaleOnly"'+(STATE.saleOnly?' checked':'')+'> само намалени</label>'
+              +   '</fieldset>'
+              + '</div>'
+              + '<div class="pms-filters-foot">'
+              +   '<button type="button" class="pms-clearall" id="pmsClearAll">ИЗЧИСТИ ВСИЧКО</button>'
+              +   '<button type="button" class="pms-applybtn" id="pmsApply">ПОКАЖИ РЕЗУЛТАТИТЕ</button>'
+              + '</div>';
+        }
+
+        function chip(label, action, value){
+            return '<button type="button" class="pms-chip" data-pms-chip="'+action+'"'
+                 + (value!=null?' data-pms-chipval="'+esc(value)+'"':'')
+                 + ' aria-label="Премахни филтър: '+esc(label)+'">'+esc(label)+' <span aria-hidden="true">✕</span></button>';
+        }
+
+        var BY_LABEL = { ina:'INA ✦', sis:'SIS ♡', both:'ОБЩ ИЗБОР ⚡' };
+        var AVAIL_LABEL = { 'in':'налични', 'out':'изчерпани' };
+
+        function renderChips(){
+            if (!tb.chips) return;
+            var out = [];
+            if (STATE.query) out.push(chip('„'+STATE.query+'"', 'query'));
+            STATE.sizes.forEach(function(s){ out.push(chip('размер '+s, 'size', s)); });
+            if (STATE.priceMin != null || STATE.priceMax != null) {
+                var lo = STATE.priceMin == null ? PRICE_BOUNDS.min : STATE.priceMin;
+                var hi = STATE.priceMax == null ? PRICE_BOUNDS.max : STATE.priceMax;
+                out.push(chip('€' + lo + '–€' + hi, 'price'));
+            }
+            if (STATE.selectedBy !== 'all') out.push(chip(BY_LABEL[STATE.selectedBy] || STATE.selectedBy, 'selectedBy'));
+            if (STATE.newOnly) out.push(chip('NEW IN', 'newOnly'));
+            if (STATE.saleOnly) out.push(chip('намалени', 'saleOnly'));
+            if (STATE.availability !== 'all') out.push(chip(AVAIL_LABEL[STATE.availability], 'availability'));
+
+            if (out.length > 1) out.push('<button type="button" class="pms-clearall pms-clearall--inline" data-pms-chip="all">ИЗЧИСТИ ВСИЧКО</button>');
+
+            tb.chips.innerHTML = out.join('');
+            tb.chips.hidden = out.length === 0;
+        }
+
+        function renderShop(){
+            var list = derive();
+
+            els.shopTitle.textContent = STATE.category==='all' ? 'ЦЕЛИЯТ МОЛ' : catLabel(STATE.category);
+            els.shopQuip.textContent = QUIPS[STATE.category] || '';
+
+            var empty = activeFilterCount()
+                ? 'нищо не пасва на този вкус… разхлаби някой филтър ✦'
+                : 'рафтът е празен… сестрите пазаруват нова доставка ✦';
+            renderCards(els.shopGrid, list, empty);
+
+            if (tb.count) tb.count.textContent = list.length === 1 ? '1 находка' : list.length + ' находки';
+            if (tb.live) {
+                tb.live.textContent = list.length === 0
+                    ? 'Няма резултати за текущите филтри.'
+                    : (list.length === 1 ? '1 намерен продукт.' : list.length + ' намерени продукта.');
+            }
+            var n = activeFilterCount();
+            if (tb.fcount) { tb.fcount.textContent = n ? String(n) : ''; tb.fcount.hidden = !n; }
+            if (tb.toggle) tb.toggle.setAttribute('aria-label', n ? 'Филтри — ' + n + ' активни' : 'Филтри');
+            if (tb.clear) tb.clear.hidden = !STATE.query;
+            if (tb.sort && tb.sort.value !== STATE.sort) tb.sort.value = STATE.sort;
+
             document.querySelectorAll('[data-pms-cat-btn]').forEach(function(btn){
-                var on=btn.getAttribute('data-pms-cat-btn')===slug;
-                if(btn.classList.contains('pms-cat-chip')){
+                var on = btn.getAttribute('data-pms-cat-btn') === STATE.category;
+                if (btn.classList.contains('pms-cat-chip')) {
                     btn.classList.toggle('is-active', on);
-                    btn.setAttribute('aria-selected', on?'true':'false');
+                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
                 }
             });
-            els.shopTitle.textContent = slug==='all' ? 'ЦЕЛИЯТ МОЛ' : catLabel(slug);
-            els.shopQuip.textContent = QUIPS[slug]||'';
-            renderCards(els.shopGrid, filteredProducts(slug));
-            if(scroll!==false){
-                document.getElementById('pmsShop').scrollIntoView({behavior:reduceMotion()?'auto':'smooth', block:'start'});
+
+            renderChips();
+            return list;
+        }
+
+        var STATE_KEYS = ['query','category','sizes','priceMin','priceMax','selectedBy',
+                          'newOnly','saleOnly','availability','sort'];
+
+        var ENUMS = {
+            selectedBy:   ['all','ina','sis','both'],
+            availability: ['all','in','out'],
+            sort:         ['recommended','newest','price-asc','price-desc','name']
+        };
+
+        function coerceState(patch){
+            var clean = {};
+            STATE_KEYS.forEach(function(k){
+                if (!(k in patch)) return;
+                var v = patch[k];
+                if (k === 'sizes') {
+                    if (!Array.isArray(v)) return;
+                    clean.sizes = v.filter(function(s){ return typeof s === 'string' && ALL_SIZES.indexOf(s) > -1; });
+                    return;
+                }
+                if (k === 'priceMin' || k === 'priceMax') {
+                    if (v == null || v === '') { clean[k] = null; return; }
+                    var num = Number(v);
+                    if (isFinite(num)) clean[k] = num;
+                    return;
+                }
+                if (k === 'newOnly' || k === 'saleOnly') { clean[k] = !!v; return; }
+                if (k === 'query') { clean.query = typeof v === 'string' ? v.trim() : ''; return; }
+                if (k === 'category') {
+                    if (v === 'all' || CATEGORIES.some(function(c){ return c.slug === v; })) clean.category = v;
+                    return;
+                }
+                if (ENUMS[k]) { if (ENUMS[k].indexOf(v) > -1) clean[k] = v; return; }
+            });
+            return clean;
+        }
+
+        function setState(patch, opts){
+            var clean = coerceState(patch || {});
+            Object.keys(clean).forEach(function(k){ STATE[k] = clean[k]; });
+            var list = renderShop();
+            if (opts && opts.refreshPanel !== false && isFiltersOpen()) renderFilterPanel();
+            return list;
+        }
+
+        function clearFilters(){
+            STATE_KEYS.forEach(function(k){
+                STATE[k] = Array.isArray(DEFAULT_STATE[k]) ? DEFAULT_STATE[k].slice() : DEFAULT_STATE[k];
+            });
+            if (tb.search) tb.search.value = '';
+            var list = renderShop();
+            if (isFiltersOpen()) renderFilterPanel();
+            return list;
+        }
+
+        function goToCategory(slug, scroll){
+            var known = slug === 'all' || CATEGORIES.some(function(c){ return c.slug === slug; });
+            if (!known) return;
+            STATE.category = slug;
+            renderShop();
+            emit('pink_mall_category_select', { category: slug });
+            if (scroll !== false && els.shop) {
+                els.shop.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
             }
         }
 
         /* ════════════════════════════════════════════════════════════
-           SHEETS (search / wishlist / категории / quick view)
+           MODAL STACK — фон, скрол-ключалка, фокус
            ════════════════════════════════════════════════════════════ */
-        function openSheet(title, bodyHTML, focusSel){
-            lastFocus=document.activeElement;
-            els.sheetTitle.textContent=title;
-            els.sheetBody.innerHTML=bodyHTML;
-            els.overlay.classList.add('is-open');
-            document.body.style.overflow='hidden';
-            var f=focusSel&&els.sheetBody.querySelector(focusSel);
-            (f||document.getElementById('pmsSheetClose2')).focus();
+        var MODALS = [];
+        var SUPPORTS_INERT = ('inert' in HTMLElement.prototype);
+        var scrollLock = { n: 0, overflow: '', paddingRight: '' };
+
+        function lockScroll(){
+            if (scrollLock.n++ > 0) return;
+            scrollLock.overflow = document.body.style.overflow;
+            scrollLock.paddingRight = document.body.style.paddingRight;
+            var gap = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = 'hidden';
+            if (gap > 0) document.body.style.paddingRight = gap + 'px';
         }
-        function closeSheet(){
-            els.overlay.classList.remove('is-open');
-            document.body.style.overflow='';
-            if(lastFocus&&lastFocus.focus) lastFocus.focus();
+        function unlockScroll(){
+            if (scrollLock.n === 0) return;
+            if (--scrollLock.n > 0) return;
+            document.body.style.overflow = scrollLock.overflow;
+            document.body.style.paddingRight = scrollLock.paddingRight;
         }
 
-        function openSearch(){
-            openSheet('ТЪРСИ В МОЛА',
-                '<input type="search" class="pms-search-input" id="pmsSearchInput" placeholder="розово, чанта, свещ…" aria-label="Търсене">'
-                +'<div class="pms-grid" id="pmsSearchResults"></div>', '#pmsSearchInput');
-            var input=document.getElementById('pmsSearchInput');
-            var res=document.getElementById('pmsSearchResults');
-            function run(){
-                var q=input.value.trim().toLowerCase();
-                if(!q){ res.innerHTML='<p class="pms-empty">напиши нещо розово ✦</p>'; return; }
-                var hits=PINK_MALL_PRODUCTS.filter(function(p){
-                    var c=CATEGORIES.find(function(x){return x.slug===p.category;})||{};
-                    return p.name.toLowerCase().indexOf(q)>-1
-                        || p.category.indexOf(q)>-1
-                        || catLabel(p.category).toLowerCase().indexOf(q)>-1
-                        || (c.bg||'').indexOf(q)>-1
-                        || p.description.toLowerCase().indexOf(q)>-1
-                        || p.tags.some(function(t){return t.indexOf(q)>-1;});
-                });
-                renderCards(res, hits);
+        function applyBackgroundIsolation(){
+            var top = MODALS.length ? MODALS[MODALS.length - 1].el : null;
+            Array.prototype.forEach.call(document.body.children, function(node){
+                if (node.nodeType !== 1) return;
+                var isModalLayer = MODALS.some(function(m){ return m.el === node || node.contains(m.el); });
+                var shouldIsolate = !!top && !isModalLayer;
+                if (SUPPORTS_INERT) {
+                    if (shouldIsolate) { node.inert = true; }
+                    else if (node.inert) { node.inert = false; }
+                } else {
+                    if (shouldIsolate) { node.setAttribute('aria-hidden', 'true'); node.setAttribute('data-pms-inert', '1'); }
+                    else if (node.getAttribute('data-pms-inert')) {
+                        node.removeAttribute('aria-hidden'); node.removeAttribute('data-pms-inert');
+                    }
+                }
+            });
+        }
+
+        var FOCUSABLE = 'a[href],area[href],button:not([disabled]),input:not([disabled]):not([type="hidden"]),'
+                      + 'select:not([disabled]),textarea:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
+
+        function focusables(root){
+            return Array.prototype.filter.call(root.querySelectorAll(FOCUSABLE), function(el){
+                return el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement;
+            });
+        }
+
+        function pushModal(el, onClose){
+            var entry = { el: el, onClose: onClose, lastFocus: document.activeElement };
+            MODALS.push(entry);
+            lockScroll();
+            applyBackgroundIsolation();
+            return entry;
+        }
+
+        function popModal(el){
+            var i = -1;
+            for (var k = MODALS.length - 1; k >= 0; k--) { if (MODALS[k].el === el) { i = k; break; } }
+            if (i === -1) return null;
+            var entry = MODALS.splice(i, 1)[0];
+            unlockScroll();
+            applyBackgroundIsolation();
+            if (entry.lastFocus && entry.lastFocus.focus && document.contains(entry.lastFocus)) {
+                try { entry.lastFocus.focus(); } catch(e){}
             }
-            input.addEventListener('input', run); run();
+            return entry;
         }
 
-        function openWishlist(){
-            var list=getWishlist().map(byId).filter(Boolean);
-            openSheet('ЛЮБИМИ ♥',
-                list.length?'<div class="pms-grid">'+list.map(cardHTML).join('')+'</div>'
-                :'<p class="pms-empty">празно е… сърцето чака да натиснеш ♥</p>');
+        function topModal(){ return MODALS.length ? MODALS[MODALS.length - 1] : null; }
+        function modalDepth(){ return MODALS.length; }
+
+        document.addEventListener('keydown', function(e){
+            var top = topModal();
+            if (!top) return;
+
+            if (top.el === els.overlay && detail && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+                var tag = (document.activeElement && document.activeElement.tagName) || '';
+                if (tag !== 'INPUT' && tag !== 'SELECT' && tag !== 'TEXTAREA') {
+                    if (stepGallery(e.key === 'ArrowLeft' ? -1 : 1)) { e.preventDefault(); return; }
+                }
+            }
+
+            if (e.key === 'Escape') { e.preventDefault(); if (top.onClose) top.onClose(); return; }
+            if (e.key !== 'Tab') return;
+            var f = focusables(top.el);
+            if (!f.length) { e.preventDefault(); return; }
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && (document.activeElement === first || !top.el.contains(document.activeElement))) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            }
+        }, true);
+
+        /* ════════════════════════════════════════════════════════════
+           SHEETS — ЕДИН споделен слой.
+           ════════════════════════════════════════════════════════════ */
+        var sheetMode = null;
+
+        function isSheetOpen(){ return els.overlay.classList.contains('is-open'); }
+
+        function openSheet(title, bodyHTML, focusSel, mode){
+            var wasOpen = isSheetOpen();
+            sheetMode = mode || null;
+            els.sheetTitle.textContent = title;
+            els.sheetBody.innerHTML = bodyHTML;
+            els.sheet.scrollTop = 0;
+            els.overlay.classList.add('is-open');
+            if (!wasOpen) pushModal(els.overlay, closeSheet);
+            var f = focusSel && els.sheetBody.querySelector(focusSel);
+            (f || document.getElementById('pmsSheetClose2')).focus();
             syncWishUI();
+        }
+
+        function updateSheetBody(bodyHTML, keepScroll){
+            if (!isSheetOpen()) return;
+            var act = document.activeElement;
+            var key = null, sTop = els.sheet.scrollTop;
+            if (act && els.sheetBody.contains(act)) {
+                key = act.getAttribute('data-pms-focuskey') || (act.id ? '#' + act.id : null);
+            }
+            els.sheetBody.innerHTML = bodyHTML;
+            els.sheet.scrollTop = keepScroll === false ? 0 : sTop;
+            syncWishUI();
+            if (key) {
+                var back = key.charAt(0) === '#'
+                    ? els.sheetBody.querySelector(key)
+                    : els.sheetBody.querySelector('[data-pms-focuskey="' + key + '"]');
+                if (back) { try { back.focus(); } catch(e){} return; }
+            }
+            if (!els.sheetBody.contains(document.activeElement)) {
+                document.getElementById('pmsSheetClose2').focus();
+            }
+        }
+
+        function closeSheet(){
+            if (!isSheetOpen()) return;
+            els.overlay.classList.remove('is-open');
+            sheetMode = null;
+            detail = null;
+            popModal(els.overlay);
+        }
+
+        function openSearchSheet(){
+            openSheet('ТЪРСИ В МОЛА',
+                '<label class="pms-sr-only" for="pmsSheetSearchInput">Търсене в Pink Mall</label>'
+              + '<input type="search" class="pms-search-input" id="pmsSheetSearchInput" placeholder="розово, чанта, свещ…" value="'+esc(STATE.query)+'">'
+              + '<p class="pms-sheet-hint" id="pmsSheetSearchCount" role="status" aria-live="polite"></p>'
+              + '<div class="pms-grid" id="pmsSheetSearchResults"></div>', '#pmsSheetSearchInput', 'search');
+
+            var input = document.getElementById('pmsSheetSearchInput');
+            var res = document.getElementById('pmsSheetSearchResults');
+            var cnt = document.getElementById('pmsSheetSearchCount');
+
+            function run(){
+                var q = input.value.trim();
+                if (!q) {
+                    res.innerHTML = '<p class="pms-empty">напиши нещо розово ✦</p>';
+                    cnt.textContent = '';
+                    return;
+                }
+                var hits = PINK_MALL_PRODUCTS.filter(function(p){ return matchesQuery(p, q); });
+                cnt.textContent = hits.length === 1 ? '1 находка' : hits.length + ' находки';
+                renderCards(res, hits, 'нищо такова в мола… пробвай друга дума ✦');
+                emitSearchDebounced(q, hits.length);
+            }
+            input.addEventListener('input', run);
+            run();
+        }
+
+        function openWishlistSheet(){
+            var list = getWishlist().map(byId).filter(Boolean);
+            openSheet('ЛЮБИМИ ♥',
+                list.length
+                    ? '<div class="pms-grid">' + list.map(cardHTML).join('') + '</div>'
+                    : '<p class="pms-empty">празно е… сърцето чака да натиснеш ♥</p>', null, 'wish');
+        }
+
+        function refreshWishlistSheet(){
+            if (sheetMode !== 'wish') return;
+            var list = getWishlist().map(byId).filter(Boolean);
+            updateSheetBody(list.length
+                ? '<div class="pms-grid">' + list.map(cardHTML).join('') + '</div>'
+                : '<p class="pms-empty">празно е… сърцето чака да натиснеш ♥</p>');
         }
 
         function openCategorySheet(){
             openSheet('УКАЗАТЕЛ',
-                '<div class="pms-directory">'+CATEGORIES.map(function(c){
+                '<div class="pms-directory">' + CATEGORIES.map(function(c){
                     return '<button type="button" class="pms-dir-tile" data-pms-cat-btn="'+c.slug+'">'
                         +'<span class="pms-dir-num">ЕТАЖ '+c.num+'</span>'
                         +'<span class="pms-dir-name">'+c.label+'</span>'
                         +'<span class="pms-dir-arrow" aria-hidden="true">→</span></button>';
-                }).join('')+'</div>');
-        }
-
-        function openPeek(id){
-            var p=byId(id); if(!p) return;
-            var sizes=Object.keys(p.inventory).map(function(s){
-                var n=p.inventory[s];
-                return '<span class="pms-size'+(n===0?' is-out':(n===1?' is-low':''))+'" '
-                    +'aria-label="Размер '+s+(n===0?' — изчерпан':(n===1?' — последна бройка':''))+'">'+s+'</span>';
-            }).join('');
-            openSheet(p.id,
-                '<div class="pms-peek-body">'
-                + mediaHTML(p,true)
-                + '<div>'
-                +   sisterHTML(p)
-                +   '<h4 class="pms-peek-name">'+esc(p.name)+'</h4>'
-                +   '<div class="pms-peek-price">€'+p.priceEUR+(p.oldPriceEUR?' <span class="pms-price-old">€'+p.oldPriceEUR+'</span>':'')+'</div>'
-                +   '<p class="pms-peek-desc">'+esc(p.description)+'</p>'
-                +   '<p class="pms-peek-meta">'+esc(p.composition)+(p.fit?' · '+esc(p.fit):'')+' · '+esc(p.care)+'</p>'
-                +   '<div class="pms-size-row" role="list" aria-label="Налични размери">'+sizes+'</div>'
-                +   '<button type="button" class="pms-quick" data-pms-wish-toggle="'+p.id+'">♥ В ЛЮБИМИ</button>'
-                +   '<p class="pms-peek-note">Доставка: '+CONFIG.shipping.couriers.join(' / ')+' · само за '+CONFIG.shipping.country
-                +   ' · '+CONFIG.shipping.payment+'.<br>Поръчки през Viber — идват в следващата фаза на мола. ✦</p>'
-                + '</div></div>');
+                }).join('') + '</div>', null, 'cats');
         }
 
         /* ════════════════════════════════════════════════════════════
-           MALL MODE + врати + мобилен бар
+           ФИЛТРИ — desktop панел / мобилно чекмедже
+           ════════════════════════════════════════════════════════════ */
+        var filtersHome = tb.filters ? tb.filters.parentNode : null;
+        var filtersDrawerOpen = false;
+        var shopLayout = document.querySelector('.pms-shop-layout');
+
+        function syncSplit(){
+            if (!shopLayout) return;
+            var split = !!tb.filters && !isDrawerViewport() && !tb.filters.hidden
+                        && tb.filters.parentNode === filtersHome;
+            shopLayout.classList.toggle('is-split', split);
+        }
+
+        function isDrawerViewport(){ return window.matchMedia('(max-width: 899px)').matches; }
+        function isFiltersOpen(){
+            if (!tb.filters) return false;
+            return isDrawerViewport() ? filtersDrawerOpen : !tb.filters.hidden;
+        }
+
+        function openFilters(){
+            if (!tb.filters) return;
+            renderFilterPanel();
+            if (isDrawerViewport()) {
+                if (tb.filters.parentNode !== document.body) document.body.appendChild(tb.filters);
+                tb.filters.classList.add('is-drawer');
+                tb.filters.setAttribute('role', 'dialog');
+                tb.filters.setAttribute('aria-modal', 'true');
+                tb.filters.setAttribute('aria-labelledby', 'pmsFiltersTitle');
+                tb.filters.hidden = false;
+                if (tb.backdrop) tb.backdrop.hidden = false;
+                filtersDrawerOpen = true;
+                pushModal(tb.filters, closeFilters);
+                requestAnimationFrame(function(){ tb.filters.classList.add('is-open'); });
+                var first = tb.filters.querySelector('.pms-filters-close');
+                if (first) first.focus();
+            } else {
+                tb.filters.hidden = false;
+            }
+            syncSplit();
+            if (tb.toggle) tb.toggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeFilters(){
+            if (!tb.filters) return;
+            if (filtersDrawerOpen) {
+                tb.filters.classList.remove('is-open');
+                filtersDrawerOpen = false;
+                popModal(tb.filters);
+                if (tb.backdrop) tb.backdrop.hidden = true;
+                var restore = function(){
+                    tb.filters.classList.remove('is-drawer');
+                    tb.filters.removeAttribute('role');
+                    tb.filters.removeAttribute('aria-modal');
+                    tb.filters.removeAttribute('aria-labelledby');
+                    tb.filters.hidden = true;
+                    if (filtersHome && tb.filters.parentNode !== filtersHome) filtersHome.appendChild(tb.filters);
+                    syncSplit();
+                };
+                if (reduceMotion()) restore(); else setTimeout(restore, 220);
+            } else {
+                tb.filters.hidden = true;
+            }
+            syncSplit();
+            if (tb.toggle) tb.toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        function toggleFilters(){ if (isFiltersOpen()) closeFilters(); else openFilters(); }
+
+        var mqDrawer = window.matchMedia('(max-width: 899px)');
+        var onMQ = function(){
+            if (!tb.filters) return;
+            if (!isDrawerViewport() && filtersDrawerOpen) closeFilters();
+            else if (isDrawerViewport() && !filtersDrawerOpen && !tb.filters.hidden) tb.filters.hidden = true;
+            else if (!isDrawerViewport() && tb.filters.hidden) openFilters();
+            syncSplit();
+        };
+        if (mqDrawer.addEventListener) mqDrawer.addEventListener('change', onMQ);
+        else if (mqDrawer.addListener) mqDrawer.addListener(onMQ);
+
+        /* ════════════════════════════════════════════════════════════
+           ПРОДУКТОВ ДЕТАЙЛ + ВАРИАНТИ + VIBER ПРЕДАВАНЕ  (заключено —
+           не се променя в тази задача)
+           ════════════════════════════════════════════════════════════ */
+        var detail = null;   /* { id, selectedVariant, mediaIndex } */
+
+        function resolveOrder(product, size){
+            var id = (product && typeof product === 'object') ? product.id : product;
+            if (typeof id !== 'string') return null;
+            var p = byId(id);
+            if (!p) return null;
+            if (typeof size === 'number' && isFinite(size)) size = String(size);
+            if (typeof size !== 'string' || !size) return null;
+            /* hasSize() знае и двата режима — при availability продукт
+               няма p.inventory изобщо и директният достъп хвърляше. */
+            if (!hasSize(p, size)) return null;
+            if (!canOrder(p, size)) return null;
+            return { product: p, size: size };
+        }
+
+        function buildViberMessage(product, size){
+            var ok = resolveOrder(product, size);
+            if (!ok) return '';
+            return 'Искам ' + ok.product.name + ' / размер ' + ok.size + ' / Product ID ' + ok.product.id;
+        }
+
+        function supportsPrefill(url){ return /^viber:/i.test(url || ''); }
+
+        function buildViberOrderUrl(product, size){
+            var ok = resolveOrder(product, size);
+            if (!ok) return null;
+            var base = CONFIG.viberUrl;
+            if (!base) return null;
+            if (!supportsPrefill(base)) return base;          /* непокътнат business URL */
+            var msg = buildViberMessage(ok.product, ok.size);
+            return base + (base.indexOf('?') > -1 ? '&' : '?') + 'text=' + encodeURIComponent(msg);
+        }
+
+        /* Канонична media схема за реални продукти:
+             media.image      + media.imageAlt
+             media.gallery[]  + media.galleryAlt[]
+           galleryAlt[i] принадлежи на gallery[i]. Индексът се взима от
+           изходния масив, така че празен src не размества alt-овете.
+           Legacy продукти подават само string-ове без alt и минават по
+           същия път — alt пада към безопасния fallback. Обект { src, alt }
+           също се приема, за да не изтече обект в src или alt атрибут. */
+        function mediaEntry(raw, alt){
+            var src = raw, a = alt;
+            if (raw && typeof raw === 'object') {
+                src = raw.src || raw.url || null;
+                if (a == null) a = raw.alt;
+            }
+            if (typeof src !== 'string' || !src) return null;
+            if (typeof a !== 'string' || !a) a = null;
+            return { src: src, alt: a };
+        }
+
+        function galleryOf(p){
+            var out = [];
+            var m = p && p.media;
+            if (!m) return out;
+            var main = mediaEntry(m.image, m.imageAlt);
+            if (main) out.push(main);
+            if (Array.isArray(m.gallery)) {
+                var alts = Array.isArray(m.galleryAlt) ? m.galleryAlt : [];
+                m.gallery.forEach(function(src, i){
+                    var e = mediaEntry(src, alts[i]);
+                    if (e) out.push(e);
+                });
+            }
+            return out;
+        }
+
+        /* Авторският alt печели винаги. Fallback-ът остава предишният. */
+        function altFor(p, entry, i, total){
+            if (entry && entry.alt) return entry.alt;
+            return p.name + (total > 1 ? ' — снимка ' + (i + 1) + ' от ' + total : '');
+        }
+
+        function stepGallery(delta){
+            if (!detail) return false;
+            var p = byId(detail.id);
+            if (!p) return false;
+            var imgs = galleryOf(p);
+            if (imgs.length < 2) return false;
+            detail.mediaIndex = (detail.mediaIndex + delta + imgs.length) % imgs.length;
+            renderDetail();
+            return true;
+        }
+
+        function detailMediaHTML(p){
+            var imgs = galleryOf(p);
+            var multi = imgs.length > 1;
+            var idx = Math.min(Math.max(detail ? detail.mediaIndex : 0, 0), Math.max(0, imgs.length - 1));
+            var main;
+
+            if (imgs.length) {
+                main = '<div class="pms-detail-main" id="pmsGalleryMain">'
+                     + '<img src="'+esc(imgs[idx].src)+'" alt="'+esc(altFor(p, imgs[idx], idx, imgs.length))+'" decoding="async">'
+                     + (multi
+                        ? '<button type="button" class="pms-gal-nav pms-gal-prev" data-pms-gal="-1" data-pms-focuskey="gal-prev" aria-label="Предишна снимка">‹</button>'
+                        + '<button type="button" class="pms-gal-nav pms-gal-next" data-pms-gal="1" data-pms-focuskey="gal-next" aria-label="Следваща снимка">›</button>'
+                        + '<span class="pms-gal-counter" role="status" aria-live="polite">'+(idx+1)+' / '+imgs.length+'</span>'
+                        : '')
+                     + '</div>';
+            } else {
+                var field=(p.media&&p.media.field)||'blush';
+                var ph=(p.media&&p.media.ph)||'clothing';
+                main = '<div class="pms-detail-main pms-media" data-field="'+field+'" role="img" aria-label="'+esc(p.name)+' — снимката очаквайте скоро">'
+                     + '<svg aria-hidden="true"><use href="#pms-ph-'+ph+'"/></svg>'
+                     + '<span class="pms-media-tag">'+p.id+' · СНИМКА СКОРО</span></div>';
+            }
+
+            var thumbs = multi
+                ? '<div class="pms-detail-thumbs" role="group" aria-label="Още снимки">'
+                  + imgs.map(function(entry, i){
+                        return '<button type="button" class="pms-thumb'+(i===idx?' is-on':'')+'" data-pms-media="'+i+'" '
+                             + 'data-pms-focuskey="thumb-'+i+'" aria-pressed="'+(i===idx?'true':'false')+'" '
+                             + 'aria-label="Снимка '+(i+1)+' от '+imgs.length+'"><img src="'+esc(entry.src)+'" alt="" decoding="async"></button>';
+                    }).join('') + '</div>'
+                : '';
+
+            return '<div class="pms-detail-media"'+(multi?' data-pms-swipe="1"':'')+'>' + main + thumbs + '</div>';
+        }
+
+        function variantsHTML(p){
+            var sel = detail ? detail.selectedVariant : null;
+            var sizes = sizesOf(p);
+            var single = sizes.length === 1;
+            var btns = sizes.map(function(s){
+                var stt = sizeState(p, s);
+                var out = stt === 'soldout';
+                var on = sel === s;
+                return '<button type="button" class="pms-variant'+(out?' is-out':'')+(on?' is-on':'')+'" '
+                     + 'data-pms-variant="'+esc(s)+'" data-pms-focuskey="variant-'+esc(s)+'" '
+                     + 'role="radio" aria-checked="'+(on?'true':'false')+'" '
+                     + (out ? 'aria-disabled="true" ' : '')
+                     + 'tabindex="'+(on || (!sel && s === sizes[0]) ? '0' : '-1')+'" '
+                     + 'aria-label="Размер '+esc(s)+(out?' — изчерпан':(stt==='last'?' — последна бройка':''))+'">'
+                     + esc(s) + '</button>';
+            }).join('');
+
+            var st = getStockState(p);
+            var note = '';
+            if (sel) {
+                var selState = sizeState(p, sel);
+                note = selState === 'soldout'
+                    ? '<p class="pms-variant-note is-out">Размер '+esc(sel)+' е изчерпан.</p>'
+                    : (selState === 'last' ? '<p class="pms-variant-note is-low">Последна бройка в размер '+esc(sel)+'.</p>' : '');
+            } else if (st.state === 'soldout') {
+                note = '<p class="pms-variant-note is-out">Няма наличен размер.</p>';
+            } else if (!single) {
+                note = '<p class="pms-variant-note">Избери размер, за да продължиш.</p>';
+            }
+            if (!note && st.state === 'limited') {
+                note = '<p class="pms-variant-note is-low">Останали са '+st.available+' от '+st.sizes+' размера.</p>';
+            }
+
+            return '<div class="pms-variants">'
+                 + '<div class="pms-variant-head"><span class="pms-legend">РАЗМЕР</span>'
+                 + (st.label ? '<span class="pms-variant-stock">'+esc(st.label)+'</span>' : '')
+                 + '</div>'
+                 + '<div class="pms-variant-row" role="radiogroup" aria-label="Избор на размер">' + btns + '</div>'
+                 + note + '</div>';
+        }
+
+        function orderHTML(p){
+            var sel = detail ? detail.selectedVariant : null;
+            var ok = resolveOrder(p, sel);
+            var anyStock = inStockSizes(p).length > 0;
+
+            if (!anyStock) {
+                return '<div class="pms-order">'
+                     + '<button type="button" class="pms-order-btn" disabled aria-disabled="true">ИЗЧЕРПАН</button>'
+                     + '<p class="pms-order-note">Този артикул е изчерпан. Малките количества не се повтарят.</p>'
+                     + '</div>';
+            }
+            if (!ok) {
+                return '<div class="pms-order">'
+                     + '<button type="button" class="pms-order-btn" disabled aria-disabled="true">ИЗБЕРИ РАЗМЕР</button>'
+                     + '<p class="pms-order-note">Поръчката се потвърждава в Viber — без количка и без онлайн плащане.</p>'
+                     + '</div>';
+            }
+            var url = buildViberOrderUrl(ok.product, ok.size);
+            var msg = buildViberMessage(ok.product, ok.size);
+            return '<div class="pms-order">'
+                 + (url
+                    ? '<a class="pms-order-btn is-ready" href="'+esc(url)+'" target="_blank" rel="noopener" '
+                    + 'data-pms-order="'+esc(ok.product.id)+'" data-pms-order-size="'+esc(ok.size)+'" '
+                    + 'data-pms-focuskey="order">ПОРЪЧАЙ ПРЕЗ VIBER →</a>'
+                    : '<button type="button" class="pms-order-btn" disabled aria-disabled="true">VIBER НЕ Е НАЛИЧЕН</button>')
+                 + '<p class="pms-order-note">При натискане съобщението се копира и Viber се отваря — остава само да го поставиш:</p>'
+                 + '<p class="pms-order-msg" id="pmsOrderMsg">'+esc(msg)+'</p>'
+                 + '<button type="button" class="pms-copy" data-pms-copy data-pms-focuskey="copy">КОПИРАЙ ОТНОВО</button>'
+                 + '<p class="pms-copy-hint" id="pmsCopyHint" role="status" aria-live="polite"></p>'
+                 + '</div>';
+        }
+
+        function detailBodyHTML(p){
+            var rel = (p.related || []).map(byId).filter(Boolean).filter(function(r){ return r.id !== p.id; });
+            return '<div class="pms-detail">'
+                + detailMediaHTML(p)
+                + '<div class="pms-detail-info">'
+                +   sisterHTML(p)
+                +   (p.brand ? '<span class="pms-card-brand pms-detail-brand">'+esc(p.brand)+'</span>' : '')
+                +   '<h4 class="pms-detail-name">'+esc(p.name)+'</h4>'
+                +   '<div class="pms-detail-price">'+priceHTML(p)+'</div>'
+                +   badgesHTML(p)
+                +   '<p class="pms-detail-desc">'+esc(p.description)+'</p>'
+                +   variantsHTML(p)
+                +   orderHTML(p)
+                +   '<button type="button" class="pms-quick pms-wishbtn" data-pms-wish-toggle="'+p.id+'" '
+                +     'data-pms-focuskey="wish" aria-pressed="false">♡ ДОБАВИ В ЛЮБИМИ</button>'
+                +   '<dl class="pms-detail-specs">'
+                /* Всяко поле е опционално: непотвърдено поле не се
+                   рендерира изобщо — никакви null/undefined/подложки. */
+                +     (p.brand ? '<dt>Марка</dt><dd>'+esc(p.brand)+'</dd>' : '')
+                +     (p.color ? '<dt>Цвят</dt><dd>'+esc(p.color)+'</dd>' : '')
+                +     (p.composition ? '<dt>Състав</dt><dd>'+esc(p.composition)+'</dd>' : '')
+                +     (p.fit ? '<dt>Кройка</dt><dd>'+esc(p.fit)+'</dd>' : '')
+                +     (p.care ? '<dt>Грижа</dt><dd>'+esc(p.care)+'</dd>' : '')
+                +     '<dt>Артикул</dt><dd>'+esc(p.id)+'</dd>'
+                +   '</dl>'
+                +   '<p class="pms-detail-ship">Доставка: '+esc(CONFIG.shipping.couriers.join(' / '))
+                +     ' · само за '+esc(CONFIG.shipping.country)+' · '+esc(CONFIG.shipping.payment)
+                +     (deliveryEstimate(p) ? ' · '+esc(deliveryEstimate(p)) : '')+'.<br>'
+                +     esc(CONFIG.shipping.returns)+'</p>'
+                + '</div>'
+                + (rel.length
+                    ? '<div class="pms-detail-related"><h5 class="pms-legend">ВЪРВИ С ТОВА</h5>'
+                      + '<div class="pms-grid pms-grid--rel">' + rel.map(cardHTML).join('') + '</div></div>'
+                    : '')
+                + '</div>';
+        }
+
+        function renderDetail(keepScroll){
+            if (!detail) return;
+            var p = byId(detail.id);
+            if (!p) return;
+            updateSheetBody(detailBodyHTML(p), keepScroll);
+        }
+
+        function autoVariant(p){
+            var avail = inStockSizes(p);
+            if (avail.length === 1 && sizesOf(p).length === 1) return avail[0];
+            return null;
+        }
+
+        function openProduct(id, size){
+            var p = byId(id);
+            if (!p) return false;
+            var pre = (typeof size === 'string' && canOrder(p, size)) ? size : autoVariant(p);
+            var already = isSheetOpen() && sheetMode === 'detail';
+            detail = { id: p.id, selectedVariant: pre, mediaIndex: 0 };
+            if (already) {
+                els.sheetTitle.textContent = p.id;
+                renderDetail(false);
+            } else {
+                openSheet(p.id, detailBodyHTML(p), null, 'detail');
+            }
+            emit('pink_mall_product_open', { productId: p.id, category: p.category, selectedBy: p.selectedBy });
+            return true;
+        }
+
+        function closeProduct(){
+            if (sheetMode !== 'detail') return false;
+            closeSheet();
+            return true;
+        }
+
+        function getSelectedVariant(){ return detail ? detail.selectedVariant : null; }
+        function getDetailState(){
+            if (!detail) return null;
+            return { id: detail.id, selectedVariant: detail.selectedVariant, mediaIndex: detail.mediaIndex };
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           АНАЛИТИЧНИ КУКИ
+           ════════════════════════════════════════════════════════════ */
+        var CONSENT_KEY_PMS = 'pierciina_consent_v1';
+
+        function hasConsent(){
+            try { return localStorage.getItem(CONSENT_KEY_PMS) === 'granted'; }
+            catch(e){ return false; }
+        }
+
+        function emit(name, detailObj){
+            if (!hasConsent()) return false;
+            var payload = detailObj || {};
+            try {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push(Object.assign({ event: name }, payload));
+            } catch(e){}
+            try { document.dispatchEvent(new CustomEvent(name, { detail: payload })); } catch(e){}
+            return true;
+        }
+
+        var searchEmitTimer = null;
+        function emitSearchDebounced(q, n){
+            if (searchEmitTimer) clearTimeout(searchEmitTimer);
+            searchEmitTimer = setTimeout(function(){
+                searchEmitTimer = null;
+                if (q) emit('pink_mall_search', { results: n, queryLength: q.length });
+            }, 700);
+        }
+
+        function emitFilters(){
+            emit('pink_mall_filter_apply', {
+                category: STATE.category,
+                sizes: STATE.sizes.slice(),
+                priceMin: STATE.priceMin,
+                priceMax: STATE.priceMax,
+                selectedBy: STATE.selectedBy,
+                newOnly: STATE.newOnly,
+                saleOnly: STATE.saleOnly,
+                availability: STATE.availability,
+                sort: STATE.sort,
+                results: derive().length
+            });
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           СЕСТРИНСКО СЪПЕРНИЧЕСТВО — само от реални данни
+           ════════════════════════════════════════════════════════════ */
+        function ownedBy(who){
+            return PINK_MALL_PRODUCTS.filter(function(p){
+                return p.selectedBy === who || p.selectedBy === 'both';
+            });
+        }
+
+        function sisterStats(who){
+            var mine = ownedBy(who);
+            var solo = PINK_MALL_PRODUCTS.filter(function(p){ return p.selectedBy === who; });
+            var prices = mine.map(function(p){ return p.priceEUR; });
+            var avg = prices.length ? Math.round(prices.reduce(function(a,b){return a+b;},0) / prices.length) : 0;
+            var counts = {};
+            mine.forEach(function(p){ counts[p.category] = (counts[p.category] || 0) + 1; });
+            var top = Object.keys(counts).sort(function(a,b){
+                return counts[b] - counts[a] || a.localeCompare(b, 'bg');
+            })[0] || null;
+            var wl = getWishlist();
+            return {
+                who: who,
+                total: mine.length,
+                solo: solo.length,
+                avgPrice: avg,
+                priciest: mine.reduce(function(a,p){ return (!a || p.priceEUR > a.priceEUR) ? p : a; }, null),
+                topCategory: top,
+                topCategoryCount: top ? counts[top] : 0,
+                newCount: mine.filter(isProductNew).length,
+                saleCount: mine.filter(function(p){ return !!p.oldPriceEUR; }).length,
+                soldOut: mine.filter(isSoldOut).length,
+                hearts: wl.filter(function(id){
+                    var p = byId(id);
+                    return p && (p.selectedBy === who || p.selectedBy === 'both');
+                }).length
+            };
+        }
+
+        var SHARED_COUNT = PINK_MALL_PRODUCTS.filter(function(p){ return p.selectedBy === 'both'; }).length;
+
+        function rivalryLine(a, b){
+            if (a.hearts > b.hearts) return 'води по сърца. засега.';
+            if (a.hearts < b.hearts) return 'изостава по сърца. отказва да го признае.';
+            if (a.hearts > 0) return 'равенство. напрежението расте.';
+            if (a.avgPrice > b.avgPrice) return 'по-скъпият вкус в мола.';
+            if (a.avgPrice < b.avgPrice) return 'по-разумната сестра. на теория.';
+            return 'чака някой да натисне ♥.';
+        }
+
+        function renderRivalry(){
+            var host = document.getElementById('pmsRivalry');
+            if (!host) return;
+            var ina = sisterStats('ina'), sis = sisterStats('sis');
+
+            function panel(st, other){
+                var mark = st.who === 'ina' ? '✦' : '♡';
+                var name = st.who === 'ina' ? 'INA' : 'SIS';
+                return '<div class="pms-riv-side pms-riv-side--' + st.who + '">'
+                    + '<div class="pms-riv-top">'
+                    +   '<span class="pms-riv-name">' + name + ' ' + mark + '</span>'
+                    +   '<span class="pms-riv-hearts" data-pms-score="' + st.who + '">♥ ' + st.hearts + '</span>'
+                    + '</div>'
+                    + '<p class="pms-riv-line">„' + esc(rivalryLine(st, other)) + '"</p>'
+                    + '<dl class="pms-riv-stats">'
+                    +   '<div><dt>рафт</dt><dd>' + st.total + '</dd></div>'
+                    +   '<div><dt>само нейни</dt><dd>' + st.solo + '</dd></div>'
+                    +   '<div><dt>средна цена</dt><dd>€' + st.avgPrice + '</dd></div>'
+                    +   '<div><dt>нови</dt><dd>' + st.newCount + '</dd></div>'
+                    + '</dl>'
+                    + '<button type="button" class="pms-riv-cat" data-pms-selectedby-btn="' + st.who + '">'
+                    +   'виж само нейния избор →</button>'
+                    + (st.topCategory
+                        ? '<button type="button" class="pms-riv-cat" data-pms-cat-btn="' + esc(st.topCategory) + '">'
+                          + 'слабост: ' + esc(catLabel(st.topCategory)) + ' (' + st.topCategoryCount + ') →</button>'
+                        : '')
+                    + (st.priciest
+                        ? '<button type="button" class="pms-riv-top-item" data-pms-open="' + esc(st.priciest.id) + '">'
+                          + 'най-скъпото ѝ: ' + esc(st.priciest.name) + ' · €' + st.priciest.priceEUR + ' →</button>'
+                        : '')
+                    + '</div>';
+            }
+
+            host.innerHTML = panel(ina, sis)
+                + '<span class="pms-vs pms-vs--riv" aria-hidden="true">VS</span>'
+                + panel(sis, ina)
+                + '<p class="pms-riv-foot">'
+                +   (SHARED_COUNT
+                        ? 'По ' + SHARED_COUNT + ' артикула са единодушни. '
+                          + '<button type="button" class="pms-riv-shared" data-pms-selectedby-btn="both">ВИЖ ОБЩИЯ ИЗБОР ⚡</button>'
+                        : 'В нищо не са съгласни. Изненада.')
+                +   ' <span class="pms-riv-note">Числата се смятат от каталога и от твоите любими в този браузър.</span>'
+                + '</p>';
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           ОСНОВНА КАМПАНИЙНА ВЪРТЕЛЕЖКА — САМО АВТОМАТИЧНО ВЪРТЕНЕ
+           ------------------------------------------------------------
+           Умишлено без видими контроли (стрелки/пауза/точки/номера).
+           Единственото взаимодействие е „невидимо": спира при hover,
+           клавиатурен фокус вътре или скрит таб; никога няма ръчна
+           навигация. НЕ пипа/преизползва таймерите на Hero билборда.
+           ════════════════════════════════════════════════════════════ */
+        var CAROUSEL_CAMPAIGN_IDS = ['grand-opening', 'rivalry'];
+        var CAMP_AUTOPLAY_MS = 3000;
+
+        var camp = {
+            section: document.querySelector('.pms-campaign-carousel-section'),
+            root:    document.getElementById('pmsCampaignCarousel'),
+            track:   document.getElementById('pmsCampaignTrack')
+        };
+        var campSlides = [];
+        var campIndex = 0;
+        var campTimer = null;
+        var campFocusPause = false;
+        var campHiddenPause = false;
+        var campEventsWired = false;
+
+        function campaignSlideHTML(c, i, total){
+            return '<div class="pms-campaign" data-theme="'+c.theme+'" data-pms-camp-slide="'+i+'" '
+                + 'role="group" aria-roledescription="слайд" aria-label="Кампания '+(i+1)+' от '+total+'" aria-hidden="true"'
+                + (c.image?' style="background-image:url(\''+esc(c.image)+'\');background-size:cover;background-position:center"':'')+'>'
+                + (c.badge?'<span class="pms-campaign-badge">'+esc(c.badge)+'</span>':'')
+                + '<span class="pms-campaign-eyebrow">'+esc(c.eyebrow)+'</span>'
+                + '<h3 class="pms-campaign-title">'+esc(c.title)+'</h3>'
+                + '<p class="pms-campaign-sub">'+esc(c.subtitle)+'</p>'
+                + '<button type="button" class="pms-campaign-cta" data-pms-target="'+esc(c.target)+'" tabindex="-1">'+esc(c.cta)+' →</button>'
+                + '</div>';
+        }
+
+        function renderCampaignCarousel(){
+            if (!camp.root || !camp.track) return;
+            campSlides = CAROUSEL_CAMPAIGN_IDS
+                .map(function(id){ return PINK_MALL_CAMPAIGNS.find(function(c){ return c.id === id; }); })
+                .filter(function(c){ return c && c.active; });
+
+            if (!campSlides.length) { if (camp.section) camp.section.hidden = true; return; }
+            if (camp.section) camp.section.hidden = false;
+
+            var total = campSlides.length;
+            camp.track.innerHTML = campSlides.map(function(c, i){ return campaignSlideHTML(c, i, total); }).join('');
+            campIndex = 0;
+            applyCampSlide(0);
+
+            if (total > 1) { wireCampEvents(); evaluateCampAutoplay(); }
+        }
+
+        function applyCampSlide(i){
+            var nodes = camp.track.querySelectorAll('[data-pms-camp-slide]');
+            nodes.forEach(function(n, idx){
+                var active = idx === i;
+                n.classList.toggle('is-active', active);
+                n.setAttribute('aria-hidden', active ? 'false' : 'true');
+                var cta = n.querySelector('.pms-campaign-cta');
+                if (cta) cta.tabIndex = active ? 0 : -1;
+            });
+            campIndex = i;
+        }
+
+        function campAutoAdvance(){
+            if (!campSlides.length) return;
+            applyCampSlide((campIndex + 1) % campSlides.length);
+        }
+
+        function stopCampAutoplay(){ if (campTimer) { clearInterval(campTimer); campTimer = null; } }
+
+        function evaluateCampAutoplay(){
+            var shouldRun = campSlides.length > 1 && !reduceMotion()
+                          && !campFocusPause && !campHiddenPause;
+            stopCampAutoplay();
+            if (shouldRun) campTimer = setInterval(campAutoAdvance, CAMP_AUTOPLAY_MS);
+        }
+
+        function wireCampEvents(){
+            if (campEventsWired) return;
+            campEventsWired = true;
+
+
+            camp.root.addEventListener('focusin', function(){ campFocusPause = true; evaluateCampAutoplay(); });
+            camp.root.addEventListener('focusout', function(){
+                setTimeout(function(){
+                    if (!camp.root.contains(document.activeElement)) { campFocusPause = false; evaluateCampAutoplay(); }
+                }, 0);
+            });
+
+            document.addEventListener('visibilitychange', function(){
+                campHiddenPause = document.hidden;
+                evaluateCampAutoplay();
+            });
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           SPOTTED IN PINK — UGC / INSTAGRAM
+           ════════════════════════════════════════════════════════════ */
+        var PINK_MALL_UGC = [
+            { id:'ugc-01', active:true, placeholder:true, image:null,
+              alt:null, caption:'тук ще е твоята снимка', tilt:'-3deg',
+              handle:null, instagramUrl:null, productIds:[] },
+            { id:'ugc-02', active:true, placeholder:true, image:null,
+              alt:null, caption:'маркирай ни и влизаш на стената', tilt:'2deg',
+              handle:null, instagramUrl:null, productIds:[] },
+            { id:'ugc-03', active:true, placeholder:true, image:null,
+              alt:null, caption:'мястото чака', tilt:'-1.5deg',
+              handle:null, instagramUrl:null, productIds:[] },
+            { id:'ugc-04', active:true, placeholder:true, image:null,
+              alt:null, caption:'spotted in pink', tilt:'2.5deg',
+              handle:null, instagramUrl:null, productIds:[] }
+        ];
+
+        function ugcTileHTML(post){
+            var tilt = post.tilt || '0deg';
+            var linked = (post.productIds || []).map(byId).filter(Boolean);
+
+            if (post.placeholder || !post.image) {
+                return '<figure class="pms-polaroid is-placeholder" style="--tilt:' + esc(tilt) + '">'
+                     + '<div class="pms-polaroid-ph" aria-hidden="true">✦</div>'
+                     + '<figcaption class="pms-polaroid-cap">' + esc(post.caption || 'скоро') + '</figcaption>'
+                     + '</figure>';
+            }
+
+            var media = '<img class="pms-polaroid-img" src="' + esc(post.image) + '" '
+                      + 'alt="' + esc(post.alt || post.caption || 'Pink Mall в реалния живот') + '" '
+                      + 'loading="lazy" decoding="async">';
+
+            var inner = post.instagramUrl
+                ? '<a class="pms-polaroid-link" href="' + esc(post.instagramUrl) + '" target="_blank" rel="noopener"'
+                  + ' data-pms-ugc="' + esc(post.id) + '"'
+                  + ' aria-label="Виж поста в Instagram' + (post.handle ? ' от @' + esc(post.handle) : '') + '">'
+                  + media + '</a>'
+                : media;
+
+            var shop = linked.length
+                ? '<div class="pms-polaroid-shop">'
+                  + linked.map(function(p){
+                        return '<button type="button" class="pms-polaroid-tag" data-pms-open="' + esc(p.id) + '" '
+                             + 'data-pms-ugc-from="' + esc(post.id) + '">' + esc(p.name) + ' →</button>';
+                    }).join('')
+                  + '</div>'
+                : '';
+
+            return '<figure class="pms-polaroid" style="--tilt:' + esc(tilt) + '">'
+                 + inner
+                 + '<figcaption class="pms-polaroid-cap">'
+                 +   esc(post.caption || '')
+                 +   (post.handle ? ' <span class="pms-polaroid-handle">@' + esc(post.handle) + '</span>' : '')
+                 + '</figcaption>'
+                 + shop
+                 + '</figure>';
+        }
+
+        function renderUGC(){
+            var row = document.getElementById('pmsIrlRow');
+            if (!row) return;
+            var live = PINK_MALL_UGC.filter(function(p){ return p.active !== false; });
+            row.innerHTML = live.map(ugcTileHTML).join('');
+            var real = live.filter(function(p){ return !p.placeholder && p.image; }).length;
+            var note = document.getElementById('pmsIrlNote');
+            if (note) {
+                note.textContent = real
+                    ? 'Истински снимки от Instagram. Натисни артикул под снимка, за да го отвориш.'
+                    : 'Още няма снимки — местата чакат реални постове, не стокови фотографии.';
+            }
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           MALL MODE + врати
            ════════════════════════════════════════════════════════════ */
         if('IntersectionObserver' in window){
             new IntersectionObserver(function(entries){
@@ -11293,7 +13157,6 @@
                 });
             },{rootMargin:'-45% 0px -45% 0px'}).observe(mall);
 
-            /* Вратите се отварят при първо приближаване (веднъж на сесия) */
             var doorsIO=new IntersectionObserver(function(entries){
                 entries.forEach(function(en){
                     if(!en.isIntersecting) return;
@@ -11314,34 +13177,266 @@
             els.gate.classList.add('is-open');
         }
 
+        function wishToggled(id){
+            var on = toggleWishlist(id);
+            var p = byId(id);
+            emit('pink_mall_wishlist_toggle', {
+                productId: id, added: on,
+                category: p ? p.category : null,
+                selectedBy: p ? p.selectedBy : null
+            });
+            refreshWishlistSheet();
+            renderRivalry();
+            return on;
+        }
+
+        function handleOrderClick(link){
+            var ok = resolveOrder(link.getAttribute('data-pms-order'), link.getAttribute('data-pms-order-size'));
+            var hint = document.getElementById('pmsCopyHint');
+            var say = function(m){ if (hint) hint.textContent = m; };
+            if (!ok) { say('Изборът вече не е наличен. Избери друг размер.'); return false; }
+
+            var msg = buildViberMessage(ok.product, ok.size);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(msg).then(
+                    function(){ say('Съобщението е копирано ✦ Постави го във Viber.'); },
+                    function(){ say('Копирането е блокирано — маркирай текста горе и го копирай.'); }
+                );
+            } else {
+                say('Копирането не се поддържа тук — маркирай текста горе.');
+            }
+            emit('pink_mall_viber_order', {
+                productId: ok.product.id, variant: ok.size,
+                category: ok.product.category, selectedBy: ok.product.selectedBy
+            });
+            return true;
+        }
+
         /* ════════════════════════════════════════════════════════════
            СЪБИТИЯ (делегирани)
            ════════════════════════════════════════════════════════════ */
         document.addEventListener('click', function(e){
-            var t=e.target;
-            var catBtn=t.closest&&t.closest('[data-pms-cat-btn]');
-            if(catBtn){ closeSheet(); goToCategory(catBtn.getAttribute('data-pms-cat-btn')); return; }
-            var heart=t.closest&&t.closest('.pms-heart[data-pms-id]');
-            if(heart){ toggleWishlist(heart.getAttribute('data-pms-id')); return; }
-            var wt=t.closest&&t.closest('[data-pms-wish-toggle]');
-            if(wt){ toggleWishlist(wt.getAttribute('data-pms-wish-toggle')); return; }
-            var quick=t.closest&&t.closest('[data-pms-quick]');
-            if(quick){ openPeek(quick.getAttribute('data-pms-quick')); return; }
-            var media=t.closest&&t.closest('.pms-media[data-pms-id]');
-            if(media&&t.closest('#pink-mall, #pmsSheet')){ openPeek(media.getAttribute('data-pms-id')); return; }
-            var target=t.closest&&t.closest('[data-pms-target]');
-            if(target){
-                var v=target.getAttribute('data-pms-target');
-                if(v.charAt(0)==='#'){
-                    var elT=document.querySelector(v);
-                    if(elT) elT.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'});
+            var t = e.target;
+            if (!t || !t.closest) return;
+
+            var orderLink = t.closest('[data-pms-order]');
+            if (orderLink) { handleOrderClick(orderLink); return; }
+
+            var ugcLink = t.closest('[data-pms-ugc]');
+            if (ugcLink) { emit('pink_mall_ugc_click', { postId: ugcLink.getAttribute('data-pms-ugc') }); return; }
+
+            var byBtn = t.closest('[data-pms-selectedby-btn]');
+            if (byBtn) {
+                closeSheet();
+                setState({ selectedBy: byBtn.getAttribute('data-pms-selectedby-btn') });
+                emitFilters();
+                if (els.shop) els.shop.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
+                return;
+            }
+
+            var catBtn = t.closest('[data-pms-cat-btn]');
+            if (catBtn) { closeSheet(); goToCategory(catBtn.getAttribute('data-pms-cat-btn')); return; }
+
+            var heart = t.closest('.pms-heart[data-pms-id]');
+            if (heart) { wishToggled(heart.getAttribute('data-pms-id')); return; }
+
+            var wt = t.closest('[data-pms-wish-toggle]');
+            if (wt) { wishToggled(wt.getAttribute('data-pms-wish-toggle')); return; }
+
+            var openBtn = t.closest('[data-pms-open]');
+            if (openBtn) {
+                var ugcFrom = openBtn.getAttribute('data-pms-ugc-from');
+                if (ugcFrom) emit('pink_mall_ugc_product', { postId: ugcFrom, productId: openBtn.getAttribute('data-pms-open') });
+                openProduct(openBtn.getAttribute('data-pms-open'));
+                return;
+            }
+
+            var media = t.closest('.pms-media[data-pms-id]');
+            if (media && t.closest('#pink-mall, #pmsSheet')) { openProduct(media.getAttribute('data-pms-id')); return; }
+
+            var gal = t.closest('[data-pms-gal]');
+            if (gal && detail) { stepGallery(parseInt(gal.getAttribute('data-pms-gal'), 10) || 0); return; }
+
+            var variant = t.closest('[data-pms-variant]');
+            if (variant && detail) {
+                var size = variant.getAttribute('data-pms-variant');
+                var p = byId(detail.id);
+                if (p && canOrder(p, size)) {
+                    detail.selectedVariant = size;
+                    renderDetail();
+                    emit('pink_mall_variant_select', { productId: p.id, variant: size, category: p.category });
+                }
+                return;
+            }
+
+            var thumb = t.closest('[data-pms-media]');
+            if (thumb && detail) {
+                var mi = parseInt(thumb.getAttribute('data-pms-media'), 10);
+                if (isFinite(mi)) { detail.mediaIndex = mi; renderDetail(); }
+                return;
+            }
+
+            var copy = t.closest('[data-pms-copy]');
+            if (copy && detail) {
+                var pc = byId(detail.id);
+                var text = buildViberMessage(pc, detail.selectedVariant);
+                var hintEl = document.getElementById('pmsCopyHint');
+                var sayC = function(m){ if (hintEl) hintEl.textContent = m; };
+                if (!text) { sayC('Първо избери наличен размер.'); return; }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(
+                        function(){ sayC('Копирано ✦'); },
+                        function(){ sayC('Копирането е блокирано — маркирай текста горе.'); }
+                    );
+                } else {
+                    sayC('Копирането не се поддържа тук — маркирай текста горе.');
+                }
+                return;
+            }
+
+            var chipBtn = t.closest('[data-pms-chip]');
+            if (chipBtn) {
+                var act = chipBtn.getAttribute('data-pms-chip');
+                if (act === 'all') { clearFilters(); emitFilters(); return; }
+                if (act === 'query') { STATE.query = ''; if (tb.search) tb.search.value = ''; }
+                else if (act === 'size') {
+                    var sv = chipBtn.getAttribute('data-pms-chipval');
+                    STATE.sizes = STATE.sizes.filter(function(x){ return x !== sv; });
+                }
+                else if (act === 'price') { STATE.priceMin = null; STATE.priceMax = null; }
+                else if (act === 'selectedBy') { STATE.selectedBy = 'all'; }
+                else if (act === 'newOnly') { STATE.newOnly = false; }
+                else if (act === 'saleOnly') { STATE.saleOnly = false; }
+                else if (act === 'availability') { STATE.availability = 'all'; }
+                renderShop();
+                if (isFiltersOpen()) renderFilterPanel();
+                emitFilters();
+                return;
+            }
+
+            var target = t.closest('[data-pms-target]');
+            if (target) {
+                var v = target.getAttribute('data-pms-target');
+                if (v.charAt(0) === '#') {
+                    var elT = document.querySelector(v);
+                    if (elT) elT.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth' });
                 } else { goToCategory(v); }
                 return;
             }
         });
 
-        document.getElementById('pmsSearchBtn').addEventListener('click', openSearch);
-        document.getElementById('pmsWishBtn').addEventListener('click', openWishlist);
+        /* ── Плъзгане по галерията в детайла (само хоризонтално, 1 пръст) ── */
+        (function(){
+            var sx = 0, sy = 0, active = false;
+            document.addEventListener('touchstart', function(e){
+                var host = e.target.closest && e.target.closest('[data-pms-swipe]');
+                if (!host || e.touches.length !== 1) { active = false; return; }
+                active = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+            }, { passive: true });
+            document.addEventListener('touchend', function(e){
+                if (!active) return;
+                active = false;
+                var tch = e.changedTouches && e.changedTouches[0];
+                if (!tch) return;
+                var dx = tch.clientX - sx, dy = tch.clientY - sy;
+                if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+                stepGallery(dx < 0 ? 1 : -1);
+            }, { passive: true });
+        })();
+
+        /* ── Панел с филтри ── */
+        document.addEventListener('click', function(e){
+            var t = e.target;
+            if (!t || !t.closest || !tb.filters || !tb.filters.contains(t)) return;
+
+            if (t.closest('#pmsFiltersClose')) { closeFilters(); return; }
+            if (t.closest('#pmsApply')) { closeFilters(); return; }
+            if (t.closest('#pmsClearAll')) { clearFilters(); emitFilters(); return; }
+
+            var sb = t.closest('[data-pms-size]');
+            if (sb) {
+                var s = sb.getAttribute('data-pms-size');
+                var i = STATE.sizes.indexOf(s);
+                if (i > -1) STATE.sizes.splice(i, 1); else STATE.sizes.push(s);
+                renderShop(); renderFilterPanel(); emitFilters();
+                var back = tb.filters.querySelector('[data-pms-size="' + s.replace(/"/g, '\\"') + '"]');
+                if (back) back.focus();
+                return;
+            }
+            var pb = t.closest('[data-pms-preset]');
+            if (pb) {
+                var pid = pb.getAttribute('data-pms-preset');
+                var pp = PRICE_PRESETS.find(function(x){ return x.id === pid; });
+                if (pp) {
+                    var already = STATE.priceMin === pp.min && STATE.priceMax === pp.max;
+                    STATE.priceMin = already ? null : pp.min;
+                    STATE.priceMax = already ? null : pp.max;
+                    renderShop(); renderFilterPanel(); emitFilters();
+                    var backP = tb.filters.querySelector('[data-pms-preset="' + pid + '"]');
+                    if (backP) backP.focus();
+                }
+                return;
+            }
+            var sel = t.closest('[data-pms-selectedby]');
+            if (sel) {
+                STATE.selectedBy = sel.getAttribute('data-pms-selectedby');
+                renderShop(); renderFilterPanel(); emitFilters();
+                var backS = tb.filters.querySelector('[data-pms-selectedby="' + STATE.selectedBy + '"]');
+                if (backS) backS.focus();
+                return;
+            }
+            var av = t.closest('[data-pms-avail]');
+            if (av) {
+                STATE.availability = av.getAttribute('data-pms-avail');
+                renderShop(); renderFilterPanel(); emitFilters();
+                var backA = tb.filters.querySelector('[data-pms-avail="' + STATE.availability + '"]');
+                if (backA) backA.focus();
+                return;
+            }
+        });
+
+        document.addEventListener('change', function(e){
+            var t = e.target;
+            if (!t || !tb.filters || !tb.filters.contains(t)) return;
+            if (t.id === 'pmsNewOnly')  { STATE.newOnly  = t.checked; renderShop(); emitFilters(); return; }
+            if (t.id === 'pmsSaleOnly') { STATE.saleOnly = t.checked; renderShop(); emitFilters(); return; }
+        });
+
+        document.addEventListener('input', function(e){
+            var t = e.target;
+            if (!t || !tb.filters || !tb.filters.contains(t)) return;
+            if (t.id === 'pmsPriceMin' || t.id === 'pmsPriceMax') {
+                var raw = t.value.trim();
+                var v = raw === '' ? null : parseInt(raw, 10);
+                if (v != null && !isFinite(v)) v = null;
+                if (t.id === 'pmsPriceMin') STATE.priceMin = v; else STATE.priceMax = v;
+                renderShop();
+            }
+        });
+
+        if (tb.backdrop) tb.backdrop.addEventListener('click', closeFilters);
+        if (tb.toggle) tb.toggle.addEventListener('click', toggleFilters);
+
+        if (tb.search) {
+            tb.search.addEventListener('input', function(){
+                var q = tb.search.value.trim();
+                var list = setState({ query: q });
+                emitSearchDebounced(q, list.length);
+            });
+        }
+        if (tb.clear) {
+            tb.clear.addEventListener('click', function(){
+                if (tb.search) tb.search.value = '';
+                setState({ query: '' });
+                if (tb.search) tb.search.focus();
+            });
+        }
+        if (tb.sort) {
+            tb.sort.addEventListener('change', function(){ setState({ sort: tb.sort.value }); emitFilters(); });
+        }
+
+        document.getElementById('pmsSearchBtn').addEventListener('click', openSearchSheet);
+        document.getElementById('pmsWishBtn').addEventListener('click', openWishlistSheet);
         document.getElementById('pmsSheetClose2').addEventListener('click', closeSheet);
         document.getElementById('pmsGateCta').addEventListener('click', function(){
             els.gate.classList.add('is-open');
@@ -11350,11 +13445,7 @@
         });
 
         els.overlay.addEventListener('click', function(e){ if(e.target===els.overlay) closeSheet(); });
-        document.addEventListener('keydown', function(e){
-            if(e.key==='Escape'&&els.overlay.classList.contains('is-open')) closeSheet();
-        });
 
-        /* Мобилен mall бар */
         els.mobilebar.addEventListener('click', function(e){
             var item=e.target.closest('[data-pms-mnav]'); if(!item) return;
             els.mobilebar.querySelectorAll('.pms-mobilebar-item').forEach(function(b){b.classList.remove('is-active');});
@@ -11362,9 +13453,40 @@
             var act=item.getAttribute('data-pms-mnav');
             if(act==='mall') mall.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'});
             else if(act==='shop') openCategorySheet();
-            else if(act==='search') openSearch();
-            else if(act==='wish') openWishlist();
+            else if(act==='search') openSearchSheet();
+            else if(act==='wish') openWishlistSheet();
         });
+
+        /* ════════════════════════════════════════════════════════════
+           HERO → MALL МАРШРУТИЗАЦИЯ  (само КАТЕГОРИИ, не се пипа)
+           ════════════════════════════════════════════════════════════ */
+        document.addEventListener('click', function (e) {
+            var link = e.target && e.target.closest && e.target.closest('[data-pm-category]');
+            if (!link) return;
+            var slug = link.getAttribute('data-pm-category');
+            if (!slug) return;
+            var known = slug === 'all' || CATEGORIES.some(function (c) { return c.slug === slug; });
+            if (!known) return;
+            e.preventDefault();
+            closeSheet();
+            goToCategory(slug, false);
+            if (els.shop) els.shop.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
+        });
+
+        var dirbarEl = document.getElementById('pmsDirbar');
+        var dirbarRaf = null;
+        function syncDirbarHeight(){
+            if (!dirbarEl || dirbarRaf) return;
+            dirbarRaf = window.requestAnimationFrame(function(){
+                dirbarRaf = null;
+                var h = Math.round(dirbarEl.getBoundingClientRect().height);
+                if (h > 0) document.documentElement.style.setProperty('--pms-dirbar-h', h + 'px');
+            });
+        }
+        syncDirbarHeight();
+        window.addEventListener('resize', syncDirbarHeight, { passive: true });
+        window.addEventListener('orientationchange', syncDirbarHeight, { passive: true });
+        if (window.ResizeObserver && dirbarEl) new ResizeObserver(syncDirbarHeight).observe(dirbarEl);
 
         /* ════════════════════════════════════════════════════════════
            INIT + PUBLIC API
@@ -11372,23 +13494,70 @@
         renderDirbar();
         renderDirectory();
         renderCampaigns();
-        renderCards(els.newRail, PINK_MALL_PRODUCTS.filter(function(p){return p.isNew;}));
+        renderCampaignCarousel();
+        renderCards(els.newRail, PINK_MALL_PRODUCTS.filter(isProductNew));
         renderCards(els.inaRail, PINK_MALL_PRODUCTS.filter(function(p){return p.selectedBy==='ina'||p.selectedBy==='both';}));
         renderCards(els.sisRail, PINK_MALL_PRODUCTS.filter(function(p){return p.selectedBy==='sis'||p.selectedBy==='both';}));
-        goToCategory('all', false);
+        renderRivalry();
+        renderUGC();
+        if (tb.sort) tb.sort.value = STATE.sort;
+        if (tb.filters && !isDrawerViewport()) openFilters(); else syncSplit();
+        renderShop();
         syncWishUI();
 
         window.PinkMallStore = {
+            phase: '2D',
+
             open: function(){ mall.scrollIntoView({behavior:reduceMotion()?'auto':'smooth'}); },
             goToCategory: goToCategory,
-            search: openSearch,
+            search: function(q){
+                if (typeof q === 'string') {
+                    if (tb.search) tb.search.value = q;
+                    var list = setState({ query: q });
+                    if (els.shop) els.shop.scrollIntoView({behavior:reduceMotion()?'auto':'smooth', block:'start'});
+                    return list;
+                }
+                openSearchSheet();
+                return derive();
+            },
+            getState: function(){ return JSON.parse(JSON.stringify(STATE)); },
+            setFilters: function(patch, opts){ return setState(patch, opts); },
+            clearFilters: clearFilters,
+            getResults: function(){ return derive().slice(); },
+
             getProduct: byId,
+            getStockState: getStockState,
+
+            openProduct: openProduct,
+            closeProduct: closeProduct,
+            getSelectedVariant: getSelectedVariant,
+            getDetailState: getDetailState,
+
+            buildViberMessage: buildViberMessage,
+            buildViberOrderUrl: buildViberOrderUrl,
+            canOrder: function(id, size){ return !!resolveOrder(id, size); },
+
             getWishlist: getWishlist,
+            isWishlisted: isWishlisted,
             toggleWishlist: toggleWishlist,
+
             products: PINK_MALL_PRODUCTS,
             campaigns: PINK_MALL_CAMPAIGNS,
             categories: CATEGORIES,
-            config: CONFIG
+            sizeGroups: SIZE_GROUPS,
+            pricePresets: PRICE_PRESETS,
+            sorts: SORTS,
+            config: CONFIG,
+            __sizeState: sizeState,
+            __isAvailabilityMode: isAvailabilityMode,
+            __isProductNew: isProductNew,
+            __deliveryEstimate: deliveryEstimate,
+            __sortSizes: sortSizes,
+
+            getSisterStats: function(who){ return sisterStats(who === 'sis' ? 'sis' : 'ina'); },
+            ugc: PINK_MALL_UGC,
+            refreshUGC: renderUGC,
+            getModalDepth: modalDepth
         };
     })();
     </script>

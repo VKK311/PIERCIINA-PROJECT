@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated during: structure cleanup + pre-publish hardening.
-Status at time of writing: **structure established, hardening in progress.**
+Updated: structure cleanup + pre-publish hardening.
+Status: **STRUCTURE CLEAN / HARDENING PASS.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,15 +12,16 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | *pending promotion — recorded in the hardening commit* |
+| CANONICAL WEBSITE SHA-256 | `fa639d3c87f80cfff062114b2b2602fed282754f642e2a07eb7e5a7b38aa12c9` |
+| CANONICAL WEBSITE BYTES | 2537658 |
 
 ## Engine
 
 | | |
 |---|---|
-| REAL PRODUCT ENGINE | pending |
-| PER-IMAGE ALT | pending |
-| CALIBRATION FIXTURE | pending |
+| REAL PRODUCT ENGINE | PASS |
+| PER-IMAGE ALT | PASS — canonical `media.imageAlt` / `media.galleryAlt[]` |
+| CALIBRATION FIXTURE | REMOVED |
 
 ## Catalog
 

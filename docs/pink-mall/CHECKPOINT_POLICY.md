@@ -17,8 +17,11 @@ It is now replaced by this policy.
 
 ## The rule
 
-**Every validated artefact is committed to `claude/pink-mall-hero-carousel-jvhdb8`
+**Every validated artefact is committed to `claude/pink-mall-development`
 as soon as it passes its own acceptance gate.**
+
+`claude/pink-mall-hero-carousel-jvhdb8` was the original checkpoint branch and
+is now historical: preserved, superseded, not merged.
 
 Committing is persistence, not publication. The branch is a working branch.
 Nothing reaches anyone until it is merged, and merging is not authorised.
@@ -67,7 +70,7 @@ Approved JQ4556 media, restored byte-exact and hash-verified:
 
 | | |
 |---|---|
-| Canonical website checkpoint | `PINKMALL_REAL_PRODUCT_CALIBRATION.html` (`dc7050ba…`) |
+| Canonical website | `PINKMALL.html` — one file, no competing "latest" |
 | Public catalog | PM-001 … PM-024 |
 | PM-025 | staged, **not published** |
 | JQ4556 in `PINK_MALL_PRODUCTS` | no |
@@ -75,13 +78,12 @@ Approved JQ4556 media, restored byte-exact and hash-verified:
 
 ## Known open items
 
-Carried forward from the PM-025 approval preview; none is resolved by this policy.
+Carried forward; see `PROJECT_STATE.md` for live status.
 
-1. Per-image alt is not consumable by the current engine. `galleryOf()` returns
-   bare strings; `mediaHTML()` and `detailMediaHTML()` synthesise alt from
-   `p.name`. Staged `media.alt` is inert until the engine reads it.
-2. Staged JQ4556 images are 500×500 `w_500` web derivatives — soft at large PDP
-   zoom. Higher-resolution exact duplicates preferred before launch.
-3. `__calibrationFixture` (containing the only `JQ4556` string in the build)
-   is still present at line 13531. Non-public, but must be removed before
-   publication.
+1. Staged PM-025 images are 500×500 `w_500` web derivatives — soft at large PDP
+   zoom. Higher-resolution exact duplicates preferred before launch. Do not
+   AI-upscale.
+
+Resolved since this policy was written: the per-image alt gap (the engine now
+renders authored `media.imageAlt` / `media.galleryAlt[]`), and the calibration
+fixture (removed from the canonical build).
