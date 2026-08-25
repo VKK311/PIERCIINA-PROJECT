@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "status": "BLOCKED",
+  "sku": "JR5952",
+  "brand": "adidas",
+  "model": "Gazelle Bold Shoes",
+  "variant": "Pink",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-25T14:08:21Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "32857453564",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "420ab01cff5a682c366d34d4c24f8bd28be68d6d"
+  },
+  "counts": {
+    "acquired": 0,
+    "unique_selected": 0,
+    "duplicates_collapsed": 0
+  },
+  "proposedMain": null,
+  "dominantBackdrop": null,
+  "contactSheet": null,
+  "images": [],
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/us/gazelle-bold-shoes-kids/JR5952.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/api/products/JR5952",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/api/products/JR5952",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/en/JR5952.html",
+      "ok": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/us/JR5952.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.co.uk/JR5952.html",
+      "ok": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 0
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
