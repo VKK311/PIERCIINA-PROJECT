@@ -134,6 +134,21 @@ which the skill excludes and which list different SKUs.
 
 Unblocks on user-supplied images or official asset URLs.
 
+## Converse A08745C — UNRESOLVED
+
+| | |
+|---|---|
+| BRAND | Converse |
+| MANUFACTURER ITEM | A08745C |
+| PRICE | €49 |
+| SIZES | 36, 37.5, 38, 39 |
+| IDENTITY | **UNRESOLVED** — model and colourway unknown |
+| MEDIA | BLOCKED — 0 candidates; all converse.com routes `403` |
+| REPORT | `docs/pink-mall/checkpoints/A08745C_UNRESOLVED.md` |
+
+Unlike JR5952, identity itself did not resolve, so there is no product record
+to stage. Needs the product link, one photo, or the model name and colourway.
+
 ## Next step
 
 Next Mall ID is **PM-027**.
