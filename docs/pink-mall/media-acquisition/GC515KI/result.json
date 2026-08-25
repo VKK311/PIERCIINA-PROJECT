@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "GC515KI",
+  "brand": "New Balance",
+  "model": "515 V1",
+  "variant": "Rose Sugar",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-25T10:54:42Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "32839560874",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "4373676b09bba2b5873fdf83a07e8cbd112eafe7"
+  },
+  "counts": {
+    "acquired": 5,
+    "unique_selected": 5,
+    "duplicates_collapsed": 0
+  },
+  "proposedMain": "source/GC515KI-01-original.webp",
+  "dominantBackdrop": "#F1F1F1",
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/GC515KI-01-original.webp",
+      "preview": "preview/GC515KI-01.webp",
+      "source_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
+      "requested_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
+      "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
+      "source_domain": "nb.scene7.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-25T10:54:36Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/webp",
+      "bytes": 135124,
+      "sha256": "7e6b3ca5e42a2a8a2a4a31388272586be5445c353c2034e6fef984c3d7ad7c6b",
+      "dhash": "00000000000000000000020011002e40661476017f007d607cc1010e20400000",
+      "sku_in_url": true,
+      "backdrop": "#F1F1F1",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/GC515KI-02-original.webp",
+      "preview": "preview/GC515KI-02.webp",
+      "source_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
+      "requested_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
+      "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
+      "source_domain": "nb.scene7.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-25T10:54:37Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/webp",
+      "bytes": 98584,
+      "sha256": "725a211faa3f24c13e18fda0d925e457f5daa40f88e79eec6521778dd19d1564",
+      "dhash": "0000000000000000000000000050018e07993f99ff01ff017c91042222000000",
+      "sku_in_url": true,
+      "backdrop": "#F1F1F1",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/GC515KI-03-original.webp",
+      "preview": "preview/GC515KI-03.webp",
+      "source_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
+      "requested_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
+      "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
+      "source_domain": "nb.scene7.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-25T10:54:38Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/webp",
+      "bytes": 107626,
+      "sha256": "906e2a9022c80d3419b86ce2c9340f1ae25886040b7dde31f51f150dbffa0370",
+      "dhash": "00c00b201f001f000f001f000f000f000f800f800e800f800780078003000060",
+      "sku_in_url": true,
+      "backdrop": "#F1F1F1",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/GC515KI-04-original.webp",
+      "preview": "preview/GC515KI-04.webp",
+      "source_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
+      "requested_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
+      "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
+      "source_domain": "nb.scene7.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-25T10:54:39Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/webp",
+      "bytes": 103290,
+      "sha256": "d2ad6f90bb526f5569d90dac6b08763eececa62dee135c3d2782b6386d8328b1",
+      "dhash": "00000000000000000000000001000c4026282c063cf17df97b820f8c20300000",
+      "sku_in_url": true,
+      "backdrop": "#F1F1F1",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/GC515KI-05-original.webp",
+      "preview": "preview/GC515KI-05.webp",
+      "source_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
+      "requested_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
+      "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
+      "source_domain": "nb.scene7.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-25T10:54:40Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/webp",
+      "bytes": 109852,
+      "sha256": "b1cf2b686f12c2063334ee67c781f6de8ad65e99835d435012f356fcecf76981",
+      "dhash": "000000000000000000000000091840e63fc17f19e3e0ecc87c61930e60000000",
+      "sku_in_url": true,
+      "backdrop": "#F1F1F1",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    }
+  ],
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.newbalance.eu/search?q=GC515KI",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.newbalance.co.uk/search?q=GC515KI",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.newbalance.com/search?q=GC515KI",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 7
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 135124,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 98584,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 107626,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 103290,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 109852,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_07_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_08_i?$pdpflexf2$&wid=1600&hei=1600",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
