@@ -400,10 +400,15 @@ def backdrop(img, tol=6):
 # from blue; a plain RGB distance does not — a blue upper sits well inside any
 # tolerance generous enough to accept real-world greens.
 # hue is degrees, with a permitted window; sat/val floors keep near-greys out.
+# Several terms cover more than one hue window. "Pink" is the clearest case:
+# hot pink sits near magenta, but blush, dusty and "almost pink" are light,
+# low-saturation tints in the red-orange arc. A single window centred on
+# magenta reports "no pink in frame" for a plainly pink shoe — a false
+# contradiction, which is worse than staying quiet.
 HUE_TERMS = {
-    "pink":     (335, 30, 0.10, 0.45),
-    "rose":     (340, 30, 0.10, 0.40),
-    "pembe":    (335, 30, 0.10, 0.45),
+    "pink":     [(340, 35, 0.08, 0.55), (12, 28, 0.08, 0.62)],
+    "rose":     [(345, 32, 0.08, 0.50), (12, 26, 0.08, 0.60)],
+    "pembe":    [(340, 35, 0.08, 0.55), (12, 28, 0.08, 0.62)],
     "red":       (2, 18, 0.35, 0.25),
     "burgundy": (350, 22, 0.30, 0.12),
     "orange":   (28, 20, 0.35, 0.30),
@@ -457,11 +462,14 @@ def colour_terms_present(img, terms):
     for term in terms:
         t = term.lower()
         if t in HUE_TERMS:
-            hue, win, smin, vmin = HUE_TERMS[t]
+            windows = HUE_TERMS[t]
+            if isinstance(windows, tuple):
+                windows = [windows]
             found[term] = any(
                 s >= smin and v >= vmin and share >= 0.04
                 and min(abs(h * 360 - hue), 360 - abs(h * 360 - hue)) <= win
-                for (h, s, v), share in hsv)
+                for (h, s, v), share in hsv
+                for hue, win, smin, vmin in windows)
         elif t in GREY_TERMS:
             lo, hi, smax = GREY_TERMS[t]
             found[term] = any(
