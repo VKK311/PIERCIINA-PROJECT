@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "BLOCKED",
-  "sku": "JR5952",
-  "brand": "adidas",
-  "model": "Gazelle Bold Shoes",
-  "variant": "Pink",
+  "sku": "A08745C",
+  "brand": "Converse",
+  "model": null,
+  "variant": null,
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T14:14:49Z",
+  "generatedAt": "2026-08-25T14:13:47Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
     "githubRunId": "32858157786",
@@ -25,37 +25,25 @@
   "log": [
     {
       "stage": "discover",
-      "url": "https://www.adidas.com/us/gazelle-bold-shoes-kids/JR5952.html",
+      "url": "https://www.converse.com/search?q=A08745C",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
-      "url": "https://www.adidas.com/api/products/JR5952",
+      "url": "https://www.converse.com/uk/en/search?q=A08745C",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
-      "url": "https://www.adidas.de/api/products/JR5952",
+      "url": "https://www.converse.com/nl/en/search?q=A08745C",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
-      "url": "https://www.adidas.de/en/JR5952.html",
-      "ok": false,
-      "error": "TimeoutError: The read operation timed out"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.adidas.com/us/JR5952.html",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.adidas.co.uk/JR5952.html",
+      "url": "https://www.converse.com/api/products/A08745C",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
