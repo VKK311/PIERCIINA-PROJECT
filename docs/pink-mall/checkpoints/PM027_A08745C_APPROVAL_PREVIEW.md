@@ -2,6 +2,9 @@
 
 **STATUS: READY FOR APPROVAL — NOT PUBLISHED**
 
+`VARIANT_CONFIDENCE_PASS` — exact-SKU evidence on every image, and the official
+colour term `pink` detected in frame.
+
 Zero-seed onboarding. Human input remained the original four fields; identity,
 media discovery and acquisition were all automatic.
 
@@ -17,7 +20,7 @@ media discovery and acquisition were all automatic.
 | Mall ID | PM-027 (proposed — allocated only on publish) |
 | Category | SHOES > Sneakers |
 | Public colour | Pink |
-| Material | *not confirmed* |
+| Material | **Textile** (official: `100% TEKSTIL`) — see provenance note |
 | Price | €49 |
 | oldPriceEUR | null — no SALE |
 | selectedBy | null |
@@ -109,7 +112,11 @@ converse, chuck taylor, all star, move, sneakers, shoes, pink, platform, high-to
    official copies preferred before launch. Do not upscale.
 2. **Primary source is a retailer, not Converse.** Every official route failed.
    Media is exact-SKU and visually verified, but it is tier-5 evidence.
-3. **Material not confirmed** — omitted rather than guessed.
+3. **Material provenance.** `100% TEKSTIL` is reported from the official
+   regional Converse page. My own runs never reached that page — converse.com.tr
+   category pages loaded but carried no A08745C link to follow — so I am
+   recording it as officially sourced on the reviewer's evidence, not on
+   evidence this pipeline gathered. Published as `Textile`.
 
 The manufacturer classifies this line as a youth/junior series item. Internal
 only; it appears nowhere above.
