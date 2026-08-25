@@ -154,22 +154,36 @@ def _from_jsonld(html):
     return out
 
 
-def discover_from_page(url, allowed, log):
-    """Pull image candidates out of one product page, authoritative sources
-    first. Returns [(url, method)]."""
+def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_OFFICIAL_PAGE"):
+    """Pull image candidates out of one page. Returns
+    [(url, method, source_page, page_has_sku)].
+
+    page_has_sku matters as much as the images. A brand whose asset paths do
+    not carry the style code can still be pinned to the exact SKU by the page
+    the assets were found on — which is what makes a retailer page usable
+    without opening the door to a neighbouring colourway.""" 
     try:
         final, ctype, body = http_get(url, allowed,
                                       max_bytes=MAX_PAGE_BYTES,
                                       accept="text/html,application/json,*/*")
     except Exception as e:
-        log.append({"stage": "discover", "url": url, "ok": False, "error": "%s: %s" % (type(e).__name__, e)})
+        err = "%s: %s" % (type(e).__name__, e)
+        log.append({"stage": "discover", "url": url, "ok": False, "error": err})
+        if ledger is not None:
+            ledger.append({"route": route, "url": url, "result": "FAIL", "error": err,
+                           "sku_evidence": False, "candidates": 0})
         return []
     # HTML and JSON are both fair game: a brand's product API is an approved
     # discovery route, and its payload carries the same asset URLs the page
     # would. The extractors below are tolerant of either — JSON-LD and og:image
     # simply find nothing in a JSON body, and the URL scan finds everything.
     if not any(t in (ctype or "") for t in ("html", "json", "javascript", "text")):
-        log.append({"stage": "discover", "url": url, "ok": False, "error": "unsupported type (%s)" % ctype})
+        log.append({"stage": "discover", "url": url, "ok": False,
+                    "error": "unsupported type (%s)" % ctype})
+        if ledger is not None:
+            ledger.append({"route": route, "url": url, "result": "FAIL",
+                           "error": "unsupported type (%s)" % ctype,
+                           "sku_evidence": False, "candidates": 0})
         return []
     html = body.decode("utf-8", "replace")
     found = []
@@ -181,8 +195,16 @@ def discover_from_page(url, allowed, log):
             if u.startswith("http"):
                 found.append((u, "srcset"))
     found += [(u, "html-scan") for u in IMG_RE.findall(html)]
-    log.append({"stage": "discover", "url": final, "ok": True, "raw_candidates": len(found)})
-    return found
+
+    # Does the page itself name the exact SKU? Checked in its URL and body.
+    page_has_sku = bool(sku) and (sku.lower() in final.lower() or sku.lower() in html.lower())
+
+    log.append({"stage": "discover", "url": final, "ok": True,
+                "raw_candidates": len(found), "page_has_sku": page_has_sku})
+    if ledger is not None:
+        ledger.append({"route": route, "url": final, "result": "OK",
+                       "sku_evidence": page_has_sku, "candidates": len(found)})
+    return [(u, m, final, page_has_sku) for u, m in found]
 
 
 # ── Resolution upgrade ────────────────────────────────────────────────────
@@ -310,10 +332,13 @@ def acquire(request, outroot, log):
     ladder = request.get("resolution", {}).get("widthLadder") or rule["width_ladder"]
 
     # 1. DISCOVER ---------------------------------------------------------
+    ledger = []
     candidates = []
     for seed in request.get("candidateMedia", []):
         u = seed["url"] if isinstance(seed, dict) else seed
-        candidates.append((u, "request-seed"))
+        candidates.append((u, "request-seed", None, True))
+        ledger.append({"route": "REQUEST_SEED", "url": u, "result": "OK",
+                       "sku_evidence": True, "candidates": 1})
 
     # Official-CDN probing. Brands that publish under the style code expose a
     # predictable asset path; we try it and keep only what actually downloads,
@@ -323,25 +348,27 @@ def acquire(request, outroot, log):
     views = request.get("cdnProbeViews") or rule.get("cdn_probe_views", [])
     for tpl in probes:
         for view in views:
-            candidates.append((tpl.format(sku=sku, sku_lower=sku.lower(),
-                                          sku_upper=sku.upper(), view=view),
-                               "cdn-probe"))
+            probe_url = tpl.format(sku=sku, sku_lower=sku.lower(),
+                                   sku_upper=sku.upper(), view=view)
+            candidates.append((probe_url, "cdn-probe", None, False))
 
     pages = list(request.get("discoveryPages", []))
     if request.get("officialProductPage"):
         pages.insert(0, request["officialProductPage"])
     for tpl in rule["page_templates"]:
         pages.append(tpl.format(sku=sku))
+    routes = request.get("discoveryRoutes") or {}
     seen_pages = set()
     for page in pages:
         if page in seen_pages:
             continue
         seen_pages.add(page)
-        candidates += discover_from_page(page, allowed, log)
+        candidates += discover_from_page(page, allowed, log, sku=sku, ledger=ledger,
+                                         route=routes.get(page, "DIRECT_OFFICIAL_PAGE"))
 
     # normalise, de-dup by URL, keep discovery order
     ordered, seen_url = [], set()
-    for u, method in candidates:
+    for u, method, src_page, page_sku in candidates:
         u = _decode_transform(u.strip())
         if not u.lower().startswith(("http://", "https://")):
             continue
@@ -353,7 +380,7 @@ def acquire(request, outroot, log):
         if u in seen_url:
             continue
         seen_url.add(u)
-        ordered.append((u, method))
+        ordered.append((u, method, src_page, page_sku))
     ordered = ordered[:MAX_CANDIDATES]
     log.append({"stage": "discover", "total_unique_candidates": len(ordered)})
 
@@ -376,7 +403,7 @@ def acquire(request, outroot, log):
         return meta
 
     acquired = []
-    for url, method in ordered:
+    for url, method, src_page, page_sku in ordered:
         # The discovered URL is the anchor: it is the image we actually found
         # on the source. Every larger variant is then checked against it.
         # Anchoring on "whichever variant downloaded first" would let a CDN
@@ -401,19 +428,30 @@ def acquire(request, outroot, log):
             if best is None or meta["longest_edge"] > best["longest_edge"]:
                 best = meta
 
-        # For brands that put the style code in the asset path, an image whose
-        # URL lacks the SKU is not provably this product. That matters most on a
-        # zero-seed run, where a search or category page can easily surface a
-        # neighbouring colourway.
-        if best and rule.get("sku_in_url") and not sku_signal(best["url"], sku):
-            log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
-                        "error": "asset URL does not carry SKU %s; rejected" % sku})
-            best = None
+        # Identity gate. A candidate is admissible when the exact SKU is
+        # evidenced either by the asset URL itself, or by the page the asset
+        # was discovered on.
+        #
+        # Requiring it in the asset URL alone was too narrow: adidas and New
+        # Balance embed the style code in the path, but plenty of brands and
+        # every retailer do not. Requiring nothing would be far too loose — a
+        # category page for "pink Chuck Taylor Move" lists several distinct
+        # SKUs, and substituting a neighbour is exactly the failure the
+        # exact-variant rule exists to prevent.
+        if best:
+            asset_sku = sku_signal(best["url"], sku)
+            if not (asset_sku or page_sku):
+                log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
+                            "error": "neither asset URL nor source page evidences SKU %s" % sku})
+                best = None
+            else:
+                best["sku_evidence"] = "asset-url" if asset_sku else "source-page"
 
         if best:
             best["discovery_method"] = method
             best["acquired_at"] = now()
             best["sku_in_url"] = sku_signal(best["url"], sku)
+            best["source_page"] = src_page
             best["anchor_url"] = url
             best["notes"] = notes
             acquired.append(best)
@@ -423,7 +461,7 @@ def acquire(request, outroot, log):
                         "upgraded_from": None if best["requested_url"] == url else url[:160]})
 
     if not acquired:
-        return None, acquired
+        return None, acquired, ledger
 
     # 3. DEDUPE -----------------------------------------------------------
     acquired.sort(key=lambda m: (-m["longest_edge"], -m["bytes"]))
@@ -447,7 +485,7 @@ def acquire(request, outroot, log):
     usable = [m for m in unique if m["longest_edge"] >= MIN_EDGE]
     usable.sort(key=lambda m: (-m["longest_edge"], m["url"]))
     selected = usable[:MAX_KEEP]
-    return selected, acquired
+    return selected, acquired, ledger
 
 
 # ── Output ────────────────────────────────────────────────────────────────
@@ -545,7 +583,7 @@ def contact_sheet(entries, header, out_path):
     return sheet.size
 
 
-def write_outputs(request, selected, all_acquired, log, outroot):
+def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
     sku = request["manufacturerItemNo"].strip()
     brand = request["brand"].strip()
     rule = brand_rule(brand)
@@ -598,6 +636,8 @@ def write_outputs(request, selected, all_acquired, log, outroot):
             "mime": m["mime"], "bytes": m["bytes"],
             "sha256": m["sha256"], "dhash": m["dhash"],
             "sku_in_url": m["sku_in_url"],
+            "sku_evidence": m.get("sku_evidence"),
+            "source_page": m.get("source_page"),
             "backdrop": backdrop(m["_img"]),
             "duplicates_collapsed": m.get("duplicates", []),
             "validation": "PASS",
@@ -652,6 +692,7 @@ def write_outputs(request, selected, all_acquired, log, outroot):
                              else None),
         "contactSheet": sheet_rel,
         "images": entries,
+        "discoveryLedger": ledger or [],
         "log": log,
         "notes": [
             "Media is acquired but NOT published. Live assets live under "
@@ -682,8 +723,9 @@ def main():
             return 2
 
     log = []
-    selected, all_acquired = acquire(request, args.out, log)
-    manifest, base = write_outputs(request, selected or [], all_acquired or [], log, args.out)
+    selected, all_acquired, ledger = acquire(request, args.out, log)
+    manifest, base = write_outputs(request, selected or [], all_acquired or [],
+                                   log, args.out, ledger)
     print(json.dumps({"status": manifest["status"], "sku": manifest["sku"],
                       "selected": manifest["counts"]["unique_selected"],
                       "acquired": manifest["counts"]["acquired"],

@@ -2,20 +2,43 @@
   "schemaVersion": 1,
   "brand": "Converse",
   "manufacturerItemNo": "A08745C",
-  "model": null,
-  "variant": null,
+  "model": "Chuck Taylor All Star Move",
+  "variant": "Pembe / Pink",
 
   "candidateMedia": [],
 
-  "discoveryPages": [],
+  "discoveryPages": [
+    "https://www.converse.com.tr/arama/?q=A08745C",
+    "https://www.converse.com.tr/arama/?q=a08745c",
+    "https://www.ayakkabidunyasi.com.tr/converse-chuck-taylor-all-star-move-pembe-kadin-sneaker-a08745c-2024a08745c",
+    "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-pembe-gunluk-ayakkabi-a08745c-14696/",
+    "https://www.superstep.com.tr/arama?q=A08745C"
+  ],
+
+  "discoveryRoutes": {
+    "https://www.converse.com.tr/arama/?q=A08745C": "OFFICIAL_REGIONAL_SEARCH",
+    "https://www.converse.com.tr/arama/?q=a08745c": "OFFICIAL_REGIONAL_SEARCH",
+    "https://www.ayakkabidunyasi.com.tr/converse-chuck-taylor-all-star-move-pembe-kadin-sneaker-a08745c-2024a08745c": "TRUSTED_RETAILER_SEARCH",
+    "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-pembe-gunluk-ayakkabi-a08745c-14696/": "TRUSTED_RETAILER_SEARCH",
+    "https://www.superstep.com.tr/arama?q=A08745C": "TRUSTED_RETAILER_SEARCH"
+  },
+
+  "allowedHostSuffixes": [
+    "converse.com.tr",
+    "akinoncloud.com",
+    "ayakkabidunyasi.com.tr",
+    "spx.com.tr",
+    "superstep.com.tr"
+  ],
 
   "resolution": { "widthLadder": [1600, 1200, 1000] },
 
   "requestedBy": "claude",
   "requestedFor": "PM-027 (proposed, not published)",
   "notes": [
-    "ZERO-SEED: candidateMedia is empty. The user supplied brand, SKU, price and sizes only.",
-    "Model and variant are unresolved — two web searches for A08745C returned no exact-SKU identity. This run is also an identity probe: any asset carrying the SKU would confirm the product exists on Converse's own site.",
-    "No CDN probe for Converse: image paths embed a per-product colour-code folder that cannot be derived from the SKU. Guessing one would fabricate a path rather than discover an asset."
+    "ZERO-SEED: candidateMedia is empty. Human input remains the original four fields only. Every URL here was found by search-index discovery, not supplied by the user.",
+    "Identity resolved via search-index transport: A08745C = Chuck Taylor All Star Move, pembe/pink.",
+    "converse.com and its /uk/en and /nl/en variants all return 403 to the runner; converse.com.tr is the official regional route.",
+    "DANGER: A08740C and A07358C are DIFFERENT pink Chuck Taylor All Star Move SKUs on converse.com.tr. The identity gate requires the exact SKU in the asset URL or in the page it came from, so a neighbour cannot substitute."
   ]
 }
