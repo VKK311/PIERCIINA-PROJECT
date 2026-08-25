@@ -1,0 +1,1492 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "JR5952",
+  "brand": "adidas",
+  "model": "Gazelle Bold Shoes",
+  "variant": "Almost Pink / Court Green / Gold Metallic",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-25T17:26:17Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "32877747056",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "7525b6a714357e921ca08cd9ea512af5d3a07b13"
+  },
+  "counts": {
+    "acquired": 14,
+    "unique_selected": 5,
+    "duplicates_collapsed": 5
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: green, gold"
+    ],
+    "conflicts": [],
+    "officialColour": "Almost Pink / Court Green / Gold Metallic",
+    "officialAnchor": false
+  },
+  "proposedMain": "source/JR5952-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/JR5952-01-original.jpg",
+      "preview": "preview/JR5952-01.webp",
+      "source_url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "requested_url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "anchor_url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "source_domain": "img.eobuwie.cloud",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:26:03Z",
+      "width": 560,
+      "height": 746,
+      "longest_edge": 746,
+      "mime": "image/jpeg",
+      "bytes": 57960,
+      "sha256": "51f10c2872c61baeb70d7a2ff334cad5d2561f95465e8af01f9b5319d928fd8c",
+      "dhash": "00000000000000000000000000001118420231996bb8e6b457b6a8b4003c0000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://img.modivo.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+          "size": "560x746",
+          "sha256": "51f10c2872c61baeb70d7a2ff334cad5d2561f95465e8af01f9b5319d928fd8c"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "746px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/JR5952-02-original.jpg",
+      "preview": "preview/JR5952-02.webp",
+      "source_url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "requested_url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "anchor_url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "source_domain": "img.eobuwie.cloud",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:26:00Z",
+      "width": 560,
+      "height": 746,
+      "longest_edge": 746,
+      "mime": "image/jpeg",
+      "bytes": 71220,
+      "sha256": "4cc84486fda608dd99b09b3c555083124c3a87794b444617b369a21e0cc9e3b5",
+      "dhash": "000000000000000000000120da008500b380b1c0803af0783f80838118100100",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://img.modivo.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+          "size": "560x746",
+          "sha256": "4cc84486fda608dd99b09b3c555083124c3a87794b444617b369a21e0cc9e3b5"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "746px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/JR5952-03-original.jpg",
+      "preview": "preview/JR5952-03.webp",
+      "source_url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "requested_url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "anchor_url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "source_domain": "img.eobuwie.cloud",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:26:02Z",
+      "width": 560,
+      "height": 746,
+      "longest_edge": 746,
+      "mime": "image/jpeg",
+      "bytes": 63743,
+      "sha256": "7920df308a8f87b5d640ebbe533fa1954b2ed96be4381b93e7d21c7ca0856ea0",
+      "dhash": "0000000000000000000000000180c00201e0ffa0e05e81dcd2601061820c0000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://img.modivo.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+          "size": "560x746",
+          "sha256": "7920df308a8f87b5d640ebbe533fa1954b2ed96be4381b93e7d21c7ca0856ea0"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "746px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/JR5952-04-original.jpg",
+      "preview": "preview/JR5952-04.webp",
+      "source_url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "requested_url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "anchor_url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "source_domain": "img.eobuwie.cloud",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:26:04Z",
+      "width": 560,
+      "height": 746,
+      "longest_edge": 746,
+      "mime": "image/jpeg",
+      "bytes": 79872,
+      "sha256": "6b0f04011b826e5134f8a778f6a35678f59db274cc113d31c5736a42ce5e1b46",
+      "dhash": "900080004400f000d000740096001e00ca0008200f12801ae0727fc08f806010",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://img.modivo.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+          "size": "560x746",
+          "sha256": "6b0f04011b826e5134f8a778f6a35678f59db274cc113d31c5736a42ce5e1b46"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "746px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/JR5952-05-original.jpg",
+      "preview": "preview/JR5952-05.webp",
+      "source_url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "requested_url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "anchor_url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+      "source_domain": "img.eobuwie.cloud",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:26:03Z",
+      "width": 560,
+      "height": 746,
+      "longest_edge": 746,
+      "mime": "image/jpeg",
+      "bytes": 85421,
+      "sha256": "b83ea6435ba52df1e73ccd99137314dc6c5a18d0c389b042f0ec1e67f52aecea",
+      "dhash": "1010000038e0a69a6b2968e96aa96aa968d838e038e0b8e238e0082014500000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://img.modivo.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
+          "size": "560x746",
+          "sha256": "b83ea6435ba52df1e73ccd99137314dc6c5a18d0c389b042f0ec1e67f52aecea"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "746px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 74
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 74
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.shooos.pl/product/adidas-gazelle-bold-j-jr5952",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 160
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.adidas.com/api/products/JR5952",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.adidas.de/api/products/JR5952",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.adidas.de/en/JR5952.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.adidas.com/us/JR5952.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.adidas.co.uk/JR5952.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "ok": true,
+      "raw_candidates": 74,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815",
+      "ok": true,
+      "raw_candidates": 74,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.shooos.pl/product/adidas-gazelle-bold-j-jr5952",
+      "ok": true,
+      "raw_candidates": 160,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/api/products/JR5952",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/api/products/JR5952",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/en/JR5952.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/us/JR5952.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.co.uk/JR5952.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/Adidas.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1778134566_69fc2e26b4482_Adidas.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/2.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1778486116_6a018b64e5b86_2.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/adidas_gazelle.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1767857642_695f5deac4820_adidas_gazelle.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/14.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1778486485_6a018cd55b549_14.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/asics-muzi.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1767783532_695e3c6c9096f_asics-muzi.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/adidas_samba.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1767857625_695f5dd98fced_adidas_samba.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/11.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1778486206_6a018bbe6499c_11.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/rains.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1767783823_695e3d8f9472e_rains.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_acc_osprey.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_acc_osprey.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_sale_mens.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_sale_mens.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_sale_womens.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/menu_sale_womens.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/CONVERSE_SALE.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1762773853_6911cb5dc8cfe_CONVERSE_SALE.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/adidas_trefoil_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/adidas_performance.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/asics-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/birkenstock-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/camper-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/carhartt-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/converse.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/DR.martens-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/fjallraven-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/NB_new.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/ON_new.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/osprey-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/osprey-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/timberland-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/UGG.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/24_bottles-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Arkk-02-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/atom.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/bjorn_borg-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/BGM.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Brooks.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/caterpillar-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Champion-logo-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/CHPO-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/chrome-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/clae-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/colorful_standard-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/CRAFT.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/DC-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/dedicated-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/dickies-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Doughnut-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/D.franklin.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Fila-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/GENUINS.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/gunton-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Hanwag-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/happy_socks-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/herschel-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/iriedaily-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/jason_markk_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/JOTT.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/keen_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/keep-cup-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/lefrik-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/LLOYD.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/loqi-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/makia-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/maloja-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/MuseARTa.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/new-era-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Nike-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/norba.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/NNORMAL.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Onitsuka_Tiger-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/prana-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Primus.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/puma-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/rains-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/reebok-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Reshoevn8r1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/SALOMON.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/saucony-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/saxx-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/secrid-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/SHOOOS_logo.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/smartwool-01_1.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/sneaky-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/stance-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/superfeet-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/Thedudes.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/TNF-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/toms-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/triwa-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/UA-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/vans-01-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/category/veja-01.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314803_6984dc3341c4a_TOPANKY.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314832_6984dc507b292_tenisky.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314725_6984dbe5355e1_CHAQUETAS.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314871_6984dc7798f98_sudaderas.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314748_6984dbfc9be6b_mochilas.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/_1770314773_6984dc15343ff_FUNDOS.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/slider/adidas_trefoil.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/adidas1.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/adidas2.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59522.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59523.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59524.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59525.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59526.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74071.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74071.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59531_1.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59531_1.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74091.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74091.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59641.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59641.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq12961.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq12961.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64601.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64601.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64621.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64621.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/slider/adidas_trefoil.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74071.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74071.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59531_1.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59531_1.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74091.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq74091.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59641.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59641.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq12961.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/q/jq12961.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64601.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64601.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64621.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/i/h/ih64621.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/shield.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/cms/Vector.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 28
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 32397,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 71220,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 67984,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 63743,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 85421,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 57960,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 79872,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 57454,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 71220,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 67984,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 63743,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 85421,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 57960,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
+      "ok": true,
+      "size": "560x746",
+      "bytes": 79872,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.modivo.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

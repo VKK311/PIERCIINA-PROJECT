@@ -6,17 +6,27 @@
   "model": "515 V1",
   "variant": "Rose Sugar",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:13:00Z",
+  "generatedAt": "2026-08-25T17:25:50Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32876525365",
+    "githubRunId": "32877747056",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "b09124918b31082a57a352f1659b232ba20e77da"
+    "githubSha": "7525b6a714357e921ca08cd9ea512af5d3a07b13"
   },
   "counts": {
     "acquired": 5,
     "unique_selected": 5,
     "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: rose"
+    ],
+    "conflicts": [],
+    "officialColour": "Rose Sugar",
+    "officialAnchor": false
   },
   "proposedMain": "source/GC515KI-01-original.webp",
   "dominantBackdrop": "#F1F1F1",
@@ -32,7 +42,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:12:58Z",
+      "acquired_at": "2026-08-25T17:25:48Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -58,7 +68,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:12:58Z",
+      "acquired_at": "2026-08-25T17:25:48Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -84,7 +94,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:12:58Z",
+      "acquired_at": "2026-08-25T17:25:48Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -110,7 +120,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:12:58Z",
+      "acquired_at": "2026-08-25T17:25:48Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -136,7 +146,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:12:58Z",
+      "acquired_at": "2026-08-25T17:25:48Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
