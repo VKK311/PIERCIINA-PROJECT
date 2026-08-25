@@ -71,6 +71,28 @@ BRANDS = {
         "sku_in_url": True,
         "view_re": r"_nb_(\d{2})_i",
     },
+
+    "converse": {
+        "allowed_hosts": [
+            "www.converse.com", "converse.com",
+            "converse.scene7.com",
+        ],
+        "page_templates": [
+            "https://www.converse.com/search?q={sku}",
+            "https://www.converse.com/uk/en/search?q={sku}",
+            "https://www.converse.com/nl/en/search?q={sku}",
+            "https://www.converse.com/api/products/{sku}",
+        ],
+        "cdn_hosts": ["www.converse.com", "converse.scene7.com"],
+        # No CDN probe. Converse image paths embed a per-product colour-code
+        # folder that cannot be derived from the SKU, and guessing one would be
+        # fabricating a path rather than discovering an asset.
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": None,
+    },
 }
 
 DEFAULT = {

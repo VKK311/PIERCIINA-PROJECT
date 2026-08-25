@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "brand": "Converse",
+  "manufacturerItemNo": "A08745C",
+  "model": null,
+  "variant": null,
+
+  "candidateMedia": [],
+
+  "discoveryPages": [],
+
+  "resolution": { "widthLadder": [1600, 1200, 1000] },
+
+  "requestedBy": "claude",
+  "requestedFor": "PM-027 (proposed, not published)",
+  "notes": [
+    "ZERO-SEED: candidateMedia is empty. The user supplied brand, SKU, price and sizes only.",
+    "Model and variant are unresolved — two web searches for A08745C returned no exact-SKU identity. This run is also an identity probe: any asset carrying the SKU would confirm the product exists on Converse's own site.",
+    "No CDN probe for Converse: image paths embed a per-product colour-code folder that cannot be derived from the SKU. Guessing one would fabricate a path rather than discover an asset."
+  ]
+}
