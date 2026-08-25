@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: structure cleanup + pre-publish hardening.
-Status: **STRUCTURE CLEAN / HARDENING PASS.**
+Updated: PM-025 publication.
+Status: **PM-025 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `fa639d3c87f80cfff062114b2b2602fed282754f642e2a07eb7e5a7b38aa12c9` |
-| CANONICAL WEBSITE BYTES | 2537658 |
+| CANONICAL WEBSITE SHA-256 | `0ffda5450dd92a3e4262da6767999e486b43be260932b878a33543ea06519c32` |
+| CANONICAL WEBSITE BYTES | 2539946 |
 
 ## Engine
 
@@ -27,9 +27,9 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-024 |
-| NEXT ID | PM-025 |
-| JQ4556 | staged, awaiting final human approval — NOT PUBLISHED |
+| PUBLIC CATALOG | PM-001 … PM-025 |
+| NEXT ID | PM-026 |
+| JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 
 ## Media acquisition automation
 
@@ -53,20 +53,27 @@ scraping therefore contributed nothing; all four candidates came from
 research-derived CDN seeds in the request manifest. For a SKU whose asset URLs
 are not already known, discovery would need a different route.
 
-## PM-025 media
+## PM-025 — published
 
 | | |
 |---|---|
-| APPROVED SET | 1880×1880, four exact official images |
+| PUBLISHED | 2026-08-25 |
+| BRAND / MODEL | adidas / VL Court Bold Shoes |
+| MANUFACTURER ITEM | JQ4556 |
+| PRICE | €54, no SALE |
+| INVENTORY MODE | availability — no quantities invented |
+| NEW UNTIL | 2026-09-08 (14 days from first publication) |
 | MAIN | IMAGE 01 — lateral side profile |
 | GALLERY ORDER | 01 → 04 → 02 → 03 |
-| ARCHIVE | `docs/pink-mall/approval-media/PM-025/` |
-| RESOLUTION WARNING | withdrawn — the 500×500 set has been fully replaced |
-| PUBLISHED | no |
+| LIVE MEDIA | `assets/pink-mall/products/PM-025/` — 4 × 1440×1920 WebP |
+| ORIGINALS | `docs/pink-mall/approval-media/PM-025/source/` (1880×1880, hash-recorded) |
 
-The media upgrade was approved on 2026-08-25. Product facts, price, sizes,
-colour, copy, tags, alt text, MAIN and gallery order are all unchanged; only
-the image bytes and their resolution changed.
+Live WebP are the 1880×1880 originals composited onto a 3:4 canvas on the
+sources' own studio background, so neither the 3:4 card nor the 4:5 PDP crops
+the product. No site CSS was changed.
+
+The manufacturer's juniors-series classification is internal only and appears
+nowhere in the build — verified with base64 payloads excluded.
 
 ## Next step
 

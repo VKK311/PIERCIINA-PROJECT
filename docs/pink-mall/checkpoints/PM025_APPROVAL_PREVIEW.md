@@ -1,10 +1,10 @@
 # PINK MALL — PM-025 approval preview
 
-**STATUS: READY FOR APPROVAL — NOT PUBLISHED**
+**STATUS: APPROVED AND PUBLISHED — 2026-08-25**
 
-Media package upgraded to the automatically acquired 1880×1880 exact official
-set. PM-025 is not in `PINK_MALL_PRODUCTS`, and `JQ4556` appears nowhere in the
-canonical `PINKMALL.html`.
+Published as PM-025 on 2026-08-25 with the media package below. This file is now
+the historical record of what was approved; live state is in `PROJECT_STATE.md`.
+
 
 ---
 
@@ -233,5 +233,4 @@ WARNINGS:
 none
 ```
 
-**Awaiting explicit instruction:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /
-`REMOVE IMAGE 0X` / `REORDER` / `CHANGE COPY` / `REJECT`.
+**Approved and published 2026-08-25.** No instruction outstanding.
