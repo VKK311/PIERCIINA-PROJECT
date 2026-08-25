@@ -107,6 +107,17 @@ Allowed technical transformations:
 
 ## Storage lifecycle
 
+### Acquisition
+
+Media is acquired by the automation layer, not by hand and not by asking the
+user for files. See `docs/pink-mall/MEDIA_ACQUISITION.md`. Acquired originals
+land under `docs/pink-mall/media-acquisition/<SKU>/source/` with a provenance
+manifest recording source URL, discovery method, dimensions, MIME and SHA-256
+per image.
+
+A discovered URL is not acquired media. Do not describe a photo set as ready
+until the bytes exist on disk and validated.
+
 ### Before APPROVE
 
 Use a staging area outside live product assets, for example:

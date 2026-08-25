@@ -31,6 +31,27 @@ canonical build by hash before treating it as canonical.
 | NEXT ID | PM-025 |
 | JQ4556 | staged, awaiting final human approval — NOT PUBLISHED |
 
+## Media acquisition automation
+
+| | |
+|---|---|
+| AUTOMATION | committed — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
+| SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 12/12 guards |
+| JQ4556 PILOT | **BLOCKED** — no workflow run is created for this repository |
+
+The pilot has **not** passed. `GET /actions/runs` reports `total_count: 0`
+after a push that matches the workflow's trigger paths, and a
+`workflow_dispatch` returns 404. GitHub Actions appears to be disabled for
+this repository; the Actions admin API is blocked by the session's egress
+proxy, so it cannot be checked or enabled from here.
+
+**To unblock:** repository owner enables Actions at
+`https://github.com/VKK311/PIERCIINA-PROJECT/settings/actions`
+("Allow all actions and reusable workflows"), then pushes any change under
+`docs/pink-mall/media-requests/` — or re-runs the request commit — to trigger
+acquisition. Until then, media for a new product still has to be supplied by
+hand.
+
 ## Known non-blocking issue
 
 Staged PM-025 product media is 500×500 web-derivative resolution. Acceptable

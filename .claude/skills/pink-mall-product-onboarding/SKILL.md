@@ -112,6 +112,24 @@ Prepare 3–5 unique, high-quality, product-only canonical images.
 Create a visual contact sheet.
 Propose one clean product shot as MAIN.
 
+Do not ask the user to download, rename or upload images. Use the media
+acquisition layer:
+
+1. Write `docs/pink-mall/media-requests/<SKU>.request.json` from the researched
+   identity — brand, item number, variant, official page, candidate seeds.
+2. Commit and push to the development branch. The push triggers acquisition on
+   a hosted runner, because the execution container cannot reach brand CDNs.
+3. Pull, then read `docs/pink-mall/media-acquisition/<SKU>/result.json`.
+4. `PASS` → visually confirm exact variant and view roles against the contact
+   sheet, then continue. `PARTIAL` / `BLOCKED` → read the log and report the
+   blocker. Manual upload is the fallback, never the first move.
+
+The layer acquires and validates bytes. It does not decide product identity,
+variant, or MAIN — those remain judgement calls made here, and publication
+still requires explicit user approval.
+
+See `docs/pink-mall/MEDIA_ACQUISITION.md` for request and result formats.
+
 ### 7. Normalize product content
 Prepare:
 - brand;
