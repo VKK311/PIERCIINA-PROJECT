@@ -39,7 +39,7 @@ MAX_REDIRECTS = 4
 MAX_BYTES = 25 * 1024 * 1024
 MIN_BYTES = 1024
 MAX_PAGE_BYTES = 6 * 1024 * 1024
-MAX_CANDIDATES = 60
+MAX_CANDIDATES = 160
 MAX_LINK_HOPS = 6
 OK_MIME = {"image/jpeg", "image/png", "image/webp", "image/avif"}
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -567,10 +567,17 @@ def acquire(request, outroot, log):
     # Second hop. The authority is the destination, not the page that linked to
     # it: a product page reached from an official category listing is official
     # media, and stays official even though the direct URL refuses the runner.
+    def page_key(u):
+        parts = urllib.parse.urlsplit(u)
+        return (parts.netloc.lower(), parts.path.rstrip("/").lower())
+
+    seen_keys = {page_key(p) for p in seen_pages}
     for target in hop_targets:
-        if target in seen_pages:
+        key = page_key(target)
+        if target in seen_pages or key in seen_keys:
             continue
         seen_pages.add(target)
+        seen_keys.add(key)
         candidates += discover_from_page(target, allowed, log, sku=sku, ledger=ledger,
                                          route="INDEXED_OUTBOUND_MEDIA")
 
@@ -589,6 +596,14 @@ def acquire(request, outroot, log):
             continue
         seen_url.add(u)
         ordered.append((u, method, src_page, page_sku))
+    # Rank before capping. Following link targets multiplied the candidate pool
+    # roughly fivefold, and a flat cap then truncated the real product images
+    # out of the list entirely — discovery got better and acquisition got worse.
+    # Authoritative declarations and SKU-evidenced pages go first, so the cap
+    # trims the page sweep rather than the product.
+    METHOD_RANK = {"request-seed": 0, "cdn-probe": 0, "json-ld": 1,
+                   "og:image": 1, "srcset": 2, "html-scan": 3}
+    ordered.sort(key=lambda c: (METHOD_RANK.get(c[1], 4), 0 if c[3] else 1))
     ordered = ordered[:MAX_CANDIDATES]
     log.append({"stage": "discover", "total_unique_candidates": len(ordered)})
 
