@@ -6,12 +6,12 @@
   "model": "515 V1",
   "variant": "Rose Sugar",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T14:13:51Z",
+  "generatedAt": "2026-08-25T17:01:48Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32858157786",
+    "githubRunId": "32875385314",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "9d63e40a0203d89d738d365ede80f605ad83c965"
+    "githubSha": "88d4b0634b010cb268f3895ff832c352480ada6f"
   },
   "counts": {
     "acquired": 5,
@@ -32,7 +32,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T14:13:48Z",
+      "acquired_at": "2026-08-25T17:01:43Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -41,6 +41,8 @@
       "sha256": "7e6b3ca5e42a2a8a2a4a31388272586be5445c353c2034e6fef984c3d7ad7c6b",
       "dhash": "00000000000000000000020011002e40661476017f007d607cc1010e20400000",
       "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
       "backdrop": "#F1F1F1",
       "duplicates_collapsed": [],
       "validation": "PASS",
@@ -56,7 +58,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T14:13:48Z",
+      "acquired_at": "2026-08-25T17:01:44Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -65,6 +67,8 @@
       "sha256": "725a211faa3f24c13e18fda0d925e457f5daa40f88e79eec6521778dd19d1564",
       "dhash": "0000000000000000000000000050018e07993f99ff01ff017c91042222000000",
       "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
       "backdrop": "#F1F1F1",
       "duplicates_collapsed": [],
       "validation": "PASS",
@@ -80,7 +84,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T14:13:48Z",
+      "acquired_at": "2026-08-25T17:01:44Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -89,6 +93,8 @@
       "sha256": "906e2a9022c80d3419b86ce2c9340f1ae25886040b7dde31f51f150dbffa0370",
       "dhash": "00c00b201f001f000f001f000f000f000f800f800e800f800780078003000060",
       "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
       "backdrop": "#F1F1F1",
       "duplicates_collapsed": [],
       "validation": "PASS",
@@ -104,7 +110,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T14:13:48Z",
+      "acquired_at": "2026-08-25T17:01:45Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -113,6 +119,8 @@
       "sha256": "d2ad6f90bb526f5569d90dac6b08763eececa62dee135c3d2782b6386d8328b1",
       "dhash": "00000000000000000000000001000c4026282c063cf17df97b820f8c20300000",
       "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
       "backdrop": "#F1F1F1",
       "duplicates_collapsed": [],
       "validation": "PASS",
@@ -128,7 +136,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T14:13:50Z",
+      "acquired_at": "2026-08-25T17:01:46Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -137,10 +145,46 @@
       "sha256": "b1cf2b686f12c2063334ee67c781f6de8ad65e99835d435012f356fcecf76981",
       "dhash": "000000000000000000000000091840e63fc17f19e3e0ecc87c61930e60000000",
       "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
       "backdrop": "#F1F1F1",
       "duplicates_collapsed": [],
       "validation": "PASS",
       "warnings": []
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.newbalance.eu/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.newbalance.co.uk/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.newbalance.com/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
     }
   ],
   "log": [
