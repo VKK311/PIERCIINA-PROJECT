@@ -1,0 +1,7 @@
+# Ephemeral product staging. Approved-but-unpublished media is archived under
+# docs/pink-mall/approval-media/ instead; live media goes under assets/.
+.pink-mall-staging/
+
+# Local scratch
+*.tmp
+.DS_Store
