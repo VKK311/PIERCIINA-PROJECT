@@ -1,34 +1,190 @@
 {
   "schemaVersion": 1,
-  "status": "BLOCKED",
+  "status": "HUMAN_VARIANT_REVIEW_REQUIRED",
   "sku": "A08745C",
   "brand": "Converse",
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:25:47Z",
+  "generatedAt": "2026-08-25T17:28:20Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32877747056",
+    "githubRunId": "32877978337",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "7525b6a714357e921ca08cd9ea512af5d3a07b13"
+    "githubSha": "f4c3f8e64f4bcd4a386ae5e75ebff621d64062db"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
-    "duplicates_collapsed": 0
+    "acquired": 6,
+    "unique_selected": 5,
+    "duplicates_collapsed": 1
   },
   "variantConfidence": {
     "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
-    "conflicts": [],
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
+    "conflicts": [
+      "no official colour term found in frame (pink)"
+    ],
     "officialColour": "Pink",
     "officialAnchor": false
   },
-  "proposedMain": null,
-  "dominantBackdrop": null,
-  "contactSheet": null,
-  "images": [],
+  "proposedMain": "source/A08745C-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/A08745C-01-original.jpg",
+      "preview": "preview/A08745C-01.webp",
+      "source_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
+      "requested_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
+      "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
+      "source_domain": "akn-spx.a-cdn.akinoncdn.com",
+      "discovery_method": "og:image",
+      "acquired_at": "2026-08-25T17:27:48Z",
+      "width": 1500,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 104804,
+      "sha256": "231e637a1117092ba8a436e8d723c33964063100f1fce008827ae37dc41067f2",
+      "dhash": "000000000000000010001c005c805a005b003b90366013c00000010000000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size670x670_cropCenter.jpg",
+          "size": "670x670",
+          "sha256": "8edcbe079790ed93da445890c8c71cd2e8a17b10c8c41248b8f56349a6de1b77"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/A08745C-02-original.jpg",
+      "preview": "preview/A08745C-02.webp",
+      "source_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
+      "requested_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
+      "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
+      "source_domain": "akn-spx.a-cdn.akinoncdn.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:27:48Z",
+      "width": 670,
+      "height": 670,
+      "longest_edge": 670,
+      "mime": "image/jpeg",
+      "bytes": 16587,
+      "sha256": "a5be621bd2b3abd96e7e3d47190fd22d7228c78467a32de516bc46b46be7dca3",
+      "dhash": "000000000000000008200010196058e458c03b003ec003000000000000000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "670px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/A08745C-03-original.jpg",
+      "preview": "preview/A08745C-03.webp",
+      "source_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
+      "requested_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
+      "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
+      "source_domain": "akn-spx.a-cdn.akinoncdn.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:27:48Z",
+      "width": 670,
+      "height": 670,
+      "longest_edge": 670,
+      "mime": "image/jpeg",
+      "bytes": 21648,
+      "sha256": "91628dbf5104a03d8974836d6f378f7126af34148c7ccc589afe38d749b2eba1",
+      "dhash": "000000000800020058e079a0324058b21b320f640fc803900320008000000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "670px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/A08745C-04-original.jpg",
+      "preview": "preview/A08745C-04.webp",
+      "source_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
+      "requested_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
+      "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
+      "source_domain": "akn-spx.a-cdn.akinoncdn.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:27:47Z",
+      "width": 670,
+      "height": 670,
+      "longest_edge": 670,
+      "mime": "image/jpeg",
+      "bytes": 15127,
+      "sha256": "fd5a1a2f274ba1670374cf0005624dad53f71eb03e72917cdfb1d4f4ba5f8c04",
+      "dhash": "000000000000002000d002c005c003843f0430c03c4004001000000000000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "670px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/A08745C-05-original.jpg",
+      "preview": "preview/A08745C-05.webp",
+      "source_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
+      "requested_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
+      "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
+      "source_domain": "akn-spx.a-cdn.akinoncdn.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-25T17:27:48Z",
+      "width": 670,
+      "height": 670,
+      "longest_edge": 670,
+      "mime": "image/jpeg",
+      "bytes": 18714,
+      "sha256": "8b96c65f238d57f0dd8ff4d727341668c2bb803875c375dd1cc3499c111975d3",
+      "dhash": "0000000000001200000013005b205b0039803c923f2007001010000000000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "670px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "SEARCH_INDEX_OFFICIAL",
@@ -223,367 +379,979 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 60
+      "total_unique_candidates": 160
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size670x670_cropCenter.jpg",
+      "ok": true,
+      "size": "670x670",
+      "bytes": 25855,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
+      "ok": true,
+      "size": "670x670",
+      "bytes": 15127,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
+      "ok": true,
+      "size": "670x670",
+      "bytes": 18714,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
+      "ok": true,
+      "size": "670x670",
+      "bytes": 16587,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
+      "ok": true,
+      "size": "670x670",
+      "bytes": 21648,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
+      "ok": true,
+      "size": "1500x1500",
+      "bytes": 104804,
+      "upgraded_from": null
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/08/24/f6245a6a-f039-4d96-be69-b14079ac4a8a.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/07/10/54430898-2c39-4697-b472-e1e2e4123ac2.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/08/18/48c40108-f944-4a7c-9ff6-df30b6d80f9d.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/e1723a9b-ea1c-42c6-b32b-ac9594b8e40d.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/08/24/4ab47cea-3477-4f6a-8155-7253447f2ed4.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/c0605694-3515-468e-96dd-bf3dcdef6451.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/04/07/cd46fa23-8ca6-4ff0-853d-f6ef46e438fb.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/69debfdb-3057-4aa7-8cac-8996b9a33971.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
-    },
-    {
-      "stage": "validate",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2024/10/09/d32f0577-c5b9-4440-a5ac-ba411fc98a75.png",
-      "ok": false,
-      "error": "too small (605 B)"
-    },
-    {
-      "stage": "validate",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2024/10/09/f95a4689-712d-4868-8db6-4031b2a371f1.png",
-      "ok": false,
-      "error": "too small (574 B)"
-    },
-    {
-      "stage": "validate",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2024/10/09/e6c5b62b-a2cc-4f2c-b065-b556a7f70aa3.png",
-      "ok": false,
-      "error": "too small (576 B)"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/03/31/867e7800-0772-4f92-9a30-a03ce8321878.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/20aadf8e-ee38-4312-8498-85bf64db817d.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/03/31/34fc1c18-89a6-4acd-bc6c-9e6fd1205b17.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/e45856f2-2e10-4c88-9fc5-8dd648845281.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/03/31/dbcf8525-dc5f-42f1-a493-9bbdd43fbfba.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/97ca8869-11de-4250-bd57-7e2e1b244f1a.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/08/18/0c7e0a9c-e552-40f2-98b8-f3f5871b0270.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/10/08/7571ab2a-a582-460a-90e1-81112604612a.png",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/04/03/48bdaa12-e7f6-401b-a0a6-8b2447834c44.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/12/cd803fc6-e009-4915-b1b5-0c71b9528004.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2026/08/18/efac47be-8081-4245-b5b5-58de9aa59880.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/96a944e5-dcb3-4302-af74-1d3bbf092ddf.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4609/b8e5edb0-8ca2-4efb-972b-9c3d188f3f96_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/76c56d5e-aac6-41ee-8e58-92aaaa3f23d2.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4609/c5705ca9-e3ef-4bcc-ae95-bb18d8fcc71e_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/09912a93-6d36-4bd8-9b50-efc4fce895c6.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/09/37552/01e6d756-9545-49b4-9e4b-366850428cab_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/4a956ad4-37a2-490f-9136-5cf42b9c55f6.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/09/37552/b110d588-649f-49d0-8848-4359d74fca16_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c24faef4-ed6d-4d43-be64-967e1ce25c2a.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/02/12/94522/cc7df802-24ba-47c5-a854-ffdf81b9b3e5_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/b31c85e3-8010-4570-8401-04fbe133d934.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/02/12/94522/f38f858b-a369-434f-8582-0740e81d6d03_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/05/12/4d2c5c6d-1a37-43db-bae3-8d57ec2c01b7.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2022/03/18/7213/1e5a8571-b7bb-4dc4-9e51-142553d4e6db_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/f98229d3-a601-4fdd-9827-706b74621535.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2025/04/10/7213/17b348ca-c567-4a4d-9d1b-ecd70a641bee_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/34c4b404-cbb1-46ab-9f98-eea5eb89c92f.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/02/06/29146/f0912169-1b6c-4fc2-9cf9-8d10c3ae9bb2_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/12/edeb2507-54fe-4430-a627-0e537d9a4f58.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/02/06/29146/202594c5-c190-4787-98fb-54fda4b49539_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/12/28c1fe70-5fa3-4570-99b5-10237357491c.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3275/d45c5d78-5276-4453-b5d9-def3b782af67_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/12/080a6513-8e9d-4ad1-b0bf-5e5f45478ac9.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3275/f6e3b89c-7b2f-49c6-b36a-b0c6f8be8549_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/fa39b0eb-2671-4e62-8624-70750d11d69e.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/15160/79c4b2a3-fda9-470e-b325-294b1d296191_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/63c5e685-f4e8-49a3-b514-a349bdb6787d.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/644/9afd6fcc-2bca-4e23-ae00-cbe41980af84_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/2a5b5201-6c74-4fd9-af84-b72b38addd29.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/786/21b01adf-68fc-4336-a3fa-fbb1064d553c_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/069c4946-4f87-4b74-8764-9afe32b61bfd.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/786/34903dda-ab63-4603-b110-8edc4014eee2_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/33ac9878-69e3-4e52-abd2-5eda9e904670.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/2472/b6b14a98-b96f-4411-854a-15afc76ebce8_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/07/02/a594667d-8da1-427f-aa14-b9c33324aceb.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/2476/03d54bcc-447c-43ae-ad45-542b9a05690a_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/ce5560e4-30da-4d29-b8ad-235df2827f81.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
-    },
-    {
-      "stage": "validate",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2023/02/21/611722ec-c070-4402-a39f-3e4ecfd88d9e.png",
-      "ok": false,
-      "error": "too small (1005 B)"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2023/02/21/0d5bfc66-767e-43a2-8589-723a6cc624d4.png",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2026/06/22/b5df5e7f-5d7d-4edc-a69f-282c790dbdec.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2023/02/21/4b4b4e9d-a70e-417f-be59-abdfb5526571.png",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size100x100_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/cms/2023/02/21/9a3a31d3-d727-41f8-bf78-59c1821b5d7d.png",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size100x100_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/02/33581/23f67179-192b-4dd1-96aa-0481e044ea60_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size100x100_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/02/33581/1dd77796-68e1-4a8b-b6c9-7ee5fdd98378_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size100x100_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/02/33353/23efcab8-c877-436a-b0f6-e268239794c5_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size100x100_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2024/01/02/33347/c5b2ba0e-e70f-43eb-85df-3fe0ae875876_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size1675x1675_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4589/d22126ac-da91-4b4c-8d11-a1bdca2c05fa_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4589/14170e60-9059-4988-92fb-6d91a4be36cf_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size1675x1675_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/1898/3a52f33d-7070-4d27-9e51-3a9c5a3f2abb_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/1898/91ddd4e0-22d0-4ce3-b83b-39ea2e099062_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size1675x1675_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3212/edede841-e0cd-4641-b88d-a92ee38f8cf2_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3212/78b488dc-acd0-44a5-b4bb-a96cef749b53_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size1675x1675_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4591/0d0231e6-4bc7-49d6-aaca-10d195d7ce9c_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/4591/349a5205-fdf9-4d69-a642-38ba480be004_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size1675x1675_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/2194/f49388ce-daaf-4345-9dfc-5674a1ca0fb0_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size70x70_cropCenter.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3029/946f586d-e90d-4b8b-9c13-b47b52d25e28_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/10/01/29a00a8c-44aa-4110-8bc0-aed6963200dc.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3190/1d764671-7889-4406-9598-11c63d1a3c2e_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8_size320x320_cropTop.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3190/f6b4d835-b6e3-4cc6-945a-449b357ad468_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2023/09/07/26a1adcb-1645-45ab-8bf5-39b0fba7c344.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3027/076e92c8-b1fc-4278-8a95-2ef2d8fd22b4_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/a27f0f61-0785-43b6-98c6-f9cfbcd01b0c.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/1835/9bdd411d-abca-48af-aff5-c237bd65b549_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/09990f22-54b7-4479-98c0-d1c7adddeaed.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3188/8f2158e5-ffe6-4836-9492-59a66444ecd9_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/e843d1e3-422f-49e1-afed-dcc06d28011f.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2023/03/28/3188/67f66dcc-5273-4fc6-9d48-5d7a2bca4da2_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/305f650f-e503-43b3-8ce3-27265e44e9d1.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/03/06/93541/4b0b52e3-5614-43cb-8ffe-199a7af22a13_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ea1cb5f4-111e-42c2-8cc8-f2f94e245b8b.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/03/06/93541/90047d05-4ad3-4d12-b13d-06e73e37ddd2_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/d330ef16-eae7-4cbf-9b14-f4a786b0e48e.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/03/06/94131/778af695-674d-49f6-83b5-3b78eb282469_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/5d949ee3-f480-4190-b5ce-6ac3f7adf21f.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/03/06/94131/9ef4c5f6-fd79-427a-bde8-2f72db343c3b_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ea7e1dfe-105d-48e4-bf1a-7fd908f07710.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://akn-converse.a-cdn.akinoncloud.com/products/2026/03/06/95279/9f072998-5196-45dd-9438-90d42fa9bc43_size338x422.jpg",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/26a11807-15d9-4d38-a82b-05e6bedad240.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU A08745C"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/36af0913-2fc8-47c1-99f0-a6880e326fc4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/7024ffda-3dd7-4af7-a651-1829aaaf470a.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/402f8437-6894-46e2-b966-d5f18932ee70.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/5c603564-6a9c-4798-b4eb-0872bdabfebf.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/17/40c18c8a-335f-433a-8bfe-7f0c91a21ee3.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ee5f0114-bafa-4f2e-83e3-29cd0b57b010.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/28794eb7-ea66-448e-aed0-6a57bf700564.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/13bc7f76-c84d-4300-ae55-6e93188dae91.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/17/ed05ce24-6ac5-41a3-9ccb-9b5ea175e5f8.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/2d37470f-5746-4514-99ab-b7017d3abd2a.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/6d32439d-d8c9-4145-8c36-087e1d92d809.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/b9533928-8899-4559-8bbc-a31c4b0afdd5.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/fb8a5a6b-d0c2-48db-addc-51f748bae458.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/00627ae5-98f1-4b56-a742-8e4fd63289ff.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2020/09/01/8a3fadcf-0926-444f-8238-31d82e7d21e6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/929a3b0f-a0d1-4650-a069-1b2cb60c8345.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c9654328-985e-4b0b-b444-de1db63df187.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/1728cf9b-655c-4d5d-a6b7-aba73e8fc657.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/76c56b7b-b432-4342-8b8d-08cd5dfe3203.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/e9337d45-6b06-4511-a9ad-0ca934f8f6cb.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c24564fa-b1ec-45e0-b596-423d01dbd4f0.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/4085e85a-439c-4a83-a576-01e3898cdcf9.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2020/12/29/cfe8f9a3-b5e5-4e8f-b5d4-39559fc19f2a.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/3030b2db-d7c3-4173-a990-48743a787226.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/1c3fa225-8fa3-4b06-9c32-706eb278127d.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/55dac0d3-483d-4d13-b21c-36d3c1fa1abc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/be860948-3453-4769-9cb2-a6a1db02e69b.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/599248be-4dc1-4718-88b5-de038798630a.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/637eb0f3-0936-42fa-a1e8-7831ba922f5e.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c7a1b5fb-5bd7-4cc0-8877-904cfb913845.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/3e0f782e-610f-4d9e-9565-e9ee71b7fb11.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2020/09/01/f3b68561-77e8-43e4-8b4f-92513950e3b1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/06f612d3-be9f-47f8-83e9-a76a5fdc73c2.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ad56e9e0-ff8d-4035-862b-bac59bc7cc5e.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2020/09/01/64a7f0ab-81af-4131-814f-4daa3a88d7dd.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2020/09/01/4fe98b76-f7b1-4acb-8304-523428b2ba58.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/87e046d6-e39c-41ac-adf3-68a1516a9ecc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c504b259-356a-405a-b028-bf710b66b4fc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/01/24/39053ee0-9eb9-482d-bf4b-a626f565f634.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c8a4b94f-2cee-4611-b968-e404774c7c92.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/c3a6a604-4b7e-4049-af5a-f24a4e5bafea.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/04/14/b1ae545f-d50a-4b5f-bcdd-01bc8f4b3e7f.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/a0185c0b-540b-48bf-9862-67c506ec666c.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/08/19/a4e5e26f-0b08-418a-b979-814547c692f2.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/9463ec89-5f76-4869-a813-6719580e1938.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/da793383-df2b-4ba4-bd82-bad15a609dd4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/9305a183-8d1c-4932-bdc5-a3c2c78e3dee.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/02/15/b134c8d3-d4c1-4841-b982-61936eb11c77.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/71c5e2a1-1a01-41f9-8595-080db6e9abf9.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/b0d84ed4-2dc6-46c1-b28c-249384d352f6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/04/24/9431aaac-4362-443b-8941-8ed14f9793a3.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/06/23/3ab8404c-5a4f-40e4-8c17-7a679cecceb6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/07/18/62b06f71-edb8-46af-854d-05b57bd1ff88.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/09/26/dd193c95-313b-4792-b179-6c85aea3e91b.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/b18e9c05-0278-4eb2-a950-d1eb8018f908.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/dee4f0c7-b7c5-4b42-8f98-6359522d32c0.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/182f028f-7e83-4625-a485-04890892d517.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ba4ce75c-6687-445f-b071-071448ac6613.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/0694efc4-6ad2-42dd-8f77-cb54a3b25896.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/a999fab5-9200-44b8-a52d-0dbaec01357b.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ac05f6f3-0674-47ed-9650-e60459130e3b.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/9fd131fa-b4b1-49d4-abec-e64afe79bc04.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/c10e50a0-e868-481c-83a8-9380459a5be4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/6fcf83c8-4d59-438e-8b58-3db152420abc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ebd0fc22-d1c9-4c56-a168-68936207c55e.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/ca8fd69b-e388-40a7-b880-da2a5d057a0d.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/17/89ed1353-95ad-4f50-af1a-aaee0d935304.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/66208a63-14b5-4346-8591-0b4c375a11f4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/2fdbe093-7337-4913-bfb4-bf674949dfa6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/56181306-4171-4e1d-a461-c8c9a5597656.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/350a3739-72ea-41f8-8042-bedd6ebc0dba.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/ce621c02-67f6-4c9f-a7cb-199c15193e30.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/d0c9e49b-8052-439c-b473-c2094d9f5a47.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/8faf6200-8e18-46d7-8084-3bbd8e949c07.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/13c7afb8-a62e-443b-a1f0-e810c914f6cb.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/fe0cea94-68ea-431a-b845-1bfc6f272ebc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/db2970d5-4632-47c5-ba2f-76267ed58187.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/82fc650d-9653-4338-99c4-e7d7e2eb05cd.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/ad56be11-9423-4d8e-8781-f5716bdcecb6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/11/11/1c704060-9d11-456e-b717-54f1b14010fc.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/34292432-aed3-42ff-9b7e-1e089811babb.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/17/df0ad94f-83aa-4a13-99e8-a892fed58e27.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/f231d01f-a7b8-4c9c-aea6-c26b9754b1ba.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/59fc753b-cfcf-48ff-8e4a-0d4c21747b36.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/480f3d4d-94a5-44f2-9ec8-25f1ab3b0c17.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/e3e2068d-f53b-4993-8b1c-891248c960d1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/bb123cbb-e045-4846-838b-2ae5f7aec3f5.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/17/83e38ef2-a0d9-4b64-9c23-e51670dcebd5.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/af11edb9-5403-4fbd-af1c-4bd086cbe15f.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/e7dc79a4-5b5d-400e-92f3-ff91f7a59e03.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/e5196906-5341-46d3-95de-85ccff3b7d45.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/a752035f-1d34-4daf-9a75-6d0846c0925a.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/12/18/a1fc1de8-5cab-4f27-a118-e024a6ba34df.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/03/07/cdca5e49-de94-4a02-a738-9c072e788660.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/04/07/1fe49a3b-bae2-414c-ae57-a1df4c838da8.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/04/22/a14d87d6-ac33-4b6f-9d1e-ca93b0cefbc3.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/05/15/991a847f-724d-4136-acc3-c9152946de1d.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/07/23/536efcd4-cc06-461b-a8e0-e8a11a8c5de8.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     }
   ],
   "notes": [
