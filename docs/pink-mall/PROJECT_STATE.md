@@ -114,41 +114,54 @@ First product published end-to-end from four facts. The size ladder carries only
 the supplied sizes because the exact-model run could not be proven; a generic
 brand size chart is not evidence of what this SKU was offered in.
 
-## PM-027 (JR5952) — BLOCKED
+## Pending approval — neither published
+
+Both reached `VARIANT_CONFIDENCE_PASS` under Discovery Hardening Round 2. The
+earlier BLOCKED / UNRESOLVED records for these two are **superseded**; see
+`checkpoints/SUPERSEDED_*.md`, kept only as a record of how those conclusions
+were reached and why they were wrong.
+
+### Converse A08745C — READY FOR APPROVAL
 
 | | |
 |---|---|
-| BRAND / MODEL | adidas / Gazelle Bold Shoes |
-| MANUFACTURER ITEM | JR5952 (Pink) |
-| PRICE | €59 |
-| SIZES | 36, 37 1/3, 38, 38 2/3 — valid, no size blocker |
-| IDENTITY | RESOLVED |
-| MEDIA | **BLOCKED** — 0 candidates, 0 acquired |
-| REPORT | `docs/pink-mall/checkpoints/PM027_BLOCKED.md` |
+| Model | Chuck Taylor All Star Move |
+| Public colour | Pink |
+| Price | €49 |
+| Sizes | 36, 37.5, 38, 39 — available only; no sold-out states asserted |
+| Discovery | **zero-seed PASS** — identity and media, four user fields only |
+| Variant | `VARIANT_CONFIDENCE_PASS` |
+| Images | 5 accepted (1 × 1500², 4 × 670²) |
+| Media tier | **trusted retailer fallback** — no official image anchor |
+| Material | omitted — not established by this pipeline |
+| Proposed Mall ID | PM-027 |
+| Published | **no** |
+| Package | `checkpoints/PM027_A08745C_APPROVAL_PREVIEW.md` |
 
-Every adidas route refused the runner: product page, both product-API regions
-and three page templates, all `403` or timeout. adidas hashes its CDN asset
-paths, so unlike New Balance the CDN cannot be addressed from the SKU alone.
-No trusted retailer carrying the exact SKU was found; only resell marketplaces,
-which the skill excludes and which list different SKUs.
-
-Unblocks on user-supplied images or official asset URLs.
-
-## Converse A08745C — UNRESOLVED
+### adidas JR5952 — READY FOR APPROVAL
 
 | | |
 |---|---|
-| BRAND | Converse |
-| MANUFACTURER ITEM | A08745C |
-| PRICE | €49 |
-| SIZES | 36, 37.5, 38, 39 |
-| IDENTITY | **UNRESOLVED** — model and colourway unknown |
-| MEDIA | BLOCKED — 0 candidates; all converse.com routes `403` |
-| REPORT | `docs/pink-mall/checkpoints/A08745C_UNRESOLVED.md` |
+| Model | Gazelle Bold Shoes |
+| Manufacturer colour | Almost Pink / Court Green / Gold Metallic |
+| Public colour | Pink / Green / Gold |
+| Price | €59 |
+| Sizes | 36, 37 1/3, 38, 38 2/3 — available only; no sold-out states asserted |
+| Variant | `VARIANT_CONFIDENCE_PASS` — all three official colour terms in frame |
+| Images | 5 accepted, 560×746 |
+| Media tier | **trusted retailer fallback** — no official image anchor |
+| User media required | **no** |
+| Material | omitted — not established by this pipeline |
+| Proposed Mall ID | **not allocated** — PM-028 if A08745C publishes first |
+| Published | **no** |
+| Package | `checkpoints/JR5952_APPROVAL_PREVIEW.md` |
 
-Unlike JR5952, identity itself did not resolve, so there is no product record
-to stage. Needs the product link, one photo, or the model name and colourway.
+The earlier rejection of JR5952 as "a white-and-green Gazelle Bold, not pink"
+was wrong: `Almost Pink` is a very pale tint and `Court Green` is part of the
+official colourway. Correct media was discarded on a subjective colour read.
+That case is now a permanent regression fixture.
 
 ## Next step
 
-Next Mall ID is **PM-027**.
+Next Mall ID is **PM-027**, unallocated until a product is actually published.
+Two products await approval; neither is published.

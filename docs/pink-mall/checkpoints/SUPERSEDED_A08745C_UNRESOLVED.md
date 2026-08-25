@@ -1,3 +1,10 @@
+> # ⚠ SUPERSEDED — DO NOT TREAT AS CURRENT TRUTH
+> This record was overturned by Discovery Hardening Round 2.
+> Current truth is in `docs/pink-mall/PROJECT_STATE.md`:
+> A08745C and JR5952 both reach `VARIANT_CONFIDENCE_PASS` and are
+> READY FOR APPROVAL. Kept only as a record of how the earlier
+> conclusion was reached and why it was wrong.
+
 # PINK MALL — Converse A08745C — UNRESOLVED
 
 **STATUS: UNRESOLVED — exact product identity could not be established.
