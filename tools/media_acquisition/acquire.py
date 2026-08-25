@@ -527,6 +527,7 @@ def write_outputs(request, selected, all_acquired, log, outroot):
             "_preview_path": ppath,
             "source_url": m["url"],
             "requested_url": m["requested_url"],
+            "anchor_url": m.get("anchor_url"),
             "source_domain": urllib.parse.urlsplit(m["url"]).hostname,
             "discovery_method": m["discovery_method"],
             "acquired_at": m["acquired_at"],

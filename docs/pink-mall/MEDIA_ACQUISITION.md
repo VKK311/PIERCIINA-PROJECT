@@ -279,6 +279,23 @@ guard and `[skip ci]`. The bot rebases rather than force-pushes, so a
 concurrent human push is never discarded. The workflow never writes to `main`
 and never opens a pull request.
 
+## Proven in production
+
+The JQ4556 pilot ran on a GitHub-hosted runner and reached `PASS`:
+
+- 4 exact official images downloaded from `assets.adidas.com`
+- every one upgraded `w_500` → `w_1880`, verified against its 500px anchor
+- zero user-supplied image files
+- two runs produced byte-identical images; only run metadata differs
+
+Observed limitation, worth knowing before adding a brand: adidas product
+**pages** answer `403` to the runner — bot protection on datacenter IP ranges —
+and a retailer fallback URL `404`ed. The **CDN** served normally. So for adidas,
+page scraping contributes nothing and the request manifest's researched seeds
+carry the run. A brand whose product pages are reachable will exercise the
+JSON-LD, og:image and srcset paths instead; both routes converge on the same
+acquire-and-validate stages.
+
 ## What this does not do
 
 It does not publish. Acquired media lives under `docs/pink-mall/` and reaches
