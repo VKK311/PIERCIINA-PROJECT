@@ -114,6 +114,26 @@ First product published end-to-end from four facts. The size ladder carries only
 the supplied sizes because the exact-model run could not be proven; a generic
 brand size chart is not evidence of what this SKU was offered in.
 
+## PM-027 (JR5952) — BLOCKED
+
+| | |
+|---|---|
+| BRAND / MODEL | adidas / Gazelle Bold Shoes |
+| MANUFACTURER ITEM | JR5952 (Pink) |
+| PRICE | €59 |
+| SIZES | 36, 37 1/3, 38, 38 2/3 — valid, no size blocker |
+| IDENTITY | RESOLVED |
+| MEDIA | **BLOCKED** — 0 candidates, 0 acquired |
+| REPORT | `docs/pink-mall/checkpoints/PM027_BLOCKED.md` |
+
+Every adidas route refused the runner: product page, both product-API regions
+and three page templates, all `403` or timeout. adidas hashes its CDN asset
+paths, so unlike New Balance the CDN cannot be addressed from the SKU alone.
+No trusted retailer carrying the exact SKU was found; only resell marketplaces,
+which the skill excludes and which list different SKUs.
+
+Unblocks on user-supplied images or official asset URLs.
+
 ## Next step
 
 Next Mall ID is **PM-027**.
