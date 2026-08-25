@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-027 publication.
-Status: **PM-001…PM-027 PUBLISHED.**
+Updated: PM-028 publication.
+Status: **PM-001…PM-028 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `fa04b28f840e8a7423cc9c6138b53bad88f994c8dac9b0b2966355f5f597b4fa` |
-| CANONICAL WEBSITE BYTES | 2549676 |
+| CANONICAL WEBSITE SHA-256 | `7f088253c01c94c04100e111746b4bcc2153e4d68a3344790a37c3af9b07d2a5` |
+| CANONICAL WEBSITE BYTES | 2552740 |
 
 ## Engine
 
@@ -28,11 +28,12 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-027 |
-| NEXT ID | PM-028 |
+| PUBLIC CATALOG | PM-001 … PM-028 |
+| NEXT ID | PM-029 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
+| JR5952 | **PUBLISHED as PM-028** on 2026-08-25 |
 
 ## Media acquisition automation
 
@@ -83,7 +84,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `ac7bb3a695a2fde2f0f712c3f1d9d4b0b89a1cd1d49e913578e3666e5f496889` |
+| SHA-256 | `451029462cd743edcf4c11b31facf8da7de0edec43ba8d35f2bdf48bdae8c60a` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -167,30 +168,59 @@ comparison and the size row was ordered by string, not by number. PM-027 is the
 first SKU to use decimal half-sizes. The key now accepts both forms; the size
 **label** is still never rewritten — only the ordering key is computed.
 
-## Pending approval — not published
-
-### adidas JR5952 — READY FOR APPROVAL
+## PM-028 — published
 
 | | |
 |---|---|
-| Model | Gazelle Bold Shoes |
-| Manufacturer colour | Almost Pink / Court Green / Gold Metallic |
-| Public colour | Pink / Green / Gold |
-| Price | €59 |
-| Sizes | 36, 37 1/3, 38, 38 2/3 — available only; no sold-out states asserted |
-| Variant | `VARIANT_CONFIDENCE_PASS` — all three official colour terms in frame |
-| Images | 5 accepted, 560×746 |
-| Media tier | **trusted retailer fallback** — no official image anchor |
-| User media required | **no** |
-| Material | omitted — not established by this pipeline |
-| Proposed Mall ID | **PM-028** |
-| Published | **no** |
-| Package | `checkpoints/JR5952_APPROVAL_PREVIEW.md` |
+| PUBLISHED | 2026-08-25 |
+| BRAND / MODEL | adidas / Gazelle Bold Shoes |
+| MANUFACTURER ITEM | JR5952 |
+| MANUFACTURER COLOUR | Almost Pink / Court Green / Gold Metallic |
+| PUBLIC COLOUR | Pink / Green / Gold |
+| MATERIAL | **omitted** — not established by this pipeline |
+| PRICE | €59, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 36, 37 1/3, 38, 38 2/3 — all available. **No sold-out sizes asserted** |
+| EXACT-MODEL SIZE RUN | NOT VERIFIED |
+| NEW UNTIL | 2026-09-08 (14 days from first publication) |
+| MAIN | **IMAGE 02** — automation proposed 01; changed on visual review |
+| GALLERY ORDER | 02 → 01 → 05 → 04 → 03 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-028/` — 5 × 560×746 WebP, native aspect |
+| ORIGINALS | `docs/pink-mall/media-acquisition/JR5952/source/` (hash-recorded) |
+| ACQUISITION | **zero-seed** — no user URL, no user images |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| PACKAGE | `checkpoints/JR5952_APPROVAL_PREVIEW.md` |
 
-The earlier rejection of JR5952 as "a white-and-green Gazelle Bold, not pink"
-was wrong: `Almost Pink` is a very pale tint and `Court Green` is part of the
-official colourway. Correct media was discarded on a subjective colour read.
-That case is now a permanent regression fixture.
+**Media tier: trusted retailer fallback, not manufacturer-official.** adidas
+product pages and both API regions returned `403` or timed out across five
+attempts, and `assets.adidas.com` is not addressable by style code because
+adidas hashes its asset paths. Media came from `img.eobuwie.cloud` with SKU
+evidence carried by the source page's JSON-LD declaration. Marketplaces holding
+the same SKU (Allegro, ERLI) were excluded as primary media per the source
+hierarchy. **There is no official image anchor**, so variant confidence rests on
+exact-SKU evidence plus agreement with the official colour text — materially
+weaker than PM-026's manufacturer-CDN media. Provenance is retained internally
+and never presented to a customer as official media.
+
+All five images are 560×746, longest edge below the 1000 px preference. They are
+published at native size; nothing was upscaled and no canvas was manufactured.
+These are portrait frames, not squares, and none was padded to become square.
+
+MAIN is IMAGE 02 rather than the automation's filename-order proposal of
+IMAGE 01 — on visual review IMAGE 02 reads better at thumbnail size, and
+IMAGE 04 is a cropped upper detail, so it sits late in the gallery.
+
+The manufacturer's juniors-series classification is internal only and appears
+nowhere in the build.
+
+### The correction this product records
+
+An earlier pass rejected exactly this media as "a white-and-green Gazelle Bold,
+not the pink JR5952". **That rejection was wrong.** `Almost Pink` is a very pale
+tint and `Court Green` is part of the official colourway, so the imagery matched
+the official variant precisely — correct media was discarded on a subjective
+read of colour. The variant gate now reaches its conclusion from evidence rather
+than impression, and the case is a permanent regression fixture.
 
 The earlier BLOCKED / UNRESOLVED records for JR5952 and A08745C are
 **superseded**; see `checkpoints/SUPERSEDED_*.md`, kept only as a record of how
@@ -198,5 +228,10 @@ those conclusions were reached and why they were wrong.
 
 ## Next step
 
-Next Mall ID is **PM-028**, unallocated until a product is actually published.
-JR5952 is the only product awaiting approval and would take PM-028 on publish.
+Next Mall ID is **PM-029**, unallocated until a product is actually published.
+Nothing is awaiting approval: the approval queue is empty.
+
+Four products now come from the automated pipeline — PM-025, PM-026, PM-027,
+PM-028. Only PM-026 has manufacturer-official media; the other three rest on
+trusted-retailer evidence. Upgrading PM-027 and PM-028 to official imagery
+remains open if an official route ever opens.
