@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "JQ4556",
+  "brand": "adidas",
+  "model": "VL Court Bold Shoes",
+  "variant": "Clear Pink / Silver Metallic / Gold Metallic",
+  "officialProductPage": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
+  "generatedAt": "2026-08-25T08:09:05Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "32825113726",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "ee1a4fd877c60ecdf665778e1955921057a00608"
+  },
+  "counts": {
+    "acquired": 4,
+    "unique_selected": 4,
+    "duplicates_collapsed": 0
+  },
+  "proposedMain": "source/JQ4556-01-original.jpg",
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/JQ4556-01-original.jpg",
+      "preview": "preview/JQ4556-01.webp",
+      "source_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
+      "requested_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
+      "source_domain": "assets.adidas.com",
+      "discovery_method": "request-seed",
+      "acquired_at": "2026-08-25T08:08:58Z",
+      "width": 1880,
+      "height": 1880,
+      "longest_edge": 1880,
+      "mime": "image/jpeg",
+      "bytes": 108882,
+      "sha256": "cd35da4bc75864eb854c1735d69ef07c2fbf1a4d6335e975c3fef6be67fad7f4",
+      "dhash": "0000000000004000b1804c70680c64426429e109eb8115c6c018000000000000",
+      "sku_in_url": true,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/JQ4556-02-original.jpg",
+      "preview": "preview/JQ4556-02.webp",
+      "source_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
+      "requested_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
+      "source_domain": "assets.adidas.com",
+      "discovery_method": "request-seed",
+      "acquired_at": "2026-08-25T08:08:59Z",
+      "width": 1880,
+      "height": 1880,
+      "longest_edge": 1880,
+      "mime": "image/jpeg",
+      "bytes": 110652,
+      "sha256": "0a0270dc1c9f63a5526c16db855c8d99c52774ebd80092476cd88505ad5bc96d",
+      "dhash": "04800b40162016900c100cc814c816c01690169036901710e7107e001f602080",
+      "sku_in_url": true,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/JQ4556-03-original.jpg",
+      "preview": "preview/JQ4556-03.webp",
+      "source_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
+      "requested_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
+      "source_domain": "assets.adidas.com",
+      "discovery_method": "request-seed",
+      "acquired_at": "2026-08-25T08:09:01Z",
+      "width": 1880,
+      "height": 1880,
+      "longest_edge": 1880,
+      "mime": "image/jpeg",
+      "bytes": 88543,
+      "sha256": "656cd37b2912f1a35136cc9c1dfa2685f9a9e3cba71ebf776052bba645be1bfb",
+      "dhash": "024005200b10169016880e882e9006901690169056901690c690ff200f204080",
+      "sku_in_url": true,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/JQ4556-04-original.jpg",
+      "preview": "preview/JQ4556-04.webp",
+      "source_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
+      "requested_url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
+      "source_domain": "assets.adidas.com",
+      "discovery_method": "request-seed",
+      "acquired_at": "2026-08-25T08:09:02Z",
+      "width": 1880,
+      "height": 1880,
+      "longest_edge": 1880,
+      "mime": "image/jpeg",
+      "bytes": 114410,
+      "sha256": "d7cb5f1b4a8eb723e937bf765a574e7c45c9f88340f6e65c07d8928f3b328f94",
+      "dhash": "0000000008001100b0803260b110e448702438005c1027c209c4061800c00000",
+      "sku_in_url": true,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": []
+    }
+  ],
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/us/vl-court-bold-shoes/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.co.uk/vl-court-bold-shoes/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.courir.com/en/p/adidas-sportswear-vl-court-bold-shoes-TB_ADID_JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.de/en/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.com/us/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.adidas.co.uk/JQ4556.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 4
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
+      "ok": true,
+      "size": "1880x1880",
+      "bytes": 108882,
+      "upgraded_from": "https://assets.adidas.com/images/w_500,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
+      "ok": true,
+      "size": "1880x1880",
+      "bytes": 110652,
+      "upgraded_from": "https://assets.adidas.com/images/w_500,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
+      "ok": true,
+      "size": "1880x1880",
+      "bytes": 88543,
+      "upgraded_from": "https://assets.adidas.com/images/w_500,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
+      "ok": true,
+      "size": "1880x1880",
+      "bytes": 114410,
+      "upgraded_from": "https://assets.adidas.com/images/w_500,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image."
+  ]
+}
