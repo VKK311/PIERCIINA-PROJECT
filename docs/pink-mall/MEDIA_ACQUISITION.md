@@ -296,6 +296,53 @@ carry the run. A brand whose product pages are reachable will exercise the
 JSON-LD, og:image and srcset paths instead; both routes converge on the same
 acquire-and-validate stages.
 
+## Search as transport, and the evidence ledger
+
+A brand page returning `403` to the runner is a **transport failure, not an
+identity failure**. The search index still holds that page's parsed content and
+outbound links, and a regional query often succeeds where a global one returns
+nothing — a SKU is language-independent. Converse A08745C resolved in one query
+once it was aimed at the Turkish market.
+
+Every route is recorded in `result.json` under `discoveryLedger`, with its
+label, URL, result, whether it evidenced the SKU, and how many candidates it
+produced:
+
+```text
+DIRECT_OFFICIAL_PAGE      DIRECT_OFFICIAL_API      SEARCH_INDEX_OFFICIAL
+OFFICIAL_REGIONAL_SEARCH  INDEXED_OUTBOUND_MEDIA   OFFICIAL_CDN_PROBE
+TRUSTED_RETAILER_SEARCH   REQUEST_SEED
+```
+
+`BLOCKED` may be declared only when the ledger shows every applicable route
+exhausted. It also pays for itself in diagnosis: A08745C's first run discovered
+305 valid candidates and acquired none, and the ledger showed instantly that a
+guessed CDN hostname was dropping all of them.
+
+## Identity evidence, and three false positives
+
+A candidate is admissible when the exact SKU is evidenced by the **asset's
+identifying URL portion**, or by the **page it came from** — and then only when
+that page *declares* the image as this product's (JSON-LD, `og:image`, gallery
+`srcset`), never a blanket sweep.
+
+Both clauses were written against real failures, each of which produced a green
+status on the wrong photographs:
+
+1. **Page sweep.** A retailer page names the SKU and also carries editorial
+   thumbnails. Five blog images passed as a product set.
+2. **Decorative slug.** Thumbor/imgproxy CDNs serve
+   `…/product(<real-asset-id>)/<slug>.jpg` where the slug is chosen by the page.
+   A white-and-green Gazelle Bold passed as the pink JR5952 because the slug
+   said `jr5952`. `asset_identity()` now reads only the identifying portion.
+3. **A page that lies about its own product.** The eobuwie page for
+   `jr5952-rozowy` declares JSON-LD whose gallery is a different colourway. No
+   URL-level rule can detect this.
+
+The third has no automated fix, and that is the honest state of the system:
+**automated status is provisional until someone looks at the contact sheet.**
+Visual confirmation caught all three.
+
 ## What this does not do
 
 It does not publish. Acquired media lives under `docs/pink-mall/` and reaches
