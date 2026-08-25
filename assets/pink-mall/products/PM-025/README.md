@@ -9,23 +9,30 @@ adidas VL Court Bold Shoes · JQ4556 · published 2026-08-25
 | `PM-025-03.webp` | `gallery[1]` | IMAGE 02 | top-down |
 | `PM-025-04.webp` | `gallery[2]` | IMAGE 03 | outsole |
 
-All four are 1440×1920 (3:4) WebP, quality 88.
+All four are 1880×1880 WebP, quality 88 — the official originals at their
+native aspect ratio, format-converted only. No resize, no crop, no canvas.
 
-## Why 3:4 and not the original square
+## Fitting is the storefront's job, not the asset's
 
-The card is `aspect-ratio: 3/4` and the PDP is `4/5`, both with
-`object-fit: cover`. Feeding a square 1880×1880 source into those containers
-would crop 25% off each side of the card — cutting the toe and heel off the
-lateral shot.
+An earlier revision pre-composited these onto 3:4 canvases to compensate for
+`object-fit: cover` on the card and PDP. It worked, but it baked one
+storefront's CSS into the product record, and every future SKU would have needed
+the same manual preparation.
 
-So each live file is the 1880×1880 original composited onto a 3:4 canvas at 96%
-of frame width, on `rgb(234,238,239)` — the exact studio background of the
-source images, so the extension is seamless. The card then crops nothing, and
-the PDP crops 6.2% of height from a frame where the product occupies the middle
-72%. The product is never cut.
+The product object now declares its presentation policy instead:
 
-This is the skill's "add breathing space rather than aggressive crop", applied
-at asset-generation time so no site CSS had to change.
+```js
+media: { fit: 'contain', surface: '#EAEEEF', … }
+```
+
+`contain` guarantees the whole product is visible in both the 3:4 card and the
+4:5 PDP. `surface` is the studio backdrop of these photographs — detected
+automatically during acquisition and reported as `dominantBackdrop` — so the
+field behind a contained image matches the photo and shows no seam.
+
+Side by side, the native-source route also displays the product noticeably
+larger on the PDP than the pre-framed route did, because no canvas margin is
+being carried inside the image.
 
 ## Originals
 

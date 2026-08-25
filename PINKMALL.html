@@ -5292,6 +5292,12 @@
             --pms-night: #2A0618;
             --pms-cream-bg: #FFF7EC;
             --pms-blush-bg: #FDEDF3;
+            /* Неутрална повърхност зад реална продуктова фотография.
+               Стои близо до типичния студиен фон, за да няма видим ръб
+               около contain-нато изображение. Продукт може да я замени
+               през media.surface. */
+            --pms-media-surface: #EDEFF0;
+            --pms-media-pad: 0px;
             --pms-radius: 18px;
         }
 
@@ -5885,6 +5891,26 @@
         }
 
         .pms-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ── ПРЕЗЕНТАЦИЯ НА ПРОДУКТОВА МЕДИЯ ───────────────────────────
+           Придобиването пази най-силния официален кадър такъв, какъвто е.
+           Витрината решава как да го побере. contain гарантира, че целият
+           продукт се вижда — без отрязан връх, пета или подметка — а полето
+           около него получава нарочна неутрална повърхност.
+           scale е ограничен zoom САМО в собствения бял кант на кадъра;
+           продуктът никога не се реже. Стойност по подразбиране 1. */
+        .pms-media[data-fit="contain"],
+        .pms-detail-main[data-fit="contain"],
+        .pms-thumb[data-fit="contain"] { background: var(--pms-media-surface); }
+
+        .pms-media[data-fit="contain"] img,
+        .pms-detail-main[data-fit="contain"] img,
+        .pms-thumb[data-fit="contain"] img {
+            object-fit: contain;
+            padding: var(--pms-media-pad);
+            transform: scale(var(--pms-media-scale, 1));
+            transform-origin: center;
+        }
 
         /* бадж лента */
         .pms-badges {
@@ -11516,6 +11542,9 @@
                       'Розови adidas VL Court Bold Shoes, изглед отгоре с връзки и език',
                       'Външна подметка от gum гума на adidas VL Court Bold Shoes, изглед отдолу'
                   ],
+                  /* Витрината решава побирането; снимката остава непокътната.
+                     surface е установеният студиен фон на кадрите. */
+                  fit:'contain', surface:'#EAEEEF',
                   ph:'shoes', field:'blush'
               },
               related:['PM-011','PM-012'] }
@@ -11983,7 +12012,7 @@
         function mediaHTML(p, small){
             var g = galleryOf(p);
             if (g.length){
-                return '<div class="pms-media" data-pms-id="'+p.id+'"><img src="'+esc(g[0].src)+'" alt="'+esc(g[0].alt || p.name)+'" loading="lazy" decoding="async"></div>';
+                return '<div class="pms-media"'+mediaFitAttrs(p)+' data-pms-id="'+p.id+'"><img src="'+esc(g[0].src)+'" alt="'+esc(g[0].alt || p.name)+'" loading="lazy" decoding="async"></div>';
             }
             var field=(p.media&&p.media.field)||'blush';
             var ph=(p.media&&p.media.ph)||'clothing';
@@ -12653,6 +12682,31 @@
             return { src: src, alt: a };
         }
 
+        /* Политика за побиране на продуктова медия.
+           Реалната снимка по подразбиране е contain: витрината се съобразява
+           със снимката, не обратното. Legacy продуктите нямат media.image и
+           изобщо не минават оттук, така че поведението им е непроменено. */
+        var MEDIA_FITS = ['contain', 'cover'];
+
+        function mediaPresentation(p){
+            var m = (p && p.media) || {};
+            var fit = MEDIA_FITS.indexOf(m.fit) > -1 ? m.fit : 'contain';
+            var scale = (typeof m.scale === 'number' && isFinite(m.scale)
+                         && m.scale >= 1 && m.scale <= 1.6) ? m.scale : 1;
+            var surface = (typeof m.surface === 'string'
+                           && /^#[0-9a-f]{3,8}$/i.test(m.surface)) ? m.surface : null;
+            return { fit: fit, scale: scale, surface: surface };
+        }
+
+        function mediaFitAttrs(p){
+            var mp = mediaPresentation(p);
+            if (mp.fit !== 'contain') return '';
+            var style = '';
+            if (mp.surface) style += '--pms-media-surface:' + mp.surface + ';';
+            if (mp.scale !== 1) style += '--pms-media-scale:' + mp.scale + ';';
+            return ' data-fit="contain"' + (style ? ' style="' + esc(style) + '"' : '');
+        }
+
         function galleryOf(p){
             var out = [];
             var m = p && p.media;
@@ -12693,7 +12747,7 @@
             var main;
 
             if (imgs.length) {
-                main = '<div class="pms-detail-main" id="pmsGalleryMain">'
+                main = '<div class="pms-detail-main"'+mediaFitAttrs(p)+' id="pmsGalleryMain">'
                      + '<img src="'+esc(imgs[idx].src)+'" alt="'+esc(altFor(p, imgs[idx], idx, imgs.length))+'" decoding="async">'
                      + (multi
                         ? '<button type="button" class="pms-gal-nav pms-gal-prev" data-pms-gal="-1" data-pms-focuskey="gal-prev" aria-label="Предишна снимка">‹</button>'
@@ -12712,7 +12766,7 @@
             var thumbs = multi
                 ? '<div class="pms-detail-thumbs" role="group" aria-label="Още снимки">'
                   + imgs.map(function(entry, i){
-                        return '<button type="button" class="pms-thumb'+(i===idx?' is-on':'')+'" data-pms-media="'+i+'" '
+                        return '<button type="button" class="pms-thumb'+(i===idx?' is-on':'')+'"'+mediaFitAttrs(p)+' data-pms-media="'+i+'" '
                              + 'data-pms-focuskey="thumb-'+i+'" aria-pressed="'+(i===idx?'true':'false')+'" '
                              + 'aria-label="Снимка '+(i+1)+' от '+imgs.length+'"><img src="'+esc(entry.src)+'" alt="" decoding="async"></button>';
                     }).join('') + '</div>'

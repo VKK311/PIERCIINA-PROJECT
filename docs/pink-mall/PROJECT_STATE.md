@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-025 publication.
-Status: **PM-025 PUBLISHED.**
+Updated: media presentation hardening.
+Status: **PM-025 PUBLISHED · MEDIA PRESENTATION HARDENED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `0ffda5450dd92a3e4262da6767999e486b43be260932b878a33543ea06519c32` |
-| CANONICAL WEBSITE BYTES | 2539946 |
+| CANONICAL WEBSITE SHA-256 | `eb914a56f6c84b4671d32939684f48205199b2ade2d623c3c3246afa3eff3d57` |
+| CANONICAL WEBSITE BYTES | 2543561 |
 
 ## Engine
 
@@ -21,6 +21,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | REAL PRODUCT ENGINE | PASS |
 | PER-IMAGE ALT | PASS — canonical `media.imageAlt` / `media.galleryAlt[]` |
+| MEDIA PRESENTATION | PASS — `media.fit` adapter; storefront owns card/PDP fitting |
 | CALIBRATION FIXTURE | REMOVED |
 
 ## Catalog
@@ -65,12 +66,12 @@ are not already known, discovery would need a different route.
 | NEW UNTIL | 2026-09-08 (14 days from first publication) |
 | MAIN | IMAGE 01 — lateral side profile |
 | GALLERY ORDER | 01 → 04 → 02 → 03 |
-| LIVE MEDIA | `assets/pink-mall/products/PM-025/` — 4 × 1440×1920 WebP |
+| LIVE MEDIA | `assets/pink-mall/products/PM-025/` — 4 × 1880×1880 WebP, native aspect |
 | ORIGINALS | `docs/pink-mall/approval-media/PM-025/source/` (1880×1880, hash-recorded) |
 
-Live WebP are the 1880×1880 originals composited onto a 3:4 canvas on the
-sources' own studio background, so neither the 3:4 card nor the 4:5 PDP crops
-the product. No site CSS was changed.
+Live WebP are the originals at their native 1880×1880, format-converted only.
+The storefront fits them with `media.fit:'contain'` and `surface:'#EAEEEF'`,
+the backdrop the acquisition pipeline detected. No per-SKU canvas is prepared.
 
 The manufacturer's juniors-series classification is internal only and appears
 nowhere in the build — verified with base64 payloads excluded.
@@ -80,7 +81,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `7fe51a8a0b04c868d902d99673d390bf9d6c38fdfcf07ca461139d071657d143` |
+| SHA-256 | `84b8032e1064dcf0f2d98fd9d352b8e2d55856c68584a2387dfdf35242eaaeac` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 

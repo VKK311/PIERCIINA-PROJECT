@@ -179,13 +179,13 @@ Technical image processing may be automatic:
 - safe crop;
 - thumbnails/variants as needed.
 
-Card:
-- standardized 3:4.
-
-PDP:
-- fidelity-first framing;
-- do not force crop;
-- add breathing space rather than cutting the product.
+Card and PDP:
+- acquisition delivers the native aspect ratio, untouched;
+- the storefront fits it via `media.fit` (`contain` by default for real
+  supplier photography, `cover` where deliberately composed);
+- never manufacture a per-SKU canvas to satisfy storefront CSS;
+- excess whitespace is solved with surface, bounded scale or padding at the
+  presentation layer, never by cropping the product.
 
 Generate factual per-image alt text automatically.
 

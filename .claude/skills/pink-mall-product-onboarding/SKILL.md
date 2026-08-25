@@ -124,9 +124,14 @@ acquisition layer:
    sheet, then continue. `PARTIAL` / `BLOCKED` → read the log and report the
    blocker. Manual upload is the fallback, never the first move.
 
-The layer acquires and validates bytes. It does not decide product identity,
-variant, or MAIN — those remain judgement calls made here, and publication
-still requires explicit user approval.
+The layer acquires and validates bytes at their **native aspect ratio**. It does
+not decide product identity, variant, or MAIN — those remain judgement calls
+made here, and publication still requires explicit user approval.
+
+Never prepare a per-SKU canvas to match card or PDP CSS. The storefront owns
+fitting through `media.fit` (`contain` by default for real photography), with
+`media.surface` — which acquisition detects and reports as `dominantBackdrop` —
+and a bounded `media.scale` as the presentation knobs.
 
 See `docs/pink-mall/MEDIA_ACQUISITION.md` for request and result formats.
 

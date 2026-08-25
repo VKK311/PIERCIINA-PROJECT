@@ -161,14 +161,29 @@ Live:
 - compression without visible quality loss;
 - appropriate responsive dimensions.
 
-Product cards:
-- standardized 3:4 framing.
+Aspect ratio is a **presentation** concern, not an acquisition one.
 
-PDP:
-- fidelity-first framing;
-- preserve near-original composition;
-- do not cut important product areas;
-- use breathing space instead of aggressive crop.
+Deliver the strongest official image at its **native aspect ratio**. Do not
+manufacture a per-SKU canvas to match card or PDP CSS — that bakes one
+storefront's layout into the product record, and it has to be redone every time
+the layout changes.
+
+The storefront owns fitting, through `media.fit`:
+
+- `contain` — default for real supplier photography. The whole product is always
+  visible; the media field supplies a neutral surface behind it.
+- `cover` — edge-to-edge framing, for imagery deliberately composed for it.
+
+Two optional presentation knobs, both defaulting to safe values:
+
+- `media.surface` — hex colour painted behind a contained image, so there is no
+  visible seam around a studio backdrop. The acquisition pipeline detects this
+  automatically and reports it as `dominantBackdrop`.
+- `media.scale` — bounded zoom (1.0–1.6) into the image's own empty margin when
+  a source is very loosely cropped. It never crops the product.
+
+If a contained image leaves too much whitespace, fix it with surface, scale or
+padding at the presentation layer. Never by cropping the product.
 
 ## Alt text
 

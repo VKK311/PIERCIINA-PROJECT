@@ -108,7 +108,12 @@ Preferred conceptual fields:
     galleryAlt: [
       '...',
       '...'
-    ]
+    ],
+
+    // Presentation policy. Acquisition never pre-frames for these.
+    fit: 'contain',      // 'contain' (default, real photography) | 'cover'
+    surface: '#EAEEEF',  // optional: field colour behind a contained image
+    scale: 1             // optional: bounded 1.0-1.6 zoom into empty margin
   },
 
   source: {

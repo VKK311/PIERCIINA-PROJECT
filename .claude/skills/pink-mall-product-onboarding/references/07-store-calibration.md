@@ -126,9 +126,12 @@ Calibrate minimally so real products can carry:
 - local MAIN;
 - 2–4 local gallery images;
 - per-image factual alt;
-- maximum 5 canonical images.
+- maximum 5 canonical images;
+- a presentation policy (`media.fit`, with optional `surface` and `scale`) so
+  supplier photography displays safely at its native aspect ratio.
 
-Preserve legacy media behavior.
+Preserve legacy media behavior. Legacy products carry no `media.image` and must
+never gain presentation attributes as a side effect.
 
 ## Archived state
 

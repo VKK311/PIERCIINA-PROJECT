@@ -255,6 +255,26 @@ def sku_signal(url, sku):
     return sku.lower() in urllib.parse.unquote(url).lower()
 
 
+def backdrop(img, tol=6):
+    """The studio backdrop colour, or None if the corners disagree.
+
+    The storefront paints this behind a contained image so there is no visible
+    seam around the photo. Detecting it here means a product never needs a
+    hand-prepared canvas just to sit on the right background.
+    """
+    w, h = img.size
+    inset = max(2, min(w, h) // 100)
+    pts = [(inset, inset), (w - 1 - inset, inset),
+           (inset, h - 1 - inset), (w - 1 - inset, h - 1 - inset)]
+    cols = [img.getpixel(p) for p in pts]
+    for ch in range(3):
+        vals = [c[ch] for c in cols]
+        if max(vals) - min(vals) > tol:
+            return None
+    avg = tuple(sum(c[ch] for c in cols) // len(cols) for ch in range(3))
+    return "#%02X%02X%02X" % avg
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 def acquire(request, outroot, log):
     sku = request["manufacturerItemNo"].strip()
@@ -536,6 +556,7 @@ def write_outputs(request, selected, all_acquired, log, outroot):
             "mime": m["mime"], "bytes": m["bytes"],
             "sha256": m["sha256"], "dhash": m["dhash"],
             "sku_in_url": m["sku_in_url"],
+            "backdrop": backdrop(m["_img"]),
             "duplicates_collapsed": m.get("duplicates", []),
             "validation": "PASS",
             "warnings": warnings,
@@ -581,6 +602,12 @@ def write_outputs(request, selected, all_acquired, log, outroot):
             "duplicates_collapsed": sum(len(e["duplicates_collapsed"]) for e in entries),
         },
         "proposedMain": entries[0]["file"] if entries else None,
+        # Shared backdrop across the whole set, when the images agree. The
+        # storefront uses it as media.surface so a contained image sits on a
+        # matching field instead of a mismatched one.
+        "dominantBackdrop": (entries[0]["backdrop"]
+                             if entries and len({e["backdrop"] for e in entries}) == 1
+                             else None),
         "contactSheet": sheet_rel,
         "images": entries,
         "log": log,
@@ -589,6 +616,8 @@ def write_outputs(request, selected, all_acquired, log, outroot):
             "assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
             "Resolution upgrades rewrite only the CDN transform segment of the same "
             "asset URL and are accepted only if perceptually identical to the base image.",
+            "Images are delivered at their native aspect ratio. The storefront owns "
+            "card and PDP fitting via media.fit; no per-SKU canvas is manufactured here.",
         ],
     }
     with open(os.path.join(base, "result.json"), "w", encoding="utf-8") as fh:

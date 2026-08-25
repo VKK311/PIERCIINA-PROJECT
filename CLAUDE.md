@@ -49,6 +49,16 @@ structure resolved.
 Historical builds are recoverable through git history, not through parallel
 files in the working tree.
 
+## Product media: acquisition and presentation are separate
+
+Acquisition delivers the strongest official image at its **native aspect
+ratio**. The storefront decides how to fit it, via `media.fit` — `contain` by
+default for real supplier photography, with optional `media.surface` (the
+backdrop colour, auto-detected during acquisition) and a bounded `media.scale`.
+
+Never prepare a per-SKU canvas to satisfy card or PDP CSS. Onboarding a normal
+studio product photograph must not require manual aspect-ratio work.
+
 ## Branches
 
 | Branch | Role |
