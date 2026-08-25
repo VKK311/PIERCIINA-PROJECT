@@ -20,6 +20,7 @@ discovery and binary acquisition were all automatic.
 | Manufacturer colour | Rose Sugar |
 | Public colour | Pink |
 | Material | *not confirmed* — see warnings |
+| Size ladder | user-supplied sizes only — exact-model run NOT VERIFIED |
 | Price | €54 |
 | oldPriceEUR | null — no SALE |
 | selectedBy | null |
@@ -34,24 +35,39 @@ sub-label was meant.
 `GC515KD` is a **different** pink 515. Every accepted asset carries `gc515ki`
 in its own URL, so that neighbouring colourway could not slip in.
 
-## 2. Sizes
-
-User-supplied availability: **37, 38, 40** — all exact whole values on the
-official EU scale, so nothing was normalised and nothing is blocked.
+## 2. Sizes — user-supplied only
 
 ```text
-36     — ИЗЧЕРПАН
-36.5   — ИЗЧЕРПАН
-37     — available
-37.5   — ИЗЧЕРПАН
-38     — available
-38.5   — ИЗЧЕРПАН
-39     — ИЗЧЕРПАН
-40     — available
+37 — available
+38 — available
+40 — available
 ```
 
 `inventoryMode: 'availability'`. No quantities supplied, so none are invented:
 no `ПОСЛЕДНА БРОЙКА`, no product-level scarcity.
+
+**No sold-out sizes are shown, and that is deliberate.** A previous revision of
+this package listed 36, 36.5, 37.5, 38.5 and 39 as `ИЗЧЕРПАН`, derived from the
+New Balance grade-school size chart. That chart maps EU to UK to cm — it says
+nothing about which sizes **GC515KI** was actually offered in. Showing those
+states would have claimed inventory history this SKU may never have had.
+
+A final automated attempt to prove the exact-model size run was made across
+three independent networks and failed:
+
+| Route | Result |
+|---|---|
+| Official NB pages and search, from the runner | `403` on all four |
+| Official NB hosts, from the execution container | `000` — egress blocked |
+| Exact-SKU official structured data, via search | not found |
+| Another official NB regional source for this SKU | not found |
+
+`EXACT MODEL SIZE SCALE: NOT VERIFIED`, so the truthful fallback applies: the
+ladder carries only the three sizes you supplied. If you can confirm the real
+size run, I will expand the ladder and mark the rest sold out.
+
+Strict size matching is untouched: had you supplied a size that conflicted with
+a proven exact-model scale, this would still be `BLOCKED`.
 
 ## 3. Media — 5 unique images, acquired automatically
 
@@ -138,15 +154,12 @@ new balance, 515, sneakers, shoes, pink, rose sugar, retro, runner, classic
     newUntil: null,          /* set at first approved publication + 14 days */
 
     inventoryMode: 'availability',
+    /* Only the user-supplied sizes. The exact-model size run could not be
+       proven, so no sold-out states are asserted. */
     availability: {
-        '36':   'soldout',
-        '36.5': 'soldout',
-        '37':   'available',
-        '37.5': 'soldout',
-        '38':   'available',
-        '38.5': 'soldout',
-        '39':   'soldout',
-        '40':   'available'
+        '37': 'available',
+        '38': 'available',
+        '40': 'available'
     },
 
     media: {
@@ -166,20 +179,18 @@ new balance, 515, sneakers, shoes, pink, rose sugar, retro, runner, classic
 }
 ```
 
-## 8. Warnings — two, neither blocking
+## 8. Warnings — one, non-blocking
 
-**1. Material not confirmed.** Every New Balance product page returned `403` to
-the runner, so composition could not be read from an official source. A trusted
+**Material not confirmed.** Every New Balance product page returned `403` to the
+runner, so composition could not be read from an official source. A trusted
 retailer carrying the exact SKU describes a mesh and synthetic upper, EVA
-midsole and rubber outsole. That is retailer-derived, not official, so the field
-is **omitted** rather than published on weaker evidence. Say the word and I will
-add `Mesh / Synthetic / Rubber` on that basis.
+midsole and rubber outsole — retailer-derived, not official, so the field is
+**omitted** rather than published on weaker evidence. Say `ADD MATERIAL` and I
+will include `Mesh / Synthetic / Rubber` on that basis.
 
-**2. Sold-out ladder is size-chart derived.** The user's three available sizes
-are certain. The surrounding in-range sizes shown as ИЗЧЕРПАН come from the
-New Balance grade-school EU size chart rather than the official product page,
-for the same `403` reason. `39.5` is deliberately **not** shown, as it was not
-evidenced. Confirm or correct the ladder at approval.
+The size-ladder warning from the previous revision is **resolved**, not carried
+forward: the unsupported sold-out states were removed rather than annotated.
+Unsupported sold-out states: **0**.
 
 Not a warning, but worth stating: the manufacturer classifies this as a
 grade-school series item. That is internal only and appears nowhere in the
@@ -216,14 +227,10 @@ PRICE:
 €54
 
 SIZES:
-36 — ИЗЧЕРПАН
-36.5 — ИЗЧЕРПАН
 37 — available
-37.5 — ИЗЧЕРПАН
 38 — available
-38.5 — ИЗЧЕРПАН
-39 — ИЗЧЕРПАН
 40 — available
+(exact-model size run NOT VERIFIED; no sold-out states asserted)
 
 NEW:
 YES for 14 days after first approved publication
@@ -247,7 +254,6 @@ EXACT OFFICIAL GC515KI — official New Balance CDN
 
 WARNINGS:
 1. Material not confirmed from an official source; field omitted.
-2. Sold-out ladder derived from the size chart, not the product page.
 ```
 
 **Awaiting explicit instruction:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /

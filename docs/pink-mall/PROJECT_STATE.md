@@ -98,15 +98,22 @@ before a publication is considered reviewed:
 | BRAND / MODEL | New Balance / 515 V1 |
 | MANUFACTURER ITEM | GC515KI (Rose Sugar) |
 | PRICE | €54 |
-| AVAILABLE SIZES | 37, 38, 40 |
+| AVAILABLE SIZES | 37, 38, 40 — **ladder carries these only** |
+| EXACT-MODEL SIZE RUN | NOT VERIFIED — no sold-out states asserted |
 | MEDIA | 5 × 1600×1600, official `nb.scene7.com`, backdrop `#F1F1F1` |
 | ACQUISITION | **zero-seed** — no user URL, no user images |
 | STATUS | READY FOR APPROVAL — **not published** |
 | PACKAGE | `docs/pink-mall/checkpoints/PM026_APPROVAL_PREVIEW.md` |
 
-Two non-blocking warnings: material unconfirmed (field omitted), and the
-sold-out ladder is size-chart derived. Both because every New Balance product
-page returns `403` to the runner.
+One non-blocking warning: material unconfirmed, so the field is omitted —
+every New Balance product page returns `403` to the runner.
+
+The exact-model size run could not be proven on any route (runner `403`,
+container egress blocked, no exact-SKU official structured data), so the ladder
+carries only the user-supplied sizes. Sold-out states derived from a generic
+brand size chart were removed: a chart maps EU to UK to cm and says nothing
+about which sizes a given SKU was offered in. The rule is now in the skill —
+exact-model scale proven → full ladder; not proven → user-supplied sizes only.
 
 ## Next step
 

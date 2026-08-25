@@ -114,7 +114,11 @@ For shoes:
 - use the exact official size scale for the exact model;
 - fractional sizes inside the range are valid and visible;
 - sizes below 36 or above 40 are not added to the Mall;
-- in-range official sizes not supplied by the user are visible as `ИЗЧЕРПАН`.
+- in-range official sizes not supplied by the user are visible as `ИЗЧЕРПАН`,
+  **but only when the exact-model size run is proven**. A generic brand size
+  chart is not proof: it maps EU to UK to cm, it does not say which sizes this
+  SKU was offered in. Without exact-model evidence, show only the
+  user-supplied sizes rather than inventing sold-out states.
 
 Strict mismatch rule:
 - user `37` vs official `37 1/3` => BLOCKED;

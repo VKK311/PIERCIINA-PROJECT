@@ -78,6 +78,30 @@ Do not add:
 - 35.5
 - 40 2/3
 
+## Ladder evidence — what may be shown as sold out
+
+A size shown as `ИЗЧЕРПАН` is a claim: *this product was offered in this size
+and is currently out of stock.* It needs evidence like any other claim.
+
+Two cases, and only two:
+
+**Exact-model scale proven** → render the full in-range ladder. User-supplied
+sizes are `available`; the remaining proven in-range sizes are `soldout`.
+
+Proof means the size run for the **exact SKU**: official product data, page
+state or API; exact-SKU official structured data; another official regional
+source for the same SKU; or authoritative manufacturer data for that SKU.
+
+**Exact-model scale not proven** → render **only the user-supplied sizes**.
+
+A generic brand size-conversion chart is **not** proof. It shows how the brand
+maps EU to UK to cm; it says nothing about which sizes this particular SKU was
+manufactured in. Deriving a sold-out ladder from one invents inventory states
+for sizes that may never have existed.
+
+Never pad a ladder to look complete. A short truthful ladder beats a full
+invented one.
+
 ## Strict user-size matching
 
 Never silently normalize.
