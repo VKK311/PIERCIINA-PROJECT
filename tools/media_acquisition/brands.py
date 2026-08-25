@@ -20,6 +20,10 @@ BRANDS = {
         ],
         # Product pages to try, in source-hierarchy order. {sku} is filled in.
         "page_templates": [
+            # Product API first: it returns the same asset URLs as the page and
+            # is usually less aggressively protected than the rendered HTML.
+            "https://www.adidas.com/api/products/{sku}",
+            "https://www.adidas.de/api/products/{sku}",
             "https://www.adidas.de/en/{sku}.html",
             "https://www.adidas.com/us/{sku}.html",
             "https://www.adidas.co.uk/{sku}.html",

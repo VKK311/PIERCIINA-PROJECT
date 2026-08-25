@@ -159,12 +159,17 @@ def discover_from_page(url, allowed, log):
     first. Returns [(url, method)]."""
     try:
         final, ctype, body = http_get(url, allowed,
-                                      max_bytes=MAX_PAGE_BYTES, accept="text/html,*/*")
+                                      max_bytes=MAX_PAGE_BYTES,
+                                      accept="text/html,application/json,*/*")
     except Exception as e:
         log.append({"stage": "discover", "url": url, "ok": False, "error": "%s: %s" % (type(e).__name__, e)})
         return []
-    if "html" not in (ctype or ""):
-        log.append({"stage": "discover", "url": url, "ok": False, "error": "not html (%s)" % ctype})
+    # HTML and JSON are both fair game: a brand's product API is an approved
+    # discovery route, and its payload carries the same asset URLs the page
+    # would. The extractors below are tolerant of either — JSON-LD and og:image
+    # simply find nothing in a JSON body, and the URL scan finds everything.
+    if not any(t in (ctype or "") for t in ("html", "json", "javascript", "text")):
+        log.append({"stage": "discover", "url": url, "ok": False, "error": "unsupported type (%s)" % ctype})
         return []
     html = body.decode("utf-8", "replace")
     found = []

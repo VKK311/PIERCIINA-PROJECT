@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "brand": "adidas",
+  "manufacturerItemNo": "JR5952",
+  "model": "Gazelle Bold Shoes",
+  "variant": "Pink",
+
+  "candidateMedia": [],
+
+  "discoveryPages": [
+    "https://www.adidas.com/us/gazelle-bold-shoes-kids/JR5952.html"
+  ],
+
+  "resolution": { "widthLadder": [1880, 1200, 1000, 840, 600] },
+
+  "requestedBy": "claude",
+  "requestedFor": "PM-027 (proposed, not published)",
+  "notes": [
+    "ZERO-SEED: candidateMedia is empty. The user supplied brand, SKU, price and sizes only.",
+    "adidas asset paths carry an opaque hash and cannot be probed, so discovery must come from the product page or the product API.",
+    "Neighbouring SKUs JR5951 (Blue) and JR5953 (Burgundy) are different colourways; the SKU-in-URL gate keeps them out.",
+    "Manufacturer classifies this as a juniors series item. Internal only; never in public PINK MALL content."
+  ]
+}
