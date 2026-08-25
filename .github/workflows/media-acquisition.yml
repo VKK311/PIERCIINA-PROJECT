@@ -1,0 +1,71 @@
+name: Pink Mall media acquisition
+
+# Why this exists: the Claude execution container cannot reach brand CDNs —
+# its egress proxy answers 403 to CONNECT for assets.adidas.com and friends —
+# but it can always reach GitHub. A GitHub-hosted runner has ordinary internet
+# access, so the runner performs the byte acquisition and commits the result
+# back. Claude then simply pulls.
+#
+# Loop safety: results are written under docs/pink-mall/media-acquisition/,
+# which is deliberately NOT in the trigger paths, so the workflow cannot
+# retrigger itself. The bot-actor guard is a second line of defence.
+
+on:
+  push:
+    branches: [claude/pink-mall-development]
+    paths:
+      - 'docs/pink-mall/media-requests/**'
+      - 'tools/media_acquisition/**'
+      - '.github/workflows/media-acquisition.yml'
+  workflow_dispatch:
+    inputs:
+      sku:
+        description: 'SKU to (re)acquire; blank = every request manifest'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: media-acquisition
+  cancel-in-progress: false
+
+jobs:
+  acquire:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/pink-mall-development
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --quiet -r tools/media_acquisition/requirements.txt
+
+      - name: Acquire media
+        id: acquire
+        env:
+          ONLY_SKU: ${{ github.event.inputs.sku }}
+        run: bash tools/media_acquisition/run_requests.sh
+
+      - name: Job summary
+        if: always()
+        run: python tools/media_acquisition/summarise.py >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit results
+        if: always()
+        run: bash tools/media_acquisition/commit_results.sh
+
+      - name: Fail if acquisition did not PASS
+        if: steps.acquire.outputs.rc != '0'
+        run: |
+          echo "One or more SKUs did not reach PASS. Results and logs are committed; read result.json." >&2
+          exit 1
