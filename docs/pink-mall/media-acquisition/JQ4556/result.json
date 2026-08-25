@@ -6,12 +6,12 @@
   "model": "VL Court Bold Shoes",
   "variant": "Clear Pink / Silver Metallic / Gold Metallic",
   "officialProductPage": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
-  "generatedAt": "2026-08-25T08:52:42Z",
+  "generatedAt": "2026-08-25T09:59:08Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32828881580",
+    "githubRunId": "32834782669",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "125f6115b022aba8e01c7cee1ed4fbdb84b8f1df"
+    "githubSha": "0058cf6a1348976a5261426f70863e74c15e1573"
   },
   "counts": {
     "acquired": 4,
@@ -19,6 +19,7 @@
     "duplicates_collapsed": 0
   },
   "proposedMain": "source/JQ4556-01-original.jpg",
+  "dominantBackdrop": "#EAEEEF",
   "contactSheet": "CONTACT_SHEET.webp",
   "images": [
     {
@@ -31,7 +32,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-25T08:52:36Z",
+      "acquired_at": "2026-08-25T09:59:03Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -40,6 +41,7 @@
       "sha256": "cd35da4bc75864eb854c1735d69ef07c2fbf1a4d6335e975c3fef6be67fad7f4",
       "dhash": "0000000000004000b1804c70680c64426429e109eb8115c6c018000000000000",
       "sku_in_url": true,
+      "backdrop": "#EAEEEF",
       "duplicates_collapsed": [],
       "validation": "PASS",
       "warnings": []
@@ -54,7 +56,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-25T08:52:37Z",
+      "acquired_at": "2026-08-25T09:59:04Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -63,6 +65,7 @@
       "sha256": "0a0270dc1c9f63a5526c16db855c8d99c52774ebd80092476cd88505ad5bc96d",
       "dhash": "04800b40162016900c100cc814c816c01690169036901710e7107e001f602080",
       "sku_in_url": true,
+      "backdrop": "#EAEEEF",
       "duplicates_collapsed": [],
       "validation": "PASS",
       "warnings": []
@@ -77,7 +80,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-25T08:52:39Z",
+      "acquired_at": "2026-08-25T09:59:05Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -86,6 +89,7 @@
       "sha256": "656cd37b2912f1a35136cc9c1dfa2685f9a9e3cba71ebf776052bba645be1bfb",
       "dhash": "024005200b10169016880e882e9006901690169056901690c690ff200f204080",
       "sku_in_url": true,
+      "backdrop": "#EAEEEF",
       "duplicates_collapsed": [],
       "validation": "PASS",
       "warnings": []
@@ -100,7 +104,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-25T08:52:40Z",
+      "acquired_at": "2026-08-25T09:59:06Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -109,6 +113,7 @@
       "sha256": "d7cb5f1b4a8eb723e937bf765a574e7c45c9f88340f6e65c07d8928f3b328f94",
       "dhash": "0000000008001100b0803260b110e448702438005c1027c209c4061800c00000",
       "sku_in_url": true,
+      "backdrop": "#EAEEEF",
       "duplicates_collapsed": [],
       "validation": "PASS",
       "warnings": []
@@ -125,7 +130,7 @@
       "stage": "discover",
       "url": "https://www.adidas.com/us/vl-court-bold-shoes/JQ4556.html",
       "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "discover",
@@ -196,6 +201,7 @@
   ],
   "notes": [
     "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
-    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image."
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
   ]
 }
