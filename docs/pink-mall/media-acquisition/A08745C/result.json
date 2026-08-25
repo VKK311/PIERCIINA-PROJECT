@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pembe / Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:01:42Z",
+  "generatedAt": "2026-08-25T17:02:44Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32875385314",
+    "githubRunId": "32875464027",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "88d4b0634b010cb268f3895ff832c352480ada6f"
+    "githubSha": "fe56733efe43a58a85189062af38cb40ae163d81"
   },
   "counts": {
     "acquired": 0,
