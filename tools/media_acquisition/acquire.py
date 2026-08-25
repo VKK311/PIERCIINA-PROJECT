@@ -131,6 +131,16 @@ SRCSET_RE = re.compile(r"srcset\s*=\s*[\"']([^\"']+)[\"']", re.I)
 OG_RE = re.compile(r"<meta[^>]+property=[\"']og:image[\"'][^>]+content=[\"']([^\"']+)[\"']", re.I)
 JSONLD_RE = re.compile(r"<script[^>]+type=[\"']application/ld\+json[\"'][^>]*>(.*?)</script>", re.I | re.S)
 
+# Methods where the page is *declaring this product's* media, as opposed to a
+# blanket sweep of every image on the document.
+AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-probe"}
+
+# Paths that are editorial or chrome rather than product media. Belt and
+# braces behind the method rule.
+NON_PRODUCT_RE = re.compile(
+    r"/(?:articles?|blog|news|banner|banners|cms|icons?|logos?|sprites?|avatars?|"
+    r"placeholder|payment|social|flags?)/", re.I)
+
 
 def _from_jsonld(html):
     out = []
@@ -443,6 +453,22 @@ def acquire(request, outroot, log):
             if not (asset_sku or page_sku):
                 log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
                             "error": "neither asset URL nor source page evidences SKU %s" % sku})
+                best = None
+            elif not asset_sku and method not in AUTHORITATIVE_METHODS:
+                # Source-page evidence alone is not enough for a blanket page
+                # sweep. A retailer product page names the SKU and *also*
+                # carries a sidebar of editorial thumbnails; every one of those
+                # would otherwise inherit the page's identity and pass. When
+                # the asset URL does not identify itself, the page must be
+                # declaring the image as this product's — JSON-LD, og:image or
+                # a gallery srcset — not merely containing it.
+                log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
+                            "error": "source-page evidence requires an authoritative "
+                                     "declaration; %s is a page sweep" % method})
+                best = None
+            elif not asset_sku and NON_PRODUCT_RE.search(best["url"]):
+                log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
+                            "error": "editorial or chrome asset path; rejected"})
                 best = None
             else:
                 best["sku_evidence"] = "asset-url" if asset_sku else "source-page"
