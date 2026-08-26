@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "brand": "Puma",
   "manufacturerItemNo": "398855",
   "model": "Palermo Moda",
@@ -12,23 +12,20 @@
   ],
   "candidateMedia": [],
   "cdnProbe": [
-    "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/{sku}/{view}/sv01/fnd/EEA/fmt/png"
+    "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/{sku}/11/{view}/fnd/EEA/fmt/png",
+    "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/{sku}/11/fnd/EEA/fmt/png"
   ],
   "cdnProbeViews": [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14"
+    "sv01",
+    "sv02",
+    "sv03",
+    "sv04",
+    "sv05",
+    "sv06",
+    "bv",
+    "mod01",
+    "mod02",
+    "mod03"
   ],
   "indexedAssetSearch": false,
   "indexedEvidence": false,
@@ -42,13 +39,16 @@
       "sku": "398855",
       "model": "Palermo Moda",
       "variant": "Poised Pink / Aqua",
-      "aliases": [],
+      "aliases": [
+        "398855-11"
+      ],
       "sizeScale": [],
       "mediaUrls": [],
       "observedCdnHosts": [],
       "notes": [
         "Confirms the colourway exists and is named 'poised pink / aqua' for this model; Zalando's own URL slug carries it.",
-        "The Puma colour suffix is NOT yet evidenced. Known suffixes 398855-01 (Puma White / Puma Black) and 398855-10 (gray) are both decoys."
+        "The Puma colour suffix is NOT yet evidenced. Known suffixes 398855-01 (Puma White / Puma Black) and 398855-10 (gray) are both decoys.",
+        "COLOUR SUFFIX RESOLVED: 398855-11. Established by a reconnaissance sweep of this article's own colour codes, one hero view each, confirmed visually on the contact sheet — a pink upper with an aqua formstripe on a gum sole, which is Poised Pink / Aqua. The decoys were visible in the same sheet: 01 white/black, 03 mint/mauve, 10 cream with a pale pink stripe."
       ]
     },
     {
@@ -90,11 +90,9 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "RECONNAISSANCE PASS 2. Pass 1 selected five views of colour 01 — Puma White / Puma Black, a known decoy — because the official product page serves the DEFAULT colourway and its images outranked the colour sweep. The sweep itself worked: colour codes 01 through 11 all returned real images.",
-    "Discovery pages are removed for this pass so the candidate pool is exactly one hero view per colour code, and maxKeep is raised so every colourway reaches the contact sheet instead of the first five.",
-    "Identity stays pinned by the article number in every probe path. What is being resolved is which of 398855's own colourways is Poised Pink / Aqua.",
-    "Nothing is staged from a reconnaissance pass. The colourway is confirmed visually first, then a normal run acquires that colourway's full view set.",
+    "PRODUCTION PASS. Colour suffix 398855-11 is resolved and confirmed visually; probes now sweep that colourway's view tokens rather than its colour codes.",
+    "The view tokens are taken from what the official product page actually served for this article in the first pass — sv01, bv, a bare path, mod01 and mod02 — rather than invented.",
+    "Identity is doubly pinned: the article number and the colour suffix both appear in every probe path, so a probe cannot reach another product or another colourway.",
     "'Jr' and the big-kids classification are junior-series markers, suppressed from every public field. Public model name is 'Palermo Moda'."
-  ],
-  "maxKeep": 14
+  ]
 }
