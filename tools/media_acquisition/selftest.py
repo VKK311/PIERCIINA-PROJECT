@@ -200,7 +200,7 @@ def main():
     # ── Round 2: link-target recovery and variant confidence ──────────
     sys.path.insert(0, HERE)
     from acquire import (outbound_links, colour_terms_present, variant_confidence,
-                         dhash)  # noqa: E402
+                         dhash, sizes_from_jsonld)  # noqa: E402
 
     cat_html = open(os.path.join(srv_root, "cat", "index.html")).read()
     links = outbound_links(cat_html, "http://127.0.0.1:%d/cat/index.html" % PORT, "TESTSKU")
@@ -243,6 +243,26 @@ def main():
                                    "Almost Pink / Court Green", None)
     checks.append(("colour contradiction without an anchor -> REVIEW_REQUIRED",
                    no_anchor["state"] == "HUMAN_VARIANT_REVIEW_REQUIRED"))
+
+    # Size-scale evidence. The user is still the only source of PINK MALL
+    # availability; this only proves a supplied size can be checked against
+    # the scale the source declares, rather than assumed to exist.
+    scale_html = """
+    <script type="application/ld+json">
+    {"@type":"Product","name":"Test Shoe","offers":[
+      {"@type":"Offer","size":"36","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","size":"37","availability":"https://schema.org/OutOfStock"},
+      {"@type":"Offer","size":"38","availability":"https://schema.org/InStock"}]}
+    </script>"""
+    declared = sizes_from_jsonld(scale_html)
+    checks.append(("declared size scale read from JSON-LD offers",
+                   [d["size"] for d in declared] == ["36", "37", "38"]))
+    checks.append(("declared availability captured verbatim, not interpreted",
+                   [d["declared"] for d in declared] == ["InStock", "OutOfStock", "InStock"]))
+    checks.append(("a size outside the declared scale is detectable",
+                   "39" not in [d["size"] for d in declared]))
+    checks.append(("page with no size declaration yields no false scale",
+                   sizes_from_jsonld("<html><body>no ld+json here</body></html>") == []))
 
     ok = True
     for name, passed in checks:

@@ -93,6 +93,30 @@ BRANDS = {
         "sku_in_url": True,
         "view_re": None,
     },
+
+    "pepe jeans": {
+        "allowed_hosts": [
+            "www.pepejeans.com", "pepejeans.com",
+        ],
+        # No page templates. Pepe Jeans product URLs are
+        # /<locale>/<localised-slug>-<SKU><COLOUR>.html — the slug is written
+        # per locale and cannot be derived from the style code, and their
+        # search path is not known to us. Guessing either would be inventing a
+        # URL rather than discovering one, so entry points come from the
+        # request manifest, found by search used as a transport.
+        "page_templates": [],
+        # Left empty deliberately: the media host for this brand has not been
+        # observed yet. It is filled in from a run's own rejection log, never
+        # from a guess. (The A08745C run is the recorded reason for this rule.)
+        "cdn_hosts": [],
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [1600, 1200, 1000, 800],
+        # The style code appears in the product URL; whether it reaches the
+        # asset path is what the run tells us.
+        "sku_in_url": True,
+        "view_re": None,
+    },
 }
 
 DEFAULT = {

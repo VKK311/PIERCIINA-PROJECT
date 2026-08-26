@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "brand": "Pepe Jeans",
+  "manufacturerItemNo": "PGS30614",
+  "model": "Ben Band",
+  "variant": "Pink",
+
+  "candidateMedia": [],
+
+  "discoveryPages": [
+    "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+    "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+    "https://www.tradeinn.com/dressinn/en/search?q=PGS30614"
+  ],
+  "discoveryRoutes": {
+    "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
+    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
+    "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html": "TRUSTED_RETAILER_SEARCH",
+    "https://www.tradeinn.com/dressinn/en/search?q=PGS30614": "TRUSTED_RETAILER_SEARCH"
+  },
+  "allowedHostSuffixes": [
+    "pepejeans.com",
+    "esdemarca.com",
+    "tradeinn.com"
+  ],
+  "resolution": { "widthLadder": [1600, 1200, 1000, 800] },
+  "requestedBy": "claude",
+  "notes": [
+    "ZERO-SEED for media. The two official product URLs were located with search used as a transport, not as evidence; identity is still decided by the runner from the pages themselves.",
+    "Full article code is PGS30614327 — base style PGS30614 plus colour 327. The base code is used as the SKU signal because it is a prefix of the full code and therefore the more permissive test.",
+    "The media CDN host for this brand has NOT been observed yet. allowedHostSuffixes deliberately contains no guessed CDN: if assets are rejected, the run's own rejection log names the real host and it is added for a second pass. Guessing a CDN hostname is what wasted the first A08745C run.",
+    "SIZE QUESTION, open: search snippets disagree on this article's scale (32-37 vs 32-40) and the user supplied size 39. sizeEvidence in result.json records what the sources actually declare. If 39 is outside the declared scale this is a size-identity conflict for the user, not something to publish."
+  ]
+}

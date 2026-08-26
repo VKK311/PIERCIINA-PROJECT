@@ -166,6 +166,50 @@ def _from_jsonld(html):
     return out
 
 
+SIZE_KEYS = ("size", "sizes", "productsize", "variantsize")
+
+
+def sizes_from_jsonld(html):
+    """Size labels the page itself declares for this product.
+
+    Evidence only. PINK MALL availability comes from the user and from nothing
+    else; this exists so that a user-supplied size can be checked against the
+    scale the manufacturer actually offers, instead of being assumed to exist.
+    A size the official scale does not contain is a size-identity question for
+    a human, not something to publish quietly.
+    """
+    out = []
+    for blob in JSONLD_RE.findall(html):
+        try:
+            data = json.loads(blob.strip())
+        except Exception:
+            continue
+        # Document order, not stack order: the scale is meant to be read by a
+        # human, and 36/37/38 reversed is a worse artefact than no artefact.
+        queue = [data]
+        while queue:
+            node = queue.pop(0)
+            if isinstance(node, dict):
+                label = None
+                for k, v in node.items():
+                    if (k.lower().replace("_", "") in SIZE_KEYS
+                            and isinstance(v, (str, int, float))):
+                        label = str(v).strip()
+                if label:
+                    avail = node.get("availability")
+                    avail = avail.rsplit("/", 1)[-1] if isinstance(avail, str) else ""
+                    out.append((label, avail))
+                queue += list(node.values())
+            elif isinstance(node, list):
+                queue += node
+    seen, uniq = set(), []
+    for lab, av in out:
+        if lab and lab not in seen:
+            seen.add(lab)
+            uniq.append({"size": lab, "declared": av})
+    return uniq
+
+
 def outbound_links(html, base, sku):
     """Link targets on an indexed/official page that point at the exact SKU.
 
@@ -190,7 +234,7 @@ def outbound_links(html, base, sku):
 
 
 def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_OFFICIAL_PAGE",
-                       collect_links=None):
+                       collect_links=None, collect_sizes=None):
     """Pull image candidates out of one page. Returns
     [(url, method, source_page, page_has_sku)].
 
@@ -242,6 +286,15 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
             log.append({"stage": "link-target", "url": final, "ok": True,
                         "targets": len(links), "sample": links[0][:140]})
         collect_links.extend(links)
+
+    # Record the scale this page declares, but only when the page is actually
+    # talking about our SKU — a category page's sizes belong to other products.
+    if collect_sizes is not None and page_has_sku:
+        declared = sizes_from_jsonld(html)
+        if declared:
+            collect_sizes.append({"page": final, "route": route, "sizes": declared})
+            log.append({"stage": "size-scale", "url": final, "ok": True,
+                        "declared": len(declared)})
 
     log.append({"stage": "discover", "url": final, "ok": True,
                 "raw_candidates": len(found), "page_has_sku": page_has_sku})
@@ -564,13 +617,15 @@ def acquire(request, outroot, log):
     routes = request.get("discoveryRoutes") or {}
     seen_pages = set()
     hop_targets = []
+    size_evidence = []
     for page in pages:
         if page in seen_pages:
             continue
         seen_pages.add(page)
         candidates += discover_from_page(page, allowed, log, sku=sku, ledger=ledger,
                                          route=routes.get(page, "DIRECT_OFFICIAL_PAGE"),
-                                         collect_links=hop_targets)
+                                         collect_links=hop_targets,
+                                         collect_sizes=size_evidence)
 
     # Second hop. The authority is the destination, not the page that linked to
     # it: a product page reached from an official category listing is official
@@ -587,7 +642,8 @@ def acquire(request, outroot, log):
         seen_pages.add(target)
         seen_keys.add(key)
         candidates += discover_from_page(target, allowed, log, sku=sku, ledger=ledger,
-                                         route="INDEXED_OUTBOUND_MEDIA")
+                                         route="INDEXED_OUTBOUND_MEDIA",
+                                         collect_sizes=size_evidence)
 
     # normalise, de-dup by URL, keep discovery order
     ordered, seen_url = [], set()
@@ -708,7 +764,7 @@ def acquire(request, outroot, log):
                         "upgraded_from": None if best["requested_url"] == url else url[:160]})
 
     if not acquired:
-        return None, acquired, ledger
+        return None, acquired, ledger, size_evidence
 
     # 3. DEDUPE -----------------------------------------------------------
     acquired.sort(key=lambda m: (-m["longest_edge"], -m["bytes"]))
@@ -732,7 +788,7 @@ def acquire(request, outroot, log):
     usable = [m for m in unique if m["longest_edge"] >= MIN_EDGE]
     usable.sort(key=lambda m: (-m["longest_edge"], m["url"]))
     selected = usable[:MAX_KEEP]
-    return selected, acquired, ledger
+    return selected, acquired, ledger, size_evidence
 
 
 # ── Output ────────────────────────────────────────────────────────────────
@@ -830,7 +886,8 @@ def contact_sheet(entries, header, out_path):
     return sheet.size
 
 
-def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
+def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
+                  size_evidence=None):
     sku = request["manufacturerItemNo"].strip()
     brand = request["brand"].strip()
     rule = brand_rule(brand)
@@ -954,6 +1011,10 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None):
         "contactSheet": sheet_rel,
         "images": entries,
         "discoveryLedger": ledger or [],
+        # What the sources themselves say this article is offered in. Never
+        # PINK MALL availability — that is the user's alone — but it is how a
+        # supplied size gets checked against the real scale instead of assumed.
+        "sizeEvidence": size_evidence or [],
         "log": log,
         "notes": [
             "Media is acquired but NOT published. Live assets live under "
@@ -984,9 +1045,9 @@ def main():
             return 2
 
     log = []
-    selected, all_acquired, ledger = acquire(request, args.out, log)
+    selected, all_acquired, ledger, size_evidence = acquire(request, args.out, log)
     manifest, base = write_outputs(request, selected or [], all_acquired or [],
-                                   log, args.out, ledger)
+                                   log, args.out, ledger, size_evidence)
     print(json.dumps({"status": manifest["status"], "sku": manifest["sku"],
                       "selected": manifest["counts"]["unique_selected"],
                       "acquired": manifest["counts"]["acquired"],
