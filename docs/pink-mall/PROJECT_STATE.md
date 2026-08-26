@@ -281,6 +281,45 @@ One non-blocking gap: manufacturer view 03 was not recovered. Its opaque
 The junior-series classification is internal only and appears nowhere in the
 build.
 
+## Pending approval — not published
+
+### Puma 398855 — READY FOR APPROVAL
+
+| | |
+|---|---|
+| Model | Palermo Moda |
+| Article / colour | 398855, colour suffix **-11** |
+| Public colour | Pink / Aqua (manufacturer: `Poised Pink / Aqua`) |
+| Price | €44 |
+| Sizes | 37.5, 38, 38.5, 39 — available only; no sold-out states asserted |
+| Size state | `SIZE_SCALE_NOT_PROVEN` — non-blocking |
+| Variant | `VARIANT_CONFIDENCE_PASS` |
+| Images | 5 accepted, 2000×2000, transparent cut-outs |
+| Media tier | **OFFICIAL** — `images.puma.com`, manufacturer CDN |
+| Material | omitted — not established by this pipeline |
+| Proposed Mall ID | **PM-030** |
+| Published | **no** |
+| Package | `checkpoints/PM030_398855_APPROVAL_PREVIEW.md` |
+
+Third product with manufacturer-tier imagery, after PM-026 and PM-029.
+
+Two mis-targetings were caught by visual review before anything was staged. The
+first attempt was the wrong article entirely — 401489 Club II Era, whose
+pink-bearing colourway `-04` is an aquatic-primary shoe with a pink formstripe.
+The second was the wrong colourway of the right article: a first pass selected
+five views of `398855-01`, Puma White / Puma Black, because the official page
+serves the default colourway and its images outranked the sweep.
+
+A reconnaissance sweep of the article's own colour codes, one hero view each,
+resolved it: `-11` is the pink one. The decoys sat beside it on the same contact
+sheet — `01` white/black, `03` mint/mauve, `07` coral, `10` cream with a pale
+pink stripe — and any of them would have satisfied a check that verified only
+the article number.
+
+`media.surface` is deliberately omitted: these are transparent cut-outs, so the
+mall's own neutral field shows through instead of a colour invented by
+flattening a PNG.
+
 ## Next step
 
 Next Mall ID is **PM-030**, unallocated until a product is actually published.
