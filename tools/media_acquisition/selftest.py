@@ -369,6 +369,41 @@ def main():
     checks.append(("dropping one route still forbids refusal",
                    refusal_audit(na[:-1])["refusalPermitted"] is False))
 
+    # Transport failure is not evidence of absence — the same conflation as
+    # a 403 being read as an identity failure, one level up in the audit.
+    from acquire import _is_transport_failure
+    unreachable_led = [{"route": r, "result": "N/A", "notApplicable": "x",
+                        "sku_evidence": False, "candidates": 0}
+                       for r in REFUSAL_ROUTES if r != "INDEXED_SOURCE_EVIDENCE"]
+    unreachable_led.append({"route": "INDEXED_SOURCE_EVIDENCE", "result": "FAIL",
+                            "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+                            "indexReachable": False,
+                            "sku_evidence": False, "candidates": 0})
+    a = refusal_audit(unreachable_led)
+    checks.append(("an unreachable route forbids refusal",
+                   a["refusalPermitted"] is False
+                   and "INDEXED_SOURCE_EVIDENCE" in a["routesUnreachable"]))
+    checks.append(("unreachable is reported as transport, not evidence",
+                   "transport failure" in a["refusalBlockedBecause"]))
+
+    answered = list(unreachable_led[:-1])
+    answered.append({"route": "INDEXED_SOURCE_EVIDENCE", "result": "FAIL",
+                     "error": "HTTPError: HTTP Error 404: Not Found",
+                     "indexReachable": True,
+                     "sku_evidence": False, "candidates": 0})
+    checks.append(("a 404 is an answer and does not block refusal",
+                   refusal_audit(answered)["refusalPermitted"] is True))
+
+    for err, expect in (("TimeoutError: The read operation timed out", True),
+                        ("URLError: <urlopen error timed out>", True),
+                        ("HTTPError: HTTP Error 403: Forbidden", True),
+                        ("HTTPError: HTTP Error 503", True),
+                        ("index call budget exhausted (24)", True),
+                        ("HTTPError: HTTP Error 404: Not Found", False),
+                        ("no archived capture", False)):
+        got = _is_transport_failure({"result": "FAIL", "error": err})
+        checks.append(("transport classification: %s" % err[:34], got is expect))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

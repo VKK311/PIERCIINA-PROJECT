@@ -25,6 +25,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 
@@ -334,10 +335,17 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
 # there unread.
 
 WAYBACK_CDX = "https://web.archive.org/cdx/search/cdx"
+# One archive refusing datacenter IPs must not end the route. These are
+# independent public web archives with their own infrastructure; if the first
+# will not talk to the runner, the second may. Each is an archive of the same
+# identifiable sources, so authority is unchanged — only the transport is.
+MEMENTO_TIMEMAP = "http://timetravel.mementoweb.org/timemap/link/"
+ARQUIVO_CDX = "https://arquivo.pt/wayback/cdx"
 # The id_ modifier returns the archived bytes verbatim — no Wayback banner and
 # no URL rewriting — so extracted asset URLs are the source's own.
 WAYBACK_SNAPSHOT = "https://web.archive.org/web/{ts}id_/{url}"
-INDEX_HOSTS = frozenset(["web.archive.org", "archive.org"])
+INDEX_HOSTS = frozenset(["web.archive.org", "archive.org",
+                         "timetravel.mementoweb.org", "arquivo.pt"])
 MAX_INDEXED_DOCS = 6
 # The archive is slow, and indexed passes now fire for every page that failed
 # direct fetch — across every manifest in a run. Without a ceiling one SKU's
@@ -349,13 +357,30 @@ INDEX_CALL_BUDGET = 24
 # fetch. Run 19 failed almost entirely on read timeouts at the 25s default and
 # recorded them as "no archived capture" — reporting a transport failure as an
 # evidence failure, one layer down from where that bug was just fixed.
-INDEX_TIMEOUT = 90
-INDEX_RETRIES = 2
+INDEX_TIMEOUT = 45
+INDEX_RETRIES = 1
+# A call budget bounds the number of archive lookups but not their cost: 24
+# calls that each burn a 90s timeout is half an hour. What actually has to be
+# bounded is wall-clock, so the indexed phase gets a deadline and the job
+# cannot be starved by a slow index.
+INDEX_DEADLINE_S = 420
+_index_started = [None]
 _index_calls = [0]
 
 
 def _index_budget_left():
-    return _index_calls[0] < INDEX_CALL_BUDGET
+    if _index_calls[0] >= INDEX_CALL_BUDGET:
+        return False
+    if _index_started[0] is not None:
+        if time.time() - _index_started[0] > INDEX_DEADLINE_S:
+            return False
+    return True
+
+
+def _index_budget_reason():
+    if _index_calls[0] >= INDEX_CALL_BUDGET:
+        return "index call budget exhausted (%d calls)" % INDEX_CALL_BUDGET
+    return "index phase deadline reached (%ds)" % INDEX_DEADLINE_S
 
 
 def _authority_tier(host, rule, request):
@@ -394,24 +419,36 @@ def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
         params.append(("matchType", match_type))
     if contains:
         params.append(("filter", "original:(?i).*%s.*" % re.escape(contains)))
-    url = WAYBACK_CDX + "?" + urllib.parse.urlencode(params)
+    endpoints = [WAYBACK_CDX + "?" + urllib.parse.urlencode(params)]
+    if not match_type:
+        # arquivo.pt speaks the same CDX dialect for exact-URL lookups.
+        endpoints.append(ARQUIVO_CDX + "?" + urllib.parse.urlencode(
+            [(k, v) for k, v in params if k in ("url", "output", "limit", "fl")]))
+    url = endpoints[0]
+    if _index_started[0] is None:
+        _index_started[0] = time.time()
     if not _index_budget_left():
-        return [], "index call budget exhausted (%d)" % INDEX_CALL_BUDGET
+        return [], _index_budget_reason()
     last_err = None
-    for attempt in range(INDEX_RETRIES + 1):
-        if not _index_budget_left():
-            return [], last_err or "index call budget exhausted"
-        _index_calls[0] += 1
-        try:
-            _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
-                                  accept="application/json,*/*",
-                                  timeout=INDEX_TIMEOUT)
-            text = body.decode("utf-8", "replace").strip()
-            rows = json.loads(text) if text else []
+    rows = None
+    for endpoint in endpoints:
+        for _attempt in range(INDEX_RETRIES + 1):
+            if not _index_budget_left():
+                return [], last_err or _index_budget_reason()
+            _index_calls[0] += 1
+            try:
+                _, _, body = http_get(endpoint, (INDEX_HOSTS, ()),
+                                      max_bytes=MAX_PAGE_BYTES,
+                                      accept="application/json,*/*",
+                                      timeout=INDEX_TIMEOUT)
+                text = body.decode("utf-8", "replace").strip()
+                rows = json.loads(text) if text else []
+                break
+            except Exception as e:
+                last_err = "%s: %s" % (type(e).__name__, e)
+        if rows is not None:
             break
-        except Exception as e:
-            last_err = "%s: %s" % (type(e).__name__, e)
-    else:
+    if rows is None:
         return [], last_err
     out = []
     for row in rows:
@@ -1017,15 +1054,44 @@ REFUSAL_ROUTES = (
 )
 
 
+# A route that could not be reached did not answer the question. Treating
+# "the archive refused the connection" as "the archive holds nothing" is the
+# same conflation as treating a 403 as an identity failure — one level up.
+TRANSPORT_FAILURE_RE = re.compile(
+    r"timed out|timeout|connection refused|connection reset|handshake|"
+    r"temporarily unavailable|budget exhausted|deadline reached|"
+    r"HTTP Error (?:403|408|429|5\d\d)", re.I)
+
+
+def _is_transport_failure(entry):
+    """Did this route fail to be *reached*, as opposed to answering 'nothing'?
+
+    A 404 is an answer: the host responded and that URL does not resolve. A
+    timeout, a refused connection, a 403, a 5xx, or an exhausted budget is not
+    an answer at all — the route never got to speak.
+    """
+    if entry.get("result") != "FAIL":
+        return False
+    if entry.get("indexReachable") is False:
+        return True
+    return bool(TRANSPORT_FAILURE_RE.search(str(entry.get("error") or "")))
+
+
 def refusal_audit(ledger, aliases=None):
     """Machine-readable account of whether a refusal is permitted.
 
-    exact_product_document is the decisive fact: if any route returned a
-    document from an allowed source that named this exact article and carried
-    product fields, the identity is NOT unresolved, whatever happened to the
-    other routes.
+    Two facts decide it.
+
+    exact_product_document: if any route returned a document from an allowed
+    source naming this exact article with product fields, the identity is NOT
+    unresolved, whatever happened elsewhere.
+
+    transport failures: a route that timed out, was refused, or ran out of
+    budget never answered. Counting it as "tried and empty" would let an
+    infrastructure problem masquerade as evidence of absence — which is the
+    entire failure mode this gate exists to prevent.
     """
-    attempted, succeeded, exact = {}, {}, []
+    attempted, succeeded, exact, unreachable = {}, {}, [], {}
     for e in (ledger or []):
         r = e.get("route")
         if not r:
@@ -1035,6 +1101,8 @@ def refusal_audit(ledger, aliases=None):
             continue
         if e.get("result") == "OK":
             succeeded[r] = succeeded.get(r, 0) + 1
+        elif _is_transport_failure(e):
+            unreachable.setdefault(r, []).append(str(e.get("error") or "unreachable")[:120])
         if e.get("exactProductDocument") or (e.get("sku_evidence") and e.get("candidates")):
             exact.append({"route": r, "url": e.get("url"),
                           "authorityTier": e.get("authorityTier"),
@@ -1044,20 +1112,30 @@ def refusal_audit(ledger, aliases=None):
         succeeded["IDENTIFIER_EXPANSION"] = succeeded.get("IDENTIFIER_EXPANSION", 0) + 1
 
     untried = [r for r in REFUSAL_ROUTES if r not in attempted]
+    # A route counts as exhausted only if it actually answered at least once.
+    blocked = sorted(r for r in unreachable if r not in succeeded)
+
+    if exact:
+        why = "an exact product document was found — identity is established"
+    elif untried:
+        why = "routes not attempted: " + ", ".join(untried)
+    elif blocked:
+        why = ("route(s) never answered — transport failure, not evidence: "
+               + ", ".join(blocked))
+    else:
+        why = ""
+
     return {
         "routesAttempted": sorted(attempted),
         "routesSucceeded": sorted(succeeded),
         "routesNotAttempted": untried,
+        "routesUnreachable": {k: v for k, v in unreachable.items() if k in blocked},
         "exactProductDocuments": exact,
         "identifierAliases": list(aliases or []),
-        # A refusal is only honest once nothing was left untried and nothing
-        # exact was found.
-        "refusalPermitted": (not exact) and not untried,
-        "refusalBlockedBecause": (
-            "an exact product document was found — identity is established"
-            if exact else
-            ("routes not attempted: " + ", ".join(untried)) if untried else ""
-        ),
+        # Honest only when nothing was left untried, nothing was merely
+        # unreachable, and nothing exact was found.
+        "refusalPermitted": (not exact) and (not untried) and (not blocked),
+        "refusalBlockedBecause": why,
     }
 
 
@@ -1514,8 +1592,12 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     # answered was never tried. Media may still be missing — that is
     # MEDIA_NOT_ACQUIRED, a media outcome — but identity is not unresolved.
     if status == "BLOCKED" and not audit["refusalPermitted"]:
-        status = "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED" if audit["exactProductDocuments"] \
-            else "ROUTES_NOT_EXHAUSTED"
+        if audit["exactProductDocuments"]:
+            status = "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED"
+        elif audit["routesUnreachable"]:
+            status = "DISCOVERY_TRANSPORT_BLOCKED"
+        else:
+            status = "ROUTES_NOT_EXHAUSTED"
     sheet_rel = None
     if entries:
         sheet_path = os.path.join(base, "CONTACT_SHEET.webp")
