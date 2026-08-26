@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-029 publication.
-Status: **PM-001…PM-029 PUBLISHED.**
+Updated: PM-030 publication.
+Status: **PM-001…PM-030 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `851534665fa9c02cc3d1096343f2c8e87d4f429ba716bc014f105f49db8b71ac` |
-| CANONICAL WEBSITE BYTES | 2555648 |
+| CANONICAL WEBSITE SHA-256 | `5267fa45e8a1de956b940511f4dc66a64c52b66f8307cacbc7564544c0f66578` |
+| CANONICAL WEBSITE BYTES | 2558796 |
 
 ## Engine
 
@@ -28,13 +28,14 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-029 |
-| NEXT ID | PM-030 |
+| PUBLIC CATALOG | PM-001 … PM-030 |
+| NEXT ID | PM-031 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
 | JR5952 | **PUBLISHED as PM-028** on 2026-08-25 |
 | PGS30614 | **PUBLISHED as PM-029** on 2026-08-26 |
+| 398855 | **PUBLISHED as PM-030** on 2026-08-26 |
 
 ## Media acquisition automation
 
@@ -85,7 +86,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `3970434e556fd8479bff34a901d6e75ab454a6edc3f489ae06d48408622efde6` |
+| SHA-256 | `af627ed471913c03ace643347138890bbb7216cd548f1621d78d43e691cfd805` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -281,51 +282,61 @@ One non-blocking gap: manufacturer view 03 was not recovered. Its opaque
 The junior-series classification is internal only and appears nowhere in the
 build.
 
-## Pending approval — not published
-
-### Puma 398855 — READY FOR APPROVAL
+## PM-030 — published
 
 | | |
 |---|---|
-| Model | Palermo Moda |
-| Article / colour | 398855, colour suffix **-11** |
-| Public colour | Pink / Aqua (manufacturer: `Poised Pink / Aqua`) |
-| Price | €44 |
-| Sizes | 37.5, 38, 38.5, 39 — available only; no sold-out states asserted |
-| Size state | `SIZE_SCALE_NOT_PROVEN` — non-blocking |
-| Variant | `VARIANT_CONFIDENCE_PASS` |
-| Images | 5 accepted, 2000×2000, transparent cut-outs |
-| Media tier | **OFFICIAL** — `images.puma.com`, manufacturer CDN |
-| Material | omitted — not established by this pipeline |
-| Proposed Mall ID | **PM-030** |
-| Published | **no** |
-| Package | `checkpoints/PM030_398855_APPROVAL_PREVIEW.md` |
+| PUBLISHED | 2026-08-26 |
+| BRAND / MODEL | Puma / Palermo Moda |
+| MANUFACTURER ITEM | 398855, colour suffix **-11** |
+| PUBLIC COLOUR | Pink / Aqua (manufacturer: `Poised Pink / Aqua`) |
+| MATERIAL | **omitted** — not established by this pipeline |
+| PRICE | €44, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 37.5, 38, 38.5, 39 — all available. **No sold-out sizes asserted** |
+| EXACT-MODEL SIZE RUN | NOT VERIFIED — non-blocking |
+| NEW UNTIL | 2026-09-09 |
+| MAIN | IMAGE 01 — lateral side profile |
+| GALLERY ORDER | 01 → 05 → 03 → 04 → 02 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-030/` — 5 × 2000×2000 WebP **with alpha** |
+| MEDIA TIER | **OFFICIAL** — `images.puma.com`, manufacturer CDN |
+| MEDIA FORM | transparent cut-outs; `media.surface` omitted by design |
+| ACQUISITION | **zero-seed**, by CDN probe |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| PACKAGE | `checkpoints/PM030_398855_APPROVAL_PREVIEW.md` |
 
 Third product with manufacturer-tier imagery, after PM-026 and PM-029.
 
-Two mis-targetings were caught by visual review before anything was staged. The
-first attempt was the wrong article entirely — 401489 Club II Era, whose
-pink-bearing colourway `-04` is an aquatic-primary shoe with a pink formstripe.
-The second was the wrong colourway of the right article: a first pass selected
-five views of `398855-01`, Puma White / Puma Black, because the official page
-serves the default colourway and its images outranked the sweep.
+**Two mis-targetings were caught by visual review before anything was staged**,
+and neither would have been caught by status alone — every automated signal read
+PASS in both cases.
 
-A reconnaissance sweep of the article's own colour codes, one hero view each,
-resolved it: `-11` is the pink one. The decoys sat beside it on the same contact
-sheet — `01` white/black, `03` mint/mauve, `07` coral, `10` cream with a pale
-pink stripe — and any of them would have satisfied a check that verified only
-the article number.
+The first was the wrong article: 401489 Club II Era was carried to acquisition
+before the contact sheet showed `401489-04` to be an aquatic-primary shoe with a
+pink formstripe rather than a pink shoe.
 
-`media.surface` is deliberately omitted: these are transparent cut-outs, so the
-mall's own neutral field shows through instead of a colour invented by
-flattening a PNG.
+The second was the wrong colourway of the right article. 398855 ships eleven
+colourways and the colour suffix was evidenced nowhere reachable; a first pass
+selected five views of `398855-01`, Puma White / Puma Black, because the
+official page serves the default colourway and its images outranked the sweep.
+A reconnaissance pass then fetched one hero per colour code and put all eleven
+on one sheet, which made `-11` unambiguous. The decoys sat beside it — `01`
+white/black, `03` mint/mauve, `07` coral, `10` cream with a pale pink stripe —
+and each would have satisfied a check that verified only the article number.
+
+Identity is pinned twice: article number and colour suffix both appear in every
+acquired asset path.
+
+`media.surface` is omitted deliberately. These are transparent cut-outs, so the
+mall's own neutral token shows through rather than the `#47704C` the pipeline
+originally derived by flattening a transparent PNG.
 
 ## Next step
 
-Next Mall ID is **PM-030**, unallocated until a product is actually published.
+Next Mall ID is **PM-031**, unallocated until a product is actually published.
 Nothing is awaiting approval: the approval queue is empty.
 
-Five products now come from the automated pipeline — PM-025 through PM-029.
-Two have manufacturer-official media (PM-026, PM-029); PM-025, PM-027 and
-PM-028 rest on trusted-retailer evidence. Upgrading those three to official
-imagery remains open if an official route ever opens.
+Six products now come from the automated pipeline — PM-025 through PM-030.
+Three have manufacturer-official media (PM-026, PM-029, PM-030); PM-025,
+PM-027 and PM-028 rest on trusted-retailer evidence. Upgrading those three to
+official imagery remains open if an official route ever opens.

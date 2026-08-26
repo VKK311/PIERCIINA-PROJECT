@@ -1,6 +1,13 @@
 # PINK MALL — Puma 398855 approval preview (PM-030 proposed)
 
-**STATUS: READY FOR APPROVAL — NOT PUBLISHED**
+**STATUS: APPROVED AND PUBLISHED as PM-030 on 2026-08-26.**
+
+Published exactly as recorded below — MAIN IMAGE 01, gallery 01 → 05 → 03 → 04
+→ 02, €44, sizes 37.5 / 38 / 38.5 / 39, material omitted, official manufacturer
+media, `media.surface` omitted. Live media is at
+`assets/pink-mall/products/PM-030/`.
+
+**Original approval state:**
 `VARIANT_CONFIDENCE_PASS` · **media tier: OFFICIAL** · transparent cut-outs
 
 Zero-seed onboarding. Human input was four fields —
@@ -17,7 +24,7 @@ mis-targeting, described in §2.
 | Model | Palermo Moda |
 | Manufacturer item | 398855 |
 | Colour suffix | **-11** |
-| Mall ID | PM-030 (proposed — allocated only on publish) |
+| Mall ID | **PM-030 — allocated at publication, 2026-08-26** |
 | Category | SHOES > Sneakers |
 | Public colour | Pink / Aqua |
 | Manufacturer colour name | `Poised Pink / Aqua` |
@@ -25,7 +32,7 @@ mis-targeting, described in §2.
 | Price | €44 |
 | oldPriceEUR | null — no SALE |
 | selectedBy | null |
-| NEW | 14 days from first approved publication |
+| NEW | until 2026-09-09 (14 days from publication) |
 | Delivery | global — `4–7 работни дни` |
 
 A dusty pink suede terrace low-top with a light aqua formstripe, a small gold
@@ -167,7 +174,7 @@ The manufacturer classifies this line as a big-kids / junior series item, and
 the supplied model name carried "Jr". Internal only; neither appears in the
 name, colour, copy, tags, alt text or any public field.
 
-## 10. Staged product object — NOT PUBLISHED
+## 10. Published product object
 
 ```js
 {
@@ -187,7 +194,7 @@ name, colour, copy, tags, alt text or any public field.
     tags: ['puma','palermo','palermo moda','sneakers','shoes','pink','aqua',
            'suede','platform','gum sole','terrace','retro'],
     featured: false, campaign: null, related: ['PM-029','PM-027'],
-    isNew: false, newUntil: null,
+    isNew: false, newUntil: '2026-09-09',
     inventoryMode: 'availability',
     availability: { '37.5':'available', '38':'available',
                     '38.5':'available', '39':'available' },
@@ -210,21 +217,21 @@ name, colour, copy, tags, alt text or any public field.
 }
 ```
 
-## 11. Approval preview
+## 11. Published summary
 
 ```text
-STATUS:   READY FOR APPROVAL
+STATUS:   PUBLISHED as PM-030 on 2026-08-26
 VARIANT:  VARIANT_CONFIDENCE_PASS
 BRAND:    Puma
 MODEL:    Palermo Moda
 ITEM:     398855   (colour suffix -11)
-MALL ID:  PM-030 (proposed)
+MALL ID:  PM-030
 CATEGORY: SHOES > Sneakers
 COLOR:    Pink / Aqua   (manufacturer: Poised Pink / Aqua)
 MATERIAL: omitted — not established by this pipeline
 PRICE:    €44
 SIZES:    37.5, 38, 38.5, 39 — all available (no sold-out states asserted)
-NEW:      YES for 14 days after first approved publication
+NEW:      YES until 2026-09-09
 MAIN:     IMAGE 01
 GALLERY ORDER: 01 (MAIN) → 05 → 03 → 04 → 02
 MEDIA TIER: OFFICIAL — images.puma.com, manufacturer CDN
@@ -232,5 +239,20 @@ MEDIA FORM: transparent cut-outs; media.surface omitted by design
 WARNINGS: public colour is Pink / Aqua, not simply Pink
 ```
 
-**Awaiting:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` / `REORDER` /
-`REMOVE IMAGE 0X` / `CHANGE COPY` / `REJECT`.
+**Approved and published.** Nothing here awaits a decision.
+
+## 12. Publication verification — 2026-08-26
+
+| Check | Result |
+|---|---|
+| Canonical `PINKMALL.html` SHA-256 | `5267fa45e8a1de956b940511f4dc66a64c52b66f8307cacbc7564544c0f66578` |
+| PM-030 in `PINK_MALL_PRODUCTS` | exactly once; catalogue PM-001…PM-030, 30 unique ids |
+| Production regression | **PASS** — 264/264 across PM-025…PM-030 |
+| Portable review regression | **PASS** — 266/266, standalone alone in an empty directory |
+| Live media | 5 WebP at native 2000×2000 **with alpha preserved**, 54–79% transparent |
+| Surface | omitted; card and PDP fall back to the mall neutral `#EDEFF0` |
+| Size truth | 4 sizes, none sold out, no quantities |
+| Material | no `Състав` row on the PDP |
+| Junior classification | absent from all rendered text |
+| Supplier names | absent from all rendered text |
+| PM-025 … PM-029 | unchanged — ladders, sold-out sets, media dimensions, spec rows |
