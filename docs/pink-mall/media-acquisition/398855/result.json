@@ -6,17 +6,17 @@
   "model": "Palermo Moda",
   "variant": "Poised Pink / Aqua",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T17:43:34Z",
+  "generatedAt": "2026-08-26T17:45:37Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32995666827",
+    "githubRunId": "32995953718",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "1993b1fddf056e32b54bf1c5ee6790bfcaef99ed"
+    "githubSha": "8c4484f5169c73f1602cd27834a678323ccf4188"
   },
   "counts": {
-    "acquired": 21,
-    "unique_selected": 5,
-    "duplicates_collapsed": 1
+    "acquired": 11,
+    "unique_selected": 11,
+    "duplicates_collapsed": 0
   },
   "variantConfidence": {
     "state": "VARIANT_CONFIDENCE_PASS",
@@ -30,154 +30,316 @@
   },
   "mediaTier": "OFFICIAL",
   "mediaTierMixed": false,
-  "proposedMain": "source/398855-01-original.jpg",
-  "dominantBackdrop": null,
-  "cutoutSet": false,
+  "proposedMain": "source/398855-01-original.png",
+  "dominantBackdrop": "#47704C",
+  "cutoutSet": true,
   "contactSheet": "CONTACT_SHEET.webp",
   "images": [
     {
       "index": 1,
       "role": "MAIN",
-      "file": "source/398855-01-original.jpg",
+      "file": "source/398855-01-original.png",
       "preview": "preview/398855-01.webp",
-      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/01/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/01/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/01/sv01/fnd/EEA/fmt/png",
       "source_domain": "images.puma.com",
-      "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T17:43:18Z",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:26Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
-      "mime": "image/jpeg",
-      "bytes": 117869,
-      "sha256": "c80531c4ac55c058e724b8352bb2c5e5ed6a8a34de20633c7f8dad516251d204",
-      "dhash": "000000000000000000c001c0470c3ff86b80c79cece07f198002600000000000",
+      "mime": "image/png",
+      "bytes": 522665,
+      "sha256": "e87c0933537026fed70b0892ad95d8f23b5b13d1bcf4513abf30cb1f940e9973",
+      "dhash": "00000000002000d2012c063238b2c1fb03830f9fc4e0d11c2803400800000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "backdrop": "#FAFAFA",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids&#x27;-Sneakers",
-          "size": "2000x2000",
-          "sha256": "c80531c4ac55c058e724b8352bb2c5e5ed6a8a34de20633c7f8dad516251d204"
-        }
-      ],
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
       "authorityTier": "OFFICIAL",
-      "cutout": false,
+      "cutout": true,
       "validation": "PASS",
       "warnings": []
     },
     {
       "index": 2,
       "role": "gallery",
-      "file": "source/398855-02-original.jpg",
+      "file": "source/398855-02-original.png",
       "preview": "preview/398855-02.webp",
-      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/bv/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/bv/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/bv/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/02/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/02/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/02/sv01/fnd/EEA/fmt/png",
       "source_domain": "images.puma.com",
-      "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T17:43:20Z",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:26Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
-      "mime": "image/jpeg",
-      "bytes": 153039,
-      "sha256": "f2d6bdde678262b4f5e7e546e0340bdf58cf9e1eae75b4d0fced6406449a551b",
-      "dhash": "0200010006401e503e207644e6b2fd32c012c6c2c89217d2e992ffc201cc5830",
+      "mime": "image/png",
+      "bytes": 469468,
+      "sha256": "4a5b86142ed16219ab892db7cc8ce5e7b39e4185d7205d466e3facf83b488fe0",
+      "dhash": "00000000000000d2032d0c7230b6c30f0f9f0f3bcf94f1080426200000000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "backdrop": "#FAFAFA",
+      "source_page": null,
+      "backdrop": "#47704C",
       "duplicates_collapsed": [],
       "authorityTier": "OFFICIAL",
-      "cutout": false,
+      "cutout": true,
       "validation": "PASS",
       "warnings": []
     },
     {
       "index": 3,
       "role": "gallery",
-      "file": "source/398855-03-original.jpg",
+      "file": "source/398855-03-original.png",
       "preview": "preview/398855-03.webp",
-      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/03/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/03/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/03/sv01/fnd/EEA/fmt/png",
       "source_domain": "images.puma.com",
-      "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T17:43:19Z",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:26Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
-      "mime": "image/jpeg",
-      "bytes": 120395,
-      "sha256": "04d7ddcb1f96855eb483add0e143899a9bff27173db7c4c92240a4c4acda0081",
-      "dhash": "0000000000000000036407210f243c787cb0d2b4e4406c03101c2c0000000000",
+      "mime": "image/png",
+      "bytes": 567145,
+      "sha256": "e453fa3d22dab1069fecc5ea89b0e33b3da48be5c0aba5c1d8c85fe6d2a0b3ab",
+      "dhash": "00000000000000d2032d0c3230b7c34b0b1b330386dec79c3803400400000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "backdrop": "#FAFAFA",
+      "source_page": null,
+      "backdrop": "#47704C",
       "duplicates_collapsed": [],
       "authorityTier": "OFFICIAL",
-      "cutout": false,
+      "cutout": true,
       "validation": "PASS",
       "warnings": []
     },
     {
       "index": 4,
       "role": "gallery",
-      "file": "source/398855-04-original.jpg",
+      "file": "source/398855-04-original.png",
       "preview": "preview/398855-04.webp",
-      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/04/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/04/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/04/sv01/fnd/EEA/fmt/png",
       "source_domain": "images.puma.com",
-      "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T17:43:18Z",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:27Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
-      "mime": "image/jpeg",
-      "bytes": 271167,
-      "sha256": "dda099900868a4cf05fbe15a4b679dd3b0882f252c9659767a1498b14bcd79d4",
-      "dhash": "ff0cfe14fa50f094fb36de26cf2acfc28cdc2d9f9dc38f658fb0c4f8e30f1db1",
+      "mime": "image/png",
+      "bytes": 559633,
+      "sha256": "8634301b33129568928353ebd764be55a839880ef14a9b5b730926e2f466660b",
+      "dhash": "00000000002000d2032c047230b2c30f0f933383879ec39c3803400400000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "backdrop": null,
+      "source_page": null,
+      "backdrop": "#47704C",
       "duplicates_collapsed": [],
       "authorityTier": "OFFICIAL",
-      "cutout": false,
+      "cutout": true,
       "validation": "PASS",
       "warnings": []
     },
     {
       "index": 5,
       "role": "gallery",
-      "file": "source/398855-05-original.jpg",
+      "file": "source/398855-05-original.png",
       "preview": "preview/398855-05.webp",
-      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod02/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod02/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod02/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/05/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/05/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/05/sv01/fnd/EEA/fmt/png",
       "source_domain": "images.puma.com",
-      "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T17:43:19Z",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:27Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
-      "mime": "image/jpeg",
-      "bytes": 196231,
-      "sha256": "60eb56f30b9d8fdfd3609a4b222668ea48a5da86a9c8b701b8fababa01309de4",
-      "dhash": "006d00cd013f02df058f058e0b060da70ca73b4333e171c4c84a1ca10082026a",
+      "mime": "image/png",
+      "bytes": 545275,
+      "sha256": "36f529affdc4a221ddd9018fa6f2929c897b0e894b33254b0ba88a05afc999b1",
+      "dhash": "00000000002000d2012c067238b3410f07db0ff7cee0c1843803800000000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "backdrop": null,
+      "source_page": null,
+      "backdrop": "#47704C",
       "duplicates_collapsed": [],
       "authorityTier": "OFFICIAL",
-      "cutout": false,
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 6,
+      "role": "gallery",
+      "file": "source/398855-06-original.png",
+      "preview": "preview/398855-06.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/06/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/06/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/06/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:27Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 445219,
+      "sha256": "088e19ce53457034a504ff3db826b7f06e7b60ac7558d383323ab013d62007e0",
+      "dhash": "00000000000000d2032c046230b3c1fb0b830f1bc4e4c3043403420000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 7,
+      "role": "gallery",
+      "file": "source/398855-07-original.png",
+      "preview": "preview/398855-07.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/07/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/07/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/07/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:27Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 486415,
+      "sha256": "d1a0d552a9b8e6b649854c3dd6191894ad46dfe6bf61a620a651fe8651a9a34b",
+      "dhash": "00000000000000c2032c0c3270d6838f08f304c9c30cf00c0823400000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 8,
+      "role": "gallery",
+      "file": "source/398855-08-original.png",
+      "preview": "preview/398855-08.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/08/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/08/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/08/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:27Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 512205,
+      "sha256": "ebb6aa623d83d79b9ecb6ed4a5b2dca8182ba6e315b112dc73bb09f2e1c9c266",
+      "dhash": "00000000000000c2032c0c3230b3830f0fbb0e7bc788e3b80803400000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 9,
+      "role": "gallery",
+      "file": "source/398855-09-original.png",
+      "preview": "preview/398855-09.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/09/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/09/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/09/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:28Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 518887,
+      "sha256": "60b66194739371c962d8abfc1275fc162d0c6ab97ac8d08b684a1f389eb37ce5",
+      "dhash": "00000000000000c2032c0c72309383c30b032729c4d8e13c0002000000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 10,
+      "role": "gallery",
+      "file": "source/398855-10-original.png",
+      "preview": "preview/398855-10.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/10/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/10/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/10/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:28Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 476610,
+      "sha256": "a4ae00861ecae8d73e7ce61395ef77ba40430be457e6395619664b72d4d9b1b2",
+      "dhash": "000000000000004201ad063230f2c18f0deb0e7bc6c0f8140403400000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 11,
+      "role": "gallery",
+      "file": "source/398855-11-original.png",
+      "preview": "preview/398855-11.webp",
+      "source_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/11/sv01/fnd/EEA/fmt/png",
+      "requested_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/11/sv01/fnd/EEA/fmt/png",
+      "anchor_url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/11/sv01/fnd/EEA/fmt/png",
+      "source_domain": "images.puma.com",
+      "discovery_method": "cdn-probe",
+      "acquired_at": "2026-08-26T17:45:28Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/png",
+      "bytes": 476311,
+      "sha256": "9bcd9f343aa9469f31601ab9664240cbe7d1ef2c6da52fa8f50eaceeed7bc7c3",
+      "dhash": "0000000000000042018c0e3230f3838b0f2307f9c6d4fe100003041000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#47704C",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": true,
       "validation": "PASS",
       "warnings": []
     }
@@ -218,21 +380,6 @@
       "exactProductDocument": false,
       "sku_evidence": true,
       "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.zalando.co.uk/puma-palermo-moda-jr-unisex-trainers-poised-pink-aqua-pu116d0p3-g11.html",
-      "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "result": "OK",
-      "sku_evidence": true,
-      "candidates": 159
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
@@ -345,8 +492,7 @@
       "OFFICIAL_REGIONAL_SEARCH",
       "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "TRUSTED_RETAILER_SEARCH"
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
       "DIRECT_OFFICIAL_PAGE"
@@ -354,39 +500,16 @@
     "routesNotAttempted": [
       "INDEXED_SOURCE_EVIDENCE",
       "INDEXED_OUTBOUND_MEDIA",
-      "OFFICIAL_CDN_PROBE"
+      "OFFICIAL_CDN_PROBE",
+      "TRUSTED_RETAILER_SEARCH"
     ],
-    "routesUnreachable": {
-      "TRUSTED_RETAILER_SEARCH": [
-        "TimeoutError: The read operation timed out"
-      ]
-    },
-    "exactProductDocuments": [
-      {
-        "route": "DIRECT_OFFICIAL_PAGE",
-        "url": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-        "authorityTier": null,
-        "candidates": 159
-      }
-    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [],
     "identifierAliases": [],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "an exact product document was found — identity is established"
+    "refusalBlockedBecause": "routes not attempted: INDEXED_SOURCE_EVIDENCE, INDEXED_OUTBOUND_MEDIA, OFFICIAL_CDN_PROBE, TRUSTED_RETAILER_SEARCH"
   },
   "log": [
-    {
-      "stage": "discover",
-      "url": "https://www.zalando.co.uk/puma-palermo-moda-jr-unisex-trainers-poised-pink-aqua-pu116d0p3-g11.html",
-      "ok": false,
-      "error": "TimeoutError: The read operation timed out"
-    },
-    {
-      "stage": "discover",
-      "url": "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855",
-      "ok": true,
-      "raw_candidates": 159,
-      "page_has_sku": true
-    },
     {
       "stage": "discover",
       "url": "https://eu.puma.com/de/en/sports/football/all-football-products",
@@ -402,456 +525,6 @@
     },
     {
       "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/3be9571ad3f296bf0962aa1729e314b9cc2dcedf-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/da9ea323c2bf4a82adbe5f5a1e03ce5e0020a091-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/d11b733f71351bfece56a6b77df9cdbb164b886d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6cada0594dfb5ed20bd9a06583caeb53d316269f-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7a8d56fa725c2c6cc4d0d67ccb2db95959130d46-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5d01c40b54c5453696c729eed2288392d36cea04-883x410.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/295d960ed39c8fa2d6cfaca47c3246b6357d668e-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/1a2ffe5e7a0e6126d38112567a3f446808bd3431-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/82e5a5f5a141924fe83688b4e20accd3ea4c016d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/1d3a5e6787b7274d00c0a0a42cc436ba228c5ba4-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/44b2cc809e7336d9741a90264a8dea29a14fe3bf-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6a2db92291939caa842e9d01c6c45e0d83a10c96-883x410.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7c2bf21598a39b8749f9edbd37ff03269ae8e1d9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/defca5484217daa70c939f7a39827ed57a39405f-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5b08e7b1837787b1f5d27315ba8d6e7d1127b06d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/e169eec3e5b3a9a1cec8ace476a4bc1694989223-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/d7d279037cc03cb49bdff4adace06eb4ab459982-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/974e88f427f956656294b56f39b91dfa14114741-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/0a5227437b6a981b05feacc9fe17ef4dcba95689-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/f0c46a1541ef6cd70852c4dda7b03f5f16ea8dd0-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7f232594045d2eb525bf2df3a42ac1efe6f526be-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5397722e70e3e75c1c0ac0f8c2c39a1b7cc8db28-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/854ec9d5b8a8aaf0cb0f780f48e37be8ab5c99ec-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/e791c0878ba4b826c85ef8ff082c5b68e64126ce-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/62bf87f8f267d006fe016b5525fd6621fa24300c-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/fedd16762e021275ec37ab188fb34dbfdc9d2b54-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/fedd16762e021275ec37ab188fb34dbfdc9d2b54-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4039cf25ee3129ebe96b6d677bf7564d5d1eb9f5-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/62779b72f98e4b950451a73237f2515d59db6825-960x500.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/51e60af131f69fa74903fda92f534de3b6437004-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/118e43a93c8850374f4777ee4c2d0e336d0fe977-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4b032a6e194565b156a00adb56145df496b4c481-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6a19d4a32959f5486e56e93bab1f0f02b26b22e9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5be11a7d47af28cb4b690316060df37c093857a6-960x500.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/a531b404b1291704099dfd57b5d1838df8d7bb99-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/8a2ef18fc276ae592dff6f943dd8180b06121ec9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4949c3f1be0de94a1c7721e45efe423d6614deab-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/e2f3228fcd44762e42edfcabda6c81ac3e40e59e-2000x486.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/3be9571ad3f296bf0962aa1729e314b9cc2dcedf-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/da9ea323c2bf4a82adbe5f5a1e03ce5e0020a091-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/d11b733f71351bfece56a6b77df9cdbb164b886d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6cada0594dfb5ed20bd9a06583caeb53d316269f-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7a8d56fa725c2c6cc4d0d67ccb2db95959130d46-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5d01c40b54c5453696c729eed2288392d36cea04-883x410.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/295d960ed39c8fa2d6cfaca47c3246b6357d668e-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/1a2ffe5e7a0e6126d38112567a3f446808bd3431-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/82e5a5f5a141924fe83688b4e20accd3ea4c016d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/1d3a5e6787b7274d00c0a0a42cc436ba228c5ba4-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/44b2cc809e7336d9741a90264a8dea29a14fe3bf-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6a2db92291939caa842e9d01c6c45e0d83a10c96-883x410.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7c2bf21598a39b8749f9edbd37ff03269ae8e1d9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/defca5484217daa70c939f7a39827ed57a39405f-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5b08e7b1837787b1f5d27315ba8d6e7d1127b06d-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/e169eec3e5b3a9a1cec8ace476a4bc1694989223-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/d7d279037cc03cb49bdff4adace06eb4ab459982-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/974e88f427f956656294b56f39b91dfa14114741-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/0a5227437b6a981b05feacc9fe17ef4dcba95689-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/f0c46a1541ef6cd70852c4dda7b03f5f16ea8dd0-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/7f232594045d2eb525bf2df3a42ac1efe6f526be-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5397722e70e3e75c1c0ac0f8c2c39a1b7cc8db28-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/854ec9d5b8a8aaf0cb0f780f48e37be8ab5c99ec-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/e791c0878ba4b826c85ef8ff082c5b68e64126ce-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/62bf87f8f267d006fe016b5525fd6621fa24300c-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/fedd16762e021275ec37ab188fb34dbfdc9d2b54-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/fedd16762e021275ec37ab188fb34dbfdc9d2b54-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4039cf25ee3129ebe96b6d677bf7564d5d1eb9f5-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/62779b72f98e4b950451a73237f2515d59db6825-960x500.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/51e60af131f69fa74903fda92f534de3b6437004-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/118e43a93c8850374f4777ee4c2d0e336d0fe977-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4b032a6e194565b156a00adb56145df496b4c481-841x400.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/6a19d4a32959f5486e56e93bab1f0f02b26b22e9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/5be11a7d47af28cb4b690316060df37c093857a6-960x500.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/a531b404b1291704099dfd57b5d1838df8d7bb99-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/8a2ef18fc276ae592dff6f943dd8180b06121ec9-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://cdn.sanity.io/images/qa41whrn/prod/4949c3f1be0de94a1c7721e45efe423d6614deab-2000x1125.jpg",
-      "ok": false,
-      "error": "host cdn.sanity.io not in allow-list"
-    },
-    {
-      "stage": "filter",
       "url": "https://cdn.sanity.io/images/qa41whrn/prod/e7a2c26c2c036e0c2b3afefc5af3ef7fa1ea34dc-750x750.webp",
       "ok": false,
       "error": "host cdn.sanity.io not in allow-list"
@@ -864,7 +537,7 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 52
+      "total_unique_candidates": 41
     },
     {
       "stage": "acquire",
@@ -971,86 +644,6 @@
       "url": "https://images.puma.com/image/upload/f_auto,q_auto,w_2000/global/398855/14/sv01/fnd/EEA/fmt/png",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 117869,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 271167,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/mod02/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 196231,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 120395,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/bv/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 153039,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv02/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 211445,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv03/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 115297,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv04/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 174778,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/03/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids'-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 106415,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398855/01/sv01/fnd/PNA/fmt/png/Palermo-Moda-Big-Kids&#x27;-Sneakers",
-      "ok": true,
-      "size": "2000x2000",
-      "bytes": 117869,
-      "upgraded_from": null
     },
     {
       "stage": "identity",
@@ -1210,12 +803,6 @@
     },
     {
       "stage": "identity",
-      "url": "https://us.puma.com/assets/logo-puma-black.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
       "url": "https://eu.puma.com/assets/logo-puma-black.png",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU 398855"
@@ -1224,7 +811,7 @@
       "stage": "select",
       "tier": "OFFICIAL",
       "note": "official media sufficient; retailer candidates dropped to keep one authority tier per gallery",
-      "official": 20,
+      "official": 11,
       "retailer_dropped": 0
     }
   ],
