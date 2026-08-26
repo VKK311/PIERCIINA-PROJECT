@@ -546,6 +546,19 @@ def main():
                    all(int(re.search(r"w(?:%3D|=)(\d+)", v).group(1)) > 628
                        for v in variants)))
 
+    # Source hierarchy in the selector, not just in the router. Official media
+    # must win even when a retailer copy is larger.
+    from acquire import _authority_tier
+    rule_stub = {"allowed_hosts": ["images.brand.com"]}
+    req_stub = {"officialHostSuffixes": ["brand.com"]}
+    checks.append(("manufacturer CDN classified OFFICIAL",
+                   _authority_tier("images.brand.com", rule_stub, req_stub) == "OFFICIAL"))
+    checks.append(("subdomain of an official suffix classified OFFICIAL",
+                   _authority_tier("cdn.brand.com", rule_stub, req_stub) == "OFFICIAL"))
+    checks.append(("retailer CDN classified TRUSTED_RETAILER",
+                   _authority_tier("cdn.shop.example", rule_stub, req_stub)
+                   == "TRUSTED_RETAILER"))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

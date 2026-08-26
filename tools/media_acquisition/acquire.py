@@ -1613,7 +1613,30 @@ def acquire(request, outroot, log):
 
     # 4. SELECT -----------------------------------------------------------
     usable = [m for m in unique if m["longest_edge"] >= MIN_EDGE]
-    usable.sort(key=lambda m: (-m["longest_edge"], m["url"]))
+
+    # Authority tier decides before resolution does. The source hierarchy is a
+    # locked rule — official manufacturer media outranks a trusted retailer —
+    # but until now it only governed which pages were visited, never which
+    # bytes were kept. A run that reached both could therefore publish retailer
+    # imagery while official imagery sat in the same candidate pool.
+    for m in usable:
+        m["authorityTier"] = _authority_tier(
+            urllib.parse.urlsplit(m["url"]).netloc, rule, request)
+    TIER_RANK = {"OFFICIAL": 0, "TRUSTED_RETAILER": 1}
+    if any(m["authorityTier"] == "OFFICIAL" for m in usable):
+        official = [m for m in usable if m["authorityTier"] == "OFFICIAL"]
+        if len(official) >= MIN_KEEP:
+            # Enough official media to stand on its own: do not mix tiers in
+            # one gallery, and never let a larger retailer copy displace it.
+            log.append({"stage": "select", "tier": "OFFICIAL",
+                        "note": "official media sufficient; retailer candidates "
+                                "dropped to keep one authority tier per gallery",
+                        "official": len(official),
+                        "retailer_dropped": len(usable) - len(official)})
+            usable = official
+
+    usable.sort(key=lambda m: (TIER_RANK.get(m["authorityTier"], 2),
+                               -m["longest_edge"], m["url"]))
     selected = usable[:MAX_KEEP]
     return selected, acquired, ledger, size_evidence, aliases
 
@@ -1774,6 +1797,7 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
             "source_page": m.get("source_page"),
             "backdrop": backdrop(m["_img"]),
             "duplicates_collapsed": m.get("duplicates", []),
+            "authorityTier": m.get("authorityTier"),
             "validation": "PASS",
             "warnings": warnings,
         })
@@ -1843,6 +1867,10 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
             "duplicates_collapsed": sum(len(e["duplicates_collapsed"]) for e in entries),
         },
         "variantConfidence": vc,
+        # Which tier of the source hierarchy the published gallery came from.
+        # Stated plainly so an approval package can never overclaim it.
+        "mediaTier": (entries[0].get("authorityTier") if entries else None),
+        "mediaTierMixed": len({e.get("authorityTier") for e in entries}) > 1 if entries else False,
         "proposedMain": entries[0]["file"] if entries else None,
         # Shared backdrop across the whole set, when the images agree. The
         # storefront uses it as media.surface so a contained image sits on a
