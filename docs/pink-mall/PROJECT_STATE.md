@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-030 publication.
-Status: **PM-001…PM-030 PUBLISHED.**
+Updated: HC.RBGLOW01 approval package (PM-031 proposed).
+Status: **PM-001…PM-030 PUBLISHED. HC.RBGLOW01 AWAITING APPROVAL.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -36,6 +36,7 @@ canonical build by hash before treating it as canonical.
 | JR5952 | **PUBLISHED as PM-028** on 2026-08-25 |
 | PGS30614 | **PUBLISHED as PM-029** on 2026-08-26 |
 | 398855 | **PUBLISHED as PM-030** on 2026-08-26 |
+| HC.RBGLOW01 | **AWAITING APPROVAL** as PM-031 — acquired, staged, not published |
 
 ## Media acquisition automation
 
@@ -331,12 +332,69 @@ acquired asset path.
 mall's own neutral token shows through rather than the `#47704C` the pipeline
 originally derived by flattening a transparent PNG.
 
+## HC.RBGLOW01 — pending approval, NOT published
+
+| | |
+|---|---|
+| STATE | **READY FOR APPROVAL — nothing written to `PINKMALL.html`** |
+| PACKAGED | 2026-08-26 |
+| BRAND / MODEL | Colors of California / Glossy rainboot |
+| MANUFACTURER ITEM | HC.RBGLOW01, colour code **FUX**, season code F24 |
+| PROPOSED MALL ID | PM-031 — **not allocated**; allocation happens on publish |
+| CATEGORY | SHOES > **Boots** — new subcategory, approved by the user |
+| PUBLIC COLOUR | Pink (manufacturer: `Fuxia`) |
+| MATERIAL | **omitted** — no composition string was read from the source |
+| PRICE | €64, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 36, 37, 38, 39, 40 — all available. **No sold-out sizes asserted** |
+| EXACT-MODEL SIZE RUN | `SIZE_SCALE_NOT_PROVEN` — non-blocking |
+| MAIN | IMAGE 01 — lateral side profile |
+| GALLERY ORDER | 01 → 02 → 03 → 05 → 04 |
+| ACQUIRED MEDIA | `docs/pink-mall/media-acquisition/HC.RBGLOW01/` — 5 × 1200×1200 JPEG |
+| MEDIA TIER | **OFFICIAL** — `hub2.artcrafts.it`, the brand owner's own CDN |
+| MEDIA FORM | opaque, consensus backdrop `#FFFFFF` → `media.surface` |
+| ACQUISITION | **zero-seed**, four passes |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| WARNINGS | one, non-blocking — 1200×1200 is above the 1000 px preference, below the 1600 px ideal |
+| PACKAGE | `checkpoints/PM031_HCRBGLOW01_APPROVAL_PREVIEW.md` |
+
+**First non-sneaker product**, and the first to use `SHOES > Boots`. The
+storefront reads `subcategory` in exactly one place — the search haystack — so
+the new value is additive and needs no engine change; this was checked rather
+than assumed.
+
+The colour code resolved itself: fetching the bare product URL redirected to
+`?color=FUX`, so the source chose the colourway. That is a cleaner outcome than
+the eleven-colourway reconnaissance sweep PM-030 needed.
+
+The tier is a verified claim, not an inference from the hostname. Colors of
+California is owned and operated by Artcrafts International S.p.A., so
+`hub2.artcrafts.it` is the brand owner's host — the same standing already
+accepted for `images.pepejeans.com` and `nb.scene7.com`.
+
+Two pipeline defects were found and fixed by this product, both committed:
+
+The identity gate rejected the manufacturer's own images. `HC.RBGLOW01` is not
+a substring of `HC.F24.RBGLOW01-FUX-1.jpg`, because the season code is inserted
+mid-code. `sku_signal()` now also matches aliases carried on evidenced
+documents, so a source that renames its own article code cannot lock the
+pipeline out of that source's media.
+
+The tier classifier read `artcrafts.it` as a trusted retailer. It is the brand
+owner, and misreading it would have understated the provenance of correct
+media.
+
 ## Next step
 
 Next Mall ID is **PM-031**, unallocated until a product is actually published.
-Nothing is awaiting approval: the approval queue is empty.
 
-Six products now come from the automated pipeline — PM-025 through PM-030.
+The approval queue holds exactly one item: **HC.RBGLOW01**. It is acquired,
+validated and staged, and awaits `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /
+`REORDER` / `REMOVE IMAGE 0X` / `CHANGE COPY` / `REJECT`. Nothing about it has
+touched the canonical build.
+
+Six products come from the automated pipeline so far — PM-025 through PM-030.
 Three have manufacturer-official media (PM-026, PM-029, PM-030); PM-025,
 PM-027 and PM-028 rest on trusted-retailer evidence. Upgrading those three to
-official imagery remains open if an official route ever opens.
+official imagery remains open if an official route ever opens. HC.RBGLOW01
+would be the fourth official-tier product and the seventh from the pipeline.
