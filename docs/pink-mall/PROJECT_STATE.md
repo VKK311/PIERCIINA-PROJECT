@@ -226,6 +226,34 @@ The earlier BLOCKED / UNRESOLVED records for JR5952 and A08745C are
 **superseded**; see `checkpoints/SUPERSEDED_*.md`, kept only as a record of how
 those conclusions were reached and why they were wrong.
 
+## Pending approval — not published
+
+### Pepe Jeans PGS30614 — READY FOR APPROVAL
+
+| | |
+|---|---|
+| Model | Ben Band |
+| Full article | PGS30614327 (base + colour 327) |
+| Public colour | Pink / Black (manufacturer: `factory pink`) |
+| Price | €34 |
+| Sizes | 39 — available. Exact scale 32-40 evidenced and contains 39 |
+| Size state | `SIZE_CONFIRMED` |
+| Variant | `VARIANT_CONFIDENCE_PASS` |
+| Images | 5 accepted — 1920x2652, 2x 1600x2210, 2x 1200x1658 |
+| Media tier | **OFFICIAL** — `images.pepejeans.com`, manufacturer CDN |
+| Material | omitted — not established by this pipeline |
+| Proposed Mall ID | **PM-029** |
+| Published | **no** |
+| Package | `checkpoints/PM029_PGS30614_APPROVAL_PREVIEW.md` |
+
+Second product in the catalogue with manufacturer-tier imagery; PM-026 was the
+first. PM-025, PM-027 and PM-028 all rest on retailer media.
+
+Identity rests on two independent provenance classes that agree: Claude's own
+research across official Pepe Jeans locale URLs and two retailers, and a
+reviewer-verified read of the live Deporvillage product document supplying the
+exact reference `PPJ-PGS30614-327` and the 32-40 size ladder.
+
 ## Next step
 
 Next Mall ID is **PM-029**, unallocated until a product is actually published.
