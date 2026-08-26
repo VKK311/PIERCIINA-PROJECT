@@ -583,6 +583,20 @@ def main():
                    not any(f.endswith(".webp")
                            for f in os.listdir(os.path.join(out, "TESTSKU", "source")))))
 
+    # Cut-out PNGs have no backdrop. Puma 401489 reported #47704C from images
+    # that are 81% transparent — a palette artefact of flattening, which would
+    # have painted a green field behind the product.
+    from acquire import is_cutout, backdrop as _bd
+    cut = Image.new("RGBA", (400, 400), (0, 0, 0, 0))
+    ImageDraw.Draw(cut).ellipse([120, 120, 280, 280], fill=(240, 90, 150, 255))
+    checks.append(("transparent cut-out detected", is_cutout(cut) is True))
+    checks.append(("cut-out yields no invented backdrop", _bd(cut) is None))
+    solid = Image.new("RGB", (400, 400), (234, 238, 239))
+    checks.append(("real studio backdrop still detected", _bd(solid) == "#EAEEEF"))
+    opaque_rgba = Image.new("RGBA", (400, 400), (241, 241, 241, 255))
+    checks.append(("opaque RGBA is not mistaken for a cut-out",
+                   is_cutout(opaque_rgba) is False and _bd(opaque_rgba) == "#F1F1F1"))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

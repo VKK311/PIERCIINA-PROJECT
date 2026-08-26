@@ -41,7 +41,7 @@ canonical build by hash before treating it as canonical.
 | | |
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
-| SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 83/83 guards |
+| SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 87/87 guards |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`

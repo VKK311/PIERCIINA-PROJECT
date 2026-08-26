@@ -801,6 +801,7 @@ def validate_bytes(body, ctype):
         "mime": mime, "bytes": len(body),
         "sha256": hashlib.sha256(body).hexdigest(),
         "dhash": "%064x" % dhash(img.convert("RGB")),
+        "cutout": is_cutout(img),
         "_img": img.convert("RGB"),
     }, None
 
@@ -832,13 +833,38 @@ def sku_signal(url, sku):
     return sku.lower() in asset_identity(url)
 
 
+# A cut-out product PNG has no backdrop to detect, and flattening one produces
+# whatever colour happened to sit in the palette — Puma 401489 reported a dark
+# green #47704C from images that are 81% fully transparent. Publishing that as
+# media.surface would paint a green field behind the product. Transparency is a
+# better answer than a wrong colour: the storefront's own field shows through.
+ALPHA_CUTOUT_RATIO = 0.30
+
+
+def is_cutout(img, threshold=ALPHA_CUTOUT_RATIO):
+    """Is this a transparent cut-out rather than a photograph on a backdrop?"""
+    if img.mode not in ("RGBA", "LA", "P"):
+        return False
+    if img.mode == "P" and "transparency" not in img.info:
+        return False
+    a = img.convert("RGBA").getchannel("A")
+    hist = a.histogram()
+    clear = sum(hist[:8])
+    return (clear / float(max(1, sum(hist)))) >= threshold
+
+
 def backdrop(img, tol=6):
-    """The studio backdrop colour, or None if the corners disagree.
+    """The studio backdrop colour, or None if there isn't one to detect.
 
     The storefront paints this behind a contained image so there is no visible
     seam around the photo. Detecting it here means a product never needs a
     hand-prepared canvas just to sit on the right background.
+
+    A cut-out returns None: there is no backdrop, and inventing one is worse
+    than leaving the storefront to use its own field.
     """
+    if is_cutout(img):
+        return None
     w, h = img.size
     inset = max(2, min(w, h) // 100)
     pts = [(inset, inset), (w - 1 - inset, inset),
@@ -1855,6 +1881,7 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
             "backdrop": backdrop(m["_img"]),
             "duplicates_collapsed": m.get("duplicates", []),
             "authorityTier": m.get("authorityTier"),
+            "cutout": m.get("cutout", False),
             "validation": "PASS",
             "warnings": warnings,
         })
@@ -1933,6 +1960,9 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
         # storefront uses it as media.surface so a contained image sits on a
         # matching field instead of a mismatched one.
         "dominantBackdrop": consensus_backdrop(entries),
+        # A transparent set has no backdrop by construction; the storefront
+        # should use its own field rather than a colour invented from a flatten.
+        "cutoutSet": bool(entries) and all(e.get("cutout") for e in entries),
         "contactSheet": sheet_rel,
         "images": entries,
         "discoveryLedger": ledger or [],
