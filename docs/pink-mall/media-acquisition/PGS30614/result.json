@@ -6,17 +6,17 @@
   "model": "Ben Band",
   "variant": "Pink / Black",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T08:12:34Z",
+  "generatedAt": "2026-08-26T08:25:50Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32945977802",
+    "githubRunId": "32946790250",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "85d8aa6cb8c9f4ac5ef4c38d232c95ced3448ca0"
+    "githubSha": "6c991fe3e31d5e8416cc2661fa64c297c9e33c6e"
   },
   "counts": {
-    "acquired": 30,
+    "acquired": 6,
     "unique_selected": 5,
-    "duplicates_collapsed": 14
+    "duplicates_collapsed": 0
   },
   "variantConfidence": {
     "state": "VARIANT_CONFIDENCE_PASS",
@@ -28,10 +28,10 @@
     "officialColour": "Pink / Black",
     "officialAnchor": false
   },
-  "mediaTier": "OFFICIAL",
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
   "proposedMain": "source/PGS30614-01-original.jpg",
-  "dominantBackdrop": null,
+  "dominantBackdrop": "#F5F5F5",
   "contactSheet": "CONTACT_SHEET.webp",
   "images": [
     {
@@ -39,46 +39,25 @@
       "role": "MAIN",
       "file": "source/PGS30614-01-original.jpg",
       "preview": "preview/PGS30614-01.webp",
-      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
-      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
-      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
-      "source_domain": "images.pepejeans.com",
-      "discovery_method": "indexed-asset",
-      "acquired_at": "2026-08-26T08:12:29Z",
-      "width": 1920,
-      "height": 2652,
-      "longest_edge": 2652,
+      "source_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
+      "requested_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
+      "anchor_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
+      "source_domain": "cdn.deporvillage.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-26T08:25:47Z",
+      "width": 1598,
+      "height": 2000,
+      "longest_edge": 2000,
       "mime": "image/jpeg",
-      "bytes": 233647,
-      "sha256": "48aadc77a2e9826e5871f0b22991b018935cde7c9456740cc3708228f797bbed",
-      "dhash": "00000000000000000000000000000000020011804c7869667a06623819c40000",
+      "bytes": 206694,
+      "sha256": "04d536127ab2b4932afb67fd2dd33fd66c05cbedbca17d72deb0710586b5f44c",
+      "dhash": "22885962b4d8a29978f178e16ad54ac4c6d4d684c694c69470c170e131620418",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": null,
-      "backdrop": "#DCDBD7",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=950",
-          "size": "950x1312",
-          "sha256": "351e3a290c3f5d3451423769aa73f8828fa0187d21602840b7f0ce312f7a7bf7"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=475",
-          "size": "475x656",
-          "sha256": "6327c68de81ab59b1f9689c7da4460a0864f09b981dfd143f805176a267a8a50"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=420",
-          "size": "420x580",
-          "sha256": "720294710ba255e30edb19af7d417533c8f3c2856b17a9be5d21c43ada4bd8fe"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=375",
-          "size": "375x518",
-          "sha256": "c55c3105912bd8ddf54e6e70e13428e8db766296ceba19439e51d5322dd6c90f"
-        }
-      ],
-      "authorityTier": "OFFICIAL",
+      "source_page": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "backdrop": "#F5F5F5",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
       "validation": "PASS",
       "warnings": []
     },
@@ -87,170 +66,108 @@
       "role": "gallery",
       "file": "source/PGS30614-02-original.jpg",
       "preview": "preview/PGS30614-02.webp",
-      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
-      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
-      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
-      "source_domain": "images.pepejeans.com",
-      "discovery_method": "indexed-asset",
-      "acquired_at": "2026-08-26T08:12:31Z",
-      "width": 950,
-      "height": 1312,
-      "longest_edge": 1312,
+      "source_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
+      "requested_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
+      "anchor_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
+      "source_domain": "cdn.deporvillage.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-26T08:25:47Z",
+      "width": 1600,
+      "height": 2000,
+      "longest_edge": 2000,
       "mime": "image/jpeg",
-      "bytes": 85215,
-      "sha256": "1300d103b79bf2a2ca9eda1da62d2a6b85ca2ef968afda33859d2c9b3c76df30",
-      "dhash": "0000000001100cc01ab45ce43cc2329aa79aa39ab69a4b1c3690082000000000",
+      "bytes": 106315,
+      "sha256": "857a3100a305d4c46a45975cb81b29ff90dcc217fe4b91b5dfa24419dca02819",
+      "dhash": "00000020009803240fe23ff1ff89d814e1ec16314ce40c480610004000000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": null,
-      "backdrop": "#DDDCD8",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=475",
-          "size": "475x656",
-          "sha256": "cf30ab6b4a4e23fab445f1b578fbd80d5ec960eb321d6b561d8d03971a03bc39"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=375",
-          "size": "375x518",
-          "sha256": "35334db5fe8819083b755128be5cfd1492dd180f9589da56adb037879e92659a"
-        }
-      ],
-      "authorityTier": "OFFICIAL",
+      "source_page": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "backdrop": "#F5F5F5",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
       "validation": "PASS",
-      "warnings": [
-        "1312px longest edge — usable, 1600px ideal"
-      ]
+      "warnings": []
     },
     {
       "index": 3,
       "role": "gallery",
       "file": "source/PGS30614-03-original.jpg",
       "preview": "preview/PGS30614-03.webp",
-      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
-      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
-      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
-      "source_domain": "images.pepejeans.com",
-      "discovery_method": "indexed-asset",
-      "acquired_at": "2026-08-26T08:12:29Z",
-      "width": 950,
-      "height": 1312,
-      "longest_edge": 1312,
+      "source_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
+      "requested_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
+      "anchor_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
+      "source_domain": "cdn.deporvillage.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-26T08:25:47Z",
+      "width": 1600,
+      "height": 2000,
+      "longest_edge": 2000,
       "mime": "image/jpeg",
-      "bytes": 45249,
-      "sha256": "b8ddf6c3e970d3af1a255012c49ae92b06f4ae99ae5552ff0aae77e319de8eb2",
-      "dhash": "000000000000000000000000000000000188061c3c2e619c6780264009000000",
+      "bytes": 187796,
+      "sha256": "1c0c597fa89a51a9251027c370630e4067823b607ee360661cb1299fde971114",
+      "dhash": "0000020024700b84b782a74921882e3463ca6c0370702030089e09360320c206",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": null,
-      "backdrop": "#DDDCD8",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=475",
-          "size": "475x656",
-          "sha256": "9fa8d62747fee48fb757b114a67f43d2a304400bf46ea7ad4838f56520ff8359"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=420&q=90",
-          "size": "420x580",
-          "sha256": "3a6e9935866925cd5d6669dad40e48863785b0980b4dd80c18ab548fa79c13d9"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=375",
-          "size": "375x518",
-          "sha256": "38588ca6361cc4df0ead5af76d596d5858a89907efe678c397c4bd0187771502"
-        }
-      ],
-      "authorityTier": "OFFICIAL",
+      "source_page": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "backdrop": "#F5F5F5",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
       "validation": "PASS",
-      "warnings": [
-        "1312px longest edge — usable, 1600px ideal"
-      ]
+      "warnings": []
     },
     {
       "index": 4,
       "role": "gallery",
       "file": "source/PGS30614-04-original.jpg",
       "preview": "preview/PGS30614-04.webp",
-      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
-      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
-      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
-      "source_domain": "images.pepejeans.com",
-      "discovery_method": "indexed-asset",
-      "acquired_at": "2026-08-26T08:12:30Z",
-      "width": 950,
-      "height": 1312,
-      "longest_edge": 1312,
+      "source_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
+      "requested_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
+      "anchor_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
+      "source_domain": "cdn.deporvillage.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-26T08:25:47Z",
+      "width": 1600,
+      "height": 1999,
+      "longest_edge": 1999,
       "mime": "image/jpeg",
-      "bytes": 117768,
-      "sha256": "763b608daa65b94991d208f5fe90f1e4be6cc8be667f93080e4af8c775731394",
-      "dhash": "0000000000c011204b18e647dca182c8e0023ff1a6fff6001fc1207f01000004",
+      "bytes": 208954,
+      "sha256": "c3b98e1eb3a6d2d3c86aa61c016365d505c528803610be67cd3034e7872ddf7c",
+      "dhash": "00a0018833028e414e4439b476c400e5e0007ff0c9ffce80fed001ff101f0040",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": null,
-      "backdrop": "#DDDCD8",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=475",
-          "size": "475x656",
-          "sha256": "968f58ec2cfdf57e0eeec7c4944e1a5e76b2bc94d888b2a36e3dc33e0c05bb21"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=420&q=90",
-          "size": "420x580",
-          "sha256": "0addfbd3728610432d021c6573e5e2ad565ded546531cbd5c5a2e8a865c15dd1"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=375",
-          "size": "375x518",
-          "sha256": "bb1f8f2626f36f7f5041b29ebd0310506c8a0780be0d5ce23470d7a0db388e0a"
-        }
-      ],
-      "authorityTier": "OFFICIAL",
+      "source_page": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "backdrop": "#F5F5F5",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
       "validation": "PASS",
-      "warnings": [
-        "1312px longest edge — usable, 1600px ideal"
-      ]
+      "warnings": []
     },
     {
       "index": 5,
       "role": "gallery",
       "file": "source/PGS30614-05-original.jpg",
       "preview": "preview/PGS30614-05.webp",
-      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
-      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
-      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
-      "source_domain": "images.pepejeans.com",
-      "discovery_method": "indexed-asset",
-      "acquired_at": "2026-08-26T08:12:30Z",
-      "width": 950,
-      "height": 1312,
-      "longest_edge": 1312,
+      "source_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg",
+      "requested_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D2000,w%3D1600,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg",
+      "anchor_url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg",
+      "source_domain": "cdn.deporvillage.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-26T08:25:48Z",
+      "width": 1600,
+      "height": 1999,
+      "longest_edge": 1999,
       "mime": "image/jpeg",
-      "bytes": 92469,
-      "sha256": "1421c9b5f387926704805c4c3f12fa8e38faf87696036dd0109b8a76b4c9fe8f",
-      "dhash": "00000120129805842dc168cc69066d036c30327663b461803848038008000000",
+      "bytes": 72262,
+      "sha256": "227fe43ef368ca7e912ac8ce625f86258092754470286913fc7841fc5c9ad350",
+      "dhash": "0000000000000000089247f01c0cf914c551cc42600812000000000000000000",
       "sku_in_url": true,
       "sku_evidence": "asset-url",
-      "source_page": null,
-      "backdrop": "#DDDCD8",
-      "duplicates_collapsed": [
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=475",
-          "size": "475x656",
-          "sha256": "83022ae4d6bc55049061670950c0924016453632a77b7e2414fc7b1834a7aa26"
-        },
-        {
-          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=375",
-          "size": "375x518",
-          "sha256": "929a0172a1ad26faab72c1d3d6746271aaf74549793de610702dc98bb9639ea0"
-        }
-      ],
-      "authorityTier": "OFFICIAL",
+      "source_page": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "backdrop": "#F5F5F5",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
       "validation": "PASS",
-      "warnings": [
-        "1312px longest edge — usable, 1600px ideal"
-      ]
+      "warnings": []
     }
   ],
   "discoveryLedger": [
@@ -413,8 +330,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.co.uk (domain) ~ PPJ-PGS30614-327",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -425,8 +342,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.co.uk (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -437,7 +354,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.com (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -449,8 +366,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.com (domain) ~ PPJ-PGS30614-327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -461,7 +378,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.com (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -497,7 +414,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.net (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -509,7 +426,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "esdemarca.com (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -521,7 +438,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "esdemarca.com (domain) ~ PPJ-PGS30614-327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -533,8 +450,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "esdemarca.com (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -544,20 +461,44 @@
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "pepejeans.com (domain) ~ PGS30614",
-      "result": "OK",
-      "error": null,
-      "indexReachable": true,
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
-      "exactProductDocument": true,
-      "sku_evidence": true,
-      "candidates": 26
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "pepejeans.com (domain) ~ PPJ-PGS30614-327",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "pepejeans.com (domain) ~ PGS30614327",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -567,7 +508,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -577,7 +518,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -866,7 +807,6 @@
     ],
     "routesSucceeded": [
       "IDENTIFIER_EXPANSION",
-      "INDEXED_OUTBOUND_MEDIA",
       "REQUEST_SEED",
       "RESEARCH_EVIDENCE"
     ],
@@ -875,10 +815,22 @@
       "TRUSTED_RETAILER_SEARCH": [
         "HTTPError: HTTP Error 403: Forbidden"
       ],
+      "INDEXED_OUTBOUND_MEDIA": [
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
+      ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)"
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ]
     },
     "exactProductDocuments": [
@@ -923,12 +875,6 @@
         "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg",
         "authorityTier": null,
         "candidates": 1
-      },
-      {
-        "route": "INDEXED_OUTBOUND_MEDIA",
-        "url": "pepejeans.com (domain) ~ PGS30614",
-        "authorityTier": "OFFICIAL",
-        "candidates": 26
       }
     ],
     "identifierAliases": [
@@ -1024,7 +970,7 @@
       "term": "PPJ-PGS30614-327",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1032,7 +978,7 @@
       "term": "PGS30614327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -1040,7 +986,7 @@
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1048,7 +994,7 @@
       "term": "PPJ-PGS30614-327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -1056,7 +1002,7 @@
       "term": "PGS30614327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1080,7 +1026,7 @@
       "term": "PGS30614327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1088,7 +1034,7 @@
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1096,7 +1042,7 @@
       "term": "PPJ-PGS30614-327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -1104,44 +1050,59 @@
       "term": "PGS30614327",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
       "domain": "pepejeans.com",
       "term": "PGS30614",
-      "rows": 26,
-      "hits": 26,
-      "error": null
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "pepejeans.com",
+      "term": "PPJ-PGS30614-327",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "pepejeans.com",
+      "term": "PGS30614327",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
       "captures": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "observed-hosts",
       "hosts": [
-        "cdn.deporvillage.com",
-        "images.pepejeans.com"
+        "cdn.deporvillage.com"
       ]
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 30
+      "total_unique_candidates": 6
     },
     {
       "stage": "acquire",
@@ -1190,205 +1151,6 @@
       "size": "1600x1999",
       "bytes": 72262,
       "upgraded_from": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785,w%3D628,dpr%3D1,f%3Dauto,q%3D75,fit%3Dcontain,background%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg"
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
-      "ok": true,
-      "size": "1920x2652",
-      "bytes": 233647,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 45249,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 8703,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 13195,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 21877,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 33383,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 117768,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 92469,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 26728,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 17951,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 12495,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 18054,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 58153,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 17332,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 25359,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 85215,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=375",
-      "ok": true,
-      "size": "375x518",
-      "bytes": 9446,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=475",
-      "ok": true,
-      "size": "475x656",
-      "bytes": 13779,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=950",
-      "ok": true,
-      "size": "950x1312",
-      "bytes": 49227,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=420",
-      "ok": true,
-      "size": "420x580",
-      "bytes": 11464,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=420",
-      "ok": true,
-      "size": "420x580",
-      "bytes": 7191,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=420",
-      "ok": true,
-      "size": "420x580",
-      "bytes": 42581,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?q=90&s",
-      "ok": true,
-      "size": "420x580",
-      "bytes": 34269,
-      "upgraded_from": null
-    },
-    {
-      "stage": "acquire",
-      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=420",
-      "ok": true,
-      "size": "420x580",
-      "bytes": 22895,
-      "upgraded_from": null
-    },
-    {
-      "stage": "select",
-      "tier": "OFFICIAL",
-      "note": "official media sufficient; retailer candidates dropped to keep one authority tier per gallery",
-      "official": 7,
-      "retailer_dropped": 6
     }
   ],
   "notes": [
