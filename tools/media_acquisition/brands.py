@@ -94,6 +94,32 @@ BRANDS = {
         "view_re": None,
     },
 
+    "puma": {
+        "allowed_hosts": [
+            "images.puma.com", "puma.com", "www.puma.com",
+            "eu.puma.com", "us.puma.com", "de.puma.com", "fr.puma.com",
+            "it.puma.com", "es.puma.com", "nl.puma.com", "pl.puma.com",
+        ],
+        "page_templates": [
+            "https://eu.puma.com/eu/en/pd/{sku}",
+            "https://us.puma.com/us/en/pd/{sku}",
+        ],
+        "cdn_hosts": ["images.puma.com"],
+        # Puma publishes on Cloudinary under the article number and colour
+        # code. These are PROBES, not assertions: a probe only becomes a
+        # candidate if it downloads, decodes, and carries the exact article
+        # number in its own path — so a wrong template costs a 404 and proves
+        # nothing, while a right one is self-evidencing. The colour code is
+        # supplied per request because it is the variant, and substituting a
+        # neighbouring colourway is the one thing the exact-variant rule
+        # exists to prevent.
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [2000, 1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": r"/sv(\d{2})/",
+    },
+
     "pepe jeans": {
         "allowed_hosts": [
             "www.pepejeans.com", "pepejeans.com",
