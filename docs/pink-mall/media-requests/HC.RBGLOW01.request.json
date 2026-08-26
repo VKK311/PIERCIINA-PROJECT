@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "brand": "Colors of California",
+  "manufacturerItemNo": "HC.RBGLOW01",
+  "model": "Glossy rainboot",
+  "variant": "Pink",
+  "availableSizes": [
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "candidateMedia": [],
+  "indexedAssetSearch": false,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T10:00:00Z",
+      "sku": "HC.RBGLOW01",
+      "model": "Glossy rainboot",
+      "variant": null,
+      "aliases": [
+        "hc.rbglow01",
+        "HC RBGLOW01"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Colors of California product page. Establishes the exact public model name: 'Glossy rainboot'.",
+        "The site's URL grammar is /en-ot/shoponline/<slug>.<article>?color=<CODE>, confirmed across several articles, so the colour is a query parameter rather than part of the article number.",
+        "PRODUCT TYPE: this is a rubber RAIN BOOT, not a sneaker. The RB prefix in the article number is consistent across the brand's rainboot line (rbnew03 = 'chelsie-rainboot', rbnew012 = 'chelsea-rainboot', rb0041 = 'rainboot-with-neoprene-collar'). Every product PINK MALL has onboarded through this pipeline so far has been a sneaker."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.ebay.com/itm/314951576969",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T10:00:00Z",
+      "sku": "HC.RBGLOW01",
+      "model": "Glossy rainboot",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Corroborates that a PINK colourway of this exact article exists ('HC RBGLOW01 Pink rosa'), and that the size scale runs EU 36-41.",
+        "Marketplace listing: used as identity corroboration ONLY. It is excluded as a media source under the source hierarchy and contributes no image."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01",
+    "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=BLA",
+    "https://www.colorsofcalifornia.it/en-ot/woman/fall-winter/rain-boots"
+  ],
+  "discoveryRoutes": {
+    "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01": "DIRECT_OFFICIAL_PAGE",
+    "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=BLA": "DIRECT_OFFICIAL_PAGE",
+    "https://www.colorsofcalifornia.it/en-ot/woman/fall-winter/rain-boots": "SEARCH_INDEX_OFFICIAL"
+  },
+  "officialHostSuffixes": [
+    "colorsofcalifornia.it"
+  ],
+  "allowedHostSuffixes": [
+    "colorsofcalifornia.it"
+  ],
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
+  "requestedBy": "claude",
+  "notes": [
+    "IDENTITY IS SOLID, COLOURWAY IS NOT YET. The article resolves to the official 'Glossy rainboot', HC.RBGLOW01. The PINK colour CODE is not evidenced anywhere reachable — only BLA (black) and MUD have been observed — so the runner reads the product page and follows its own colour links rather than a code guessed by me.",
+    "PRODUCT TYPE FLAGGED FOR THE USER: this is a rubber rain boot. PINK MALL's only calibrated subcategory is SHOES > Sneakers, and creating a new subcategory requires explicit approval, so no subcategory is assumed here.",
+    "The eBay listing is identity corroboration only and is excluded as a media source: marketplaces are barred as primary media by the source hierarchy."
+  ]
+}
