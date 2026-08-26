@@ -339,6 +339,18 @@ WAYBACK_CDX = "https://web.archive.org/cdx/search/cdx"
 WAYBACK_SNAPSHOT = "https://web.archive.org/web/{ts}id_/{url}"
 INDEX_HOSTS = frozenset(["web.archive.org", "archive.org"])
 MAX_INDEXED_DOCS = 6
+# The archive is slow, and indexed passes now fire for every page that failed
+# direct fetch — across every manifest in a run. Without a ceiling one SKU's
+# discovery can starve the whole job. A budget makes the cost bounded and,
+# more importantly, makes exhaustion an explicit ledger fact rather than a
+# silent truncation.
+INDEX_CALL_BUDGET = 24
+INDEX_TIMEOUT = 20
+_index_calls = [0]
+
+
+def _index_budget_left():
+    return _index_calls[0] < INDEX_CALL_BUDGET
 
 
 def _authority_tier(host, rule, request):
@@ -378,6 +390,9 @@ def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
     if contains:
         params.append(("filter", "original:(?i).*%s.*" % re.escape(contains)))
     url = WAYBACK_CDX + "?" + urllib.parse.urlencode(params)
+    if not _index_budget_left():
+        return [], "index call budget exhausted (%d)" % INDEX_CALL_BUDGET
+    _index_calls[0] += 1
     try:
         _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
                               accept="application/json,*/*")
