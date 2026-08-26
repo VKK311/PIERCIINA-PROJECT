@@ -566,6 +566,23 @@ def main():
     checks.append(("retailer-tier research media does not suppress official routes",
                    "index-continue" in _stages and "index-skip" not in _stages))
 
+    # Backdrop consensus and stale-output hygiene.
+    from acquire import consensus_backdrop, QUERY_SIZE_RE
+    checks.append(("near-identical backdrops agree on one surface",
+                   consensus_backdrop([{"backdrop": "#DCDBD7"}, {"backdrop": "#DDDCD8"},
+                                       {"backdrop": "#DDDCD8"}]) == "#DDDCD8"))
+    checks.append(("genuinely different backdrops yield no surface",
+                   consensus_backdrop([{"backdrop": "#FFFFFF"},
+                                       {"backdrop": "#202020"}]) is None))
+    checks.append(("a missing backdrop yields no surface",
+                   consensus_backdrop([{"backdrop": "#FFFFFF"},
+                                       {"backdrop": None}]) is None))
+    checks.append(("Salesforce ?sw= sizing recognised by the ladder",
+                   bool(QUERY_SIZE_RE.search("https://x.test/a.jpg?sw=950"))))
+    checks.append(("previous run's artefacts are removed, not left beside new ones",
+                   not any(f.endswith(".webp")
+                           for f in os.listdir(os.path.join(out, "TESTSKU", "source")))))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

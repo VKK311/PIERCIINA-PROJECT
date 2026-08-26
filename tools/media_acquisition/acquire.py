@@ -697,7 +697,7 @@ def _decode_transform(url):
     return url.replace("%2C", ",").replace("%2c", ",")
 
 
-QUERY_SIZE_RE = re.compile(r"([?&])(wid|hei)=(\d+)", re.I)
+QUERY_SIZE_RE = re.compile(r"([?&])(wid|hei|sw|sh)=(\d+)", re.I)
 
 # Cloudflare Image Resizing puts its instructions in a path segment:
 #   /cdn-cgi/image/h=785,w=628,fit=contain,.../product-vertical/<asset>.jpg
@@ -1656,6 +1656,36 @@ def acquire(request, outroot, log):
     return selected, acquired, ledger, size_evidence, aliases
 
 
+# The studio backdrop only has to agree, not be byte-identical. A set shot on
+# one seamless can still return #DCDBD7 and #DDDCD8 from JPEG quantisation, and
+# demanding exact equality threw the whole value away — leaving media.surface
+# unset and a contained image sitting on a mismatched field.
+BACKDROP_TOLERANCE = 8
+
+
+def _hex_rgb(h):
+    h = (h or "").lstrip("#")
+    if len(h) != 6:
+        return None
+    try:
+        return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+    except ValueError:
+        return None
+
+
+def consensus_backdrop(entries, tolerance=BACKDROP_TOLERANCE):
+    """One surface colour for the set, when the frames genuinely agree."""
+    cols = [_hex_rgb(e.get("backdrop")) for e in (entries or [])]
+    cols = [c for c in cols if c]
+    if not cols or len(cols) != len(entries or []):
+        return None
+    ref = cols[0]
+    if any(max(abs(a - b) for a, b in zip(c, ref)) > tolerance for c in cols):
+        return None
+    mid = tuple(sorted(v[i] for v in cols)[len(cols) // 2] for i in range(3))
+    return "#%02X%02X%02X" % mid
+
+
 # ── Output ────────────────────────────────────────────────────────────────
 def view_key(url, view_re):
     """Brand-specific view token, used only for ordering. Unknown -> 99."""
@@ -1758,6 +1788,18 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     rule = brand_rule(brand)
     base = os.path.join(outroot, sku)
     src_dir, prev_dir = os.path.join(base, "source"), os.path.join(base, "preview")
+    # Wipe the previous run's artefacts. These directories are fully
+    # regenerated, and leaving stragglers behind is genuinely dangerous: the
+    # PGS30614 folder still held 1920x460 .webp banners from the very first
+    # run, sitting next to the real .jpg product images under near-identical
+    # names. Nothing referenced them, but that is one careless glob away from
+    # publishing a marketing banner as product media.
+    for d in (src_dir, prev_dir):
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                fp = os.path.join(d, f)
+                if os.path.isfile(fp):
+                    os.remove(fp)
     os.makedirs(src_dir, exist_ok=True)
     os.makedirs(prev_dir, exist_ok=True)
 
@@ -1890,9 +1932,7 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
         # Shared backdrop across the whole set, when the images agree. The
         # storefront uses it as media.surface so a contained image sits on a
         # matching field instead of a mismatched one.
-        "dominantBackdrop": (entries[0]["backdrop"]
-                             if entries and len({e["backdrop"] for e in entries}) == 1
-                             else None),
+        "dominantBackdrop": consensus_backdrop(entries),
         "contactSheet": sheet_rel,
         "images": entries,
         "discoveryLedger": ledger or [],
