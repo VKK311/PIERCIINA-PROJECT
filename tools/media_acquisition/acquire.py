@@ -135,7 +135,11 @@ JSONLD_RE = re.compile(r"<script[^>]+type=[\"']application/ld\+json[\"'][^>]*>(.
 
 # Methods where the page is *declaring this product's* media, as opposed to a
 # blanket sweep of every image on the document.
-AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-probe"}
+AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-probe",
+                         # An archived asset whose own path carries the article
+                         # code identifies itself; the page that linked it is
+                         # not needed to vouch for it.
+                         "indexed-asset"}
 
 # Paths that are editorial or chrome rather than product media. Belt and
 # braces behind the method rule.
@@ -313,6 +317,236 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
         ledger.append({"route": route, "url": final, "result": "OK",
                        "sku_evidence": page_has_sku, "candidates": len(found)})
     return [(u, m, final, page_has_sku) for u, m in found]
+
+
+# ── Indexed source evidence ───────────────────────────────────────────────
+# A search engine is not source authority. But an *indexed snapshot of an
+# identifiable source* carries that source's evidence: authority belongs to the
+# destination (official manufacturer, official regional site, trusted
+# retailer), and transport may be direct HTTP, an API, or a cached/archived
+# document. A direct 403 or 404 says the runner could not fetch this URL now;
+# it says nothing about whether the product exists or what the source said.
+#
+# Treating those as the same thing is what produced the PGS30614 false refusal:
+# three official URLs 404'd, one retailer 403'd, and the run concluded "no
+# reliable identity" while an indexed retailer product document with the exact
+# reference, the full size ladder and seven SKU-named image files was sitting
+# there unread.
+
+WAYBACK_CDX = ("http://web.archive.org/cdx/search/cdx?url={pattern}"
+               "&output=json&limit={limit}&collapse=urlkey"
+               "&filter=statuscode:200&fl=timestamp,original")
+# The id_ modifier returns the archived bytes verbatim — no Wayback banner and
+# no URL rewriting — so extracted asset URLs are the source's own.
+WAYBACK_SNAPSHOT = "https://web.archive.org/web/{ts}id_/{url}"
+INDEX_HOSTS = frozenset(["web.archive.org", "archive.org"])
+MAX_INDEXED_DOCS = 6
+
+
+def _authority_tier(host, rule, request):
+    """Which tier of the source hierarchy this domain belongs to.
+
+    Authority is a property of the destination, never of the transport used to
+    reach it. A snapshot of an official page is official-tier evidence.
+    """
+    h = (host or "").lower().lstrip(".")
+    official = {x.lower().lstrip(".") for x in rule.get("allowed_hosts", [])}
+    official |= {x.lower().lstrip(".") for x in request.get("officialHostSuffixes", [])}
+    for o in official:
+        if h == o or h.endswith("." + o):
+            return "OFFICIAL"
+    return "TRUSTED_RETAILER"
+
+
+def indexed_snapshots(pattern, limit=MAX_INDEXED_DOCS):
+    """Archived captures matching a URL pattern, newest first.
+
+    Returns [(timestamp, original_url)]. Network failure here is not an error
+    worth propagating: it means this transport is unavailable, and the caller
+    records that in the ledger like any other route outcome.
+    """
+    url = WAYBACK_CDX.format(pattern=urllib.parse.quote(pattern, safe="*:/?&=."),
+                             limit=limit)
+    try:
+        _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
+                              accept="application/json,*/*")
+        rows = json.loads(body.decode("utf-8", "replace"))
+    except Exception:
+        return []
+    out = []
+    for row in rows:
+        if not isinstance(row, list) or len(row) < 2:
+            continue
+        ts, original = row[0], row[1]
+        if str(ts).lower() == "timestamp":
+            continue
+        out.append((str(ts), str(original)))
+    out.sort(key=lambda r: r[0], reverse=True)
+    return out
+
+
+# An identifier the source itself uses for the same article: a retailer prefix,
+# a colour suffix, or both (PGS30614 -> PPJ-PGS30614-327, pgs30614327).
+# Expansion is only ever READ off an evidenced document — never generated and
+# then assumed — so it cannot invent a neighbouring colourway.
+def expand_identifiers(sku, text):
+    base = re.escape(sku)
+    pat = re.compile(r"[A-Za-z0-9]{0,6}[-_]?" + base + r"[-_]?[A-Za-z0-9]{0,6}", re.I)
+    out = []
+    for m in pat.findall(text or ""):
+        token = m.strip("-_")
+        if token.lower() == sku.lower():
+            continue
+        if not re.search(base, token, re.I):
+            continue
+        out.append(token)
+    seen, uniq = set(), []
+    for t in out:
+        k = t.lower()
+        if k not in seen:
+            seen.add(k)
+            uniq.append(t)
+    return uniq[:8]
+
+
+def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
+                          collect_links=None, collect_sizes=None,
+                          observed_hosts=None, aliases=None):
+    """Read an archived snapshot of one source URL.
+
+    The snapshot is fetched from the archive, but every conclusion is attributed
+    to the ORIGIN domain: its authority tier, its SKU evidence, its asset URLs.
+    That is the whole point — transport changed, authority did not.
+
+    Hosts seen inside an evidenced document are recorded as OBSERVED and become
+    fetchable. That is not the same as guessing a CDN hostname: the source named
+    it. Guessing is what wasted a whole A08745C run.
+    """
+    origin_host = urllib.parse.urlsplit(origin_url).netloc
+    tier = _authority_tier(origin_host, rule, request)
+    snaps = indexed_snapshots(origin_url, limit=3)
+    if not snaps:
+        if ledger is not None:
+            ledger.append({"route": "INDEXED_SOURCE_EVIDENCE", "url": origin_url,
+                           "result": "FAIL", "error": "no archived capture",
+                           "authorityTier": tier, "sku_evidence": False, "candidates": 0})
+        return []
+
+    ts, original = snaps[0]
+    snap_url = WAYBACK_SNAPSHOT.format(ts=ts, url=original)
+    try:
+        _, ctype, body = http_get(snap_url, (INDEX_HOSTS, ()),
+                                  max_bytes=MAX_PAGE_BYTES,
+                                  accept="text/html,application/json,*/*")
+    except Exception as e:
+        err = "%s: %s" % (type(e).__name__, e)
+        log.append({"stage": "indexed", "url": snap_url, "ok": False, "error": err})
+        if ledger is not None:
+            ledger.append({"route": "INDEXED_SOURCE_EVIDENCE", "url": origin_url,
+                           "result": "FAIL", "error": err, "authorityTier": tier,
+                           "sku_evidence": False, "candidates": 0})
+        return []
+
+    html = body.decode("utf-8", "replace")
+
+    # Identifier expansion, read off the document rather than generated.
+    found_aliases = expand_identifiers(sku, html) if sku else []
+    if aliases is not None:
+        for a in found_aliases:
+            if a not in aliases:
+                aliases.append(a)
+
+    # Does this document actually name the article? Base code or an alias it
+    # itself declares.
+    hay = (original + " " + html).lower()
+    page_has_sku = bool(sku) and (sku.lower() in hay
+                                  or any(a.lower() in hay for a in found_aliases))
+
+    found = []
+    found += _from_jsonld(html)
+    found += [(u, "og:image") for u in OG_RE.findall(html)]
+    for ss in SRCSET_RE.findall(html):
+        for part in ss.split(","):
+            u = part.strip().split(" ")[0]
+            if u.startswith("http"):
+                found.append((u, "srcset"))
+    found += [(u, "html-scan") for u in IMG_RE.findall(html)]
+
+    # Strip archive rewriting if any survived, so candidates are origin URLs.
+    cleaned = []
+    for u, m in found:
+        um = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_|im_)?/", "", u)
+        if um.startswith("http"):
+            cleaned.append((um, m))
+    found = cleaned
+
+    if collect_sizes is not None and page_has_sku:
+        declared = sizes_from_jsonld(html)
+        if declared:
+            collect_sizes.append({"page": original, "route": "INDEXED_SOURCE_EVIDENCE",
+                                  "authorityTier": tier, "indexedVia": "web.archive.org",
+                                  "capturedAt": ts, "sizes": declared})
+
+    if collect_links is not None:
+        collect_links.extend(outbound_links(html, original, sku))
+
+    # Observed hosts: named by an evidenced document from an allowed source.
+    if observed_hosts is not None and page_has_sku:
+        for u, _m in found:
+            h = urllib.parse.urlsplit(u).netloc.lower()
+            if h and h not in INDEX_HOSTS and h not in observed_hosts:
+                observed_hosts.append(h)
+
+    log.append({"stage": "indexed", "url": original, "ok": True, "capturedAt": ts,
+                "raw_candidates": len(found), "page_has_sku": page_has_sku,
+                "aliases": found_aliases})
+    if ledger is not None:
+        ledger.append({"route": "INDEXED_SOURCE_EVIDENCE", "url": original,
+                       "result": "OK", "authorityTier": tier,
+                       "indexedVia": "web.archive.org", "capturedAt": ts,
+                       "aliases": found_aliases,
+                       "exactProductDocument": bool(page_has_sku and found),
+                       "sku_evidence": page_has_sku, "candidates": len(found)})
+    return [(u, m, original, page_has_sku) for u, m in found]
+
+
+def indexed_asset_search(sku, aliases, allowed, log, ledger, rule, request,
+                         observed_hosts=None):
+    """Ask the index directly for archived ASSETS whose own path carries the
+    article code. An image filename containing the exact reference is the
+    strongest identity signal this pipeline has, and it survives the storefront
+    going away.
+    """
+    out = []
+    terms = [sku] + list(aliases or [])
+    seen = set()
+    for term in terms[:4]:
+        t = term.lower()
+        if t in seen:
+            continue
+        seen.add(t)
+        pattern = "*/*%s*" % t
+        rows = indexed_snapshots(pattern, limit=40)
+        hits = []
+        for ts, original in rows:
+            if not re.search(r"\.(?:jpg|jpeg|png|webp|avif)(?:\?|$)", original, re.I):
+                continue
+            host = urllib.parse.urlsplit(original).netloc.lower()
+            if not host:
+                continue
+            if observed_hosts is not None and host not in observed_hosts:
+                observed_hosts.append(host)
+            hits.append(original)
+        for u in hits[:24]:
+            out.append((u, "indexed-asset", None, True))
+        if ledger is not None:
+            ledger.append({"route": "INDEXED_OUTBOUND_MEDIA", "url": pattern,
+                           "result": "OK" if hits else "FAIL",
+                           "indexedVia": "web.archive.org",
+                           "exactProductDocument": bool(hits),
+                           "sku_evidence": bool(hits), "candidates": len(hits)})
+        log.append({"stage": "indexed-asset", "term": term, "hits": len(hits)})
+    return out
 
 
 # ── Resolution upgrade ────────────────────────────────────────────────────
@@ -589,6 +823,171 @@ def variant_confidence(entries, official_colour, official_anchor_dhashes=None):
             "officialAnchor": bool(official_anchor_dhashes)}
 
 
+# ── Size evidence semantics ───────────────────────────────────────────────
+# The canonical sizing policy already says: exact-model scale NOT proven ->
+# render only user-supplied sizes. So an empty size evidence set means the
+# scale is unproven, which is the NORMAL case and the case the policy was
+# written for. It must never mean "this size does not exist".
+#
+# Absence of evidence is not evidence of absence. PGS30614 was refused partly
+# because empty sizeEvidence was read as a size problem; it was not.
+#
+# And retailer or manufacturer stock status never controls PINK MALL
+# availability: the user is the only source of truth for what is in stock.
+
+SIZE_SCALE_NOT_PROVEN = "SIZE_SCALE_NOT_PROVEN"
+SIZE_CONFIRMED = "SIZE_CONFIRMED"
+SIZE_IDENTITY_CONFLICT = "SIZE_IDENTITY_CONFLICT"
+SIZE_CONFIRMATION_REQUIRED = "SIZE_CONFIRMATION_REQUIRED"
+
+
+def _size_key(label):
+    """Numeric key for a size label, or None if it is not numeric.
+
+    Understands the three real EU footwear notations: whole (38), fractional
+    (37 1/3) and decimal (37.5). Labels are compared, never rewritten.
+    """
+    t = str(label).strip()
+    m = re.match(r"^(\d+)(?:\s+(\d+)/(\d+))?$", t)
+    if m:
+        whole = int(m.group(1))
+        frac = (int(m.group(2)) / int(m.group(3))) if m.group(2) and m.group(3) else 0.0
+        return whole + frac
+    d = re.match(r"^(\d+)[.,](\d+)$", t)
+    if d:
+        try:
+            return float(d.group(1) + "." + d.group(2))
+        except ValueError:
+            return None
+    return None
+
+
+def size_state(user_sizes, size_evidence):
+    """Reconcile the sizes the user supplied against the scale sources declare.
+
+    Returns {state, declaredScale, matched, missing, note}. This never decides
+    PINK MALL availability — it only says how well evidenced the labels are.
+    """
+    user = [str(u).strip() for u in (user_sizes or []) if str(u).strip()]
+    declared = []
+    for block_ in (size_evidence or []):
+        for entry in block_.get("sizes", []):
+            lab = str(entry.get("size", "")).strip()
+            if lab and lab not in declared:
+                declared.append(lab)
+
+    if not user:
+        return {"state": SIZE_SCALE_NOT_PROVEN, "declaredScale": declared,
+                "matched": [], "missing": [],
+                "note": "no user sizes supplied"}
+
+    if not declared:
+        # The normal case. Publish exactly what the user gave, assert no
+        # sold-out ladder, and do not treat this as a problem.
+        return {"state": SIZE_SCALE_NOT_PROVEN, "declaredScale": [],
+                "matched": [], "missing": [],
+                "note": ("no source declared an exact size scale; user-supplied "
+                         "sizes stand as availability truth and no sold-out "
+                         "ladder is asserted")}
+
+    dkeys = {}
+    for lab in declared:
+        k = _size_key(lab)
+        if k is not None:
+            dkeys.setdefault(round(k, 4), lab)
+    dlabels = {l.lower() for l in declared}
+
+    matched, missing, fuzzy = [], [], []
+    for u in user:
+        if u.lower() in dlabels:
+            matched.append(u)
+            continue
+        k = _size_key(u)
+        if k is not None and round(k, 4) in dkeys:
+            matched.append(u)
+            continue
+        if k is None:
+            # A non-numeric label against a numeric scale is a conversion
+            # question, not a contradiction.
+            fuzzy.append(u)
+            continue
+        missing.append(u)
+
+    if fuzzy:
+        return {"state": SIZE_CONFIRMATION_REQUIRED, "declaredScale": declared,
+                "matched": matched, "missing": fuzzy,
+                "note": "size label could not be compared to the declared scale"}
+    if missing:
+        return {"state": SIZE_IDENTITY_CONFLICT, "declaredScale": declared,
+                "matched": matched, "missing": missing,
+                "note": ("the declared exact scale does not contain %s"
+                         % ", ".join(missing))}
+    return {"state": SIZE_CONFIRMED, "declaredScale": declared,
+            "matched": matched, "missing": [],
+            "note": "every supplied size appears in the declared exact scale"}
+
+
+# ── Refusal gate ──────────────────────────────────────────────────────────
+# Refusing is an action with a cost. BLOCKED / UNRESOLVED / "please send me a
+# link" may not be returned until the routes that could have answered were
+# actually tried and actually failed.
+
+REFUSAL_ROUTES = (
+    "DIRECT_OFFICIAL_PAGE",
+    "DIRECT_OFFICIAL_API",
+    "OFFICIAL_REGIONAL_SEARCH",
+    "SEARCH_INDEX_OFFICIAL",
+    "INDEXED_SOURCE_EVIDENCE",
+    "INDEXED_OUTBOUND_MEDIA",
+    "OFFICIAL_CDN_PROBE",
+    "TRUSTED_RETAILER_SEARCH",
+    "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+    "IDENTIFIER_EXPANSION",
+)
+
+
+def refusal_audit(ledger, aliases=None):
+    """Machine-readable account of whether a refusal is permitted.
+
+    exact_product_document is the decisive fact: if any route returned a
+    document from an allowed source that named this exact article and carried
+    product fields, the identity is NOT unresolved, whatever happened to the
+    other routes.
+    """
+    attempted, succeeded, exact = {}, {}, []
+    for e in (ledger or []):
+        r = e.get("route")
+        if not r:
+            continue
+        attempted[r] = attempted.get(r, 0) + 1
+        if e.get("result") == "OK":
+            succeeded[r] = succeeded.get(r, 0) + 1
+        if e.get("exactProductDocument") or (e.get("sku_evidence") and e.get("candidates")):
+            exact.append({"route": r, "url": e.get("url"),
+                          "authorityTier": e.get("authorityTier"),
+                          "candidates": e.get("candidates")})
+    if aliases:
+        attempted["IDENTIFIER_EXPANSION"] = attempted.get("IDENTIFIER_EXPANSION", 0) + 1
+        succeeded["IDENTIFIER_EXPANSION"] = succeeded.get("IDENTIFIER_EXPANSION", 0) + 1
+
+    untried = [r for r in REFUSAL_ROUTES if r not in attempted]
+    return {
+        "routesAttempted": sorted(attempted),
+        "routesSucceeded": sorted(succeeded),
+        "routesNotAttempted": untried,
+        "exactProductDocuments": exact,
+        "identifierAliases": list(aliases or []),
+        # A refusal is only honest once nothing was left untried and nothing
+        # exact was found.
+        "refusalPermitted": (not exact) and not untried,
+        "refusalBlockedBecause": (
+            "an exact product document was found — identity is established"
+            if exact else
+            ("routes not attempted: " + ", ".join(untried)) if untried else ""
+        ),
+    }
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 def acquire(request, outroot, log):
     sku = request["manufacturerItemNo"].strip()
@@ -632,14 +1031,24 @@ def acquire(request, outroot, log):
     seen_pages = set()
     hop_targets = []
     size_evidence = []
+    observed_hosts = []      # hosts an evidenced document named — never guessed
+    aliases = []             # identifiers the source itself uses for this article
+    failed_pages = []
     for page in pages:
         if page in seen_pages:
             continue
         seen_pages.add(page)
+        before = len(ledger)
         candidates += discover_from_page(page, allowed, log, sku=sku, ledger=ledger,
                                          route=routes.get(page, "DIRECT_OFFICIAL_PAGE"),
                                          collect_links=hop_targets,
                                          collect_sizes=size_evidence)
+        # A direct fetch that failed, or succeeded without naming the article,
+        # is a TRANSPORT outcome. The source may still have said plenty; ask
+        # the index for its snapshot before concluding anything.
+        entry = ledger[before] if len(ledger) > before else None
+        if entry and (entry.get("result") != "OK" or not entry.get("sku_evidence")):
+            failed_pages.append(page)
 
     # Second hop. The authority is the destination, not the page that linked to
     # it: a product page reached from an official category listing is official
@@ -658,6 +1067,27 @@ def acquire(request, outroot, log):
         candidates += discover_from_page(target, allowed, log, sku=sku, ledger=ledger,
                                          route="INDEXED_OUTBOUND_MEDIA",
                                          collect_sizes=size_evidence)
+
+    # Indexed source evidence. Runs for every page the direct transport could
+    # not turn into evidence — 403, 404, or a 200 that never named the article.
+    for page in failed_pages[:MAX_INDEXED_DOCS]:
+        candidates += discover_from_indexed(page, allowed, log, sku, ledger, rule,
+                                            request, collect_links=hop_targets,
+                                            collect_sizes=size_evidence,
+                                            observed_hosts=observed_hosts,
+                                            aliases=aliases)
+
+    # Archived assets whose own path carries the article code.
+    if request.get("indexedAssetSearch", True):
+        candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
+                                           request, observed_hosts=observed_hosts)
+
+    # Promote observed hosts into the allow-list. A host named by an evidenced
+    # document from an allowed source is discovered, not guessed.
+    if observed_hosts:
+        allowed = (frozenset(set(allowed[0]) | {h.lower() for h in observed_hosts}),
+                   allowed[1])
+        log.append({"stage": "observed-hosts", "hosts": sorted(set(observed_hosts))})
 
     # normalise, de-dup by URL, keep discovery order
     ordered, seen_url = [], set()
@@ -679,8 +1109,8 @@ def acquire(request, outroot, log):
     # out of the list entirely — discovery got better and acquisition got worse.
     # Authoritative declarations and SKU-evidenced pages go first, so the cap
     # trims the page sweep rather than the product.
-    METHOD_RANK = {"request-seed": 0, "cdn-probe": 0, "json-ld": 1,
-                   "og:image": 1, "srcset": 2, "html-scan": 3}
+    METHOD_RANK = {"request-seed": 0, "cdn-probe": 0, "indexed-asset": 0,
+                   "json-ld": 1, "og:image": 1, "srcset": 2, "html-scan": 3}
     ordered.sort(key=lambda c: (METHOD_RANK.get(c[1], 4), 0 if c[3] else 1))
     ordered = ordered[:MAX_CANDIDATES]
     log.append({"stage": "discover", "total_unique_candidates": len(ordered)})
@@ -778,7 +1208,7 @@ def acquire(request, outroot, log):
                         "upgraded_from": None if best["requested_url"] == url else url[:160]})
 
     if not acquired:
-        return None, acquired, ledger, size_evidence
+        return None, acquired, ledger, size_evidence, aliases
 
     # 3. DEDUPE -----------------------------------------------------------
     acquired.sort(key=lambda m: (-m["longest_edge"], -m["bytes"]))
@@ -802,7 +1232,7 @@ def acquire(request, outroot, log):
     usable = [m for m in unique if m["longest_edge"] >= MIN_EDGE]
     usable.sort(key=lambda m: (-m["longest_edge"], m["url"]))
     selected = usable[:MAX_KEEP]
-    return selected, acquired, ledger, size_evidence
+    return selected, acquired, ledger, size_evidence, aliases
 
 
 # ── Output ────────────────────────────────────────────────────────────────
@@ -901,7 +1331,7 @@ def contact_sheet(entries, header, out_path):
 
 
 def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
-                  size_evidence=None):
+                  size_evidence=None, aliases=None):
     sku = request["manufacturerItemNo"].strip()
     brand = request["brand"].strip()
     rule = brand_rule(brand)
@@ -970,12 +1400,23 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     for e in entries:
         e.pop("_colour_terms", None)
 
+    audit = refusal_audit(ledger, aliases)
+
     status = "PASS" if len(entries) >= MIN_KEEP else ("PARTIAL" if entries else "BLOCKED")
     # A run must not report PASS while variant evidence conflicts.
     if status == "PASS" and vc["state"] == "VARIANT_EVIDENCE_CONFLICT":
         status = "VARIANT_EVIDENCE_CONFLICT"
     elif status == "PASS" and vc["state"] == "HUMAN_VARIANT_REVIEW_REQUIRED":
         status = "HUMAN_VARIANT_REVIEW_REQUIRED"
+
+    # The refusal gate. BLOCKED is a claim that nothing could be established,
+    # and it may not stand while an exact product document from an allowed
+    # source is sitting in the ledger, or while a route that could have
+    # answered was never tried. Media may still be missing — that is
+    # MEDIA_NOT_ACQUIRED, a media outcome — but identity is not unresolved.
+    if status == "BLOCKED" and not audit["refusalPermitted"]:
+        status = "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED" if audit["exactProductDocuments"] \
+            else "ROUTES_NOT_EXHAUSTED"
     sheet_rel = None
     if entries:
         sheet_path = os.path.join(base, "CONTACT_SHEET.webp")
@@ -1029,6 +1470,14 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
         # PINK MALL availability — that is the user's alone — but it is how a
         # supplied size gets checked against the real scale instead of assumed.
         "sizeEvidence": size_evidence or [],
+        # How the supplied sizes reconcile with any declared scale. Never a
+        # gate on availability — the user owns that — only on how well the
+        # labels are evidenced.
+        "sizeState": size_state(request.get("availableSizes"), size_evidence),
+        "identifierAliases": list(aliases or []),
+        # Whether a refusal would even be honest. Consulted before any BLOCKED
+        # or UNRESOLVED conclusion is allowed to stand.
+        "refusalAudit": audit,
         "log": log,
         "notes": [
             "Media is acquired but NOT published. Live assets live under "
@@ -1059,9 +1508,9 @@ def main():
             return 2
 
     log = []
-    selected, all_acquired, ledger, size_evidence = acquire(request, args.out, log)
+    selected, all_acquired, ledger, size_evidence, aliases = acquire(request, args.out, log)
     manifest, base = write_outputs(request, selected or [], all_acquired or [],
-                                   log, args.out, ledger, size_evidence)
+                                   log, args.out, ledger, size_evidence, aliases)
     print(json.dumps({"status": manifest["status"], "sku": manifest["sku"],
                       "selected": manifest["counts"]["unique_selected"],
                       "acquired": manifest["counts"]["acquired"],

@@ -67,6 +67,38 @@ studio product photograph must not require manual aspect-ratio work.
 | `main` | release only; never modified without an explicit release instruction |
 | `claude/pink-mall-hero-carousel-jvhdb8` | historical, superseded; preserved, not merged |
 
+## Working directory protocol — mandatory
+
+The managed checkout has repeatedly reverted to the historical branch between
+commands, silently, mid-task. Work performed there can be lost or committed to
+the wrong branch. **Do not rely on `git checkout` inside the managed
+workspace.**
+
+Every session that will mutate anything:
+
+1. `git fetch origin claude/pink-mall-development`
+2. verify `origin/claude/pink-mall-development` resolves
+3. create or reuse an **isolated clone in a non-managed directory**, e.g.
+
+   ```bash
+   git clone --branch claude/pink-mall-development --single-branch \
+       https://github.com/VKK311/PIERCIINA-PROJECT /home/user/pm-dev
+   ```
+
+4. perform **all** mutations in that clone
+5. before **every** commit and push, verify both of:
+
+   ```bash
+   test "$(git branch --show-current)" = claude/pink-mall-development
+   git merge-base --is-ancestor origin/claude/pink-mall-development HEAD
+   ```
+
+If the environment changes branch unexpectedly, **discard that worktree and
+recreate the isolated clone**. Do not try to repair it in place.
+
+- Never commit new work to `claude/pink-mall-hero-carousel-jvhdb8`.
+- Never generate checkpoint links against that historical branch.
+
 ## Checkpoint rule
 
 - experiment or failed task → do not commit canonical state

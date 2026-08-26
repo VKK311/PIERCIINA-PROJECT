@@ -293,6 +293,69 @@ def main():
         m, e = validate_bytes(encoded(w, h), "image/jpeg")
         checks.append(("%s product shape accepted" % label, m is not None))
 
+    # ── Size-evidence semantics ──────────────────────────────────────────
+    # The four cases the false-refusal review required. Absence of evidence
+    # must never be read as evidence of absence.
+    from acquire import (size_state, SIZE_SCALE_NOT_PROVEN, SIZE_CONFIRMED,
+                         SIZE_IDENTITY_CONFLICT, refusal_audit, expand_identifiers,
+                         REFUSAL_ROUTES)
+
+    def scale(labels, avail="InStock"):
+        return [{"page": "https://x.test/p", "sizes":
+                 [{"size": l, "declared": avail} for l in labels]}]
+
+    st = size_state(["39"], [])
+    checks.append(("empty sizeEvidence + user size -> NOT blocked",
+                   st["state"] == SIZE_SCALE_NOT_PROVEN and not st["missing"]))
+
+    st = size_state(["39"], scale(["32", "33", "36", "38", "39", "40"]))
+    checks.append(("exact scale contains user size -> confirmed",
+                   st["state"] == SIZE_CONFIRMED and st["matched"] == ["39"]))
+
+    st = size_state(["39"], scale(["32", "33", "34", "35", "36", "37"]))
+    checks.append(("exact scale excludes user size -> conflict",
+                   st["state"] == SIZE_IDENTITY_CONFLICT and st["missing"] == ["39"]))
+
+    st = size_state(["39"], scale(["38", "39", "40"], avail="OutOfStock"))
+    checks.append(("source says sold out but user supplies it -> still available to PINK MALL",
+                   st["state"] == SIZE_CONFIRMED))
+
+    st = size_state(["37 1/3", "37.5"], scale(["37 1/3", "37.5", "38"]))
+    checks.append(("fractional and decimal labels compare without rewriting",
+                   st["state"] == SIZE_CONFIRMED and len(st["matched"]) == 2))
+
+    # ── Refusal gate ─────────────────────────────────────────────────────
+    every = [{"route": r, "result": "FAIL", "sku_evidence": False, "candidates": 0}
+             for r in REFUSAL_ROUTES]
+    a = refusal_audit(every)
+    checks.append(("all routes tried and all empty -> refusal permitted",
+                   a["refusalPermitted"] is True))
+
+    a = refusal_audit(every[:3])
+    checks.append(("routes left untried -> refusal forbidden",
+                   a["refusalPermitted"] is False and bool(a["routesNotAttempted"])))
+
+    with_doc = every[:-1] + [{"route": "INDEXED_SOURCE_EVIDENCE", "result": "OK",
+                              "authorityTier": "TRUSTED_RETAILER",
+                              "exactProductDocument": True,
+                              "sku_evidence": True, "candidates": 7}]
+    a = refusal_audit(with_doc)
+    checks.append(("an exact product document forbids UNRESOLVED",
+                   a["refusalPermitted"] is False and bool(a["exactProductDocuments"])))
+    checks.append(("refusal gate explains itself",
+                   "exact product document" in a["refusalBlockedBecause"]))
+
+    # ── Identifier expansion ─────────────────────────────────────────────
+    doc = ("ref PPJ-PGS30614-327 /product-vertical/ppj-pgs30614-327_1001.jpg "
+           "PGS30614327 and unrelated PGS30999")
+    ex = expand_identifiers("PGS30614", doc)
+    checks.append(("aliases read off an evidenced document",
+                   "PPJ-PGS30614-327" in ex and "PGS30614327" in ex))
+    checks.append(("expansion never invents a neighbouring style",
+                   not any("30999" in e for e in ex)))
+    checks.append(("expansion of an absent code yields nothing",
+                   expand_identifiers("ZZZ00000", doc) == []))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

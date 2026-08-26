@@ -1,35 +1,45 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "brand": "Pepe Jeans",
   "manufacturerItemNo": "PGS30614",
   "model": "Ben Band",
-  "variant": "Pink",
+  "variant": "Pink / Black",
+  "availableSizes": ["39"],
 
   "candidateMedia": [],
+  "indexedAssetSearch": true,
 
   "discoveryPages": [
+    "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
     "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
-    "https://www.pepejeans.com/en_be/women/womens-sneakers",
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
-    "https://www.tradeinn.com/dressinn/en/womens-shoes-sneakers/pepe-jeans/11898-1588/sm"
+    "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
+    "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html"
   ],
   "discoveryRoutes": {
+    "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
+    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
     "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
-    "https://www.pepejeans.com/en_be/women/womens-sneakers": "SEARCH_INDEX_OFFICIAL",
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids": "TRUSTED_RETAILER_SEARCH",
-    "https://www.tradeinn.com/dressinn/en/womens-shoes-sneakers/pepe-jeans/11898-1588/sm": "TRUSTED_RETAILER_SEARCH"
+    "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil": "TRUSTED_RETAILER_SEARCH",
+    "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html": "TRUSTED_RETAILER_SEARCH"
   },
+  "officialHostSuffixes": ["pepejeans.com"],
   "allowedHostSuffixes": [
     "pepejeans.com",
     "deporvillage.net",
-    "tradeinn.com"
+    "deporvillage.com",
+    "deporvillage.co.uk",
+    "esdemarca.com"
   ],
   "resolution": { "widthLadder": [1600, 1200, 1000, 800] },
   "requestedBy": "claude",
   "notes": [
-    "SECOND PASS. Every entry point in pass 1 answered 404 except a tradeinn search URL, which redirected to the homepage and contributed only /banners_home/ marketing panoramas. The variant gate refused to call that PASS, which is the gate working; the deny-list and a shape check now reject that class outright.",
-    "404, not 403: pepejeans.com is reachable and the URLs were simply wrong. Official discovery was never blocked for this brand — the earlier converse.com.tr lesson applies again.",
-    "Entry points here mix a live-looking official product URL (pt_pt), an official EU category page for one-hop following, and two retailer routes. The ledger decides which are real; none is asserted.",
-    "sizeEvidence was empty in pass 1, so the size question is still open: the user supplied 39 and this article is described by retailers as a kids line. If no source declares 39, that is a size-identity conflict for the user, not something to publish."
+    "THIRD PASS, under the false-refusal hardening. Zero seeds still: candidateMedia is empty and no user URL, photo or screenshot was supplied.",
+    "Passes 1 and 2 concluded UNRESOLVED because every direct fetch failed (three official 404s, retailer 403) and indexed evidence was never converted into acquisition. That was a transport failure being reported as an identity failure.",
+    "Every page listed here is expected to fail direct fetch. That is now the trigger for INDEXED_SOURCE_EVIDENCE rather than the end of the road: the runner reads an archived snapshot of the same URL, attributes it to the origin domain's authority tier, reads identifier aliases off it, and promotes any host it names into the allow-list as OBSERVED.",
+    "INDEXED_OUTBOUND_MEDIA additionally searches the archive for assets whose own path carries the article code, which is the strongest identity signal available and survives the storefront being delisted.",
+    "availableSizes is declared so sizeState can reconcile it against any declared scale. Empty sizeEvidence means the scale is unproven, which is the normal case and never a block."
   ]
 }
