@@ -53,6 +53,14 @@ def build_fixture(root):
         n = "VL_Court_Bold_Shoes_Pink_TESTSKU_%s_standard.jpg" % view
         w("%s/images/w_500,f_auto,q_auto/hash%d/%s" % (root, seed, n), shot(seed, 500, "v%s" % view))
         w("%s/images/w_1880,f_auto,q_auto/hash%d/%s" % (root, seed, n), shot(seed, 1880, "v%s" % view))
+    # Three distinct product-shaped images for the research-handoff fixture,
+    # served from a path with no SKU in it so identity has to come from the
+    # research evidence rather than the URL.
+    # Seeds 2/3/4 are the ones this fixture already proves are perceptually
+    # distinct; 91/93 rendered identically and collapsed as duplicates.
+    for i, seed in ((1, 2), (2, 3), (3, 4)):
+        w("%s/img/researchsku_%02d.jpg" % (root, i), shot(seed, 1200, "r%d" % i))
+
     # exact duplicate of view 01 under a different path
     w("%s/images/w_500,f_auto,q_auto/dup/VL_Court_Bold_Shoes_Pink_TESTSKU_01_00_standard.jpg" % root,
       shot(1, 500, "v01_00"))
@@ -169,6 +177,58 @@ def main():
         [sys.executable, os.path.join(HERE, "acquire.py"),
          "--request", hop_req(tmp), "--out", os.path.join(tmp, "hop")],
         check=False, env=env, capture_output=True)
+
+    res_out = os.path.join(tmp, "research-out")
+    res_req = os.path.join(tmp, "RESEARCHSKU.request.json")
+    with open(res_req, "w", encoding="utf-8") as fh:
+        json.dump({
+            "schemaVersion": 3,
+            "brand": "Fixture",
+            "manufacturerItemNo": "RESEARCHSKU",
+            "model": "Handoff",
+            "variant": "Pink",
+            "availableSizes": ["39"],
+            "candidateMedia": [],
+            "indexedAssetSearch": False,
+            "discoveryPages": [],
+            "allowedHostSuffixes": ["127.0.0.1"],
+            "researchEvidence": [{
+                "sourceUrl": "http://127.0.0.1:%d/product/researchsku.html" % PORT,
+                "authorityTier": "TRUSTED_RETAILER",
+                "discoveryTransport": "CLAUDE_RESEARCH",
+                "confidence": "B",
+                "capturedAt": "2026-08-26T00:00:00Z",
+                "sku": "RESEARCHSKU",
+                "model": "Handoff",
+                "variant": "Pink",
+                "aliases": ["PPJ-RESEARCHSKU-327"],
+                "sizeScale": [{"size": "38", "declared": "InStock"},
+                              {"size": "39", "declared": "OutOfStock"}],
+                "observedCdnHosts": ["127.0.0.1:%d" % PORT],
+                "mediaUrls": [
+                    {"url": "http://127.0.0.1:%d/img/researchsku_01.jpg" % PORT,
+                     "field": "json-ld"},
+                    {"url": "http://127.0.0.1:%d/img/researchsku_02.jpg" % PORT,
+                     "field": "og:image"},
+                    {"url": "http://127.0.0.1:%d/img/researchsku_03.jpg" % PORT,
+                     "field": "gallery"},
+                ],
+            }],
+            "resolution": {"widthLadder": [1880]},
+        }, fh)
+
+    res_run = subprocess.run(
+        [sys.executable, os.path.join(HERE, "acquire.py"),
+         "--request", res_req, "--out", res_out],
+        check=False, env=env, capture_output=True)
+    if os.environ.get("PM_DEBUG"):
+        _rj = os.path.join(res_out, "RESEARCHSKU", "result.json")
+        if os.path.exists(_rj):
+            _d = json.load(open(_rj, encoding="utf-8"))
+            print("RESEARCH LOG:")
+            for _e in _d.get("log", []):
+                print("   ", json.dumps(_e, ensure_ascii=False)[:220])
+
 
     httpd.shutdown()
 
@@ -406,6 +466,49 @@ def main():
                         ("no archived capture", False)):
         got = _is_transport_failure({"result": "FAIL", "error": err})
         checks.append(("transport classification: %s" % err[:34], got is expect))
+
+    # ── Research evidence -> candidateMedia -> runner acquisition ────────
+    # The whole point of the handoff: onboarding must work with the archive
+    # entirely unavailable. PM_NO_INDEX is already set for this suite, so if
+    # this passes, no archive was consulted.
+    rj = os.path.join(res_out, "RESEARCHSKU", "result.json")
+    res = json.load(open(rj, encoding="utf-8")) if os.path.exists(rj) else {}
+    if os.environ.get("PM_DEBUG"):
+        print("RESEARCH STATUS:", res.get("status"), res.get("counts"))
+        print("  vc:", res.get("variantConfidence", {}).get("state"),
+              res.get("variantConfidence", {}).get("conflicts"))
+    checks.append(("research evidence -> candidateMedia -> acquisition PASS",
+                   res.get("status") == "PASS"))
+    checks.append(("all three research media URLs acquired",
+                   res.get("counts", {}).get("unique_selected") == 3))
+    # N/A entries are bookkeeping, not lookups. What must be absent is an
+    # index route that actually executed.
+    _index_ran = [e for e in res.get("discoveryLedger", [])
+                  if "INDEX" in e.get("route", "") and e.get("result") != "N/A"]
+    checks.append(("acquisition ran with no archive lookup at all", not _index_ran))
+    checks.append(("archive routes recorded as not-applicable, not as failures",
+                   all(e.get("result") == "N/A"
+                       for e in res.get("discoveryLedger", [])
+                       if "INDEX" in e.get("route", ""))))
+    checks.append(("research route recorded in the ledger with its tier and level",
+                   any(e.get("route") == "RESEARCH_EVIDENCE"
+                       and e.get("authorityTier") == "TRUSTED_RETAILER"
+                       and e.get("confidence") == "B"
+                       and e.get("discoveryTransport") == "CLAUDE_RESEARCH"
+                       for e in res.get("discoveryLedger", []))))
+    checks.append(("evidenced aliases carried through",
+                   "PPJ-RESEARCHSKU-327" in (res.get("identifierAliases") or [])))
+    checks.append(("research size scale reconciles the supplied size",
+                   res.get("sizeState", {}).get("state") == "SIZE_CONFIRMED"))
+    checks.append(("source stock status does not touch PINK MALL availability",
+                   "39" in (res.get("sizeState", {}).get("matched") or [])))
+    checks.append(("observed CDN host promoted, not guessed",
+                   all(e.get("sha256") for e in res.get("images", []))))
+    checks.append(("every acquired image carries its research source page",
+                   all(e.get("source_page") or e.get("sku_evidence")
+                       for e in res.get("images", []))))
+    checks.append(("identity evidenced -> refusal not permitted",
+                   res.get("refusalAudit", {}).get("refusalPermitted") is False))
 
     ok = True
     for name, passed in checks:

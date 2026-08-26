@@ -137,6 +137,9 @@ JSONLD_RE = re.compile(r"<script[^>]+type=[\"']application/ld\+json[\"'][^>]*>(.
 # Methods where the page is *declaring this product's* media, as opposed to a
 # blanket sweep of every image on the document.
 AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-probe",
+                         # Located by Claude's research transport on a trusted
+                         # product document, with that document recorded.
+                         "research-evidence",
                          # An archived asset whose own path carries the article
                          # code identifies itself; the page that linked it is
                          # not needed to vouch for it.
@@ -1166,6 +1169,120 @@ def refusal_audit(ledger, aliases=None):
     }
 
 
+# ── Research evidence handoff ─────────────────────────────────────────────
+# Discovery and acquisition are different jobs with different transports.
+#
+# A GitHub runner is an excellent binary client — it fetches CDN bytes fast and
+# reliably — and a poor research client: search indexes and public archives
+# rate-limit or refuse its datacenter IP, which is what produced four
+# consecutive DISCOVERY_TRANSPORT_BLOCKED runs for PGS30614.
+#
+# So research happens where research works (Claude's own investigation), and
+# its findings are written into the manifest as structured evidence. The runner
+# then does only what it is good at: validate the host, fetch the bytes,
+# validate MIME and dimensions, reject banners and editorial assets, hash and
+# dedupe, check variant confidence, build the contact sheet, preserve
+# provenance. Archive lookups become a fallback for when research did not
+# expose enough media, not a precondition for onboarding anything.
+#
+# Authority is unchanged by any of this. A research transport is not an
+# authority; the underlying official or trusted-retailer source is.
+
+RESEARCH_TRANSPORTS = {"CLAUDE_RESEARCH", "USER_SUPPLIED", "INDEX_SNAPSHOT",
+                       "DIRECT_FETCH"}
+EVIDENCE_LEVELS = {"A", "B", "C"}
+
+
+def ingest_research_evidence(request, log, ledger):
+    """Turn recorded research findings into acquisition inputs.
+
+    Returns (candidates, observed_hosts, aliases, size_evidence, summary).
+    Nothing here asserts a product fact: every media URL still has to survive
+    host validation, byte validation, the banner and shape guards, the identity
+    gate and variant confidence before it can reach an approval package.
+    """
+    candidates, observed_hosts, aliases, size_evidence = [], [], [], []
+    summary = []
+
+    for ev in (request.get("researchEvidence") or []):
+        src = ev.get("sourceUrl") or ""
+        tier = ev.get("authorityTier") or "TRUSTED_RETAILER"
+        transport = ev.get("discoveryTransport") or "CLAUDE_RESEARCH"
+        level = (ev.get("confidence") or "").upper()
+        if transport not in RESEARCH_TRANSPORTS:
+            log.append({"stage": "research", "url": src, "ok": False,
+                        "error": "unknown discoveryTransport %r" % transport})
+            continue
+        if level and level not in EVIDENCE_LEVELS:
+            log.append({"stage": "research", "url": src, "ok": False,
+                        "error": "unknown confidence level %r" % level})
+            continue
+
+        for a in (ev.get("aliases") or []):
+            if a and a not in aliases:
+                aliases.append(a)
+
+        scale = ev.get("sizeScale") or []
+        if scale:
+            size_evidence.append({
+                "page": src, "route": "RESEARCH_EVIDENCE",
+                "authorityTier": tier, "transport": transport,
+                "capturedAt": ev.get("capturedAt"),
+                "sizes": [{"size": str(x.get("size")).strip(),
+                           "declared": x.get("declared", "")}
+                          for x in scale if x.get("size") is not None],
+            })
+
+        media = ev.get("mediaUrls") or []
+        for m in media:
+            url = m.get("url") if isinstance(m, dict) else m
+            if not url or not str(url).lower().startswith(("http://", "https://")):
+                continue
+            field = (m.get("field") if isinstance(m, dict) else None) or "research"
+            candidates.append((url, "research-evidence", src, True))
+            host = urllib.parse.urlsplit(url).netloc.lower()
+            if host and host not in observed_hosts:
+                observed_hosts.append(host)
+            log.append({"stage": "research-media", "url": url, "field": field,
+                        "sourcePage": src, "authorityTier": tier})
+
+        for h in (ev.get("observedCdnHosts") or []):
+            h = str(h).lower().lstrip(".")
+            if h and h not in observed_hosts:
+                observed_hosts.append(h)
+
+        entry = {
+            "route": "RESEARCH_EVIDENCE",
+            "url": src,
+            "result": "OK" if (media or scale or aliases) else "FAIL",
+            "authorityTier": tier,
+            "discoveryTransport": transport,
+            "confidence": level or None,
+            "capturedAt": ev.get("capturedAt"),
+            "observedSku": ev.get("sku"),
+            "model": ev.get("model"),
+            "variant": ev.get("variant"),
+            "aliases": ev.get("aliases") or [],
+            "mediaUrls": len(media),
+            "sizeLabels": len(scale),
+            # Identity evidence and media evidence are separate claims and are
+            # recorded separately. A source can pin the article precisely and
+            # still expose no usable imagery.
+            "exactProductDocument": bool(ev.get("sku") and (media or scale)),
+            "sku_evidence": bool(ev.get("sku")),
+            "candidates": len(media),
+        }
+        ledger.append(entry)
+        summary.append({k: entry[k] for k in
+                        ("url", "authorityTier", "discoveryTransport", "confidence",
+                         "observedSku", "model", "variant", "mediaUrls", "sizeLabels")})
+
+    if candidates or observed_hosts:
+        log.append({"stage": "research", "seeded_candidates": len(candidates),
+                    "observed_hosts": sorted(set(observed_hosts))})
+    return candidates, observed_hosts, aliases, size_evidence, summary
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 def acquire(request, outroot, log):
     sku = request["manufacturerItemNo"].strip()
@@ -1182,6 +1299,14 @@ def acquire(request, outroot, log):
     # 1. DISCOVER ---------------------------------------------------------
     ledger = []
     candidates = []
+
+    # Research evidence first. Media Claude already located from a trusted
+    # product document is acquired directly; the runner does not go and
+    # rediscover it through an archive.
+    (research_candidates, research_hosts, research_aliases,
+     research_sizes, research_summary) = ingest_research_evidence(request, log, ledger)
+    candidates += research_candidates
+
     for seed in request.get("candidateMedia", []):
         u = seed["url"] if isinstance(seed, dict) else seed
         candidates.append((u, "request-seed", None, True))
@@ -1209,9 +1334,17 @@ def acquire(request, outroot, log):
     seen_pages = set()
     hop_targets = []
     size_evidence = []
-    observed_hosts = []      # hosts an evidenced document named — never guessed
-    aliases = []             # identifiers the source itself uses for this article
+    # hosts an evidenced document named — never guessed
+    observed_hosts = list(research_hosts)
+    aliases = list(research_aliases)          # identifiers the source itself uses
+    size_evidence.extend(research_sizes)
     failed_pages = []
+
+    # Research media is allow-listed immediately: the runner must be able to
+    # fetch what research already found without waiting on any other route.
+    if observed_hosts:
+        allowed = (frozenset(set(allowed[0]) | {h.lower() for h in observed_hosts}),
+                   allowed[1])
     for page in pages:
         if page in seen_pages:
             continue
@@ -1252,13 +1385,21 @@ def acquire(request, outroot, log):
     # itself and survives the storefront being delisted. Ordering it last let
     # six per-URL lookups burn the whole indexed-phase deadline before the
     # highest-value route was ever attempted.
-    if request.get("indexedAssetSearch", True) and _index_enabled(request):
+    research_media_found = bool(research_candidates)
+    if research_media_found:
+        log.append({"stage": "index-skip",
+                    "reason": "research evidence already exposed %d media URL(s); "
+                              "archive lookup is a fallback, not a precondition"
+                              % len(research_candidates)})
+    if (request.get("indexedAssetSearch", True) and _index_enabled(request)
+            and not research_media_found):
         candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
                                            request, observed_hosts=observed_hosts)
 
     # Indexed source evidence. Runs for every page the direct transport could
     # not turn into evidence — 403, 404, or a 200 that never named the article.
-    for page in (failed_pages[:MAX_INDEXED_DOCS] if _index_enabled(request) else []):
+    for page in (failed_pages[:MAX_INDEXED_DOCS]
+                 if (_index_enabled(request) and not research_media_found) else []):
         candidates += discover_from_indexed(page, allowed, log, sku, ledger, rule,
                                             request, collect_links=hop_targets,
                                             collect_sizes=size_evidence,
@@ -1318,7 +1459,8 @@ def acquire(request, outroot, log):
     # out of the list entirely — discovery got better and acquisition got worse.
     # Authoritative declarations and SKU-evidenced pages go first, so the cap
     # trims the page sweep rather than the product.
-    METHOD_RANK = {"request-seed": 0, "cdn-probe": 0, "indexed-asset": 0,
+    METHOD_RANK = {"research-evidence": 0, "request-seed": 0, "cdn-probe": 0,
+                   "indexed-asset": 0,
                    "json-ld": 1, "og:image": 1, "srcset": 2, "html-scan": 3}
     ordered.sort(key=lambda c: (METHOD_RANK.get(c[1], 4), 0 if c[3] else 1))
     ordered = ordered[:MAX_CANDIDATES]
@@ -1688,6 +1830,7 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
         # labels are evidenced.
         "sizeState": size_state(request.get("availableSizes"), size_evidence),
         "identifierAliases": list(aliases or []),
+        "researchEvidence": request.get("researchEvidence") or [],
         # Whether a refusal would even be honest. Consulted before any BLOCKED
         # or UNRESOLVED conclusion is allowed to stand.
         "refusalAudit": audit,

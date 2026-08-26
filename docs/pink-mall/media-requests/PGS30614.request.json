@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "brand": "Pepe Jeans",
   "manufacturerItemNo": "PGS30614",
   "model": "Ben Band",
@@ -9,20 +9,72 @@
   "candidateMedia": [],
   "indexedAssetSearch": true,
 
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Sneakers in cotone suola cupsole",
+      "variant": "factory pink",
+      "aliases": ["PGS30614327"],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Pepe Jeans product URL for this article, indexed under three locales (it_it, pl_pl, pt_pt), all carrying the same full article code PGS30614327.",
+        "Establishes the base-to-variant mapping: PGS30614 + colour 327. Official colour name observed as 'factory pink'.",
+        "The URL itself 404s to a direct fetch, which is why this is level B (indexed exact) rather than level A."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "Pink / Black",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Names the public model 'Ben Band' and the variant Pink / Black for this article.",
+        "MEDIA URLS NOT RECORDED: this session's egress proxy blocks deporvillage, so the page internals were never read by me. The exact CDN targets described in the task brief are reviewer-supplied and are deliberately NOT copied in here — they would be an unverified assertion wearing the costume of research evidence, and the path segments given were elided so they cannot be reconstructed without guessing."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Third independent trusted retailer agreeing on exact SKU + model + colour, which is what raises the identity to corroborated (level C) across sources.",
+        "Construction observed consistently across retailers: twill weave, lace-up with metal eyelets, contrast edges, heat-sealed side logo, reinforced toe and heel, vulcanised cupsole."
+      ]
+    }
+  ],
+
   "discoveryPages": [
     "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
-    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
-    "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
-    "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
     "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html"
   ],
   "discoveryRoutes": {
     "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
-    "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
-    "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html": "DIRECT_OFFICIAL_PAGE",
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids": "TRUSTED_RETAILER_SEARCH",
-    "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil": "TRUSTED_RETAILER_SEARCH",
     "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html": "TRUSTED_RETAILER_SEARCH"
   },
   "officialHostSuffixes": ["pepejeans.com"],
@@ -36,10 +88,8 @@
   "resolution": { "widthLadder": [1600, 1200, 1000, 800] },
   "requestedBy": "claude",
   "notes": [
-    "THIRD PASS, under the false-refusal hardening. Zero seeds still: candidateMedia is empty and no user URL, photo or screenshot was supplied.",
-    "Passes 1 and 2 concluded UNRESOLVED because every direct fetch failed (three official 404s, retailer 403) and indexed evidence was never converted into acquisition. That was a transport failure being reported as an identity failure.",
-    "Every page listed here is expected to fail direct fetch. That is now the trigger for INDEXED_SOURCE_EVIDENCE rather than the end of the road: the runner reads an archived snapshot of the same URL, attributes it to the origin domain's authority tier, reads identifier aliases off it, and promotes any host it names into the allow-list as OBSERVED.",
-    "INDEXED_OUTBOUND_MEDIA additionally searches the archive for assets whose own path carries the article code, which is the strongest identity signal available and survives the storefront being delisted.",
-    "availableSizes is declared so sizeState can reconcile it against any declared scale. Empty sizeEvidence means the scale is unproven, which is the normal case and never a block."
+    "Reopened from the original four user fields only: Pepe Jeans / PGS30614 / EUR 34 / size 39. No user URL, photo or screenshot was used as a seed.",
+    "IDENTITY is established by Claude's own research transport across three independent sources and is recorded above as structured evidence. MEDIA URLS are not, because this session's egress proxy blocks every one of those domains, so no page internals were read.",
+    "Identity evidence and media evidence are separate claims. This manifest asserts the first and not the second."
   ]
 }

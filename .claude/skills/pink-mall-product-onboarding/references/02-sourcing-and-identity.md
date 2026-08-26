@@ -154,6 +154,43 @@ product title or model · colour/variant · GTIN/EAN/MPN · product-specific siz
 controls · product-specific image links · JSON-LD / OG / gallery declarations ·
 **image filenames containing the exact SKU or variant**.
 
+## Discovery and acquisition are different jobs
+
+They use different transports, and conflating them cost four consecutive
+blocked runs.
+
+| Job | Transport | Why |
+|---|---|---|
+| **Discovery** | Claude's own research | search indexes and archives rate-limit or refuse datacenter IPs |
+| **Acquisition** | the GitHub runner | fetches CDN bytes fast and reliably |
+
+Claude's research findings are written into the request manifest as structured
+`researchEvidence`, recording per source: URL · authority tier · discovery
+transport · exact SKU observed · model · variant · evidenced aliases · exact
+size scale when seen · exact outbound image URLs · observed CDN hostname ·
+which field exposed each media URL (`og:image`, JSON-LD, gallery, indexed
+outbound link) · capture timestamp · confidence level A/B/C.
+
+When research has already found exact outbound image URLs on a trusted product
+document, they go straight into `candidateMedia`. **The runner must not
+rediscover them through an archive.** Archive and index lookups are a
+*fallback* for when research did not expose enough media — never a precondition
+for onboarding.
+
+The runner then does only what it is good at: validate the allowed or observed
+host, fetch bytes, validate MIME and dimensions, reject banners and editorial
+assets, hash and dedupe, apply variant confidence, build the contact sheet,
+preserve provenance.
+
+Research evidence must come from Claude's **own** source investigation during
+the task. Do not record user-provided links as research evidence unless the
+user explicitly supplied them, and label them as such when they do —
+`discoveryTransport: USER_SUPPLIED`, never `CLAUDE_RESEARCH`.
+
+**Identity evidence and media evidence are separate claims.** A source can pin
+the article precisely and still expose no usable imagery. Record and report
+them separately; never let one stand in for the other.
+
 ## Observed hosts are not guessed hosts
 
 When indexed transport exposes product image targets:
