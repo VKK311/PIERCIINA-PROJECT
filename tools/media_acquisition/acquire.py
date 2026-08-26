@@ -139,9 +139,20 @@ AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-p
 
 # Paths that are editorial or chrome rather than product media. Belt and
 # braces behind the method rule.
+# Matches a whole path SEGMENT that begins with one of these words, so
+# /banners_home/ and /banner-hp/ are caught as well as /banners/. The first
+# version anchored on a trailing slash and let tradeinn's /banners_home/
+# marketing panoramas through as candidate product media.
 NON_PRODUCT_RE = re.compile(
-    r"/(?:articles?|blog|news|banner|banners|cms|icons?|logos?|sprites?|avatars?|"
-    r"placeholder|payment|social|flags?)/", re.I)
+    r"/(?:articles?|blog|news|banners?|promo|campaign|hero|cms|icons?|logos?|"
+    r"sprites?|avatars?|placeholder|payment|social|flags?|categorias?|"
+    r"categor(?:y|ies))[^/]*/", re.I)
+
+# A studio product photograph is roughly square to portrait. A 4:1 panorama is
+# a page banner, a category strip or a lifestyle header — never the product
+# shot this pipeline exists to acquire. Rejecting on shape is brand-agnostic
+# and needs no allow-list to maintain.
+MAX_ASPECT = 2.2
 
 
 def _from_jsonld(html):
@@ -378,6 +389,9 @@ def validate_bytes(body, ctype):
     w, h = img.size
     if w < 1 or h < 1:
         return None, "zero dimension"
+    aspect = max(w, h) / float(min(w, h))
+    if aspect > MAX_ASPECT:
+        return None, "aspect %.1f:1 — banner shape, not a product photograph" % aspect
     fmt = (img.format or "").lower()
     mime = {"jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}.get(fmt, ctype or "")
     if mime not in OK_MIME:

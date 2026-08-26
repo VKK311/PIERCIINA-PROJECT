@@ -13,6 +13,7 @@ import json
 import os
 import shutil
 import socketserver
+import io
 import subprocess
 import sys
 import tempfile
@@ -263,6 +264,34 @@ def main():
                    "39" not in [d["size"] for d in declared]))
     checks.append(("page with no size declaration yields no false scale",
                    sizes_from_jsonld("<html><body>no ld+json here</body></html>") == []))
+
+    # Non-product path segments. The tradeinn run accepted /banners_home/
+    # marketing panoramas as PGS30614 product media because the deny-list
+    # anchored on a trailing slash and 'banners_home' is not 'banners'.
+    from acquire import NON_PRODUCT_RE, validate_bytes, MAX_ASPECT
+    rejects = ["https://cache.tradeinn.com/web/banners_home/HP-adidas.webp",
+               "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
+               "https://x.test/banner-hp/a.jpg", "https://x.test/articles/b.jpg"]
+    keeps = ["https://assets.adidas.com/images/w_1880/h/Shoes_JQ4556_standard.jpg",
+             "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i",
+             "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/a.jpg"]
+    checks.append(("banner-ish path segments rejected",
+                   all(NON_PRODUCT_RE.search(u) for u in rejects)))
+    checks.append(("real product asset paths still kept",
+                   not any(NON_PRODUCT_RE.search(u) for u in keeps)))
+
+    # Shape. A 4:1 panorama is a page banner, never a product photograph.
+    def encoded(w, h):
+        buf = io.BytesIO()
+        Image.new("RGB", (w, h), (200, 160, 170)).save(buf, "JPEG")
+        return buf.getvalue()
+
+    meta, err = validate_bytes(encoded(1920, 460), "image/jpeg")
+    checks.append(("4.2:1 banner rejected on shape", meta is None and "aspect" in (err or "")))
+    for w, h, label in ((1880, 1880, "square"), (560, 746, "portrait 4:3"),
+                        (1000, 500, "2:1 wide but plausible")):
+        m, e = validate_bytes(encoded(w, h), "image/jpeg")
+        checks.append(("%s product shape accepted" % label, m is not None))
 
     ok = True
     for name, passed in checks:
