@@ -159,6 +159,9 @@ def main():
     env = dict(os.environ)
     for k in ("HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"):
         env.pop(k, None)
+    # Keep the suite hermetic: the fixture server is local and the indexed
+    # routes must not reach the public archive from a test run.
+    env["PM_NO_INDEX"] = "1"
     subprocess.run([sys.executable, os.path.join(HERE, "acquire.py"),
                     "--request", req_path, "--out", out],
                    check=False, env=env, capture_output=True)

@@ -363,8 +363,15 @@ INDEX_RETRIES = 1
 # calls that each burn a 90s timeout is half an hour. What actually has to be
 # bounded is wall-clock, so the indexed phase gets a deadline and the job
 # cannot be starved by a slow index.
-INDEX_DEADLINE_S = 420
+INDEX_DEADLINE_S = 600
+# The archive rate-limits by IP. In the last run the first domain query
+# answered cleanly and the next four came back "Connection refused" within
+# seconds — throttling, not an outage. Hammering it produces exactly the
+# unreachable-route state the refusal gate then has to report. Space the calls
+# out instead.
+INDEX_MIN_INTERVAL_S = 7
 _index_started = [None]
+_index_last_call = [0.0]
 _index_calls = [0]
 
 
@@ -398,6 +405,20 @@ def _authority_tier(host, rule, request):
     return "TRUSTED_RETAILER"
 
 
+def _index_enabled(request=None):
+    """Indexed transport can be switched off.
+
+    The self-test must stay hermetic: it stands up a local fixture server and
+    must not reach the public internet, let alone sit through archive timeouts.
+    A request may also disable it explicitly.
+    """
+    if os.environ.get("PM_NO_INDEX"):
+        return False
+    if request is not None and request.get("indexedEvidence") is False:
+        return False
+    return True
+
+
 def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
                       contains=None):
     """Archived captures of a URL, or of a whole domain, newest first.
@@ -419,6 +440,8 @@ def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
         params.append(("matchType", match_type))
     if contains:
         params.append(("filter", "original:(?i).*%s.*" % re.escape(contains)))
+    if not _index_enabled():
+        return [], "indexed transport disabled (PM_NO_INDEX)"
     endpoints = [WAYBACK_CDX + "?" + urllib.parse.urlencode(params)]
     if not match_type:
         # arquivo.pt speaks the same CDX dialect for exact-URL lookups.
@@ -436,6 +459,10 @@ def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
             if not _index_budget_left():
                 return [], last_err or _index_budget_reason()
             _index_calls[0] += 1
+            gap = INDEX_MIN_INTERVAL_S - (time.time() - _index_last_call[0])
+            if gap > 0:
+                time.sleep(gap)
+            _index_last_call[0] = time.time()
             try:
                 _, _, body = http_get(endpoint, (INDEX_HOSTS, ()),
                                       max_bytes=MAX_PAGE_BYTES,
@@ -1225,13 +1252,13 @@ def acquire(request, outroot, log):
     # itself and survives the storefront being delisted. Ordering it last let
     # six per-URL lookups burn the whole indexed-phase deadline before the
     # highest-value route was ever attempted.
-    if request.get("indexedAssetSearch", True):
+    if request.get("indexedAssetSearch", True) and _index_enabled(request):
         candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
                                            request, observed_hosts=observed_hosts)
 
     # Indexed source evidence. Runs for every page the direct transport could
     # not turn into evidence — 403, 404, or a 200 that never named the article.
-    for page in failed_pages[:MAX_INDEXED_DOCS]:
+    for page in (failed_pages[:MAX_INDEXED_DOCS] if _index_enabled(request) else []):
         candidates += discover_from_indexed(page, allowed, log, sku, ledger, rule,
                                             request, collect_links=hop_targets,
                                             collect_sizes=size_evidence,
