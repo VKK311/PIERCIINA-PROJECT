@@ -1,6 +1,13 @@
 # PINK MALL — Pepe Jeans PGS30614 approval preview (PM-029 proposed)
 
-**STATUS: READY FOR APPROVAL — NOT PUBLISHED**
+**STATUS: APPROVED AND PUBLISHED as PM-029 on 2026-08-26.**
+
+Published exactly as recorded below — MAIN IMAGE 01, gallery 01 → 02 → 04 → 05
+→ 03, €34, size 39 only, material omitted, official manufacturer media. Live
+media is at `assets/pink-mall/products/PM-029/`; the file-to-image mapping is in
+that directory's `README.md`.
+
+**Original approval state:**
 `VARIANT_CONFIDENCE_PASS` · `SIZE_CONFIRMED` · **media tier: OFFICIAL**
 
 Zero-seed onboarding: human input was the original four fields only —
@@ -17,7 +24,7 @@ Zero-seed onboarding: human input was the original four fields only —
 | Manufacturer item | PGS30614 |
 | Full article code | PGS30614327 (base + colour `327`) |
 | Retailer reference | PPJ-PGS30614-327 |
-| Mall ID | PM-029 (proposed — allocated only on publish) |
+| Mall ID | **PM-029 — allocated at publication, 2026-08-26** |
 | Category | SHOES > Sneakers |
 | Public colour | Pink / Black |
 | Manufacturer colour name | `factory pink` |
@@ -25,7 +32,7 @@ Zero-seed onboarding: human input was the original four fields only —
 | Price | €34 |
 | oldPriceEUR | null — no SALE |
 | selectedBy | null |
-| NEW | 14 days from first approved publication |
+| NEW | until 2026-09-09 (14 days from publication) |
 | Delivery | global — `4–7 работни дни` |
 
 A pink canvas low-top on a chunky cream vulcanised cupsole, with a navy toe
@@ -151,7 +158,7 @@ Internal only, never rendered as public specs.
 The manufacturer classifies this line as a junior series item. Internal only;
 it appears nowhere above, in the tags, in the alt text or in the copy.
 
-## 10. Staged product object — NOT PUBLISHED
+## 10. Published product object
 
 ```js
 {
@@ -172,7 +179,7 @@ it appears nowhere above, in the tags, in the alt text or in the copy.
     tags: ['pepe jeans','ben band','sneakers','shoes','pink','navy',
            'canvas','platform','cupsole','retro'],
     featured: false, campaign: null, related: ['PM-027','PM-028'],
-    isNew: false, newUntil: null,
+    isNew: false, newUntil: '2026-09-09',
     inventoryMode: 'availability',
     availability: { '39':'available' },
     media: {
@@ -192,26 +199,40 @@ it appears nowhere above, in the tags, in the alt text or in the copy.
 }
 ```
 
-## 11. Approval preview
+## 11. Published summary
 
 ```text
-STATUS:   READY FOR APPROVAL
+STATUS:   PUBLISHED as PM-029 on 2026-08-26
 VARIANT:  VARIANT_CONFIDENCE_PASS
 BRAND:    Pepe Jeans
 MODEL:    Ben Band
 ITEM:     PGS30614  (full article PGS30614327)
-MALL ID:  PM-029 (proposed)
+MALL ID:  PM-029
 CATEGORY: SHOES > Sneakers
 COLOR:    Pink / Black   (manufacturer: factory pink)
 MATERIAL: omitted — not established by this pipeline
 PRICE:    €34
 SIZES:    39 — available.  Exact scale 32–40 evidenced and contains 39.
-NEW:      YES for 14 days after first approved publication
+NEW:      YES until 2026-09-09
 MAIN:     IMAGE 01
 GALLERY ORDER: 01 (MAIN) → 02 → 04 → 05 → 03
 MEDIA TIER: OFFICIAL — images.pepejeans.com, manufacturer CDN
 WARNINGS: manufacturer view 03 not recovered
 ```
 
-**Awaiting:** `APPROVE` / `CHANGE MAIN TO IMAGE 0X` / `REORDER` /
-`REMOVE IMAGE 0X` / `CHANGE COPY` / `REJECT`.
+**Approved and published.** Nothing here awaits a decision.
+
+## 12. Publication verification — 2026-08-26
+
+| Check | Result |
+|---|---|
+| Canonical `PINKMALL.html` SHA-256 | `851534665fa9c02cc3d1096343f2c8e87d4f429ba716bc014f105f49db8b71ac` |
+| PM-029 in `PINK_MALL_PRODUCTS` | exactly once; catalogue PM-001…PM-029, 29 unique ids |
+| Production regression | **PASS** — 206/206 across PM-025…PM-029 |
+| Portable review regression | **PASS** — 208/208, standalone alone in an empty directory |
+| Live media | 5 WebP at native size; no upscale, no canvas |
+| Size truth | 39 only, not sold out, no quantities; exact 32–40 scale proven |
+| Material | no `Състав` row on the PDP |
+| Junior classification | absent from all rendered text |
+| Supplier names | absent from all rendered text |
+| PM-025 … PM-028 | unchanged — ladders, sold-out sets, media dimensions, spec rows |

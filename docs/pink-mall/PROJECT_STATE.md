@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-028 publication.
-Status: **PM-001…PM-028 PUBLISHED.**
+Updated: PM-029 publication.
+Status: **PM-001…PM-029 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `7f088253c01c94c04100e111746b4bcc2153e4d68a3344790a37c3af9b07d2a5` |
-| CANONICAL WEBSITE BYTES | 2552740 |
+| CANONICAL WEBSITE SHA-256 | `851534665fa9c02cc3d1096343f2c8e87d4f429ba716bc014f105f49db8b71ac` |
+| CANONICAL WEBSITE BYTES | 2555648 |
 
 ## Engine
 
@@ -28,12 +28,13 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-028 |
-| NEXT ID | PM-029 |
+| PUBLIC CATALOG | PM-001 … PM-029 |
+| NEXT ID | PM-030 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
 | JR5952 | **PUBLISHED as PM-028** on 2026-08-25 |
+| PGS30614 | **PUBLISHED as PM-029** on 2026-08-26 |
 
 ## Media acquisition automation
 
@@ -84,7 +85,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `451029462cd743edcf4c11b31facf8da7de0edec43ba8d35f2bdf48bdae8c60a` |
+| SHA-256 | `3970434e556fd8479bff34a901d6e75ab454a6edc3f489ae06d48408622efde6` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -226,40 +227,66 @@ The earlier BLOCKED / UNRESOLVED records for JR5952 and A08745C are
 **superseded**; see `checkpoints/SUPERSEDED_*.md`, kept only as a record of how
 those conclusions were reached and why they were wrong.
 
-## Pending approval — not published
-
-### Pepe Jeans PGS30614 — READY FOR APPROVAL
+## PM-029 — published
 
 | | |
 |---|---|
-| Model | Ben Band |
-| Full article | PGS30614327 (base + colour 327) |
-| Public colour | Pink / Black (manufacturer: `factory pink`) |
-| Price | €34 |
-| Sizes | 39 — available. Exact scale 32-40 evidenced and contains 39 |
-| Size state | `SIZE_CONFIRMED` |
-| Variant | `VARIANT_CONFIDENCE_PASS` |
-| Images | 5 accepted — 1920x2652, 2x 1600x2210, 2x 1200x1658 |
-| Media tier | **OFFICIAL** — `images.pepejeans.com`, manufacturer CDN |
-| Material | omitted — not established by this pipeline |
-| Proposed Mall ID | **PM-029** |
-| Published | **no** |
-| Package | `checkpoints/PM029_PGS30614_APPROVAL_PREVIEW.md` |
+| PUBLISHED | 2026-08-26 |
+| BRAND / MODEL | Pepe Jeans / Ben Band |
+| MANUFACTURER ITEM | PGS30614 (full article PGS30614327) |
+| RETAILER REFERENCE | PPJ-PGS30614-327 |
+| PUBLIC COLOUR | Pink / Black (manufacturer: `factory pink`) |
+| MATERIAL | **omitted** — not established by this pipeline |
+| PRICE | €34, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 39 — available. **No sold-out sizes asserted** |
+| EXACT-MODEL SIZE RUN | **PROVEN 32–40, contains 39** → `SIZE_CONFIRMED` |
+| NEW UNTIL | 2026-09-09 (14 days from publication) |
+| MAIN | IMAGE 01 — lateral side profile |
+| GALLERY ORDER | 01 → 02 → 04 → 05 → 03 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-029/` — 1920×2652, 2× 1600×2210, 2× 1200×1658 |
+| MEDIA TIER | **OFFICIAL** — `images.pepejeans.com`, manufacturer CDN |
+| ACQUISITION | **zero-seed** — no user URL, no user images |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| PACKAGE | `checkpoints/PM029_PGS30614_APPROVAL_PREVIEW.md` |
 
-Second product in the catalogue with manufacturer-tier imagery; PM-026 was the
-first. PM-025, PM-027 and PM-028 all rest on retailer media.
+**Second product in the catalogue with manufacturer-tier imagery**, after
+PM-026. PM-025, PM-027 and PM-028 all rest on trusted-retailer media.
+
+Every original filename carries the full article code
+`PGS30614_327_<view>_FL.jpg`, so each asset is self-evidencing on its own URL.
+Resolution was raised by rewriting only the CDN's own `?sw=` sizing query; the
+asset path is never touched and nothing was upscaled.
+
+This is also the first product whose exact size scale was **proven** rather than
+assumed. The manufacturer's 32–40 ladder is independently evidenced and contains
+39, so `sizeState` is `SIZE_CONFIRMED` instead of `SIZE_SCALE_NOT_PROVEN`. Only
+the user-supplied size is published; retailer stock state never touched PINK
+MALL availability.
 
 Identity rests on two independent provenance classes that agree: Claude's own
-research across official Pepe Jeans locale URLs and two retailers, and a
-reviewer-verified read of the live Deporvillage product document supplying the
-exact reference `PPJ-PGS30614-327` and the 32-40 size ladder.
+research across three official Pepe Jeans locale URLs and two retailers, and a
+`REVIEWER_VERIFIED` read of the live Deporvillage product document. Reviewer
+media was acquired and validated cleanly at 1600×2000 but is **not** used — the
+source hierarchy puts manufacturer media above retailer media, and the selector
+now enforces that rather than leaving it to routing.
+
+Material omitted: retailers repeat a "70% sustainable cotton" line, which is a
+sustainability claim rather than a composition, and all three official locale
+URLs return 404.
+
+One non-blocking gap: manufacturer view 03 was not recovered. Its opaque
+`dw<hash>` path segment cannot be derived from the others and was not guessed.
+
+The junior-series classification is internal only and appears nowhere in the
+build.
 
 ## Next step
 
-Next Mall ID is **PM-029**, unallocated until a product is actually published.
+Next Mall ID is **PM-030**, unallocated until a product is actually published.
 Nothing is awaiting approval: the approval queue is empty.
 
-Four products now come from the automated pipeline — PM-025, PM-026, PM-027,
-PM-028. Only PM-026 has manufacturer-official media; the other three rest on
-trusted-retailer evidence. Upgrading PM-027 and PM-028 to official imagery
-remains open if an official route ever opens.
+Five products now come from the automated pipeline — PM-025 through PM-029.
+Two have manufacturer-official media (PM-026, PM-029); PM-025, PM-027 and
+PM-028 rest on trusted-retailer evidence. Upgrading those three to official
+imagery remains open if an official route ever opens.
