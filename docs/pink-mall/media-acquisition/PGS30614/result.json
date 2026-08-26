@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "BLOCKED",
+  "status": "ROUTES_NOT_EXHAUSTED",
   "sku": "PGS30614",
   "brand": "Pepe Jeans",
   "model": "Ben Band",
-  "variant": "Pink",
+  "variant": "Pink / Black",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:06:25Z",
+  "generatedAt": "2026-08-26T06:42:25Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32936578151",
+    "githubRunId": "32938777514",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "39f5d86d259abaa599fabfd5fc1c19f396fca41b"
+    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
   },
   "counts": {
     "acquired": 0,
@@ -22,7 +22,7 @@
     "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
     "signals": [],
     "conflicts": [],
-    "officialColour": "Pink",
+    "officialColour": "Pink / Black",
     "officialAnchor": false
   },
   "proposedMain": null,
@@ -32,18 +32,27 @@
   "discoveryLedger": [
     {
       "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 404: Not Found",
       "sku_evidence": false,
       "candidates": 0
     },
     {
-      "route": "SEARCH_INDEX_OFFICIAL",
-      "url": "https://www.pepejeans.com/be/en_be/",
-      "result": "OK",
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
       "sku_evidence": false,
-      "candidates": 64
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
@@ -55,26 +64,132 @@
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.tradeinn.com/dressinn/en/footwear-sneakers/11887/s",
-      "result": "OK",
+      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
-      "candidates": 164
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "*/*pgs30614*",
+      "result": "FAIL",
+      "indexedVia": "web.archive.org",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
     }
   ],
   "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+  },
+  "identifierAliases": [],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "INDEXED_SOURCE_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesSucceeded": [],
+    "routesNotAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "OFFICIAL_CDN_PROBE",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "IDENTIFIER_EXPANSION"
+    ],
+    "exactProductDocuments": [],
+    "identifierAliases": [],
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "routes not attempted: DIRECT_OFFICIAL_API, OFFICIAL_REGIONAL_SEARCH, SEARCH_INDEX_OFFICIAL, OFFICIAL_CDN_PROBE, TRUSTED_RETAILER_INDEXED_EVIDENCE, IDENTIFIER_EXPANSION"
+  },
   "log": [
     {
       "stage": "discover",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "discover",
-      "url": "https://www.pepejeans.com/be/en_be/",
-      "ok": true,
-      "raw_candidates": 64,
-      "page_has_sku": false
+      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "discover",
@@ -84,788 +199,24 @@
     },
     {
       "stage": "discover",
-      "url": "https://www.tradeinn.com/dressinn/en/footwear-sneakers/11887/s",
-      "ok": true,
-      "raw_candidates": 164,
-      "page_has_sku": false
+      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 129
-    },
-    {
-      "stage": "identity",
-      "url": "https://cache.tradeinn.com/web/home_tradeinn/dressinn-thmini.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114215/adidas-run-70s-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14027/140279809/globe-tilt-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138960479/adidas-advantage-cf-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417615/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141604402/adidas-grand-court-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138960915/adidas-grand-court-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935918/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417616/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574542/new-balance-574v2-evergreen-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574403/new-balance-530-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138961476/adidas-tensaur-sport-2.0-cf-infant-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13738/137385552/adidas-strutter-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114854/adidas-urban-court-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/125/1252954/vans-sk8hi-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13685/136853921/vans-sk8-hi-platform-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141604436/adidas-grand-court-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138961475/adidas-tensaur-sport-2.0-cf-infant-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13706/137066700/globe-tilt-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935915/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/125/1252989/vans-old-skool-v-toddler-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14218/142180540/vans-knu-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14083/140833366/puma-palermo-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14218/142180536/vans-knu-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13660/136607819/globe-fusion-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/125/1252953/vans-old-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547210/adidas-vl-court-bold-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14248/142482397/hello-kitty-hello-kitty-pvc-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14248/142482445/paw-patrol-paw-patrol-pvc-school-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14248/142482525/stitch-stitch-pvc-with-lights-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14039/140398121/vans-knu-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://cache.tradeinn.com/web/web/inn.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw73611f84/images/navigation-menu/banners/2606-de",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw5dd11c8d/images/navigation-menu/banners/2606-de",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw5c0b57eb/images/navigation-menu/banners/2706-rb",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw6d070dde/images/navigation-menu/banners/2706-rb",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw001b4005/images/flexi-banner/2606-early-fb-XS.j",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwa7602a3e/images/flexi-banner/2606-early-fb-MD.j",
-      "ok": false,
-      "error": "aspect 3.0:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw70ac1bda/images/flexi-banner/2606-early-fb-LG.j",
-      "ok": false,
-      "error": "aspect 3.9:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw71e4545d/images/flexi-banner/2606-early-fb-XXXL",
-      "ok": false,
-      "error": "aspect 6.7:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw92f354b2/images/homepage/highlights/3x/2608-hp-x3-w-XS.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw32e51bb2/images/homepage/highlights/3x/2608-hp-x3-w-MD.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwccda20ba/images/homepage/highlights/3x/2608-hp-x3-w-XXXL.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwb5392507/images/homepage/highlights/3x/2608-hp-x3-m-XS.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw3a60d7b6/images/homepage/highlights/3x/2608-hp-x3-m-MD.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw61722e1c/images/homepage/highlights/3x/2608-hp-x3-m-XXXL.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwa2aa8050/images/homepage/highlights/3x/2608-hp-x3-k-XS.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw8ace43b0/images/homepage/highlights/3x/2608-hp-x3-k-MD.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw54677d2b/images/homepage/highlights/3x/2608-hp-x3-k-XXXL.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwa6f0d3f6/images/clp/heros/2608-new-collection-h",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw8cc4176a/images/clp/heros/2608-new-collection-h",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw8cc4176a/images/clp/heros/2608-new-collection-h",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwc1ece7ca/images/clp/feat-camp/2608-x1-rb-hp-XS.",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwdd5632fb/images/clp/feat-camp/2608-x1-rb-hp-XXX",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dwdd5632fb/images/clp/feat-camp/2608-x1-rb-hp-XXX",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars.svg",
-      "ok": false,
-      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fbabf14a430>"
-    },
-    {
-      "stage": "validate",
-      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars_mobile.svg",
-      "ok": false,
-      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fbabf14a070>"
-    },
-    {
-      "stage": "validate",
-      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en.svg",
-      "ok": false,
-      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fbabf149e90>"
-    },
-    {
-      "stage": "validate",
-      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en_mobile.svg",
-      "ok": false,
-      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fbabf14a750>"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw73611f84/images/navigation-menu/banners/2606-de",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw5dd11c8d/images/navigation-menu/banners/2606-de",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw5c0b57eb/images/navigation-menu/banners/2706-rb",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Library-Sites-pjg-content-global/default/dw6d070dde/images/navigation-menu/banners/2706-rb",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13842/138426737/adidas-hoops-mid-3.0-trainers.webp",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
+      "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138960480/adidas-advantage-cf-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547192/adidas-vl-court-3.0-cf-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417613/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14275/142756087/vans-old-skool-junior-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13904/139041129/new-balance-327-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935919/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417608/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417611/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574533/new-balance-574v2-evergreen-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138960892/adidas-grand-court-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574543/new-balance-574v2-evergreen-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935916/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138961481/adidas-tensaur-sport-2.0-cf-infant-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935911/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/125/1252994/vans-old-skool-v-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14083/140833355/puma-palermo-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114210/adidas-run-70s-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097647/adidas-originals-campus-00s-junior-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14055/140552719/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097663/adidas-originals-campus-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13955/139554925/puma-smash-trainers-3.0-l.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14055/140552725/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935924/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547191/adidas-vl-court-3.0-cf-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114666/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13637/136375417/vans-old-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13993/139935941/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141605388/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547204/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14093/140935636/puma-st-runner-v4-nl-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13738/137385551/adidas-strutter-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417609/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114670/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547205/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14110/141105353/adidas-samba-indoor-football-shoes.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14083/140832478/globe-sabre-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114212/adidas-run-70s-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13896/138961484/adidas-tensaur-sport-2.0-cf-infant-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14039/140398122/vans-knu-skool-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574536/new-balance-574v2-evergreen-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114668/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097661/adidas-originals-campus-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141604408/adidas-grand-court-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13614/136146507/adidas-originals-gazelle-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14294/142949406/adidas-originals-sl-72-og-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141603935/adidas-barreda-decode-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14054/140547193/adidas-vl-court-3.0-cf-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097667/adidas-originals-campus-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13857/138574404/new-balance-530-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097351/adidas-grand-court-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141605626/adidas-originals-gazelle-bold-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13941/139417610/adidas-vs-pace-2.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114671/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114334/adidas-vl-court-bold-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14055/140552720/adidas-vl-court-3.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14160/141604401/adidas-grand-court-00s-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14221/142219985/globe-tilt-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14219/142196775/adidas-run-60s-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114667/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14109/141097645/adidas-originals-campus-00s-junior-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/125/1252967/vans-classic-slip-on-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/13991/139911054/puma-smash-trainers-3.0-l.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14111/141114669/adidas-daily-4.0-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14149/141493342/reebok-nanoflex-tr-2-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
+      "stage": "indexed-asset",
+      "term": "PGS30614",
+      "hits": 0
     },
     {
-      "stage": "identity",
-      "url": "https://www.tradeinn.com/h/14093/140930714/puma-courtflex-v3-v-ps-trainers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU PGS30614"
+      "stage": "discover",
+      "total_unique_candidates": 0
     }
   ],
   "notes": [

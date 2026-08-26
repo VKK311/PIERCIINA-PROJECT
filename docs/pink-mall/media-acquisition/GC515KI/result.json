@@ -6,12 +6,12 @@
   "model": "515 V1",
   "variant": "Rose Sugar",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:05:44Z",
+  "generatedAt": "2026-08-26T06:37:00Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32936578151",
+    "githubRunId": "32938777514",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "39f5d86d259abaa599fabfd5fc1c19f396fca41b"
+    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
   },
   "counts": {
     "acquired": 5,
@@ -42,7 +42,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:05:42Z",
+      "acquired_at": "2026-08-26T06:36:57Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -68,7 +68,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:05:42Z",
+      "acquired_at": "2026-08-26T06:36:57Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -94,7 +94,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:05:42Z",
+      "acquired_at": "2026-08-26T06:36:58Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -120,7 +120,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:05:42Z",
+      "acquired_at": "2026-08-26T06:36:58Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -146,7 +146,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:05:43Z",
+      "acquired_at": "2026-08-26T06:36:58Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -195,9 +195,83 @@
       "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
       "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.newbalance.eu/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.newbalance.co.uk/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.newbalance.com/search?q=GC515KI",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "*/*gc515ki*",
+      "result": "FAIL",
+      "indexedVia": "web.archive.org",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
     }
   ],
   "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no user sizes supplied"
+  },
+  "identifierAliases": [],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "INDEXED_SOURCE_EVIDENCE"
+    ],
+    "routesSucceeded": [],
+    "routesNotAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "OFFICIAL_CDN_PROBE",
+      "TRUSTED_RETAILER_SEARCH",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "IDENTIFIER_EXPANSION"
+    ],
+    "exactProductDocuments": [],
+    "identifierAliases": [],
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "routes not attempted: DIRECT_OFFICIAL_API, OFFICIAL_REGIONAL_SEARCH, SEARCH_INDEX_OFFICIAL, OFFICIAL_CDN_PROBE, TRUSTED_RETAILER_SEARCH, TRUSTED_RETAILER_INDEXED_EVIDENCE, IDENTIFIER_EXPANSION"
+  },
   "log": [
     {
       "stage": "discover",
@@ -222,6 +296,11 @@
       "url": "https://www.newbalance.com/search?q=GC515KI",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "indexed-asset",
+      "term": "GC515KI",
+      "hits": 0
     },
     {
       "stage": "discover",

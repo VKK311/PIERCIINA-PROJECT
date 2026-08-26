@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:05:41Z",
+  "generatedAt": "2026-08-26T06:36:52Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32936578151",
+    "githubRunId": "32938777514",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "39f5d86d259abaa599fabfd5fc1c19f396fca41b"
+    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
   },
   "counts": {
     "acquired": 6,
@@ -42,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-26T06:04:53Z",
+      "acquired_at": "2026-08-26T06:36:32Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -77,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:04:53Z",
+      "acquired_at": "2026-08-26T06:36:32Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -106,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:04:53Z",
+      "acquired_at": "2026-08-26T06:36:32Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -135,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:04:53Z",
+      "acquired_at": "2026-08-26T06:36:32Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -164,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:04:53Z",
+      "acquired_at": "2026-08-26T06:36:32Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -279,9 +279,142 @@
       "result": "OK",
       "sku_evidence": true,
       "candidates": 255
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com.tr/chuck-taylor-all-star-move/",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com.tr/cocuk-cocuk/",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com/search?q=A08745C",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com/uk/en/search?q=A08745C",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com/nl/en/search?q=A08745C",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com/api/products/A08745C",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "*/*a08745c*",
+      "result": "FAIL",
+      "indexedVia": "web.archive.org",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
     }
   ],
   "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no user sizes supplied"
+  },
+  "identifierAliases": [],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "INDEXED_SOURCE_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesSucceeded": [
+      "INDEXED_OUTBOUND_MEDIA",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesNotAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "OFFICIAL_CDN_PROBE",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "IDENTIFIER_EXPANSION"
+    ],
+    "exactProductDocuments": [
+      {
+        "route": "TRUSTED_RETAILER_SEARCH",
+        "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
+        "authorityTier": null,
+        "candidates": 255
+      },
+      {
+        "route": "TRUSTED_RETAILER_SEARCH",
+        "url": "https://www.superstep.com.tr/arama/?q=A08745C",
+        "authorityTier": null,
+        "candidates": 53
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
+        "authorityTier": null,
+        "candidates": 255
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
+        "authorityTier": null,
+        "candidates": 255
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
+        "authorityTier": null,
+        "candidates": 255
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
+        "authorityTier": null,
+        "candidates": 255
+      }
+    ],
+    "identifierAliases": [],
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established"
+  },
   "log": [
     {
       "stage": "discover",
@@ -376,6 +509,17 @@
       "ok": true,
       "raw_candidates": 255,
       "page_has_sku": true
+    },
+    {
+      "stage": "indexed",
+      "url": "https://web.archive.org/web/20210918225251id_/https://www.converse.com.tr/cocuk-cocuk/",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "stage": "indexed-asset",
+      "term": "A08745C",
+      "hits": 0
     },
     {
       "stage": "discover",

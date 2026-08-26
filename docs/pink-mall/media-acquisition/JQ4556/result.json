@@ -6,12 +6,12 @@
   "model": "VL Court Bold Shoes",
   "variant": "Clear Pink / Silver Metallic / Gold Metallic",
   "officialProductPage": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
-  "generatedAt": "2026-08-26T06:05:51Z",
+  "generatedAt": "2026-08-26T06:39:02Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32936578151",
+    "githubRunId": "32938777514",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "39f5d86d259abaa599fabfd5fc1c19f396fca41b"
+    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
   },
   "counts": {
     "acquired": 4,
@@ -42,7 +42,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:05:47Z",
+      "acquired_at": "2026-08-26T06:38:59Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -68,7 +68,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:05:48Z",
+      "acquired_at": "2026-08-26T06:39:00Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -94,7 +94,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:05:49Z",
+      "acquired_at": "2026-08-26T06:39:00Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -120,7 +120,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:05:49Z",
+      "acquired_at": "2026-08-26T06:39:01Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -170,7 +170,7 @@
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
       "result": "FAIL",
-      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "error": "TimeoutError: The read operation timed out",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -237,15 +237,135 @@
       "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
       "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.adidas.com/us/vl-court-bold-shoes/JQ4556.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.adidas.co.uk/vl-court-bold-shoes/JQ4556.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.courir.com/en/p/adidas-sportswear-vl-court-bold-shoes-TB_ADID_JQ4556.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.adidas.com/api/products/JQ4556",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.adidas.de/api/products/JQ4556",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "*/*jq4556*",
+      "result": "FAIL",
+      "indexedVia": "web.archive.org",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
     }
   ],
   "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no user sizes supplied"
+  },
+  "identifierAliases": [],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "INDEXED_SOURCE_EVIDENCE",
+      "REQUEST_SEED"
+    ],
+    "routesSucceeded": [
+      "REQUEST_SEED"
+    ],
+    "routesNotAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "OFFICIAL_CDN_PROBE",
+      "TRUSTED_RETAILER_SEARCH",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "IDENTIFIER_EXPANSION"
+    ],
+    "exactProductDocuments": [
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      }
+    ],
+    "identifierAliases": [],
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established"
+  },
   "log": [
     {
       "stage": "discover",
       "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
       "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "discover",
@@ -294,6 +414,11 @@
       "url": "https://www.adidas.co.uk/JQ4556.html",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "indexed-asset",
+      "term": "JQ4556",
+      "hits": 0
     },
     {
       "stage": "discover",
