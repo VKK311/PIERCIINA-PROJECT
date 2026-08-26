@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:50:27Z",
+  "generatedAt": "2026-08-26T07:04:37Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32939521559",
+    "githubRunId": "32940778969",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "6f888c5dc052c9a9e244185e889d4f5afe6f7fb6"
+    "githubSha": "f9ed2bf9fa5fd895175f6394a5dd2720cd39f4bf"
   },
   "counts": {
     "acquired": 6,
@@ -42,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-26T06:50:24Z",
+      "acquired_at": "2026-08-26T07:04:34Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -77,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:50:24Z",
+      "acquired_at": "2026-08-26T07:04:33Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -106,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:50:24Z",
+      "acquired_at": "2026-08-26T07:04:34Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -135,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:50:24Z",
+      "acquired_at": "2026-08-26T07:04:33Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -164,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:50:24Z",
+      "acquired_at": "2026-08-26T07:04:33Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -204,7 +204,7 @@
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 255
+      "candidates": 254
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
@@ -257,34 +257,34 @@
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 255
+      "candidates": 254
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 255
+      "candidates": 254
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 255
+      "candidates": 254
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 255
+      "candidates": 254
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com.tr/chuck-taylor-all-star-move/",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -295,6 +295,7 @@
       "url": "https://www.converse.com.tr/cocuk-cocuk/",
       "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -303,8 +304,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com/search?q=A08745C",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -312,16 +313,6 @@
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com/uk/en/search?q=A08745C",
-      "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.converse.com/nl/en/search?q=A08745C",
       "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
@@ -331,9 +322,19 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.converse.com/nl/en/search?q=A08745C",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "indexReachable": true,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com/api/products/A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -343,7 +344,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "akinoncdn.com (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -355,7 +356,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "akinoncloud.com (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -367,7 +368,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "akinoncloudcdn.com (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -379,7 +380,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "converse.com.tr (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -391,7 +392,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "spx.com.tr (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -403,7 +404,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "superstep.com.tr (domain) ~ A08745C",
       "result": "FAIL",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -478,7 +479,7 @@
         "route": "TRUSTED_RETAILER_SEARCH",
         "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
         "authorityTier": null,
-        "candidates": 255
+        "candidates": 254
       },
       {
         "route": "TRUSTED_RETAILER_SEARCH",
@@ -490,25 +491,25 @@
         "route": "INDEXED_OUTBOUND_MEDIA",
         "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
         "authorityTier": null,
-        "candidates": 255
+        "candidates": 254
       },
       {
         "route": "INDEXED_OUTBOUND_MEDIA",
         "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
         "authorityTier": null,
-        "candidates": 255
+        "candidates": 254
       },
       {
         "route": "INDEXED_OUTBOUND_MEDIA",
         "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
         "authorityTier": null,
-        "candidates": 255
+        "candidates": 254
       },
       {
         "route": "INDEXED_OUTBOUND_MEDIA",
         "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
         "authorityTier": null,
-        "candidates": 255
+        "candidates": 254
       }
     ],
     "identifierAliases": [],
@@ -541,7 +542,7 @@
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
       "ok": true,
-      "raw_candidates": 255,
+      "raw_candidates": 254,
       "page_has_sku": true
     },
     {
@@ -586,71 +587,65 @@
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
       "ok": true,
-      "raw_candidates": 255,
+      "raw_candidates": 254,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
       "ok": true,
-      "raw_candidates": 255,
+      "raw_candidates": 254,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
       "ok": true,
-      "raw_candidates": 255,
+      "raw_candidates": 254,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
       "ok": true,
-      "raw_candidates": 255,
+      "raw_candidates": 254,
       "page_has_sku": true
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com.tr/chuck-taylor-all-star-move/",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com.tr/cocuk-cocuk/",
-      "captures": 1,
-      "error": null
-    },
-    {
-      "stage": "indexed",
-      "url": "https://web.archive.org/web/20210918225251id_/https://www.converse.com.tr/cocuk-cocuk/",
-      "ok": false,
+      "captures": 0,
       "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com/search?q=A08745C",
       "captures": 0,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com/uk/en/search?q=A08745C",
       "captures": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com/nl/en/search?q=A08745C",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.converse.com/api/products/A08745C",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -658,7 +653,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -666,7 +661,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -674,7 +669,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-asset",
@@ -682,7 +677,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -690,7 +685,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -698,7 +693,7 @@
       "term": "A08745C",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "discover",
