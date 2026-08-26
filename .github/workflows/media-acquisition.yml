@@ -20,9 +20,13 @@ on:
   workflow_dispatch:
     inputs:
       sku:
-        description: 'SKU to (re)acquire; blank = every request manifest'
+        description: 'SKU to (re)acquire; blank = use run_all'
         required: false
         default: ''
+      run_all:
+        description: 'Regression mode: reprocess every request manifest'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -35,13 +39,15 @@ jobs:
   acquire:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
         with:
           ref: claude/pink-mall-development
-          fetch-depth: 1
+          # Two commits so a push can be diffed against its predecessor to
+          # find which request manifests actually changed.
+          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
@@ -50,10 +56,52 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --quiet -r tools/media_acquisition/requirements.txt
 
+      # Which SKUs this run is actually for. github.event.inputs.sku is empty
+      # on push, so the old wiring silently meant "every manifest" — which made
+      # onboarding one product cost a full re-run of the historical catalogue,
+      # and with indexed evidence enabled that approached the timeout. Scope is
+      # the fix; a larger timeout would only have hidden it.
+      - name: Select SKUs
+        id: select
+        env:
+          DISPATCH_SKU: ${{ github.event.inputs.sku }}
+          RUN_ALL: ${{ github.event.inputs.run_all }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ -n "${DISPATCH_SKU:-}" ]; then
+            echo "skus=${DISPATCH_SKU}" >> "$GITHUB_OUTPUT"
+            echo "mode=dispatch-single" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "${RUN_ALL:-false}" = "true" ]; then
+            echo "skus=" >> "$GITHUB_OUTPUT"
+            echo "mode=regression-all" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed=""
+          if [ -n "${BEFORE:-}" ] && [ "${BEFORE}" != "0000000000000000000000000000000000000000" ]; then
+            changed="$(git diff --name-only "${BEFORE}" "${GITHUB_SHA}" -- \
+                        'docs/pink-mall/media-requests/*.request.json' || true)"
+          fi
+          if [ -z "$changed" ]; then
+            changed="$(git diff --name-only HEAD~1 HEAD -- \
+                        'docs/pink-mall/media-requests/*.request.json' || true)"
+          fi
+          skus="$(printf '%s\n' $changed | sed -n 's#.*/\([^/]*\)\.request\.json#\1#p' \
+                  | sort -u | paste -sd, -)"
+          echo "skus=${skus}" >> "$GITHUB_OUTPUT"
+          if [ -z "$skus" ]; then
+            echo "mode=none" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=changed-manifests" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Acquire media
         id: acquire
         env:
-          ONLY_SKU: ${{ github.event.inputs.sku }}
+          ONLY_SKUS: ${{ steps.select.outputs.skus }}
+          SELECT_MODE: ${{ steps.select.outputs.mode }}
         run: bash tools/media_acquisition/run_requests.sh
 
       - name: Job summary

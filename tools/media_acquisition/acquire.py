@@ -93,7 +93,7 @@ class _NoAutoRedirect(urllib.request.HTTPRedirectHandler):
 _opener = urllib.request.build_opener(_NoAutoRedirect)
 
 
-def http_get(url, allowed, max_bytes=MAX_BYTES, accept="*/*"):
+def http_get(url, allowed, max_bytes=MAX_BYTES, accept="*/*", timeout=None):
     seen = 0
     while True:
         _check_url(url, allowed)
@@ -103,7 +103,7 @@ def http_get(url, allowed, max_bytes=MAX_BYTES, accept="*/*"):
             "Accept-Language": "en-GB,en;q=0.9",
         })
         try:
-            resp = _opener.open(req, timeout=TIMEOUT)
+            resp = _opener.open(req, timeout=timeout or TIMEOUT)
         except urllib.error.HTTPError as e:
             if e.code in (301, 302, 303, 307, 308):
                 loc = e.headers.get("Location")
@@ -345,7 +345,12 @@ MAX_INDEXED_DOCS = 6
 # more importantly, makes exhaustion an explicit ledger fact rather than a
 # silent truncation.
 INDEX_CALL_BUDGET = 24
-INDEX_TIMEOUT = 20
+# A domain-scoped CDX query routinely takes far longer than a product-CDN
+# fetch. Run 19 failed almost entirely on read timeouts at the 25s default and
+# recorded them as "no archived capture" — reporting a transport failure as an
+# evidence failure, one layer down from where that bug was just fixed.
+INDEX_TIMEOUT = 90
+INDEX_RETRIES = 2
 _index_calls = [0]
 
 
@@ -392,14 +397,22 @@ def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
     url = WAYBACK_CDX + "?" + urllib.parse.urlencode(params)
     if not _index_budget_left():
         return [], "index call budget exhausted (%d)" % INDEX_CALL_BUDGET
-    _index_calls[0] += 1
-    try:
-        _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
-                              accept="application/json,*/*")
-        text = body.decode("utf-8", "replace").strip()
-        rows = json.loads(text) if text else []
-    except Exception as e:
-        return [], "%s: %s" % (type(e).__name__, e)
+    last_err = None
+    for attempt in range(INDEX_RETRIES + 1):
+        if not _index_budget_left():
+            return [], last_err or "index call budget exhausted"
+        _index_calls[0] += 1
+        try:
+            _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
+                                  accept="application/json,*/*",
+                                  timeout=INDEX_TIMEOUT)
+            text = body.decode("utf-8", "replace").strip()
+            rows = json.loads(text) if text else []
+            break
+        except Exception as e:
+            last_err = "%s: %s" % (type(e).__name__, e)
+    else:
+        return [], last_err
     out = []
     for row in rows:
         if not isinstance(row, list) or len(row) < 2:
