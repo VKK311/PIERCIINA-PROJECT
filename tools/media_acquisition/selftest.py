@@ -591,6 +591,16 @@ def main():
     ImageDraw.Draw(cut).ellipse([120, 120, 280, 280], fill=(240, 90, 150, 255))
     checks.append(("transparent cut-out detected", is_cutout(cut) is True))
     checks.append(("cut-out yields no invented backdrop", _bd(cut) is None))
+    # The production path flattens to RGB before backdrop() is reached, so a
+    # direct RGBA test does not prove anything about the real pipeline. This
+    # asserts the pipeline's own wiring: a validated cut-out must record a null
+    # backdrop even though backdrop() would happily read the flattened colour.
+    from acquire import validate_bytes as _vb
+    _buf = io.BytesIO(); cut.save(_buf, "PNG")
+    _meta, _err = _vb(_buf.getvalue(), "image/png")
+    checks.append(("validation records the cut-out flag", bool(_meta) and _meta["cutout"] is True))
+    checks.append(("flattened cut-out still yields a real colour, so the flag is what matters",
+                   bool(_meta) and _bd(_meta["_img"]) is not None))
     solid = Image.new("RGB", (400, 400), (234, 238, 239))
     checks.append(("real studio backdrop still detected", _bd(solid) == "#EAEEEF"))
     opaque_rgba = Image.new("RGBA", (400, 400), (241, 241, 241, 255))

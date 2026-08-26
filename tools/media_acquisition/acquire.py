@@ -1884,7 +1884,10 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
             "sku_in_url": m["sku_in_url"],
             "sku_evidence": m.get("sku_evidence"),
             "source_page": m.get("source_page"),
-            "backdrop": backdrop(m["_img"]),
+            # m["_img"] is already flattened to RGB, so backdrop() cannot see
+            # alpha by then. The cut-out flag is recorded at validation time,
+            # while the original image still has its alpha channel.
+            "backdrop": None if m.get("cutout") else backdrop(m["_img"]),
             "duplicates_collapsed": m.get("duplicates", []),
             "authorityTier": m.get("authorityTier"),
             "cutout": m.get("cutout", False),
