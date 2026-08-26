@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "brand": "Colors of California",
   "manufacturerItemNo": "HC.RBGLOW01",
   "model": "Glossy rainboot",
@@ -60,6 +60,24 @@
         "Corroborates that a PINK colourway of this exact article exists ('HC RBGLOW01 Pink rosa'), and that the size scale runs EU 36-41.",
         "Marketplace listing: used as identity corroboration ONLY. It is excluded as a media source under the source hierarchy and contributes no image."
       ]
+    },
+    {
+      "sourceUrl": "https://www.mpastyle.it/en/i-brand-artcrafts-international-pionieri-delle-tendenze-nel-footwear/",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T10:30:00Z",
+      "sku": "HC.RBGLOW01",
+      "model": "Glossy rainboot",
+      "variant": null,
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "TIER EVIDENCE: Colors of California was founded in Florence in 1989 as the sportswear brand of Artcrafts International S.p.A., which owns and operates it. hub2.artcrafts.it is therefore the BRAND OWNER'S OWN media host, not a third-party retailer's.",
+        "This is the same reasoning already applied to images.pepejeans.com (Salesforce Commerce Cloud) and nb.scene7.com (Scene7): a brand's CDN is official-tier even when the platform is operated by someone else. Recorded rather than assumed, because the tier is stated in the approval package as a provenance claim."
+      ]
     }
   ],
   "discoveryPages": [
@@ -71,7 +89,8 @@
     "https://www.colorsofcalifornia.it/en-it/shoponline/glossy-rainboot.hc.rbglow01?color=FUX": "DIRECT_OFFICIAL_PAGE"
   },
   "officialHostSuffixes": [
-    "colorsofcalifornia.it"
+    "colorsofcalifornia.it",
+    "artcrafts.it"
   ],
   "allowedHostSuffixes": [
     "colorsofcalifornia.it",
@@ -87,10 +106,9 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "PASS 3. Pass 2 allow-listed the real CDN and still acquired nothing: the identity gate rejected every image because HC.RBGLOW01 is not a substring of HC.F24.RBGLOW01-FUX-1.jpg — the season code sits inside the article number.",
-    "The alias machinery already existed but was never wired into sku_signal. It is now, and only EVIDENCED aliases are accepted, so the gate is not loosened.",
-    "Aliases here are colour-scoped, which also solves the problem 398855 had to solve with a reconnaissance sweep: the sibling MUD colourway cannot enter the candidate pool at all.",
-    "The pink colour code FUX was resolved by the site itself — the bare product URL redirects to ?color=FUX.",
+    "PASS 4. Media and identity are settled; this pass only corrects the TIER. hub2.artcrafts.it was classified TRUSTED_RETAILER because it is not a colorsofcalifornia.it subdomain, but Artcrafts International owns Colors of California — the brand was founded as Artcrafts' own label — so it is the brand owner's media host and official-tier.",
+    "The pink colour code FUX was resolved by the site itself: the bare product URL redirects to ?color=FUX.",
+    "Aliases are colour-scoped, so the sibling MUD colourway never enters the candidate pool.",
     "PRODUCT TYPE: rubber rain boot. SHOES > Boots approved as a new subcategory."
   ]
 }
