@@ -1653,6 +1653,12 @@ def acquire(request, outroot, log):
             unique.append(m)
 
     # 4. SELECT -----------------------------------------------------------
+    # A request may raise the keep limit for reconnaissance — sweeping one hero
+    # view across an article's colour codes needs every colourway visible on
+    # the contact sheet, not the first five. Bounded so it cannot become a way
+    # to publish a sprawling gallery by accident.
+    max_keep = min(int(request.get("maxKeep") or MAX_KEEP), 24)
+
     usable = [m for m in unique if m["longest_edge"] >= MIN_EDGE]
 
     # Authority tier decides before resolution does. The source hierarchy is a
@@ -1678,7 +1684,7 @@ def acquire(request, outroot, log):
 
     usable.sort(key=lambda m: (TIER_RANK.get(m["authorityTier"], 2),
                                -m["longest_edge"], m["url"]))
-    selected = usable[:MAX_KEEP]
+    selected = usable[:max_keep]
     return selected, acquired, ledger, size_evidence, aliases
 
 

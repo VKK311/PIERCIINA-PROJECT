@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "brand": "Puma",
   "manufacturerItemNo": "398855",
   "model": "Palermo Moda",
@@ -70,14 +70,8 @@
       ]
     }
   ],
-  "discoveryPages": [
-    "https://www.zalando.co.uk/puma-palermo-moda-jr-unisex-trainers-poised-pink-aqua-pu116d0p3-g11.html",
-    "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855"
-  ],
-  "discoveryRoutes": {
-    "https://www.zalando.co.uk/puma-palermo-moda-jr-unisex-trainers-poised-pink-aqua-pu116d0p3-g11.html": "TRUSTED_RETAILER_SEARCH",
-    "https://us.puma.com/us/en/pd/palermo-moda-big-kids-sneakers/398855": "DIRECT_OFFICIAL_PAGE"
-  },
+  "discoveryPages": [],
+  "discoveryRoutes": {},
   "officialHostSuffixes": [
     "puma.com"
   ],
@@ -96,9 +90,11 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "RECONNAISSANCE RUN. Retargeted from 401489 Club II Era: that article's pink-bearing colourway (-04) is an aquatic-primary shoe with a pink formstripe, so its manifest is withdrawn.",
-    "The colour suffix is unevidenced, so probes sweep this article's colour codes 01-14 at one hero view each. Every probe path carries 398855, so identity is pinned to the article; the sweep only resolves WHICH of its colourways is poised pink / aqua.",
-    "No approval package until the colourway is confirmed visually. 398855-01 (white/black) and -10 (gray) are live decoys.",
+    "RECONNAISSANCE PASS 2. Pass 1 selected five views of colour 01 — Puma White / Puma Black, a known decoy — because the official product page serves the DEFAULT colourway and its images outranked the colour sweep. The sweep itself worked: colour codes 01 through 11 all returned real images.",
+    "Discovery pages are removed for this pass so the candidate pool is exactly one hero view per colour code, and maxKeep is raised so every colourway reaches the contact sheet instead of the first five.",
+    "Identity stays pinned by the article number in every probe path. What is being resolved is which of 398855's own colourways is Poised Pink / Aqua.",
+    "Nothing is staged from a reconnaissance pass. The colourway is confirmed visually first, then a normal run acquires that colourway's full view set.",
     "'Jr' and the big-kids classification are junior-series markers, suppressed from every public field. Public model name is 'Palermo Moda'."
-  ]
+  ],
+  "maxKeep": 14
 }
