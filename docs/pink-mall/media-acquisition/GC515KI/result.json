@@ -6,12 +6,12 @@
   "model": "515 V1",
   "variant": "Rose Sugar",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:37:00Z",
+  "generatedAt": "2026-08-26T06:51:52Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32938777514",
+    "githubRunId": "32939521559",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
+    "githubSha": "6f888c5dc052c9a9e244185e889d4f5afe6f7fb6"
   },
   "counts": {
     "acquired": 5,
@@ -42,7 +42,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:36:57Z",
+      "acquired_at": "2026-08-26T06:51:49Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -68,7 +68,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:36:57Z",
+      "acquired_at": "2026-08-26T06:51:49Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -94,7 +94,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:36:58Z",
+      "acquired_at": "2026-08-26T06:51:49Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -120,7 +120,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:36:58Z",
+      "acquired_at": "2026-08-26T06:51:50Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -146,7 +146,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-26T06:36:58Z",
+      "acquired_at": "2026-08-26T06:51:50Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -201,6 +201,7 @@
       "url": "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
       "result": "FAIL",
       "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -209,7 +210,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.newbalance.eu/search?q=GC515KI",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -218,7 +220,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.newbalance.co.uk/search?q=GC515KI",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -227,17 +230,49 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.newbalance.com/search?q=GC515KI",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "*/*gc515ki*",
-      "result": "FAIL",
-      "indexedVia": "web.archive.org",
-      "exactProductDocument": false,
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -253,24 +288,24 @@
   "identifierAliases": [],
   "refusalAudit": {
     "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
       "DIRECT_OFFICIAL_PAGE",
-      "INDEXED_OUTBOUND_MEDIA",
-      "INDEXED_SOURCE_EVIDENCE"
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_SOURCE_EVIDENCE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [],
     "routesNotAttempted": [
-      "DIRECT_OFFICIAL_API",
-      "OFFICIAL_REGIONAL_SEARCH",
-      "SEARCH_INDEX_OFFICIAL",
+      "INDEXED_OUTBOUND_MEDIA",
       "OFFICIAL_CDN_PROBE",
-      "TRUSTED_RETAILER_SEARCH",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "IDENTIFIER_EXPANSION"
+      "TRUSTED_RETAILER_SEARCH"
     ],
     "exactProductDocuments": [],
     "identifierAliases": [],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "routes not attempted: DIRECT_OFFICIAL_API, OFFICIAL_REGIONAL_SEARCH, SEARCH_INDEX_OFFICIAL, OFFICIAL_CDN_PROBE, TRUSTED_RETAILER_SEARCH, TRUSTED_RETAILER_INDEXED_EVIDENCE, IDENTIFIER_EXPANSION"
+    "refusalBlockedBecause": "routes not attempted: INDEXED_OUTBOUND_MEDIA, OFFICIAL_CDN_PROBE, TRUSTED_RETAILER_SEARCH"
   },
   "log": [
     {
@@ -298,9 +333,28 @@
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
-      "stage": "indexed-asset",
-      "term": "GC515KI",
-      "hits": 0
+      "stage": "indexed-cdx",
+      "url": "https://www.newbalance.co.uk/pd/515/GC515V1-45440.html?dwvar_GC515V1-45440_style=GC515KI",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.newbalance.eu/search?q=GC515KI",
+      "captures": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.newbalance.co.uk/search?q=GC515KI",
+      "captures": 0,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.newbalance.com/search?q=GC515KI",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "discover",

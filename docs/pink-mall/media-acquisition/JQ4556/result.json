@@ -6,12 +6,12 @@
   "model": "VL Court Bold Shoes",
   "variant": "Clear Pink / Silver Metallic / Gold Metallic",
   "officialProductPage": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
-  "generatedAt": "2026-08-26T06:39:02Z",
+  "generatedAt": "2026-08-26T06:55:24Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32938777514",
+    "githubRunId": "32939521559",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
+    "githubSha": "6f888c5dc052c9a9e244185e889d4f5afe6f7fb6"
   },
   "counts": {
     "acquired": 4,
@@ -42,7 +42,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/146fb541c40d49b19cf89769f59547f4_9366/VL_Court_Bold_Shoes_Pink_JQ4556_01_00_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:38:59Z",
+      "acquired_at": "2026-08-26T06:55:22Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -68,7 +68,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/ba99911709194fb48bffb93ce2b81dcd_9366/VL_Court_Bold_Shoes_Pink_JQ4556_02_standard_hover.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:39:00Z",
+      "acquired_at": "2026-08-26T06:55:22Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -94,7 +94,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/566bb44d7d7e4a93af2e5fb66eaca0da_9366/VL_Court_Bold_Shoes_Pink_JQ4556_03_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:39:00Z",
+      "acquired_at": "2026-08-26T06:55:22Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -120,7 +120,7 @@
       "anchor_url": "https://assets.adidas.com/images/w_500,f_auto,q_auto/3257f0e7a84d4f0699893a52c0179a40_9366/VL_Court_Bold_Shoes_Pink_JQ4556_04_standard.jpg",
       "source_domain": "assets.adidas.com",
       "discovery_method": "request-seed",
-      "acquired_at": "2026-08-26T06:39:01Z",
+      "acquired_at": "2026-08-26T06:55:22Z",
       "width": 1880,
       "height": 1880,
       "longest_edge": 1880,
@@ -170,7 +170,7 @@
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -242,7 +242,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -251,7 +252,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.com/us/vl-court-bold-shoes/JQ4556.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -260,7 +262,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.co.uk/vl-court-bold-shoes/JQ4556.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -269,7 +272,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.courir.com/en/p/adidas-sportswear-vl-court-bold-shoes-TB_ADID_JQ4556.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "TimeoutError: The read operation timed out",
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -278,7 +281,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.com/api/products/JQ4556",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -287,17 +291,61 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.de/api/products/JQ4556",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "*/*jq4556*",
+      "url": "courir.com (domain) ~ JQ4556",
       "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -314,21 +362,21 @@
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
-      "REQUEST_SEED"
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
       "REQUEST_SEED"
     ],
     "routesNotAttempted": [
       "DIRECT_OFFICIAL_API",
-      "OFFICIAL_REGIONAL_SEARCH",
-      "SEARCH_INDEX_OFFICIAL",
-      "OFFICIAL_CDN_PROBE",
-      "TRUSTED_RETAILER_SEARCH",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "IDENTIFIER_EXPANSION"
+      "TRUSTED_RETAILER_SEARCH"
     ],
     "exactProductDocuments": [
       {
@@ -365,7 +413,7 @@
       "stage": "discover",
       "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
       "ok": false,
-      "error": "TimeoutError: The read operation timed out"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
@@ -416,9 +464,54 @@
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.de/en/vl-court-bold-shoes/JQ4556.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.com/us/vl-court-bold-shoes/JQ4556.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.co.uk/vl-court-bold-shoes/JQ4556.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.courir.com/en/p/adidas-sportswear-vl-court-bold-shoes-TB_ADID_JQ4556.html",
+      "captures": 1,
+      "error": null
+    },
+    {
+      "stage": "indexed",
+      "url": "https://web.archive.org/web/20251114153719id_/https://www.courir.com/en/p/adidas-sportswear-vl-court-bold-shoes-TB_ADID_JQ4556.html",
+      "ok": false,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.com/api/products/JQ4556",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.de/api/products/JQ4556",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
       "stage": "indexed-asset",
+      "domain": "courir.com",
       "term": "JQ4556",
-      "hits": 0
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "discover",

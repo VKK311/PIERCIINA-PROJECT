@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:36:52Z",
+  "generatedAt": "2026-08-26T06:50:27Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32938777514",
+    "githubRunId": "32939521559",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
+    "githubSha": "6f888c5dc052c9a9e244185e889d4f5afe6f7fb6"
   },
   "counts": {
     "acquired": 6,
@@ -42,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-26T06:36:32Z",
+      "acquired_at": "2026-08-26T06:50:24Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -77,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:36:32Z",
+      "acquired_at": "2026-08-26T06:50:24Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -106,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:36:32Z",
+      "acquired_at": "2026-08-26T06:50:24Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -135,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:36:32Z",
+      "acquired_at": "2026-08-26T06:50:24Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -164,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:36:32Z",
+      "acquired_at": "2026-08-26T06:50:24Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -284,7 +284,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com.tr/chuck-taylor-all-star-move/",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -293,7 +294,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com.tr/cocuk-cocuk/",
       "result": "FAIL",
-      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "error": "URLError: <urlopen error timed out>",
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -303,6 +304,7 @@
       "url": "https://www.converse.com/search?q=A08745C",
       "result": "FAIL",
       "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -312,6 +314,7 @@
       "url": "https://www.converse.com/uk/en/search?q=A08745C",
       "result": "FAIL",
       "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -320,7 +323,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com/nl/en/search?q=A08745C",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -329,17 +333,113 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.converse.com/api/products/A08745C",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "*/*a08745c*",
+      "url": "akinoncdn.com (domain) ~ A08745C",
       "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "akinoncloud.com (domain) ~ A08745C",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "akinoncloudcdn.com (domain) ~ A08745C",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "converse.com.tr (domain) ~ A08745C",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "spx.com.tr (domain) ~ A08745C",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "superstep.com.tr (domain) ~ A08745C",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -356,9 +456,13 @@
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
       "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesSucceeded": [
@@ -367,11 +471,7 @@
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesNotAttempted": [
-      "DIRECT_OFFICIAL_API",
-      "OFFICIAL_REGIONAL_SEARCH",
-      "OFFICIAL_CDN_PROBE",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "IDENTIFIER_EXPANSION"
+      "DIRECT_OFFICIAL_API"
     ],
     "exactProductDocuments": [
       {
@@ -511,15 +611,94 @@
       "page_has_sku": true
     },
     {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com.tr/chuck-taylor-all-star-move/",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com.tr/cocuk-cocuk/",
+      "captures": 1,
+      "error": null
+    },
+    {
       "stage": "indexed",
       "url": "https://web.archive.org/web/20210918225251id_/https://www.converse.com.tr/cocuk-cocuk/",
       "ok": false,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com/search?q=A08745C",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com/uk/en/search?q=A08745C",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com/nl/en/search?q=A08745C",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.converse.com/api/products/A08745C",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
+      "domain": "akinoncdn.com",
       "term": "A08745C",
-      "hits": 0
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "akinoncloud.com",
+      "term": "A08745C",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "akinoncloudcdn.com",
+      "term": "A08745C",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "converse.com.tr",
+      "term": "A08745C",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "spx.com.tr",
+      "term": "A08745C",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "superstep.com.tr",
+      "term": "A08745C",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "stage": "discover",

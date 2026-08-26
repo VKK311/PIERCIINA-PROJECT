@@ -6,12 +6,12 @@
   "model": "Gazelle Bold Shoes",
   "variant": "Almost Pink / Court Green / Gold Metallic",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:40:24Z",
+  "generatedAt": "2026-08-26T07:00:22Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32938777514",
+    "githubRunId": "32939521559",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "ffe5ea288da78d027ad25e6960365809abc7edd7"
+    "githubSha": "6f888c5dc052c9a9e244185e889d4f5afe6f7fb6"
   },
   "counts": {
     "acquired": 14,
@@ -42,7 +42,7 @@
       "anchor_url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:40:19Z",
+      "acquired_at": "2026-08-26T07:00:17Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
@@ -77,7 +77,7 @@
       "anchor_url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:40:18Z",
+      "acquired_at": "2026-08-26T07:00:17Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
@@ -112,7 +112,7 @@
       "anchor_url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:40:18Z",
+      "acquired_at": "2026-08-26T07:00:17Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
@@ -147,7 +147,7 @@
       "anchor_url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:40:19Z",
+      "acquired_at": "2026-08-26T07:00:17Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
@@ -182,7 +182,7 @@
       "anchor_url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:40:18Z",
+      "acquired_at": "2026-08-26T07:00:17Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
@@ -275,6 +275,7 @@
       "url": "https://www.adidas.com/api/products/JR5952",
       "result": "FAIL",
       "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -283,7 +284,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.de/api/products/JR5952",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -292,7 +294,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.de/en/JR5952.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -301,7 +304,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.com/us/JR5952.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -310,17 +314,121 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.adidas.co.uk/JR5952.html",
       "result": "FAIL",
-      "error": "no archived capture",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "*/*jr5952*",
+      "url": "assets.adidas.com (domain) ~ JR5952",
       "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "eobuwie.cloud (domain) ~ JR5952",
+      "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "eobuwie.com.pl (domain) ~ JR5952",
+      "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "modivo.cloud (domain) ~ JR5952",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "modivo.pl (domain) ~ JR5952",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "shooos.pl (domain) ~ JR5952",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -423,20 +531,20 @@
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesSucceeded": [
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesNotAttempted": [
-      "DIRECT_OFFICIAL_API",
-      "OFFICIAL_REGIONAL_SEARCH",
-      "SEARCH_INDEX_OFFICIAL",
-      "OFFICIAL_CDN_PROBE",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "IDENTIFIER_EXPANSION"
+      "DIRECT_OFFICIAL_API"
     ],
     "exactProductDocuments": [
       {
@@ -527,9 +635,82 @@
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.com/api/products/JR5952",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.de/api/products/JR5952",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.de/en/JR5952.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.com/us/JR5952.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.adidas.co.uk/JR5952.html",
+      "captures": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
       "stage": "indexed-asset",
+      "domain": "assets.adidas.com",
       "term": "JR5952",
-      "hits": 0
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "eobuwie.cloud",
+      "term": "JR5952",
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "eobuwie.com.pl",
+      "term": "JR5952",
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "modivo.cloud",
+      "term": "JR5952",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "modivo.pl",
+      "term": "JR5952",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "shooos.pl",
+      "term": "JR5952",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "filter",
@@ -1193,18 +1374,6 @@
     },
     {
       "stage": "filter",
-      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
-      "ok": false,
-      "error": "host backend.shooos.eu not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
-      "ok": false,
-      "error": "host backend.shooos.eu not in allow-list"
-    },
-    {
-      "stage": "filter",
       "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/slider/adidas_trefoil.png",
       "ok": false,
       "error": "host backend.shooos.eu not in allow-list"
@@ -1368,6 +1537,18 @@
     {
       "stage": "filter",
       "url": "https://backend.shooos.eu/media/amasty/shopby/option_images/slider/adidas_trefoil.png",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
+      "ok": false,
+      "error": "host backend.shooos.eu not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://backend.shooos.eu/media/catalog/product/cache/4c418495417d2157523b2d52700ac77f/j/r/jr59521.jpg",
       "ok": false,
       "error": "host backend.shooos.eu not in allow-list"
     },
