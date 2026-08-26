@@ -11,6 +11,7 @@ never exercised are just comments.
 import http.server
 import json
 import os
+import re
 import shutil
 import socketserver
 import io
@@ -509,6 +510,41 @@ def main():
                        for e in res.get("images", []))))
     checks.append(("identity evidenced -> refusal not permitted",
                    res.get("refusalAudit", {}).get("refusalPermitted") is False))
+
+    # ── Reviewer-verified provenance, size guides, CF transform ─────────
+    from acquire import (RESEARCH_TRANSPORTS, resolution_variants,
+                         asset_identity, sku_signal)
+
+    checks.append(("REVIEWER_VERIFIED is a recognised provenance class",
+                   "REVIEWER_VERIFIED" in RESEARCH_TRANSPORTS))
+    checks.append(("reviewer provenance is distinct from Claude's own research",
+                   "CLAUDE_RESEARCH" in RESEARCH_TRANSPORTS
+                   and "USER_SUPPLIED" in RESEARCH_TRANSPORTS))
+
+    cf_product = ("https://cdn.test/cdn-cgi/image/h%3D785%2Cw%3D628%2Cfit%3Dcontain"
+                  "/product-vertical/ppj-pgs30614-327_1001.jpg")
+    cf_guide = ("https://cdn.test/cdn-cgi/image/h%3D785%2Cw%3D628"
+                "/size_guide/PPJ_C_SH_junior_st_v1.jpg")
+    checks.append(("size guide rejected as non-product media",
+                   bool(NON_PRODUCT_RE.search(cf_guide))))
+    checks.append(("product image beside it is still kept",
+                   not NON_PRODUCT_RE.search(cf_product)))
+    checks.append(("article code in the CF asset path is a real identity signal",
+                   sku_signal(cf_product, "PGS30614")))
+
+    variants = resolution_variants(cf_product, [1600, 1200, 1000, 800])
+    checks.append(("CF transform yields larger variants",
+                   len(variants) == 4))
+    checks.append(("CF upgrade never rewrites the asset path",
+                   all("/product-vertical/ppj-pgs30614-327_1001.jpg" in v
+                       for v in variants)))
+    checks.append(("CF upgrade preserves the native aspect ratio",
+                   all(abs((int(re.search(r"h(?:%3D|=)(\d+)", v).group(1)) /
+                            int(re.search(r"w(?:%3D|=)(\d+)", v).group(1)))
+                           - (785 / 628.0)) < 0.01 for v in variants)))
+    checks.append(("CF upgrade only ever grows the request",
+                   all(int(re.search(r"w(?:%3D|=)(\d+)", v).group(1)) > 628
+                       for v in variants)))
 
     ok = True
     for name, passed in checks:

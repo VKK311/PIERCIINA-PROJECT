@@ -1,15 +1,110 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "brand": "Pepe Jeans",
   "manufacturerItemNo": "PGS30614",
   "model": "Ben Band",
   "variant": "Pink / Black",
-  "availableSizes": ["39"],
-
-  "candidateMedia": [],
-  "indexedAssetSearch": true,
-
+  "availableSizes": [
+    "39"
+  ],
+  "candidateMedia": [
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_1001.jpg",
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
+    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg"
+  ],
+  "indexedAssetSearch": false,
   "researchEvidence": [
+    {
+      "sourceUrl": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "REVIEWER_VERIFIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-26T08:00:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "Pink / Black",
+      "aliases": [
+        "PPJ-PGS30614-327",
+        "PGS30614327"
+      ],
+      "sizeScale": [
+        {
+          "size": "32",
+          "declared": ""
+        },
+        {
+          "size": "33",
+          "declared": ""
+        },
+        {
+          "size": "34",
+          "declared": ""
+        },
+        {
+          "size": "35",
+          "declared": ""
+        },
+        {
+          "size": "36",
+          "declared": ""
+        },
+        {
+          "size": "37",
+          "declared": ""
+        },
+        {
+          "size": "38",
+          "declared": ""
+        },
+        {
+          "size": "39",
+          "declared": ""
+        },
+        {
+          "size": "40",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_1001.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "cdn.deporvillage.com"
+      ],
+      "notes": [
+        "An independent reviewer transport read the live Deporvillage product document that this session's egress proxy blocks. Recorded as REVIEWER_VERIFIED: neither Claude's own research nor an unverified user assertion.",
+        "Exact retailer reference PPJ-PGS30614-327 maps base article PGS30614 to colour 327, agreeing with the official pepejeans.com URLs Claude found independently.",
+        "Six product gallery targets. A seventh image-like entry on the same page, size_guide/PPJ_C_SH_junior_st_v1.jpg, is a size chart and is deliberately excluded; the non-product path guard now rejects that class outright.",
+        "The size ladder is the retailer's declared SCALE, not stock state. Deporvillage availability has no bearing on PINK MALL availability, which remains the user's: size 39 available.",
+        "These are exact link targets from the read document, not guesses. The runner still validates every one independently: host, bytes, MIME, dimensions, aspect, banner/editorial rejection, identity signal, hash, dedupe, perceptual uniqueness and variant confidence."
+      ]
+    },
     {
       "sourceUrl": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
       "authorityTier": "OFFICIAL",
@@ -19,7 +114,9 @@
       "sku": "PGS30614",
       "model": "Sneakers in cotone suola cupsole",
       "variant": "factory pink",
-      "aliases": ["PGS30614327"],
+      "aliases": [
+        "PGS30614327"
+      ],
       "sizeScale": [],
       "mediaUrls": [],
       "observedCdnHosts": [],
@@ -66,7 +163,6 @@
       ]
     }
   ],
-
   "discoveryPages": [
     "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
@@ -77,19 +173,28 @@
     "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids": "TRUSTED_RETAILER_SEARCH",
     "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html": "TRUSTED_RETAILER_SEARCH"
   },
-  "officialHostSuffixes": ["pepejeans.com"],
-  "allowedHostSuffixes": [
-    "pepejeans.com",
-    "deporvillage.net",
-    "deporvillage.com",
-    "deporvillage.co.uk",
-    "esdemarca.com"
+  "officialHostSuffixes": [
+    "pepejeans.com"
   ],
-  "resolution": { "widthLadder": [1600, 1200, 1000, 800] },
+  "allowedHostSuffixes": [
+    "deporvillage.co.uk",
+    "deporvillage.com",
+    "deporvillage.net",
+    "esdemarca.com",
+    "pepejeans.com"
+  ],
+  "resolution": {
+    "widthLadder": [
+      1600,
+      1200,
+      1000,
+      800
+    ]
+  },
   "requestedBy": "claude",
   "notes": [
-    "Reopened from the original four user fields only: Pepe Jeans / PGS30614 / EUR 34 / size 39. No user URL, photo or screenshot was used as a seed.",
-    "IDENTITY is established by Claude's own research transport across three independent sources and is recorded above as structured evidence. MEDIA URLS are not, because this session's egress proxy blocks every one of those domains, so no page internals were read.",
-    "Identity evidence and media evidence are separate claims. This manifest asserts the first and not the second."
+    "Media evidence comes from a REVIEWER_VERIFIED read of the live Deporvillage product document; identity was independently established earlier by Claude's own research across three sources. Both provenance classes are recorded separately and neither is disguised as the other.",
+    "Archive and index routes are off for this run: research evidence already exposed the media, so an archive lookup is a fallback that is not needed.",
+    "Nothing here is trusted on assertion. Acquisition validates every byte."
   ]
 }

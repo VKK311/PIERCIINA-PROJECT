@@ -154,7 +154,7 @@ AUTHORITATIVE_METHODS = {"json-ld", "og:image", "srcset", "request-seed", "cdn-p
 NON_PRODUCT_RE = re.compile(
     r"/(?:articles?|blog|news|banners?|promo|campaign|hero|cms|icons?|logos?|"
     r"sprites?|avatars?|placeholder|payment|social|flags?|categorias?|"
-    r"categor(?:y|ies))[^/]*/", re.I)
+    r"categor(?:y|ies)|size[-_]?guides?|guia[-_]?tallas?|sizing)[^/]*/", re.I)
 
 # A studio product photograph is roughly square to portrait. A 4:1 panorama is
 # a page banner, a category strip or a lifestyle header — never the product
@@ -699,6 +699,16 @@ def _decode_transform(url):
 
 QUERY_SIZE_RE = re.compile(r"([?&])(wid|hei)=(\d+)", re.I)
 
+# Cloudflare Image Resizing puts its instructions in a path segment:
+#   /cdn-cgi/image/h=785,w=628,fit=contain,.../product-vertical/<asset>.jpg
+# Only that segment is ever rewritten, never the asset path after it, so the
+# bytes that come back are the same photograph at a different size. Width and
+# height move together so the native aspect ratio is preserved — this asks the
+# CDN for a bigger copy, it does not scale anything up locally.
+CF_SEG_RE = re.compile(r"(/cdn-cgi/image/)([^/]+)(/)", re.I)
+CF_W_RE = re.compile(r"(\bw(?:%3D|=))(\d+)", re.I)
+CF_H_RE = re.compile(r"(\bh(?:%3D|=))(\d+)", re.I)
+
 
 def resolution_variants(url, ladder):
     """Same asset, larger. Only the sizing instruction changes — never the
@@ -708,6 +718,24 @@ def resolution_variants(url, ladder):
     /images/w_500,.../) and query sizing (Scene7-style, ?wid=440&hei=440)."""
     u = _decode_transform(url)
     out = []
+
+    cf = CF_SEG_RE.search(u)
+    if cf:
+        seg = cf.group(2)
+        mw, mh = CF_W_RE.search(seg), CF_H_RE.search(seg)
+        if mw:
+            cur_w = int(mw.group(2))
+            cur_h = int(mh.group(2)) if mh else None
+            for w in ladder:
+                if w <= cur_w:
+                    continue
+                new_seg = CF_W_RE.sub(lambda x, w=w: x.group(1) + str(w), seg, count=1)
+                if cur_h:
+                    scaled = int(round(cur_h * (float(w) / cur_w)))
+                    new_seg = CF_H_RE.sub(lambda x, h=scaled: x.group(1) + str(h),
+                                          new_seg, count=1)
+                out.append(u[:cf.start(2)] + new_seg + u[cf.end(2):])
+            return out
 
     m = TRANSFORM_RE.search(u)
     if m:
@@ -1188,8 +1216,12 @@ def refusal_audit(ledger, aliases=None):
 # Authority is unchanged by any of this. A research transport is not an
 # authority; the underlying official or trusted-retailer source is.
 
-RESEARCH_TRANSPORTS = {"CLAUDE_RESEARCH", "USER_SUPPLIED", "INDEX_SNAPSHOT",
-                       "DIRECT_FETCH"}
+# REVIEWER_VERIFIED: an independent reviewer transport read the live source
+# document that this session could not reach. It is neither Claude's own
+# research nor an unverified user assertion, and it is recorded as its own
+# provenance class so the distinction survives into the approval package.
+RESEARCH_TRANSPORTS = {"CLAUDE_RESEARCH", "REVIEWER_VERIFIED", "USER_SUPPLIED",
+                       "INDEX_SNAPSHOT", "DIRECT_FETCH"}
 EVIDENCE_LEVELS = {"A", "B", "C"}
 
 
