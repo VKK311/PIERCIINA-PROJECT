@@ -6,12 +6,12 @@
   "model": "Ben Band",
   "variant": "Pink / Black",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T07:31:03Z",
+  "generatedAt": "2026-08-26T07:42:22Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32942881880",
+    "githubRunId": "32943484963",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "fa961899992bf4083e05d1b2c184708f99e90c2b"
+    "githubSha": "415b0e2797a2ac0ee05a5251f17365474ff55ab8"
   },
   "counts": {
     "acquired": 0,
@@ -106,7 +106,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "deporvillage.net (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -118,7 +118,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "esdemarca.com (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -130,7 +130,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "pepejeans.com (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -172,8 +172,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -182,7 +182,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -192,7 +192,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -278,13 +278,14 @@
       ],
       "INDEXED_OUTBOUND_MEDIA": [
         "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error timed out>",
         "URLError: <urlopen error [Errno 111] Connection refused>",
-        "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error [Errno 111] Connection refused>"
+        "TimeoutError: The read operation timed out"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
         "URLError: <urlopen error [Errno 101] Network is unreachable>",
-        "URLError: <urlopen error [Errno 111] Connection refused>"
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "index call budget exhausted (24 calls)"
       ]
     },
     "exactProductDocuments": [],
@@ -351,7 +352,7 @@
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -359,7 +360,7 @@
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -367,7 +368,7 @@
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-cdx",
@@ -391,19 +392,19 @@
       "stage": "indexed-cdx",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "captures": 0,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
       "captures": 0,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "captures": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "discover",
