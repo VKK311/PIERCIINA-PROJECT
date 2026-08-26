@@ -356,6 +356,19 @@ def main():
     checks.append(("expansion of an absent code yields nothing",
                    expand_identifiers("ZZZ00000", doc) == []))
 
+    # Applicability. A route that cannot apply to a brand is not a route left
+    # untried — otherwise refusal becomes impossible and the gate flips into
+    # the mirror image of the bug it exists to prevent.
+    na = [{"route": r, "result": "N/A", "notApplicable": "x",
+           "sku_evidence": False, "candidates": 0} for r in REFUSAL_ROUTES]
+    a = refusal_audit(na)
+    checks.append(("routes marked N/A count as attempted",
+                   a["refusalPermitted"] is True and not a["routesNotAttempted"]))
+    checks.append(("N/A routes are not counted as successes",
+                   "DIRECT_OFFICIAL_PAGE" not in a["routesSucceeded"]))
+    checks.append(("dropping one route still forbids refusal",
+                   refusal_audit(na[:-1])["refusalPermitted"] is False))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

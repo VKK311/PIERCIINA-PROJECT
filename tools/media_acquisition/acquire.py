@@ -333,9 +333,7 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
 # reference, the full size ladder and seven SKU-named image files was sitting
 # there unread.
 
-WAYBACK_CDX = ("http://web.archive.org/cdx/search/cdx?url={pattern}"
-               "&output=json&limit={limit}&collapse=urlkey"
-               "&filter=statuscode:200&fl=timestamp,original")
+WAYBACK_CDX = "https://web.archive.org/cdx/search/cdx"
 # The id_ modifier returns the archived bytes verbatim — no Wayback banner and
 # no URL rewriting — so extracted asset URLs are the source's own.
 WAYBACK_SNAPSHOT = "https://web.archive.org/web/{ts}id_/{url}"
@@ -358,21 +356,35 @@ def _authority_tier(host, rule, request):
     return "TRUSTED_RETAILER"
 
 
-def indexed_snapshots(pattern, limit=MAX_INDEXED_DOCS):
-    """Archived captures matching a URL pattern, newest first.
+def indexed_snapshots(target, limit=MAX_INDEXED_DOCS, match_type=None,
+                      contains=None):
+    """Archived captures of a URL, or of a whole domain, newest first.
 
-    Returns [(timestamp, original_url)]. Network failure here is not an error
-    worth propagating: it means this transport is unavailable, and the caller
-    records that in the ledger like any other route outcome.
+    Returns (rows, error) where rows is [(timestamp, original_url)]. The error
+    is returned rather than swallowed: "no archived capture" and "the index was
+    unreachable" are completely different facts, and reporting the second as
+    the first is the same class of mistake as reporting a 403 as an identity
+    failure.
+
+    match_type='domain' covers subdomains, which is how a product CDN is
+    discovered from the storefront's own domain — cdn.<retailer>.com is found
+    by asking about <retailer>.com, never by guessing the hostname.
     """
-    url = WAYBACK_CDX.format(pattern=urllib.parse.quote(pattern, safe="*:/?&=."),
-                             limit=limit)
+    params = [("url", target), ("output", "json"), ("limit", str(limit)),
+              ("collapse", "urlkey"), ("fl", "timestamp,original"),
+              ("filter", "statuscode:200")]
+    if match_type:
+        params.append(("matchType", match_type))
+    if contains:
+        params.append(("filter", "original:(?i).*%s.*" % re.escape(contains)))
+    url = WAYBACK_CDX + "?" + urllib.parse.urlencode(params)
     try:
         _, _, body = http_get(url, (INDEX_HOSTS, ()), max_bytes=MAX_PAGE_BYTES,
                               accept="application/json,*/*")
-        rows = json.loads(body.decode("utf-8", "replace"))
-    except Exception:
-        return []
+        text = body.decode("utf-8", "replace").strip()
+        rows = json.loads(text) if text else []
+    except Exception as e:
+        return [], "%s: %s" % (type(e).__name__, e)
     out = []
     for row in rows:
         if not isinstance(row, list) or len(row) < 2:
@@ -382,7 +394,7 @@ def indexed_snapshots(pattern, limit=MAX_INDEXED_DOCS):
             continue
         out.append((str(ts), str(original)))
     out.sort(key=lambda r: r[0], reverse=True)
-    return out
+    return out, None
 
 
 # An identifier the source itself uses for the same article: a retailer prefix,
@@ -424,11 +436,15 @@ def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
     """
     origin_host = urllib.parse.urlsplit(origin_url).netloc
     tier = _authority_tier(origin_host, rule, request)
-    snaps = indexed_snapshots(origin_url, limit=3)
+    snaps, cdx_err = indexed_snapshots(origin_url, limit=3)
+    log.append({"stage": "indexed-cdx", "url": origin_url,
+                "captures": len(snaps), "error": cdx_err})
     if not snaps:
         if ledger is not None:
             ledger.append({"route": "INDEXED_SOURCE_EVIDENCE", "url": origin_url,
-                           "result": "FAIL", "error": "no archived capture",
+                           "result": "FAIL",
+                           "error": cdx_err or "no archived capture",
+                           "indexReachable": cdx_err is None,
                            "authorityTier": tier, "sku_evidence": False, "candidates": 0})
         return []
 
@@ -501,51 +517,78 @@ def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
                 "raw_candidates": len(found), "page_has_sku": page_has_sku,
                 "aliases": found_aliases})
     if ledger is not None:
-        ledger.append({"route": "INDEXED_SOURCE_EVIDENCE", "url": original,
-                       "result": "OK", "authorityTier": tier,
-                       "indexedVia": "web.archive.org", "capturedAt": ts,
-                       "aliases": found_aliases,
-                       "exactProductDocument": bool(page_has_sku and found),
-                       "sku_evidence": page_has_sku, "candidates": len(found)})
+        entry = {"route": "INDEXED_SOURCE_EVIDENCE", "url": original,
+                 "result": "OK", "authorityTier": tier,
+                 "indexedVia": "web.archive.org", "capturedAt": ts,
+                 "aliases": found_aliases,
+                 "exactProductDocument": bool(page_has_sku and found),
+                 "sku_evidence": page_has_sku, "candidates": len(found)}
+        ledger.append(entry)
+        if tier == "TRUSTED_RETAILER":
+            retail = dict(entry)
+            retail["route"] = "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+            ledger.append(retail)
     return [(u, m, original, page_has_sku) for u, m in found]
+
+
+ASSET_EXT_RE = re.compile(r"\.(?:jpg|jpeg|png|webp|avif)(?:\?|$)", re.I)
 
 
 def indexed_asset_search(sku, aliases, allowed, log, ledger, rule, request,
                          observed_hosts=None):
-    """Ask the index directly for archived ASSETS whose own path carries the
-    article code. An image filename containing the exact reference is the
-    strongest identity signal this pipeline has, and it survives the storefront
-    going away.
+    """Ask the index for archived ASSETS whose own path carries the article
+    code, scoped to the domains this request already trusts.
+
+    An image filename containing the exact reference identifies itself. It is
+    the strongest identity signal this pipeline has and it survives the
+    storefront being delisted, which is precisely the PGS30614 situation.
+
+    Scoping matters: the query is per trusted domain with matchType=domain, so
+    it covers that retailer's own CDN subdomain without ever searching the open
+    web and without guessing a hostname.
     """
     out = []
-    terms = [sku] + list(aliases or [])
-    seen = set()
-    for term in terms[:4]:
-        t = term.lower()
-        if t in seen:
-            continue
-        seen.add(t)
-        pattern = "*/*%s*" % t
-        rows = indexed_snapshots(pattern, limit=40)
-        hits = []
-        for ts, original in rows:
-            if not re.search(r"\.(?:jpg|jpeg|png|webp|avif)(?:\?|$)", original, re.I):
-                continue
-            host = urllib.parse.urlsplit(original).netloc.lower()
-            if not host:
-                continue
-            if observed_hosts is not None and host not in observed_hosts:
-                observed_hosts.append(host)
-            hits.append(original)
-        for u in hits[:24]:
-            out.append((u, "indexed-asset", None, True))
-        if ledger is not None:
-            ledger.append({"route": "INDEXED_OUTBOUND_MEDIA", "url": pattern,
-                           "result": "OK" if hits else "FAIL",
-                           "indexedVia": "web.archive.org",
-                           "exactProductDocument": bool(hits),
-                           "sku_evidence": bool(hits), "candidates": len(hits)})
-        log.append({"stage": "indexed-asset", "term": term, "hits": len(hits)})
+    terms = []
+    for t in [sku] + list(aliases or []):
+        if t and t.lower() not in {x.lower() for x in terms}:
+            terms.append(t)
+    domains = [d.lower().lstrip(".") for d in
+               (list(request.get("allowedHostSuffixes", []))
+                + list(request.get("officialHostSuffixes", [])))]
+    domains = sorted(set(domains))
+
+    for domain in domains:
+        for term in terms[:3]:
+            rows, err = indexed_snapshots(domain, limit=200,
+                                          match_type="domain", contains=term)
+            hits = []
+            for _ts, original in rows:
+                if not ASSET_EXT_RE.search(original):
+                    continue
+                if NON_PRODUCT_RE.search(original):
+                    continue
+                host = urllib.parse.urlsplit(original).netloc.lower()
+                if not host:
+                    continue
+                if observed_hosts is not None and host not in observed_hosts:
+                    observed_hosts.append(host)
+                hits.append(original)
+            for u in hits[:24]:
+                out.append((u, "indexed-asset", None, True))
+            log.append({"stage": "indexed-asset", "domain": domain, "term": term,
+                        "rows": len(rows), "hits": len(hits), "error": err})
+            if ledger is not None:
+                ledger.append({"route": "INDEXED_OUTBOUND_MEDIA",
+                               "url": "%s (domain) ~ %s" % (domain, term),
+                               "result": "OK" if hits else "FAIL",
+                               "error": err,
+                               "indexReachable": err is None,
+                               "indexedVia": "web.archive.org",
+                               "authorityTier": _authority_tier(domain, rule, request),
+                               "exactProductDocument": bool(hits),
+                               "sku_evidence": bool(hits), "candidates": len(hits)})
+            if hits:
+                break   # this domain answered; do not re-query it per alias
     return out
 
 
@@ -960,6 +1003,8 @@ def refusal_audit(ledger, aliases=None):
         if not r:
             continue
         attempted[r] = attempted.get(r, 0) + 1
+        if e.get("result") == "N/A":
+            continue
         if e.get("result") == "OK":
             succeeded[r] = succeeded.get(r, 0) + 1
         if e.get("exactProductDocument") or (e.get("sku_evidence") and e.get("candidates")):
@@ -1081,6 +1126,32 @@ def acquire(request, outroot, log):
     if request.get("indexedAssetSearch", True):
         candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
                                            request, observed_hosts=observed_hosts)
+
+    # A route that cannot apply to this brand is not a route left untried.
+    # Without this the audit reports "routes not attempted" forever and a
+    # refusal becomes impossible even when one is warranted — the mirror image
+    # of the false refusal this gate exists to prevent.
+    def note_na(route, reason):
+        if not any(e.get("route") == route for e in ledger):
+            ledger.append({"route": route, "url": None, "result": "N/A",
+                           "notApplicable": reason,
+                           "sku_evidence": False, "candidates": 0})
+
+    if not any("/api/" in t for t in rule.get("page_templates", [])):
+        note_na("DIRECT_OFFICIAL_API", "brand registry declares no product API")
+    if not any(r == "OFFICIAL_REGIONAL_SEARCH" for r in routes.values()):
+        note_na("OFFICIAL_REGIONAL_SEARCH", "no official regional search entry point")
+    if not any(r == "SEARCH_INDEX_OFFICIAL" for r in routes.values()):
+        note_na("SEARCH_INDEX_OFFICIAL", "no official index entry point supplied")
+    if not (request.get("cdnProbe") or rule.get("cdn_probe")):
+        note_na("OFFICIAL_CDN_PROBE",
+                "brand asset paths are not derivable from the style code")
+    if not any(r == "TRUSTED_RETAILER_INDEXED_EVIDENCE" for r in
+               [e.get("route") for e in ledger]):
+        note_na("TRUSTED_RETAILER_INDEXED_EVIDENCE",
+                "no trusted-retailer page reached indexed evaluation")
+    note_na("IDENTIFIER_EXPANSION",
+            "ran over every evidenced document; %d alias(es) found" % len(aliases))
 
     # Promote observed hosts into the allow-list. A host named by an evidenced
     # document from an allowed source is discovered, not guessed.
