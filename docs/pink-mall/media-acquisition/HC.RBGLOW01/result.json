@@ -4,14 +4,14 @@
   "sku": "HC.RBGLOW01",
   "brand": "Colors of California",
   "model": "Glossy rainboot",
-  "variant": "Pink",
+  "variant": "Fuxia",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T20:36:06Z",
+  "generatedAt": "2026-08-26T20:40:37Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33011195251",
+    "githubRunId": "33011548576",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "4c6e8378998d6f37d00e37cbff69174a53b04d8c"
+    "githubSha": "8c2439afea4a86017aa34094adb3cbd0c9e24f8a"
   },
   "counts": {
     "acquired": 0,
@@ -22,7 +22,7 @@
     "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
     "signals": [],
     "conflicts": [],
-    "officialColour": "Pink",
+    "officialColour": "Fuxia",
     "officialAnchor": false
   },
   "mediaTier": null,
@@ -43,10 +43,12 @@
       "capturedAt": "2026-08-26T10:00:00Z",
       "observedSku": "HC.RBGLOW01",
       "model": "Glossy rainboot",
-      "variant": null,
+      "variant": "Fuxia",
       "aliases": [
         "hc.rbglow01",
-        "HC RBGLOW01"
+        "HC RBGLOW01",
+        "HC.F24.RBGLOW01",
+        "RBGLOW01-FUX"
       ],
       "mediaUrls": 0,
       "sizeLabels": 0,
@@ -74,7 +76,7 @@
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://www.colorsofcalifornia.it/en-it/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "url": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "result": "OK",
       "sku_evidence": true,
       "candidates": 30
@@ -85,13 +87,6 @@
       "result": "OK",
       "sku_evidence": true,
       "candidates": 30
-    },
-    {
-      "route": "SEARCH_INDEX_OFFICIAL",
-      "url": "https://www.colorsofcalifornia.it/en-ot/woman/fall-winter/rain-boots",
-      "result": "OK",
-      "sku_evidence": false,
-      "candidates": 10
     },
     {
       "route": "DIRECT_OFFICIAL_API",
@@ -106,6 +101,14 @@
       "url": null,
       "result": "N/A",
       "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -129,7 +132,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 4 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -144,7 +147,9 @@
   },
   "identifierAliases": [
     "hc.rbglow01",
-    "HC RBGLOW01"
+    "HC RBGLOW01",
+    "HC.F24.RBGLOW01",
+    "RBGLOW01-FUX"
   ],
   "researchEvidence": [
     {
@@ -155,18 +160,25 @@
       "capturedAt": "2026-08-26T10:00:00Z",
       "sku": "HC.RBGLOW01",
       "model": "Glossy rainboot",
-      "variant": null,
+      "variant": "Fuxia",
       "aliases": [
         "hc.rbglow01",
-        "HC RBGLOW01"
+        "HC RBGLOW01",
+        "HC.F24.RBGLOW01",
+        "RBGLOW01-FUX"
       ],
       "sizeScale": [],
       "mediaUrls": [],
-      "observedCdnHosts": [],
+      "observedCdnHosts": [
+        "hub2.artcrafts.it"
+      ],
       "notes": [
         "Official Colors of California product page. Establishes the exact public model name: 'Glossy rainboot'.",
         "The site's URL grammar is /en-ot/shoponline/<slug>.<article>?color=<CODE>, confirmed across several articles, so the colour is a query parameter rather than part of the article number.",
-        "PRODUCT TYPE: this is a rubber RAIN BOOT, not a sneaker. The RB prefix in the article number is consistent across the brand's rainboot line (rbnew03 = 'chelsie-rainboot', rbnew012 = 'chelsea-rainboot', rb0041 = 'rainboot-with-neoprene-collar'). Every product PINK MALL has onboarded through this pipeline so far has been a sneaker."
+        "PRODUCT TYPE: this is a rubber RAIN BOOT, not a sneaker. The RB prefix in the article number is consistent across the brand's rainboot line (rbnew03 = 'chelsie-rainboot', rbnew012 = 'chelsea-rainboot', rb0041 = 'rainboot-with-neoprene-collar'). Every product PINK MALL has onboarded through this pipeline so far has been a sneaker.",
+        "COLOUR CODE RESOLVED BY THE SOURCE, NOT BY ME: fetching the bare product URL redirected to ?color=FUX, so the site itself selected the fuxia colourway as this article's default. FUX is the pink one.",
+        "OBSERVED CDN HOST: hub2.artcrafts.it. Taken from the official page's own image declarations in the previous run's rejection log, never guessed. Artcrafts is the Italian distributor that operates this brand's e-commerce, which is why the media does not sit on colorsofcalifornia.it.",
+        "Asset paths are self-evidencing twice over: /_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-<n>.jpg carries both the article code and the colour code."
       ]
     },
     {
@@ -202,8 +214,7 @@
     "routesSucceeded": [
       "DIRECT_OFFICIAL_PAGE",
       "IDENTIFIER_EXPANSION",
-      "RESEARCH_EVIDENCE",
-      "SEARCH_INDEX_OFFICIAL"
+      "RESEARCH_EVIDENCE"
     ],
     "routesNotAttempted": [
       "INDEXED_SOURCE_EVIDENCE",
@@ -214,7 +225,7 @@
     "exactProductDocuments": [
       {
         "route": "DIRECT_OFFICIAL_PAGE",
-        "url": "https://www.colorsofcalifornia.it/en-it/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+        "url": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
         "authorityTier": null,
         "candidates": 30
       },
@@ -227,15 +238,24 @@
     ],
     "identifierAliases": [
       "hc.rbglow01",
-      "HC RBGLOW01"
+      "HC RBGLOW01",
+      "HC.F24.RBGLOW01",
+      "RBGLOW01-FUX"
     ],
     "refusalPermitted": false,
     "refusalBlockedBecause": "an exact product document was found — identity is established"
   },
   "log": [
     {
+      "stage": "research",
+      "seeded_candidates": 0,
+      "observed_hosts": [
+        "hub2.artcrafts.it"
+      ]
+    },
+    {
       "stage": "discover",
-      "url": "https://www.colorsofcalifornia.it/en-it/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "url": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "ok": true,
       "raw_candidates": 30,
       "page_has_sku": true
@@ -248,417 +268,158 @@
       "page_has_sku": true
     },
     {
-      "stage": "discover",
-      "url": "https://www.colorsofcalifornia.it/en-ot/woman/fall-winter/rain-boots",
-      "ok": true,
-      "raw_candidates": 10,
-      "page_has_sku": false
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-6.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-6.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HELEN05-TAN-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/TAN/HC.F23.YSNOW236-TAN-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/SIL/HC.F23.YW242-SIL-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HOODY15-TAN-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F22/NEWTAU/HC.F22.RB0039-NEWTAU-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-2.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-3.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-4.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-5.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-6.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-6.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/SIL/HC.F23.YW242-SIL-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F22/BKBK/HC.F22.RBNEW012-BKBK-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/BLA/HC.F21.WELTBOOT04-BLA-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAU/HC.F25.NORTHSTAR2-TAU-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/LEO/HC.F25.YWED53-LEO-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F26/VER/HC.F26.RUBBERB25-VER-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F26/BLA/HC.F26.RUBBERB25-BLA-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/OAT/HC.F25.RB400-OAT-1.jpg",
-      "ok": false,
-      "error": "host hub2.artcrafts.it not in allow-list"
+      "stage": "observed-hosts",
+      "hosts": [
+        "hub2.artcrafts.it"
+      ]
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 4
-    },
-    {
-      "stage": "acquire",
-      "url": "https://www.colorsofcalifornia.it/_public/resized/400x400/HC/F24/BLA/HC.F24.RB400-BLA-1.jpg",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "acquire",
-      "url": "https://www.colorsofcalifornia.it/_public/resized/400x570_HC/HC/F26/BLA/HC.F26.RUBBERB25-BLA-1.jpg",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "acquire",
-      "url": "https://www.colorsofcalifornia.it/_public/resized/400x570_HC/HC/F26/VER/HC.F26.RUBBERB25-VER-1.jpg",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "total_unique_candidates": 24
     },
     {
       "stage": "identity",
-      "url": "https://www.colorsofcalifornia.it/images/page-banners/banner-donna-autunno-inverno-stivali-da-pioggia-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
       "ok": false,
-      "error": "neither asset URL nor source page evidences SKU HC.RBGLOW01"
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-2.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-3.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-4.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-5.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-6.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/FUX/HC.F21.YSNOW015-FUX-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/S21/LTPIN/HC.S21.YBOOT02-LTPIN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BER/HC.F25.YWPLA12-BER-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/ZEB/HC.F23.BLAST15-ZEB-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/NEWTAU/HC.F23.RB0025-NEWTAU-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BLA/HC.F25.HELEN07-BLA-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.YW268-TAN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/BKBK/HC.F23.BLAST19-BKBK-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F22/NEWTAU/HC.F22.RB0039-NEWTAU-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/BLA/HC.F23.RB00H2-BLA-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     }
   ],
   "notes": [
