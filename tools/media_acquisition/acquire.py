@@ -624,7 +624,7 @@ def indexed_asset_search(sku, aliases, allowed, log, ledger, rule, request,
 
     for domain in domains:
         for term in terms[:3]:
-            rows, err = indexed_snapshots(domain, limit=200,
+            rows, err = indexed_snapshots(domain, limit=100,
                                           match_type="domain", contains=term)
             hits = []
             for _ts, original in rows:
@@ -1219,6 +1219,16 @@ def acquire(request, outroot, log):
                                          route="INDEXED_OUTBOUND_MEDIA",
                                          collect_sizes=size_evidence)
 
+    # Archived assets whose own path carries the article code. This runs FIRST,
+    # ahead of the per-URL snapshot lookups, because it is the strongest
+    # evidence available: a filename carrying the exact reference identifies
+    # itself and survives the storefront being delisted. Ordering it last let
+    # six per-URL lookups burn the whole indexed-phase deadline before the
+    # highest-value route was ever attempted.
+    if request.get("indexedAssetSearch", True):
+        candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
+                                           request, observed_hosts=observed_hosts)
+
     # Indexed source evidence. Runs for every page the direct transport could
     # not turn into evidence — 403, 404, or a 200 that never named the article.
     for page in failed_pages[:MAX_INDEXED_DOCS]:
@@ -1227,11 +1237,6 @@ def acquire(request, outroot, log):
                                             collect_sizes=size_evidence,
                                             observed_hosts=observed_hosts,
                                             aliases=aliases)
-
-    # Archived assets whose own path carries the article code.
-    if request.get("indexedAssetSearch", True):
-        candidates += indexed_asset_search(sku, aliases, allowed, log, ledger, rule,
-                                           request, observed_hosts=observed_hosts)
 
     # A route that cannot apply to this brand is not a route left untried.
     # Without this the audit reports "routes not attempted" forever and a
