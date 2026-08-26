@@ -1,35 +1,308 @@
 {
   "schemaVersion": 1,
-  "status": "DISCOVERY_TRANSPORT_BLOCKED",
+  "status": "PASS",
   "sku": "PGS30614",
   "brand": "Pepe Jeans",
   "model": "Ben Band",
   "variant": "Pink / Black",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T07:42:22Z",
+  "generatedAt": "2026-08-26T07:59:59Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32943484963",
+    "githubRunId": "32944724772",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "415b0e2797a2ac0ee05a5251f17365474ff55ab8"
+    "githubSha": "1e94c6d27f6c6c396f89098fee9be639b1d6e796"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
-    "duplicates_collapsed": 0
+    "acquired": 24,
+    "unique_selected": 5,
+    "duplicates_collapsed": 14
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
     "conflicts": [],
     "officialColour": "Pink / Black",
     "officialAnchor": false
   },
-  "proposedMain": null,
+  "proposedMain": "source/PGS30614-01-original.jpg",
   "dominantBackdrop": null,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/PGS30614-01-original.jpg",
+      "preview": "preview/PGS30614-01.webp",
+      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+      "source_domain": "images.pepejeans.com",
+      "discovery_method": "indexed-asset",
+      "acquired_at": "2026-08-26T07:59:33Z",
+      "width": 1920,
+      "height": 2652,
+      "longest_edge": 2652,
+      "mime": "image/jpeg",
+      "bytes": 233647,
+      "sha256": "48aadc77a2e9826e5871f0b22991b018935cde7c9456740cc3708228f797bbed",
+      "dhash": "00000000000000000000000000000000020011804c7869667a06623819c40000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#DCDBD7",
+      "duplicates_collapsed": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=950",
+          "size": "950x1312",
+          "sha256": "351e3a290c3f5d3451423769aa73f8828fa0187d21602840b7f0ce312f7a7bf7"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=475",
+          "size": "475x656",
+          "sha256": "6327c68de81ab59b1f9689c7da4460a0864f09b981dfd143f805176a267a8a50"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=420",
+          "size": "420x580",
+          "sha256": "720294710ba255e30edb19af7d417533c8f3c2856b17a9be5d21c43ada4bd8fe"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=375",
+          "size": "375x518",
+          "sha256": "c55c3105912bd8ddf54e6e70e13428e8db766296ceba19439e51d5322dd6c90f"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": []
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/PGS30614-02-original.jpg",
+      "preview": "preview/PGS30614-02.webp",
+      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+      "source_domain": "images.pepejeans.com",
+      "discovery_method": "indexed-asset",
+      "acquired_at": "2026-08-26T07:59:51Z",
+      "width": 950,
+      "height": 1312,
+      "longest_edge": 1312,
+      "mime": "image/jpeg",
+      "bytes": 85215,
+      "sha256": "1300d103b79bf2a2ca9eda1da62d2a6b85ca2ef968afda33859d2c9b3c76df30",
+      "dhash": "0000000001100cc01ab45ce43cc2329aa79aa39ab69a4b1c3690082000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#DDDCD8",
+      "duplicates_collapsed": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=475",
+          "size": "475x656",
+          "sha256": "cf30ab6b4a4e23fab445f1b578fbd80d5ec960eb321d6b561d8d03971a03bc39"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=375",
+          "size": "375x518",
+          "sha256": "35334db5fe8819083b755128be5cfd1492dd180f9589da56adb037879e92659a"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "1312px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/PGS30614-03-original.jpg",
+      "preview": "preview/PGS30614-03.webp",
+      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+      "source_domain": "images.pepejeans.com",
+      "discovery_method": "indexed-asset",
+      "acquired_at": "2026-08-26T07:59:35Z",
+      "width": 950,
+      "height": 1312,
+      "longest_edge": 1312,
+      "mime": "image/jpeg",
+      "bytes": 45249,
+      "sha256": "b8ddf6c3e970d3af1a255012c49ae92b06f4ae99ae5552ff0aae77e319de8eb2",
+      "dhash": "000000000000000000000000000000000188061c3c2e619c6780264009000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#DDDCD8",
+      "duplicates_collapsed": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=475",
+          "size": "475x656",
+          "sha256": "9fa8d62747fee48fb757b114a67f43d2a304400bf46ea7ad4838f56520ff8359"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=420&q=90",
+          "size": "420x580",
+          "sha256": "fb0cdcefd8d61653a7103846b3613c097191421c856f7374b1966d73a0c96166"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=375",
+          "size": "375x518",
+          "sha256": "38588ca6361cc4df0ead5af76d596d5858a89907efe678c397c4bd0187771502"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "1312px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/PGS30614-04-original.jpg",
+      "preview": "preview/PGS30614-04.webp",
+      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+      "source_domain": "images.pepejeans.com",
+      "discovery_method": "indexed-asset",
+      "acquired_at": "2026-08-26T07:59:41Z",
+      "width": 950,
+      "height": 1312,
+      "longest_edge": 1312,
+      "mime": "image/jpeg",
+      "bytes": 117768,
+      "sha256": "763b608daa65b94991d208f5fe90f1e4be6cc8be667f93080e4af8c775731394",
+      "dhash": "0000000000c011204b18e647dca182c8e0023ff1a6fff6001fc1207f01000004",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#DDDCD8",
+      "duplicates_collapsed": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=475",
+          "size": "475x656",
+          "sha256": "968f58ec2cfdf57e0eeec7c4944e1a5e76b2bc94d888b2a36e3dc33e0c05bb21"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=420&q=90",
+          "size": "420x580",
+          "sha256": "0addfbd3728610432d021c6573e5e2ad565ded546531cbd5c5a2e8a865c15dd1"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=375",
+          "size": "375x518",
+          "sha256": "bb1f8f2626f36f7f5041b29ebd0310506c8a0780be0d5ce23470d7a0db388e0a"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "1312px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/PGS30614-05-original.jpg",
+      "preview": "preview/PGS30614-05.webp",
+      "source_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
+      "requested_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
+      "anchor_url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
+      "source_domain": "images.pepejeans.com",
+      "discovery_method": "indexed-asset",
+      "acquired_at": "2026-08-26T07:59:42Z",
+      "width": 950,
+      "height": 1312,
+      "longest_edge": 1312,
+      "mime": "image/jpeg",
+      "bytes": 92469,
+      "sha256": "1421c9b5f387926704805c4c3f12fa8e38faf87696036dd0109b8a76b4c9fe8f",
+      "dhash": "00000120129805842dc168cc69066d036c30327663b461803848038008000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": null,
+      "backdrop": "#DDDCD8",
+      "duplicates_collapsed": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=475",
+          "size": "475x656",
+          "sha256": "83022ae4d6bc55049061670950c0924016453632a77b7e2414fc7b1834a7aa26"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=375",
+          "size": "375x518",
+          "sha256": "929a0172a1ad26faab72c1d3d6746271aaf74549793de610702dc98bb9639ea0"
+        }
+      ],
+      "validation": "PASS",
+      "warnings": [
+        "1312px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
   "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "result": "OK",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "observedSku": "PGS30614",
+      "model": "Sneakers in cotone suola cupsole",
+      "variant": "factory pink",
+      "aliases": [
+        "PGS30614327"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "result": "OK",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "observedSku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "Pink / Black",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "result": "OK",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "observedSku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "pink",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
@@ -39,32 +312,8 @@
       "candidates": 0
     },
     {
-      "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
       "route": "TRUSTED_RETAILER_SEARCH",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 403: Forbidden",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
@@ -92,10 +341,10 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "deporvillage.com (domain) ~ PGS30614",
+      "url": "deporvillage.co.uk (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -104,7 +353,7 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "deporvillage.net (domain) ~ PGS30614",
+      "url": "deporvillage.com (domain) ~ PGS30614",
       "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
@@ -116,9 +365,45 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "deporvillage.com (domain) ~ PGS30614327",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "deporvillage.net (domain) ~ PGS30614",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "deporvillage.net (domain) ~ PGS30614327",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "esdemarca.com (domain) ~ PGS30614",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -128,15 +413,27 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "pepejeans.com (domain) ~ PGS30614",
+      "url": "esdemarca.com (domain) ~ PGS30614327",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "pepejeans.com (domain) ~ PGS30614",
+      "result": "OK",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": true,
+      "sku_evidence": true,
+      "candidates": 26
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
@@ -150,40 +447,10 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
-      "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
-      "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-      "indexReachable": false,
-      "authorityTier": "TRUSTED_RETAILER",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -192,8 +459,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
-      "indexReachable": false,
+      "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
@@ -242,7 +509,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 1 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -255,7 +522,68 @@
     "missing": [],
     "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
   },
-  "identifierAliases": [],
+  "identifierAliases": [
+    "PGS30614327"
+  ],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Sneakers in cotone suola cupsole",
+      "variant": "factory pink",
+      "aliases": [
+        "PGS30614327"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Pepe Jeans product URL for this article, indexed under three locales (it_it, pl_pl, pt_pt), all carrying the same full article code PGS30614327.",
+        "Establishes the base-to-variant mapping: PGS30614 + colour 327. Official colour name observed as 'factory pink'.",
+        "The URL itself 404s to a direct fetch, which is why this is level B (indexed exact) rather than level A."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "Pink / Black",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Names the public model 'Ben Band' and the variant Pink / Black for this article.",
+        "MEDIA URLS NOT RECORDED: this session's egress proxy blocks deporvillage, so the page internals were never read by me. The exact CDN targets described in the task brief are reviewer-supplied and are deliberately NOT copied in here — they would be an unverified assertion wearing the costume of research evidence, and the path segments given were elided so they cannot be reconstructed without guessing."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T07:40:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Third independent trusted retailer agreeing on exact SKU + model + colour, which is what raises the identity to corroborated (level C) across sources.",
+        "Construction observed consistently across retailers: twill weave, lace-up with metal eyelets, contrast edges, heat-sealed side logo, reinforced toe and heel, vulcanised cupsole."
+      ]
+    }
+  ],
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_API",
@@ -265,33 +593,35 @@
       "INDEXED_SOURCE_EVIDENCE",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
+      "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
-    "routesSucceeded": [],
+    "routesSucceeded": [
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_OUTBOUND_MEDIA",
+      "RESEARCH_EVIDENCE"
+    ],
     "routesNotAttempted": [],
     "routesUnreachable": {
       "TRUSTED_RETAILER_SEARCH": [
-        "HTTPError: HTTP Error 403: Forbidden",
         "HTTPError: HTTP Error 403: Forbidden"
-      ],
-      "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "TimeoutError: The read operation timed out"
-      ],
-      "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error [Errno 101] Network is unreachable>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "index call budget exhausted (24 calls)"
       ]
     },
-    "exactProductDocuments": [],
-    "identifierAliases": [],
+    "exactProductDocuments": [
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "pepejeans.com (domain) ~ PGS30614",
+        "authorityTier": "OFFICIAL",
+        "candidates": 26
+      }
+    ],
+    "identifierAliases": [
+      "PGS30614327"
+    ],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE, TRUSTED_RETAILER_SEARCH"
+    "refusalBlockedBecause": "an exact product document was found — identity is established"
   },
   "log": [
     {
@@ -302,25 +632,7 @@
     },
     {
       "stage": "discover",
-      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "discover",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
       "ok": false,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
@@ -340,15 +652,47 @@
     },
     {
       "stage": "indexed-asset",
+      "domain": "deporvillage.co.uk",
+      "term": "PGS30614327",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
       "domain": "deporvillage.com",
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "deporvillage.com",
+      "term": "PGS30614327",
+      "rows": 0,
+      "hits": 0,
+      "error": null
     },
     {
       "stage": "indexed-asset",
       "domain": "deporvillage.net",
+      "term": "PGS30614",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "deporvillage.net",
+      "term": "PGS30614327",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "esdemarca.com",
       "term": "PGS30614",
       "rows": 0,
       "hits": 0,
@@ -357,18 +701,18 @@
     {
       "stage": "indexed-asset",
       "domain": "esdemarca.com",
-      "term": "PGS30614",
+      "term": "PGS30614327",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
       "domain": "pepejeans.com",
       "term": "PGS30614",
-      "rows": 0,
-      "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
+      "rows": 26,
+      "hits": 26,
+      "error": null
     },
     {
       "stage": "indexed-cdx",
@@ -378,37 +722,217 @@
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
-      "captures": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.pepejeans.com/pt_pt/sapatilhas-algodao-com-sola-cupsole-PGS30614327.html",
-      "captures": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-cdx",
       "url": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "captures": 0,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.deporvillage.com/zapatillas-pepe-jeans-ben-band-infantil",
-      "captures": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": null
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "images.pepejeans.com"
+      ]
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 0
+      "total_unique_candidates": 24
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+      "ok": true,
+      "size": "1920x2652",
+      "bytes": 233647,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 45249,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 8703,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 13195,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 21877,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 33383,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 117768,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 92469,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 26728,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 17951,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 12495,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 18054,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 58153,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 17332,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 25359,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 85215,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=375",
+      "ok": true,
+      "size": "375x518",
+      "bytes": 9446,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=475",
+      "ok": true,
+      "size": "475x656",
+      "bytes": 13779,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=950",
+      "ok": true,
+      "size": "950x1312",
+      "bytes": 49227,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg?sw=420",
+      "ok": true,
+      "size": "420x580",
+      "bytes": 11464,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=420",
+      "ok": true,
+      "size": "420x580",
+      "bytes": 15618,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=420",
+      "ok": true,
+      "size": "420x580",
+      "bytes": 42581,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?q=90&s",
+      "ok": true,
+      "size": "420x580",
+      "bytes": 34269,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dwf4f41f65/images/hi-res/PGS30614_327_03_FL.jpg?sw=420",
+      "ok": true,
+      "size": "420x580",
+      "bytes": 22895,
+      "upgraded_from": null
     }
   ],
   "notes": [
