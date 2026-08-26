@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:31:51Z",
+  "generatedAt": "2026-08-26T06:00:43Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32878290869",
+    "githubRunId": "32936286634",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "d1cce5a72d7ac9296e61bfcfb8f0ba94afc5d0a8"
+    "githubSha": "25f79f55751d36dfd18b1ae3ff2bc8bd23719495"
   },
   "counts": {
     "acquired": 6,
@@ -42,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-25T17:31:05Z",
+      "acquired_at": "2026-08-26T06:00:38Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -77,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:31:04Z",
+      "acquired_at": "2026-08-26T06:00:38Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -106,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:31:05Z",
+      "acquired_at": "2026-08-26T06:00:38Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -135,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:31:04Z",
+      "acquired_at": "2026-08-26T06:00:38Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -164,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:31:04Z",
+      "acquired_at": "2026-08-26T06:00:38Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -204,7 +204,7 @@
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 252
+      "candidates": 255
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
@@ -257,30 +257,31 @@
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 252
+      "candidates": 255
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 252
+      "candidates": 255
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 252
+      "candidates": 255
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 252
+      "candidates": 255
     }
   ],
+  "sizeEvidence": [],
   "log": [
     {
       "stage": "discover",
@@ -307,7 +308,7 @@
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38",
       "ok": true,
-      "raw_candidates": 252,
+      "raw_candidates": 255,
       "page_has_sku": true
     },
     {
@@ -352,28 +353,28 @@
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=36",
       "ok": true,
-      "raw_candidates": 252,
+      "raw_candidates": 255,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37",
       "ok": true,
-      "raw_candidates": 252,
+      "raw_candidates": 255,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=37%2C5",
       "ok": true,
-      "raw_candidates": 252,
+      "raw_candidates": 255,
       "page_has_sku": true
     },
     {
       "stage": "discover",
       "url": "https://www.spx.com.tr/converse-chuck-taylor-all-star-move-unisex-cocuk-gunluk-ayakkabi-a08745c-14696/?integration_color_code=14696&integration_first_size=38%2C5",
       "ok": true,
-      "raw_candidates": 252,
+      "raw_candidates": 255,
       "page_has_sku": true
     },
     {
@@ -467,6 +468,12 @@
     {
       "stage": "identity",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/97ca8869-11de-4250-bd57-7e2e1b244f1a.png",
+      "ok": false,
+      "error": "editorial or chrome asset path; rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2022/02/17/4372f113-1eb9-4289-ba96-820cf4243b0b.png",
       "ok": false,
       "error": "editorial or chrome asset path; rejected"
     },
@@ -1343,12 +1350,6 @@
     {
       "stage": "identity",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/05/15/991a847f-724d-4136-acc3-c9152946de1d.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/07/23/536efcd4-cc06-461b-a8e0-e8a11a8c5de8.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     }

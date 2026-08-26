@@ -6,12 +6,12 @@
   "model": "515 V1",
   "variant": "Rose Sugar",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:31:55Z",
+  "generatedAt": "2026-08-26T06:00:47Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32878290869",
+    "githubRunId": "32936286634",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "d1cce5a72d7ac9296e61bfcfb8f0ba94afc5d0a8"
+    "githubSha": "25f79f55751d36dfd18b1ae3ff2bc8bd23719495"
   },
   "counts": {
     "acquired": 5,
@@ -42,7 +42,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_02_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:31:52Z",
+      "acquired_at": "2026-08-26T06:00:44Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -68,7 +68,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_03_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:31:52Z",
+      "acquired_at": "2026-08-26T06:00:44Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -94,7 +94,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_04_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:31:52Z",
+      "acquired_at": "2026-08-26T06:00:44Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -120,7 +120,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_05_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:31:52Z",
+      "acquired_at": "2026-08-26T06:00:45Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -146,7 +146,7 @@
       "anchor_url": "https://nb.scene7.com/is/image/NB/gc515ki_nb_06_i?$pdpflexf2$&wid=1600&hei=1600",
       "source_domain": "nb.scene7.com",
       "discovery_method": "cdn-probe",
-      "acquired_at": "2026-08-25T17:31:53Z",
+      "acquired_at": "2026-08-26T06:00:45Z",
       "width": 1600,
       "height": 1600,
       "longest_edge": 1600,
@@ -197,6 +197,7 @@
       "candidates": 0
     }
   ],
+  "sizeEvidence": [],
   "log": [
     {
       "stage": "discover",

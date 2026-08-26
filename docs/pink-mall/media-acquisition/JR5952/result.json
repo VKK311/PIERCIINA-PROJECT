@@ -6,12 +6,12 @@
   "model": "Gazelle Bold Shoes",
   "variant": "Almost Pink / Court Green / Gold Metallic",
   "officialProductPage": null,
-  "generatedAt": "2026-08-25T17:33:54Z",
+  "generatedAt": "2026-08-26T06:01:06Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32878290869",
+    "githubRunId": "32936286634",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "d1cce5a72d7ac9296e61bfcfb8f0ba94afc5d0a8"
+    "githubSha": "25f79f55751d36dfd18b1ae3ff2bc8bd23719495"
   },
   "counts": {
     "acquired": 14,
@@ -42,13 +42,13 @@
       "anchor_url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:33:46Z",
+      "acquired_at": "2026-08-26T06:00:58Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
       "mime": "image/jpeg",
-      "bytes": 33629,
-      "sha256": "0cab3a34b5f9a5b50f8149f95b3e29ba531b5117f4f8addaf0e123401d74ad68",
+      "bytes": 57960,
+      "sha256": "51f10c2872c61baeb70d7a2ff334cad5d2561f95465e8af01f9b5319d928fd8c",
       "dhash": "00000000000000000000000000001118420231996bb8e6b457b6a8b4003c0000",
       "sku_in_url": false,
       "sku_evidence": "source-page",
@@ -58,7 +58,7 @@
         {
           "url": "https://img.modivo.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
           "size": "560x746",
-          "sha256": "0cab3a34b5f9a5b50f8149f95b3e29ba531b5117f4f8addaf0e123401d74ad68"
+          "sha256": "51f10c2872c61baeb70d7a2ff334cad5d2561f95465e8af01f9b5319d928fd8c"
         }
       ],
       "validation": "PASS",
@@ -77,13 +77,13 @@
       "anchor_url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:33:46Z",
+      "acquired_at": "2026-08-26T06:00:55Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
       "mime": "image/jpeg",
-      "bytes": 43374,
-      "sha256": "c5df8c2eaa320046a6510603be2e44986788a1d8b71d0ef909c5d45c770405c9",
+      "bytes": 71220,
+      "sha256": "4cc84486fda608dd99b09b3c555083124c3a87794b444617b369a21e0cc9e3b5",
       "dhash": "000000000000000000000120da008500b380b1c0803af0783f80838118100100",
       "sku_in_url": false,
       "sku_evidence": "source-page",
@@ -93,7 +93,7 @@
         {
           "url": "https://img.modivo.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
           "size": "560x746",
-          "sha256": "c5df8c2eaa320046a6510603be2e44986788a1d8b71d0ef909c5d45c770405c9"
+          "sha256": "4cc84486fda608dd99b09b3c555083124c3a87794b444617b369a21e0cc9e3b5"
         }
       ],
       "validation": "PASS",
@@ -112,13 +112,13 @@
       "anchor_url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:33:46Z",
+      "acquired_at": "2026-08-26T06:00:56Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
       "mime": "image/jpeg",
-      "bytes": 37605,
-      "sha256": "0e964d27e5d27cf88aa70cdb0f9a6ece01651f8f1e361ef17718a45682b72d63",
+      "bytes": 63743,
+      "sha256": "7920df308a8f87b5d640ebbe533fa1954b2ed96be4381b93e7d21c7ca0856ea0",
       "dhash": "0000000000000000000000000180c00201e0ffa0e05e81dcd2601061820c0000",
       "sku_in_url": false,
       "sku_evidence": "source-page",
@@ -128,7 +128,7 @@
         {
           "url": "https://img.modivo.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
           "size": "560x746",
-          "sha256": "0e964d27e5d27cf88aa70cdb0f9a6ece01651f8f1e361ef17718a45682b72d63"
+          "sha256": "7920df308a8f87b5d640ebbe533fa1954b2ed96be4381b93e7d21c7ca0856ea0"
         }
       ],
       "validation": "PASS",
@@ -147,13 +147,13 @@
       "anchor_url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:33:46Z",
+      "acquired_at": "2026-08-26T06:00:58Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
       "mime": "image/jpeg",
-      "bytes": 55344,
-      "sha256": "d011be115e80fc4b317861c44459bca594cb142976f8b54512b414fafc2a5bca",
+      "bytes": 79872,
+      "sha256": "6b0f04011b826e5134f8a778f6a35678f59db274cc113d31c5736a42ce5e1b46",
       "dhash": "900080004400f000d000740096001e00ca0008200f12801ae0727fc08f806010",
       "sku_in_url": false,
       "sku_evidence": "source-page",
@@ -163,7 +163,7 @@
         {
           "url": "https://img.modivo.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
           "size": "560x746",
-          "sha256": "d011be115e80fc4b317861c44459bca594cb142976f8b54512b414fafc2a5bca"
+          "sha256": "6b0f04011b826e5134f8a778f6a35678f59db274cc113d31c5736a42ce5e1b46"
         }
       ],
       "validation": "PASS",
@@ -182,13 +182,13 @@
       "anchor_url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
       "source_domain": "img.eobuwie.cloud",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-25T17:33:46Z",
+      "acquired_at": "2026-08-26T06:00:57Z",
       "width": 560,
       "height": 746,
       "longest_edge": 746,
       "mime": "image/jpeg",
-      "bytes": 55809,
-      "sha256": "d4e22ea87c8ed1de787de54058f9f9308fdfa215114415c15a2a4c69de495c50",
+      "bytes": 85421,
+      "sha256": "b83ea6435ba52df1e73ccd99137314dc6c5a18d0c389b042f0ec1e67f52aecea",
       "dhash": "1010000038e0a69a6b2968e96aa96aa968d838e038e0b8e238e0082014500000",
       "sku_in_url": false,
       "sku_evidence": "source-page",
@@ -198,7 +198,7 @@
         {
           "url": "https://img.modivo.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815.jpg",
           "size": "560x746",
-          "sha256": "d4e22ea87c8ed1de787de54058f9f9308fdfa215114415c15a2a4c69de495c50"
+          "sha256": "b83ea6435ba52df1e73ccd99137314dc6c5a18d0c389b042f0ec1e67f52aecea"
         }
       ],
       "validation": "PASS",
@@ -259,7 +259,7 @@
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.adidas.com/us/JR5952.html",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -272,13 +272,103 @@
       "candidates": 0
     }
   ],
+  "sizeEvidence": [
+    {
+      "page": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "sizes": [
+        {
+          "size": "36",
+          "declared": ""
+        },
+        {
+          "size": "38",
+          "declared": ""
+        },
+        {
+          "size": "40",
+          "declared": ""
+        },
+        {
+          "size": "35_5",
+          "declared": ""
+        },
+        {
+          "size": "36_23",
+          "declared": ""
+        },
+        {
+          "size": "37_13",
+          "declared": ""
+        },
+        {
+          "size": "38_23",
+          "declared": ""
+        },
+        {
+          "size": "39_13",
+          "declared": ""
+        }
+      ]
+    },
+    {
+      "page": "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815",
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "sizes": [
+        {
+          "size": "36",
+          "declared": ""
+        },
+        {
+          "size": "38",
+          "declared": ""
+        },
+        {
+          "size": "40",
+          "declared": ""
+        },
+        {
+          "size": "35_5",
+          "declared": ""
+        },
+        {
+          "size": "36_23",
+          "declared": ""
+        },
+        {
+          "size": "37_13",
+          "declared": ""
+        },
+        {
+          "size": "38_23",
+          "declared": ""
+        },
+        {
+          "size": "39_13",
+          "declared": ""
+        }
+      ]
+    }
+  ],
   "log": [
+    {
+      "stage": "size-scale",
+      "url": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
+      "ok": true,
+      "declared": 8
+    },
     {
       "stage": "discover",
       "url": "https://eobuwie.com.pl/p/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305172815",
       "ok": true,
       "raw_candidates": 74,
       "page_has_sku": true
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://modivo.pl/p/adidas-sneakersy-gazelle-bold-jr5952-rozowy-0000305172815",
+      "ok": true,
+      "declared": 8
     },
     {
       "stage": "discover",
@@ -315,7 +405,7 @@
       "stage": "discover",
       "url": "https://www.adidas.com/us/JR5952.html",
       "ok": false,
-      "error": "TimeoutError: The read operation timed out"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "discover",
@@ -332,7 +422,7 @@
       "url": "https://img.eobuwie.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 32397,
+      "bytes": 57454,
       "upgraded_from": null
     },
     {
@@ -340,7 +430,7 @@
       "url": "https://img.eobuwie.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 43374,
+      "bytes": 71220,
       "upgraded_from": null
     },
     {
@@ -348,7 +438,7 @@
       "url": "https://img.eobuwie.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 41268,
+      "bytes": 67984,
       "upgraded_from": null
     },
     {
@@ -356,7 +446,7 @@
       "url": "https://img.eobuwie.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 37605,
+      "bytes": 63743,
       "upgraded_from": null
     },
     {
@@ -364,7 +454,7 @@
       "url": "https://img.eobuwie.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 55809,
+      "bytes": 85421,
       "upgraded_from": null
     },
     {
@@ -372,7 +462,7 @@
       "url": "https://img.eobuwie.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 33629,
+      "bytes": 57960,
       "upgraded_from": null
     },
     {
@@ -380,7 +470,7 @@
       "url": "https://img.eobuwie.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/sneakersy-adidas-gazelle-bold-jr5952-rozowy-0000305",
       "ok": true,
       "size": "560x746",
-      "bytes": 55344,
+      "bytes": 79872,
       "upgraded_from": null
     },
     {
@@ -388,7 +478,7 @@
       "url": "https://img.modivo.cloud/product(c/b/8/7/cb8767cf642a3bfe6c1132e2dc43b91b2fcb0185_20_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 32397,
+      "bytes": 57454,
       "upgraded_from": null
     },
     {
@@ -396,7 +486,7 @@
       "url": "https://img.modivo.cloud/product(0/6/c/a/06ca3b773c865016f809885ebebd8955e4f6d3d1_22_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 43374,
+      "bytes": 71220,
       "upgraded_from": null
     },
     {
@@ -404,7 +494,7 @@
       "url": "https://img.modivo.cloud/product(a/9/6/2/a962a0080e0cfdbe8a88de04409292f42b1c8215_23_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 41268,
+      "bytes": 67984,
       "upgraded_from": null
     },
     {
@@ -412,7 +502,7 @@
       "url": "https://img.modivo.cloud/product(4/d/0/3/4d03455f8f7042863a2db25b28713801706da084_24_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 37605,
+      "bytes": 63743,
       "upgraded_from": null
     },
     {
@@ -420,7 +510,7 @@
       "url": "https://img.modivo.cloud/product(7/e/0/2/7e02c9c490a641ae4ec41bd7bac0793f2078f206_25_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 55809,
+      "bytes": 85421,
       "upgraded_from": null
     },
     {
@@ -428,7 +518,7 @@
       "url": "https://img.modivo.cloud/product(0/4/6/5/0465550dd17f2ebc8e61a3db82abd9b944af9b4d_26_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 33629,
+      "bytes": 57960,
       "upgraded_from": null
     },
     {
@@ -436,7 +526,7 @@
       "url": "https://img.modivo.cloud/product(5/a/f/1/5af1f3725530a1b52ff7011669e84c8b7ff341db_27_4067907526350.jpg,jpg)/adidas-sneakersy-gazelle-bold-jr5952-rozowy-00003051",
       "ok": true,
       "size": "560x746",
-      "bytes": 55344,
+      "bytes": 79872,
       "upgraded_from": null
     },
     {

@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "status": "HUMAN_VARIANT_REVIEW_REQUIRED",
+  "sku": "PGS30614",
+  "brand": "Pepe Jeans",
+  "model": "Ben Band",
+  "variant": "Pink",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-26T06:01:14Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "32936286634",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "25f79f55751d36dfd18b1ae3ff2bc8bd23719495"
+  },
+  "counts": {
+    "acquired": 20,
+    "unique_selected": 5,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
+    "conflicts": [
+      "no official colour term found in frame (pink)"
+    ],
+    "officialColour": "Pink",
+    "officialAnchor": false
+  },
+  "proposedMain": "source/PGS30614-01-original.webp",
+  "dominantBackdrop": null,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/PGS30614-01-original.webp",
+      "preview": "preview/PGS30614-01.webp",
+      "source_url": "https://cache.tradeinn.com/web/banners_home/HP-adidas-120826.webp",
+      "requested_url": "https://cache.tradeinn.com/web/banners_home/HP-adidas-120826.webp",
+      "anchor_url": "https://cache.tradeinn.com/web/banners_home/HP-adidas-120826.webp",
+      "source_domain": "cache.tradeinn.com",
+      "discovery_method": "srcset",
+      "acquired_at": "2026-08-26T06:01:10Z",
+      "width": 1920,
+      "height": 460,
+      "longest_edge": 1920,
+      "mime": "image/webp",
+      "bytes": 103664,
+      "sha256": "79e2d9e2e5a1471f1a11c9d6b6d368400fe8752fe0921cefa51f2aaaff3e9772",
+      "dhash": "58e4686c68ec6c4b6c496d4bad4a8d4a8d6a8564d921d9082d489d4969496b6d",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/PGS30614-02-original.webp",
+      "preview": "preview/PGS30614-02.webp",
+      "source_url": "https://cache.tradeinn.com/web/banners_home/HP-rebajas-240626.webp",
+      "requested_url": "https://cache.tradeinn.com/web/banners_home/HP-rebajas-240626.webp",
+      "anchor_url": "https://cache.tradeinn.com/web/banners_home/HP-rebajas-240626.webp",
+      "source_domain": "cache.tradeinn.com",
+      "discovery_method": "srcset",
+      "acquired_at": "2026-08-26T06:01:09Z",
+      "width": 1920,
+      "height": 460,
+      "longest_edge": 1920,
+      "mime": "image/webp",
+      "bytes": 34456,
+      "sha256": "c6f76589bdbd8f1af9f38193c5751e7cd7618e042ccea030f55e3bc7785ea15e",
+      "dhash": "08930ab208b211d212d311b2127010930cb309b2099208d308b209b249d34893",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "backdrop": "#FF4F22",
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/PGS30614-03-original.webp",
+      "preview": "preview/PGS30614-03.webp",
+      "source_url": "https://cache.tradeinn.com/web/banners_home/HP-samsonite-020826.webp",
+      "requested_url": "https://cache.tradeinn.com/web/banners_home/HP-samsonite-020826.webp",
+      "anchor_url": "https://cache.tradeinn.com/web/banners_home/HP-samsonite-020826.webp",
+      "source_domain": "cache.tradeinn.com",
+      "discovery_method": "srcset",
+      "acquired_at": "2026-08-26T06:01:10Z",
+      "width": 1920,
+      "height": 460,
+      "longest_edge": 1920,
+      "mime": "image/webp",
+      "bytes": 147018,
+      "sha256": "e4d08c7c25cbe74b42d964153ebbdf039243d295593652085935fc0060d689d9",
+      "dhash": "29ccb2ceb56639242d6439263a2038225922a962296229632941b93033e031c0",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/PGS30614-04-original.webp",
+      "preview": "preview/PGS30614-04.webp",
+      "source_url": "https://cache.tradeinn.com/web/banners_home/HP-woden-300726.webp",
+      "requested_url": "https://cache.tradeinn.com/web/banners_home/HP-woden-300726.webp",
+      "anchor_url": "https://cache.tradeinn.com/web/banners_home/HP-woden-300726.webp",
+      "source_domain": "cache.tradeinn.com",
+      "discovery_method": "srcset",
+      "acquired_at": "2026-08-26T06:01:10Z",
+      "width": 1920,
+      "height": 460,
+      "longest_edge": 1920,
+      "mime": "image/webp",
+      "bytes": 69888,
+      "sha256": "480d13032de5b382d6d68566a4124ebda5fbb5b5223956ef169244f3cd37af29",
+      "dhash": "31dc23dc01d4039403840584059603960b960b340c740cf403b80339631862d0",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/PGS30614-05-original.webp",
+      "preview": "preview/PGS30614-05.webp",
+      "source_url": "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
+      "requested_url": "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
+      "anchor_url": "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
+      "source_domain": "cache.tradeinn.com",
+      "discovery_method": "srcset",
+      "acquired_at": "2026-08-26T06:01:11Z",
+      "width": 800,
+      "height": 320,
+      "longest_edge": 800,
+      "mime": "image/webp",
+      "bytes": 26016,
+      "sha256": "78e4f6f74e00ef76f3d3d065388efbe287c69ad8842c80487b92a71194b10bfb",
+      "dhash": "99eed8ca48de294e2c610daa48e348955ade78d658c649c6694e694628ce28ce",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "validation": "PASS",
+      "warnings": [
+        "800px longest edge — below the 1000px preference",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 74
+    }
+  ],
+  "sizeEvidence": [],
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.pepejeans.com/it_it/sneakers-in-cotone-suola-cupsole-PGS30614327.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.pepejeans.com/pl_pl/bawelniane-sneakersy-na-podeszwie-cupsole-PGS30614327.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.esdemarca.com/en/pepe-jeans/ben-band-g-shoes-pink-pgs30614-3230913.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/en/search?q=PGS30614",
+      "ok": true,
+      "raw_candidates": 74,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 42
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/home_tradeinn/dressinn-thmini.webp",
+      "ok": true,
+      "size": "331x181",
+      "bytes": 18262,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/web/inn.jpg",
+      "ok": true,
+      "size": "115x115",
+      "bytes": 2344,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-rebajas-240626_mobile.webp",
+      "ok": true,
+      "size": "750x640",
+      "bytes": 19980,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fcdc56340e0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fcdc5634180>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fcdc561eed0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7fcdc561eed0>"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-rebajas-240626.webp",
+      "ok": true,
+      "size": "1920x460",
+      "bytes": 34456,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-adidas-120826.webp",
+      "ok": true,
+      "size": "1920x460",
+      "bytes": 103664,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-adidas-120826_mobile.webp",
+      "ok": true,
+      "size": "750x640",
+      "bytes": 50596,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-samsonite-020826.webp",
+      "ok": true,
+      "size": "1920x460",
+      "bytes": 147018,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-samsonite-020826_mobile.webp",
+      "ok": true,
+      "size": "750x640",
+      "bytes": 106544,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-woden-300726.webp",
+      "ok": true,
+      "size": "1920x460",
+      "bytes": 69888,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/HP-woden-300726_mobile.webp",
+      "ok": true,
+      "size": "750x640",
+      "bytes": 32428,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
+      "ok": true,
+      "size": "800x320",
+      "bytes": 26016,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11065_mobile.webp",
+      "ok": true,
+      "size": "353x311",
+      "bytes": 15964,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11068-grande.webp",
+      "ok": true,
+      "size": "800x320",
+      "bytes": 37350,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11068_mobile.webp",
+      "ok": true,
+      "size": "353x311",
+      "bytes": 20444,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11074-peke.webp",
+      "ok": true,
+      "size": "526x320",
+      "bytes": 13870,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11074_mobile.webp",
+      "ok": true,
+      "size": "353x311",
+      "bytes": 10074,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11071-peke.webp",
+      "ok": true,
+      "size": "526x320",
+      "bytes": 17294,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11071_mobile.webp",
+      "ok": true,
+      "size": "353x311",
+      "bytes": 12000,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11105-peke.webp",
+      "ok": true,
+      "size": "526x320",
+      "bytes": 14436,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/categorias_hp/11105_mobile.webp",
+      "ok": true,
+      "size": "353x311",
+      "bytes": 10308,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/banners_home/logos/pixel.png",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/banners_home/logos/adidasoriginals_b_l.png",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/banners_home/logos/samsonite_b_l.png",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/banners_home/logos/woden_b_l.png",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/263.webp",
+      "ok": false,
+      "error": "too small (490 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/646.webp",
+      "ok": false,
+      "error": "too small (860 B)"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1312.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/3952.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1577.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/411.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1359.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1315.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/514.webp",
+      "ok": false,
+      "error": "too small (612 B)"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1707.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/3628.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/1535.webp",
+      "ok": false,
+      "error": "too small (906 B)"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/2440.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/508.webp",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
