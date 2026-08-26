@@ -1,37 +1,190 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "PASS",
   "sku": "HC.RBGLOW01",
   "brand": "Colors of California",
   "model": "Glossy rainboot",
   "variant": "Fuxia",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T20:40:37Z",
+  "generatedAt": "2026-08-26T20:43:46Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33011548576",
+    "githubRunId": "33011816442",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "8c2439afea4a86017aa34094adb3cbd0c9e24f8a"
+    "githubSha": "ba612765ab04dc328b7a094054fe6e8b9b4313ed"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 7,
+    "unique_selected": 5,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
     "conflicts": [],
     "officialColour": "Fuxia",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
-  "dominantBackdrop": null,
+  "proposedMain": "source/HCRBGLOW01-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/HCRBGLOW01-01-original.jpg",
+      "preview": "preview/HCRBGLOW01-01.webp",
+      "source_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
+      "requested_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
+      "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
+      "source_domain": "hub2.artcrafts.it",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-26T20:43:30Z",
+      "width": 1200,
+      "height": 1200,
+      "longest_edge": 1200,
+      "mime": "image/jpeg",
+      "bytes": 59360,
+      "sha256": "e8b2cb59f77350535b4b9620a35bb5e1bfdba26836f773c4344ed435c3ee61fa",
+      "dhash": "00000000020080008340d648f420f600f698f474d320f38000c0800800000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1200px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/HCRBGLOW01-02-original.jpg",
+      "preview": "preview/HCRBGLOW01-02.webp",
+      "source_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
+      "requested_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
+      "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
+      "source_domain": "hub2.artcrafts.it",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-26T20:43:31Z",
+      "width": 1200,
+      "height": 1200,
+      "longest_edge": 1200,
+      "mime": "image/jpeg",
+      "bytes": 62532,
+      "sha256": "039078f3e85d04f3f731055272032134eee801bb056f1087add103e53c5d8892",
+      "dhash": "00008200280086008e00cc40cc20cf02ce19c5f0d180f3e003e0d00001200000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1200px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/HCRBGLOW01-03-original.jpg",
+      "preview": "preview/HCRBGLOW01-03.webp",
+      "source_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
+      "requested_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
+      "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
+      "source_domain": "hub2.artcrafts.it",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-26T20:43:32Z",
+      "width": 1200,
+      "height": 1200,
+      "longest_edge": 1200,
+      "mime": "image/jpeg",
+      "bytes": 66115,
+      "sha256": "83147aa9fd6e05f9b27bbc3ffc816ca0a5abc67207bbc7431bab03c6f7f47d3b",
+      "dhash": "000081000400c300ce20e70073207318f398f27cf19cf180f040001860000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1200px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/HCRBGLOW01-04-original.jpg",
+      "preview": "preview/HCRBGLOW01-04.webp",
+      "source_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
+      "requested_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
+      "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
+      "source_domain": "hub2.artcrafts.it",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-26T20:43:32Z",
+      "width": 1200,
+      "height": 1200,
+      "longest_edge": 1200,
+      "mime": "image/jpeg",
+      "bytes": 64764,
+      "sha256": "92a03de1e9f2a90fafb87176467f5c034359aeb5dafd48dcfee384f68f4a1333",
+      "dhash": "23000f900f902f902f802f082f082d085d245b245f005b025f025f802f040000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1200px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/HCRBGLOW01-05-original.jpg",
+      "preview": "preview/HCRBGLOW01-05.webp",
+      "source_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
+      "requested_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
+      "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
+      "source_domain": "hub2.artcrafts.it",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-26T20:43:33Z",
+      "width": 1200,
+      "height": 1200,
+      "longest_edge": 1200,
+      "mime": "image/jpeg",
+      "bytes": 56070,
+      "sha256": "2e7b67682f450e841b2d83064a35acdd67a5f0dbb4d5dca2e360316692533691",
+      "dhash": "00000000010000c0030415045ba10761e6b1f381e66178610000606000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1200px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
@@ -45,10 +198,8 @@
       "model": "Glossy rainboot",
       "variant": "Fuxia",
       "aliases": [
-        "hc.rbglow01",
-        "HC RBGLOW01",
-        "HC.F24.RBGLOW01",
-        "RBGLOW01-FUX"
+        "RBGLOW01-FUX",
+        "HC.F24.RBGLOW01-FUX"
       ],
       "mediaUrls": 0,
       "sizeLabels": 0,
@@ -132,7 +283,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 4 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -146,10 +297,8 @@
     "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
   },
   "identifierAliases": [
-    "hc.rbglow01",
-    "HC RBGLOW01",
-    "HC.F24.RBGLOW01",
-    "RBGLOW01-FUX"
+    "RBGLOW01-FUX",
+    "HC.F24.RBGLOW01-FUX"
   ],
   "researchEvidence": [
     {
@@ -162,10 +311,8 @@
       "model": "Glossy rainboot",
       "variant": "Fuxia",
       "aliases": [
-        "hc.rbglow01",
-        "HC RBGLOW01",
-        "HC.F24.RBGLOW01",
-        "RBGLOW01-FUX"
+        "RBGLOW01-FUX",
+        "HC.F24.RBGLOW01-FUX"
       ],
       "sizeScale": [],
       "mediaUrls": [],
@@ -178,7 +325,8 @@
         "PRODUCT TYPE: this is a rubber RAIN BOOT, not a sneaker. The RB prefix in the article number is consistent across the brand's rainboot line (rbnew03 = 'chelsie-rainboot', rbnew012 = 'chelsea-rainboot', rb0041 = 'rainboot-with-neoprene-collar'). Every product PINK MALL has onboarded through this pipeline so far has been a sneaker.",
         "COLOUR CODE RESOLVED BY THE SOURCE, NOT BY ME: fetching the bare product URL redirected to ?color=FUX, so the site itself selected the fuxia colourway as this article's default. FUX is the pink one.",
         "OBSERVED CDN HOST: hub2.artcrafts.it. Taken from the official page's own image declarations in the previous run's rejection log, never guessed. Artcrafts is the Italian distributor that operates this brand's e-commerce, which is why the media does not sit on colorsofcalifornia.it.",
-        "Asset paths are self-evidencing twice over: /_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-<n>.jpg carries both the article code and the colour code."
+        "Asset paths are self-evidencing twice over: /_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-<n>.jpg carries both the article code and the colour code.",
+        "ALIASES ARE COLOUR-SCOPED ON PURPOSE. The asset naming inserts the season code into the middle of the article number (HC.F24.RBGLOW01), so the bare article number does not appear in its own images. A colour-agnostic alias would recover them but would also admit the sibling MUD colourway; scoping to RBGLOW01-FUX keeps the wrong colourway out of the candidate pool entirely instead of relying on selection to prefer the right one."
       ]
     },
     {
@@ -237,10 +385,8 @@
       }
     ],
     "identifierAliases": [
-      "hc.rbglow01",
-      "HC RBGLOW01",
-      "HC.F24.RBGLOW01",
-      "RBGLOW01-FUX"
+      "RBGLOW01-FUX",
+      "HC.F24.RBGLOW01-FUX"
     ],
     "refusalPermitted": false,
     "refusalBlockedBecause": "an exact product document was found — identity is established"
@@ -278,40 +424,52 @@
       "total_unique_candidates": 24
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "400x570",
+      "bytes": 12581,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "1200x1200",
+      "bytes": 59360,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "1200x1200",
+      "bytes": 62532,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "1200x1200",
+      "bytes": 66115,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "1200x1200",
+      "bytes": 64764,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "1200x1200",
+      "bytes": 56070,
+      "upgraded_from": null
     },
     {
       "stage": "identity",
@@ -350,10 +508,12 @@
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://hub2.artcrafts.it/_public/resized/220x200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "220x200",
+      "bytes": 5154,
+      "upgraded_from": null
     },
     {
       "stage": "identity",
@@ -363,49 +523,13 @@
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/FUX/HC.F21.YSNOW015-FUX-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HOODY01-TAN-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/S21/LTPIN/HC.S21.YBOOT02-LTPIN-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BER/HC.F25.YWPLA12-BER-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/ZEB/HC.F23.BLAST15-ZEB-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/NEWTAU/HC.F23.RB0025-NEWTAU-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BLA/HC.F25.HELEN07-BLA-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.YW268-TAN-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/BKBK/HC.F23.BLAST19-BKBK-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.YWPLA04-TAN-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
@@ -417,7 +541,43 @@
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/BLA/HC.F23.RB00H2-BLA-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HELEN05-TAN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BER/HC.F25.YWPLA12-BER-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/S21/LTPIN/HC.S21.YBOOT02-LTPIN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/BLA/HC.F21.WELTBOOT01-BLA-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BKBK/HC.F25.HOODY02-BKBK-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/LEO/HC.F25.YWED53-LEO-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BLA/HC.F25.RBUCKLE01-BLA-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     }
