@@ -6,12 +6,12 @@
   "model": "Glossy rainboot",
   "variant": "Fuxia",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T20:43:46Z",
+  "generatedAt": "2026-08-26T20:45:49Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33011816442",
+    "githubRunId": "33011976384",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "ba612765ab04dc328b7a094054fe6e8b9b4313ed"
+    "githubSha": "9529981818d76e3a833b9ed2bc9142487c4f2e58"
   },
   "counts": {
     "acquired": 7,
@@ -27,7 +27,7 @@
     "officialColour": "Fuxia",
     "officialAnchor": false
   },
-  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTier": "OFFICIAL",
   "mediaTierMixed": false,
   "proposedMain": "source/HCRBGLOW01-01-original.jpg",
   "dominantBackdrop": "#FFFFFF",
@@ -44,7 +44,7 @@
       "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg",
       "source_domain": "hub2.artcrafts.it",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-26T20:43:30Z",
+      "acquired_at": "2026-08-26T20:45:28Z",
       "width": 1200,
       "height": 1200,
       "longest_edge": 1200,
@@ -57,7 +57,7 @@
       "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "backdrop": "#FFFFFF",
       "duplicates_collapsed": [],
-      "authorityTier": "TRUSTED_RETAILER",
+      "authorityTier": "OFFICIAL",
       "cutout": false,
       "validation": "PASS",
       "warnings": [
@@ -74,7 +74,7 @@
       "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-2.jpg",
       "source_domain": "hub2.artcrafts.it",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-26T20:43:31Z",
+      "acquired_at": "2026-08-26T20:45:29Z",
       "width": 1200,
       "height": 1200,
       "longest_edge": 1200,
@@ -87,7 +87,7 @@
       "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "backdrop": "#FFFFFF",
       "duplicates_collapsed": [],
-      "authorityTier": "TRUSTED_RETAILER",
+      "authorityTier": "OFFICIAL",
       "cutout": false,
       "validation": "PASS",
       "warnings": [
@@ -104,7 +104,7 @@
       "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-3.jpg",
       "source_domain": "hub2.artcrafts.it",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-26T20:43:32Z",
+      "acquired_at": "2026-08-26T20:45:30Z",
       "width": 1200,
       "height": 1200,
       "longest_edge": 1200,
@@ -117,7 +117,7 @@
       "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "backdrop": "#FFFFFF",
       "duplicates_collapsed": [],
-      "authorityTier": "TRUSTED_RETAILER",
+      "authorityTier": "OFFICIAL",
       "cutout": false,
       "validation": "PASS",
       "warnings": [
@@ -134,7 +134,7 @@
       "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-4.jpg",
       "source_domain": "hub2.artcrafts.it",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-26T20:43:32Z",
+      "acquired_at": "2026-08-26T20:45:31Z",
       "width": 1200,
       "height": 1200,
       "longest_edge": 1200,
@@ -147,7 +147,7 @@
       "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "backdrop": "#FFFFFF",
       "duplicates_collapsed": [],
-      "authorityTier": "TRUSTED_RETAILER",
+      "authorityTier": "OFFICIAL",
       "cutout": false,
       "validation": "PASS",
       "warnings": [
@@ -164,7 +164,7 @@
       "anchor_url": "https://hub2.artcrafts.it/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-5.jpg",
       "source_domain": "hub2.artcrafts.it",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-26T20:43:33Z",
+      "acquired_at": "2026-08-26T20:45:32Z",
       "width": 1200,
       "height": 1200,
       "longest_edge": 1200,
@@ -177,7 +177,7 @@
       "source_page": "https://www.colorsofcalifornia.it/en-ot/shoponline/glossy-rainboot.hc.rbglow01?color=FUX",
       "backdrop": "#FFFFFF",
       "duplicates_collapsed": [],
-      "authorityTier": "TRUSTED_RETAILER",
+      "authorityTier": "OFFICIAL",
       "cutout": false,
       "validation": "PASS",
       "warnings": [
@@ -218,6 +218,24 @@
       "observedSku": "HC.RBGLOW01",
       "model": "Glossy rainboot",
       "variant": "Pink",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.mpastyle.it/en/i-brand-artcrafts-international-pionieri-delle-tendenze-nel-footwear/",
+      "result": "OK",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T10:30:00Z",
+      "observedSku": "HC.RBGLOW01",
+      "model": "Glossy rainboot",
+      "variant": null,
       "aliases": [],
       "mediaUrls": 0,
       "sizeLabels": 0,
@@ -346,6 +364,24 @@
         "Corroborates that a PINK colourway of this exact article exists ('HC RBGLOW01 Pink rosa'), and that the size scale runs EU 36-41.",
         "Marketplace listing: used as identity corroboration ONLY. It is excluded as a media source under the source hierarchy and contributes no image."
       ]
+    },
+    {
+      "sourceUrl": "https://www.mpastyle.it/en/i-brand-artcrafts-international-pionieri-delle-tendenze-nel-footwear/",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-26T10:30:00Z",
+      "sku": "HC.RBGLOW01",
+      "model": "Glossy rainboot",
+      "variant": null,
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "TIER EVIDENCE: Colors of California was founded in Florence in 1989 as the sportswear brand of Artcrafts International S.p.A., which owns and operates it. hub2.artcrafts.it is therefore the BRAND OWNER'S OWN media host, not a third-party retailer's.",
+        "This is the same reasoning already applied to images.pepejeans.com (Salesforce Commerce Cloud) and nb.scene7.com (Scene7): a brand's CDN is official-tier even when the platform is operated by someone else. Recorded rather than assumed, because the tier is stated in the approval package as a provenance claim."
+      ]
     }
   ],
   "refusalAudit": {
@@ -421,7 +457,7 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 24
+      "total_unique_candidates": 23
     },
     {
       "stage": "acquire",
@@ -523,49 +559,19 @@
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HOODY01-TAN-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/FUX/HC.F21.YSNOW015-FUX-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.YWPLA04-TAN-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/CED/HC.F23.YW231-CED-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F22/NEWTAU/HC.F22.RB0039-NEWTAU-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HELEN05-TAN-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BER/HC.F25.YWPLA12-BER-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/S21/LTPIN/HC.S21.YBOOT02-LTPIN-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/BLA/HC.F21.WELTBOOT01-BLA-1.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BKBK/HC.F25.HOODY02-BKBK-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAU/HC.F25.YWPLA17-TAU-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
@@ -577,9 +583,40 @@
     },
     {
       "stage": "identity",
-      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BLA/HC.F25.RBUCKLE01-BLA-1.jpg",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F23/FOR/HC.F23.YSNOW232-FOR-1.jpg",
       "ok": false,
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/BKBK/HC.F25.HOODY02-BKBK-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HOODY01-TAN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F25/TAN/HC.F25.HOODY15-TAN-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://hub2.artcrafts.it/_public/resized/400x570_HC/HC/F21/BLA/HC.F21.WELTBOOT04-BLA-1.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "select",
+      "tier": "OFFICIAL",
+      "note": "official media sufficient; retailer candidates dropped to keep one authority tier per gallery",
+      "official": 6,
+      "retailer_dropped": 0
     }
   ],
   "notes": [
