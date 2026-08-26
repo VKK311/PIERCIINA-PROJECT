@@ -607,6 +607,28 @@ def main():
     checks.append(("opaque RGBA is not mistaken for a cut-out",
                    is_cutout(opaque_rgba) is False and _bd(opaque_rgba) == "#F1F1F1"))
 
+    # Identity gate must honour evidenced aliases. A brand's asset naming is
+    # not always the catalogue's: Colors of California stores article
+    # HC.RBGLOW01 as HC.F24.RBGLOW01-FUX-1.jpg, inserting the season code into
+    # the MIDDLE of the article number, so a substring test on the article
+    # number alone fails on the manufacturer's own images.
+    from acquire import sku_signal as _sig
+    _hit = "https://cdn.test/_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-1.jpg"
+    _mud = "https://cdn.test/_public/resized/1200x1200/HC/F24/MUD/HC.F24.RBGLOW01-MUD-1.jpg"
+    _other = "https://cdn.test/_public/resized/1200x1200/HC/F21/FUX/HC.F21.YSNOW015-FUX-1.jpg"
+    checks.append(("split article number fails without an alias",
+                   _sig(_hit, "HC.RBGLOW01") is False))
+    checks.append(("evidenced alias recovers the manufacturer's own asset",
+                   _sig(_hit, "HC.RBGLOW01", ["HC.F24.RBGLOW01"]) is True))
+    checks.append(("an alias never admits a different article",
+                   _sig(_other, "HC.RBGLOW01", ["HC.F24.RBGLOW01"]) is False))
+    checks.append(("a colour-scoped alias excludes the sibling colourway",
+                   _sig(_mud, "HC.RBGLOW01", ["RBGLOW01-FUX"]) is False
+                   and _sig(_hit, "HC.RBGLOW01", ["RBGLOW01-FUX"]) is True))
+    checks.append(("empty alias list changes nothing",
+                   _sig(_hit, "HC.RBGLOW01", []) is False
+                   and _sig(_hit, "HC.F24.RBGLOW01", []) is True))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "brand": "Colors of California",
   "manufacturerItemNo": "HC.RBGLOW01",
   "model": "Glossy rainboot",
@@ -25,10 +25,8 @@
       "model": "Glossy rainboot",
       "variant": "Fuxia",
       "aliases": [
-        "hc.rbglow01",
-        "HC RBGLOW01",
-        "HC.F24.RBGLOW01",
-        "RBGLOW01-FUX"
+        "RBGLOW01-FUX",
+        "HC.F24.RBGLOW01-FUX"
       ],
       "sizeScale": [],
       "mediaUrls": [],
@@ -41,7 +39,8 @@
         "PRODUCT TYPE: this is a rubber RAIN BOOT, not a sneaker. The RB prefix in the article number is consistent across the brand's rainboot line (rbnew03 = 'chelsie-rainboot', rbnew012 = 'chelsea-rainboot', rb0041 = 'rainboot-with-neoprene-collar'). Every product PINK MALL has onboarded through this pipeline so far has been a sneaker.",
         "COLOUR CODE RESOLVED BY THE SOURCE, NOT BY ME: fetching the bare product URL redirected to ?color=FUX, so the site itself selected the fuxia colourway as this article's default. FUX is the pink one.",
         "OBSERVED CDN HOST: hub2.artcrafts.it. Taken from the official page's own image declarations in the previous run's rejection log, never guessed. Artcrafts is the Italian distributor that operates this brand's e-commerce, which is why the media does not sit on colorsofcalifornia.it.",
-        "Asset paths are self-evidencing twice over: /_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-<n>.jpg carries both the article code and the colour code."
+        "Asset paths are self-evidencing twice over: /_public/resized/1200x1200/HC/F24/FUX/HC.F24.RBGLOW01-FUX-<n>.jpg carries both the article code and the colour code.",
+        "ALIASES ARE COLOUR-SCOPED ON PURPOSE. The asset naming inserts the season code into the middle of the article number (HC.F24.RBGLOW01), so the bare article number does not appear in its own images. A colour-agnostic alias would recover them but would also admit the sibling MUD colourway; scoping to RBGLOW01-FUX keeps the wrong colourway out of the candidate pool entirely instead of relying on selection to prefer the right one."
       ]
     },
     {
@@ -88,10 +87,10 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "PASS 2. Pass 1 loaded the official pages cleanly (30 candidates each) and acquired nothing, because every image lives on hub2.artcrafts.it and only colorsofcalifornia.it was allow-listed. The ledger named the real host in one pass — the same diagnosis loop that fixed A08745C.",
-    "That is the observed-host rule working as intended: the host is added because an evidenced official page declared it, not because it looked plausible.",
-    "The pink colour code is FUX, and it was resolved by the SITE, not by me: the bare product URL redirects to ?color=FUX.",
-    "PRODUCT TYPE: rubber rain boot. SHOES > Boots was approved as a new subcategory for it.",
-    "The eBay listing remains identity corroboration only; marketplaces contribute no media."
+    "PASS 3. Pass 2 allow-listed the real CDN and still acquired nothing: the identity gate rejected every image because HC.RBGLOW01 is not a substring of HC.F24.RBGLOW01-FUX-1.jpg — the season code sits inside the article number.",
+    "The alias machinery already existed but was never wired into sku_signal. It is now, and only EVIDENCED aliases are accepted, so the gate is not loosened.",
+    "Aliases here are colour-scoped, which also solves the problem 398855 had to solve with a reconnaissance sweep: the sibling MUD colourway cannot enter the candidate pool at all.",
+    "The pink colour code FUX was resolved by the site itself — the bare product URL redirects to ?color=FUX.",
+    "PRODUCT TYPE: rubber rain boot. SHOES > Boots approved as a new subcategory."
   ]
 }

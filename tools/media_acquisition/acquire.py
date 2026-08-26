@@ -828,9 +828,29 @@ def asset_identity(url):
     return (parts.netloc + parts.path).lower()
 
 
-def sku_signal(url, sku):
-    """True only when the SKU is in the asset's identifying portion."""
-    return sku.lower() in asset_identity(url)
+def sku_signal(url, sku, aliases=None):
+    """True only when the SKU, or an EVIDENCED alias of it, is in the asset's
+    identifying portion.
+
+    Aliases matter because a brand's own asset naming is not always the
+    catalogue's. Colors of California's article HC.RBGLOW01 is stored as
+    HC.F24.RBGLOW01-FUX-1.jpg — the season code is inserted into the MIDDLE of
+    the article number, so a substring test on the article number alone fails
+    on the manufacturer's own images. The alias machinery already existed and
+    simply was not wired into the identity gate.
+
+    Only evidenced aliases are accepted: they are read off documents the
+    pipeline actually fetched, never generated, so this cannot loosen the gate
+    into matching a neighbouring product.
+    """
+    ident = asset_identity(url)
+    if sku.lower() in ident:
+        return True
+    for a in (aliases or []):
+        a = str(a).strip().lower()
+        if a and a in ident:
+            return True
+    return False
 
 
 # A cut-out product PNG has no backdrop to detect, and flattening one produces
@@ -1594,7 +1614,7 @@ def acquire(request, outroot, log):
         # SKUs, and substituting a neighbour is exactly the failure the
         # exact-variant rule exists to prevent.
         if best:
-            asset_sku = sku_signal(best["url"], sku)
+            asset_sku = sku_signal(best["url"], sku, aliases)
             if not (asset_sku or page_sku):
                 log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
                             "error": "neither asset URL nor source page evidences SKU %s" % sku})
@@ -1621,7 +1641,7 @@ def acquire(request, outroot, log):
         if best:
             best["discovery_method"] = method
             best["acquired_at"] = now()
-            best["sku_in_url"] = sku_signal(best["url"], sku)
+            best["sku_in_url"] = sku_signal(best["url"], sku, aliases)
             best["source_page"] = src_page
             best["anchor_url"] = url
             best["notes"] = notes
