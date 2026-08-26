@@ -1417,11 +1417,26 @@ def acquire(request, outroot, log):
     # itself and survives the storefront being delisted. Ordering it last let
     # six per-URL lookups burn the whole indexed-phase deadline before the
     # highest-value route was ever attempted.
-    research_media_found = bool(research_candidates)
+    # Archive lookup is a fallback for missing media — but only for media at
+    # the SAME OR HIGHER tier. Skipping the routes that find official media
+    # because retailer media was already supplied inverts the source hierarchy:
+    # it lets a lower tier suppress the discovery of a higher one. PGS30614
+    # did exactly that, publishing 1600px retailer imagery while the
+    # manufacturer's own CDN sat undiscovered.
+    research_official = any(
+        _authority_tier(urllib.parse.urlsplit(u).netloc, rule, request) == "OFFICIAL"
+        for u, _m, _p, _e in research_candidates)
+    research_media_found = bool(research_candidates) and research_official
     if research_media_found:
         log.append({"stage": "index-skip",
-                    "reason": "research evidence already exposed %d media URL(s); "
-                              "archive lookup is a fallback, not a precondition"
+                    "reason": "research evidence already exposed %d OFFICIAL media "
+                              "URL(s); archive lookup is a fallback, not a "
+                              "precondition" % len(research_candidates)})
+    elif research_candidates:
+        log.append({"stage": "index-continue",
+                    "reason": "research evidence supplied %d retailer-tier media "
+                              "URL(s); official routes still run so the source "
+                              "hierarchy can be applied"
                               % len(research_candidates)})
     if (request.get("indexedAssetSearch", True) and _index_enabled(request)
             and not research_media_found):

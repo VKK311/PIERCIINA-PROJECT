@@ -559,6 +559,13 @@ def main():
                    _authority_tier("cdn.shop.example", rule_stub, req_stub)
                    == "TRUSTED_RETAILER"))
 
+    # The research fixture's media is retailer-tier (no officialHostSuffixes),
+    # so the run must record that it is NOT suppressing the official routes.
+    # PGS30614 published retailer imagery precisely because this was inverted.
+    _stages = [e.get("stage") for e in res.get("log", [])]
+    checks.append(("retailer-tier research media does not suppress official routes",
+                   "index-continue" in _stages and "index-skip" not in _stages))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)
