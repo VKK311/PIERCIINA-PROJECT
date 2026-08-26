@@ -6,12 +6,12 @@
   "model": "Chuck Taylor All Star Move",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-26T06:00:43Z",
+  "generatedAt": "2026-08-26T06:05:41Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "32936286634",
+    "githubRunId": "32936578151",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "25f79f55751d36dfd18b1ae3ff2bc8bd23719495"
+    "githubSha": "39f5d86d259abaa599fabfd5fc1c19f396fca41b"
   },
   "counts": {
     "acquired": 6,
@@ -42,7 +42,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2025/08/14/1684367/8d03ddc3-a011-4bbf-b299-c3abb2d9e4c8.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "og:image",
-      "acquired_at": "2026-08-26T06:00:38Z",
+      "acquired_at": "2026-08-26T06:04:53Z",
       "width": 1500,
       "height": 1500,
       "longest_edge": 1500,
@@ -77,7 +77,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/003480f2-ce0d-4b4b-835b-3c439f148df1_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:00:38Z",
+      "acquired_at": "2026-08-26T06:04:53Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -106,7 +106,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/63d99d24-6945-423c-924f-2ee5ac4190a4_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:00:38Z",
+      "acquired_at": "2026-08-26T06:04:53Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -135,7 +135,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8c8e5bb5-ea81-4ad6-acc8-41f695af4e8f_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:00:38Z",
+      "acquired_at": "2026-08-26T06:04:53Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -164,7 +164,7 @@
       "anchor_url": "https://akn-spx.a-cdn.akinoncdn.com/products/2024/07/26/1684370/8d8790c8-48ee-499d-975f-7bba17cfbc25_size670x670_cropCenter.jpg",
       "source_domain": "akn-spx.a-cdn.akinoncdn.com",
       "discovery_method": "json-ld",
-      "acquired_at": "2026-08-26T06:00:38Z",
+      "acquired_at": "2026-08-26T06:04:53Z",
       "width": 670,
       "height": 670,
       "longest_edge": 670,
@@ -430,46 +430,46 @@
       "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2025/07/10/54430898-2c39-4697-b472-e1e2e4123ac2.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/e1723a9b-ea1c-42c6-b32b-ac9594b8e40d.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/c0605694-3515-468e-96dd-bf3dcdef6451.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/69debfdb-3057-4aa7-8cac-8996b9a33971.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/20aadf8e-ee38-4312-8498-85bf64db817d.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/e45856f2-2e10-4c88-9fc5-8dd648845281.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2021/12/20/97ca8869-11de-4250-bd57-7e2e1b244f1a.png",
       "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "error": "aspect 2.9:1 — banner shape, not a product photograph"
     },
     {
       "stage": "identity",
@@ -700,10 +700,10 @@
       "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     },
     {
-      "stage": "identity",
+      "stage": "validate",
       "url": "https://akn-spx.a-cdn.akinoncdn.com/cms/2024/10/01/29a00a8c-44aa-4110-8bc0-aed6963200dc.jpg",
       "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "error": "aspect 9.1:1 — banner shape, not a product photograph"
     },
     {
       "stage": "identity",
