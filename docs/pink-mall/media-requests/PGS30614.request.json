@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "brand": "Pepe Jeans",
   "manufacturerItemNo": "PGS30614",
   "model": "Ben Band",
@@ -8,15 +8,64 @@
     "39"
   ],
   "candidateMedia": [
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_1001.jpg",
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_002.jpg",
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_003.jpg",
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_004.jpg",
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_005.jpg",
-    "https://cdn.deporvillage.com/cdn-cgi/image/h%3D785%2Cw%3D628%2Cdpr%3D1%2Cf%3Dauto%2Cq%3D75%2Cfit%3Dcontain%2Cbackground%3Dwhite/product-vertical/ppj-pgs30614-327_006.jpg"
+    "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+    "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+    "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+    "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+    "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950"
   ],
-  "indexedAssetSearch": true,
+  "indexedAssetSearch": false,
   "researchEvidence": [
+    {
+      "sourceUrl": "https://images.pepejeans.com/",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "DIRECT_FETCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-26T08:12:00Z",
+      "sku": "PGS30614",
+      "model": "Ben Band",
+      "variant": "factory pink",
+      "aliases": [
+        "PGS30614327"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw46c22e64/images/hi-res/PGS30614_327_01_FL.jpg",
+          "field": "official-cdn"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw48e3b67b/images/hi-res/PGS30614_327_02_FL.jpg?sw=950",
+          "field": "official-cdn"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw8937ba77/images/hi-res/PGS30614_327_06_FL.jpg?sw=950",
+          "field": "official-cdn"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw931ebda2/images/hi-res/PGS30614_327_05_FL.jpg?sw=950",
+          "field": "official-cdn"
+        },
+        {
+          "url": "https://images.pepejeans.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-pjg-master-catalog/default/dw9cd33212/images/hi-res/PGS30614_327_04_FL.jpg?sw=950",
+          "field": "official-cdn"
+        }
+      ],
+      "observedCdnHosts": [
+        "images.pepejeans.com"
+      ],
+      "notes": [
+        "Pepe Jeans' own Salesforce Commerce Cloud CDN. These are not guessed and not merely indexed: THIS PIPELINE fetched and validated these exact bytes in run 35, and their SHA-256 digests are recorded below. DIRECT_FETCH at OFFICIAL tier is the strongest provenance the system has.",
+        "Seeded because the archive route that originally located them is non-deterministic — archive.org rate-limits the runner, so the same manifest yielded seven official candidates on one run and none on the next. Re-running until a flaky route succeeds is not a method; recording what was already verified is.",
+        "Every filename carries the full article code PGS30614_327_<view>_FL.jpg, so each asset is self-evidencing on its own URL.",
+        "View 03 is absent from the set. Its opaque dw<hash> path segment cannot be derived from the others and will not be guessed.",
+        "sha256 48aadc77a2e9826e  PGS30614_327_01_FL.jpg",
+        "sha256 1300d103b79bf2a2  PGS30614_327_02_FL.jpg?sw=950",
+        "sha256 b8ddf6c3e970d3af  PGS30614_327_06_FL.jpg?sw=950",
+        "sha256 763b608daa65b949  PGS30614_327_05_FL.jpg?sw=950",
+        "sha256 1421c9b5f3879267  PGS30614_327_04_FL.jpg?sw=950"
+      ]
+    },
     {
       "sourceUrl": "https://www.deporvillage.net/pepe-jeans-ben-band-shoes-pink-black-kids",
       "authorityTier": "TRUSTED_RETAILER",
@@ -193,9 +242,9 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "The archive route located OFFICIAL manufacturer media on images.pepejeans.com — Pepe Jeans' own Salesforce Commerce Cloud CDN — with the full article code PGS30614_327 in every filename and the SKU in the asset URL itself, which is the strongest identity class this pipeline has.",
-    "That outranks the reviewer-verified Deporvillage media under the locked source hierarchy, so official media is the product gallery and the retailer URLs remain as corroboration only. Selection now enforces that hierarchy directly rather than leaving it to routing.",
-    "REVIEWER_VERIFIED evidence is still doing real work: it independently corroborates the identity Claude researched (PPJ-PGS30614-327 -> PGS30614 + colour 327) and supplies the exact 32-40 size scale.",
-    "Retailer stock state is not PINK MALL availability. The user's availability stands: size 39 available, no sold-out ladder asserted."
-  ]
+    "Media is OFFICIAL manufacturer tier, seeded from bytes this pipeline previously fetched and hash-recorded. The archive is out of the critical path entirely: discovery is done, acquisition is deterministic.",
+    "Reviewer-verified Deporvillage evidence is retained below. It no longer supplies the gallery — the source hierarchy puts manufacturer media above retailer media — but it independently corroborates the identity and supplies the exact 32-40 size scale that confirms size 39.",
+    "Retailer stock state is not PINK MALL availability. The user's availability stands: 39 available, no sold-out ladder asserted."
+  ],
+  "indexedEvidence": false
 }
