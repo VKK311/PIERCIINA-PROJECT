@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: HC.RBGLOW01 approval package (PM-031 proposed).
-Status: **PM-001…PM-030 PUBLISHED. HC.RBGLOW01 AWAITING APPROVAL.**
+Updated: PM-031 publication.
+Status: **PM-001…PM-031 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `5267fa45e8a1de956b940511f4dc66a64c52b66f8307cacbc7564544c0f66578` |
-| CANONICAL WEBSITE BYTES | 2558796 |
+| CANONICAL WEBSITE SHA-256 | `0d939a9bfc12328acf759704b07ae85febbb9ea0cfea33c92f44cd04ca958c03` |
+| CANONICAL WEBSITE BYTES | 2561908 |
 
 ## Engine
 
@@ -28,15 +28,15 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-030 |
-| NEXT ID | PM-031 |
+| PUBLIC CATALOG | PM-001 … PM-031 |
+| NEXT ID | PM-032 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
 | JR5952 | **PUBLISHED as PM-028** on 2026-08-25 |
 | PGS30614 | **PUBLISHED as PM-029** on 2026-08-26 |
 | 398855 | **PUBLISHED as PM-030** on 2026-08-26 |
-| HC.RBGLOW01 | **AWAITING APPROVAL** as PM-031 — acquired, staged, not published |
+| HC.RBGLOW01 | **PUBLISHED as PM-031** on 2026-08-27 |
 
 ## Media acquisition automation
 
@@ -44,6 +44,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`, 78/78 on both builds |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -332,15 +333,13 @@ acquired asset path.
 mall's own neutral token shows through rather than the `#47704C` the pipeline
 originally derived by flattening a transparent PNG.
 
-## HC.RBGLOW01 — pending approval, NOT published
+## PM-031 — published
 
 | | |
 |---|---|
-| STATE | **READY FOR APPROVAL — nothing written to `PINKMALL.html`** |
-| PACKAGED | 2026-08-26 |
+| PUBLISHED | 2026-08-27 |
 | BRAND / MODEL | Colors of California / Glossy rainboot |
 | MANUFACTURER ITEM | HC.RBGLOW01, colour code **FUX**, season code F24 |
-| PROPOSED MALL ID | PM-031 — **not allocated**; allocation happens on publish |
 | CATEGORY | SHOES > **Boots** — new subcategory, approved by the user |
 | PUBLIC COLOUR | Pink (manufacturer: `Fuxia`) |
 | MATERIAL | **omitted** — no composition string was read from the source |
@@ -348,53 +347,91 @@ originally derived by flattening a transparent PNG.
 | INVENTORY MODE | availability |
 | SIZES | 36, 37, 38, 39, 40 — all available. **No sold-out sizes asserted** |
 | EXACT-MODEL SIZE RUN | `SIZE_SCALE_NOT_PROVEN` — non-blocking |
+| NEW UNTIL | 2026-09-09 |
 | MAIN | IMAGE 01 — lateral side profile |
 | GALLERY ORDER | 01 → 02 → 03 → 05 → 04 |
-| ACQUIRED MEDIA | `docs/pink-mall/media-acquisition/HC.RBGLOW01/` — 5 × 1200×1200 JPEG |
+| LIVE MEDIA | `assets/pink-mall/products/PM-031/` — 5 × 1200×1200 WebP, opaque |
 | MEDIA TIER | **OFFICIAL** — `hub2.artcrafts.it`, the brand owner's own CDN |
-| MEDIA FORM | opaque, consensus backdrop `#FFFFFF` → `media.surface` |
+| MEDIA FORM | photographs on white; `media.surface: '#FFFFFF'` |
 | ACQUISITION | **zero-seed**, four passes |
 | VARIANT | `VARIANT_CONFIDENCE_PASS` |
-| WARNINGS | one, non-blocking — 1200×1200 is above the 1000 px preference, below the 1600 px ideal |
+| WARNINGS | one, non-blocking — 1200×1200, above the 1000 px preference, below the 1600 px ideal |
 | PACKAGE | `checkpoints/PM031_HCRBGLOW01_APPROVAL_PREVIEW.md` |
 
 **First non-sneaker product**, and the first to use `SHOES > Boots`. The
 storefront reads `subcategory` in exactly one place — the search haystack — so
-the new value is additive and needs no engine change; this was checked rather
-than assumed.
+the new value is additive and needed no engine change; this was checked rather
+than assumed, and the SHOES category's Bulgarian terms already included
+`ботуши`.
 
-The colour code resolved itself: fetching the bare product URL redirected to
-`?color=FUX`, so the source chose the colourway. That is a cleaner outcome than
-the eleven-colourway reconnaissance sweep PM-030 needed.
-
-The tier is a verified claim, not an inference from the hostname. Colors of
-California is owned and operated by Artcrafts International S.p.A., so
+Fourth product with manufacturer-tier imagery, after PM-026, PM-029 and PM-030.
+The tier is a verified claim rather than an inference from the hostname:
+Artcrafts International S.p.A. owns and operates Colors of California, so
 `hub2.artcrafts.it` is the brand owner's host — the same standing already
 accepted for `images.pepejeans.com` and `nb.scene7.com`.
 
-Two pipeline defects were found and fixed by this product, both committed:
+The colour code resolved itself. Fetching the bare product URL redirected to
+`?color=FUX`, so the source chose the colourway — a cleaner outcome than the
+eleven-colourway reconnaissance sweep PM-030 needed.
 
-The identity gate rejected the manufacturer's own images. `HC.RBGLOW01` is not
-a substring of `HC.F24.RBGLOW01-FUX-1.jpg`, because the season code is inserted
-mid-code. `sku_signal()` now also matches aliases carried on evidenced
-documents, so a source that renames its own article code cannot lock the
-pipeline out of that source's media.
+Two pipeline defects were found and fixed by this product:
+
+The identity gate had been rejecting the manufacturer's own images.
+`HC.RBGLOW01` is not a substring of `HC.F24.RBGLOW01-FUX-1.jpg`, because the
+season code is inserted mid-code. `sku_signal()` now also matches aliases
+carried on evidenced documents, so a source that renames its own article code
+cannot lock the pipeline out of that source's media.
 
 The tier classifier read `artcrafts.it` as a trusted retailer. It is the brand
-owner, and misreading it would have understated the provenance of correct
-media.
+owner, and misreading it would have understated the provenance of correct media.
+
+### Publication was redone after a container recycle
+
+The working clone was reclaimed mid-publication, before the work was committed.
+Everything was rebuilt from the committed originals and **all five live files
+reproduced byte-for-byte**, which is the useful fact: the JPEG → WebP
+conversion is deterministic, so the live media is a pure function of the
+acquired sources rather than of one machine's state.
+
+The lesson taken from it is in the next section.
+
+## Publication regression is now a committed tool
+
+`tools/regression/product_regression.js` drives real Chromium against a served
+copy of the site and asserts what a reviewer would look for: the record, the
+media, the card, search, the PDP, the order path, and that no previously
+published product moved. It runs against **both** builds — the canonical file
+with its `assets/` tree, and the portable standalone from an empty directory —
+and reads its expectations from `tools/regression/expect/<ID>.json`.
+
+Before this, the suite was rewritten by hand for each publication and lost with
+the container each time; it was written three times for PM-031 alone.
+
+Three things it does that the earlier throwaway versions got wrong:
+
+**Frames are identified by the SHA-256 of their bytes, never by filename.** The
+portable build inlines every image as a `data:` URI, so a filename check there
+tests the harness's assumptions instead of the artifact. Hashing works in both
+builds and additionally proves the inlined bytes *are* the live files' bytes.
+
+**It waits on the image decode, not on a guessed interval.** Cards are
+`loading="lazy"`; a fixed sleep made the check flake under load.
+
+**Every 4xx is recorded with its URL.** A bare console `404` carries no URL, so
+an intermittent miss was previously unattributable. One such 404 was seen
+during PM-031's runs and never reproduced under instrumentation; it is not
+suppressed — if it recurs, the run fails and names the URL.
+
+Known-clean exception: this container's egress proxy resets
+`fonts.googleapis.com`. Verified identical on builds predating the product, so
+it is an environment fact, not a product defect.
 
 ## Next step
 
-Next Mall ID is **PM-031**, unallocated until a product is actually published.
+Next Mall ID is **PM-032**, unallocated until a product is actually published.
+Nothing is awaiting approval: the approval queue is empty.
 
-The approval queue holds exactly one item: **HC.RBGLOW01**. It is acquired,
-validated and staged, and awaits `APPROVE` / `CHANGE MAIN TO IMAGE 0X` /
-`REORDER` / `REMOVE IMAGE 0X` / `CHANGE COPY` / `REJECT`. Nothing about it has
-touched the canonical build.
-
-Six products come from the automated pipeline so far — PM-025 through PM-030.
-Three have manufacturer-official media (PM-026, PM-029, PM-030); PM-025,
+Seven products now come from the automated pipeline — PM-025 through PM-031.
+Four have manufacturer-official media (PM-026, PM-029, PM-030, PM-031); PM-025,
 PM-027 and PM-028 rest on trusted-retailer evidence. Upgrading those three to
-official imagery remains open if an official route ever opens. HC.RBGLOW01
-would be the fourth official-tier product and the seventh from the pipeline.
+official imagery remains open if an official route ever opens.
