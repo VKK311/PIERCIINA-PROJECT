@@ -6,12 +6,12 @@
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T09:42:57Z",
+  "generatedAt": "2026-08-27T09:56:40Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33059007157",
+    "githubRunId": "33060035872",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "dbf6e0b15a1c3d03b05c09ef6234f39e61f53a40"
+    "githubSha": "c6b77b3327afa23e862eb29f9802ddfc13449e18"
   },
   "counts": {
     "acquired": 0,
@@ -170,8 +170,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "giglio.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -218,8 +218,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -230,8 +230,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -242,8 +242,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -266,8 +266,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -290,8 +290,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -521,9 +521,7 @@
         "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
-        "index phase deadline reached (600s)"
+        "URLError: <urlopen error timed out>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
         "index phase deadline reached (600s)",
@@ -555,42 +553,60 @@
       "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": true,
       "raw_candidates": 0,
-      "page_has_sku": true
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 2393,
+      "shell_suspected": false
     },
     {
       "stage": "discover",
       "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": true,
       "raw_candidates": 0,
-      "page_has_sku": true
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 2401,
+      "shell_suspected": false
     },
     {
       "stage": "discover",
       "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "ok": true,
       "raw_candidates": 0,
-      "page_has_sku": false
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 2366,
+      "shell_suspected": false
     },
     {
       "stage": "discover",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "ok": true,
       "raw_candidates": 0,
-      "page_has_sku": false
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 2375,
+      "shell_suspected": false
     },
     {
       "stage": "discover",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "ok": true,
       "raw_candidates": 0,
-      "page_has_sku": false
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 2333,
+      "shell_suspected": false
     },
     {
       "stage": "discover",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "ok": true,
       "raw_candidates": 13,
-      "page_has_sku": false
+      "page_has_sku": false,
+      "sku_evidence_where": "body",
+      "html_bytes": 361584,
+      "shell_suspected": false
     },
     {
       "stage": "indexed-asset",
@@ -606,7 +622,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -638,7 +654,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -646,7 +662,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -654,7 +670,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -670,7 +686,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -686,7 +702,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
