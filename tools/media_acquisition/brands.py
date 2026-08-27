@@ -205,6 +205,11 @@ BRANDS = {
             "www.littletagsluxury.com", "littletagsluxury.com",
             "www.smallable.com", "smallable.com",
             "kids21.com", "www.kids21.com",
+            "www.childrensalon.com", "childrensalon.com",
+            "modesens.com", "www.modesens.com",
+            # OBSERVED in pass 1's own rejection log, not guessed: Smallable
+            # serves product media from these two hosts.
+            "media.smallable.com", "staticv3.smallable.com",
         ],
         # Search is a platform route and yields link targets only; since the
         # search-route fix it lends no identity to its own images.

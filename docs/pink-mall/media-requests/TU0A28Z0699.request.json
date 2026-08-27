@@ -4,7 +4,9 @@
   "manufacturerItemNo": "TU0A28Z0699",
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
-  "availableSizes": ["ONE SIZE"],
+  "availableSizes": [
+    "ONE SIZE"
+  ],
   "candidateMedia": [],
   "indexedAssetSearch": true,
   "indexedEvidence": true,
@@ -18,7 +20,10 @@
       "sku": "TU0A28Z0699",
       "model": "Pineapple-shaped crossbody bag",
       "variant": "Yellow",
-      "aliases": ["TU0A28Z0699226VI", "tu0a28z0699226vi"],
+      "aliases": [
+        "TU0A28Z0699226VI",
+        "tu0a28z0699226vi"
+      ],
       "sizeScale": [],
       "mediaUrls": [],
       "observedCdnHosts": [],
@@ -68,27 +73,48 @@
     }
   ],
   "discoveryPages": [
+    "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
     "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-    "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
+    "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
+    "https://modesens.com/stella-mccartney-kids-bags/",
     "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-    "https://kids21.com/products/100349648yel"
+    "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699"
   ],
   "discoveryRoutes": {
+    "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html": "DIRECT_RETAILER_PAGE",
     "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html": "DIRECT_RETAILER_PAGE",
-    "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699": "OFFICIAL_SEARCH",
-    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358": "TRUSTED_RETAILER_SEARCH",
-    "https://kids21.com/products/100349648yel": "TRUSTED_RETAILER_SEARCH"
+    "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699": "RETAILER_SEARCH",
+    "https://modesens.com/stella-mccartney-kids-bags/": "TRUSTED_RETAILER_SEARCH",
+    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358": "DIRECT_RETAILER_PAGE",
+    "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699": "RETAILER_SEARCH"
   },
-  "officialHostSuffixes": ["stellamccartney.com"],
+  "officialHostSuffixes": [
+    "stellamccartney.com"
+  ],
   "allowedHostSuffixes": [
     "stellamccartney.com",
     "littletagsluxury.com",
     "smallable.com",
-    "kids21.com"
+    "media.smallable.com",
+    "staticv3.smallable.com",
+    "kids21.com",
+    "childrensalon.com",
+    "modesens.com"
   ],
-  "resolution": { "widthLadder": [2000, 1600, 1200, 1000] },
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
   "requestedBy": "claude",
   "notes": [
+    "PASS 2 — ENCODE THE COLON AND WIDEN THE RETAILER SET. Pass 1's Little Tags URL 404'd, and that URL contains a RAW COLON in its path ('stella-mccartney-kids:-girls-...'). It is retried percent-encoded as %3A alongside the literal form, because that page is the only document found that names TU0A28Z0699.",
+    "PASS 1 OBSERVATIONS, recorded rather than guessed: media.smallable.com and staticv3.smallable.com serve Smallable's product media, and stellamccartney.com runs Salesforce Commerce Cloud (/dw/image/v2/.../demandware.static/), the same platform family as Pepe Jeans. Those Smallable hosts are now allowed on the strength of that observation.",
+    "WHY PASS 1 ACQUIRED NOTHING, and why that is correct: the Stella assets reached were shared-library editorial chrome and the Smallable assets were other products entirely, so both were listing sweeps rather than our product page. The gate rejected every one for the right reason.",
+    "SMALLABLE ASSET NAMES ARE CONTENT HASHES (emiletida_c6639f7d7d.jpg), so they can never carry the article code. Identity from that retailer would have to rest on source-page evidence, which requires its product page to actually name TU0A28Z0699 — not something to assume.",
     "PASS 1. Product type is a BAG, so ONE SIZE is the whole availability truth and no size ladder exists to prove. Verified in the live engine that inventoryMode 'availability' with {'ONE SIZE':'available'} yields stock state ok, orderable at ONE SIZE, and correctly refuses any other size — no engine change needed.",
     "OFFICIAL MEDIA IS PREFERRED but the brand's own site indexes K-codes and not this wholesale article, so official assets are unlikely to pass the identity gate. That is the gate working, not a failure: acquiring the visually similar K03231 bucket bag would be exactly the substitution the exact-variant rule forbids.",
     "CHILD-SERIES SUPPRESSION APPLIES. This is a Stella McCartney Kids article. The classification may be used internally for identity only and must never appear in the public name, copy, category, tags or alt text. The opposite claim — that it is an adult or unisex product — must not be made either.",
