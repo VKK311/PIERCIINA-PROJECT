@@ -133,6 +133,7 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 9 — RENDER RETRY AFTER THE HTTP/2 FIX. Pass 8 proved the gate: the render route fired with every precondition met and failed only on the h2 handshake, which the plain fetcher does not hit on the same URL.",
     "PASS 8 — BOUNDED JS RENDER. The Giglio product page is an evidenced exact-SKU shell: 2xx, allowed host, TRUSTED_RETAILER, article named in the BODY, ~2.4 kB, zero image references after three parsing fixes. It therefore meets every precondition for the bounded render route, which extracts the real gallery URLs rather than constructing them. Everything the renderer finds still goes through normal acquisition and identity validation.",
     "PASS 7 — DIAGNOSTIC. Determines whether the Giglio document actually names the article in its BODY, or whether page_has_sku was true only because the article sits in the path we requested. Three parsing fixes have not produced a single candidate from that page, and a url-only match with zero images is the signature of a client-side shell rather than a product document.",
     "PASS 6 — RESCAN AFTER THE JSON-ESCAPE FIX. Pass 5 confirmed the Giglio pages resolve with page_has_sku true and still yielded raw_candidates 0 after relative references were handled, which points at gallery URLs embedded in JSON with escaped slashes. That is now normalised before matching.",
