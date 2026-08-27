@@ -6,12 +6,12 @@
   "model": "Celest",
   "variant": "Pink",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T07:40:01Z",
+  "generatedAt": "2026-08-27T07:59:32Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33050184808",
+    "githubRunId": "33051411705",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "00ccec8e120f91d1cbef9f492e64cebbb14badf3"
+    "githubSha": "2988af7d3441ad0664e7d12b08a938ebfc0b81ae"
   },
   "counts": {
     "acquired": 0,
@@ -142,6 +142,24 @@
       "candidates": 0
     },
     {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "user-supplied://27733247/photos",
+      "result": "FAIL",
+      "authorityTier": "USER_SUPPLIED",
+      "discoveryTransport": "USER_SUPPLIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T09:00:00Z",
+      "observedSku": "27733247",
+      "model": null,
+      "variant": "Pink",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
       "route": "USER_SUPPLIED",
       "url": "https://www.emag.bg/scotch-soda-sportni-obuvki-s-velur-rozovo-38-27733247-s059-38/pd/DDMKSTYBM/",
       "result": "FAIL",
@@ -210,7 +228,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "scotch-soda.com (domain) ~ 27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -222,7 +240,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "scotch-soda.eu (domain) ~ 27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -234,8 +252,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "scotchandsoda.com (domain) ~ 27733247",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -256,8 +274,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.obuvki.bg/search?q=27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-      "indexReachable": false,
+      "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -276,8 +294,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://scotch-soda.eu/search?q=27733247",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -286,8 +304,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://scotchandsoda.com/search?q=27733247",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -525,6 +543,29 @@
         "COLOUR-CODE DISCREPANCY TO SURFACE IN THE PACKAGE: the user's brief said colour '34A Rose'; this page's colour token is S059. The article number is the anchor and both readings agree the shoe is pink, but the codes differ and that must not be smoothed over.",
         "TIER: this is a retailer document, NOT official manufacturer media. If media comes from here the package must say so plainly rather than presenting it as brand-official."
       ]
+    },
+    {
+      "sourceUrl": "user-supplied://27733247/photos",
+      "authorityTier": "USER_SUPPLIED",
+      "discoveryTransport": "USER_SUPPLIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T09:00:00Z",
+      "sku": "27733247",
+      "model": null,
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "THREE PHOTOGRAPHS SUPPLIED DIRECTLY BY THE USER after four passes were walled by bot protection, with the instruction 'get them ready'. They carry no source URL, so the provenance claim is user-supplied rather than manufacturer or retailer CDN.",
+        "Validated: three unique shots (pairwise dhash distance 103-142; duplicates score <=4), aspect 1.5 within the 2.2 shape limit, no people, product-only, no cut-out alpha.",
+        "Native 480x720 — the lowest-resolution media in the catalogue. Measured against real render boxes the PDP hero is 36% short on desktop @2x and 54% short on phone @3x. Nothing was upscaled.",
+        "Backdrop is a grey studio sweep with a gradient, so no flat backdrop could be derived; media.surface is the measured median border tone #D2D5D7.",
+        "BRAND CONFIRMED FROM THE PRODUCT ITSELF: the tongue patch reads SCOTCH & SODA and the insole carries the circular SCOTCH & SODA AMSTERDAM monogram.",
+        "MODEL NOT CONFIRMED. No source reached names this article. The supplier titles it only 'Спортни обувки с велур' while naming models for other Scotch & Soda shoes (Кецове Sylvie, Спортни обувки Vivi), and every Celest listing found is multicolour whereas this shoe is monochrome pale pink.",
+        "NO SIDE PROFILE AND NO HEEL VIEW in the set, unlike PM-025 through PM-031 which all lead with a lateral shot."
+      ]
     }
   ],
   "refusalAudit": {
@@ -554,11 +595,13 @@
       ],
       "INDEXED_OUTBOUND_MEDIA": [
         "URLError: <urlopen error [Errno 111] Connection refused>",
+        "TimeoutError: The read operation timed out",
         "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error timed out>"
+        "URLError: <urlopen error [Errno 111] Connection refused>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error [Errno 101] Network is unreachable>"
+        "URLError: <urlopen error [Errno 101] Network is unreachable>",
+        "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
       ]
     },
     "exactProductDocuments": [],
@@ -640,7 +683,7 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-asset",
@@ -648,7 +691,7 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -656,7 +699,7 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-cdx",
@@ -668,7 +711,7 @@
       "stage": "indexed-cdx",
       "url": "https://www.obuvki.bg/search?q=27733247",
       "captures": 0,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
@@ -680,13 +723,13 @@
       "stage": "indexed-cdx",
       "url": "https://scotch-soda.eu/search?q=27733247",
       "captures": 0,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://scotchandsoda.com/search?q=27733247",
       "captures": 0,
-      "error": null
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "stage": "discover",
