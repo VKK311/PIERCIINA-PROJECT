@@ -62,6 +62,30 @@ def _chromium_path():
     return None
 
 
+CONTROL_URL = "https://example.com/"
+
+
+def _control_reachable(timeout_s=15):
+    """Can this browser load a neutral page at all? None if undeterminable."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except Exception:                                      # noqa: BLE001
+        return None
+    exe = _chromium_path()
+    try:
+        with sync_playwright() as pw:
+            b = pw.chromium.launch(headless=True, executable_path=exe or None,
+                                   args=["--disable-dev-shm-usage", "--no-sandbox",
+                                         "--disable-http2"])
+            pg = b.new_page()
+            pg.goto(CONTROL_URL, wait_until="commit", timeout=timeout_s * 1000)
+            okay = bool(pg.url)
+            b.close()
+            return okay
+    except Exception:                                      # noqa: BLE001
+        return False
+
+
 def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
                 hydrate_timeout=HYDRATE_TIMEOUT_S,
                 total_timeout=TOTAL_TIMEOUT_S):
@@ -176,9 +200,20 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
             ctx.close()
             browser.close()
     except Exception as exc:                               # noqa: BLE001
+        detail = "%s: %s" % (type(exc).__name__, str(exc)[:160])
+        # Distinguish "our browser cannot reach the internet" from "this site
+        # will not answer our browser". Without this the two look identical in
+        # the log and the site gets blamed for a runner problem — a
+        # misattribution this pipeline has made before.
+        control = _control_reachable()
         log.append({"stage": "js-render", "url": url, "ok": False,
-                    "error": "%s: %s" % (type(exc).__name__, str(exc)[:160])})
-        return [], html, "%s: %s" % (type(exc).__name__, str(exc)[:160])
+                    "error": detail, "controlSiteRendered": control,
+                    "diagnosis": ("site did not answer the headless browser"
+                                  if control is True else
+                                  "browser has no working egress"
+                                  if control is False else
+                                  "control check inconclusive")})
+        return [], html, detail
 
     log.append({"stage": "js-render", "url": url, "ok": True,
                 "images": len(seen), "html_bytes": len(html or ""),
