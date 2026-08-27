@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "DISCOVERY_TRANSPORT_BLOCKED",
   "sku": "27733247",
   "brand": "Scotch & Soda",
   "model": "Celest",
   "variant": "Rose",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T07:13:44Z",
+  "generatedAt": "2026-08-27T07:25:04Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33048147358",
+    "githubRunId": "33049023661",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "fc85c09fe55cd09a111670ab1c19013340c59927"
+    "githubSha": "0493aef1155b0246b11915925349612a6d768caa"
   },
   "counts": {
     "acquired": 0,
@@ -77,14 +77,14 @@
       "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-27T00:00:00Z",
-      "observedSku": "27733247",
+      "observedSku": null,
       "model": "Celest",
       "variant": null,
       "aliases": [],
       "mediaUrls": 0,
       "sizeLabels": 7,
-      "exactProductDocument": true,
-      "sku_evidence": true,
+      "exactProductDocument": false,
+      "sku_evidence": false,
       "candidates": 0
     },
     {
@@ -124,8 +124,8 @@
       "candidates": 0
     },
     {
-      "route": "CONSTRUCTED_LEAD",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html",
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://obuvki.bg/c/obuvki/marka:scotch_soda",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 404: Not Found",
       "sku_evidence": false,
@@ -133,7 +133,7 @@
     },
     {
       "route": "CONSTRUCTED_LEAD",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 404: Not Found",
       "sku_evidence": false,
@@ -141,13 +141,38 @@
     },
     {
       "route": "CONSTRUCTED_LEAD",
-      "url": "https://eskor.se/b/closedsite",
-      "result": "OK",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "RETAILER_SEARCH",
+      "url": "https://www.obuvki.bg/catalogsearch/result/?q=27733247",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.obuvki.bg/search?q=27733247",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 404: Not Found",
@@ -155,14 +180,14 @@
       "candidates": 0
     },
     {
-      "route": "RETAILER_SEARCH",
+      "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://eskor.se/b/closedsite",
       "result": "OK",
       "sku_evidence": false,
       "candidates": 0
     },
     {
-      "route": "OFFICIAL_SEARCH",
+      "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://scotch-soda.eu/search?q=27733247",
       "result": "OK",
       "sku_evidence": false,
@@ -207,10 +232,22 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "efootwear.eu (domain) ~ 27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "eobuwie.com.pl (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -219,20 +256,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "eobuwie.pl (domain) ~ 27733247",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "eskor.se (domain) ~ 27733247",
-      "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -243,7 +268,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "modivo.bg (domain) ~ 27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -253,9 +278,21 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "modivo.pl (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "obuvki.bg (domain) ~ 27733247",
       "result": "FAIL",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -301,7 +338,7 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html",
+      "url": "https://obuvki.bg/c/obuvki/marka:scotch_soda",
       "result": "FAIL",
       "error": "no archived capture",
       "indexReachable": true,
@@ -311,7 +348,7 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
       "result": "FAIL",
       "error": "no archived capture",
       "indexReachable": true,
@@ -321,19 +358,9 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.obuvki.bg/search?q=27733247",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -341,19 +368,29 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.efootwear.eu/search?q=27733247",
+      "url": "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://scotch-soda.eu/search?q=27733247",
+      "url": "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
+      "indexReachable": false,
+      "authorityTier": "TRUSTED_RETAILER",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.obuvki.bg/catalogsearch/result/?q=27733247",
+      "result": "FAIL",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -511,7 +548,7 @@
       "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-27T00:00:00Z",
-      "sku": "27733247",
+      "sku": null,
       "model": "Celest",
       "variant": null,
       "aliases": [],
@@ -530,7 +567,8 @@
         "OFFICIAL SIZE SCALE: the Celest is offered EU 36 to 42 on the brand's own European storefront. This matters because the user supplied 41, which is a REAL size for this model — the Mall's public ladder cap at 40 is a PINK MALL rule, not a limit of the shoe.",
         "MODEL FACTS from the brand's own description: women's chunky sneaker, cow suede and nylon panels, customised rubber sole with textured bottom, metallic detail and logo at the side, recycled mesh lining and insole.",
         "MODEL-VERSION HAZARD: the line has later generations sold as 'Celest 2.0' and 'Celest 2.0 LS'. The user said CELEST, so the base model is the target and a 2.0 asset must not be substituted.",
-        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL."
+        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL.",
+        "SKU DELIBERATELY NULL. This is a collection page for the line; it does not name article 27733247. Carrying the article here made the refusal audit treat it as an exact product document. The size scale and model facts it evidences belong to the CELEST LINE, not to this article, and the package must say so."
       ]
     },
     {
@@ -583,66 +621,73 @@
       "INDEXED_SOURCE_EVIDENCE",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
-      "OFFICIAL_SEARCH",
       "RESEARCH_EVIDENCE",
       "RETAILER_SEARCH",
       "SEARCH_INDEX_OFFICIAL",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
-    ],
-    "routesSucceeded": [
-      "CONSTRUCTED_LEAD",
-      "DIRECT_OFFICIAL_PAGE",
-      "OFFICIAL_SEARCH",
-      "RESEARCH_EVIDENCE",
-      "RETAILER_SEARCH"
-    ],
-    "routesNotAttempted": [
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [],
     "routesUnreachable": {
       "INDEXED_OUTBOUND_MEDIA": [
         "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error timed out>",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)"
+        "TimeoutError: The read operation timed out",
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)"
       ]
     },
-    "exactProductDocuments": [
-      {
-        "route": "RESEARCH_EVIDENCE",
-        "url": "https://scotch-soda.eu/collections/women-footwear-sneakers",
-        "authorityTier": "OFFICIAL",
-        "candidates": 0
-      }
-    ],
+    "exactProductDocuments": [],
     "identifierAliases": [],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "an exact product document was found — identity is established"
+    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE"
   },
   "log": [
     {
       "stage": "discover",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html",
+      "url": "https://obuvki.bg/c/obuvki/marka:scotch_soda",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "discover",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "discover",
-      "url": "https://eskor.se/b/closedsite",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.obuvki.bg/catalogsearch/result/?q=27733247",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "discover",
@@ -711,7 +756,15 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "eobuwie.com.pl",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -719,15 +772,7 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "eskor.se",
-      "term": "27733247",
-      "rows": 0,
-      "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -735,7 +780,15 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "modivo.pl",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -743,7 +796,7 @@
       "term": "27733247",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -771,39 +824,39 @@
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html",
+      "url": "https://obuvki.bg/c/obuvki/marka:scotch_soda",
       "captures": 0,
       "error": null
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
       "captures": 0,
       "error": null
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "url": "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
       "captures": 0,
-      "error": null
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.obuvki.bg/search?q=27733247",
+      "url": "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.efootwear.eu/search?q=27733247",
+      "url": "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://scotch-soda.eu/search?q=27733247",
+      "url": "https://www.obuvki.bg/catalogsearch/result/?q=27733247",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "discover",
