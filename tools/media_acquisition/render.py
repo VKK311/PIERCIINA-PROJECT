@@ -87,7 +87,14 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
             browser = pw.chromium.launch(
                 headless=True,
                 executable_path=exe or None,
-                args=["--disable-dev-shm-usage", "--no-sandbox"])
+                # --disable-http2 is a PROTOCOL COMPATIBILITY flag, not an
+                # evasion one. Some CDNs fail the h2 handshake with headless
+                # Chromium and return ERR_HTTP2_PROTOCOL_ERROR while serving
+                # the very same URL over HTTP/1.1 to the very same client —
+                # which is what the plain fetcher already gets. Nothing here
+                # disguises who we are.
+                args=["--disable-dev-shm-usage", "--no-sandbox",
+                      "--disable-http2"])
             ctx = browser.new_context(
                 viewport={"width": 1400, "height": 1600},
                 accept_downloads=False,                   # no downloads
@@ -124,8 +131,17 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
                     pass
             page.on("response", _on_response)
 
-            page.goto(url, wait_until="domcontentloaded",
-                      timeout=nav_timeout * 1000)
+            try:
+                page.goto(url, wait_until="domcontentloaded",
+                          timeout=nav_timeout * 1000)
+            except Exception as nav_exc:                   # noqa: BLE001
+                # One retry, only for a protocol-level failure. A 4xx or a
+                # timeout is an answer and is not retried here.
+                if "ERR_HTTP2" not in str(nav_exc) and "ERR_SPDY" not in str(nav_exc):
+                    raise
+                log.append({"stage": "js-render-retry", "url": url,
+                            "error": str(nav_exc)[:120]})
+                page.goto(url, wait_until="load", timeout=nav_timeout * 1000)
             # Wait only long enough for the application to hydrate.
             try:
                 page.wait_for_load_state("networkidle",
