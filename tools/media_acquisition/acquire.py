@@ -129,6 +129,35 @@ def http_get(url, allowed, max_bytes=MAX_BYTES, accept="*/*", timeout=None):
 
 # ── Discovery ─────────────────────────────────────────────────────────────
 IMG_RE = re.compile(r"https?://[^\s\"'\\<>]+?\.(?:jpg|jpeg|png|webp|avif)(?:\?[^\s\"'\\<>]*)?", re.I)
+
+# Absolute URLs are not the only way a page names an image. Plenty of
+# storefronts emit protocol-relative ("//img.host/x.jpg") or root-relative
+# ("/media/x.jpg") references, often inside lazy-load attributes. IMG_RE cannot
+# see either, so a page could name our exact article and still yield
+# raw_candidates: 0 — which is exactly what happened to TU0A28Z0699 on a
+# retailer whose page did carry the SKU. These are resolved against the page
+# URL; the identity gate still decides whether any of them is this product.
+REL_IMG_RE = re.compile(
+    r"""[\"'(]\s*((?://|/)[^\s\"'()\\<>]+?\.(?:jpg|jpeg|png|webp|avif)"""
+    r"""(?:\?[^\s\"'()\\<>]*)?)""", re.I)
+
+
+def scan_images(html, base_url):
+    """Every image reference on a page, absolute or relative, as absolute URLs."""
+    out, seen = [], set()
+    for u in IMG_RE.findall(html or ""):
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    for rel in REL_IMG_RE.findall(html or ""):
+        try:
+            u = urllib.parse.urljoin(base_url or "", rel)
+        except Exception:                                # noqa: BLE001
+            continue
+        if u.lower().startswith(("http://", "https://")) and u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
 SRCSET_RE = re.compile(r"srcset\s*=\s*[\"']([^\"']+)[\"']", re.I)
 HREF_RE = re.compile(r"<a[^>]+href\s*=\s*[\"']([^\"'#]+)[\"']", re.I)
 OG_RE = re.compile(r"<meta[^>]+property=[\"']og:image[\"'][^>]+content=[\"']([^\"']+)[\"']", re.I)
@@ -310,7 +339,7 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
             u = part.strip().split(" ")[0]
             if u.startswith("http"):
                 found.append((u, "srcset"))
-    found += [(u, "html-scan") for u in IMG_RE.findall(html)]
+    found += [(u, "html-scan") for u in scan_images(html, final)]
 
     # Does the page itself name the exact SKU? Checked in its URL and body —
     # but never on a search route, where both are our own query echoed back.
@@ -600,7 +629,7 @@ def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
             u = part.strip().split(" ")[0]
             if u.startswith("http"):
                 found.append((u, "srcset"))
-    found += [(u, "html-scan") for u in IMG_RE.findall(html)]
+    found += [(u, "html-scan") for u in scan_images(html, original)]
 
     # Strip archive rewriting if any survived, so candidates are origin URLs.
     cleaned = []

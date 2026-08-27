@@ -747,6 +747,27 @@ def main():
     checks.append(("an unreachable new domain still forbids refusal",
                    _d["refusalPermitted"] is False))
 
+    # A page can name our exact article and still yield zero candidates if its
+    # images are protocol-relative or root-relative. TU0A28Z0699 hit exactly
+    # that: page_has_sku true, raw_candidates 0.
+    from acquire import scan_images  # noqa: E402
+    _base = "https://shop.test/eng/product-abc123.html"
+    _html = ('<img data-src="//cdn.shop.test/cat/abc.003_1.jpg">'
+             '<img src="/media/abc.003_2.jpg">'
+             '<img src="https://abs.test/a.png">'
+             '<img src="//cdn.shop.test/cat/abc.003_1.jpg">')
+    _got = scan_images(_html, _base)
+    checks.append(("protocol-relative image is recovered",
+                   "https://cdn.shop.test/cat/abc.003_1.jpg" in _got))
+    checks.append(("root-relative image is resolved against the page",
+                   "https://shop.test/media/abc.003_2.jpg" in _got))
+    checks.append(("absolute images still recovered",
+                   "https://abs.test/a.png" in _got))
+    checks.append(("relative and absolute forms of one asset collapse",
+                   len(_got) == 3))
+    checks.append(("a page with no images yields nothing",
+                   scan_images("<p>no pictures here</p>", _base) == []))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)
