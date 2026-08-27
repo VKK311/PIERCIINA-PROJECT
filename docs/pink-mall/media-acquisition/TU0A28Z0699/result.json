@@ -1,103 +1,188 @@
 {
   "schemaVersion": 1,
-  "status": "SPA_RENDER_REQUIRED",
+  "status": "PASS",
   "sku": "TU0A28Z0699",
   "brand": "Stella McCartney",
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T13:28:38Z",
+  "generatedAt": "2026-08-27T17:39:09Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33076028192",
+    "githubRunId": "33098504189",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "3ddef19c3395b8c7fd1e4e39db4ddee790201425"
+    "githubSha": "8fee5c4c69a12072a224da4080c4b3507f5c64e2"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 4,
+    "unique_selected": 4,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: yellow"
+    ],
     "conflicts": [],
     "officialColour": "Yellow",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
+  "proposedMain": "source/TU0A28Z0699-01-original.jpg",
   "dominantBackdrop": null,
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/TU0A28Z0699-01-original.jpg",
+      "preview": "preview/TU0A28Z0699-01.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-27T17:39:05Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 46614,
+      "sha256": "2bf52fedd7f50dbdefae063016b78599dd3d909861a8122509d8def75c2742ec",
+      "dhash": "2155414a20a21210417a268937992f0a1b4e49e50dc70fcb0dc82f8009c20440",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/TU0A28Z0699-02-original.jpg",
+      "preview": "preview/TU0A28Z0699-02.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-27T17:39:05Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 50420,
+      "sha256": "93c8283988f0f92d2220ef0ca0da7012242b2cc30e215e5be26a6c74f36e8700",
+      "dhash": "053602cc4194182225d10a292e252e2a5b2e9d1535933d4f5cb01f3018241402",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/TU0A28Z0699-03-original.jpg",
+      "preview": "preview/TU0A28Z0699-03.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-27T17:39:05Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 133829,
+      "sha256": "3394eafdf694c5b6ca29da706bfd3fa820f3df8c91d1696f793a63aba195a9d9",
+      "dhash": "d868d910d98c18a259909989f9a1a7d13de116e49ecc3dc53ccdd98cb7d6b7c6",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/TU0A28Z0699-04-original.jpg",
+      "preview": "preview/TU0A28Z0699-04.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-27T17:39:06Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 93448,
+      "sha256": "5d820a1b62677982246789fe47bc3aac0cf7543d612eeead0f507da62eb4b34d",
+      "dhash": "094806b0094e6949991adc127c087e01ff61ded34f9132f03ed835d83bf83ff0",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
-      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "result": "OK",
+      "exactProductDocument": true,
       "authorityTier": "TRUSTED_RETAILER",
       "discoveryTransport": "REVIEWER_VERIFIED",
       "confidence": "A",
-      "capturedAt": "2026-08-27T11:00:00Z",
+      "capturedAt": "2026-08-27T12:00:00Z",
       "observedSku": "TU0A28Z0699",
-      "model": "Pineapple-shaped bag",
+      "model": "Pineapple bucket bag",
       "variant": "Yellow",
       "aliases": [
         "401012.003",
-        "TU0A28Z0699226VI",
-        "tu0a28z0699"
+        "TU0A28Z0699226VI"
       ],
-      "mediaUrls": 0,
+      "mediaUrls": 4,
       "sizeLabels": 0,
-      "exactProductDocument": false,
       "sku_evidence": true,
-      "candidates": 0
-    },
-    {
-      "route": "RESEARCH_EVIDENCE",
-      "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-      "result": "OK",
-      "authorityTier": "TRUSTED_RETAILER",
-      "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "B",
-      "capturedAt": "2026-08-27T10:00:00Z",
-      "observedSku": "TU0A28Z0699",
-      "model": "Pineapple-shaped crossbody bag",
-      "variant": "Yellow",
-      "aliases": [
-        "TU0A28Z0699226VI",
-        "tu0a28z0699226vi"
-      ],
-      "mediaUrls": 0,
-      "sizeLabels": 0,
-      "exactProductDocument": false,
-      "sku_evidence": true,
-      "candidates": 0
-    },
-    {
-      "route": "RESEARCH_EVIDENCE",
-      "url": "https://www.stellamccartney.com/lv/en/pineapple-bucket-bag-K03231PK02407203.html",
-      "result": "OK",
-      "authorityTier": "OFFICIAL",
-      "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "C",
-      "capturedAt": "2026-08-27T10:00:00Z",
-      "observedSku": null,
-      "model": "Pineapple Bucket Bag",
-      "variant": "Yellow",
-      "aliases": [],
-      "mediaUrls": 0,
-      "sizeLabels": 0,
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
+      "candidates": 4
     },
     {
       "route": "RESEARCH_EVIDENCE",
       "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
       "result": "OK",
+      "exactProductDocument": false,
       "authorityTier": "TRUSTED_RETAILER",
       "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "C",
@@ -108,43 +193,14 @@
       "aliases": [],
       "mediaUrls": 0,
       "sizeLabels": 0,
-      "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
     },
     {
-      "route": "CONSTRUCTED_LEAD",
-      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "route": "REVIEWER_VERIFIED",
+      "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "result": "OK",
       "sku_evidence": true,
-      "candidates": 0
-    },
-    {
-      "route": "CONSTRUCTED_LEAD",
-      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
-      "result": "OK",
-      "sku_evidence": true,
-      "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
-      "result": "OK",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
-      "result": "OK",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
-      "result": "OK",
-      "sku_evidence": false,
       "candidates": 0
     },
     {
@@ -156,38 +212,10 @@
     },
     {
       "route": "JS_RENDERED_PAGE",
-      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "result": "FAIL",
-      "authorityTier": "OFFICIAL",
-      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting until"
-    },
-    {
-      "route": "JS_RENDERED_PAGE",
-      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
-      "result": "FAIL",
-      "authorityTier": "OFFICIAL",
-      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt"
-    },
-    {
-      "route": "JS_RENDERED_PAGE",
-      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
-      "result": "N/A",
-      "authorityTier": "OFFICIAL",
-      "error": "render preconditions not met"
-    },
-    {
-      "route": "JS_RENDERED_PAGE",
-      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
-      "result": "N/A",
-      "authorityTier": "OFFICIAL",
-      "error": "render preconditions not met"
-    },
-    {
-      "route": "JS_RENDERED_PAGE",
-      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
-      "result": "N/A",
-      "authorityTier": "OFFICIAL",
-      "error": "render preconditions not met"
+      "authorityTier": "TRUSTED_RETAILER",
+      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt"
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
@@ -196,7 +224,7 @@
       "error": null,
       "indexReachable": true,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -208,7 +236,7 @@
       "error": null,
       "indexReachable": true,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -217,10 +245,10 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -229,10 +257,10 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -241,10 +269,10 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -253,46 +281,10 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "smallable.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "smallable.com (domain) ~ 401012.003",
-      "result": "FAIL",
       "error": null,
       "indexReachable": true,
       "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
+      "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
@@ -301,7 +293,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -325,7 +317,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -335,39 +327,9 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
-      "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
-      "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -417,7 +379,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 4 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -432,78 +394,52 @@
   },
   "identifierAliases": [
     "401012.003",
-    "TU0A28Z0699226VI",
-    "tu0a28z0699",
-    "tu0a28z0699226vi"
+    "TU0A28Z0699226VI"
   ],
   "researchEvidence": [
     {
-      "sourceUrl": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "sourceUrl": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "authorityTier": "TRUSTED_RETAILER",
       "discoveryTransport": "REVIEWER_VERIFIED",
       "confidence": "A",
-      "capturedAt": "2026-08-27T11:00:00Z",
+      "capturedAt": "2026-08-27T12:00:00Z",
       "sku": "TU0A28Z0699",
-      "model": "Pineapple-shaped bag",
+      "skuInBody": true,
+      "model": "Pineapple bucket bag",
       "variant": "Yellow",
       "aliases": [
         "401012.003",
-        "TU0A28Z0699226VI",
-        "tu0a28z0699"
+        "TU0A28Z0699226VI"
       ],
       "sizeScale": [],
-      "mediaUrls": [],
+      "mediaUrls": [
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+          "field": "gallery"
+        }
+      ],
       "observedCdnHosts": [
         "img.giglio.com"
       ],
       "notes": [
-        "REVIEWER-VERIFIED EXACT-SKU DOCUMENT. An independent reviewer transport read a currently live Giglio product page that explicitly states: Stella McCartney Kids, designer code TU0A28Z0699 226VI, Giglio product code 401012, category Bag, colour Yellow, composition 100% Polyurethane, and four distinct gallery images.",
-        "OBSERVED ASSET SHAPE: four gallery assets on img.giglio.com belonging to Giglio product 401012.003, views _1 through _4. Host and code shape are reviewer-observed; the runner must still discover the actual asset URLs from the page and validate them normally.",
-        "ALIAS 401012.003 IS COLOUR-SCOPED ON PURPOSE. Giglio asset paths carry its own product code rather than the designer code, so without an alias the identity gate would reject the retailer's own images. The bare 401012 is NOT used, because the .003 suffix is the colour variant and dropping it could admit a sibling colourway — the rule the HC.RBGLOW01 run established.",
-        "COMPOSITION IS PUBLISHABLE FROM HERE: 100% Polyurethane is stated on an exact-SKU document. Dimensions are NOT — no exact-SKU document read so far states them.",
-        "TIER: Giglio is an established retailer, not the manufacturer. Media from here is TRUSTED_RETAILER and must never be presented as official brand media."
-      ]
-    },
-    {
-      "sourceUrl": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-      "authorityTier": "TRUSTED_RETAILER",
-      "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "B",
-      "capturedAt": "2026-08-27T10:00:00Z",
-      "sku": "TU0A28Z0699",
-      "model": "Pineapple-shaped crossbody bag",
-      "variant": "Yellow",
-      "aliases": [
-        "TU0A28Z0699226VI",
-        "tu0a28z0699226vi"
-      ],
-      "sizeScale": [],
-      "mediaUrls": [],
-      "observedCdnHosts": [],
-      "notes": [
-        "EXACT-MATCH ANCHOR. This retailer's product URL carries the supplied article verbatim in a PRODUCT path — tu0a28z0699 — plus a trailing colour token 226VI. This is the strongest identity evidence found and it is what binds the article to a real product document.",
-        "Establishes the product type: a PINEAPPLE-SHAPED CROSSBODY BAG, not a shoe or a garment.",
-        "ALIASES ARE COLOUR-SCOPED ON PURPOSE. TU0A28Z0699226VI is included; the bare style root TU0A28 is deliberately NOT, because it would admit a different colourway of the same style. Same rule the HC.RBGLOW01 run established."
-      ]
-    },
-    {
-      "sourceUrl": "https://www.stellamccartney.com/lv/en/pineapple-bucket-bag-K03231PK02407203.html",
-      "authorityTier": "OFFICIAL",
-      "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "C",
-      "capturedAt": "2026-08-27T10:00:00Z",
-      "sku": null,
-      "model": "Pineapple Bucket Bag",
-      "variant": "Yellow",
-      "aliases": [],
-      "sizeScale": [],
-      "mediaUrls": [],
-      "observedCdnHosts": [],
-      "notes": [
-        "OFFICIAL PRODUCT OF THE SAME THEME, DIFFERENT CODE SYSTEM — INCLUDED AS A COMPARISON LEAD, NOT AS THIS ARTICLE. The brand's own site indexes K-codes (K03231PK02407203); it does not index TU0A28Z0699, which is a wholesale style code used by multi-brand retailers.",
-        "sku is deliberately NULL so this cannot be counted as an exact product document for our article. If the page never names TU0A28Z0699 the identity gate will reject its assets, which is the correct outcome and is exactly how a same-theme-different-product substitution gets prevented.",
-        "MATERIAL AND DETAIL EVIDENCE FOR THE LINE, not for this article: Alter Mat, the brand's vegan alternative to animal leather, with scallop prints and a GREEN drawstring fastening shaped like a pineapple top.",
-        "CONTRADICTS AN EARLIER SEARCH SUMMARY that described a 'purple waves print'. That phrase appears in no source document and is treated as search-engine paraphrase, not evidence. Colour detail must be settled by looking at the acquired frames."
+        "REVIEWER-VERIFIED EXACT-SKU DOCUMENT, read directly by an independent reviewer transport. States: Stella McCartney Kids, designer code TU0A28Z0699 226VI, Giglio code 401012, composition 100% Polyurethane, and four product gallery links.",
+        "skuInBody is asserted because the reviewer read the article in the DOCUMENT BODY. It is not inferred from the article appearing in the URL path, which is a distinction the pipeline now records separately.",
+        "THE FOUR GALLERY URLS ARE EXACT OBSERVED LINK TARGETS from that document. They were neither constructed nor guessed, and no template was extrapolated from them.",
+        "TIER IS TRUSTED_RETAILER, NOT OFFICIAL. Giglio is a retailer we are permitted to fetch from; being on the allow-list never made it a manufacturer. Media from here must never be presented as brand-official.",
+        "ALIAS 401012.003 IS COLOUR-SCOPED. Giglio asset paths carry its own product code rather than the designer code, so the alias is what lets the identity gate recognise the retailer's own images. Bare 401012 is deliberately NOT used: the .003 suffix is the colour variant and dropping it would loosen variant matching.",
+        "COMPOSITION 100% Polyurethane is publishable from this exact-SKU document. DIMENSIONS ARE NOT: no exact-product document read so far states them."
       ]
     },
     {
@@ -520,15 +456,12 @@
       "mediaUrls": [],
       "observedCdnHosts": [],
       "notes": [
-        "Corroborates that the same pineapple bag is sold under several retailer names — 'Pineapple Seal Bag' here, 'Pineapple-Shaped Crossbody Bag' at Little Tags. The public model name must be chosen from what is actually evidenced rather than assembled from the prettiest of these.",
-        "sku NULL: this page has not been read and is not an exact product document for our article.",
-        "CORROBORATING MODEL EVIDENCE ONLY. Supports the model naming 'Pineapple Seal Bag', Yellow, ONE SIZE and 100% polyurethane, but this page does not name TU0A28Z0699 (measured: page_has_sku False), so it may not carry dimensions or any other specification into publication on its own."
+        "CORROBORATING MODEL EVIDENCE ONLY. Measured page_has_sku False, so this page does not name the article and may not carry dimensions or any other specification into publication on its own."
       ]
     }
   ],
   "refusalAudit": {
     "routesAttempted": [
-      "CONSTRUCTED_LEAD",
       "DIRECT_OFFICIAL_API",
       "DIRECT_OFFICIAL_PAGE",
       "IDENTIFIER_EXPANSION",
@@ -538,107 +471,96 @@
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
       "RESEARCH_EVIDENCE",
+      "REVIEWER_VERIFIED",
       "SEARCH_INDEX_OFFICIAL",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "TRUSTED_RETAILER_SEARCH"
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
-      "CONSTRUCTED_LEAD",
       "DIRECT_OFFICIAL_PAGE",
       "IDENTIFIER_EXPANSION",
       "RESEARCH_EVIDENCE",
-      "TRUSTED_RETAILER_SEARCH"
+      "REVIEWER_VERIFIED"
     ],
     "routesNotAttempted": [
+      "TRUSTED_RETAILER_SEARCH",
       "NEW_RETAILER_DISCOVERY"
     ],
     "routesUnreachable": {
       "JS_RENDERED_PAGE": [
-        "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-",
-        "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_ba"
+        "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/ko-kr/bag-kids_ba"
       ],
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
         "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error [Errno 111] Connection refused>"
+        "URLError: <urlopen error timed out>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "index call budget exhausted (24 calls)"
+        "index phase deadline reached (600s)"
       ]
     },
-    "exactProductDocuments": [],
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 4
+      }
+    ],
     "identifierAliases": [
       "401012.003",
-      "TU0A28Z0699226VI",
-      "tu0a28z0699",
-      "tu0a28z0699226vi"
+      "TU0A28Z0699226VI"
     ],
-    "spaRenderPending": true,
+    "spaRenderPending": false,
     "refusalPermitted": false,
-    "refusalBlockedBecause": "an exact-SKU page was served as a client-side shell and the bounded render route has not run — discovery is not exhausted",
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
     "userInputPermitted": false
   },
   "log": [
     {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
       "stage": "research",
-      "seeded_candidates": 0,
+      "seeded_candidates": 4,
       "observed_hosts": [
         "img.giglio.com"
       ]
     },
     {
       "stage": "discover",
-      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": true,
       "raw_candidates": 0,
       "page_has_sku": true,
       "sku_evidence_where": "body",
-      "html_bytes": 2393,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": true,
-      "sku_evidence_where": "body",
-      "html_bytes": 2401,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false,
-      "sku_evidence_where": null,
-      "html_bytes": 2371,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false,
-      "sku_evidence_where": null,
-      "html_bytes": 2376,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false,
-      "sku_evidence_where": null,
-      "html_bytes": 2333,
+      "html_bytes": 2404,
       "shell_suspected": true
     },
     {
@@ -648,24 +570,20 @@
       "raw_candidates": 13,
       "page_has_sku": false,
       "sku_evidence_where": "body",
-      "html_bytes": 361584,
+      "html_bytes": 361670,
       "shell_suspected": false
     },
     {
       "stage": "js-render",
-      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "url": "https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": false,
-      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting until",
+      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/ko-kr/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt",
       "controlSiteRendered": true,
       "diagnosis": "site did not answer the headless browser"
     },
     {
-      "stage": "js-render",
-      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
-      "ok": false,
-      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt",
-      "controlSiteRendered": true,
-      "diagnosis": "site did not answer the headless browser"
+      "stage": "index-continue",
+      "reason": "research evidence supplied 4 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
     },
     {
       "stage": "indexed-asset",
@@ -687,53 +605,29 @@
       "stage": "indexed-asset",
       "domain": "giglio.com",
       "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "401012.003",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "smallable.com",
-      "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
       "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
-      "domain": "smallable.com",
-      "term": "401012.003",
+      "domain": "img.giglio.com",
+      "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
       "error": null
     },
     {
       "stage": "indexed-asset",
-      "domain": "smallable.com",
+      "domain": "img.giglio.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "img.giglio.com",
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
@@ -745,7 +639,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -761,31 +655,13 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
-      "captures": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
-      "captures": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
-      "captures": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "observed-hosts",
@@ -795,7 +671,39 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 13
+      "total_unique_candidates": 17
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_1/stella-mccartney-kids.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 46614,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_2/stella-mccartney-kids.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 50420,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_3/stella-mccartney-kids.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 133829,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/401012.003_4/stella-mccartney-kids.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 93448,
+      "upgraded_from": null
     },
     {
       "stage": "acquire",
