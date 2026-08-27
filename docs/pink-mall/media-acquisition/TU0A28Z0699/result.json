@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "DISCOVERY_TRANSPORT_BLOCKED",
+  "status": "SPA_RENDER_REQUIRED",
   "sku": "TU0A28Z0699",
   "brand": "Stella McCartney",
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T09:56:40Z",
+  "generatedAt": "2026-08-27T12:49:24Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33060035872",
+    "githubRunId": "33072818501",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "c6b77b3327afa23e862eb29f9802ddfc13449e18"
+    "githubSha": "bd56c8fbb8970bc7f4f84c6db55bac449577d0e1"
   },
   "counts": {
     "acquired": 0,
@@ -155,6 +155,41 @@
       "candidates": 13
     },
     {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "result": "FAIL",
+      "authorityTier": "OFFICIAL",
+      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https://"
+    },
+    {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "result": "FAIL",
+      "authorityTier": "OFFICIAL",
+      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https:"
+    },
+    {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
+      "result": "N/A",
+      "authorityTier": "OFFICIAL",
+      "error": "render preconditions not met"
+    },
+    {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
+      "result": "N/A",
+      "authorityTier": "OFFICIAL",
+      "error": "render preconditions not met"
+    },
+    {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
+      "result": "N/A",
+      "authorityTier": "OFFICIAL",
+      "error": "render preconditions not met"
+    },
+    {
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
@@ -194,8 +229,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -218,8 +253,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -230,8 +265,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -242,8 +277,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -254,30 +289,6 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "stellamccartney.com (domain) ~ 401012.003",
-      "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
@@ -288,7 +299,19 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
+      "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
+      "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "stellamccartney.com (domain) ~ 401012.003",
       "result": "FAIL",
       "error": null,
       "indexReachable": true,
@@ -299,11 +322,23 @@
       "candidates": 0
     },
     {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
+      "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -312,8 +347,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
+      "error": "no archived capture",
+      "indexReachable": true,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -322,7 +357,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -499,6 +534,7 @@
       "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
+      "JS_RENDERED_PAGE",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
       "RESEARCH_EVIDENCE",
@@ -520,13 +556,11 @@
       "INDEXED_OUTBOUND_MEDIA": [
         "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
+        "TimeoutError: The read operation timed out",
         "URLError: <urlopen error timed out>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
+        "URLError: <urlopen error timed out>",
         "index phase deadline reached (600s)"
       ]
     },
@@ -537,8 +571,10 @@
       "tu0a28z0699",
       "tu0a28z0699226vi"
     ],
+    "spaRenderPending": true,
     "refusalPermitted": false,
-    "refusalBlockedBecause": "no domain outside the starting host set was evaluated — a fixed list of known hosts is not exhausted discovery"
+    "refusalBlockedBecause": "an exact-SKU page was served as a client-side shell and the bounded render route has not run — discovery is not exhausted",
+    "userInputPermitted": false
   },
   "log": [
     {
@@ -555,8 +591,8 @@
       "raw_candidates": 0,
       "page_has_sku": true,
       "sku_evidence_where": "body",
-      "html_bytes": 2393,
-      "shell_suspected": false
+      "html_bytes": 2386,
+      "shell_suspected": true
     },
     {
       "stage": "discover",
@@ -565,8 +601,8 @@
       "raw_candidates": 0,
       "page_has_sku": true,
       "sku_evidence_where": "body",
-      "html_bytes": 2401,
-      "shell_suspected": false
+      "html_bytes": 2395,
+      "shell_suspected": true
     },
     {
       "stage": "discover",
@@ -575,8 +611,8 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2366,
-      "shell_suspected": false
+      "html_bytes": 2365,
+      "shell_suspected": true
     },
     {
       "stage": "discover",
@@ -585,8 +621,8 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2375,
-      "shell_suspected": false
+      "html_bytes": 2369,
+      "shell_suspected": true
     },
     {
       "stage": "discover",
@@ -595,8 +631,8 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2333,
-      "shell_suspected": false
+      "html_bytes": 2327,
+      "shell_suspected": true
     },
     {
       "stage": "discover",
@@ -605,10 +641,22 @@
       "raw_candidates": 13,
       "page_has_sku": false,
       "sku_evidence_where": "body",
-      "html_bytes": 361584,
+      "html_bytes": 361666,
       "shell_suspected": false
     },
     {
+      "stage": "js-render",
+      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "ok": false,
+      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https://"
+    },
+    {
+      "stage": "js-render",
+      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "ok": false,
+      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https:"
+    },
+    {
       "stage": "indexed-asset",
       "domain": "giglio.com",
       "term": "TU0A28Z0699",
@@ -638,7 +686,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -654,7 +702,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -662,7 +710,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -670,7 +718,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -678,7 +726,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -686,7 +734,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-asset",
@@ -694,7 +742,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -702,25 +750,25 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": null
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
