@@ -244,6 +244,10 @@ def is_search_route(url):
     return bool(SEARCH_ROUTE_RE.search(url or ""))
 
 
+# Below this, a page that also yields no image reference at all is a
+# client-side shell rather than a document we failed to parse.
+SHELL_HTML_BYTES = 15000
+
 MAX_ASPECT = 2.2
 
 
@@ -411,10 +415,14 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
     log.append({"stage": "discover", "url": final, "ok": True,
                 "raw_candidates": len(found), "page_has_sku": page_has_sku,
                 "sku_evidence_where": sku_where, "html_bytes": len(html or ""),
-                # A document that names the article only because we asked for
-                # that path, and shows no images at all, has not proven itself
-                # to be a product document.
-                "shell_suspected": bool(sku_where == "url-only" and not found)})
+                # A product page that yields no image reference at all, in any
+                # form, from a body far too small to BE a product page is a
+                # client-side bootstrap shell: the real document is assembled
+                # by JavaScript after load. Giglio served ~2.4 KB for pages
+                # that genuinely name the article. Naming it is not the test —
+                # a shell can carry the article in a meta tag — so size and the
+                # complete absence of images decide.
+                "shell_suspected": bool(not found and len(html or "") < SHELL_HTML_BYTES)})
     if ledger is not None:
         ledger.append({"route": route, "url": final, "result": "OK",
                        "sku_evidence": page_has_sku, "candidates": len(found)})
