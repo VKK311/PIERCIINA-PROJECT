@@ -572,6 +572,59 @@ This is the mirror of the false-refusal work, and the more dangerous direction:
 with three such images the run would have reached PASS and put knitwear on the
 storefront as a pink sneaker at official provenance.
 
+## TU0A28Z0699 — READY FOR APPROVAL as PM-033
+
+| | |
+|---|---|
+| STATE | acquired, staged, **not published** |
+| BRAND / MODEL | Stella McCartney / **Pineapple Bucket Bag** |
+| ITEM | TU0A28Z0699 (designer `TU0A28Z0699 226VI`; Giglio `401012.003`) |
+| CATEGORY | BAGS, `subcategory: null` — first BAGS product from the pipeline |
+| COLOUR | `Yellow` as specified; **frames show yellow WITH pink waves** |
+| COMPOSITION | **`100% Polyurethane` — published**, from the exact-SKU document |
+| DIMENSIONS | omitted — no exact-product evidence |
+| PRICE | €109, no SALE |
+| AVAILABILITY | ONE SIZE, verified against the live engine |
+| MEDIA | 4 × 1125×1500 from `img.giglio.com` |
+| TIER | **TRUSTED_RETAILER** — not manufacturer media |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| PACKAGE | `checkpoints/PM033_TU0A28Z0699_APPROVAL_PREVIEW.md` |
+
+First product to publish a composition: PM-026 through PM-032 all omitted one
+because no exact-product source stated it. Here the exact-SKU document does.
+
+**Two things the visual review corrected in my own earlier reporting.** I said
+this product was "yellow, not pink" and would be the first non-pink supplier
+product — wrong, and based on retailer text rather than the photographs; the
+body carries a pink scalloped wave print over roughly half its visible surface.
+An early search summary claiming a "purple waves print" was also wrong: the
+waves are pink and the strap is lilac.
+
+`media.surface` is omitted rather than asserted. Three frames sit on a studio
+white of about `#ECECEC` and the fourth is a tight crop with no backdrop, so no
+consensus existed; the Mall neutral is within three levels of that white.
+
+## Two authority defects fixed here
+
+**`allowed_hosts` was being read as authority.** `_authority_tier` seeded
+OFFICIAL from the *network permission* list, so every trusted retailer in a
+brand's registry read as manufacturer media — these Giglio routes among them.
+The damage went past mislabelling: the same function decides whether to keep
+hunting for official media, so a retailer answering "yes, I am official"
+silently switched official discovery off, inverting the source hierarchy.
+
+Manufacturer authority is now declared explicitly and nowhere else —
+`official_hosts` on the brand, `officialHostSuffixes` on the request for an
+evidenced CDN. Everything merely allowed defaults to TRUSTED_RETAILER. The real
+CDNs keep their standing because each was evidenced rather than assumed;
+`cdn.shopify.com` is deliberately excluded as a shared platform host.
+
+**Identity was tied to media.** `exactProductDocument` was written twice in one
+dict literal, and the surviving write required media or sizes — so a document
+whose gallery is client-rendered stopped counting as exact identity. Exactness
+is now an explicit `skuInBody` assertion from a transport that read the body,
+never inferred from a SKU in a path we chose to request.
+
 ## Bounded SPA rendering — built, proven, and refused by one site
 
 `tools/media_acquisition/render.py` renders ONE already evidenced product URL
