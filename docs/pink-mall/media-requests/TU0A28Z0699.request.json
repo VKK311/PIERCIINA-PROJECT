@@ -133,6 +133,7 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 11 — CONTROL DIAGNOSTIC. Determines whether the render timeout is the runner browser lacking egress or the site declining to answer that client. The plain fetcher gets 200 from the same URL, so the two cases have very different meanings and must not be conflated.",
     "PASS 10 — RENDER AFTER THE INTERCEPTION FIX. Pass 9 cleared the h2 handshake and hit a navigation timeout caused by the renderer intercepting every subresource. The origin guard is now post-navigation and navigation waits on commit.",
     "PASS 9 — RENDER RETRY AFTER THE HTTP/2 FIX. Pass 8 proved the gate: the render route fired with every precondition met and failed only on the h2 handshake, which the plain fetcher does not hit on the same URL.",
     "PASS 8 — BOUNDED JS RENDER. The Giglio product page is an evidenced exact-SKU shell: 2xx, allowed host, TRUSTED_RETAILER, article named in the BODY, ~2.4 kB, zero image references after three parsing fixes. It therefore meets every precondition for the bounded render route, which extracts the real gallery URLs rather than constructing them. Everything the renderer finds still goes through normal acquisition and identity validation.",
