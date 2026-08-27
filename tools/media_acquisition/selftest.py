@@ -692,6 +692,61 @@ def main():
         checks.append(("product route NOT treated as search: " + _u.split("//")[1][:40],
                        is_search_route(_u) is False))
 
+    # A fixed set of already-known retailer hosts is NOT exhausted discovery.
+    # TU0A28Z0699 was declared DISCOVERY_TRANSPORT_BLOCKED while a live
+    # exact-SKU product document sat on a trusted retailer that had never
+    # entered the candidate set — not unreachable, simply never looked for.
+    # The rule is generic: no retailer is named here.
+    from acquire import refusal_audit as _audit  # noqa: E402
+
+    _known = ["known-a.test", "known-b.test"]
+    _all_routes = [
+        {"route": r, "url": "https://known-a.test/x", "result": "OK", "candidates": 0}
+        for r in ("DIRECT_OFFICIAL_PAGE", "DIRECT_OFFICIAL_API",
+                  "OFFICIAL_REGIONAL_SEARCH", "SEARCH_INDEX_OFFICIAL",
+                  "INDEXED_SOURCE_EVIDENCE", "INDEXED_OUTBOUND_MEDIA",
+                  "OFFICIAL_CDN_PROBE", "TRUSTED_RETAILER_SEARCH",
+                  "TRUSTED_RETAILER_INDEXED_EVIDENCE", "IDENTIFIER_EXPANSION")
+    ]
+
+    # 1. Every known host tried and empty, nothing outside the starting set.
+    _a = _audit(list(_all_routes), aliases=None, known_hosts=_known)
+    checks.append(("known hosts alone never permit refusal",
+                   _a["refusalPermitted"] is False))
+    checks.append(("and the reason names the un-searched space",
+                   "not exhausted discovery" in _a["refusalBlockedBecause"]))
+    checks.append(("NEW_RETAILER_DISCOVERY is reported un-attempted",
+                   "NEW_RETAILER_DISCOVERY" in _a["routesNotAttempted"]))
+
+    # 2. A newly discovered trusted retailer carrying an exact-SKU document.
+    _found = list(_all_routes) + [{
+        "route": "TRUSTED_RETAILER_SEARCH", "url": "https://newly-found.test/p/item.html",
+        "result": "OK", "authorityTier": "TRUSTED_RETAILER",
+        "exactProductDocument": True, "sku_evidence": True, "candidates": 4}]
+    _b = _audit(_found, aliases=None, known_hosts=_known)
+    checks.append(("a newly discovered exact-SKU page forbids refusal",
+                   _b["refusalPermitted"] is False))
+    checks.append(("and it is recorded as an exact product document",
+                   any("newly-found.test" in (x.get("url") or "")
+                       for x in _b["exactProductDocuments"])))
+    checks.append(("the new domain satisfies NEW_RETAILER_DISCOVERY",
+                   "NEW_RETAILER_DISCOVERY" in _b["routesSucceeded"]))
+
+    # 3. Subdomains of a known host are NOT a new source.
+    _sub = list(_all_routes) + [{"route": "TRUSTED_RETAILER_SEARCH",
+                                 "url": "https://img.known-a.test/a.jpg", "result": "OK"}]
+    _c = _audit(_sub, aliases=None, known_hosts=_known)
+    checks.append(("a subdomain of a known host is not a new source",
+                   "NEW_RETAILER_DISCOVERY" in _c["routesNotAttempted"]))
+
+    # 4. A new domain that was merely unreachable does not satisfy the route.
+    _unre = list(_all_routes) + [{"route": "TRUSTED_RETAILER_SEARCH",
+                                  "url": "https://newly-found.test/p/item.html",
+                                  "result": "FAIL", "error": "HTTP Error 403: Forbidden"}]
+    _d = _audit(_unre, aliases=None, known_hosts=_known)
+    checks.append(("an unreachable new domain still forbids refusal",
+                   _d["refusalPermitted"] is False))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

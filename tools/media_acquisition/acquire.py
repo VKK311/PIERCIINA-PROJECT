@@ -1174,6 +1174,13 @@ REFUSAL_ROUTES = (
     "TRUSTED_RETAILER_SEARCH",
     "TRUSTED_RETAILER_INDEXED_EVIDENCE",
     "IDENTIFIER_EXPANSION",
+    # A fixed list of hosts we already knew about is NOT exhausted discovery.
+    # TU0A28Z0699 was declared DISCOVERY_TRANSPORT_BLOCKED while a live
+    # exact-SKU product document sat on a trusted retailer that had simply
+    # never entered the candidate set — not unreachable, just never looked for.
+    # This route is satisfied only by evaluating a domain that was NOT in the
+    # run's starting host set.
+    "NEW_RETAILER_DISCOVERY",
 )
 
 
@@ -1200,10 +1207,35 @@ def _is_transport_failure(entry):
     return bool(TRANSPORT_FAILURE_RE.search(str(entry.get("error") or "")))
 
 
-def refusal_audit(ledger, aliases=None):
+def _entry_host(entry):
+    try:
+        return urllib.parse.urlsplit(entry.get("url") or "").netloc.lower().lstrip(".")
+    except Exception:                                   # noqa: BLE001
+        return ""
+
+
+def _is_new_domain(host, known_hosts):
+    """True when `host` is not covered by any host we started the run knowing.
+
+    Suffix-aware, so www.example.com and img.example.com both count as already
+    known once example.com is in the starting set — the rule is about finding
+    NEW SOURCES, not about counting subdomains.
+    """
+    if not host:
+        return False
+    for k in (known_hosts or ()):
+        k = str(k).lower().lstrip(".")
+        if not k:
+            continue
+        if host == k or host.endswith("." + k) or k.endswith("." + host):
+            return False
+    return True
+
+
+def refusal_audit(ledger, aliases=None, known_hosts=None):
     """Machine-readable account of whether a refusal is permitted.
 
-    Two facts decide it.
+    Three facts decide it.
 
     exact_product_document: if any route returned a document from an allowed
     source naming this exact article with product fields, the identity is NOT
@@ -1213,6 +1245,11 @@ def refusal_audit(ledger, aliases=None):
     budget never answered. Counting it as "tried and empty" would let an
     infrastructure problem masquerade as evidence of absence — which is the
     entire failure mode this gate exists to prevent.
+
+    new-domain discovery: exhausting the hosts we already knew about proves
+    nothing about the hosts we never looked for. `known_hosts` is the run's
+    STARTING host set; a ledger entry from outside it satisfies
+    NEW_RETAILER_DISCOVERY. Until one does, refusal stays forbidden.
     """
     attempted, succeeded, exact, unreachable = {}, {}, [], {}
     for e in (ledger or []):
@@ -1226,6 +1263,14 @@ def refusal_audit(ledger, aliases=None):
             succeeded[r] = succeeded.get(r, 0) + 1
         elif _is_transport_failure(e):
             unreachable.setdefault(r, []).append(str(e.get("error") or "unreachable")[:120])
+        host = _entry_host(e)
+        if _is_new_domain(host, known_hosts):
+            attempted["NEW_RETAILER_DISCOVERY"] = attempted.get("NEW_RETAILER_DISCOVERY", 0) + 1
+            if e.get("result") == "OK":
+                succeeded["NEW_RETAILER_DISCOVERY"] = succeeded.get("NEW_RETAILER_DISCOVERY", 0) + 1
+            elif _is_transport_failure(e):
+                unreachable.setdefault("NEW_RETAILER_DISCOVERY", []).append(
+                    str(e.get("error") or "unreachable")[:120])
         if e.get("exactProductDocument") or (e.get("sku_evidence") and e.get("candidates")):
             exact.append({"route": r, "url": e.get("url"),
                           "authorityTier": e.get("authorityTier"),
@@ -1240,6 +1285,9 @@ def refusal_audit(ledger, aliases=None):
 
     if exact:
         why = "an exact product document was found — identity is established"
+    elif "NEW_RETAILER_DISCOVERY" in untried:
+        why = ("no domain outside the starting host set was evaluated — a fixed "
+               "list of known hosts is not exhausted discovery")
     elif untried:
         why = "routes not attempted: " + ", ".join(untried)
     elif blocked:
@@ -1953,7 +2001,12 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     for e in entries:
         e.pop("_colour_terms", None)
 
-    audit = refusal_audit(ledger, aliases)
+    # The STARTING host set: what this run knew before it began. Anything the
+    # ledger touched outside it counts as newly discovered.
+    _start_hosts = list(rule.get("allowed_hosts") or [])
+    _start_hosts += [str(h) for h in (request.get("allowedHostSuffixes") or [])]
+    _start_hosts += [str(h) for h in (request.get("officialHostSuffixes") or [])]
+    audit = refusal_audit(ledger, aliases, known_hosts=_start_hosts)
 
     status = "PASS" if len(entries) >= MIN_KEEP else ("PARTIAL" if entries else "BLOCKED")
     # A run must not report PASS while variant evidence conflicts.
