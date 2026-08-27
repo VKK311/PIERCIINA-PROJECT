@@ -435,7 +435,7 @@ it is an environment fact, not a product defect.
 | SUPPLIED | article 27733247, colour "34A Rose", €69, sizes 37-41 |
 | PUBLISHABLE SIZES | 37, 38, 39, 40 — the user chose to keep the Mall's EU 36-40 cap, so the supplied 41 is not listed |
 | SIZE STATE | `SIZE_CONFIRMED` against the line's declared EU 36-42 scale |
-| PASSES | 3 runner passes, ~20 research queries |
+| PASSES | 4 runner passes, ~25 research queries |
 | STATUS | `DISCOVERY_TRANSPORT_BLOCKED` — refusal **not** permitted by the gate |
 
 **Who owns the number.** 27733247 is a **MODIVO S.A. / eobuwie group** article
@@ -466,6 +466,40 @@ panels, customised rubber sole, recycled mesh lining.
 **What it did not establish**, and what nothing may be published without: that
 article 27733247 *is* the Rose / 34A colourway. At least ten other Celest
 articles sit in the same catalogue, several of them pink.
+
+### Pass 4: the user's own supplier document, also blocked
+
+The user supplied their supplier's eMAG listing for this exact article and
+asked for photos to be retrieved from it. It is a genuine product document —
+eMAG's grammar is
+`scotch-soda-<type>-<colours>-<size>-<ARTICLE>-<COLOURCODE>-<size>/pd/<id>/`,
+matching sibling listings such as `21733094-s441` and `19739108-s145` — and it
+is the first document in four passes to carry 27733247 in a product path
+rather than a query string.
+
+**eMAG returns HTTP 511 to the runner.** That is Network Authentication
+Required: the site actively declining automated access. MODIVO returns 404 to
+the same client on pages that demonstrably exist. archive.org is blocked from
+the container and times out from the runner.
+
+Every automated transport is now walled by commercial bot protection. **No
+browser-driven bypass will be built for this.** A 511 is the site stating that
+automated access is not permitted, and defeating it would be circumventing an
+access control rather than solving a discovery problem. That is a line, not a
+missing feature.
+
+Two identity facts remain open and must not be smoothed over:
+
+- **Colour code.** The brief says `34A Rose`; the supplied URL says `S059`.
+  Both readings agree the shoe is pink suede, and the article number is the
+  anchor, but the codes are not the same.
+- **Model name.** eMAG's title for this article is only "Спортни обувки с
+  велур" with no model. That retailer *does* name models when it has them —
+  `Кецове Sylvie`, `Спортни обувки Vivi` — so its silence here is not proof of
+  "Celest", which so far rests on the user's brief alone.
+
+The one remaining route is the image files themselves, supplied directly. That
+involves no circumvention.
 
 ### A false acceptance was caught and fixed here
 
