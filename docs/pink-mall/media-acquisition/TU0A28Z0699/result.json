@@ -6,12 +6,12 @@
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T09:16:06Z",
+  "generatedAt": "2026-08-27T09:29:30Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33057078550",
+    "githubRunId": "33057999086",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "7284026f53a9d69e2625d0894acdcc615b5cb546"
+    "githubSha": "bb7a499a4d8f1aea89f102c44f2571a8c1f9b66e"
   },
   "counts": {
     "acquired": 0,
@@ -152,7 +152,7 @@
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "OK",
       "sku_evidence": false,
-      "candidates": 7
+      "candidates": 13
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
@@ -170,8 +170,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "giglio.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -194,7 +194,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -218,8 +218,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -230,8 +230,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -254,8 +254,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -266,8 +266,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -278,7 +278,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -290,7 +290,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -302,7 +302,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -312,7 +312,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -322,7 +322,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -332,7 +332,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -513,25 +513,22 @@
       "RESEARCH_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
-    "routesNotAttempted": [],
+    "routesNotAttempted": [
+      "NEW_RETAILER_DISCOVERY"
+    ],
     "routesUnreachable": {
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>"
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "TimeoutError: The read operation timed out"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error timed out>",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)"
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ]
     },
     "exactProductDocuments": [],
@@ -542,7 +539,7 @@
       "tu0a28z0699226vi"
     ],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE"
+    "refusalBlockedBecause": "no domain outside the starting host set was evaluated — a fixed list of known hosts is not exhausted discovery"
   },
   "log": [
     {
@@ -591,7 +588,7 @@
       "stage": "discover",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "ok": true,
-      "raw_candidates": 7,
+      "raw_candidates": 13,
       "page_has_sku": false
     },
     {
@@ -608,7 +605,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -624,7 +621,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -640,7 +637,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -648,7 +645,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -664,7 +661,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -672,7 +669,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -680,7 +677,7 @@
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -688,31 +685,31 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "observed-hosts",
@@ -722,7 +719,7 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 7
+      "total_unique_candidates": 13
     },
     {
       "stage": "acquire",
@@ -734,25 +731,25 @@
       "stage": "resolution",
       "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
       "ok": false,
-      "error": "variant differs from anchor (dHash 13); rejected"
+      "error": "variant differs from anchor (dHash 17); rejected"
     },
     {
       "stage": "resolution",
       "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
       "ok": false,
-      "error": "variant differs from anchor (dHash 13); rejected"
+      "error": "variant differs from anchor (dHash 16); rejected"
     },
     {
       "stage": "resolution",
       "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
       "ok": false,
-      "error": "variant differs from anchor (dHash 12); rejected"
+      "error": "variant differs from anchor (dHash 14); rejected"
     },
     {
       "stage": "resolution",
       "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
       "ok": false,
-      "error": "variant differs from anchor (dHash 13); rejected"
+      "error": "variant differs from anchor (dHash 17); rejected"
     },
     {
       "stage": "identity",
@@ -787,6 +784,42 @@
     {
       "stage": "identity",
       "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw09b6e9c8/footer/SU26/SMC26_FALABELLA_474x333px.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.stellamccartney.com/on/demandware.static/Sites-smc-globale-Site/-/default/dw7a683409/images/favicons/apple-touch-icon.png",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.stellamccartney.com/on/demandware.static/Sites-smc-globale-Site/-/default/dw81ca332a/images/favicons/favicon-32x32.png",
+      "ok": false,
+      "error": "too small (431 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.stellamccartney.com/on/demandware.static/Sites-smc-globale-Site/-/default/dw571ef921/images/favicons/favicon-16x16.png",
+      "ok": false,
+      "error": "too small (252 B)"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dwdc111356/SMC26_WI26_CAMPAIGN_739x983_1.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw9f30e34d/L1060988_mobile_nav.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw978275b5/SMC26_WI26_CAMPAIGN_739x983_72.jpg",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     }
