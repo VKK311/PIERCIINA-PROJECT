@@ -133,6 +133,7 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 5 — RESCAN AFTER THE SCANNER FIX. Pass 4 proved the route: both constructed Giglio product URLs RESOLVED and page_has_sku was TRUE, so the page is a genuine exact-SKU document and the lead grammar was right. It still yielded raw_candidates 0 because the scanner only matched absolute https image URLs and missed protocol-relative and root-relative references. That is now fixed generically.",
     "PASS 4 — NEWLY DISCOVERED EXACT-SKU RETAILER. The previous DISCOVERY_TRANSPORT_BLOCKED conclusion is SUPERSEDED. Giglio holds a live exact-SKU product document; it never entered the candidate set because discovery was run against a FIXED SET OF ALREADY-KNOWN HOSTS instead of searching for new trusted retailer domains carrying the article.",
     "The two product URLs are CONSTRUCTED LEADS built from the grammar of a genuine sibling page found by search — giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a78z0699.html, the silver TU0A78Z0699 article. A lead is not evidence: it costs a 404 if wrong and becomes evidence only if it resolves AND the document carries TU0A28Z0699.",
     "The three listing URLs are REAL observed URLs, not constructed, and are not search routes, so link-target recovery may mine them for the article's own product URL. That is the generic route and it does not depend on the constructed leads succeeding.",
