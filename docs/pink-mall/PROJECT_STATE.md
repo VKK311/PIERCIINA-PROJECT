@@ -572,6 +572,65 @@ This is the mirror of the false-refusal work, and the more dangerous direction:
 with three such images the run would have reached PASS and put knitwear on the
 storefront as a pink sneaker at official provenance.
 
+## Stella McCartney TU0A28Z0699 — DISCOVERY_TRANSPORT_BLOCKED
+
+| | |
+|---|---|
+| STATE | **no media acquired, nothing staged, nothing published** |
+| BRAND | Stella McCartney (Kids line — internal only, never public) |
+| PRODUCT | Pineapple-shaped crossbody bag |
+| SUPPLIED | article TU0A28Z0699, €109, ONE SIZE |
+| CATEGORY | BAGS, `subcategory: null` |
+| PASSES | 3 runner passes across ~10 hosts |
+| STATUS | `DISCOVERY_TRANSPORT_BLOCKED` — refusal **not** permitted by the gate |
+
+**The split that blocks this product.** Every page that names the article is
+unreachable, and every reachable page does not name the article.
+
+| Host | Reachable | Names TU0A28Z0699 |
+|---|---|---|
+| littletagsluxury.com | 404 (all 3 URL forms) | **yes** — only known document |
+| italist.com | 404 (both regions) | likely |
+| farfetch.com | **403 Forbidden** | likely |
+| childrensalon.com | 404 | unknown |
+| kids21.com | 404 | unknown |
+| smallable.com | **yes** | **no** (`page_has_sku: False`) |
+| modesens.com | **yes** | **no** |
+| stellamccartney.com | **yes** | **no** |
+
+Stella's own search returning nothing is the decisive measurement:
+**TU0A28Z0699 is a wholesale style code, not the brand's e-commerce ID.** The
+brand indexes K-codes such as `K03231PK02407203`. So official media cannot
+clear the identity gate for this article no matter how many passes are run —
+the gate is working, not failing.
+
+The colon in the Little Tags URL was tested and ruled out: it 404s
+percent-encoded, literal, and via that site's own search.
+
+Established routes are exhausted. `INDEXED_OUTBOUND_MEDIA` and
+`INDEXED_SOURCE_EVIDENCE` have still never answered on this runner, a
+structural limitation already documented across earlier products; aiming them
+would mean re-engineering the index budget, which is architecture work and out
+of scope for a normal onboarding.
+
+**What is established** (identity, not media): the product is a pineapple-shaped
+crossbody bag from the Stella McCartney Kids line, yellow, ONE SIZE, and the
+brand's own copy for the same-theme bag describes Alter Mat — its vegan
+alternative to animal leather — with scallop prints and a green drawstring
+shaped like a pineapple top.
+
+**What is NOT established**: any media bound to this article, and the widely
+repeated `14 × 17 × 11 cm` / `100% polyurethane` figures, which appear only in
+search-engine paraphrase and therefore may not be published as specifications.
+An early summary also claimed a "purple waves print" that contradicts the
+brand's own green-drawstring description and appears in no document.
+
+Two things a human should note when this resumes: the bag is **yellow, not
+pink**, which would make it the first non-pink real supplier product; and it is
+a **child-series article**, so the classification stays internal and the honest
+size signal for a buyer is dimensions — publishable only once a document
+states them.
+
 ## Next step
 
 Next Mall ID is **PM-033**, unallocated until a product is actually published.
