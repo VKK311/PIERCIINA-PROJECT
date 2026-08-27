@@ -6,12 +6,12 @@
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T12:49:24Z",
+  "generatedAt": "2026-08-27T13:01:44Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33072818501",
+    "githubRunId": "33073835589",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "bd56c8fbb8970bc7f4f84c6db55bac449577d0e1"
+    "githubSha": "2bc20d5c6f487ff7f4bd89ad069f8d19f53568df"
   },
   "counts": {
     "acquired": 0,
@@ -159,14 +159,14 @@
       "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "result": "FAIL",
       "authorityTier": "OFFICIAL",
-      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https://"
+      "error": "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting until"
     },
     {
       "route": "JS_RENDERED_PAGE",
       "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "result": "FAIL",
       "authorityTier": "OFFICIAL",
-      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https:"
+      "error": "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt"
     },
     {
       "route": "JS_RENDERED_PAGE",
@@ -193,8 +193,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -241,8 +241,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -253,7 +253,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -265,8 +265,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -277,8 +277,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -289,7 +289,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -301,7 +301,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -313,8 +313,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -325,7 +325,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -347,8 +347,8 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "index call budget exhausted (24 calls)",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -357,7 +357,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -367,7 +367,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -553,15 +553,25 @@
       "NEW_RETAILER_DISCOVERY"
     ],
     "routesUnreachable": {
+      "JS_RENDERED_PAGE": [
+        "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-",
+        "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_ba"
+      ],
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
         "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error timed out>"
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "TimeoutError: The read operation timed out",
+        "URLError: <urlopen error [Errno 111] Connection refused>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error timed out>",
-        "index phase deadline reached (600s)"
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)"
       ]
     },
     "exactProductDocuments": [],
@@ -591,7 +601,7 @@
       "raw_candidates": 0,
       "page_has_sku": true,
       "sku_evidence_where": "body",
-      "html_bytes": 2386,
+      "html_bytes": 2393,
       "shell_suspected": true
     },
     {
@@ -601,7 +611,7 @@
       "raw_candidates": 0,
       "page_has_sku": true,
       "sku_evidence_where": "body",
-      "html_bytes": 2395,
+      "html_bytes": 2396,
       "shell_suspected": true
     },
     {
@@ -611,7 +621,7 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2365,
+      "html_bytes": 2371,
       "shell_suspected": true
     },
     {
@@ -621,7 +631,7 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2369,
+      "html_bytes": 2376,
       "shell_suspected": true
     },
     {
@@ -631,7 +641,7 @@
       "raw_candidates": 0,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 2327,
+      "html_bytes": 2333,
       "shell_suspected": true
     },
     {
@@ -641,96 +651,24 @@
       "raw_candidates": 13,
       "page_has_sku": false,
       "sku_evidence_where": "body",
-      "html_bytes": 361666,
+      "html_bytes": 361671,
       "shell_suspected": false
     },
     {
       "stage": "js-render",
       "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": false,
-      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https://"
+      "error": "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting until"
     },
     {
       "stage": "js-render",
       "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": false,
-      "error": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\nCall log:\n  - navigating to \"https:"
+      "error": "TimeoutError: Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html\", waiting unt"
     },
     {
       "stage": "indexed-asset",
       "domain": "giglio.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "giglio.com",
-      "term": "401012.003",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "giglio.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "401012.003",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "img.giglio.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "smallable.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "smallable.com",
-      "term": "401012.003",
-      "rows": 0,
-      "hits": 0,
-      "error": null
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "smallable.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "stellamccartney.com",
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
@@ -738,7 +676,7 @@
     },
     {
       "stage": "indexed-asset",
-      "domain": "stellamccartney.com",
+      "domain": "giglio.com",
       "term": "401012.003",
       "rows": 0,
       "hits": 0,
@@ -746,11 +684,83 @@
     },
     {
       "stage": "indexed-asset",
+      "domain": "giglio.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "img.giglio.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "img.giglio.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "img.giglio.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "smallable.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "smallable.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "smallable.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "stellamccartney.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "stellamccartney.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-asset",
       "domain": "stellamccartney.com",
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-cdx",
@@ -762,19 +772,19 @@
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "captures": 0,
-      "error": null
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "captures": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "observed-hosts",
