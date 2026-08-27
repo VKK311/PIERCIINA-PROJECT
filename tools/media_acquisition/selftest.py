@@ -629,6 +629,49 @@ def main():
                    _sig(_hit, "HC.RBGLOW01", []) is False
                    and _sig(_hit, "HC.F24.RBGLOW01", []) is True))
 
+    # sizeScale accepts a bare label as well as the dict form. Every manifest
+    # before Celest 27733247 left the field empty, so the dict-only reader was
+    # never exercised against real data and crashed the run on a plain list of
+    # sizes. These guards pin BOTH shapes, and that they agree.
+    def _scale(scale):
+        req = {"researchEvidence": [{
+            "sourceUrl": "https://example.test/p",
+            "authorityTier": "OFFICIAL",
+            "discoveryTransport": "CLAUDE_RESEARCH",
+            "confidence": "B",
+            "sizeScale": scale,
+        }]}
+        _log, _ledger = [], []
+        from acquire import ingest_research_evidence  # noqa: E402
+        out = ingest_research_evidence(req, _log, _ledger)
+        sizes = out[2] if len(out) > 2 else None
+        for cand in out:
+            if isinstance(cand, list) and cand and isinstance(cand[0], dict) \
+               and "sizes" in cand[0]:
+                sizes = cand
+                break
+        return [e["size"] for e in sizes[0]["sizes"]] if sizes else None
+
+    _bare = None
+    _crash = None
+    try:
+        _bare = _scale(["36", "37", "38"])
+    except Exception as exc:                       # noqa: BLE001
+        _crash = repr(exc)
+    checks.append(("a bare-string sizeScale does not crash the run",
+                   _crash is None))
+    checks.append(("a bare-string sizeScale is read as sizes",
+                   _bare == ["36", "37", "38"]))
+    try:
+        _dicts = _scale([{"size": "36", "declared": "InStock"},
+                         {"size": "37", "declared": ""},
+                         {"size": "38", "declared": ""}])
+    except Exception:                              # noqa: BLE001
+        _dicts = None
+    checks.append(("the dict sizeScale form still works",
+                   _dicts == ["36", "37", "38"]))
+    checks.append(("both sizeScale shapes agree", _bare == _dicts))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

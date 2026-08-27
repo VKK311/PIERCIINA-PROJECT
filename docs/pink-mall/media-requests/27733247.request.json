@@ -4,7 +4,12 @@
   "manufacturerItemNo": "27733247",
   "model": "Celest",
   "variant": "Rose",
-  "availableSizes": ["37", "38", "39", "40", "41"],
+  "availableSizes": [
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "candidateMedia": [],
   "indexedAssetSearch": true,
   "indexedEvidence": true,
@@ -55,7 +60,15 @@
       "model": "Celest",
       "variant": null,
       "aliases": [],
-      "sizeScale": ["36", "37", "38", "39", "40", "41", "42"],
+      "sizeScale": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42"
+      ],
       "mediaUrls": [],
       "observedCdnHosts": [],
       "notes": [
@@ -111,7 +124,12 @@
     "efootwear.eu"
   ],
   "resolution": {
-    "widthLadder": [2000, 1600, 1200, 1000]
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
   },
   "requestedBy": "claude",
   "notes": [
@@ -119,6 +137,7 @@
     "What IS established: the 8-digit article format, that 34A reads as a colour code, that a 'Rose' Celest colourway exists, the official EU 36-42 scale, and the model's materials.",
     "The two efootwear URLs are CONSTRUCTED LEADS built from that retailer's observed URL grammar. A lead is not evidence. Each costs a 404 if wrong and proves nothing; it becomes evidence only if it resolves AND the document carries the exact article number.",
     "cdn_hosts is deliberately empty in the brand registry. The media host is to be taken from THIS run's rejection log, never guessed — the same rule the A08745C run is the recorded reason for.",
-    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. Wrong-colourway acquisition is the exact PM-030 failure mode."
+    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. Wrong-colourway acquisition is the exact PM-030 failure mode.",
+    "SIZE 41 EXCLUDED BY MALL RULE, NOT BY THE PRODUCT. The user supplied 37, 38, 39, 40, 41. PINK MALL's calibrated public shoe ladder is EU 36-40 inclusive, and the user was asked and chose to keep that cap rather than raise it. 41 is a genuine size for this model (official scale EU 36-42), so the pair is real and simply is not listed. This is recorded because it is a size the user holds in stock that the storefront will not offer."
   ]
 }

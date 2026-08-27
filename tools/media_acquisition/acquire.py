@@ -1302,13 +1302,27 @@ def ingest_research_evidence(request, log, ledger):
 
         scale = ev.get("sizeScale") or []
         if scale:
+            # Accept a bare label as well as {"size": ..., "declared": ...},
+            # exactly as mediaUrls just below accepts a bare URL. A size scale
+            # is naturally written as ["36", "37", ...], and every manifest
+            # before this one left the field empty, so the dict-only form had
+            # never actually been exercised against real data.
+            sizes = []
+            for x in scale:
+                if isinstance(x, dict):
+                    label, declared = x.get("size"), x.get("declared", "")
+                else:
+                    label, declared = x, ""
+                if label is None:
+                    continue
+                label = str(label).strip()
+                if label:
+                    sizes.append({"size": label, "declared": declared})
             size_evidence.append({
                 "page": src, "route": "RESEARCH_EVIDENCE",
                 "authorityTier": tier, "transport": transport,
                 "capturedAt": ev.get("capturedAt"),
-                "sizes": [{"size": str(x.get("size")).strip(),
-                           "declared": x.get("declared", "")}
-                          for x in scale if x.get("size") is not None],
+                "sizes": sizes,
             })
 
         media = ev.get("mediaUrls") or []
