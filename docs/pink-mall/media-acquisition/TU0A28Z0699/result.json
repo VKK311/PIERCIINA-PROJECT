@@ -6,12 +6,12 @@
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T08:46:45Z",
+  "generatedAt": "2026-08-27T09:16:06Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33054692281",
+    "githubRunId": "33057078550",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "42e5b9622db1ec4b8c1c9a856968d8bc7796b203"
+    "githubSha": "7284026f53a9d69e2625d0894acdcc615b5cb546"
   },
   "counts": {
     "acquired": 0,
@@ -33,6 +33,28 @@
   "contactSheet": null,
   "images": [],
   "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "result": "OK",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "REVIEWER_VERIFIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T11:00:00Z",
+      "observedSku": "TU0A28Z0699",
+      "model": "Pineapple-shaped bag",
+      "variant": "Yellow",
+      "aliases": [
+        "401012.003",
+        "TU0A28Z0699226VI",
+        "tu0a28z0699"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
     {
       "route": "RESEARCH_EVIDENCE",
       "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
@@ -91,43 +113,39 @@
       "candidates": 0
     },
     {
-      "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
-      "sku_evidence": false,
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "result": "OK",
+      "sku_evidence": true,
       "candidates": 0
     },
     {
-      "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
-      "sku_evidence": false,
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "result": "OK",
+      "sku_evidence": true,
       "candidates": 0
     },
     {
-      "route": "RETAILER_SEARCH",
-      "url": "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
+      "result": "OK",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.childrensalon.com/stella-mccartney-kids/",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
+      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
+      "result": "OK",
       "sku_evidence": false,
       "candidates": 0
     },
     {
-      "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "result": "OK",
       "sku_evidence": false,
-      "candidates": 194
+      "candidates": 0
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
@@ -138,43 +156,7 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "cdn-images.farfetch-contents.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "cdn-images.farfetch-contents.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "cdn.modesens.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "cdn.modesens.com (domain) ~ TU0A28Z0699226VI",
+      "url": "giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
       "error": null,
       "indexReachable": true,
@@ -186,7 +168,19 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "childrensalon.com (domain) ~ TU0A28Z0699",
+      "url": "giglio.com (domain) ~ 401012.003",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
@@ -198,9 +192,9 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "childrensalon.com (domain) ~ TU0A28Z0699226VI",
+      "url": "img.giglio.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -210,10 +204,10 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "farfetch.com (domain) ~ TU0A28Z0699",
+      "url": "img.giglio.com (domain) ~ 401012.003",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -222,129 +216,9 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "farfetch.com (domain) ~ TU0A28Z0699226VI",
+      "url": "img.giglio.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "italist.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "italist.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "kids21.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "kids21.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "littletagsluxury.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "littletagsluxury.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "media.smallable.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "media.smallable.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "modesens.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "modesens.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -356,7 +230,19 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "smallable.com (domain) ~ 401012.003",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -368,31 +254,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "staticv3.smallable.com (domain) ~ TU0A28Z0699",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "indexedVia": "web.archive.org",
-      "authorityTier": "OFFICIAL",
-      "exactProductDocument": false,
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_OUTBOUND_MEDIA",
-      "url": "staticv3.smallable.com (domain) ~ TU0A28Z0699226VI",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -404,7 +266,19 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "stellamccartney.com (domain) ~ 401012.003",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -416,7 +290,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -426,9 +300,9 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -436,9 +310,9 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -446,29 +320,9 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
+      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.childrensalon.com/stella-mccartney-kids/",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
-      "indexReachable": false,
-      "authorityTier": "OFFICIAL",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-      "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -478,7 +332,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "index call budget exhausted (24 calls)",
       "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
@@ -528,7 +382,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 4 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -542,10 +396,39 @@
     "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
   },
   "identifierAliases": [
+    "401012.003",
     "TU0A28Z0699226VI",
+    "tu0a28z0699",
     "tu0a28z0699226vi"
   ],
   "researchEvidence": [
+    {
+      "sourceUrl": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "REVIEWER_VERIFIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T11:00:00Z",
+      "sku": "TU0A28Z0699",
+      "model": "Pineapple-shaped bag",
+      "variant": "Yellow",
+      "aliases": [
+        "401012.003",
+        "TU0A28Z0699226VI",
+        "tu0a28z0699"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "img.giglio.com"
+      ],
+      "notes": [
+        "REVIEWER-VERIFIED EXACT-SKU DOCUMENT. An independent reviewer transport read a currently live Giglio product page that explicitly states: Stella McCartney Kids, designer code TU0A28Z0699 226VI, Giglio product code 401012, category Bag, colour Yellow, composition 100% Polyurethane, and four distinct gallery images.",
+        "OBSERVED ASSET SHAPE: four gallery assets on img.giglio.com belonging to Giglio product 401012.003, views _1 through _4. Host and code shape are reviewer-observed; the runner must still discover the actual asset URLs from the page and validate them normally.",
+        "ALIAS 401012.003 IS COLOUR-SCOPED ON PURPOSE. Giglio asset paths carry its own product code rather than the designer code, so without an alias the identity gate would reject the retailer's own images. The bare 401012 is NOT used, because the .003 suffix is the colour variant and dropping it could admit a sibling colourway — the rule the HC.RBGLOW01 run established.",
+        "COMPOSITION IS PUBLISHABLE FROM HERE: 100% Polyurethane is stated on an exact-SKU document. Dimensions are NOT — no exact-SKU document read so far states them.",
+        "TIER: Giglio is an established retailer, not the manufacturer. Media from here is TRUSTED_RETAILER and must never be presented as official brand media."
+      ]
+    },
     {
       "sourceUrl": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
       "authorityTier": "TRUSTED_RETAILER",
@@ -603,109 +486,105 @@
       "observedCdnHosts": [],
       "notes": [
         "Corroborates that the same pineapple bag is sold under several retailer names — 'Pineapple Seal Bag' here, 'Pineapple-Shaped Crossbody Bag' at Little Tags. The public model name must be chosen from what is actually evidenced rather than assembled from the prettiest of these.",
-        "sku NULL: this page has not been read and is not an exact product document for our article."
+        "sku NULL: this page has not been read and is not an exact product document for our article.",
+        "CORROBORATING MODEL EVIDENCE ONLY. Supports the model naming 'Pineapple Seal Bag', Yellow, ONE SIZE and 100% polyurethane, but this page does not name TU0A28Z0699 (measured: page_has_sku False), so it may not carry dimensions or any other specification into publication on its own."
       ]
     }
   ],
   "refusalAudit": {
     "routesAttempted": [
+      "CONSTRUCTED_LEAD",
       "DIRECT_OFFICIAL_API",
       "DIRECT_OFFICIAL_PAGE",
-      "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
       "RESEARCH_EVIDENCE",
-      "RETAILER_SEARCH",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesSucceeded": [
+      "CONSTRUCTED_LEAD",
       "DIRECT_OFFICIAL_PAGE",
-      "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
-      "RESEARCH_EVIDENCE"
+      "RESEARCH_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
     ],
     "routesNotAttempted": [],
     "routesUnreachable": {
-      "RETAILER_SEARCH": [
-        "HTTPError: HTTP Error 403: Forbidden"
-      ],
       "INDEXED_OUTBOUND_MEDIA": [
-        "TimeoutError: The read operation timed out",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
         "URLError: <urlopen error timed out>",
-        "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)"
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)",
-        "index phase deadline reached (600s)"
+        "URLError: <urlopen error timed out>",
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)",
+        "index call budget exhausted (24 calls)"
       ]
     },
     "exactProductDocuments": [],
     "identifierAliases": [
+      "401012.003",
       "TU0A28Z0699226VI",
+      "tu0a28z0699",
       "tu0a28z0699226vi"
     ],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE, RETAILER_SEARCH"
+    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE"
   },
   "log": [
     {
-      "stage": "discover",
-      "url": "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "stage": "research",
+      "seeded_candidates": 0,
+      "observed_hosts": [
+        "img.giglio.com"
+      ]
     },
     {
       "stage": "discover",
-      "url": "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.childrensalon.com/stella-mccartney-kids/",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
+      "url": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
       "ok": true,
-      "raw_candidates": 194,
+      "raw_candidates": 0,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "ok": true,
+      "raw_candidates": 0,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
+      "ok": true,
+      "raw_candidates": 0,
+      "page_has_sku": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
+      "ok": true,
+      "raw_candidates": 0,
+      "page_has_sku": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
+      "ok": true,
+      "raw_candidates": 0,
       "page_has_sku": false
     },
     {
@@ -717,63 +596,23 @@
     },
     {
       "stage": "indexed-asset",
-      "domain": "cdn-images.farfetch-contents.com",
+      "domain": "giglio.com",
       "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "cdn-images.farfetch-contents.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "cdn.modesens.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "cdn.modesens.com",
-      "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
       "error": null
     },
     {
       "stage": "indexed-asset",
-      "domain": "childrensalon.com",
-      "term": "TU0A28Z0699",
+      "domain": "giglio.com",
+      "term": "401012.003",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
-      "domain": "childrensalon.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "farfetch.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "farfetch.com",
+      "domain": "giglio.com",
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
@@ -781,83 +620,27 @@
     },
     {
       "stage": "indexed-asset",
-      "domain": "italist.com",
+      "domain": "img.giglio.com",
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
-      "domain": "italist.com",
+      "domain": "img.giglio.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "img.giglio.com",
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "kids21.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "kids21.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "littletagsluxury.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "littletagsluxury.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "media.smallable.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "media.smallable.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "modesens.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "modesens.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -865,7 +648,15 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "smallable.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -873,23 +664,7 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "staticv3.smallable.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "staticv3.smallable.com",
-      "term": "TU0A28Z0699226VI",
-      "rows": 0,
-      "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -897,7 +672,15 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "stellamccartney.com",
+      "term": "401012.003",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-asset",
@@ -905,1005 +688,105 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+      "url": "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+      "url": "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
+      "url": "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.childrensalon.com/stella-mccartney-kids/",
-      "captures": 0,
-      "error": "index phase deadline reached (600s)"
-    },
-    {
-      "stage": "indexed-cdx",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-      "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "index call budget exhausted (24 calls)"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "img.giglio.com"
+      ]
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 160
+      "total_unique_candidates": 7
     },
     {
       "stage": "acquire",
-      "url": "https://www.smallable.com/staticv3.smallable.com/1817010-2000x2000q80/pineapple-seal-bag.webp",
+      "url": "https://www.stellamccartney.com/on/demandware.static/Sites-smc-globale-Site/-/en_US/v1787762730431/images/logo.png",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
+      "stage": "resolution",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 13); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 13); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 12); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 13); rejected"
+    },
+    {
       "stage": "identity",
-      "url": "https://media.smallable.com/emiletida_c6639f7d7d.jpg",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://media.smallable.com/oliver_furniture_5a7c80fbd6.jpg",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dwfa78ccca/images/HomePage/2026/A",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://media.smallable.com/main_sauvage_a02a3b96b9.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/charlie_crane_6228ef74c5.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/liewood_94d055667f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/wigiwama_5963b3109f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/onemore_f7d88fa1b1.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bobo_choses_d0c5561d9f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/molo_8535e7d7b3.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/djeco_c757f21538.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/micro_5b0b2a2b13.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/stokke_174d55c36b.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/artipoppe_06983e7c90.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bugaboo_d716aa9c5b.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/minois_5309eb4cdc.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/enfance_a674cc6e53.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/ouate_b058fd57cb.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/back_to_school_2aa450b874.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/school_trip_4315f51cc6.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/sport_time_4edb6687b2.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/uniformes_bdf669494f.jpg",
+      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dwf359a97a/SMC26_KIDS_FW26_NCB_73",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "validate",
-      "url": "https://assets.smallable.com/bundles/smallablefront/css/img/logo.png",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw1beb4173/footer/SU26/SMC26_FALABELLA_NL_Footer_1500x",
       "ok": false,
-      "error": "aspect 4.4:1 — banner shape, not a product photograph"
+      "error": "aspect 2.8:1 — banner shape, not a product photograph"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723584-648x648q80/sweat-ecussons.webp",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw9ed09a14/footer/SU26/SMC26_FALABELLA_NL_Footer_MB_10",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723587-648x648q80/sweat-ecussons.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723581-648x648q80/sweat-ecussons.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723495-648x648q80/floral-coat.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300309-648x648q80/floral-coat.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723470-648x648q80/floral-flared-legging.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300289-648x648q80/floral-flared-legging.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300312-648x648q80/floral-flared-legging.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723467-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723472-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723466-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723493-648x648q80/stella-mccartney-down-jacket.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300301-648x648q80/stella-mccartney-down-jacket.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723641-648x648q80/lasso-organic-cotton-t-shirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723563-648x648q80/jean-etoiles.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300311-648x648q80/jean-etoiles.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300292-648x648q80/jean-etoiles.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723564-648x648q80/jean-etoiles.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723638-648x648q80/cactus-organic-cotton-t-shirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723506-648x648q80/denim-hearts-dress.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723633-648x648q80/cactus-sweater.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723635-648x648q80/cactus-sweater.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723487-648x648q80/stella-sweatshirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723488-648x648q80/stella-sweatshirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723538-648x648q80/stella-etoile-t-shirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991364-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991369-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991368-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991371-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991370-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_12673049-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991365-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_11991366-648x648q80/tut-bow-sequin-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_1000043600-648x648q80/mushroom-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_1000043601-648x648q80/mushroom-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_1000043520-648x648q80/paint-palette-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_1000043521-648x648q80/paint-palette-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_12692969-648x648q80/paint-palette-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865353-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865351-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865352-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865355-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865356-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13865354-648x648q80/dachshund-biscuit-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723513-648x648q80/rainbow-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_638536-648x648q80/cactus-crochet-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640325-648x648q80/cactus-crochet-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640316-648x648q80/cactus-crochet-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640361-648x648q80/cactus-crochet-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_638538-648x648q80/sun-bag-crochet.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640364-648x648q80/sun-bag-crochet.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640363-648x648q80/sun-bag-crochet.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640328-648x648q80/sun-bag-crochet.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_640362-648x648q80/sun-bag-crochet.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_576720-648x648q80/bag-crochet-flowers.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_208293-648x648q80/heart-shoulder-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/1737630-648x648q80/hailee-furry-shoulder-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/1737500-648x648q80/hailee-furry-shoulder-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/1737501-648x648q80/hailee-furry-shoulder-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/1737502-648x648q80/hailee-furry-shoulder-bag.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/smallable_woman_f84067d4e7.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/mariadelaorden_1d6dc17e51.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/diega_dabbbb7b75.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/soeur_5d59055126.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/anine_bing_091fd655cd.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/thenewsociety_885ea5aecd.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/vipera_b6eff4c0d7.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/jerome_dreyfuss_3d1fb6ce11.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/hereu_ab08fed182.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/lemondeberyl_51473c3e1e.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/augusta_c6bb32527d.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/posa_452f9c6605.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/Tityaravy_773f8c5c1a.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/Irened_Arloz_e2a234b5ca.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/Daphine_f97f6bfa99.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/aime_bea542160c.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/aesop_man_bb8af23e51.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/back_to_work_4eba3e3531.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/studio_fitness_9cedd9f487.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/daily_desk_8311993e26.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/new_essentiels_cb18ef7f17.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/veja_e4757024b1.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/universal_works_cf7988f13a.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/smallable_man_3f0c6b2e95.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/les_deux_95d426625b.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/carhartt_f3d8251406.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/anerkjendt_6138899e56.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/blundstone_man_8536c97292.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/autry_8011570d85.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/rains_958ab2855a.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/polaroid_ca4c0a7219.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/mondada_2a8c50f536.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/assouline_1035f8f417.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/aesop_fc389913df.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/L_Abruket_5a7e09eaa5.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/seventyonepercent_d11db44793.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/maisonsarahlavoine_02af858f39.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/thesocialitefamily_189d54e2c7.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/gabrielleparis_ad916bcd75.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/tradition_1c031e29ca.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/hay_56c54ff220.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/vitra_1f7db15b34.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/and_klevering_cee4b705f9.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/hkliving_f2de12f541.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/approuvedbyfritz_144f003498.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/valerie_objects_84d0b8a5bf.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/serax_954d145384.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/masame_36ee6acb33.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/le_monde_sauvage_5f0c3f5cfc.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/maison_de_vacances_8c3725b651.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bongusta_71e98f992f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/house_of_capricorne_1fee502bed.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/lisa_corti_4407657fe0.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/haomy_026edc2838.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/garbo_and_friend_944e86c2f0.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/kascopenhagen_f2fec15a13.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/arizona_aura_2e6183fbc8.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/pantone100ans_c792ad628d.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bringsummerathome_e3630c4086.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/clouddancer_39e6497f90.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/leonorgreyl_955b2bfb7f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/combeau_995a0ded62.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/oden_2bf5722b22.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/nailmatickids_66ca9d1d4c.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/monjour_de07e4ed44.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/inuwet_f968c83acf.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/seasonly_4c15f5c571.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/le_rub_9ae7c3dbfe.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/mimetique_4f1eac4003.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/susanne_kaufmann_09e614b30f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/L_Abruket_beaute_ac0098c376.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/mircea_44be7fd781.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/la_bonne_brosse_8701b45fce.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/on_the_wilde_side_3541b053ea.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/emilyspillow_10fcb75396.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/rms_beauty_c923fff9b0.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/rose_inc_4a060ac1bb.jpg",
+      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw09b6e9c8/footer/SU26/SMC26_FALABELLA_474x333px.jpg",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     }
