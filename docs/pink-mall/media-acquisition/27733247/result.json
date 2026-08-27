@@ -1,0 +1,718 @@
+{
+  "schemaVersion": 1,
+  "status": "PARTIAL",
+  "sku": "27733247",
+  "brand": "Scotch & Soda",
+  "model": "Celest",
+  "variant": "Rose",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-27T06:57:59Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33047378982",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "1dae02e627a861158df27ffc3f8b7a46b885e1a3"
+  },
+  "counts": {
+    "acquired": 2,
+    "unique_selected": 1,
+    "duplicates_collapsed": 1
+  },
+  "variantConfidence": {
+    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
+    "conflicts": [
+      "no official colour term found in frame (rose)"
+    ],
+    "officialColour": "Rose",
+    "officialAnchor": false
+  },
+  "mediaTier": "OFFICIAL",
+  "mediaTierMixed": false,
+  "proposedMain": "source/27733247-01-original.png",
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/27733247-01-original.png",
+      "preview": "preview/27733247-01.webp",
+      "source_url": "https://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229",
+      "requested_url": "http://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229",
+      "anchor_url": "http://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229",
+      "source_domain": "scotch-soda.eu",
+      "discovery_method": "og:image",
+      "acquired_at": "2026-08-27T06:57:57Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/png",
+      "bytes": 2861065,
+      "sha256": "387649c9406fed8d36561ad95497f6c49c59f52da91525cf3b580bc36ea97039",
+      "dhash": "615a9bd9f9c8d9a87d834e67c6cd46cbcf26cbb1a379516fa105a73c2478f1c3",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://scotch-soda.eu/search?q=27733247",
+      "backdrop": null,
+      "duplicates_collapsed": [
+        {
+          "url": "https://www.scotchandsoda.com/cdn/shop/files/183298_001_S_10_DTL_78653f34-a614-45cb-893a-24c6e50d1c75.png?v=1786396213",
+          "size": "1125x1500",
+          "sha256": "387649c9406fed8d36561ad95497f6c49c59f52da91525cf3b580bc36ea97039"
+        }
+      ],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.efootwear.eu/trainers-scotch-soda-celest-21731101-cream-white-s146.html",
+      "result": "FAIL",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "observedSku": "21731101",
+      "model": "Celest",
+      "variant": "Cream/White S146",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-18733464-candy-pink-multi.html",
+      "result": "FAIL",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "observedSku": "18733464",
+      "model": "Celest",
+      "variant": "Candy Pink Multi",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://scotch-soda.eu/collections/women-footwear-sneakers",
+      "result": "OK",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "observedSku": "27733247",
+      "model": "Celest",
+      "variant": null,
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 7,
+      "exactProductDocument": true,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.ebay.com/itm/176620427205",
+      "result": "FAIL",
+      "authorityTier": "MARKETPLACE",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "observedSku": "27733247",
+      "model": "Celest",
+      "variant": "Rose",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "exactProductDocument": false,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "result": "FAIL",
+      "error": "Refused: host eskor.se not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "CONSTRUCTED_LEAD",
+      "url": "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html",
+      "result": "FAIL",
+      "error": "Refused: host eskor.se not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "RETAILER_SEARCH",
+      "url": "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+      "result": "FAIL",
+      "error": "Refused: host eskor.se not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_SEARCH",
+      "url": "https://scotch-soda.eu/search?q=27733247",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 6
+    },
+    {
+      "route": "OFFICIAL_SEARCH",
+      "url": "https://www.scotchandsoda.com/search?q=27733247",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 3
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://scotch-soda.eu/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full",
+      "result": "FAIL",
+      "error": "Refused: host shopify.com not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.scotchandsoda.com/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full",
+      "result": "FAIL",
+      "error": "Refused: host shopify.com not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn.shopify.com (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "efootwear.eu (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "scotch-soda.com (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "scotch-soda.eu (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "scotchandsoda.com (domain) ~ 27733247",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "indexReachable": true,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html",
+      "result": "FAIL",
+      "error": "no archived capture",
+      "indexReachable": true,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://scotch-soda.eu/collections/women-footwear-sneakers",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "OFFICIAL",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sizes": [
+        {
+          "size": "36",
+          "declared": ""
+        },
+        {
+          "size": "37",
+          "declared": ""
+        },
+        {
+          "size": "38",
+          "declared": ""
+        },
+        {
+          "size": "39",
+          "declared": ""
+        },
+        {
+          "size": "40",
+          "declared": ""
+        },
+        {
+          "size": "41",
+          "declared": ""
+        },
+        {
+          "size": "42",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42"
+    ],
+    "matched": [
+      "37",
+      "38",
+      "39",
+      "40"
+    ],
+    "missing": [],
+    "note": "every supplied size appears in the declared exact scale"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.efootwear.eu/trainers-scotch-soda-celest-21731101-cream-white-s146.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "21731101",
+      "model": "Celest",
+      "variant": "Cream/White S146",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "ARTICLE-NUMBER FORMAT EVIDENCE, not this product. Establishes that Scotch & Soda footwear carries an 8-DIGIT article number, and that this retailer's title grammar is 'Celest <8-digit> <Colour Name> <Colour Code>'. The user's 27733247 matches that format exactly.",
+        "Also establishes that the trailing token (S146 here) is a Scotch & Soda COLOUR CODE, which is what makes the user's '34A' read as a colour code rather than a size."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.efootwear.eu/sneakers-scotch-soda-celest-18733464-candy-pink-multi.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "18733464",
+      "model": "Celest",
+      "variant": "Candy Pink Multi",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Second instance of the same 8-digit format, and confirms the Celest line ships PINK colourways. URL grammar observed: /<sneakers|trainers>-scotch-soda-celest-<article>-<colour-slug>.html",
+        "This is a DIFFERENT article number and therefore a DIFFERENT product. It is format and line evidence only, and contributes no image."
+      ]
+    },
+    {
+      "sourceUrl": "https://scotch-soda.eu/collections/women-footwear-sneakers",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "27733247",
+      "model": "Celest",
+      "variant": null,
+      "aliases": [],
+      "sizeScale": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42"
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "OFFICIAL SIZE SCALE: the Celest is offered EU 36 to 42 on the brand's own European storefront. This matters because the user supplied 41, which is a REAL size for this model — the Mall's public ladder cap at 40 is a PINK MALL rule, not a limit of the shoe.",
+        "MODEL FACTS from the brand's own description: women's chunky sneaker, cow suede and nylon panels, customised rubber sole with textured bottom, metallic detail and logo at the side, recycled mesh lining and insole.",
+        "MODEL-VERSION HAZARD: the line has later generations sold as 'Celest 2.0' and 'Celest 2.0 LS'. The user said CELEST, so the base model is the target and a 2.0 asset must not be substituted.",
+        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.ebay.com/itm/176620427205",
+      "authorityTier": "MARKETPLACE",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "27733247",
+      "model": "Celest",
+      "variant": "Rose",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Corroborates only that a colourway named exactly 'Rose' exists in the Celest line ('Scotch & Soda Celest Rose Sneakers').",
+        "MARKETPLACE: barred as a media source by the source hierarchy. Identity corroboration only, contributes no image, and does NOT bind 27733247 to Rose."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "CONSTRUCTED_LEAD",
+      "DIRECT_OFFICIAL_API",
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_OUTBOUND_MEDIA",
+      "INDEXED_SOURCE_EVIDENCE",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "OFFICIAL_SEARCH",
+      "RESEARCH_EVIDENCE",
+      "RETAILER_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "OFFICIAL_SEARCH",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "DIRECT_OFFICIAL_PAGE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesUnreachable": {
+      "INDEXED_OUTBOUND_MEDIA": [
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "TimeoutError: The read operation timed out",
+        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error [Errno 111] Connection refused>"
+      ],
+      "INDEXED_SOURCE_EVIDENCE": [
+        "URLError: <urlopen error [Errno 101] Network is unreachable>"
+      ]
+    },
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://scotch-soda.eu/collections/women-footwear-sneakers",
+        "authorityTier": "OFFICIAL",
+        "candidates": 0
+      },
+      {
+        "route": "OFFICIAL_SEARCH",
+        "url": "https://scotch-soda.eu/search?q=27733247",
+        "authorityTier": null,
+        "candidates": 6
+      },
+      {
+        "route": "OFFICIAL_SEARCH",
+        "url": "https://www.scotchandsoda.com/search?q=27733247",
+        "authorityTier": null,
+        "candidates": 3
+      }
+    ],
+    "identifierAliases": [],
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established"
+  },
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "ok": false,
+      "error": "Refused: host eskor.se not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html",
+      "ok": false,
+      "error": "Refused: host eskor.se not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+      "ok": false,
+      "error": "Refused: host eskor.se not in allow-list"
+    },
+    {
+      "stage": "link-target",
+      "url": "https://scotch-soda.eu/search?q=27733247",
+      "ok": true,
+      "targets": 1,
+      "sample": "https://scotch-soda.eu/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full"
+    },
+    {
+      "stage": "discover",
+      "url": "https://scotch-soda.eu/search?q=27733247",
+      "ok": true,
+      "raw_candidates": 6,
+      "page_has_sku": true
+    },
+    {
+      "stage": "link-target",
+      "url": "https://www.scotchandsoda.com/search?q=27733247",
+      "ok": true,
+      "targets": 1,
+      "sample": "https://www.scotchandsoda.com/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.scotchandsoda.com/search?q=27733247",
+      "ok": true,
+      "raw_candidates": 3,
+      "page_has_sku": true
+    },
+    {
+      "stage": "discover",
+      "url": "https://scotch-soda.eu/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full",
+      "ok": false,
+      "error": "Refused: host shopify.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.scotchandsoda.com/customer_authentication/login?return_to=%2Fsearch%3Fq%3D27733247&locale=en&ui_hint=full",
+      "ok": false,
+      "error": "Refused: host shopify.com not in allow-list"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn.shopify.com",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "efootwear.eu",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "scotch-soda.com",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "scotch-soda.eu",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "scotchandsoda.com",
+      "term": "27733247",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html",
+      "captures": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+      "captures": 0,
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 7
+    },
+    {
+      "stage": "acquire",
+      "url": "https://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 2861065,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.scotchandsoda.com/cdn/shop/files/183298_001_S_10_DTL_78653f34-a614-45cb-893a-24c6e50d1c75.png?v=1786396213",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 2861065,
+      "upgraded_from": null
+    },
+    {
+      "stage": "identity",
+      "url": "https://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://scotch-soda.eu/cdn/shop/files/Scotch_Soda_Identity_031121_Icon_Black_on_tile_Icon_Black.jpg?crop=center&height=48&v=1720027788&width=48",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://scotch-soda.eu/cdn/shop/files/Scotch_Soda_Identity_031121_Icon_Black_on_tile_Icon_Black.jpg?crop=center&height=32&v=1720027788&width=32",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://scotch-soda.eu/cdn/shop/files/Scotch_Soda_Identity_031121_Icon_Black_on_tile_Icon_Black.jpg?crop=center&height=180&v=1720027788&width=180",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.scotchandsoda.com/cdn/shop/files/183298_001_S_10_DTL_78653f34-a614-45cb-893a-24c6e50d1c75.png?v=1786396213",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
