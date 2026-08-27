@@ -6,12 +6,12 @@
   "model": "Pineapple-shaped crossbody bag",
   "variant": "Yellow",
   "officialProductPage": null,
-  "generatedAt": "2026-08-27T08:19:42Z",
+  "generatedAt": "2026-08-27T08:33:41Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33052863036",
+    "githubRunId": "33053713514",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "b5a96615dae7a4cc7002229c156713adacfbadb6"
+    "githubSha": "e175110ea68f892d3e74f9019d037893e677ff2c"
   },
   "counts": {
     "acquired": 0,
@@ -92,6 +92,14 @@
     },
     {
       "route": "DIRECT_RETAILER_PAGE",
+      "url": "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_RETAILER_PAGE",
       "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 404: Not Found",
@@ -99,24 +107,63 @@
       "candidates": 0
     },
     {
-      "route": "OFFICIAL_SEARCH",
+      "route": "RETAILER_SEARCH",
+      "url": "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://modesens.com/designers/stella-mccartney/kids/bags/",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 70
+    },
+    {
+      "route": "DIRECT_RETAILER_PAGE",
+      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 194
+    },
+    {
+      "route": "RETAILER_SEARCH",
+      "url": "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
       "result": "OK",
       "sku_evidence": false,
       "candidates": 7
     },
     {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-      "result": "OK",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "childrensalon.com (domain) ~ TU0A28Z0699",
+      "result": "FAIL",
+      "error": "TimeoutError: The read operation timed out",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
       "sku_evidence": false,
-      "candidates": 198
+      "candidates": 0
     },
     {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://kids21.com/products/100349648yel",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "childrensalon.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
     },
@@ -136,8 +183,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "kids21.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -148,8 +195,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "littletagsluxury.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -160,7 +207,55 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "littletagsluxury.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "media.smallable.com (domain) ~ TU0A28Z0699",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "media.smallable.com (domain) ~ TU0A28Z0699226VI",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "modesens.com (domain) ~ TU0A28Z0699",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "modesens.com (domain) ~ TU0A28Z0699226VI",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -172,7 +267,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -184,7 +279,31 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smallable.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "staticv3.smallable.com (domain) ~ TU0A28Z0699",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "staticv3.smallable.com (domain) ~ TU0A28Z0699226VI",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -196,7 +315,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -208,7 +327,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "stellamccartney.com (domain) ~ TU0A28Z0699226VI",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -218,19 +337,40 @@
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
+      "url": "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
+      "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://modesens.com/stella-mccartney-kids-bags/",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -239,18 +379,18 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://kids21.com/products/100349648yel",
+      "url": "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699",
       "result": "FAIL",
-      "error": "no archived capture",
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
@@ -381,38 +521,48 @@
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
       "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
-      "OFFICIAL_SEARCH",
       "RESEARCH_EVIDENCE",
+      "RETAILER_SEARCH",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
     "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
-      "OFFICIAL_SEARCH",
       "RESEARCH_EVIDENCE",
       "TRUSTED_RETAILER_SEARCH"
     ],
-    "routesNotAttempted": [
-      "DIRECT_OFFICIAL_PAGE"
-    ],
+    "routesNotAttempted": [],
     "routesUnreachable": {
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
         "TimeoutError: The read operation timed out",
-        "TimeoutError: The read operation timed out"
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "URLError: <urlopen error [Errno 111] Connection refused>"
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ]
     },
     "exactProductDocuments": [],
@@ -421,12 +571,44 @@
       "tu0a28z0699226vi"
     ],
     "refusalPermitted": false,
-    "refusalBlockedBecause": "routes not attempted: DIRECT_OFFICIAL_PAGE"
+    "refusalBlockedBecause": "route(s) never answered — transport failure, not evidence: INDEXED_OUTBOUND_MEDIA, INDEXED_SOURCE_EVIDENCE"
   },
   "log": [
     {
       "stage": "discover",
+      "url": "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
       "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "discover",
+      "url": "https://modesens.com/designers/stella-mccartney/kids/bags/",
+      "ok": true,
+      "raw_candidates": 70,
+      "page_has_sku": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
+      "ok": true,
+      "raw_candidates": 194,
+      "page_has_sku": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699",
       "ok": false,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
@@ -438,17 +620,20 @@
       "page_has_sku": false
     },
     {
-      "stage": "discover",
-      "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-      "ok": true,
-      "raw_candidates": 198,
-      "page_has_sku": false
+      "stage": "indexed-asset",
+      "domain": "childrensalon.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": "TimeoutError: The read operation timed out"
     },
     {
-      "stage": "discover",
-      "url": "https://kids21.com/products/100349648yel",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "stage": "indexed-asset",
+      "domain": "childrensalon.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -464,23 +649,55 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "littletagsluxury.com",
+      "term": "TU0A28Z0699",
+      "rows": 1,
+      "hits": 0,
       "error": null
     },
     {
       "stage": "indexed-asset",
       "domain": "littletagsluxury.com",
-      "term": "TU0A28Z0699",
-      "rows": 0,
+      "term": "TU0A28Z0699226VI",
+      "rows": 1,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
-      "domain": "littletagsluxury.com",
+      "domain": "media.smallable.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "media.smallable.com",
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "modesens.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "modesens.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -488,7 +705,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -496,7 +713,23 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "staticv3.smallable.com",
+      "term": "TU0A28Z0699",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "staticv3.smallable.com",
+      "term": "TU0A28Z0699226VI",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -504,7 +737,7 @@
       "term": "TU0A28Z0699",
       "rows": 0,
       "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -512,41 +745,371 @@
       "term": "TU0A28Z0699226VI",
       "rows": 0,
       "hits": 0,
-      "error": "TimeoutError: The read operation timed out"
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
+      "captures": 0,
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-      "captures": 1,
-      "error": null
-    },
-    {
-      "stage": "indexed",
-      "url": "https://web.archive.org/web/20250425122902id_/https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-      "ok": false,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "captures": 0,
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.stellamccartney.com/us/en/search?q=TU0A28Z0699",
+      "url": "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
       "captures": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://modesens.com/stella-mccartney-kids-bags/",
+      "captures": 0,
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
       "captures": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://kids21.com/products/100349648yel",
+      "url": "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699",
       "captures": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/53978/original/bcb097de-98ec-4b5a-acbb-7c99e5aaee36.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61029/original/ce732bb6-797d-4e14-91f9-366e9ba8be0e.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61028/original/dd4512de-15d0-4cc2-8281-552453dcf39d.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn-images.farfetch-contents.com/32/87/82/56/32878256_63322640_1000.jpg",
+      "ok": false,
+      "error": "host cdn-images.farfetch-contents.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn-images.farfetch-contents.com/32/87/82/56/32878256_63322640_1000.jpg",
+      "ok": false,
+      "error": "host cdn-images.farfetch-contents.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61028/original/dd4512de-15d0-4cc2-8281-552453dcf39d.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61029/original/ce732bb6-797d-4e14-91f9-366e9ba8be0e.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/53978/original/bcb097de-98ec-4b5a-acbb-7c99e5aaee36.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn-images.farfetch-contents.com/32/87/82/56/32878256_63322640_1000.jpg",
+      "ok": false,
+      "error": "host cdn-images.farfetch-contents.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61028/original/dd4512de-15d0-4cc2-8281-552453dcf39d.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/61029/original/ce732bb6-797d-4e14-91f9-366e9ba8be0e.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://lungolivignostorage.blob.core.windows.net/product/53978/original/bcb097de-98ec-4b5a-acbb-7c99e5aaee36.jpg",
+      "ok": false,
+      "error": "host lungolivignostorage.blob.core.windows.net not in allow-list"
     },
     {
       "stage": "discover",
       "total_unique_candidates": 160
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-black-eco-leather-wallet-110408838?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-silver-vegan-bag-90791386?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/71407705?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-sun-printed-backpack-pink-104533956?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-black-polyester-falabella-3-chain-handbag-68937859_2?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-black-polyester-mini-falabella-bag-60445023_2?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-check-print-backpack-multi-110262249?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-star-print-backpack-multi-110262248?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-grey-polyester-mini-falabella-bag-60445024_1?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-logo-tape-changing-crossbody-bag-green-110716741?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-quilted-effect-cross-body-bag-green-111340667?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-recycled-polyester-wallet-grey-67732647_2?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-star-print-backpack-111339270?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-face-detail-backpack-orange-111410372?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-logo-111071894?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-shooting-star-shoulder-bag-111158359?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-star-applique-metallic-shoulder-bag-pink-111339831?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-love-motif-backpack-118091554?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-starfish-print-backpack-118091560?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-silver-vegan-bag-116420450?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-floral-pattern-clutch-bag-pink-117347032?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-flower-applique-shoulder-bag-white-118220609?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-floral-embroidered-blanket-pink-117091055?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-s-wave-crossbody-bag-black-118399628?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-floral-applique-crochet-tote-bag-117693156?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-bag-with-shoulder-strap-green-116204405?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-fish-applique-shoulder-bag-purple-118220607?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-stars-print-shoulder-bag-orange-117089819?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-girls-stars-backpack-blue-114367230?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-diaper-dotted-logo-crossbody-bag-neutral-118220605?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-logo-print-diaper-tote-bag-118091555?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-girls-flower-logo-backpack-pink-117043705?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-girls-swan-heart-shoulder-bag-blue-114430433?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-s-wave-crossbody-bag-118091556?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-star-motif-denim-crossbody-bag-118091553?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-bag-stella-mccartney-kids-kids-color-black-119825354?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-slogan-graphic-backpack-119764840?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-whale-motif-backpack-119764841?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-tennis-ball-motif-backpack-119764844?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-duffel-bag-stella-mccartney-kids-kids-color-multicolor-119824941?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-allover-logo-tote-bag-black-121546582?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/availability/stella-mccartney-kids-crochet-floral-shoulder-bag-white-143483294?w=400",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "acquire",
@@ -555,68 +1118,44 @@
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
-      "stage": "acquire",
-      "url": "https://www.stellamccartney.com/on/demandware.static/Sites-smc-globale-Site/-/en_US/v1787762730431/images/logo.png",
+      "stage": "validate",
+      "url": "https://cdn.modesens.com/static/img/20250910M_32x32.png",
       "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
-    },
-    {
-      "stage": "resolution",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
-      "ok": false,
-      "error": "variant differs from anchor (dHash 13); rejected"
-    },
-    {
-      "stage": "resolution",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
-      "ok": false,
-      "error": "variant differs from anchor (dHash 9); rejected"
-    },
-    {
-      "stage": "resolution",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
-      "ok": false,
-      "error": "variant differs from anchor (dHash 14); rejected"
-    },
-    {
-      "stage": "resolution",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
-      "ok": false,
-      "error": "variant differs from anchor (dHash 9); rejected"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw295c8730/SMC_SU26_SHOES_DROPDOW",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dwfa78ccca/images/HomePage/2026/A",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://www.stellamccartney.com/dw/image/v2/BCWD_PRD/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dwf359a97a/SMC26_KIDS_FW26_NCB_73",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+      "error": "too small (623 B)"
     },
     {
       "stage": "validate",
-      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw1beb4173/footer/SU26/SMC26_FALABELLA_NL_Footer_1500x",
+      "url": "https://cdn.modesens.com/static/img/20250910M_16x16.png",
       "ok": false,
-      "error": "aspect 2.8:1 — banner shape, not a product photograph"
+      "error": "too small (375 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cdn.modesens.com/static/img/20250910M_48x48.png",
+      "ok": false,
+      "error": "too small (909 B)"
     },
     {
       "stage": "identity",
-      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw9ed09a14/footer/SU26/SMC26_FALABELLA_NL_Footer_MB_10",
+      "url": "https://cdn.modesens.com/static/img/20250910M_192x192.png",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://www.stellamccartney.com/on/demandware.static/-/Library-Sites-StellaMcCartneySharedLibrary/default/dw09b6e9c8/footer/SU26/SMC26_FALABELLA_474x333px.jpg",
+      "url": "https://cdn.modesens.com/static/img/20250910M_167x167.png",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/static/img/20250910M_180x180.png",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.modesens.com/static/img/countryflags.png",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
@@ -754,43 +1293,91 @@
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723641-648x648q80/lasso-organic-cotton-t-shirt.webp",
+      "url": "https://staticv3.smallable.com/gs_723643-648x648q80/stella-organic-cotton-t-shirt.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723557-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_723497-648x648q80/bomber-patch-jacket.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300308-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_13300290-648x648q80/bomber-patch-jacket.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300302-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_13300305-648x648q80/bomber-patch-jacket.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300306-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_723491-648x648q80/bomber-patch-jacket.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300300-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_723510-648x648q80/star-booties.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723554-648x648q80/smc-pants.webp",
+      "url": "https://staticv3.smallable.com/gs_13300310-648x648q80/star-booties.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_13300298-648x648q80/star-booties.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_13300294-648x648q80/star-booties.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_723514-648x648q80/flowery-rain-boots.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_13300297-648x648q80/flowery-rain-boots.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_723627-648x648q80/denim-star-dress.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_13300314-648x648q80/denim-star-dress.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_13300293-648x648q80/denim-star-dress.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
+    },
+    {
+      "stage": "identity",
+      "url": "https://staticv3.smallable.com/gs_723479-648x648q80/cactus-sweatshirt.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
@@ -808,121 +1395,49 @@
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723482-648x648q80/lasso-sweatshirt.webp",
+      "url": "https://staticv3.smallable.com/gs_723520-648x648q80/star-stripe-sweater.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723470-648x648q80/floral-flared-legging.webp",
+      "url": "https://staticv3.smallable.com/gs_723558-648x648q80/jean-droit.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300289-648x648q80/floral-flared-legging.webp",
+      "url": "https://staticv3.smallable.com/gs_723633-648x648q80/cactus-sweater.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300312-648x648q80/floral-flared-legging.webp",
+      "url": "https://staticv3.smallable.com/gs_723635-648x648q80/cactus-sweater.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723645-648x648q80/floral-ribbed-turtleneck.webp",
+      "url": "https://staticv3.smallable.com/gs_723468-648x648q80/cargo-twill-pants.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300315-648x648q80/floral-ribbed-turtleneck.webp",
+      "url": "https://staticv3.smallable.com/gs_723469-648x648q80/jean-coeurs.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300291-648x648q80/floral-ribbed-turtleneck.webp",
+      "url": "https://staticv3.smallable.com/gs_13300313-648x648q80/jean-coeurs.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
     {
       "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300299-648x648q80/floral-ribbed-turtleneck.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723549-648x648q80/skirt-stella-01.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_13300304-648x648q80/skirt-stella-01.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723643-648x648q80/stella-organic-cotton-t-shirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723640-648x648q80/stella-cactus-t-shirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723467-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723472-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723466-648x648q80/jogger-ample-patches.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723487-648x648q80/stella-sweatshirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723488-648x648q80/stella-sweatshirt.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723584-648x648q80/sweat-ecussons.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723587-648x648q80/sweat-ecussons.webp",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://staticv3.smallable.com/gs_723581-648x648q80/sweat-ecussons.webp",
+      "url": "https://staticv3.smallable.com/gs_13300295-648x648q80/jean-coeurs.webp",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     },
@@ -1301,234 +1816,6 @@
     {
       "stage": "identity",
       "url": "https://media.smallable.com/blundstone_man_8536c97292.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/autry_8011570d85.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/rains_958ab2855a.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/polaroid_ca4c0a7219.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/mondada_2a8c50f536.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/assouline_1035f8f417.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/aesop_fc389913df.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/L_Abruket_5a7e09eaa5.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/seventyonepercent_d11db44793.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/maisonsarahlavoine_02af858f39.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/thesocialitefamily_189d54e2c7.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/gabrielleparis_ad916bcd75.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/tradition_1c031e29ca.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/hay_56c54ff220.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/vitra_1f7db15b34.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/and_klevering_cee4b705f9.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/hkliving_f2de12f541.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/approuvedbyfritz_144f003498.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/valerie_objects_84d0b8a5bf.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/serax_954d145384.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/masame_36ee6acb33.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/le_monde_sauvage_5f0c3f5cfc.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/maison_de_vacances_8c3725b651.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bongusta_71e98f992f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/house_of_capricorne_1fee502bed.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/lisa_corti_4407657fe0.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/haomy_026edc2838.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/garbo_and_friend_944e86c2f0.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/kascopenhagen_f2fec15a13.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/arizona_aura_2e6183fbc8.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/pantone100ans_c792ad628d.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/bringsummerathome_e3630c4086.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/clouddancer_39e6497f90.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/leonorgreyl_955b2bfb7f.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/combeau_995a0ded62.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/oden_2bf5722b22.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/nailmatickids_66ca9d1d4c.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/monjour_de07e4ed44.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
-    },
-    {
-      "stage": "identity",
-      "url": "https://media.smallable.com/inuwet_f968c83acf.jpg",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU TU0A28Z0699"
     }
