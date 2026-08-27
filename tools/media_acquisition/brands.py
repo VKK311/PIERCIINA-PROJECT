@@ -217,6 +217,11 @@ BRANDS = {
             "www.italist.com", "italist.com",
             "www.farfetch.com", "farfetch.com",
             "cdn-images.farfetch-contents.com",
+            # Giglio, an established Italian retailer (Palermo, 1996) that
+            # publishes the DESIGNER code alongside its own product code.
+            # img.giglio.com is its image CDN — reviewer-observed and
+            # independently confirmed, not guessed.
+            "www.giglio.com", "giglio.com", "img.giglio.com",
         ],
         # Search is a platform route and yields link targets only; since the
         # search-route fix it lends no identity to its own images.

@@ -12,6 +12,33 @@
   "indexedEvidence": true,
   "researchEvidence": [
     {
+      "sourceUrl": "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "REVIEWER_VERIFIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T11:00:00Z",
+      "sku": "TU0A28Z0699",
+      "model": "Pineapple-shaped bag",
+      "variant": "Yellow",
+      "aliases": [
+        "401012.003",
+        "TU0A28Z0699226VI",
+        "tu0a28z0699"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "img.giglio.com"
+      ],
+      "notes": [
+        "REVIEWER-VERIFIED EXACT-SKU DOCUMENT. An independent reviewer transport read a currently live Giglio product page that explicitly states: Stella McCartney Kids, designer code TU0A28Z0699 226VI, Giglio product code 401012, category Bag, colour Yellow, composition 100% Polyurethane, and four distinct gallery images.",
+        "OBSERVED ASSET SHAPE: four gallery assets on img.giglio.com belonging to Giglio product 401012.003, views _1 through _4. Host and code shape are reviewer-observed; the runner must still discover the actual asset URLs from the page and validate them normally.",
+        "ALIAS 401012.003 IS COLOUR-SCOPED ON PURPOSE. Giglio asset paths carry its own product code rather than the designer code, so without an alias the identity gate would reject the retailer's own images. The bare 401012 is NOT used, because the .003 suffix is the colour variant and dropping it could admit a sibling colourway — the rule the HC.RBGLOW01 run established.",
+        "COMPOSITION IS PUBLISHABLE FROM HERE: 100% Polyurethane is stated on an exact-SKU document. Dimensions are NOT — no exact-SKU document read so far states them.",
+        "TIER: Giglio is an established retailer, not the manufacturer. Media from here is TRUSTED_RETAILER and must never be presented as official brand media."
+      ]
+    },
+    {
       "sourceUrl": "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
       "authorityTier": "TRUSTED_RETAILER",
       "discoveryTransport": "CLAUDE_RESEARCH",
@@ -68,40 +95,33 @@
       "observedCdnHosts": [],
       "notes": [
         "Corroborates that the same pineapple bag is sold under several retailer names — 'Pineapple Seal Bag' here, 'Pineapple-Shaped Crossbody Bag' at Little Tags. The public model name must be chosen from what is actually evidenced rather than assembled from the prettiest of these.",
-        "sku NULL: this page has not been read and is not an exact product document for our article."
+        "sku NULL: this page has not been read and is not an exact product document for our article.",
+        "CORROBORATING MODEL EVIDENCE ONLY. Supports the model naming 'Pineapple Seal Bag', Yellow, ONE SIZE and 100% polyurethane, but this page does not name TU0A28Z0699 (measured: page_has_sku False), so it may not carry dimensions or any other specification into publication on its own."
       ]
     }
   ],
   "discoveryPages": [
-    "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-    "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
-    "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
-    "https://www.childrensalon.com/stella-mccartney-kids/",
-    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358"
+    "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+    "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html",
+    "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/",
+    "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/",
+    "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html"
   ],
   "discoveryRoutes": {
-    "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/": "DIRECT_RETAILER_PAGE",
-    "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/": "DIRECT_RETAILER_PAGE",
-    "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699": "RETAILER_SEARCH",
-    "https://www.childrensalon.com/stella-mccartney-kids/": "TRUSTED_RETAILER_SEARCH",
-    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358": "DIRECT_RETAILER_PAGE"
+    "https://www.giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html": "CONSTRUCTED_LEAD",
+    "https://www.giglio.com/en-us/bag-kids_bag-stella-mccartney-kids-tu0a28z0699.html": "CONSTRUCTED_LEAD",
+    "https://www.giglio.com/gbr/child/bags/bag/stella-mccartney-kids_b/": "TRUSTED_RETAILER_SEARCH",
+    "https://www.giglio.com/eng/child/accessories/stella-mccartney-kids_t/": "TRUSTED_RETAILER_SEARCH",
+    "https://www.giglio.com/en-us/stella-mccartney-kids/kids.html": "TRUSTED_RETAILER_SEARCH"
   },
   "officialHostSuffixes": [
     "stellamccartney.com"
   ],
   "allowedHostSuffixes": [
+    "giglio.com",
+    "img.giglio.com",
     "stellamccartney.com",
-    "littletagsluxury.com",
-    "smallable.com",
-    "media.smallable.com",
-    "staticv3.smallable.com",
-    "kids21.com",
-    "childrensalon.com",
-    "modesens.com",
-    "cdn.modesens.com",
-    "italist.com",
-    "farfetch.com",
-    "cdn-images.farfetch-contents.com"
+    "smallable.com"
   ],
   "resolution": {
     "widthLadder": [
@@ -113,18 +133,12 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "PASS 3 — GO WHERE THE MANUFACTURER CODE IS PRINTED. Pass 2 settled a real question: Smallable, ModeSens and Stella's own search are all REACHABLE, and all three reported page_has_sku FALSE. So they do not publish this article code — that is measured, not assumed — and Stella's own search finding nothing confirms TU0A28Z0699 is a wholesale code rather than the brand's e-commerce ID.",
-    "Little Tags 404s in all three forms including the percent-encoded colon and its own search, so the colon was not the cause and that page is simply not served to the runner. It remains the only document found that names the article.",
-    "The italist page is the lead with the best prior: it ranked FIRST on a search for the bare article number, which is weak evidence its page carries the code. Boutique aggregators also print manufacturer style codes, which the pure e-tailers above do not.",
-    "TIER HONESTY: if media ends up coming from a boutique aggregator, the package records that tier plainly. It is not official manufacturer media and must not be presented as such.",
-    "PASS 2 — ENCODE THE COLON AND WIDEN THE RETAILER SET. Pass 1's Little Tags URL 404'd, and that URL contains a RAW COLON in its path ('stella-mccartney-kids:-girls-...'). It is retried percent-encoded as %3A alongside the literal form, because that page is the only document found that names TU0A28Z0699.",
-    "PASS 1 OBSERVATIONS, recorded rather than guessed: media.smallable.com and staticv3.smallable.com serve Smallable's product media, and stellamccartney.com runs Salesforce Commerce Cloud (/dw/image/v2/.../demandware.static/), the same platform family as Pepe Jeans. Those Smallable hosts are now allowed on the strength of that observation.",
-    "WHY PASS 1 ACQUIRED NOTHING, and why that is correct: the Stella assets reached were shared-library editorial chrome and the Smallable assets were other products entirely, so both were listing sweeps rather than our product page. The gate rejected every one for the right reason.",
-    "SMALLABLE ASSET NAMES ARE CONTENT HASHES (emiletida_c6639f7d7d.jpg), so they can never carry the article code. Identity from that retailer would have to rest on source-page evidence, which requires its product page to actually name TU0A28Z0699 — not something to assume.",
-    "PASS 1. Product type is a BAG, so ONE SIZE is the whole availability truth and no size ladder exists to prove. Verified in the live engine that inventoryMode 'availability' with {'ONE SIZE':'available'} yields stock state ok, orderable at ONE SIZE, and correctly refuses any other size — no engine change needed.",
-    "OFFICIAL MEDIA IS PREFERRED but the brand's own site indexes K-codes and not this wholesale article, so official assets are unlikely to pass the identity gate. That is the gate working, not a failure: acquiring the visually similar K03231 bucket bag would be exactly the substitution the exact-variant rule forbids.",
-    "CHILD-SERIES SUPPRESSION APPLIES. This is a Stella McCartney Kids article. The classification may be used internally for identity only and must never appear in the public name, copy, category, tags or alt text. The opposite claim — that it is an adult or unisex product — must not be made either.",
-    "cdn_hosts is empty in the registry. The media host is to be taken from THIS run's rejection log, never guessed.",
-    "DIMENSIONS AND COMPOSITION are to be published only if an exact-product document states them. A search summary asserting 14x17x11 cm and 100% polyurethane is paraphrase, not evidence, and does not qualify."
+    "PASS 4 — NEWLY DISCOVERED EXACT-SKU RETAILER. The previous DISCOVERY_TRANSPORT_BLOCKED conclusion is SUPERSEDED. Giglio holds a live exact-SKU product document; it never entered the candidate set because discovery was run against a FIXED SET OF ALREADY-KNOWN HOSTS instead of searching for new trusted retailer domains carrying the article.",
+    "The two product URLs are CONSTRUCTED LEADS built from the grammar of a genuine sibling page found by search — giglio.com/eng/bag-kids_bag-stella-mccartney-kids-tu0a78z0699.html, the silver TU0A78Z0699 article. A lead is not evidence: it costs a 404 if wrong and becomes evidence only if it resolves AND the document carries TU0A28Z0699.",
+    "The three listing URLs are REAL observed URLs, not constructed, and are not search routes, so link-target recovery may mine them for the article's own product URL. That is the generic route and it does not depend on the constructed leads succeeding.",
+    "CORRECTED INFERENCE, previously overstated: Stella's own search not returning TU0A28Z0699 SUPPORTS A HYPOTHESIS that the brand storefront uses a different code family. It does NOT prove the article is a wholesale code, and it does NOT prove official media can never clear the identity gate. Both are recorded as inference, not established fact, unless an explicit mapping is found.",
+    "Product is a bag: ONE SIZE is the entire availability truth, verified against the live engine. No sold-out variants, no retailer inventory imported.",
+    "CHILD-SERIES SUPPRESSION APPLIES — internal only, never in public name, copy, category, tags or alt text; and no opposite adult/unisex claim.",
+    "PUBLISHABLE FROM THE EXACT-SKU SOURCE: composition 100% Polyurethane. NOT publishable yet: dimensions, which no exact-SKU document read so far states."
   ]
 }
