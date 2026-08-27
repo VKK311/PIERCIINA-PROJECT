@@ -56,7 +56,7 @@
       "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-27T00:00:00Z",
-      "sku": "27733247",
+      "sku": null,
       "model": "Celest",
       "variant": null,
       "aliases": [],
@@ -75,7 +75,8 @@
         "OFFICIAL SIZE SCALE: the Celest is offered EU 36 to 42 on the brand's own European storefront. This matters because the user supplied 41, which is a REAL size for this model — the Mall's public ladder cap at 40 is a PINK MALL rule, not a limit of the shoe.",
         "MODEL FACTS from the brand's own description: women's chunky sneaker, cow suede and nylon panels, customised rubber sole with textured bottom, metallic detail and logo at the side, recycled mesh lining and insole.",
         "MODEL-VERSION HAZARD: the line has later generations sold as 'Celest 2.0' and 'Celest 2.0 LS'. The user said CELEST, so the base model is the target and a 2.0 asset must not be substituted.",
-        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL."
+        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL.",
+        "SKU DELIBERATELY NULL. This is a collection page for the line; it does not name article 27733247. Carrying the article here made the refusal audit treat it as an exact product document. The size scale and model facts it evidences belong to the CELEST LINE, not to this article, and the package must say so."
       ]
     },
     {
@@ -119,20 +120,20 @@
     }
   ],
   "discoveryPages": [
-    "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html",
-    "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html",
-    "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
-    "https://www.obuvki.bg/search?q=27733247",
-    "https://www.efootwear.eu/search?q=27733247",
-    "https://scotch-soda.eu/search?q=27733247"
+    "https://obuvki.bg/c/obuvki/marka:scotch_soda",
+    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
+    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
+    "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
+    "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
+    "https://www.obuvki.bg/catalogsearch/result/?q=27733247"
   ],
   "discoveryRoutes": {
-    "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose-34a.html": "CONSTRUCTED_LEAD",
-    "https://www.obuvki.bg/snik-rsi-scotch-soda-celest-27733247-rose.html": "CONSTRUCTED_LEAD",
-    "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html": "CONSTRUCTED_LEAD",
-    "https://www.obuvki.bg/search?q=27733247": "RETAILER_SEARCH",
-    "https://www.efootwear.eu/search?q=27733247": "RETAILER_SEARCH",
-    "https://scotch-soda.eu/search?q=27733247": "OFFICIAL_SEARCH"
+    "https://obuvki.bg/c/obuvki/marka:scotch_soda": "TRUSTED_RETAILER_SEARCH",
+    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a": "CONSTRUCTED_LEAD",
+    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose": "CONSTRUCTED_LEAD",
+    "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a": "CONSTRUCTED_LEAD",
+    "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy": "CONSTRUCTED_LEAD",
+    "https://www.obuvki.bg/catalogsearch/result/?q=27733247": "RETAILER_SEARCH"
   },
   "officialHostSuffixes": [
     "scotch-soda.eu",
@@ -145,10 +146,11 @@
     "scotch-soda.com",
     "cdn.shopify.com",
     "obuvki.bg",
-    "efootwear.eu",
-    "eskor.se",
+    "eobuwie.com.pl",
     "eobuwie.pl",
-    "modivo.bg"
+    "modivo.pl",
+    "modivo.bg",
+    "efootwear.eu"
   ],
   "resolution": {
     "widthLadder": [
@@ -160,12 +162,11 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "PASS 2 — ROUTE CORRECTION. Pass 1 established WHO OWNS THE NUMBER: 27733247 is a MODIVO S.A. / eobuwie group article number, not a Scotch & Soda Shopify handle. The brand's own search returns no product for it, which is why pass 1 found no official document.",
-    "Pass 1 also exposed a FALSE ACCEPTANCE, now fixed. The brand's /search?q=27733247 page counted as 'naming the SKU' because the article number sat in the query string WE supplied, and its og:image counts as an authoritative declaration. A Scotch & Soda knitwear close-up was accepted as a Celest sneaker at OFFICIAL tier. A search route now lends no identity to its own images; its value is link targets.",
-    "All three pass-1 retailer leads were refused at the allow-list because efootwear.eu redirects to eskor.se, a sibling domain of the same group. That is a TRANSPORT failure, not evidence of absence, so the retailer route was never actually tried.",
-    "The constructed obuvki.bg URLs are LEADS built from that catalogue's observed grammar. A lead is not evidence: it costs a 404 if wrong and becomes evidence only if it resolves AND the document carries article 27733247.",
-    "cdn_hosts stays empty in the registry. This pass is expected to reveal the group's media host in its own rejection log, and it gets allowed from that observation rather than from a guess.",
-    "SIZE 41 EXCLUDED BY MALL RULE, NOT BY THE PRODUCT. The user supplied 37-41; PINK MALL's calibrated public ladder is EU 36-40 and the user chose to keep that cap. 41 is genuine for this model (official scale EU 36-42), so the pair is real and simply is not listed.",
-    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. The line has at least five other colourways in this same catalogue."
+    "PASS 3 — CATALOGUE LISTING ROUTE. The group's BRAND LISTING page is the target: it is not a search route, so link-target recovery may mine it for a product URL carrying article 27733247. That route (TRUSTED_RETAILER_SEARCH) is the one the pass-2 refusal audit reported as never attempted.",
+    "PASS-2 TRANSPORT FACTS. eskor.se now serves /b/closedsite, so that domain is dead. obuvki.bg 404s on /search?q=, which was the wrong grammar; the group's modern product form is /p/<slug>-celest-<article>-<colour>-<code>.",
+    "PASS-2 RESULT WAS CORRECT AND HONEST: zero acquired, MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED. The pass-1 knitwear decoy is gone, which is the search-route fix working.",
+    "NO INDEX ANYWHERE CARRIES 27733247. Many query formulations across brand, retailer and marketplace sources returned the Celest line but never this article. That is a real negative from the indexed transport, though the archive routes themselves timed out on the runner and remain unexhausted.",
+    "SIZE 41 EXCLUDED BY MALL RULE, NOT BY THE PRODUCT. The user supplied 37-41; the Mall's ladder is EU 36-40 and the user chose to keep that cap.",
+    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. At least ten other Celest articles exist in this same catalogue."
   ]
 }
