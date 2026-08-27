@@ -137,6 +137,29 @@
         "COLOUR-CODE DISCREPANCY TO SURFACE IN THE PACKAGE: the user's brief said colour '34A Rose'; this page's colour token is S059. The article number is the anchor and both readings agree the shoe is pink, but the codes differ and that must not be smoothed over.",
         "TIER: this is a retailer document, NOT official manufacturer media. If media comes from here the package must say so plainly rather than presenting it as brand-official."
       ]
+    },
+    {
+      "sourceUrl": "user-supplied://27733247/photos",
+      "authorityTier": "USER_SUPPLIED",
+      "discoveryTransport": "USER_SUPPLIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T09:00:00Z",
+      "sku": "27733247",
+      "model": null,
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "THREE PHOTOGRAPHS SUPPLIED DIRECTLY BY THE USER after four passes were walled by bot protection, with the instruction 'get them ready'. They carry no source URL, so the provenance claim is user-supplied rather than manufacturer or retailer CDN.",
+        "Validated: three unique shots (pairwise dhash distance 103-142; duplicates score <=4), aspect 1.5 within the 2.2 shape limit, no people, product-only, no cut-out alpha.",
+        "Native 480x720 — the lowest-resolution media in the catalogue. Measured against real render boxes the PDP hero is 36% short on desktop @2x and 54% short on phone @3x. Nothing was upscaled.",
+        "Backdrop is a grey studio sweep with a gradient, so no flat backdrop could be derived; media.surface is the measured median border tone #D2D5D7.",
+        "BRAND CONFIRMED FROM THE PRODUCT ITSELF: the tongue patch reads SCOTCH & SODA and the insole carries the circular SCOTCH & SODA AMSTERDAM monogram.",
+        "MODEL NOT CONFIRMED. No source reached names this article. The supplier titles it only 'Спортни обувки с велур' while naming models for other Scotch & Soda shoes (Кецове Sylvie, Спортни обувки Vivi), and every Celest listing found is multicolour whereas this shoe is monochrome pale pink.",
+        "NO SIDE PROFILE AND NO HEEL VIEW in the set, unlike PM-025 through PM-031 which all lead with a lateral shot."
+      ]
     }
   ],
   "discoveryPages": [
@@ -163,6 +186,7 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 5 — USER-SUPPLIED MEDIA. Acquisition by runner is abandoned for this article: eMAG returns HTTP 511 and MODIVO returns 404 to automated clients, and no bypass will be built for either. Media now comes from the user directly.",
     "PASS 4 — USER-SUPPLIED PRODUCT DOCUMENT. The user supplied their supplier's eMAG listing for this exact article and asked for photos to be retrieved from it. This is the PGS30614 pattern: when every discovery transport is blocked, a document the user vouches for is a first-class transport.",
     "This is the first document in four passes carrying 27733247 in a product PATH. Identity may legitimately rest on source-page evidence here because it is a genuine product page, not a search route.",
     "cdn_hosts stays empty. eMAG's media host is expected to appear in THIS run's rejection log and gets allowed from that observation, never from a guess.",
