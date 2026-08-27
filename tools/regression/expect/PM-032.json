@@ -1,0 +1,24 @@
+{
+  "id": "PM-032",
+  "catalogueSize": 32,
+  "brand": "Scotch & Soda",
+  "manufacturerItemNo": "27733247",
+  "name": "Celest",
+  "category": "shoes",
+  "subcategory": "sneakers",
+  "color": "Pink",
+  "priceEUR": 69,
+  "newUntil": "2026-09-10",
+  "sizes": ["37", "38", "39", "40"],
+  "surface": "#D2D5D7",
+  "nativeWidth": 480,
+  "nativeHeight": 720,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": ["scotch", "celest", "маратонки", "scotch & soda", "27733247"],
+  "priorProducts": ["PM-025", "PM-026", "PM-027", "PM-028", "PM-029", "PM-030", "PM-031"],
+  "frames": [
+    { "file": "PM-032-main.webp", "sha256": "4db9ba476c6ac02382972b77462ea876651ef2cb6178615529f62fc33cd900d7" },
+    { "file": "PM-032-02.webp",   "sha256": "fa66c58c9fee14ed31d075c1327b4b08a5aa9d24b2431d712cfe32db64b300f2" },
+    { "file": "PM-032-03.webp",   "sha256": "07d1dc2c5cad68dfdc69b84c05c5d4f132ac947bad03c369e7d2d5929609a3d1" }
+  ]
+}

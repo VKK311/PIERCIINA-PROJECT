@@ -1,6 +1,6 @@
 {
   "id": "PM-031",
-  "catalogueSize": 31,
+  "catalogueSize": 32,
   "brand": "Colors of California",
   "manufacturerItemNo": "HC.RBGLOW01",
   "name": "Glossy rainboot",
@@ -9,18 +9,52 @@
   "color": "Pink",
   "priceEUR": 64,
   "newUntil": "2026-09-09",
-  "sizes": ["36", "37", "38", "39", "40"],
+  "sizes": [
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "surface": "#FFFFFF",
   "nativeWidth": 1200,
   "nativeHeight": 1200,
   "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
-  "searchTerms": ["boots", "ботуши", "rainboot", "colors of california", "HC.RBGLOW01"],
-  "priorProducts": ["PM-025", "PM-026", "PM-027", "PM-028", "PM-029", "PM-030"],
+  "searchTerms": [
+    "boots",
+    "ботуши",
+    "rainboot",
+    "colors of california",
+    "HC.RBGLOW01"
+  ],
+  "priorProducts": [
+    "PM-025",
+    "PM-026",
+    "PM-027",
+    "PM-028",
+    "PM-029",
+    "PM-030"
+  ],
   "frames": [
-    { "file": "PM-031-main.webp", "sha256": "2e60bf9339b48a3f44708c663422f5620dc4a4cb30eb2d4bc562e66490e8572e" },
-    { "file": "PM-031-02.webp",   "sha256": "e82431a409cb68d38005e6547063708705d1c027e67ce2e427233709a59e2082" },
-    { "file": "PM-031-03.webp",   "sha256": "21de22ebbe3f3b48ee21597188b09fe8f5bfdbeca4e0b97027450643c09876bc" },
-    { "file": "PM-031-04.webp",   "sha256": "d779a1ccc463f55d0432bbf1360d1efa62278b53f6addab67baa7688467eeebc" },
-    { "file": "PM-031-05.webp",   "sha256": "28b272be761589a31a58ac0f54272a2be27a09919fc36fdaff88a335cb2de8d9" }
+    {
+      "file": "PM-031-main.webp",
+      "sha256": "2e60bf9339b48a3f44708c663422f5620dc4a4cb30eb2d4bc562e66490e8572e"
+    },
+    {
+      "file": "PM-031-02.webp",
+      "sha256": "e82431a409cb68d38005e6547063708705d1c027e67ce2e427233709a59e2082"
+    },
+    {
+      "file": "PM-031-03.webp",
+      "sha256": "21de22ebbe3f3b48ee21597188b09fe8f5bfdbeca4e0b97027450643c09876bc"
+    },
+    {
+      "file": "PM-031-04.webp",
+      "sha256": "d779a1ccc463f55d0432bbf1360d1efa62278b53f6addab67baa7688467eeebc"
+    },
+    {
+      "file": "PM-031-05.webp",
+      "sha256": "28b272be761589a31a58ac0f54272a2be27a09919fc36fdaff88a335cb2de8d9"
+    }
   ]
 }

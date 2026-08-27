@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-031 publication.
-Status: **PM-001…PM-031 PUBLISHED.**
+Updated: PM-032 publication.
+Status: **PM-001…PM-032 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `0d939a9bfc12328acf759704b07ae85febbb9ea0cfea33c92f44cd04ca958c03` |
-| CANONICAL WEBSITE BYTES | 2561908 |
+| CANONICAL WEBSITE SHA-256 | `8d8e84b93dd69db9632ce11047b5372dcb048cc37f428a56d13573d218dd5ff1` |
+| CANONICAL WEBSITE BYTES | 2564876 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-031 |
-| NEXT ID | PM-032 |
+| PUBLIC CATALOG | PM-001 … PM-032 |
+| NEXT ID | PM-033 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -37,6 +37,7 @@ canonical build by hash before treating it as canonical.
 | PGS30614 | **PUBLISHED as PM-029** on 2026-08-26 |
 | 398855 | **PUBLISHED as PM-030** on 2026-08-26 |
 | HC.RBGLOW01 | **PUBLISHED as PM-031** on 2026-08-27 |
+| 27733247 | **PUBLISHED as PM-032** on 2026-08-27 |
 
 ## Media acquisition automation
 
@@ -44,7 +45,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`, 78/78 on both builds |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031 78/78, PM-032 74/74, both builds |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -426,11 +427,56 @@ Known-clean exception: this container's egress proxy resets
 `fonts.googleapis.com`. Verified identical on builds predating the product, so
 it is an environment fact, not a product defect.
 
-## Scotch & Soda Celest 27733247 — DISCOVERY_TRANSPORT_BLOCKED
+## PM-032 — published
 
 | | |
 |---|---|
-| STATE | **not acquired, not staged, not published** |
+| PUBLISHED | 2026-08-27 |
+| BRAND | Scotch & Soda — **confirmed from the product itself** |
+| MODEL | `Celest` — **owner-asserted, not evidenced by any source reached** |
+| MANUFACTURER ITEM | 27733247 (colour code: brief `34A` vs supplier `S059`) |
+| CATEGORY | SHOES > Sneakers |
+| PUBLIC COLOUR | Pink (manufacturer: `Rose`) |
+| MATERIAL | **omitted** |
+| PRICE | €69, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | 37, 38, 39, 40 — all available. **41 held by the owner but not offered**, under the Mall's EU 36-40 cap |
+| SIZE STATE | `SIZE_CONFIRMED` against the line's declared EU 36-42 scale |
+| NEW UNTIL | 2026-09-10 |
+| MAIN | IMAGE 01 — three-quarter front, pair |
+| GALLERY ORDER | 01 → 02 → 03 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-032/` — 3 × **480×720** WebP |
+| MEDIA TIER | **USER_SUPPLIED** — not manufacturer, not retailer CDN |
+| MEDIA FORM | grey studio gradient; `media.surface: '#D2D5D7'`, measured |
+| WARNINGS | lowest-resolution media in the catalogue; no side profile; 3 images is the policy minimum |
+| PACKAGE | `checkpoints/PM032_27733247_APPROVAL_PREVIEW.md` |
+
+**The first product whose media came from the owner rather than a supply
+chain.** Every automated route was walled, so the owner supplied three
+photographs directly and approved publication with the shortfalls stated.
+
+Resolution is the known weakness. Measured against the storefront's real render
+boxes, the PDP hero is 36% short on desktop @2x and **54% short on phone @3x**;
+cards are effectively fine. Nothing was upscaled — that rule does not bend
+because a source is small. Larger files would fix this in one step.
+
+`media.surface` is measured rather than chosen: the backdrop is a grey gradient
+so no flat colour could be derived, and `#D2D5D7` is the median border tone.
+Without it the Mall's lighter neutral would have drawn a bright rectangle
+around every photograph.
+
+Identity is deliberately split in the record. The brand is confirmed from the
+product — tongue patch and the circular Amsterdam insole monogram. The **model
+name is not**, and the supplier names models for other shoes of this brand
+while leaving this article unnamed, and every Celest listing found is
+multicolour where this shoe is monochrome. "Celest" stands because the owner
+knows their own stock, not because a source said so.
+
+## How it got here — DISCOVERY_TRANSPORT_BLOCKED
+
+| | |
+|---|---|
+| STATE | resolved by owner-supplied media; see PM-032 above |
 | BRAND / MODEL | Scotch & Soda / Celest |
 | SUPPLIED | article 27733247, colour "34A Rose", €69, sizes 37-41 |
 | PUBLISHABLE SIZES | 37, 38, 39, 40 — the user chose to keep the Mall's EU 36-40 cap, so the supplied 41 is not listed |
@@ -528,10 +574,18 @@ storefront as a pink sneaker at official provenance.
 
 ## Next step
 
-Next Mall ID is **PM-032**, unallocated until a product is actually published.
+Next Mall ID is **PM-033**, unallocated until a product is actually published.
 Nothing is awaiting approval: the approval queue is empty.
 
-Seven products now come from the automated pipeline — PM-025 through PM-031.
-Four have manufacturer-official media (PM-026, PM-029, PM-030, PM-031); PM-025,
-PM-027 and PM-028 rest on trusted-retailer evidence. Upgrading those three to
-official imagery remains open if an official route ever opens.
+Eight real supplier products now exist — PM-025 through PM-032. Four have
+manufacturer-official media (PM-026, PM-029, PM-030, PM-031); PM-025, PM-027
+and PM-028 rest on trusted-retailer evidence; **PM-032 is the first on
+owner-supplied media**. Upgrading any of them if an official route opens
+remains available, and PM-032 is the one that would gain most — larger files
+alone would fix its only real weakness.
+
+**A standing caution from PM-032:** commercial bot protection now walls the
+runner at both eMAG (HTTP 511) and the MODIVO group (404 to automated
+clients). No bypass will be built for either. Where a retailer declines
+automated access, the owner-supplied route is the answer, and its weaker
+provenance must be stated in the package rather than dressed up.
