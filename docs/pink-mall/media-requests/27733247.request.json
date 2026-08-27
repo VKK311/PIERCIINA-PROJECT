@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 4,
+  "brand": "Scotch & Soda",
+  "manufacturerItemNo": "27733247",
+  "model": "Celest",
+  "variant": "Rose",
+  "availableSizes": ["37", "38", "39", "40", "41"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": true,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.efootwear.eu/trainers-scotch-soda-celest-21731101-cream-white-s146.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "21731101",
+      "model": "Celest",
+      "variant": "Cream/White S146",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "ARTICLE-NUMBER FORMAT EVIDENCE, not this product. Establishes that Scotch & Soda footwear carries an 8-DIGIT article number, and that this retailer's title grammar is 'Celest <8-digit> <Colour Name> <Colour Code>'. The user's 27733247 matches that format exactly.",
+        "Also establishes that the trailing token (S146 here) is a Scotch & Soda COLOUR CODE, which is what makes the user's '34A' read as a colour code rather than a size."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.efootwear.eu/sneakers-scotch-soda-celest-18733464-candy-pink-multi.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "18733464",
+      "model": "Celest",
+      "variant": "Candy Pink Multi",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Second instance of the same 8-digit format, and confirms the Celest line ships PINK colourways. URL grammar observed: /<sneakers|trainers>-scotch-soda-celest-<article>-<colour-slug>.html",
+        "This is a DIFFERENT article number and therefore a DIFFERENT product. It is format and line evidence only, and contributes no image."
+      ]
+    },
+    {
+      "sourceUrl": "https://scotch-soda.eu/collections/women-footwear-sneakers",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "27733247",
+      "model": "Celest",
+      "variant": null,
+      "aliases": [],
+      "sizeScale": ["36", "37", "38", "39", "40", "41", "42"],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "OFFICIAL SIZE SCALE: the Celest is offered EU 36 to 42 on the brand's own European storefront. This matters because the user supplied 41, which is a REAL size for this model — the Mall's public ladder cap at 40 is a PINK MALL rule, not a limit of the shoe.",
+        "MODEL FACTS from the brand's own description: women's chunky sneaker, cow suede and nylon panels, customised rubber sole with textured bottom, metallic detail and logo at the side, recycled mesh lining and insole.",
+        "MODEL-VERSION HAZARD: the line has later generations sold as 'Celest 2.0' and 'Celest 2.0 LS'. The user said CELEST, so the base model is the target and a 2.0 asset must not be substituted.",
+        "Scotch & Soda runs on Shopify; /search?q= is a platform route, not an invented URL."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.ebay.com/itm/176620427205",
+      "authorityTier": "MARKETPLACE",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "C",
+      "capturedAt": "2026-08-27T00:00:00Z",
+      "sku": "27733247",
+      "model": "Celest",
+      "variant": "Rose",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Corroborates only that a colourway named exactly 'Rose' exists in the Celest line ('Scotch & Soda Celest Rose Sneakers').",
+        "MARKETPLACE: barred as a media source by the source hierarchy. Identity corroboration only, contributes no image, and does NOT bind 27733247 to Rose."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html",
+    "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html",
+    "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+    "https://scotch-soda.eu/search?q=27733247",
+    "https://scotchandsoda.com/search?q=27733247"
+  ],
+  "discoveryRoutes": {
+    "https://www.efootwear.eu/sneakers-scotch-soda-celest-27733247-rose-34a.html": "CONSTRUCTED_LEAD",
+    "https://www.efootwear.eu/trainers-scotch-soda-celest-27733247-rose-34a.html": "CONSTRUCTED_LEAD",
+    "https://www.efootwear.eu/catalogsearch/result/?q=27733247": "RETAILER_SEARCH",
+    "https://scotch-soda.eu/search?q=27733247": "OFFICIAL_SEARCH",
+    "https://scotchandsoda.com/search?q=27733247": "OFFICIAL_SEARCH"
+  },
+  "officialHostSuffixes": [
+    "scotch-soda.eu",
+    "scotchandsoda.com",
+    "scotch-soda.com"
+  ],
+  "allowedHostSuffixes": [
+    "scotch-soda.eu",
+    "scotchandsoda.com",
+    "scotch-soda.com",
+    "cdn.shopify.com",
+    "efootwear.eu"
+  ],
+  "resolution": {
+    "widthLadder": [2000, 1600, 1200, 1000]
+  },
+  "requestedBy": "claude",
+  "notes": [
+    "PASS 1 — RECONNAISSANCE. The binding of article 27733247 to the Rose / 34A colourway is NOT yet established by any document I could read: this container's egress proxy blocks every Scotch & Soda and retailer domain, so my research transport reached search summaries but never a page interior.",
+    "What IS established: the 8-digit article format, that 34A reads as a colour code, that a 'Rose' Celest colourway exists, the official EU 36-42 scale, and the model's materials.",
+    "The two efootwear URLs are CONSTRUCTED LEADS built from that retailer's observed URL grammar. A lead is not evidence. Each costs a 404 if wrong and proves nothing; it becomes evidence only if it resolves AND the document carries the exact article number.",
+    "cdn_hosts is deliberately empty in the brand registry. The media host is to be taken from THIS run's rejection log, never guessed — the same rule the A08745C run is the recorded reason for.",
+    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. Wrong-colourway acquisition is the exact PM-030 failure mode."
+  ]
+}

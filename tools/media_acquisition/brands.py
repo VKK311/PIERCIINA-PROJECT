@@ -143,6 +143,39 @@ BRANDS = {
         "sku_in_url": True,
         "view_re": None,
     },
+
+    "scotch & soda": {
+        "allowed_hosts": [
+            "scotch-soda.eu", "www.scotch-soda.eu",
+            "scotchandsoda.com", "www.scotchandsoda.com",
+            "scotch-soda.com", "www.scotch-soda.com",
+            "cdn.shopify.com",
+            # Trusted-retailer fallback. Scotch & Soda footwear is listed by
+            # this retailer under the same 8-digit article number the brand
+            # uses, which is the only observed route from that number to a
+            # product document.
+            "www.efootwear.eu", "efootwear.eu",
+        ],
+        # Scotch & Soda runs on Shopify, whose /search?q= route is part of the
+        # platform rather than a URL we invented. Everything else comes from
+        # the request manifest.
+        "page_templates": [
+            "https://scotch-soda.eu/search?q={sku}",
+            "https://scotchandsoda.com/search?q={sku}",
+        ],
+        # Left empty deliberately, on the Pepe Jeans precedent: the media host
+        # for this brand has not been observed yet, and it is filled in from a
+        # run's own rejection log rather than from a guess about Shopify.
+        "cdn_hosts": [],
+        # No probe. Shopify asset filenames are whatever the merchant uploaded;
+        # they cannot be derived from the article number, and constructing one
+        # would be fabricating a path rather than discovering an asset.
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [2000, 1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": None,
+    },
 }
 
 DEFAULT = {
