@@ -426,6 +426,72 @@ Known-clean exception: this container's egress proxy resets
 `fonts.googleapis.com`. Verified identical on builds predating the product, so
 it is an environment fact, not a product defect.
 
+## Scotch & Soda Celest 27733247 — DISCOVERY_TRANSPORT_BLOCKED
+
+| | |
+|---|---|
+| STATE | **not acquired, not staged, not published** |
+| BRAND / MODEL | Scotch & Soda / Celest |
+| SUPPLIED | article 27733247, colour "34A Rose", €69, sizes 37-41 |
+| PUBLISHABLE SIZES | 37, 38, 39, 40 — the user chose to keep the Mall's EU 36-40 cap, so the supplied 41 is not listed |
+| SIZE STATE | `SIZE_CONFIRMED` against the line's declared EU 36-42 scale |
+| PASSES | 3 runner passes, ~20 research queries |
+| STATUS | `DISCOVERY_TRANSPORT_BLOCKED` — refusal **not** permitted by the gate |
+
+**Who owns the number.** 27733247 is a **MODIVO S.A. / eobuwie group** article
+number, not a Scotch & Soda code. The brand's own Shopify store indexes
+`78-XXXX-XX` style codes and returns no product for the 8-digit form. The group
+runs one catalogue across obuvki.bg, eobuwie.com.pl, modivo.pl and formerly
+efootwear.eu.
+
+That is also why no other retailer can be searched for it: Zalando, About You
+and GLAMI each use their own numbering, so the article number simply does not
+exist outside MODIVO's catalogue.
+
+**Why it is blocked rather than absent.** Every MODIVO URL returns 404 to the
+runner — *including the brand listing page that demonstrably exists*. A 404 on
+a page known to exist is bot protection, not evidence of absence. Separately,
+eskor.se now serves `/b/closedsite`, and the archive routes timed out on the
+runner, so `INDEXED_OUTBOUND_MEDIA` and `INDEXED_SOURCE_EVIDENCE` never
+answered. The refusal gate therefore correctly refuses to permit a refusal:
+these are transport failures, not evidence failures.
+
+**What research did establish**: the 8-digit MODIVO numbering and its series
+for this line (18733464, 19733142/4/5, 21731101, 22733693, 22733735, 23733437/8,
+24733608); that the trailing token is a Scotch & Soda colour code, so "34A"
+reads as colour rather than size; that a Celest colourway named "Rose" exists;
+the official EU 36-42 scale; and the model's construction — cow suede and nylon
+panels, customised rubber sole, recycled mesh lining.
+
+**What it did not establish**, and what nothing may be published without: that
+article 27733247 *is* the Rose / 34A colourway. At least ten other Celest
+articles sit in the same catalogue, several of them pink.
+
+### A false acceptance was caught and fixed here
+
+Pass 1 returned `PARTIAL` at **OFFICIAL tier** carrying a Scotch & Soda
+knitwear close-up as if it were the sneaker.
+
+`page_has_sku` tested the page's whole URL, so `/search?q=27733247` "named the
+SKU" because the article number sat in the query string **we supplied** — our
+own query reflected back and read as the page's assertion — and `og:image`
+counts as an authoritative declaration. The gate was half right: it had already
+rejected that identical asset when it arrived via `html-scan`.
+
+A search or listing route now lends no identity to its own images. That is not
+a tightening of evidence but a correction of what the route is for: its value
+is the product links it yields, which link-target recovery already follows to
+real product pages. Nine guards pin the recognised search forms and, equally,
+that genuine product routes are not caught by them.
+
+An audit of every previously acquired image confirmed **no published media was
+affected**: all of PM-025 through PM-031 rest on either `asset-url` evidence or
+`source-page` evidence from genuine product documents.
+
+This is the mirror of the false-refusal work, and the more dangerous direction:
+with three such images the run would have reached PASS and put knitwear on the
+storefront as a pink sneaker at official provenance.
+
 ## Next step
 
 Next Mall ID is **PM-032**, unallocated until a product is actually published.
