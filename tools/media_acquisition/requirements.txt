@@ -1,1 +1,3 @@
 Pillow>=10.0
+# Bounded JS rendering for client-side storefronts (tools/media_acquisition/render.py).
+playwright>=1.40

@@ -32,6 +32,7 @@ import urllib.request
 from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import render
 from brands import brand_rule  # noqa: E402
 
 # ── Guards ────────────────────────────────────────────────────────────────
@@ -1252,6 +1253,11 @@ def size_state(user_sizes, size_evidence):
 
 REFUSAL_ROUTES = (
     "DIRECT_OFFICIAL_PAGE",
+    # A client-side storefront serves a shell; its gallery exists only after
+    # JavaScript runs. Until that route has actually been tried on an
+    # evidenced exact-SKU shell, discovery is not exhausted and no refusal —
+    # and no request for user material — is honest.
+    "JS_RENDERED_PAGE",
     "DIRECT_OFFICIAL_API",
     "OFFICIAL_REGIONAL_SEARCH",
     "SEARCH_INDEX_OFFICIAL",
@@ -1319,7 +1325,7 @@ def _is_new_domain(host, known_hosts):
     return True
 
 
-def refusal_audit(ledger, aliases=None, known_hosts=None):
+def refusal_audit(ledger, aliases=None, known_hosts=None, shell_pending=False):
     """Machine-readable account of whether a refusal is permitted.
 
     Three facts decide it.
@@ -1370,7 +1376,10 @@ def refusal_audit(ledger, aliases=None, known_hosts=None):
     # A route counts as exhausted only if it actually answered at least once.
     blocked = sorted(r for r in unreachable if r not in succeeded)
 
-    if exact:
+    if shell_pending:
+        why = ("an exact-SKU page was served as a client-side shell and the "
+               "bounded render route has not run — discovery is not exhausted")
+    elif exact:
         why = "an exact product document was found — identity is established"
     elif "NEW_RETAILER_DISCOVERY" in untried:
         why = ("no domain outside the starting host set was evaluated — a fixed "
@@ -1392,8 +1401,15 @@ def refusal_audit(ledger, aliases=None, known_hosts=None):
         "identifierAliases": list(aliases or []),
         # Honest only when nothing was left untried, nothing was merely
         # unreachable, and nothing exact was found.
-        "refusalPermitted": (not exact) and (not untried) and (not blocked),
+        # A shell whose render never ran is the same class of mistake as a
+        # timed-out archive: a route that never answered. Refusal — and any
+        # request for user-supplied material — stays forbidden until it does.
+        "spaRenderPending": bool(shell_pending),
+        "refusalPermitted": ((not exact) and (not untried)
+                             and (not blocked) and (not shell_pending)),
         "refusalBlockedBecause": why,
+        "userInputPermitted": ((not shell_pending) and (not untried)
+                               and (not blocked)),
     }
 
 
@@ -1606,6 +1622,54 @@ def acquire(request, outroot, log):
         entry = ledger[before] if len(ledger) > before else None
         if entry and (entry.get("result") != "OK" or not entry.get("sku_evidence")):
             failed_pages.append(page)
+
+    # ── Bounded JS render of an evidenced exact-SKU shell ─────────────────
+    # Only for pages that already proved themselves: 2xx, allowed host,
+    # OFFICIAL or TRUSTED_RETAILER, the article named in the BODY, and no
+    # usable media in the served HTML. Rendering approves nothing — every URL
+    # it finds goes through the same identity and validation as any other.
+    if not os.environ.get("PM_NO_RENDER"):
+        for e in [x for x in log
+                  if x.get("stage") == "discover" and x.get("ok")
+                  and x.get("shell_suspected")]:
+            purl = e.get("url") or ""
+            try:
+                rhost = _check_url(purl, allowed)
+                host_allowed = True
+            except Refused:
+                rhost, host_allowed = urllib.parse.urlsplit(purl).netloc.lower(), False
+            rtier = _authority_tier(rhost, rule, request)
+            if not render.should_render(
+                    authority_tier=rtier, http_ok=True,
+                    sku_where=e.get("sku_evidence_where"),
+                    media_found=bool(e.get("raw_candidates")),
+                    shell_suspected=True, host_allowed=host_allowed):
+                ledger.append({"route": "JS_RENDERED_PAGE", "url": purl,
+                               "result": "N/A", "authorityTier": rtier,
+                               "error": "render preconditions not met"})
+                continue
+            rurls, rhtml, rerr = render.render_page(purl, log=log)
+            if rerr:
+                ledger.append({"route": "JS_RENDERED_PAGE", "url": purl,
+                               "result": "FAIL", "authorityTier": rtier,
+                               "error": rerr})
+                continue
+            for u in scan_images(rhtml, purl):
+                if u not in rurls:
+                    rurls.append(u)
+            log.append({"stage": "js-render-scan", "url": purl,
+                        "images": len(rurls),
+                        "rendered_bytes": len(rhtml or ""),
+                        "served_bytes": e.get("html_bytes")})
+            ledger.append({"route": "JS_RENDERED_PAGE", "url": purl,
+                           "result": "OK", "authorityTier": rtier,
+                           "candidates": len(rurls),
+                           "sku_evidence": True,
+                           "exactProductDocument": bool(rurls)})
+            # "js-rendered" is deliberately NOT an authoritative method: the
+            # rendered DOM carries the whole page, chrome and recommendations
+            # included. Each candidate must still identify itself.
+            candidates += [(u, "js-rendered", purl, True) for u in rurls]
 
     # Second hop. The authority is the destination, not the page that linked to
     # it: a product page reached from an official category listing is official
@@ -2093,7 +2157,17 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     _start_hosts = list(rule.get("allowed_hosts") or [])
     _start_hosts += [str(h) for h in (request.get("allowedHostSuffixes") or [])]
     _start_hosts += [str(h) for h in (request.get("officialHostSuffixes") or [])]
-    audit = refusal_audit(ledger, aliases, known_hosts=_start_hosts)
+    # A shell page that was identified but whose render never produced
+    # candidates leaves the SPA route unanswered.
+    _rendered_ok = {e.get("url") for e in ledger
+                    if e.get("route") == "JS_RENDERED_PAGE" and e.get("result") == "OK"}
+    _shell_pending = any(
+        x.get("stage") == "discover" and x.get("shell_suspected")
+        and x.get("sku_evidence_where") in ("body", "body-only")
+        and x.get("url") not in _rendered_ok
+        for x in log)
+    audit = refusal_audit(ledger, aliases, known_hosts=_start_hosts,
+                          shell_pending=_shell_pending)
 
     status = "PASS" if len(entries) >= MIN_KEEP else ("PARTIAL" if entries else "BLOCKED")
     # A run must not report PASS while variant evidence conflicts.
@@ -2110,6 +2184,8 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     if status == "BLOCKED" and not audit["refusalPermitted"]:
         if audit["exactProductDocuments"]:
             status = "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED"
+        elif audit.get("spaRenderPending"):
+            status = "SPA_RENDER_REQUIRED"
         elif audit["routesUnreachable"]:
             status = "DISCOVERY_TRANSPORT_BLOCKED"
         else:

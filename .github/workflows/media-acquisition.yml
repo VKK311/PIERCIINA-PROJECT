@@ -39,7 +39,7 @@ jobs:
   acquire:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +55,13 @@ jobs:
 
       - name: Install dependencies
         run: python -m pip install --quiet -r tools/media_acquisition/requirements.txt
+
+      # Chromium for the bounded SPA render fallback. Only Chromium, and only
+      # its own dependencies: this is not a general browser automation setup.
+      # A page is rendered solely when it is an already evidenced exact-SKU
+      # shell — see tools/media_acquisition/render.py.
+      - name: Install Chromium for SPA rendering
+        run: python -m playwright install --with-deps chromium
 
       # Which SKUs this run is actually for. github.event.inputs.sku is empty
       # on push, so the old wiring silently meant "every manifest" — which made

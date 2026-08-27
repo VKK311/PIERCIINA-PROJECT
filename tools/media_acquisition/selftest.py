@@ -15,6 +15,7 @@ import re
 import shutil
 import socketserver
 import io
+import urllib.request
 import subprocess
 import sys
 import tempfile
@@ -123,6 +124,36 @@ def build_fixture(root):
 <img src="{B}/bad/error.jpg"><img src="{B}/bad/tiny.jpg">
 <img src="https://evil.example.com/steal.jpg">
 </body></html>""".format(B=B))
+
+    # ── A client-side storefront ──────────────────────────────────────────
+    # The gallery is NOT in the served HTML; the app fetches it at runtime.
+    # That is what a real SPA storefront does and what makes an HTTP-only
+    # parser genuinely blind to it, rather than merely bad at parsing.
+    os.makedirs(os.path.join(root, "spa", "img"), exist_ok=True)
+    for i in range(1, 5):
+        shot(i, 1400, "spa view %d" % i).save(
+            os.path.join(root, "spa", "img", "401012.003_%d.jpg" % i), quality=90)
+    # Banner shape: must still be rejected after rendering finds it.
+    shot(1, 1400, "BANNER").resize((1920, 480)).save(
+        os.path.join(root, "spa", "img", "hero-banner.jpg"), quality=90)
+    with io.open(os.path.join(root, "spa", "gallery.json"), "w", encoding="utf-8") as fh:
+        json.dump({"images": ["img/401012.003_%d.jpg" % i for i in range(1, 5)]
+                             + ["img/hero-banner.jpg"]}, fh)
+    with io.open(os.path.join(root, "spa", "product.html"), "w", encoding="utf-8") as fh:
+        fh.write("""<!doctype html><html><head><title>Shop</title></head>
+<body><div id="app">Article SPASKU01 &mdash; loading</div>
+<script>
+fetch('gallery.json').then(function (r) { return r.json(); }).then(function (d) {
+  var box = document.getElementById('app');
+  d.images.forEach(function (u) {
+    var i = document.createElement('img'); i.setAttribute('src', u); box.appendChild(i);
+  });
+});
+</script></body></html>""")
+    # Same shell, but the article appears only in the path we would request.
+    with io.open(os.path.join(root, "spa", "urlonly-SPASKU01.html"), "w",
+                 encoding="utf-8") as fh:
+        fh.write("<!doctype html><html><body><div>loading</div></body></html>")
 
 
 def hop_req(tmp):
@@ -802,6 +833,106 @@ def main():
                    sku_match_where("https://s.test/p/x.html", "<p>y</p>", "ABC123") is None))
     checks.append(("no sku supplied is None",
                    sku_match_where("https://s.test/p/abc123.html", "<p>z</p>", None) is None))
+
+    # ── Round: bounded SPA rendering ──────────────────────────────────────
+    # Hermetic throughout: the shell, its gallery endpoint and its images are
+    # all served by the local fixture. No live internet.
+    import render as _render  # noqa: E402
+    # The main fixture server has already been shut down by this point, so the
+    # SPA round serves the same tree from a fresh port for its own lifetime.
+    _spa_port = PORT + 7
+    _spa_httpd = socketserver.TCPServer(
+        ("127.0.0.1", _spa_port),
+        lambda *a_, **k_: Quiet(*a_, directory=srv_root, **k_))
+    threading.Thread(target=_spa_httpd.serve_forever, daemon=True).start()
+    PORT_SPA = _spa_port
+    _spa_url = "http://127.0.0.1:%d/spa/product.html" % PORT_SPA
+    _spa_served = urllib.request.urlopen(_spa_url, timeout=10).read().decode("utf-8")
+
+    checks.append(("SPA shell exposes no media to the HTTP parser",
+                   scan_images(_spa_served, _spa_url) == []))
+    checks.append(("SPA shell names the article in its body",
+                   sku_match_where(_spa_url, _spa_served, "SPASKU01") == "body-only"))
+
+    # Gating: a page whose only SKU match is the path we requested is refused.
+    _urlonly = "http://127.0.0.1:%d/spa/urlonly-SPASKU01.html" % PORT_SPA
+    _urlonly_html = urllib.request.urlopen(_urlonly, timeout=10).read().decode("utf-8")
+    checks.append(("a URL-only SKU match does not qualify for rendering",
+                   _render.should_render(
+                       authority_tier="TRUSTED_RETAILER", http_ok=True,
+                       sku_where=sku_match_where(_urlonly, _urlonly_html, "SPASKU01"),
+                       media_found=False, shell_suspected=True,
+                       host_allowed=True) is False))
+    checks.append(("an untrusted tier does not qualify for rendering",
+                   _render.should_render(
+                       authority_tier="MARKETPLACE", http_ok=True, sku_where="body",
+                       media_found=False, shell_suspected=True,
+                       host_allowed=True) is False))
+    checks.append(("a page that already yielded media does not render",
+                   _render.should_render(
+                       authority_tier="OFFICIAL", http_ok=True, sku_where="body",
+                       media_found=True, shell_suspected=True,
+                       host_allowed=True) is False))
+
+    _rurls, _rhtml, _rerr = _render.render_page(_spa_url, log=[])
+    checks.append(("renderer reports no transport error", _rerr is None))
+    checks.append(("renderer discovers the hydrated gallery",
+                   len({u.rsplit("/", 1)[-1] for u in _rurls
+                        if "401012.003_" in u}) == 4))
+    checks.append(("rendered DOM is larger than the served shell",
+                   len(_rhtml or "") > len(_spa_served)))
+
+    _, _, _terr = _render.render_page(_spa_url, log=[], nav_timeout=0.001,
+                                      hydrate_timeout=0.001, total_timeout=0.001)
+    checks.append(("a render timeout is a transport failure, not an answer",
+                   _terr is not None))
+
+    # End to end: the rendered URLs must go through normal acquisition.
+    spa_out = os.path.join(tmp, "spa-out")
+    spa_req = os.path.join(tmp, "SPASKU01.request.json")
+    with io.open(spa_req, "w", encoding="utf-8") as fh:
+        json.dump({
+            "schemaVersion": 4, "brand": "Fixture", "manufacturerItemNo": "SPASKU01",
+            # No variant colour claim: this round is about the render route,
+            # and asserting a colour the fixture shapes do not have would make
+            # the check fail for an unrelated reason.
+            "model": "Rendered", "variant": None, "candidateMedia": [],
+            "indexedAssetSearch": False, "indexedEvidence": False,
+            "discoveryPages": [_spa_url],
+            "discoveryRoutes": {_spa_url: "TRUSTED_RETAILER_SEARCH"},
+            "allowedHostSuffixes": ["127.0.0.1"],
+            "researchEvidence": [{
+                "sourceUrl": _spa_url, "authorityTier": "TRUSTED_RETAILER",
+                "discoveryTransport": "REVIEWER_VERIFIED", "confidence": "A",
+                "sku": "SPASKU01", "aliases": ["401012.003"],
+                "sizeScale": [], "mediaUrls": [], "observedCdnHosts": [],
+                "notes": ["hermetic fixture"],
+            }],
+            "resolution": {"widthLadder": [1400]},
+        }, fh)
+    spa_env = dict(env)
+    spa_env.pop("PM_NO_RENDER", None)
+    subprocess.run([sys.executable, os.path.join(HERE, "acquire.py"),
+                    "--request", spa_req, "--out", spa_out],
+                   check=False, env=spa_env, capture_output=True)
+    _sj = os.path.join(spa_out, "SPASKU01", "result.json")
+    _sd = json.load(io.open(_sj, encoding="utf-8")) if os.path.exists(_sj) else {}
+    _simgs = _sd.get("images", [])
+    checks.append(("rendered gallery reaches acquisition and PASSes",
+                   _sd.get("status") == "PASS"))
+    checks.append(("rendering removes the SPA_RENDER_REQUIRED block",
+                   (_sd.get("refusalAudit") or {}).get("spaRenderPending") is False))
+    checks.append(("all four rendered assets are acquired",
+                   len(_simgs) == 4))
+    checks.append(("the banner is still rejected after rendering",
+                   all("hero-banner" not in (i.get("source_url") or "")
+                       for i in _simgs)))
+    checks.append(("rendered media is recorded as js-rendered",
+                   all(i.get("discovery_method") == "js-rendered" for i in _simgs)
+                   if _simgs else False))
+    checks.append(("JS_RENDERED_PAGE is an audited route",
+                   "JS_RENDERED_PAGE" in (_sd.get("refusalAudit") or {}).get("routesSucceeded", [])))
+    _spa_httpd.shutdown()
 
     ok = True
     for name, passed in checks:
