@@ -194,6 +194,33 @@ BRANDS = {
         "sku_in_url": True,
         "view_re": None,
     },
+
+    "stella mccartney": {
+        "allowed_hosts": [
+            "www.stellamccartney.com", "stellamccartney.com",
+            # Established kidswear/luxury retailers that index the WHOLESALE
+            # style code. The brand's own site indexes K-codes such as
+            # K03231PK02407203 instead, so these are the only observed route
+            # from TU0A28Z0699 to a product document.
+            "www.littletagsluxury.com", "littletagsluxury.com",
+            "www.smallable.com", "smallable.com",
+            "kids21.com", "www.kids21.com",
+        ],
+        # Search is a platform route and yields link targets only; since the
+        # search-route fix it lends no identity to its own images.
+        "page_templates": [
+            "https://www.stellamccartney.com/us/en/search?q={sku}",
+        ],
+        # Left empty deliberately, on the Pepe Jeans precedent: this brand's
+        # media host has not been observed yet and is filled in from a run's
+        # own rejection log, never guessed.
+        "cdn_hosts": [],
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [2000, 1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": None,
+    },
 }
 
 DEFAULT = {
