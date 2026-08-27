@@ -767,6 +767,22 @@ def main():
                    len(_got) == 3))
     checks.append(("a page with no images yields nothing",
                    scan_images("<p>no pictures here</p>", _base) == []))
+    # Modern storefronts ship the gallery inside a JSON blob, and JSON escapes
+    # forward slashes. Every URL pattern excludes backslashes, so such a page
+    # names its images and the scanner sees none of them.
+    _json_html = ('<script>{"media":[{"u":"https:\\/\\/cdn.shop.test\\/c\\/abc_1.jpg"},'
+                  '{"u":"\\/\\/cdn.shop.test\\/c\\/abc_2.jpg"},'
+                  '{"u":"\\u002Fmedia\\u002Fabc_3.jpg"}]}</script>')
+    _j = scan_images(_json_html, _base)
+    checks.append(("JSON-escaped absolute URL is recovered",
+                   "https://cdn.shop.test/c/abc_1.jpg" in _j))
+    checks.append(("JSON-escaped protocol-relative URL is recovered",
+                   "https://cdn.shop.test/c/abc_2.jpg" in _j))
+    checks.append(("unicode-escaped root-relative URL is recovered",
+                   "https://shop.test/media/abc_3.jpg" in _j))
+    checks.append(("plain markup is unaffected by the unescaping",
+                   scan_images('<img src="https://a.test/b.jpg">', _base)
+                   == ["https://a.test/b.jpg"]))
 
     ok = True
     for name, passed in checks:

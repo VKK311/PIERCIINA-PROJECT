@@ -142,8 +142,24 @@ REL_IMG_RE = re.compile(
     r"""(?:\?[^\s\"'()\\<>]*)?)""", re.I)
 
 
+def _unescape_urls(html):
+    """Normalise URL escapes used by embedded JSON before pattern matching.
+
+    Modern storefronts ship the gallery inside a JSON blob rather than in
+    markup, and JSON escapes forward slashes: "https:\\/\\/img.host\\/x.jpg".
+    Every URL pattern here excludes backslashes, so such a page names its
+    images and the scanner sees none of them.
+    """
+    if not html:
+        return ""
+    return (html.replace("\\/", "/")
+                .replace("\\u002F", "/").replace("\\u002f", "/")
+                .replace("&#x2F;", "/").replace("&#47;", "/"))
+
+
 def scan_images(html, base_url):
     """Every image reference on a page, absolute or relative, as absolute URLs."""
+    html = _unescape_urls(html)
     out, seen = [], set()
     for u in IMG_RE.findall(html or ""):
         if u not in seen:
