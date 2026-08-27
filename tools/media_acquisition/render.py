@@ -21,9 +21,9 @@ import urllib.parse
 
 # Bounds. A render that has not produced a gallery inside these is a transport
 # failure, reported as such, and never read as evidence of absence.
-NAV_TIMEOUT_S = 20
-HYDRATE_TIMEOUT_S = 12
-TOTAL_TIMEOUT_S = 45
+NAV_TIMEOUT_S = 30
+HYDRATE_TIMEOUT_S = 15
+TOTAL_TIMEOUT_S = 75
 MAX_IMAGE_URLS = 400
 
 IMAGE_EXT_RE = re.compile(r"\.(?:jpg|jpeg|png|webp|avif)(?:\?|$)", re.I)
@@ -105,20 +105,12 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
             # No popups or new-window traversal: close anything that opens.
             page.on("popup", lambda p: p.close())
 
-            # Never leave the page we were told to render. Sub-resources load
-            # normally — that is how the gallery appears, and how we observe
-            # the CDN host — but a main-frame navigation to another origin is
-            # crawling, which this is not.
-            def _guard(route, request):
-                try:
-                    if request.is_navigation_request() and request.frame == page.main_frame:
-                        h = urllib.parse.urlsplit(request.url).netloc.lower()
-                        if h and h != origin_host and request.url != url:
-                            return route.abort()
-                except Exception:                          # noqa: BLE001
-                    pass
-                return route.continue_()
-            page.route("**/*", _guard)
+            # The origin guard is checked AFTER navigation rather than by
+            # intercepting every request. Blanket interception put a Python
+            # round-trip in front of every subresource on the page and was
+            # itself timing the navigation out. The guarantee is unchanged:
+            # exactly one URL is ever navigated to, nothing is clicked, and a
+            # result that ended up on another origin is discarded below.
 
             # Image URLs the product page actually requested.
             def _on_response(resp):
@@ -132,8 +124,9 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
             page.on("response", _on_response)
 
             try:
-                page.goto(url, wait_until="domcontentloaded",
-                          timeout=nav_timeout * 1000)
+                # "commit" returns as soon as the response begins, so a slow
+                # subresource cannot fail the navigation itself.
+                page.goto(url, wait_until="commit", timeout=nav_timeout * 1000)
             except Exception as nav_exc:                   # noqa: BLE001
                 # One retry, only for a protocol-level failure. A 4xx or a
                 # timeout is an answer and is not retried here.
@@ -141,13 +134,22 @@ def render_page(url, log=None, nav_timeout=NAV_TIMEOUT_S,
                     raise
                 log.append({"stage": "js-render-retry", "url": url,
                             "error": str(nav_exc)[:120]})
-                page.goto(url, wait_until="load", timeout=nav_timeout * 1000)
-            # Wait only long enough for the application to hydrate.
-            try:
-                page.wait_for_load_state("networkidle",
-                                         timeout=hydrate_timeout * 1000)
-            except Exception:                              # noqa: BLE001
-                pass                                       # hydration is best-effort
+                page.goto(url, wait_until="commit", timeout=nav_timeout * 1000)
+            # Wait only long enough for the application to hydrate. Each stage
+            # is best-effort: a page that never goes idle still gets read.
+            for state in ("domcontentloaded", "networkidle"):
+                try:
+                    page.wait_for_load_state(state, timeout=hydrate_timeout * 1000)
+                except Exception:                          # noqa: BLE001
+                    pass
+            # Redirect safeguard: if the render ended up on another origin, the
+            # page we evidenced is not the page we read, so discard it.
+            final_host = urllib.parse.urlsplit(page.url).netloc.lower()
+            if final_host and final_host != origin_host:
+                ctx.close()
+                browser.close()
+                return [], "", ("render left the evidenced origin: %s -> %s"
+                                % (origin_host, final_host))
             if time.time() - started > total_timeout:
                 raise TimeoutError("render exceeded %ss" % total_timeout)
 

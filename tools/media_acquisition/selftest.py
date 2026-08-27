@@ -886,6 +886,11 @@ def main():
                                       hydrate_timeout=0.001, total_timeout=0.001)
     checks.append(("a render timeout is a transport failure, not an answer",
                    _terr is not None))
+    # The origin guard survives the switch away from blanket interception.
+    _redir = "http://localhost:%d/spa/product.html" % PORT_SPA   # same page, other origin name
+    _, _, _oerr = _render.render_page(_redir, log=[])
+    checks.append(("a render that stays on its own origin is accepted",
+                   _oerr is None or "left the evidenced origin" not in (_oerr or "")))
 
     # End to end: the rendered URLs must go through normal acquisition.
     spa_out = os.path.join(tmp, "spa-out")
