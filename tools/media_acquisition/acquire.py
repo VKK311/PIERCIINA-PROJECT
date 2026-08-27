@@ -160,6 +160,23 @@ NON_PRODUCT_RE = re.compile(
 # a page banner, a category strip or a lifestyle header — never the product
 # shot this pipeline exists to acquire. Rejecting on shape is brand-agnostic
 # and needs no allow-list to maintain.
+# A search or listing route reflects our own query back at us: the article
+# number appears in ?q= and in the rendered search box because WE put it there,
+# never because the page asserts anything about an asset. Such a page is a
+# discovery route — its value is the product links it yields, not its images.
+# Treating its og:image as this product's is how a Scotch & Soda knitwear
+# close-up was accepted as a Celest sneaker at OFFICIAL tier.
+SEARCH_ROUTE_RE = re.compile(
+    r"(?:/search\b|/catalogsearch\b|/results?\b|/find\b"
+    r"|[?&](?:q|query|s|search|keyword|term)=)", re.I)
+
+
+def is_search_route(url):
+    """True when the URL is a search/listing route rather than a document
+    about one product."""
+    return bool(SEARCH_ROUTE_RE.search(url or ""))
+
+
 MAX_ASPECT = 2.2
 
 
@@ -295,8 +312,10 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
                 found.append((u, "srcset"))
     found += [(u, "html-scan") for u in IMG_RE.findall(html)]
 
-    # Does the page itself name the exact SKU? Checked in its URL and body.
-    page_has_sku = bool(sku) and (sku.lower() in final.lower() or sku.lower() in html.lower())
+    # Does the page itself name the exact SKU? Checked in its URL and body —
+    # but never on a search route, where both are our own query echoed back.
+    page_has_sku = bool(sku) and not is_search_route(final) and (
+        sku.lower() in final.lower() or sku.lower() in html.lower())
 
     # One hop: hand back SKU-bearing link targets for the caller to follow.
     if collect_links is not None:
@@ -570,8 +589,8 @@ def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
     # Does this document actually name the article? Base code or an alias it
     # itself declares.
     hay = (original + " " + html).lower()
-    page_has_sku = bool(sku) and (sku.lower() in hay
-                                  or any(a.lower() in hay for a in found_aliases))
+    page_has_sku = bool(sku) and not is_search_route(original) and (
+        sku.lower() in hay or any(a.lower() in hay for a in found_aliases))
 
     found = []
     found += _from_jsonld(html)

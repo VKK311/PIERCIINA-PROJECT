@@ -672,6 +672,26 @@ def main():
                    _dicts == ["36", "37", "38"]))
     checks.append(("both sizeScale shapes agree", _bare == _dicts))
 
+    # A search route must never lend its own images this product's identity.
+    # The Celest 27733247 run accepted a Scotch & Soda knitwear close-up as a
+    # sneaker at OFFICIAL tier because /search?q=27733247 "named the SKU" — our
+    # own query string reflected back — and og:image counts as an authoritative
+    # declaration on a product page.
+    from acquire import is_search_route  # noqa: E402
+    for _u in ["https://scotch-soda.eu/search?q=27733247",
+               "https://www.scotchandsoda.com/search?q=27733247",
+               "https://www.efootwear.eu/catalogsearch/result/?q=27733247",
+               "https://shop.test/results?query=ABC123",
+               "https://shop.test/find?keyword=ABC123"]:
+        checks.append(("search route recognised: " + _u.split("//")[1][:44],
+                       is_search_route(_u) is True))
+    for _u in ["https://www.colorsofcalifornia.it/en-ot/shoponline/x.hc.rbglow01?color=FUX",
+               "https://scotch-soda.eu/products/78-3194-01",
+               "https://eu.puma.com/eu/en/pd/398855",
+               "https://scotch-soda.eu/cdn/shop/files/183298_001_S_10_DTL.png?v=1786396229"]:
+        checks.append(("product route NOT treated as search: " + _u.split("//")[1][:40],
+                       is_search_route(_u) is False))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

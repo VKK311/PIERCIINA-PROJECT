@@ -150,16 +150,28 @@ BRANDS = {
             "scotchandsoda.com", "www.scotchandsoda.com",
             "scotch-soda.com", "www.scotch-soda.com",
             "cdn.shopify.com",
-            # Trusted-retailer fallback. Scotch & Soda footwear is listed by
-            # this retailer under the same 8-digit article number the brand
-            # uses, which is the only observed route from that number to a
-            # product document.
+            # Trusted-retailer fallback: the MODIVO S.A. / eobuwie group.
+            # The 8-digit article number the user works from is THIS GROUP'S
+            # numbering, not Shopify's — the brand's own store indexes
+            # 78-XXXX-XX style codes and its search returns nothing for the
+            # 8-digit form. These are the group's country domains, which share
+            # one catalogue and one URL grammar.
+            "www.obuvki.bg", "obuvki.bg",
             "www.efootwear.eu", "efootwear.eu",
+            "www.eskor.se", "eskor.se",
+            "www.eobuwie.pl", "eobuwie.pl",
+            "www.modivo.bg", "modivo.bg",
         ],
         # Scotch & Soda runs on Shopify, whose /search?q= route is part of the
         # platform rather than a URL we invented. Everything else comes from
         # the request manifest.
         "page_templates": [
+            # Retailer search first: the article number is the retailer's own.
+            # A search route yields LINK TARGETS, which is its whole value —
+            # since the search-route fix it lends no identity to its own
+            # images, so a fuzzy match costs nothing.
+            "https://www.obuvki.bg/search?q={sku}",
+            "https://www.efootwear.eu/search?q={sku}",
             "https://scotch-soda.eu/search?q={sku}",
             "https://scotchandsoda.com/search?q={sku}",
         ],
