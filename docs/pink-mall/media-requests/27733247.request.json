@@ -3,7 +3,7 @@
   "brand": "Scotch & Soda",
   "manufacturerItemNo": "27733247",
   "model": "Celest",
-  "variant": "Rose",
+  "variant": "Pink",
   "availableSizes": [
     "37",
     "38",
@@ -117,23 +117,33 @@
         "SERIES CORROBORATION for the Celest line in this catalogue: 18733464 Candy Pink Multi, 19733145 Camel/Black S144, 21731101 Cream/White S146, 22733735 Pink, 24733608 Coral Multi. The user's 27733247 sits in the same series.",
         "DIFFERENT ARTICLE, therefore a different product. Grammar and numbering evidence only; contributes no image."
       ]
+    },
+    {
+      "sourceUrl": "https://www.emag.bg/scotch-soda-sportni-obuvki-s-velur-rozovo-38-27733247-s059-38/pd/DDMKSTYBM/",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "USER_SUPPLIED",
+      "confidence": "A",
+      "capturedAt": "2026-08-27T08:30:00Z",
+      "sku": "27733247",
+      "model": "Celest",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "SUPPLIED BY THE USER after three passes were blocked, with the explicit instruction 'Retrieve photos from here.' This is the user's own supplier listing and is the first document reached that carries article 27733247 in a real PRODUCT path rather than a query string.",
+        "The URL itself evidences: article 27733247, colour token 's059', 'rozovo' (pink) and 'velur' (suede). The suede matches the Celest construction established independently from the brand's own line description.",
+        "COLOUR-CODE DISCREPANCY TO SURFACE IN THE PACKAGE: the user's brief said colour '34A Rose'; this page's colour token is S059. The article number is the anchor and both readings agree the shoe is pink, but the codes differ and that must not be smoothed over.",
+        "TIER: this is a retailer document, NOT official manufacturer media. If media comes from here the package must say so plainly rather than presenting it as brand-official."
+      ]
     }
   ],
   "discoveryPages": [
-    "https://obuvki.bg/c/obuvki/marka:scotch_soda",
-    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a",
-    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose",
-    "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a",
-    "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy",
-    "https://www.obuvki.bg/catalogsearch/result/?q=27733247"
+    "https://www.emag.bg/scotch-soda-sportni-obuvki-s-velur-rozovo-38-27733247-s059-38/pd/DDMKSTYBM/"
   ],
   "discoveryRoutes": {
-    "https://obuvki.bg/c/obuvki/marka:scotch_soda": "TRUSTED_RETAILER_SEARCH",
-    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose-34a": "CONSTRUCTED_LEAD",
-    "https://obuvki.bg/p/snikrsi-scotch-soda-celest-27733247-rose": "CONSTRUCTED_LEAD",
-    "https://eobuwie.com.pl/p/sneakersy-scotch-soda-celest-27733247-rose-34a": "CONSTRUCTED_LEAD",
-    "https://modivo.pl/p/scotch-soda-sneakersy-celest-27733247-rozowy": "CONSTRUCTED_LEAD",
-    "https://www.obuvki.bg/catalogsearch/result/?q=27733247": "RETAILER_SEARCH"
+    "https://www.emag.bg/scotch-soda-sportni-obuvki-s-velur-rozovo-38-27733247-s059-38/pd/DDMKSTYBM/": "USER_SUPPLIED"
   },
   "officialHostSuffixes": [
     "scotch-soda.eu",
@@ -141,16 +151,7 @@
     "scotch-soda.com"
   ],
   "allowedHostSuffixes": [
-    "scotch-soda.eu",
-    "scotchandsoda.com",
-    "scotch-soda.com",
-    "cdn.shopify.com",
-    "obuvki.bg",
-    "eobuwie.com.pl",
-    "eobuwie.pl",
-    "modivo.pl",
-    "modivo.bg",
-    "efootwear.eu"
+    "emag.bg"
   ],
   "resolution": {
     "widthLadder": [
@@ -162,11 +163,11 @@
   },
   "requestedBy": "claude",
   "notes": [
-    "PASS 3 — CATALOGUE LISTING ROUTE. The group's BRAND LISTING page is the target: it is not a search route, so link-target recovery may mine it for a product URL carrying article 27733247. That route (TRUSTED_RETAILER_SEARCH) is the one the pass-2 refusal audit reported as never attempted.",
-    "PASS-2 TRANSPORT FACTS. eskor.se now serves /b/closedsite, so that domain is dead. obuvki.bg 404s on /search?q=, which was the wrong grammar; the group's modern product form is /p/<slug>-celest-<article>-<colour>-<code>.",
-    "PASS-2 RESULT WAS CORRECT AND HONEST: zero acquired, MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED. The pass-1 knitwear decoy is gone, which is the search-route fix working.",
-    "NO INDEX ANYWHERE CARRIES 27733247. Many query formulations across brand, retailer and marketplace sources returned the Celest line but never this article. That is a real negative from the indexed transport, though the archive routes themselves timed out on the runner and remain unexhausted.",
-    "SIZE 41 EXCLUDED BY MALL RULE, NOT BY THE PRODUCT. The user supplied 37-41; the Mall's ladder is EU 36-40 and the user chose to keep that cap.",
-    "DO NOT substitute a Celest 2.0 or 2.0 LS asset, and do not accept a neighbouring colourway. At least ten other Celest articles exist in this same catalogue."
+    "PASS 4 — USER-SUPPLIED PRODUCT DOCUMENT. The user supplied their supplier's eMAG listing for this exact article and asked for photos to be retrieved from it. This is the PGS30614 pattern: when every discovery transport is blocked, a document the user vouches for is a first-class transport.",
+    "This is the first document in four passes carrying 27733247 in a product PATH. Identity may legitimately rest on source-page evidence here because it is a genuine product page, not a search route.",
+    "cdn_hosts stays empty. eMAG's media host is expected to appear in THIS run's rejection log and gets allowed from that observation, never from a guess.",
+    "MEDIA TIER IS RETAILER, NOT OFFICIAL. Nothing acquired here may be presented as manufacturer media.",
+    "SIZE 41 EXCLUDED BY MALL RULE. The user supplied 37-41; the Mall's ladder is EU 36-40 and the user chose to keep that cap.",
+    "DO NOT accept a Celest 2.0 asset or a neighbouring colourway."
   ]
 }

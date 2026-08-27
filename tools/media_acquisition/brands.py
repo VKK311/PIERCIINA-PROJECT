@@ -161,6 +161,12 @@ BRANDS = {
             "www.eskor.se", "eskor.se",
             "www.eobuwie.pl", "eobuwie.pl",
             "www.modivo.bg", "modivo.bg",
+            # Added because the USER supplied an eMAG product URL for this
+            # exact article after every MODIVO route 404'd the runner. eMAG is
+            # the largest established e-commerce retailer in BG/RO and is the
+            # user's own supplier here; it is not treated as an official
+            # manufacturer source.
+            "www.emag.bg", "emag.bg",
         ],
         # Scotch & Soda runs on Shopify, whose /search?q= route is part of the
         # platform rather than a URL we invented. Everything else comes from
