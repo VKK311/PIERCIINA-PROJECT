@@ -15,6 +15,7 @@ import re
 import shutil
 import socketserver
 import io
+import urllib.parse
 import urllib.request
 import subprocess
 import sys
@@ -955,6 +956,76 @@ def main():
     checks.append(("JS_RENDERED_PAGE is an audited route",
                    "JS_RENDERED_PAGE" in (_sd.get("refusalAudit") or {}).get("routesSucceeded", [])))
     _spa_httpd.shutdown()
+
+    # ── Authority is not the allow-list ───────────────────────────────────
+    # allowed_hosts answers "may the fetcher connect", never "who owns this".
+    # Seeding authority from it made every trusted retailer in a brand's
+    # registry read as OFFICIAL.
+    from acquire import _authority_tier  # noqa: E402
+    import brands as _brands  # noqa: E402
+
+    _sm = _brands.brand_rule("Stella McCartney")
+    checks.append(("the manufacturer's own domain is OFFICIAL",
+                   _authority_tier("www.stellamccartney.com", _sm, {}) == "OFFICIAL"))
+    for _r in ("www.giglio.com", "img.giglio.com", "www.smallable.com",
+               "media.smallable.com", "www.farfetch.com", "www.italist.com",
+               "www.childrensalon.com"):
+        checks.append(("allowed retailer is NOT official: " + _r,
+                       _authority_tier(_r, _sm, {}) == "TRUSTED_RETAILER"))
+    checks.append(("every allowed retailer host is reachable but unofficial",
+                   all(_authority_tier(h, _sm, {}) == "TRUSTED_RETAILER"
+                       for h in _sm["allowed_hosts"]
+                       if "stellamccartney.com" not in h)))
+    checks.append(("a shared platform host carries no authority",
+                   _authority_tier("cdn.shopify.com",
+                                   _brands.brand_rule("Scotch & Soda"), {})
+                   == "TRUSTED_RETAILER"))
+    checks.append(("an evidenced manufacturer CDN can be declared official",
+                   _authority_tier("hub2.artcrafts.it", _brands.DEFAULT,
+                                   {"officialHostSuffixes": ["artcrafts.it"]})
+                   == "OFFICIAL"))
+    checks.append(("brands still carrying real manufacturer CDNs keep them",
+                   _authority_tier("images.puma.com", _brands.brand_rule("Puma"), {})
+                   == "OFFICIAL"
+                   and _authority_tier("nb.scene7.com",
+                                       _brands.brand_rule("New Balance"), {}) == "OFFICIAL"))
+
+    # Trusted-retailer media must not suppress a still-applicable official
+    # route. That decision is made by asking _authority_tier whether the
+    # research media is OFFICIAL; before the fix a retailer host answered yes
+    # and silently switched official discovery off.
+    _retailer_media = ["https://img.giglio.com/imager/prodZoom/401012.003_1/x.jpg",
+                       "https://media.smallable.com/a.jpg"]
+    checks.append(("retailer media is not counted as official for suppression",
+                   not any(_authority_tier(urllib.parse.urlsplit(u).netloc, _sm, {})
+                           == "OFFICIAL" for u in _retailer_media)))
+    checks.append(("manufacturer media still counts as official for suppression",
+                   _authority_tier("www.stellamccartney.com", _sm, {}) == "OFFICIAL"))
+
+    # ── Identity evidence is independent of media evidence ────────────────
+    # A document does not stop being exact because its gallery is client-rendered.
+    from acquire import ingest_research_evidence as _ire  # noqa: E402
+
+    def _exact(ev_extra):
+        base = {"sourceUrl": "https://r.test/p/abc123.html",
+                "authorityTier": "TRUSTED_RETAILER",
+                "discoveryTransport": "REVIEWER_VERIFIED", "confidence": "A",
+                "sku": "ABC123", "aliases": [], "sizeScale": [],
+                "mediaUrls": [], "observedCdnHosts": []}
+        base.update(ev_extra)
+        _l, _led = [], []
+        _ire({"researchEvidence": [base]}, _l, _led)
+        return _led[-1] if _led else {}
+
+    _e1 = _exact({"skuInBody": True})
+    checks.append(("body exact SKU with zero media and zero sizes is an exact document",
+                   _e1.get("exactProductDocument") is True and _e1.get("result") == "OK"))
+    _e2 = _exact({})
+    checks.append(("without an explicit body assertion it is not exact",
+                   _e2.get("exactProductDocument") is not True))
+    _e3 = _exact({"skuInBody": True, "sku": None})
+    checks.append(("a body assertion without a SKU is not exact",
+                   _e3.get("exactProductDocument") is not True))
 
     ok = True
     for name, passed in checks:

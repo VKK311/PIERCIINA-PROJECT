@@ -505,9 +505,19 @@ def _authority_tier(host, rule, request):
 
     Authority is a property of the destination, never of the transport used to
     reach it. A snapshot of an official page is official-tier evidence.
+
+    It is also NOT a property of the allow-list. `allowed_hosts` answers one
+    question — may the fetcher connect to this host — and says nothing about
+    who owns it. Seeding authority from it made every trusted retailer in a
+    brand's registry read as OFFICIAL, so Giglio's routes were being recorded
+    as manufacturer media while the request's own evidence correctly called it
+    a retailer. Manufacturer authority is declared explicitly and nowhere else:
+    `official_hosts` on the brand, plus `officialHostSuffixes` on the request
+    for a CDN whose relationship to the manufacturer has been evidenced.
+    Everything else that is merely allowed defaults to TRUSTED_RETAILER.
     """
     h = (host or "").lower().lstrip(".")
-    official = {x.lower().lstrip(".") for x in rule.get("allowed_hosts", [])}
+    official = {x.lower().lstrip(".") for x in rule.get("official_hosts", [])}
     official |= {x.lower().lstrip(".") for x in request.get("officialHostSuffixes", [])}
     for o in official:
         if h == o or h.endswith("." + o):
@@ -1513,10 +1523,21 @@ def ingest_research_evidence(request, log, ledger):
             if h and h not in observed_hosts:
                 observed_hosts.append(h)
 
+        # A document does not stop being an exact product document because
+        # its gallery is client-rendered. Exactness is a claim about IDENTITY,
+        # and it is asserted explicitly — skuInBody — by a transport that
+        # actually read the body. It is never inferred from a SKU sitting in a
+        # URL we chose to request.
+        exact_doc = bool(ev.get("sku")) and ev.get("skuInBody") is True
         entry = {
             "route": "RESEARCH_EVIDENCE",
             "url": src,
-            "result": "OK" if (media or scale or aliases) else "FAIL",
+            "result": "OK" if (media or scale or aliases or exact_doc) else "FAIL",
+            # Identity evidence and media evidence are separate claims, so they
+            # are recorded separately. A source can pin the article precisely
+            # and still expose no usable imagery — which is exactly what a
+            # client-rendered gallery looks like from here.
+            "exactProductDocument": exact_doc,
             "authorityTier": tier,
             "discoveryTransport": transport,
             "confidence": level or None,
@@ -1527,10 +1548,6 @@ def ingest_research_evidence(request, log, ledger):
             "aliases": ev.get("aliases") or [],
             "mediaUrls": len(media),
             "sizeLabels": len(scale),
-            # Identity evidence and media evidence are separate claims and are
-            # recorded separately. A source can pin the article precisely and
-            # still expose no usable imagery.
-            "exactProductDocument": bool(ev.get("sku") and (media or scale)),
             "sku_evidence": bool(ev.get("sku")),
             "candidates": len(media),
         }

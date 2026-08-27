@@ -9,6 +9,9 @@ Adding a brand means adding one dict. No other file changes.
 
 BRANDS = {
     "adidas": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        "official_hosts": ["assets.adidas.com", "adidas.com", "adidas.de", "adidas.co.uk", "adidas.fr", "adidas.it", "adidas.es", "adidas.nl", "adidas.pl"],
         # Hosts the fetcher may talk to for this brand. Everything else is
         # refused before a socket is opened.
         "allowed_hosts": [
@@ -45,6 +48,11 @@ BRANDS = {
     },
 
     "new balance": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        # nb.scene7.com is New Balance's own Scene7 tenancy — evidenced,
+        # not assumed from the hostname.
+        "official_hosts": ["newbalance.co.uk", "newbalance.eu", "newbalance.com", "nb.scene7.com"],
         "allowed_hosts": [
             "www.newbalance.co.uk", "newbalance.co.uk",
             "www.newbalance.eu", "newbalance.eu",
@@ -73,6 +81,9 @@ BRANDS = {
     },
 
     "converse": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        "official_hosts": ["converse.com", "converse.scene7.com"],
         "allowed_hosts": [
             "www.converse.com", "converse.com",
             "converse.scene7.com",
@@ -95,6 +106,10 @@ BRANDS = {
     },
 
     "puma": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        # images.puma.com is Puma's own Cloudinary delivery host.
+        "official_hosts": ["puma.com", "images.puma.com"],
         "allowed_hosts": [
             "images.puma.com", "puma.com", "www.puma.com",
             "eu.puma.com", "us.puma.com", "de.puma.com", "fr.puma.com",
@@ -121,6 +136,9 @@ BRANDS = {
     },
 
     "pepe jeans": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        "official_hosts": ["pepejeans.com"],
         "allowed_hosts": [
             "www.pepejeans.com", "pepejeans.com",
         ],
@@ -145,6 +163,11 @@ BRANDS = {
     },
 
     "scotch & soda": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        # cdn.shopify.com is deliberately ABSENT: it is a shared platform
+        # host serving every Shopify merchant, so it carries no authority.
+        "official_hosts": ["scotch-soda.eu", "scotchandsoda.com", "scotch-soda.com"],
         "allowed_hosts": [
             "scotch-soda.eu", "www.scotch-soda.eu",
             "scotchandsoda.com", "www.scotchandsoda.com",
@@ -196,6 +219,12 @@ BRANDS = {
     },
 
     "stella mccartney": {
+        # Manufacturer authority. Separate from allowed_hosts, which only
+        # answers whether the fetcher may connect.
+        # Everything else in allowed_hosts for this brand — Giglio,
+        # Smallable, Farfetch, italist, Childrensalon — is a retailer we may
+        # CONNECT to, not a manufacturer.
+        "official_hosts": ["stellamccartney.com"],
         "allowed_hosts": [
             "www.stellamccartney.com", "stellamccartney.com",
             # Established kidswear/luxury retailers that index the WHOLESALE
@@ -242,6 +271,9 @@ BRANDS = {
 
 DEFAULT = {
     "allowed_hosts": [],
+    # No brand is official by default. An allowed host is a host we may talk
+    # to, never a claim about who owns it.
+    "official_hosts": [],
     "page_templates": [],
     "cdn_hosts": [],
     "width_ladder": [1880, 1600, 1200, 1000],
