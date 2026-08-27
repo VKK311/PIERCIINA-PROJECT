@@ -572,7 +572,74 @@ This is the mirror of the false-refusal work, and the more dangerous direction:
 with three such images the run would have reached PASS and put knitwear on the
 storefront as a pink sneaker at official provenance.
 
-## Stella McCartney TU0A28Z0699 — SPA_RENDER_REQUIRED
+## Bounded SPA rendering — built, proven, and refused by one site
+
+`tools/media_acquisition/render.py` renders ONE already evidenced product URL
+when a client-side storefront hides its gallery behind JavaScript. It is not a
+crawler and not a search engine.
+
+**Every precondition must hold**: allowed host, 2xx, OFFICIAL or
+TRUSTED_RETAILER, the article named in the **body** rather than only in the path
+we requested, no usable media in the served HTML, and the page classified as a
+shell. Rendering an arbitrary search result because the article appears in its
+query string is refused by that gate.
+
+**Bounds**: navigation, hydration and overall timeouts; no downloads, no login,
+no form submission; popups closed on open; a render that ends on another origin
+is discarded rather than read. Sub-resources load normally — that is how the
+gallery appears and how a CDN host gets observed instead of guessed.
+
+**Rendering approves nothing.** Discovered URLs are recorded as the
+non-authoritative method `js-rendered` and go through the unchanged pipeline:
+allow-list, bytes, MIME, dimensions, non-product and banner guards, exact SKU or
+evidenced alias, hash, dedupe, perceptual uniqueness, tier selection, variant
+confidence. A rendered retailer gallery does not suppress official routes.
+
+**Refusal semantics**: `JS_RENDERED_PAGE` is an audited route. An identified
+exact-SKU shell whose render has *not been tried* forbids refusal outright,
+reports `spaRenderPending`, sets `userInputPermitted: false` and yields status
+`SPA_RENDER_REQUIRED`. A render that ran and was refused is **unreachable, not
+pending** — conflating the two would report a route that answered as one that
+never ran.
+
+The self-test round is hermetic. Its fixture shell fetches the gallery at
+runtime, so the HTTP parser is genuinely blind to it, and the round proves: the
+parser finds nothing, the renderer finds all four assets, those reach normal
+acquisition and PASS, the banner is still rejected, a URL-only SKU match and an
+untrusted tier do not qualify, and a render timeout is a transport failure
+rather than an answer.
+
+### Against Giglio specifically: the site declines the browser
+
+Four render attempts, each failing earlier in the stack than the last, and each
+correctly recorded as a transport failure rather than an answer:
+
+| Attempt | Result | Cause |
+|---|---|---|
+| 1 | `ERR_HTTP2_PROTOCOL_ERROR` | h2 handshake; fixed with `--disable-http2`, a protocol flag that leaves our identity intact |
+| 2 | navigation timeout | our own blanket request interception; origin guard moved post-navigation |
+| 3 | timeout at `commit` | server never begins responding |
+| 4 | timeout at `commit`, **control page renders fine** | **the site does not answer this client** |
+
+The control check is the decisive one: the runner's Chromium loads a neutral
+page normally, and the plain HTTP fetcher gets **200** from the very same
+Giglio URL. Only the headless browser is left unanswered.
+
+**No further attempt will be made.** Getting past this requires user-agent
+spoofing or fingerprint masking — disguising who is asking. That is the same
+line drawn at eMAG's HTTP 511, and `--disable-http2` does not cross it because
+it changes protocol negotiation, not identity.
+
+### What remains established for TU0A28Z0699
+
+Pineapple-shaped bag, Stella McCartney Kids line, yellow, ONE SIZE, composition
+`100% Polyurethane` from the exact-SKU Giglio document. ONE SIZE verified
+against the live engine. Dimensions remain unpublishable. The bag is **yellow,
+not pink**, and the child-series classification stays internal.
+
+Media: **none acquired.** Identity is established; media is not.
+
+## Stella McCartney TU0A28Z0699 — earlier record
 
 | | |
 |---|---|

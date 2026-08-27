@@ -2159,12 +2159,17 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     _start_hosts += [str(h) for h in (request.get("officialHostSuffixes") or [])]
     # A shell page that was identified but whose render never produced
     # candidates leaves the SPA route unanswered.
-    _rendered_ok = {e.get("url") for e in ledger
-                    if e.get("route") == "JS_RENDERED_PAGE" and e.get("result") == "OK"}
+    # "Pending" means the render route has not been TRIED for this shell. A
+    # render that ran and was refused is not pending: it is an unreachable
+    # route, and the transport-failure rule already forbids refusal on that
+    # basis. Keeping it "pending" would report a route that ran as one that
+    # never ran, which is the same conflation this gate exists to prevent.
+    _render_resolved = {e.get("url") for e in ledger
+                        if e.get("route") == "JS_RENDERED_PAGE"}
     _shell_pending = any(
         x.get("stage") == "discover" and x.get("shell_suspected")
         and x.get("sku_evidence_where") in ("body", "body-only")
-        and x.get("url") not in _rendered_ok
+        and x.get("url") not in _render_resolved
         for x in log)
     audit = refusal_audit(ledger, aliases, known_hosts=_start_hosts,
                           shell_pending=_shell_pending)

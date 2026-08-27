@@ -927,6 +927,23 @@ def main():
                    _sd.get("status") == "PASS"))
     checks.append(("rendering removes the SPA_RENDER_REQUIRED block",
                    (_sd.get("refusalAudit") or {}).get("spaRenderPending") is False))
+    # A render that RAN and was refused is unreachable, not pending: reporting
+    # it as never-run would conflate a route that answered with one that did not.
+    from acquire import refusal_audit as _ra2  # noqa: E402
+    _failed_render = _ra2(
+        [{"route": r, "url": "https://k.test/x", "result": "OK", "candidates": 0}
+         for r in ("DIRECT_OFFICIAL_PAGE", "DIRECT_OFFICIAL_API",
+                   "OFFICIAL_REGIONAL_SEARCH", "SEARCH_INDEX_OFFICIAL",
+                   "INDEXED_SOURCE_EVIDENCE", "INDEXED_OUTBOUND_MEDIA",
+                   "OFFICIAL_CDN_PROBE", "TRUSTED_RETAILER_SEARCH",
+                   "TRUSTED_RETAILER_INDEXED_EVIDENCE", "IDENTIFIER_EXPANSION",
+                   "NEW_RETAILER_DISCOVERY")]
+        + [{"route": "JS_RENDERED_PAGE", "url": "https://k.test/p.html",
+            "result": "FAIL", "error": "TimeoutError: navigation timed out"}],
+        aliases=None, known_hosts=["k.test"], shell_pending=False)
+    checks.append(("a refused render counts as unreachable, not permitted refusal",
+                   _failed_render["refusalPermitted"] is False
+                   and "JS_RENDERED_PAGE" in _failed_render["routesUnreachable"]))
     checks.append(("all four rendered assets are acquired",
                    len(_simgs) == 4))
     checks.append(("the banner is still rejected after rendering",
