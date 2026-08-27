@@ -11773,7 +11773,45 @@
                   surface:'#FFFFFF',
                   ph:'shoes', field:'blush'
               },
-              related:['PM-011','PM-030'] }
+              related:['PM-011','PM-030'] },
+
+            /* ── SHOES · осми реален доставчиков продукт; първият, чиито
+                 снимки идват директно от собственика, а не от верига на
+                 снабдяване — вижте README при активите ── */
+            { id:'PM-032', brand:'Scotch & Soda', manufacturerItemNo:'27733247',
+              name:'Celest', slug:'scotch-and-soda-celest-pink',
+              category:'shoes', subcategory:'sneakers',
+              color:'Pink',
+              /* composition умишлено липсва — съставът не е установен от
+                 самата верига на снабдяване, затова не се публикува */
+              priceEUR:69, oldPriceEUR:null,
+              description:'Scotch & Soda в пудрено розово — масивни маратонки в един тон, от подметката до връзките. Тихият флекс, който върви с всичко.',
+              fit:null, care:null, selectedBy:null,
+              tags:['scotch & soda','scotch and soda','celest','sneakers','shoes','pink','pale pink','blush','chunky','monochrome'],
+              featured:false, isNew:false, newUntil:'2026-09-10', campaign:null,
+              inventoryMode:'availability',
+              /* Само потвърдените от доставчика размери. Размер 41 е реален за
+                 модела, но публичната размерна стълбица на мола свършва на 40. */
+              availability:{ '37':'available', '38':'available', '39':'available', '40':'available' },
+              media:{
+                  image:'assets/pink-mall/products/PM-032/PM-032-main.webp',
+                  imageAlt:'Розови маратонки Scotch & Soda с масивна подметка, изглед под ъгъл отпред',
+                  gallery:[
+                      'assets/pink-mall/products/PM-032/PM-032-02.webp',
+                      'assets/pink-mall/products/PM-032/PM-032-03.webp'
+                  ],
+                  galleryAlt:[
+                      'Розови маратонки Scotch & Soda, изглед отгоре с лого на езика',
+                      'Розови маратонки Scotch & Soda, изглед отпред'
+                  ],
+                  fit:'contain',
+                  /* Фонът на снимките е сив студиен градиент, а не плътен цвят;
+                     #D2D5D7 е измерената медиана на кантовете, за да няма
+                     светла рамка около снимката */
+                  surface:'#D2D5D7',
+                  ph:'shoes', field:'blush'
+              },
+              related:['PM-030','PM-025'] }
         ];
 
         /* ── CAMPAIGN CONFIG (банерите се рендерират от данни) ── */
