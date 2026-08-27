@@ -572,7 +572,90 @@ This is the mirror of the false-refusal work, and the more dangerous direction:
 with three such images the run would have reached PASS and put knitwear on the
 storefront as a pink sneaker at official provenance.
 
-## Stella McCartney TU0A28Z0699 — DISCOVERY_TRANSPORT_BLOCKED
+## Stella McCartney TU0A28Z0699 — SPA_RENDER_REQUIRED
+
+| | |
+|---|---|
+| STATE | identity established; media not acquired; nothing staged or published |
+| BRAND | Stella McCartney (Kids line — internal only, never public) |
+| PRODUCT | Pineapple-shaped bag |
+| SUPPLIED | article TU0A28Z0699, €109, ONE SIZE |
+| EXACT-SKU SOURCE | **Giglio — reachable, and its body names the article** |
+| BLOCKER | the retailer is a client-side app; the runner receives a ~2.4 kB bootstrap shell |
+| PASSES | 7 |
+
+### The earlier DISCOVERY_TRANSPORT_BLOCKED conclusion was WRONG
+
+It was corrected by review, and the correction was right. An exact-SKU document
+existed the whole time on a trusted retailer that had **never entered the
+candidate set** — not unreachable, simply never searched for. Discovery had run
+against a fixed list of already-known hosts, and exhausting that list was
+treated as exhausting discovery.
+
+Two further claims made at the time were also overstated and are withdrawn:
+
+- "Stella's own search not returning the code proves it is a wholesale code" —
+  it supports that hypothesis and proves nothing. Recorded as inference.
+- "Official media can never clear the identity gate" — not established.
+
+### Four defects this product exposed, all generic, all fixed
+
+1. **Discovery treated a known-host list as exhaustive.** `NEW_RETAILER_DISCOVERY`
+   is now a refusal route, satisfied only by a ledger entry from a domain
+   outside the run's starting host set. Suffix-aware, so a subdomain of a known
+   host is not a new source, and an unreachable new domain does not satisfy it.
+2. **Relative image references were invisible.** `//cdn/x.jpg` and `/media/x.jpg`
+   are now recovered and resolved against the page URL.
+3. **JSON-escaped URLs were invisible.** `https:\/\/host\/x.jpg`, the form modern
+   storefronts ship galleries in, is now normalised before matching.
+4. **`page_has_sku` conflated two different facts.** A hit in the requested URL
+   is partly our own doing; a hit in the body is the document naming the
+   article. `sku_match_where` now reports which, alongside the served HTML size
+   and a shell flag.
+
+Each was masked by the one before it, which is why they surfaced one at a time.
+
+### Where it actually stands
+
+The Giglio product URL resolves, and `sku_evidence_where: body` — the served
+document **does** name the article. But `html_bytes` is ~2,390 on every Giglio
+URL including the product pages, with zero image references in any form after
+three parsing fixes.
+
+That is a client-side application: the real document, gallery included, is
+assembled by JavaScript after load. **This is a capability limit of an
+HTTP-only fetcher, not a parsing gap, not bot protection, and not evidence of
+absence.** Giglio returns 200 and blocks nothing.
+
+Two honest ways forward, neither taken unilaterally:
+
+- **Render the page.** A JavaScript-rendering fallback for pages flagged
+  `shell_suspected` would fix this permanently and would fix every SPA
+  storefront after it. It is a real capability addition, so it is a decision to
+  take deliberately rather than mid-onboarding.
+- **Take the four observed asset URLs from the reviewer transport**, which has
+  the page readable. The host `img.giglio.com`, the product code `401012.003`
+  and views `_1`–`_4` are already recorded; only the path prefix is missing.
+  Constructing it was explicitly ruled out, and constructing it would be
+  guessing.
+
+### Established for this article
+
+Pineapple-shaped bag, Stella McCartney Kids line, yellow, ONE SIZE, composition
+`100% Polyurethane` from the exact-SKU Giglio document. ONE SIZE was verified
+against the live engine: availability mode yields stock state `ok`, is
+orderable, and refuses any other size, so no calibration is needed.
+
+Dimensions remain unpublishable — the widely repeated `14 × 17 × 11 cm` appears
+only in search paraphrase and on a Smallable page that does not name the
+article. Smallable is corroborating model evidence only (`Pineapple Seal Bag`,
+yellow, ONE SIZE, polyurethane).
+
+The bag is **yellow, not pink**, and it is a child-series article: the
+classification stays internal, and the honest size signal for a buyer is
+dimensions, which cannot yet be published.
+
+## Stella McCartney TU0A28Z0699 — superseded record
 
 | | |
 |---|---|
