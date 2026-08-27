@@ -210,6 +210,13 @@ BRANDS = {
             # OBSERVED in pass 1's own rejection log, not guessed: Smallable
             # serves product media from these two hosts.
             "media.smallable.com", "staticv3.smallable.com",
+            "cdn.modesens.com",
+            # Aggregators of Italian boutiques that publish the manufacturer
+            # style code on the product page, which the pure e-tailers above
+            # do not. Used for IDENTITY; their media tier is recorded honestly.
+            "www.italist.com", "italist.com",
+            "www.farfetch.com", "farfetch.com",
+            "cdn-images.farfetch-contents.com",
         ],
         # Search is a platform route and yields link targets only; since the
         # search-route fix it lends no identity to its own images.

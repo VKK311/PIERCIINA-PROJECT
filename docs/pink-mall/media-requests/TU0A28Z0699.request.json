@@ -73,20 +73,18 @@
     }
   ],
   "discoveryPages": [
-    "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-    "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html",
-    "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699",
-    "https://modesens.com/stella-mccartney-kids-bags/",
-    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358",
-    "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699"
+    "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+    "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/",
+    "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699",
+    "https://www.childrensalon.com/stella-mccartney-kids/",
+    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358"
   ],
   "discoveryRoutes": {
-    "https://www.littletagsluxury.com/stella-mccartney-kids%3A-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html": "DIRECT_RETAILER_PAGE",
-    "https://www.littletagsluxury.com/stella-mccartney-kids:-girls-pineapple-shaped-crossbody-bag-tu0a28z0699226vi.html": "DIRECT_RETAILER_PAGE",
-    "https://www.littletagsluxury.com/catalogsearch/result/?q=TU0A28Z0699": "RETAILER_SEARCH",
-    "https://modesens.com/stella-mccartney-kids-bags/": "TRUSTED_RETAILER_SEARCH",
-    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358": "DIRECT_RETAILER_PAGE",
-    "https://www.childrensalon.com/catalogsearch/result/?q=TU0A28Z0699": "RETAILER_SEARCH"
+    "https://www.italist.com/ca/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/": "DIRECT_RETAILER_PAGE",
+    "https://www.italist.com/us/girls/accessories-gifts/yellow-bag-for-girl/14560244/14727935/stella-mccartney-kids/": "DIRECT_RETAILER_PAGE",
+    "https://www.farfetch.com/shopping/kids/search/items.aspx?q=TU0A28Z0699": "RETAILER_SEARCH",
+    "https://www.childrensalon.com/stella-mccartney-kids/": "TRUSTED_RETAILER_SEARCH",
+    "https://www.smallable.com/en/product/pineapple-seal-bag-yellow-stella-mccartney-kids-349358": "DIRECT_RETAILER_PAGE"
   },
   "officialHostSuffixes": [
     "stellamccartney.com"
@@ -99,7 +97,11 @@
     "staticv3.smallable.com",
     "kids21.com",
     "childrensalon.com",
-    "modesens.com"
+    "modesens.com",
+    "cdn.modesens.com",
+    "italist.com",
+    "farfetch.com",
+    "cdn-images.farfetch-contents.com"
   ],
   "resolution": {
     "widthLadder": [
@@ -111,6 +113,10 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 3 — GO WHERE THE MANUFACTURER CODE IS PRINTED. Pass 2 settled a real question: Smallable, ModeSens and Stella's own search are all REACHABLE, and all three reported page_has_sku FALSE. So they do not publish this article code — that is measured, not assumed — and Stella's own search finding nothing confirms TU0A28Z0699 is a wholesale code rather than the brand's e-commerce ID.",
+    "Little Tags 404s in all three forms including the percent-encoded colon and its own search, so the colon was not the cause and that page is simply not served to the runner. It remains the only document found that names the article.",
+    "The italist page is the lead with the best prior: it ranked FIRST on a search for the bare article number, which is weak evidence its page carries the code. Boutique aggregators also print manufacturer style codes, which the pure e-tailers above do not.",
+    "TIER HONESTY: if media ends up coming from a boutique aggregator, the package records that tier plainly. It is not official manufacturer media and must not be presented as such.",
     "PASS 2 — ENCODE THE COLON AND WIDEN THE RETAILER SET. Pass 1's Little Tags URL 404'd, and that URL contains a RAW COLON in its path ('stella-mccartney-kids:-girls-...'). It is retried percent-encoded as %3A alongside the literal form, because that page is the only document found that names TU0A28Z0699.",
     "PASS 1 OBSERVATIONS, recorded rather than guessed: media.smallable.com and staticv3.smallable.com serve Smallable's product media, and stellamccartney.com runs Salesforce Commerce Cloud (/dw/image/v2/.../demandware.static/), the same platform family as Pepe Jeans. Those Smallable hosts are now allowed on the strength of that observation.",
     "WHY PASS 1 ACQUIRED NOTHING, and why that is correct: the Stella assets reached were shared-library editorial chrome and the Smallable assets were other products entirely, so both were listing sweeps rather than our product page. The gate rejected every one for the right reason.",
