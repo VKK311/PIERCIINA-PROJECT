@@ -784,6 +784,25 @@ def main():
                    scan_images('<img src="https://a.test/b.jpg">', _base)
                    == ["https://a.test/b.jpg"]))
 
+    # "page_has_sku: true, raw_candidates: 0" was ambiguous: it could mean the
+    # document names the article, or merely that WE asked for a path containing
+    # it. The two are now distinguished so a client-side shell is not read as a
+    # product document.
+    from acquire import sku_match_where  # noqa: E402
+    checks.append(("SKU only in the requested path is url-only",
+                   sku_match_where("https://s.test/p/abc123.html",
+                                   "<html><body></body></html>", "ABC123") == "url-only"))
+    checks.append(("SKU only in the document body is body-only",
+                   sku_match_where("https://s.test/p/item.html",
+                                   "<p>Article ABC123</p>", "ABC123") == "body-only"))
+    checks.append(("SKU in both is reported as body",
+                   sku_match_where("https://s.test/p/abc123.html",
+                                   "<p>ABC123</p>", "ABC123") == "body"))
+    checks.append(("no SKU anywhere is None",
+                   sku_match_where("https://s.test/p/x.html", "<p>y</p>", "ABC123") is None))
+    checks.append(("no sku supplied is None",
+                   sku_match_where("https://s.test/p/abc123.html", "<p>z</p>", None) is None))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

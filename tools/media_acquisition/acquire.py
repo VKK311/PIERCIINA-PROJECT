@@ -216,6 +216,28 @@ SEARCH_ROUTE_RE = re.compile(
     r"|[?&](?:q|query|s|search|keyword|term)=)", re.I)
 
 
+def sku_match_where(url, html, sku):
+    """Where a page's SKU match came from: "body", "body-only", "url-only", None.
+
+    The distinction matters. A hit in the URL is partly our own doing — we
+    requested that path. A hit in the BODY is the document actually naming the
+    article. A page that matches only in the URL and shows no images is the
+    signature of a client-side shell, not a product document.
+    """
+    if not sku:
+        return None
+    q = str(sku).lower()
+    in_url = q in (url or "").lower()
+    in_body = q in (html or "").lower()
+    if in_body and in_url:
+        return "body"
+    if in_body:
+        return "body-only"
+    if in_url:
+        return "url-only"
+    return None
+
+
 def is_search_route(url):
     """True when the URL is a search/listing route rather than a document
     about one product."""
@@ -359,8 +381,15 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
 
     # Does the page itself name the exact SKU? Checked in its URL and body —
     # but never on a search route, where both are our own query echoed back.
-    page_has_sku = bool(sku) and not is_search_route(final) and (
-        sku.lower() in final.lower() or sku.lower() in html.lower())
+    #
+    # WHERE the match came from matters and is recorded. A hit in the URL is
+    # partly our own doing: we requested that path. A hit in the BODY is the
+    # document actually naming the article. When a page reports a URL hit, no
+    # body hit and no images at all, that is the signature of a client-side
+    # shell rather than a product document, and the log should say so instead
+    # of leaving "page_has_sku: true, raw_candidates: 0" to be puzzled over.
+    sku_where = sku_match_where(final, html, sku)
+    page_has_sku = bool(sku_where) and not is_search_route(final)
 
     # One hop: hand back SKU-bearing link targets for the caller to follow.
     if collect_links is not None:
@@ -380,7 +409,12 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
                         "declared": len(declared)})
 
     log.append({"stage": "discover", "url": final, "ok": True,
-                "raw_candidates": len(found), "page_has_sku": page_has_sku})
+                "raw_candidates": len(found), "page_has_sku": page_has_sku,
+                "sku_evidence_where": sku_where, "html_bytes": len(html or ""),
+                # A document that names the article only because we asked for
+                # that path, and shows no images at all, has not proven itself
+                # to be a product document.
+                "shell_suspected": bool(sku_where == "url-only" and not found)})
     if ledger is not None:
         ledger.append({"route": route, "url": final, "result": "OK",
                        "sku_evidence": page_has_sku, "candidates": len(found)})
