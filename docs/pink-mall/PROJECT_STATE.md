@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-032 publication.
-Status: **PM-001…PM-032 PUBLISHED.**
+Updated: PM-033 publication.
+Status: **PM-001…PM-033 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `8d8e84b93dd69db9632ce11047b5372dcb048cc37f428a56d13573d218dd5ff1` |
-| CANONICAL WEBSITE BYTES | 2564876 |
+| CANONICAL WEBSITE SHA-256 | `af8e2ff7bad66534f05bd5bf63909f9b7a9331566c5361920bb5d41bf2d8e13d` |
+| CANONICAL WEBSITE BYTES | 2567980 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-032 |
-| NEXT ID | PM-033 |
+| PUBLIC CATALOG | PM-001 … PM-033 |
+| NEXT ID | PM-034 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -38,6 +38,7 @@ canonical build by hash before treating it as canonical.
 | 398855 | **PUBLISHED as PM-030** on 2026-08-26 |
 | HC.RBGLOW01 | **PUBLISHED as PM-031** on 2026-08-27 |
 | 27733247 | **PUBLISHED as PM-032** on 2026-08-27 |
+| TU0A28Z0699 | **PUBLISHED as PM-033** on 2026-08-27 |
 
 ## Media acquisition automation
 
@@ -45,7 +46,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031 78/78, PM-032 74/74, both builds |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031 78/78, PM-032 74/74, PM-033 74/74, both builds |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -572,7 +573,61 @@ This is the mirror of the false-refusal work, and the more dangerous direction:
 with three such images the run would have reached PASS and put knitwear on the
 storefront as a pink sneaker at official provenance.
 
-## TU0A28Z0699 — READY FOR APPROVAL as PM-033
+## PM-033 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-27 |
+| BRAND / MODEL | Stella McCartney / **Pineapple Bucket Bag** |
+| ITEM | TU0A28Z0699 (designer `TU0A28Z0699 226VI`; Giglio `401012.003`) |
+| CATEGORY | BAGS, `subcategory: null` — **first non-shoe pipeline product** |
+| PUBLIC COLOUR | `Yellow` — frames show yellow WITH pink waves; see below |
+| COMPOSITION | **`100% Polyurethane` — PUBLISHED**, a catalogue first |
+| DIMENSIONS | omitted — no exact-product evidence |
+| PRICE | €109, no SALE |
+| AVAILABILITY | ONE SIZE, verified against the live engine |
+| NEW UNTIL | 2026-09-10 |
+| MAIN | IMAGE 01 · GALLERY 01 → 02 → 04 → 03 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-033/` — 4 × 1125×1500 WebP |
+| MEDIA TIER | **TRUSTED_RETAILER** — Giglio, not manufacturer media |
+| MEDIA FORM | studio white ~`#ECECEC`; `media.surface` **omitted**, not chosen |
+| VARIANT | `VARIANT_CONFIDENCE_PASS` |
+| WARNINGS | 1500 px longest edge — above the 1000 px preference, below the 1600 px ideal |
+| PACKAGE | `checkpoints/PM033_TU0A28Z0699_APPROVAL_PREVIEW.md` |
+
+**First product to publish a composition.** PM-026 through PM-032 all omitted
+one because no exact-product source stated it; here the exact-SKU document
+does, so the PDP renders a material row for the first time.
+
+Reached PASS through the reviewer-verified transport after every direct route
+was walled — four exact observed link targets, put through the full pipeline
+rather than trusted on sight.
+
+**A colour correction to my own earlier reporting.** I had said this product
+was "yellow, not pink" and would be the catalogue's first non-pink supplier
+item. That was wrong, and drawn from retailer text rather than the photographs:
+the body carries a pink scalloped wave print over roughly half its visible
+surface, with a green pineapple-leaf drawstring and a lilac strap. `Yellow /
+Pink` would be more accurate; that was put to the user rather than changed
+unilaterally, and the alt text names all four colours.
+
+### Two harness defects the first BAGS product exposed
+
+The regression suite had been written entirely against multi-size shoes:
+
+- It asked for `sizes[1]`, which is `undefined` on a ONE SIZE product, so the
+  whole order path failed on a product whose order path was fine.
+- It scanned the entire PDP for sold-out text, but the sheet renders a
+  related-products strip — a sold-out neighbour there is not a claim about this
+  item. The check is now scoped to the product's own availability.
+- It required price monotonicity across the whole sorted list, which
+  contradicts the engine's documented sold-out-bottom ordering. Monotonicity
+  now holds across available products, and sold-out ones are asserted to come
+  last.
+
+Composition expectation is now declared per product instead of assumed absent.
+
+## TU0A28Z0699 — approval record
 
 | | |
 |---|---|

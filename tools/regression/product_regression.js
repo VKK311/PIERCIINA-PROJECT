@@ -107,7 +107,14 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   is(p.priceEUR === EXPECT.priceEUR, `price €${EXPECT.priceEUR}`, String(p.priceEUR));
   is(p.oldPriceEUR === null, 'oldPriceEUR null — no SALE');
   is(p.selectedBy === null, 'selectedBy null');
-  is(!('composition' in p) || p.composition == null, 'composition omitted');
+  // Composition is published only when an exact-product source states one.
+  // Most products omit it; PM-033 is the first where the exact-SKU document
+  // gave one, so the expectation is declared per product rather than assumed.
+  if (EXPECT.composition) {
+    is(p.composition === EXPECT.composition, 'composition published', p.composition);
+  } else {
+    is(!('composition' in p) || p.composition == null, 'composition omitted');
+  }
   is(p.inventoryMode === 'availability', 'inventoryMode availability');
   is(p.newUntil === EXPECT.newUntil, 'newUntil = publication + 14d', p.newUntil);
   const sizes = Object.keys(p.availability);
@@ -200,8 +207,21 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   for (const sz of EXPECT.sizes) {
     is(new RegExp('(^|\\s)' + sz.replace('.', '\\.') + '(\\s|$)').test(pdp.text), `PDP offers size ${sz}`);
   }
-  is(!/Състав|Материал/i.test(pdp.text), 'PDP renders no material row');
-  is(!/изчерпан|sold ?out/i.test(pdp.text), 'PDP asserts no sold-out size');
+  if (EXPECT.composition) {
+    is(pdp.text.includes(EXPECT.composition), 'PDP renders the material row',
+       EXPECT.composition);
+  } else {
+    is(!/Състав|Материал/i.test(pdp.text), 'PDP renders no material row');
+  }
+  const ownStock = await page.evaluate(id => {
+    const S = window.PinkMallStore, q = S.getProduct(id);
+    return { states: Object.values(q.availability || {}),
+             state: (S.getStockState(id) || {}).state };
+  }, ID);
+  // Scoped to this product: the sheet also renders a related-products strip,
+  // and a sold-out neighbour there is not a claim about this item.
+  is(ownStock.states.every(v => v === 'available') && ownStock.state === 'ok',
+     'this product asserts no sold-out size', JSON.stringify(ownStock));
   const liveNames = new Set(NAMES);
   const pdpMedia = [];
   for (const i of pdp.imgs) {
@@ -234,11 +254,14 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   }
 
   console.log('\n== order path ==');
+  // A ONE SIZE product has no second size; index 1 was an assumption that
+  // every product is a multi-size shoe.
+  const ORDER_SIZE = EXPECT.sizes[Math.min(1, EXPECT.sizes.length - 1)];
   const ord = await page.evaluate(([id, sz]) => {
     const S = window.PinkMallStore;
     return { can: S.canOrder(id, sz), url: S.buildViberOrderUrl(id, sz), msg: S.buildViberMessage(id, sz) };
-  }, [ID, EXPECT.sizes[1]]);
-  is(ord.can === true, `size ${EXPECT.sizes[1]} is orderable`);
+  }, [ID, ORDER_SIZE]);
+  is(ord.can === true, `size ${ORDER_SIZE} is orderable`);
   is((ord.url || '').startsWith(EXPECT.viberUrl), 'Viber destination unchanged', ord.url);
   is(!/\?text=/.test(ord.url || ''), 'no ?text= appended to the Viber URL');
   is(new RegExp(ID).test(ord.msg || ''), 'order message names the product');
@@ -270,10 +293,21 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
     return (window.PinkMallStore.setFilters({ category: c, sort: 'price-asc' }) || [])
       .map(x => [x.id, x.priceEUR]);
   }, EXPECT.category);
+  // Sold-out products sort to the bottom regardless of price, so price
+  // monotonicity holds across the AVAILABLE ones only. Requiring it across the
+  // whole list contradicts a documented behaviour of the engine.
+  const live = [];
+  for (const [pid, price] of sorted) {
+    const st = await page.evaluate(i => (window.PinkMallStore.getStockState(i) || {}).state, pid);
+    live.push([pid, price, st]);
+  }
+  const avail = live.filter(x => x[2] !== 'soldout');
   const idx = sorted.findIndex(x => x[0] === ID);
-  const monotonic = sorted.every((x, i) => i === 0 || sorted[i - 1][1] <= x[1]);
-  is(idx >= 0 && monotonic, `price-asc sort places ${ID} correctly`,
-     sorted.map(x => x[0] + ':' + x[1]).join(' '));
+  const monotonic = avail.every((x, i) => i === 0 || avail[i - 1][1] <= x[1]);
+  const soldLast = live.every((x, i) =>
+    x[2] !== 'soldout' || live.slice(i).every(y => y[2] === 'soldout'));
+  is(idx >= 0 && monotonic && soldLast, `price-asc sort places ${ID} correctly`,
+     live.map(x => x[0] + ':' + x[1] + (x[2] === 'soldout' ? '(sold out)' : '')).join(' '));
 
   await browser.close();
   console.log(`\nREGRESSION (${FILE}): ${pass} passed, ${fail} failed`);
