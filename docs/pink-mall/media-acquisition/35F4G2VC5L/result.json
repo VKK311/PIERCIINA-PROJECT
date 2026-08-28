@@ -1,0 +1,478 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "35F4G2VC5L",
+  "brand": "Michael Kors",
+  "model": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+  "variant": "Powder Blush",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T16:35:07Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33190535777",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "e6e45d54dd0da560d10226fc9bfab10ec3600fda"
+  },
+  "counts": {
+    "acquired": 4,
+    "unique_selected": 4,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
+    "conflicts": [],
+    "officialColour": "Powder Blush",
+    "officialAnchor": false
+  },
+  "mediaTier": "OFFICIAL",
+  "mediaTierMixed": false,
+  "proposedMain": "source/35F4G2VC5L-01-original.jpg",
+  "dominantBackdrop": "#F6F6F6",
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/35F4G2VC5L-01-original.jpg",
+      "preview": "preview/35F4G2VC5L-01.webp",
+      "source_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "requested_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "anchor_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "source_domain": "assets.michaelkors.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:06Z",
+      "width": 796,
+      "height": 1072,
+      "longest_edge": 1072,
+      "mime": "image/jpeg",
+      "bytes": 99773,
+      "sha256": "010c1ff5b9c0ad830904ce787a76871d999fd6a1362bc74e9633e6cdd1097029",
+      "dhash": "0000000000000000040003100ca82c4315c06ee8e4eff7cf6e68732100400220",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "backdrop": "#F6F6F6",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1072px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/35F4G2VC5L-02-original.jpg",
+      "preview": "preview/35F4G2VC5L-02.webp",
+      "source_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "requested_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "anchor_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "source_domain": "assets.michaelkors.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:05Z",
+      "width": 796,
+      "height": 1072,
+      "longest_edge": 1072,
+      "mime": "image/jpeg",
+      "bytes": 41576,
+      "sha256": "40ea4428d07f96610733bfb199ed85fef0df3511a047e24ae964a5540434889d",
+      "dhash": "00000000010000c00930270c1c32386131c11b822c840e08023005c000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "backdrop": "#F6F6F6",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1072px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/35F4G2VC5L-03-original.jpg",
+      "preview": "preview/35F4G2VC5L-03.webp",
+      "source_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "requested_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "anchor_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "source_domain": "assets.michaelkors.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:05Z",
+      "width": 796,
+      "height": 1072,
+      "longest_edge": 1072,
+      "mime": "image/jpeg",
+      "bytes": 56972,
+      "sha256": "38df0534bd49592e031f62827b7b89e2fbcec192cbf3c29423848924e00af9b3",
+      "dhash": "0140031004c00d480d680968392039243134b1341012355237f01b241b240088",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "backdrop": "#F6F6F6",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1072px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/35F4G2VC5L-04-original.jpg",
+      "preview": "preview/35F4G2VC5L-04.webp",
+      "source_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "requested_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "anchor_url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "source_domain": "assets.michaelkors.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:06Z",
+      "width": 796,
+      "height": 1072,
+      "longest_edge": 1072,
+      "mime": "image/jpeg",
+      "bytes": 109510,
+      "sha256": "e9f0b46fdd6bf192b9fabc4b287edf989bfae4b58ca92d3671d4209ef5374aee",
+      "dhash": "16240f262c131c91193819282d241c64186436646426cc068e0c2e2c96091606",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "backdrop": "#F0F0F0",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1072px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": "35F4G2VC5L",
+      "model": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+      "variant": "POWDER BLUSH",
+      "aliases": [],
+      "mediaUrls": 4,
+      "sizeLabels": 0,
+      "sku_evidence": true,
+      "candidates": 4
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "35F4G2VC5L",
+      "skuInBody": true,
+      "model": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+      "variant": "POWDER BLUSH",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [
+        {
+          "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+          "field": "gallery"
+        },
+        {
+          "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+          "field": "gallery"
+        },
+        {
+          "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+          "field": "gallery"
+        },
+        {
+          "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "assets.michaelkors.com"
+      ],
+      "notes": [
+        "Live official Michael Kors document states Style # 35F4G2VC5L, colour POWDER BLUSH, Saffiano leather and 100% leather.",
+        "The page directly declares four assets.michaelkors.com gallery targets; every asset identifying path contains the exact SKU 35F4G2VC5L."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {
+      "DIRECT_OFFICIAL_PAGE": [
+        "HTTPError: HTTP Error 403: Forbidden"
+      ]
+    },
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+        "authorityTier": "OFFICIAL",
+        "candidates": 4
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+        "authorityTier": null,
+        "candidates": 1
+      }
+    ],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research-media",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "field": "gallery",
+      "sourcePage": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "field": "gallery",
+      "sourcePage": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "field": "gallery",
+      "sourcePage": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "field": "gallery",
+      "sourcePage": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 4,
+      "observed_hosts": [
+        "assets.michaelkors.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "index-skip",
+      "reason": "research evidence already exposed 4 OFFICIAL media URL(s); archive lookup is a fallback, not a precondition"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "assets.michaelkors.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 4
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+      "ok": true,
+      "size": "796x1072",
+      "bytes": 56972,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+      "ok": true,
+      "size": "796x1072",
+      "bytes": 41576,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+      "ok": true,
+      "size": "796x1072",
+      "bytes": 109510,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif",
+      "ok": true,
+      "size": "796x1072",
+      "bytes": 99773,
+      "upgraded_from": null
+    },
+    {
+      "stage": "select",
+      "tier": "OFFICIAL",
+      "note": "official media sufficient; retailer candidates dropped to keep one authority tier per gallery",
+      "official": 4,
+      "retailer_dropped": 0
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

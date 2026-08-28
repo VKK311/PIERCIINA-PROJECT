@@ -1,0 +1,990 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "V69WBAG152",
+  "brand": "19V69 ITALIA",
+  "model": "LIERNA",
+  "variant": "Pink",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T16:35:32Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33190535777",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "e6e45d54dd0da560d10226fc9bfab10ec3600fda"
+  },
+  "counts": {
+    "acquired": 8,
+    "unique_selected": 5,
+    "duplicates_collapsed": 2
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
+    "conflicts": [],
+    "officialColour": "Pink",
+    "officialAnchor": false
+  },
+  "mediaTier": "OFFICIAL",
+  "mediaTierMixed": false,
+  "proposedMain": "source/V69WBAG152-01-original.jpg",
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/V69WBAG152-01-original.jpg",
+      "preview": "preview/V69WBAG152-01.webp",
+      "source_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "requested_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "anchor_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "source_domain": "www.19v69-italia.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:10Z",
+      "width": 1800,
+      "height": 2601,
+      "longest_edge": 2601,
+      "mime": "image/jpeg",
+      "bytes": 381833,
+      "sha256": "2d467fd1d776c5836b724d22936450109fc1cd29d97f6a8c9cb8928d7fa5e6c8",
+      "dhash": "2d2dcdad0cb9fc9bcb87bd87fc44a8686481779b7ad33c9f3e812781249ab695",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/V69WBAG152-02-original.jpg",
+      "preview": "preview/V69WBAG152-02.webp",
+      "source_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "requested_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "anchor_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "source_domain": "www.19v69-italia.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:09Z",
+      "width": 1800,
+      "height": 2600,
+      "longest_edge": 2600,
+      "mime": "image/jpeg",
+      "bytes": 140005,
+      "sha256": "463540255c0dc83cf0777ab955db327bb1b81c297b519d499c27ed656dddf9bd",
+      "dhash": "024005800a9016c814e81ce804e05e62b3606089c969ed04cdf4fc003800c0e0",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/V69WBAG152-03-original.jpg",
+      "preview": "preview/V69WBAG152-03.webp",
+      "source_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "requested_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "anchor_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "source_domain": "www.19v69-italia.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:09Z",
+      "width": 1800,
+      "height": 2600,
+      "longest_edge": 2600,
+      "mime": "image/jpeg",
+      "bytes": 658008,
+      "sha256": "aa4b6af2fc437edff9b961e9342342cd4dd93a78cbdd17b0ae6d1d0975e45409",
+      "dhash": "04527c34b70989c4c161e130d2dcd96cccd47648fa2838bc5a3abd0fbb28b370",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/V69WBAG152-04-original.jpg",
+      "preview": "preview/V69WBAG152-04.webp",
+      "source_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "requested_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "anchor_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "source_domain": "www.19v69-italia.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:08Z",
+      "width": 1385,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/jpeg",
+      "bytes": 161193,
+      "sha256": "2fe8f34f297cd66194c5df06705784299dd4592724dc552b0aa3e24d48231ba2",
+      "dhash": "080007002cc028683a6808603d406cc9e0f8d16cc964d8e4d2b4cc74d0700000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1920",
+          "size": "1385x2000",
+          "sha256": "2fe8f34f297cd66194c5df06705784299dd4592724dc552b0aa3e24d48231ba2"
+        },
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=2048",
+          "size": "1385x2000",
+          "sha256": "2fe8f34f297cd66194c5df06705784299dd4592724dc552b0aa3e24d48231ba2"
+        }
+      ],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/V69WBAG152-05-original.jpg",
+      "preview": "preview/V69WBAG152-05.webp",
+      "source_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&width=1920",
+      "requested_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&width=1920",
+      "anchor_url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&width=1920",
+      "source_domain": "www.19v69-italia.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-28T16:35:11Z",
+      "width": 1385,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/jpeg",
+      "bytes": 177553,
+      "sha256": "875b1960b118f66b6f5f07b66596cf0e2a72cc94df4caa6c3ff218dd5825cbcc",
+      "dhash": "04400b2016900c482d686d680d407cc9ece8df74c924d924d9ecc3ccc0c40000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://www.19v69-italia.com/products/v69wbag152",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "OFFICIAL",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "result": "OK",
+      "exactProductDocument": false,
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": "V69WBAG152",
+      "model": "LIERNA",
+      "variant": "Pink",
+      "aliases": [],
+      "mediaUrls": 4,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 4
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.19v69-italia.com/products/v69wbag152",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 66
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.19v69-italia.com/products/v69wbag152",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 66
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "OFFICIAL",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sizes": [
+        {
+          "size": "one size",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "one size"
+    ],
+    "matched": [
+      "ONE SIZE"
+    ],
+    "missing": [],
+    "note": "every supplied size appears in the declared exact scale"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "V69WBAG152",
+      "skuInBody": false,
+      "model": "LIERNA",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [
+        {
+          "size": "one size",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+          "field": "gallery"
+        },
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+          "field": "gallery"
+        },
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+          "field": "gallery"
+        },
+        {
+          "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "www.19v69-italia.com"
+      ],
+      "notes": [
+        "Live official product document at the exact SKU URL /en/products/v69wbag152. The body names LIERNA, Pink and one size; the SKU is carried by the exact product URL rather than printed in the visible body.",
+        "The document directly declares four Pink gallery images. Material stated on the page: 80% Polyamide, 20% Polyurethane."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_OUTBOUND_MEDIA",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.19v69-italia.com/en/products/v69wbag152",
+        "authorityTier": "OFFICIAL",
+        "candidates": 4
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "DIRECT_OFFICIAL_PAGE",
+        "url": "https://www.19v69-italia.com/products/v69wbag152",
+        "authorityTier": null,
+        "candidates": 66
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.19v69-italia.com/products/v69wbag152",
+        "authorityTier": null,
+        "candidates": 66
+      }
+    ],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research-media",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "field": "gallery",
+      "sourcePage": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "field": "gallery",
+      "sourcePage": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "field": "gallery",
+      "sourcePage": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "field": "gallery",
+      "sourcePage": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 4,
+      "observed_hosts": [
+        "www.19v69-italia.com"
+      ]
+    },
+    {
+      "stage": "link-target",
+      "url": "https://www.19v69-italia.com/products/v69wbag152",
+      "ok": true,
+      "targets": 1,
+      "sample": "https://www.19v69-italia.com/products/v69wbag152"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.19v69-italia.com/products/v69wbag152",
+      "ok": true,
+      "raw_candidates": 66,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 289200,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.19v69-italia.com/products/v69wbag152",
+      "ok": true,
+      "raw_candidates": 66,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 289200,
+      "shell_suspected": false
+    },
+    {
+      "stage": "index-skip",
+      "reason": "research evidence already exposed 4 OFFICIAL media URL(s); archive lookup is a fallback, not a precondition"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "www.19v69-italia.com"
+      ]
+    },
+    {
+      "stage": "filter",
+      "url": "https://19v69-original.myshopify.com/cdn/shop/files/pandectes-banner-logo.png",
+      "ok": false,
+      "error": "host 19v69-original.myshopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://19v69-original.myshopify.com/cdn/shop/files/pandectes-reopen-logo.png",
+      "ok": false,
+      "error": "host 19v69-original.myshopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://19v69-original.myshopify.com/cdn/shop/files/pandectes-banner-logo.png",
+      "ok": false,
+      "error": "host 19v69-original.myshopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://19v69-original.myshopify.com/cdn/shop/files/pandectes-reopen-logo.png",
+      "ok": false,
+      "error": "host 19v69-original.myshopify.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 67
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+      "ok": true,
+      "size": "1385x2000",
+      "bytes": 161193,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+      "ok": true,
+      "size": "1800x2600",
+      "bytes": 140005,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+      "ok": true,
+      "size": "1800x2600",
+      "bytes": 658008,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800",
+      "ok": true,
+      "size": "1800x2601",
+      "bytes": 381833,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922&width=1920",
+      "ok": true,
+      "size": "1385x2000",
+      "bytes": 166615,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&width=1920",
+      "ok": true,
+      "size": "1385x2000",
+      "bytes": 177553,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1920",
+      "ok": true,
+      "size": "1385x2000",
+      "bytes": 161193,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=2048",
+      "ok": true,
+      "size": "1385x2000",
+      "bytes": 161193,
+      "upgraded_from": null
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=2048",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?crop=center&height=1200&v=1771861868&width=1200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19v69_FavIcon_Final.png?v=1710629239&width=96",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19v69_FavIcon_Final.png?v=1710629239&width=180",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19V69-Logo-Black-Transparent_a8cbf908-6522-496b-a67a-615704dab1e4.png?v=1676045734&amp;width=2631",
+      "ok": false,
+      "error": "aspect 2.4:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19V69-Logo-Black-Transparent_a8cbf908-6522-496b-a67a-615704dab1e4.png?v=1676045734&amp;width=250",
+      "ok": false,
+      "error": "aspect 2.4:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/1x1_Schuhe.webp?v=1729023071&amp;width=3618",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/1x1_Schuhe.webp?v=1729023071&amp;width=315",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/1x1_Schuhe2.webp?v=1729023070&amp;width=3618",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/1x1_Schuhe2.webp?v=1729023070&amp;width=315",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/Taschen_Women_Alternative_3.webp?v=1701102455&amp;width=1913",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/Taschen_Women_Alternative_3.webp?v=1701102455&amp;width=315",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19v69Taschen-mz-20.jpg?v=1729509514&amp;width=3919",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/19v69Taschen-mz-20.jpg?v=1729509514&amp;width=315",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&amp;width=1385",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&amp;width=1385",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-2.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-2.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-3.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-3.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-4.jpg?v=1772094922&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-4.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922&amp;width=1385",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-2_46028d5b-e468-45b0-999c-643ff65f10ae.jpg?v=1771917901&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-2_46028d5b-e468-45b0-999c-643ff65f10ae.jpg?v=1771917901&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-3_d9d0792c-2304-4c14-853d-c77468be33fd.jpg?v=1771917902&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-3_d9d0792c-2304-4c14-853d-c77468be33fd.jpg?v=1771917902&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-4_48a852eb-4b8e-4dc9-a838-06d300d2a7dc.jpg?v=1771917901&amp;width=1800",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-4_48a852eb-4b8e-4dc9-a838-06d300d2a7dc.jpg?v=1771917901&amp;width=200",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-2.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-3.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-4.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-2_46028d5b-e468-45b0-999c-643ff65f10ae.jpg?v=1771917901&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-3_d9d0792c-2304-4c14-853d-c77468be33fd.jpg?v=1771917902&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-4_48a852eb-4b8e-4dc9-a838-06d300d2a7dc.jpg?v=1771917901&amp;width=56",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&amp;width=48",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028546-1.jpg?v=1772094922&amp;width=48",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028553-1.jpg?v=1772094922&amp;width=48",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&amp;width=60",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/Bildschirm_foto_2023-04-11_um_15.22.35.png?v=1694599229&amp;width=922",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.19v69-italia.com/cdn/shop/files/Bildschirm_foto_2023-04-11_um_15.22.35.png?v=1694599229&amp;width=170",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "select",
+      "tier": "OFFICIAL",
+      "note": "official media sufficient; retailer candidates dropped to keep one authority tier per gallery",
+      "official": 6,
+      "retailer_dropped": 0
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

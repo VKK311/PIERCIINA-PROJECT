@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "30S4SBAL2L",
+  "brand": "Michael Kors",
+  "model": "Colby Medium Leather Shoulder Bag",
+  "variant": "Smokey Rose",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T16:35:04Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33190535777",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "e6e45d54dd0da560d10226fc9bfab10ec3600fda"
+  },
+  "counts": {
+    "acquired": 5,
+    "unique_selected": 5,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: rose"
+    ],
+    "conflicts": [],
+    "officialColour": "Smokey Rose",
+    "officialAnchor": false
+  },
+  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTierMixed": false,
+  "proposedMain": "source/30S4SBAL2L-01-original.jpg",
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/30S4SBAL2L-01-original.jpg",
+      "preview": "preview/30S4SBAL2L-01.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:02Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 39058,
+      "sha256": "f318a7319cb5e695446012cc9d56ce3884bbc5d81a699258c92ae1b07aab8880",
+      "dhash": "03052a01802210402150862004c2296a1a2412f29310daa49a841e84057a28a4",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/30S4SBAL2L-02-original.jpg",
+      "preview": "preview/30S4SBAL2L-02.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:02Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 39726,
+      "sha256": "d5e660e7f9c9aa9069f8eb7ea6c4b53b182be06368a6c97d9dd79f459997b502",
+      "dhash": "1625292185a21490249084900e922f1a0f1204d49d44ad8881e208d408d22704",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/30S4SBAL2L-03-original.jpg",
+      "preview": "preview/30S4SBAL2L-03.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:02Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 35834,
+      "sha256": "2faa4deeb4b684cfa7dec852219ae47654f44ce383c1f9c2af917c0ac9632d43",
+      "dhash": "03052a0180221040219086e004822dda28d209489a64afe48dca0fc801922424",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/30S4SBAL2L-04-original.jpg",
+      "preview": "preview/30S4SBAL2L-04.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:02Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 122193,
+      "sha256": "3e71ee2d77170ffbffe432ecbcf717770c156497975937ab9d5c36e2138597d2",
+      "dhash": "175b0d281e1a1f01f00060a00cdb1f06e118603d5236b8603cc21ac0129084cc",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/30S4SBAL2L-05-original.jpg",
+      "preview": "preview/30S4SBAL2L-05.webp",
+      "source_url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "requested_url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "anchor_url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "source_domain": "img.giglio.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:35:03Z",
+      "width": 1125,
+      "height": 1500,
+      "longest_edge": 1500,
+      "mime": "image/jpeg",
+      "bytes": 110522,
+      "sha256": "59e733b08a2ffd63ee9dc34d869ca42dc4136f1a76e06294b425831e67cf1107",
+      "dhash": "1962b8e0f928f928f138b598f138612864a95124652ce538e648652875287538",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1500px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": "30S4SBAL2L",
+      "model": "Colby Medium Leather Shoulder Bag",
+      "variant": "SMOKEY ROSE",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": "30S4SBAL2L",
+      "model": "Shoulder bag woman Michael Kors",
+      "variant": "Pink",
+      "aliases": [
+        "30S4SBAL2L 688",
+        "G71054.010"
+      ],
+      "mediaUrls": 5,
+      "sizeLabels": 0,
+      "sku_evidence": true,
+      "candidates": 5
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "JS_RENDERED_PAGE",
+      "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "result": "FAIL",
+      "authorityTier": "TRUSTED_RETAILER",
+      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010\", w"
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+  },
+  "identifierAliases": [
+    "30S4SBAL2L 688",
+    "G71054.010"
+  ],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "30S4SBAL2L",
+      "skuInBody": true,
+      "model": "Colby Medium Leather Shoulder Bag",
+      "variant": "SMOKEY ROSE",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Michael Kors product page states Style # 30S4SBAL2L, model Colby Medium Leather Shoulder Bag, colour SMOKEY ROSE and 100% leather.",
+        "Official-page media is not guessed here; the runner is allowed to discover it if the live page exposes declarations."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "30S4SBAL2L",
+      "skuInBody": true,
+      "model": "Shoulder bag woman Michael Kors",
+      "variant": "Pink",
+      "aliases": [
+        "30S4SBAL2L 688",
+        "G71054.010"
+      ],
+      "sizeScale": [],
+      "mediaUrls": [
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "img.giglio.com"
+      ],
+      "notes": [
+        "Live Giglio exact-product document states Designer code 30S4SBAL2L 688 and Pink, and declares five gallery targets.",
+        "G71054.010 is the colour-scoped retailer asset alias observed in all five Pink gallery URLs. It is not treated as manufacturer authority.",
+        "Image 02 contains a foreign human model and must be excluded from the canonical gallery during visual QA even if acquisition validates the bytes."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "JS_RENDERED_PAGE",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesSucceeded": [
+      "IDENTIFIER_EXPANSION",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesNotAttempted": [
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {
+      "DIRECT_OFFICIAL_PAGE": [
+        "HTTPError: HTTP Error 503: Service Unavailable"
+      ],
+      "JS_RENDERED_PAGE": [
+        "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-ro/bags-woman_"
+      ]
+    },
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+        "authorityTier": "OFFICIAL",
+        "candidates": 0
+      },
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 5
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      }
+    ],
+    "identifierAliases": [
+      "30S4SBAL2L 688",
+      "G71054.010"
+    ],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "field": "gallery",
+      "sourcePage": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 5,
+      "observed_hosts": [
+        "img.giglio.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "ok": true,
+      "raw_candidates": 0,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 2451,
+      "shell_suspected": true
+    },
+    {
+      "stage": "js-render",
+      "url": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "ok": false,
+      "error": "TimeoutError: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010\", w",
+      "controlSiteRendered": true,
+      "diagnosis": "site did not answer the headless browser"
+    },
+    {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 5 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "img.giglio.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 5
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 39058,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 39726,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 35834,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 122193,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg",
+      "ok": true,
+      "size": "1125x1500",
+      "bytes": 110522,
+      "upgraded_from": null
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

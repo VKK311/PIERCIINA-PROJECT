@@ -1,0 +1,763 @@
+{
+  "schemaVersion": 1,
+  "status": "PARTIAL",
+  "sku": "134-200-409",
+  "brand": "VEE Collective",
+  "model": "Porter Messenger Mini",
+  "variant": "Seashell Pink",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T16:34:28Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33190535777",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "e6e45d54dd0da560d10226fc9bfab10ec3600fda"
+  },
+  "counts": {
+    "acquired": 2,
+    "unique_selected": 1,
+    "duplicates_collapsed": 1
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
+    "conflicts": [],
+    "officialColour": "Seashell Pink",
+    "officialAnchor": false
+  },
+  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTierMixed": false,
+  "proposedMain": "source/134-200-409-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/134-200-409-01-original.jpg",
+      "preview": "preview/134-200-409-01.webp",
+      "source_url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=1600&sm=fit&sw=1600",
+      "requested_url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=1600&sm=fit&sw=1600",
+      "anchor_url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+      "source_domain": "www.tootsies.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T16:34:19Z",
+      "width": 1600,
+      "height": 1600,
+      "longest_edge": 1600,
+      "mime": "image/jpeg",
+      "bytes": 79046,
+      "sha256": "a68dd27debe8fc951f44b48ceae27123c7eb775e8d5ded34ef9fa97a923332a7",
+      "dhash": "00000b2003000690168006c004c00cc80cc80c6829682d482d482c480e800700",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sw=1600&amp;sh=936&amp;sm=fit",
+          "size": "936x936",
+          "sha256": "fb9ade26f17b1b6d200d5b97eeb111c7f75f8b2b675c7cc942b7691745f107ff"
+        }
+      ],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": []
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": "134-200-409",
+      "model": "Mini Porter Messenger Bag",
+      "variant": "Pink",
+      "aliases": [],
+      "mediaUrls": 1,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.vee-collective.com/products/porter-messenger-mini-seashell-pink",
+      "result": "FAIL",
+      "exactProductDocument": false,
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "observedSku": null,
+      "model": "Porter Messenger Mini",
+      "variant": "Seashell Pink",
+      "aliases": [],
+      "mediaUrls": 0,
+      "sizeLabels": 0,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "TRUSTED_RETAILER_SEARCH",
+      "url": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 4
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.vee-collective.com/",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 61
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "TRUSTED_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sizes": [
+        {
+          "size": "O/S",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMATION_REQUIRED",
+    "declaredScale": [
+      "O/S"
+    ],
+    "matched": [],
+    "missing": [
+      "ONE SIZE"
+    ],
+    "note": "size label could not be compared to the declared scale"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "134-200-409",
+      "skuInBody": true,
+      "model": "Mini Porter Messenger Bag",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [
+        {
+          "size": "O/S",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+          "field": "product-image"
+        }
+      ],
+      "observedCdnHosts": [
+        "www.tootsies.com"
+      ],
+      "notes": [
+        "Live exact-item retailer document. Body states Item No. 134-200-409 and O/S; the declared product image filename carries 134-200-409-PINK.",
+        "This is exact SKU/variant evidence at trusted-retailer tier. Retailer price and stock are not PINK MALL truth."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.vee-collective.com/products/porter-messenger-mini-seashell-pink",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": null,
+      "model": "Porter Messenger Mini",
+      "variant": "Seashell Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "www.vee-collective.com"
+      ],
+      "notes": [
+        "Live official VEE COLLECTIVE page corroborates the model and official colour name Seashell Pink and states the recycled-nylon / recycled microfiber vegan-leather material construction.",
+        "The page does not expose manufacturer item 134-200-409 in its body, so it is corroborating model/variant evidence only and its gallery is not seeded as exact-SKU media."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "TRUSTED_RETAILER_SEARCH",
+        "url": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+        "authorityTier": null,
+        "candidates": 4
+      }
+    ],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research-media",
+      "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+      "field": "product-image",
+      "sourcePage": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 1,
+      "observed_hosts": [
+        "www.tootsies.com",
+        "www.vee-collective.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "ok": true,
+      "raw_candidates": 4,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 186915,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.vee-collective.com/",
+      "ok": true,
+      "raw_candidates": 61,
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 444762,
+      "shell_suspected": false
+    },
+    {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 1 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "www.tootsies.com",
+        "www.vee-collective.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 65
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=1600&sm=",
+      "ok": true,
+      "size": "1600x1600",
+      "bytes": 79046,
+      "upgraded_from": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=f"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VEECOLLECTIVE.jpg?v=1732787933",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sw=1600&amp",
+      "ok": true,
+      "size": "936x936",
+      "bytes": 34442,
+      "upgraded_from": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sw=760&amp;"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tootsies.com/on/demandware.static/Sites-tootsies-Site/-/default/dw6f0a0f95/images/favicons/favicon-196x196.png",
+      "ok": false,
+      "error": "too small (160 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tootsies.com/on/demandware.static/Sites-tootsies-Site/-/default/dw325c20a9/images/favicons/favicon-32x32.png",
+      "ok": false,
+      "error": "too small (160 B)"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tootsies.com/on/demandware.static/Sites-tootsies-Site/-/default/dw04a5ea2c/images/sizing-chart-combined.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VEECOLLECTIVE.jpg?v=1732787933",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Artboard_1.png?crop=center&height=32&v=1726834418&width=32",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/oprah-menu-tile.jpg?v=1783089890",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/oprah-menu-tile.jpg?v=1783089890&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-essence-city-tote-banner.jpg?v=1785765893",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-essence-city-tote-banner.jpg?v=1785765893&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-vertical-tote-early-access.jpg?v=1786453942",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-vertical-tote-early-access.jpg?v=1786453942&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC_Accessory_PorterVanity_Medium_01VeeCollective_StillLife6904_fix3_copy.webp?v=1776351160",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC_Accessory_PorterVanity_Medium_01VeeCollective_StillLife6904_fix3_copy.webp?v=1776351160&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-vanity-tall-matt-black-1_f816f126-109f-4193-912a-1614078f16ba.webp?v=1763037100",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-vanity-tall-matt-black-1_f816f126-109f-4193-912a-1614078f16ba.webp?v=1763037100&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Navigation-4x5-JM-Banner.webp?v=1781105395",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Navigation-4x5-JM-Banner.webp?v=1781105395&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/04_4x5_Vineta_Landing_page.webp?v=1778509128",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/04_4x5_Vineta_Landing_page.webp?v=1778509128&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Galvan-caba-clutch-bag-buttermilk-8.webp?v=1765547939",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Galvan-caba-clutch-bag-buttermilk-8.webp?v=1765547939&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-About-Banner.webp?v=1780678698",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-About-Banner.webp?v=1780678698&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/About-Sustainability-Porter-Black_1.webp?v=1773749436",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/About-Sustainability-Porter-Black_1.webp?v=1773749436&amp;width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-essence-small-bag-mink-trench-1_465c4c4c-5123-436f-a008-1553e0883b96.webp?v=1764598041&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-essence-small-bag-mink-trench-1_465c4c4c-5123-436f-a008-1553e0883b96.webp?v=1764598041&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-tote-bag-small-mink-trench-3.webp?v=1781802846&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-tote-bag-small-mink-trench-3.webp?v=1781802846&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-medium-tote-bag-matt-black-1.jpg?v=1722953789&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-medium-tote-bag-matt-black-1.jpg?v=1722953789&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-tote-bag-medium-matt-black-2_8ac5365d-e34d-43e0-8a14-e5073a892ba9.webp?v=1781804165&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-tote-bag-medium-matt-black-2_8ac5365d-e34d-43e0-8a14-e5073a892ba9.webp?v=1781804165&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-weekender-bag-jet-black-1_copy.webp?v=1777395889&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-weekender-bag-jet-black-1_copy.webp?v=1777395889&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-weekender-bag-black-trench-2.webp?v=1781803710&amp;width=600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/essence-weekender-bag-black-trench-2.webp?v=1781803710&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/oprah-menu-tile.jpg?v=1783089890&amp;width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-essence-city-tote-banner.jpg?v=1785765893&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-vertical-tote-early-access.jpg?v=1786453942&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC_Accessory_PorterVanity_Medium_01VeeCollective_StillLife6904_fix3_copy.webp?v=1776351160&amp;width=1125",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/porter-vanity-tall-matt-black-1_f816f126-109f-4193-912a-1614078f16ba.webp?v=1763037100&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Navigation-4x5-JM-Banner.webp?v=1781105395&amp;width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/04_4x5_Vineta_Landing_page.webp?v=1778509128&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Galvan-caba-clutch-bag-buttermilk-8.webp?v=1765547939&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-essence-city-tote-banner.jpg?v=1785765893&amp;width=1024",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-essence-city-tote-banner.jpg?v=1785765893&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-16x9-essence-city-tote-banner.jpg?v=1785765598&amp;width=5760",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-16x9-essence-city-tote-banner.jpg?v=1785765598&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/01-4x5-vertical-tote-early-access.jpg?v=1786453942&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Porter-Marche-Large-Dark-Navy-pack-shot.jpg?v=1785341289&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Porter-Marche-Large-Dark-Navy-pack-shot.jpg?v=1785341289&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC-SS26-weekend-4-essence-tote-large-midnight-1500x1875.webp?v=1779715289&amp;width=1024",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC-SS26-weekend-4-essence-tote-large-midnight-1500x1875.webp?v=1779715289&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/04-VC-SS26-weekend-4.jpg?v=1786628614&amp;width=5760",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/04-VC-SS26-weekend-4.jpg?v=1786628614&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/02-VC-SS26-Bestsellers-5-essence-vertical-tote-large-black-1500x1875.webp?v=1786364653&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/02-VC-SS26-Bestsellers-5-essence-vertical-tote-large-black-1500x1875.webp?v=1786364653&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Essence-City-Totee-Large-Beige-pack-shot.jpg?v=1785855758&amp;width=1500",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/Essence-City-Totee-Large-Beige-pack-shot.jpg?v=1785855758&amp;width=352",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC-SS26-travel-9-porter-marche-large-apple-1500x1875_0edd10b6-bffc-4058-9a7a-d5b6b505a8bf.webp?v=1783437171&amp;wi",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.vee-collective.com/cdn/shop/files/VC-SS26-travel-9-porter-marche-large-apple-1500x1875_0edd10b6-bffc-4058-9a7a-d5b6b505a8bf.webp?v=1783437171&amp;wi",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 134-200-409"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
