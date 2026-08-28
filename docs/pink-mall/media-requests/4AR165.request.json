@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 7,
+  "brand": "Polo Ralph Lauren",
+  "manufacturerItemNo": "4AR165",
+  "model": "Cotton Drawstring Shoulder Bag",
+  "variant": "Green",
+  "availableSizes": [
+    "ONE SIZE"
+  ],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "4AR165",
+      "skuInBody": true,
+      "model": "Cotton Drawstring Shoulder Bag",
+      "variant": "Green",
+      "aliases": [
+        "PPYA-TOG02K_76X"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "img2.ans-media.com"
+      ],
+      "notes": [
+        "Exact item document identifies 4AR165, green, 100% cotton textile, drawstring closure, fixed long strap and embroidered logo.",
+        "One declared media item contains a person and must be excluded.",
+        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840"
+  ],
+  "discoveryRoutes": {
+    "trustedRetailer": "DIRECT_TRUSTED_RETAILER_PAGE"
+  },
+  "officialHostSuffixes": [
+    "ralphlauren.com",
+    "ralphlauren.eu",
+    "ralphlauren.global"
+  ],
+  "allowedHostSuffixes": [
+    "answear.com",
+    "ans-media.com",
+    "ralphlauren.com",
+    "ralphlauren.eu",
+    "ralphlauren.global"
+  ],
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €44 and availability ONE SIZE.",
+    "External retailer price and stock must not be imported.",
+    "Only product-only media may pass; reject people and unrelated variants.",
+    "Reject the source page's human-model image."
+  ]
+}

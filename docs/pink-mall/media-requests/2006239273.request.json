@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 7,
+  "brand": "Fabelab",
+  "manufacturerItemNo": "2006239273",
+  "model": "Shoulder Bag - Caramel Mix",
+  "variant": "Multi Colours",
+  "availableSizes": [
+    "ONE SIZE"
+  ],
+  "candidateMedia": [
+    "https://www.fabelab.dk/cdn/shop/files/Shoulder_Bag_-_Caramel_Mix-Bags_Backpacks-2006239273-Multi_Colours_7a1a7714-3d91-453b-b361-d315fe4e7a24_1400x.jpg?v=1771833941",
+    "https://www.fabelab.dk/cdn/shop/files/Shoulder_Bag_-_Caramel_Mix-Bags_Backpacks-2006239273-Multi_Colours-1_4483d4c7-efc0-46a4-8945-03b947f86e37_1400x.jpg?v=1771833942"
+  ],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.fabelab.dk/products/shoulder-bag-caramel-mix-bags-backpacks-1",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "2006239273",
+      "skuInBody": true,
+      "model": "Shoulder Bag - Caramel Mix",
+      "variant": "Multi Colours",
+      "aliases": [
+        "5713034217652"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": "One Size"
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://www.fabelab.dk/cdn/shop/files/Shoulder_Bag_-_Caramel_Mix-Bags_Backpacks-2006239273-Multi_Colours_7a1a7714-3d91-453b-b361-d315fe4e7a24_1400x.jpg?v=1771833941",
+          "field": "gallery"
+        },
+        {
+          "url": "https://www.fabelab.dk/cdn/shop/files/Shoulder_Bag_-_Caramel_Mix-Bags_Backpacks-2006239273-Multi_Colours-1_4483d4c7-efc0-46a4-8945-03b947f86e37_1400x.jpg?v=1771833942",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "www.fabelab.dk"
+      ],
+      "notes": [
+        "Official document identifies exact style 2006239273, Shoulder Bag - Caramel Mix, Multi Colours, quality 100% recycled polyester.",
+        "Only two unique official images are exposed, so trusted exact-item discovery is required for a third approval image."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.neye.dk/fabelab-skuldertaske-caramel-mix-id-16241204400/",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "2006239273",
+      "skuInBody": true,
+      "model": "Shoulder Bag - Caramel Mix",
+      "variant": "Pink / Caramel Mix",
+      "aliases": [
+        "5713034217652"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "cdn.neye.structpim.com"
+      ],
+      "notes": [
+        "Exact retailer corroboration identifies supplier item 2006239273 and barcode 5713034217652."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.fabelab.dk/products/shoulder-bag-caramel-mix-bags-backpacks-1",
+    "https://www.neye.dk/fabelab-skuldertaske-caramel-mix-id-16241204400/",
+    "https://smilehjem.com/product/shoulder-bag-caramel-mix/",
+    "https://luxkids.dk/products/shoulder-bag-caramel-mix-bags-backpacks-1"
+  ],
+  "discoveryRoutes": {
+    "official": "DIRECT_OFFICIAL_PAGE",
+    "trustedRetailer": "EXACT_ITEM_RETAILER_PAGES"
+  },
+  "officialHostSuffixes": [
+    "fabelab.dk"
+  ],
+  "allowedHostSuffixes": [
+    "fabelab.dk",
+    "neye.dk",
+    "structpim.com",
+    "smilehjem.com",
+    "luxkids.dk"
+  ],
+  "resolution": {
+    "widthLadder": [
+      1600,
+      1400,
+      1200,
+      1000
+    ]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €20 and availability ONE SIZE.",
+    "External retailer price and stock must not be imported.",
+    "Only product-only media may pass; reject people and unrelated variants.",
+    "At least three unique images are required for approval."
+  ]
+}

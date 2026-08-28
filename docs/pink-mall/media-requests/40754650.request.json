@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 7,
+  "brand": "Dr. Martens",
+  "manufacturerItemNo": "40754650",
+  "model": "Metallic Shift Leather Heart Shaped Bag",
+  "variant": "Powder Pink+Gold — Shift Leather",
+  "availableSizes": [
+    "ONE SIZE"
+  ],
+  "candidateMedia": [
+    "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+    "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+    "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+    "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto"
+  ],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "40754650",
+      "skuInBody": true,
+      "model": "Metallic Shift Leather Heart Shaped Bag",
+      "variant": "Powder Pink+Gold — Shift Leather",
+      "aliases": [
+        "40754"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "cdn.media.amplience.net"
+      ],
+      "notes": [
+        "The official EU document identifies the exact Powder Pink+Gold variant as 40754650; user-supplied 40754 is preserved as the base/style alias.",
+        "Official material wording: PU coated suede with a metallic shimmer effect."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650"
+  ],
+  "discoveryRoutes": {
+    "official": "DIRECT_OFFICIAL_PAGE"
+  },
+  "officialHostSuffixes": [
+    "drmartens.com"
+  ],
+  "allowedHostSuffixes": [
+    "drmartens.com",
+    "amplience.net"
+  ],
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €104 and availability ONE SIZE.",
+    "External retailer price and stock must not be imported.",
+    "Only product-only media may pass; reject people and unrelated variants."
+  ]
+}

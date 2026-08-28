@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 7,
+  "brand": "Ted Baker",
+  "manufacturerItemNo": "280702-green",
+  "model": "SLIDDS Club Ted Slider Keyring",
+  "variant": "Green (dark green / rose)",
+  "availableSizes": [
+    "ONE SIZE"
+  ],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "280702-green",
+      "skuInBody": true,
+      "model": "SLIDDS Club Ted Slider Keyring",
+      "variant": "Green (dark green / rose)",
+      "aliases": [
+        "280702"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "images.modeherz.de"
+      ],
+      "notes": [
+        "Exact retailer document identifies 280702-green, colour green/dark green/rose, material 100% polyurethane, approximately 12 × 5 × 2.5 cm.",
+        "This conflicts with the user's short descriptor pink; preserve the conflict for visual approval and never silently remap it."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+    "https://www.otto.de/p/ted-baker-schluesseltasche-slidds-club-ted-slider-keyring-S0BEZ0D6/"
+  ],
+  "discoveryRoutes": {
+    "trustedRetailer": "DIRECT_TRUSTED_RETAILER_PAGE",
+    "retailerCorroboration": "EXACT_MODEL_RETAILER_PAGE"
+  },
+  "officialHostSuffixes": [
+    "tedbaker.com"
+  ],
+  "allowedHostSuffixes": [
+    "tedbaker.com",
+    "modeherz.de",
+    "images.modeherz.de",
+    "otto.de"
+  ],
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €49 and availability ONE SIZE.",
+    "External retailer price and stock must not be imported.",
+    "Only product-only media may pass; reject people and unrelated variants.",
+    "Variant gate: exact-SKU evidence supports green/dark green/rose rather than a pink-only variant."
+  ]
+}
