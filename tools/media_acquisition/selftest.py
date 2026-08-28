@@ -364,7 +364,8 @@ def main():
     # Non-product path segments. The tradeinn run accepted /banners_home/
     # marketing panoramas as PGS30614 product media because the deny-list
     # anchored on a trailing slash and 'banners_home' is not 'banners'.
-    from acquire import NON_PRODUCT_RE, validate_bytes, MAX_ASPECT
+    from acquire import (NON_PRODUCT_RE, is_non_product_path,
+                         validate_bytes, MAX_ASPECT)
     rejects = ["https://cache.tradeinn.com/web/banners_home/HP-adidas.webp",
                "https://cache.tradeinn.com/web/categorias_hp/11065-grande.webp",
                "https://x.test/banner-hp/a.jpg", "https://x.test/articles/b.jpg"]
@@ -375,6 +376,16 @@ def main():
                    all(NON_PRODUCT_RE.search(u) for u in rejects)))
     checks.append(("real product asset paths still kept",
                    not any(NON_PRODUCT_RE.search(u) for u in keeps)))
+    zalando_packshot = (
+        "https://img01.ztat.net/article/spp-media-p1/"
+        "bdf1512e7143473a8827dbc83dd000e9/product.jpg?imwidth=762")
+    checks.append(("verified Zalando packshot path allowed for research evidence",
+                   not is_non_product_path(zalando_packshot, "research-evidence")))
+    checks.append(("Zalando article path still rejected for page sweeps",
+                   is_non_product_path(zalando_packshot, "html-scan")))
+    checks.append(("generic editorial article remains rejected",
+                   is_non_product_path("https://x.test/articles/story/image.jpg",
+                                       "research-evidence")))
 
     # Shape. A 4:1 panorama is a page banner, never a product photograph.
     def encoded(w, h):

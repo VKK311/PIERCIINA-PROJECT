@@ -121,6 +121,7 @@
     "External retailer price and stock must not be imported.",
     "Only product-only media may pass; reject people and unrelated variants.",
     "Variant gate: exact-SKU evidence supports green/dark green/rose rather than a pink-only variant.",
-    "Three exact-model Zalando product frames were live-browser verified on 2026-08-28; variant approval is still required."
+    "Three exact-model Zalando product frames were live-browser verified on 2026-08-28; variant approval is still required.",
+    "Runner fix: allow only verified Zalando img*.ztat.net/article/spp-media-* packshots when delivered through structured research evidence; generic /article/ paths remain rejected."
   ]
 }

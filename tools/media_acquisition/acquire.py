@@ -202,6 +202,18 @@ NON_PRODUCT_RE = re.compile(
     r"sprites?|avatars?|placeholder|payment|social|flags?|categorias?|"
     r"categor(?:y|ies)|size[-_]?guides?|guia[-_]?tallas?|sizing)[^/]*/", re.I)
 
+# Zalando's product CDN uses /article/spp-media-* for ordinary packshots.
+# Keep the generic /article/ deny-list intact and allow only this exact CDN
+# namespace when the URL arrived through structured product research evidence.
+ZALANDO_PRODUCT_MEDIA_RE = re.compile(
+    r"^https://img\d+\.ztat\.net/article/spp-media-p\d+/", re.I)
+
+
+def is_non_product_path(url, method):
+    if method == "research-evidence" and ZALANDO_PRODUCT_MEDIA_RE.search(url):
+        return False
+    return bool(NON_PRODUCT_RE.search(url))
+
 # A studio product photograph is roughly square to portrait. A 4:1 panorama is
 # a page banner, a category strip or a lifestyle header — never the product
 # shot this pipeline exists to acquire. Rejecting on shape is brand-agnostic
@@ -1880,7 +1892,7 @@ def acquire(request, outroot, log):
                             "error": "source-page evidence requires an authoritative "
                                      "declaration; %s is a page sweep" % method})
                 best = None
-            elif not asset_sku and NON_PRODUCT_RE.search(best["url"]):
+            elif not asset_sku and is_non_product_path(best["url"], method):
                 log.append({"stage": "identity", "url": best["url"][:160], "ok": False,
                             "error": "editorial or chrome asset path; rejected"})
                 best = None
