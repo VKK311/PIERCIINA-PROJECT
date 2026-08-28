@@ -1,0 +1,160 @@
+name: Publish approved Pink Mall batch 2026-08-28
+
+on:
+  push:
+    branches: [claude/pink-mall-development]
+    paths:
+      - 'tools/publish_approved_batch_20260828.py'
+      - '.github/workflows/publish-approved-batch-20260828.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pink-mall-approved-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/pink-mall-development
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image tooling
+        run: python -m pip install --quiet Pillow
+
+      - name: Prepare isolated candidate and live derivatives
+        run: python tools/publish_approved_batch_20260828.py prepare
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install browser regression tooling
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start local review server
+        run: |
+          python -m http.server 8131 --bind 127.0.0.1 > /tmp/pinkmall-http.log 2>&1 &
+          echo $! > /tmp/pinkmall-http.pid
+          sleep 2
+
+      - name: Regression-test isolated candidate before promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROMIUM="$(node -e "console.log(require('playwright').chromium.executablePath())")"
+          for id in PM-034 PM-035 PM-036; do
+            src="tools/regression/expect/${id}.json"
+            tmp="/tmp/${id}.json"
+            python - "$src" "$tmp" "$CHROMIUM" <<'PY'
+          import json, sys
+          src, dst, chromium = sys.argv[1:]
+          d = json.load(open(src, encoding='utf-8'))
+          d['chromium'] = chromium
+          json.dump(d, open(dst, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+          PY
+            node tools/regression/product_regression.js "$tmp" PINKMALL_CATALOG_UPDATE_2026-08-28.html 8131
+          done
+
+      - name: Promote only after candidate PASS
+        run: python tools/publish_approved_batch_20260828.py promote
+
+      - name: Build portable standalone review
+        run: |
+          python tools/build_standalone_review.py
+          bash tools/verify_standalone.sh
+
+      - name: Regression-test canonical and standalone builds
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROMIUM="$(node -e "console.log(require('playwright').chromium.executablePath())")"
+          for id in PM-034 PM-035 PM-036; do
+            src="tools/regression/expect/${id}.json"
+            tmp="/tmp/${id}.json"
+            python - "$src" "$tmp" "$CHROMIUM" <<'PY'
+          import json, sys
+          src, dst, chromium = sys.argv[1:]
+          d = json.load(open(src, encoding='utf-8'))
+          d['chromium'] = chromium
+          json.dump(d, open(dst, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+          PY
+            node tools/regression/product_regression.js "$tmp" PINKMALL.html 8131
+            node tools/regression/product_regression.js "$tmp" PINKMALL_REVIEW_STANDALONE.html 8131
+          done
+
+      - name: Mobile overflow and PDP smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'JS'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            for (const file of ['PINKMALL.html','PINKMALL_REVIEW_STANDALONE.html']) {
+              const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }});
+              const page = await ctx.newPage();
+              await page.addInitScript(() => {
+                try { localStorage.setItem('pierciina_consent_v1', JSON.stringify(
+                  { v:1, analytics:true, marketing:true, ts:Date.now() })); } catch(e) {}
+              });
+              await page.goto(`http://127.0.0.1:8131/${file}`, { waitUntil:'networkidle' });
+              for (const id of ['PM-034','PM-035','PM-036']) {
+                await page.evaluate(i => { window.PinkMallStore.clearFilters(); window.PinkMallStore.openProduct(i); }, id);
+                await page.waitForTimeout(350);
+                const state = await page.evaluate(() => ({
+                  doc: document.documentElement.scrollWidth,
+                  viewport: window.innerWidth,
+                  sheet: !!document.querySelector('#pmsSheet') && document.querySelector('#pmsSheet').offsetHeight > 0
+                }));
+                if (!state.sheet || state.doc > state.viewport + 2) {
+                  throw new Error(`${file} ${id} mobile FAIL: ${JSON.stringify(state)}`);
+                }
+                await page.evaluate(() => window.PinkMallStore.closeProduct && window.PinkMallStore.closeProduct());
+              }
+              await ctx.close();
+              console.log(`${file}: mobile PASS`);
+            }
+            await browser.close();
+          })().catch(e => { console.error(e); process.exit(1); });
+          JS
+
+      - name: Record canonical state after all validation passes
+        run: python tools/publish_approved_batch_20260828.py state
+
+      - name: Refuse concurrent branch movement
+        shell: bash
+        run: |
+          set -euo pipefail
+          REMOTE="$(git ls-remote origin refs/heads/claude/pink-mall-development | cut -f1)"
+          test "$REMOTE" = "$GITHUB_SHA" || {
+            echo "Branch moved during publication: expected $GITHUB_SHA, found $REMOTE" >&2
+            exit 1
+          }
+
+      - name: Commit approved publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf node_modules package-lock.json
+          rm -f tools/publish_approved_batch_20260828.py
+          rm -f .github/workflows/publish-approved-batch-20260828.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --short
+          git commit -m "[publish-bot] Publish PM-034 through PM-036 [skip ci]"
+          git push origin HEAD:claude/pink-mall-development
