@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "sku": "4AR165",
+  "brand": "Polo Ralph Lauren",
+  "model": "Cotton Drawstring Shoulder Bag",
+  "variant": "Green",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T18:11:22Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33198023037",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "6e08086cd4835358065e0d79420485e97ff0d8d4"
+  },
+  "counts": {
+    "acquired": 0,
+    "unique_selected": 0,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "signals": [],
+    "conflicts": [],
+    "officialColour": "Green",
+    "officialAnchor": false
+  },
+  "mediaTier": null,
+  "mediaTierMixed": false,
+  "proposedMain": null,
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": null,
+  "images": [],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "observedSku": "4AR165",
+      "model": "Cotton Drawstring Shoulder Bag",
+      "variant": "Green",
+      "aliases": [
+        "PPYA-TOG02K_76X"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 1 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "TRUSTED_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "ONE SIZE"
+    ],
+    "matched": [
+      "ONE SIZE"
+    ],
+    "missing": [],
+    "note": "every supplied size appears in the declared exact scale"
+  },
+  "identifierAliases": [
+    "PPYA-TOG02K_76X"
+  ],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "4AR165",
+      "skuInBody": true,
+      "model": "Cotton Drawstring Shoulder Bag",
+      "variant": "Green",
+      "aliases": [
+        "PPYA-TOG02K_76X"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [
+        "img2.ans-media.com"
+      ],
+      "notes": [
+        "Exact item document identifies 4AR165, green, 100% cotton textile, drawstring closure, fixed long strap and embroidered logo.",
+        "One declared media item contains a person and must be excluded.",
+        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "IDENTIFIER_EXPANSION",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {
+      "DIRECT_OFFICIAL_PAGE": [
+        "HTTPError: HTTP Error 403: Forbidden"
+      ]
+    },
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 0
+      }
+    ],
+    "identifierAliases": [
+      "PPYA-TOG02K_76X"
+    ],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research",
+      "seeded_candidates": 0,
+      "observed_hosts": [
+        "img2.ans-media.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "url": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "img2.ans-media.com"
+      ]
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 0
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

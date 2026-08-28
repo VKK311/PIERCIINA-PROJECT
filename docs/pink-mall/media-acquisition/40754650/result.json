@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sku": "40754650",
+  "brand": "Dr. Martens",
+  "model": "Metallic Shift Leather Heart Shaped Bag",
+  "variant": "Powder Pink+Gold — Shift Leather",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-28T18:11:22Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33198023037",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "6e08086cd4835358065e0d79420485e97ff0d8d4"
+  },
+  "counts": {
+    "acquired": 4,
+    "unique_selected": 4,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
+    "conflicts": [],
+    "officialColour": "Powder Pink+Gold — Shift Leather",
+    "officialAnchor": false
+  },
+  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTierMixed": false,
+  "proposedMain": "source/40754650-01-original.jpg",
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/40754650-01-original.jpg",
+      "preview": "preview/40754650-01.webp",
+      "source_url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "requested_url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "anchor_url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "source_domain": "cdn.media.amplience.net",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:11:20Z",
+      "width": 576,
+      "height": 721,
+      "longest_edge": 721,
+      "mime": "image/jpeg",
+      "bytes": 42867,
+      "sha256": "37427e7869373e481f8406bb6375fef2541d8e239b8afe04ae1a0328c9e4f19e",
+      "dhash": "8e1e60e3f806999832f8f9e347835e837c0e7c64ee645a641864e9187e00c3e3",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "721px longest edge — below the 1000px preference"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/40754650-02-original.jpg",
+      "preview": "preview/40754650-02.webp",
+      "source_url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "requested_url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "anchor_url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "source_domain": "cdn.media.amplience.net",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:11:20Z",
+      "width": 576,
+      "height": 721,
+      "longest_edge": 721,
+      "mime": "image/jpeg",
+      "bytes": 21259,
+      "sha256": "bbbb6779388e70215e9505c422b4dcb7bd313a9507360028e5aec0f02f2fc074",
+      "dhash": "a410a408200868084a0cc8e460f8c71cd6945ea4771833301b6039801f000300",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "721px longest edge — below the 1000px preference"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/40754650-03-original.jpg",
+      "preview": "preview/40754650-03.webp",
+      "source_url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "requested_url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "anchor_url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "source_domain": "cdn.media.amplience.net",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:11:21Z",
+      "width": 576,
+      "height": 721,
+      "longest_edge": 721,
+      "mime": "image/jpeg",
+      "bytes": 40729,
+      "sha256": "3e1e191c728fe70e99d12a89124dde63ba405ea1a82f43d867a3484bd81b9748",
+      "dhash": "0618e071fcc30e81737ffb519939a5467c10b49016a5febffc709e700a528b52",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "721px longest edge — below the 1000px preference"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/40754650-04-original.jpg",
+      "preview": "preview/40754650-04.webp",
+      "source_url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "requested_url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "anchor_url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "source_domain": "cdn.media.amplience.net",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:11:21Z",
+      "width": 576,
+      "height": 721,
+      "longest_edge": 721,
+      "mime": "image/jpeg",
+      "bytes": 45068,
+      "sha256": "969598dbae9f539cc32fb8983cc165da27730139a0b80a8f16193177fb0e8369",
+      "dhash": "0f84e363f1eff07871e1f10f809f07be063801c3027039f687185c43b80fe03e",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "721px longest edge — below the 1000px preference"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "observedSku": "40754650",
+      "model": "Metallic Shift Leather Heart Shaped Bag",
+      "variant": "Powder Pink+Gold — Shift Leather",
+      "aliases": [
+        "40754"
+      ],
+      "mediaUrls": 4,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 4
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 1 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "OFFICIAL",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "ONE SIZE"
+    ],
+    "matched": [
+      "ONE SIZE"
+    ],
+    "missing": [],
+    "note": "every supplied size appears in the declared exact scale"
+  },
+  "identifierAliases": [
+    "40754"
+  ],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T00:00:00.000Z",
+      "sku": "40754650",
+      "skuInBody": true,
+      "model": "Metallic Shift Leather Heart Shaped Bag",
+      "variant": "Powder Pink+Gold — Shift Leather",
+      "aliases": [
+        "40754"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "cdn.media.amplience.net"
+      ],
+      "notes": [
+        "The official EU document identifies the exact Powder Pink+Gold variant as 40754650; user-supplied 40754 is preserved as the base/style alias.",
+        "Official material wording: PU coated suede with a metallic shimmer effect."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "IDENTIFIER_EXPANSION",
+      "REQUEST_SEED",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {
+      "DIRECT_OFFICIAL_PAGE": [
+        "HTTPError: HTTP Error 403: Forbidden"
+      ]
+    },
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+        "authorityTier": "OFFICIAL",
+        "candidates": 4
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+        "authorityTier": null,
+        "candidates": 1
+      }
+    ],
+    "identifierAliases": [
+      "40754"
+    ],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research-media",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "field": "gallery",
+      "sourcePage": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "field": "gallery",
+      "sourcePage": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "field": "gallery",
+      "sourcePage": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "field": "gallery",
+      "sourcePage": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "authorityTier": "OFFICIAL"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 4,
+      "observed_hosts": [
+        "cdn.media.amplience.net"
+      ]
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.drmartens.com/eu/en_eu/metallic-shift-leather-heart-shaped-bag-powder-pink/p/40754650",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 4 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "cdn.media.amplience.net"
+      ]
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 4
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.82?$smart576$=&fmt=auto",
+      "ok": true,
+      "size": "576x721",
+      "bytes": 42867,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.83?$smart576$=&fmt=auto",
+      "ok": true,
+      "size": "576x721",
+      "bytes": 21259,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.84?$smart576$=&fmt=auto",
+      "ok": true,
+      "size": "576x721",
+      "bytes": 40729,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.media.amplience.net/i/drmartens/40754650.85?$smart576$=&fmt=auto",
+      "ok": true,
+      "size": "576x721",
+      "bytes": 45068,
+      "upgraded_from": null
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
