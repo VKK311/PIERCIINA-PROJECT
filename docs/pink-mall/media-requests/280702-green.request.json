@@ -9,8 +9,8 @@
   ],
   "candidateMedia": [
     "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
-    "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
-    "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156"
+    "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=762",
+    "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=762"
   ],
   "indexedAssetSearch": true,
   "indexedEvidence": false,
@@ -68,11 +68,11 @@
           "field": "gallery"
         },
         {
-          "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+          "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=762",
           "field": "gallery"
         },
         {
-          "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+          "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=762",
           "field": "gallery"
         }
       ],
@@ -122,6 +122,7 @@
     "Only product-only media may pass; reject people and unrelated variants.",
     "Variant gate: exact-SKU evidence supports green/dark green/rose rather than a pink-only variant.",
     "Three exact-model Zalando product frames were live-browser verified on 2026-08-28; variant approval is still required.",
-    "Runner fix: allow only verified Zalando img*.ztat.net/article/spp-media-* packshots when delivered through structured research evidence; generic /article/ paths remain rejected."
+    "Runner fix: allow only verified Zalando img*.ztat.net/article/spp-media-* packshots when delivered through structured research evidence; generic /article/ paths remain rejected.",
+    "Two Zalando thumbnails were switched from imwidth=156 to the same CDN assets at imwidth=762 after the first run proved 200×289 was below the media floor."
   ]
 }
