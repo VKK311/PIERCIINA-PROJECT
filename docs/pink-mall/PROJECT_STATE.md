@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-033 publication.
-Status: **PM-001…PM-033 PUBLISHED.**
+Updated: PM-034–PM-036 publication.
+Status: **PM-001…PM-036 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `af8e2ff7bad66534f05bd5bf63909f9b7a9331566c5361920bb5d41bf2d8e13d` |
-| CANONICAL WEBSITE BYTES | 2567980 |
+| CANONICAL WEBSITE SHA-256 | `315131af07404451030351bf7fd90e46e9321022cd60fa58fe9e2dff8464ca2f` |
+| CANONICAL WEBSITE BYTES | 2573962 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-033 |
-| NEXT ID | PM-034 |
+| PUBLIC CATALOG | PM-001 … PM-036 |
+| NEXT ID | PM-037 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -39,6 +39,10 @@ canonical build by hash before treating it as canonical.
 | HC.RBGLOW01 | **PUBLISHED as PM-031** on 2026-08-27 |
 | 27733247 | **PUBLISHED as PM-032** on 2026-08-27 |
 | TU0A28Z0699 | **PUBLISHED as PM-033** on 2026-08-27 |
+| V69WBAG152 | **PUBLISHED as PM-034** on 2026-08-28 |
+| 30S4SBAL2L | **PUBLISHED as PM-035** on 2026-08-28 |
+| 35F4G2VC5L | **PUBLISHED as PM-036** on 2026-08-28 |
+| 134-200-409 | **BLOCKED — PHOTO SET INCOMPLETE**; 1 unique exact-SKU image |
 
 ## Media acquisition automation
 
@@ -46,7 +50,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031 78/78, PM-032 74/74, PM-033 74/74, both builds |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-034, PM-035, PM-036, production + standalone |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -90,7 +94,7 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `af627ed471913c03ace643347138890bbb7216cd548f1621d78d43e691cfd805` |
+| SHA-256 | `8421111f08f7222ae642e6a26e4189655deda585ecb4dc786ee5267ef841ea62` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -906,3 +910,61 @@ runner at both eMAG (HTTP 511) and the MODIVO group (404 to automated
 clients). No bypass will be built for either. Where a retailer declines
 automated access, the owner-supplied route is the answer, and its weaker
 provenance must be stated in the package rather than dressed up.
+
+
+## PM-034 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-28 |
+| BRAND / MODEL | 19V69 ITALIA / LIERNA |
+| MANUFACTURER ITEM | V69WBAG152 |
+| PUBLIC COLOUR | Pink |
+| COMPOSITION | 80% Polyamide / 20% Polyurethane |
+| PRICE | €74, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-11 |
+| MEDIA | 4 official exact-product frames, selected from acquisition PASS |
+| TIER | OFFICIAL |
+| VARIANT | VARIANT_CONFIDENCE_PASS |
+
+## PM-035 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-28 |
+| BRAND / MODEL | Michael Kors / Colby Medium Leather Shoulder Bag |
+| MANUFACTURER ITEM | 30S4SBAL2L |
+| PUBLIC COLOUR | Smokey Rose |
+| COMPOSITION | 100% Leather |
+| PRICE | €119, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-11 |
+| MEDIA | 4 trusted-retailer exact-variant frames; person-containing IMAGE 02 excluded |
+| TIER | TRUSTED_RETAILER — Giglio |
+| VARIANT | VARIANT_CONFIDENCE_PASS |
+
+## PM-036 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-28 |
+| BRAND / MODEL | Michael Kors / Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case |
+| MANUFACTURER ITEM | 35F4G2VC5L |
+| PUBLIC COLOUR | Powder Blush |
+| COMPOSITION | 100% Leather |
+| PRICE | €104, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-11 |
+| MEDIA | 4 official exact-SKU frames from assets.michaelkors.com |
+| TIER | OFFICIAL |
+| VARIANT | VARIANT_CONFIDENCE_PASS |
+
+## Pending media — 134-200-409
+
+VEE Collective `134-200-409` remains **BLOCKED — PHOTO SET INCOMPLETE**.
+Identity and variant pass, but only one unique exact-SKU image survived
+deduplication. It was deliberately excluded from the approved publication batch.

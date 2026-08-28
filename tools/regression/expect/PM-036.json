@@ -1,0 +1,63 @@
+{
+  "id": "PM-036",
+  "catalogueSize": 36,
+  "brand": "Michael Kors",
+  "manufacturerItemNo": "35F4G2VC5L",
+  "name": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Powder Blush",
+  "composition": "100% Leather",
+  "priceEUR": 104,
+  "newUntil": "2026-09-11",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#F6F6F6",
+  "nativeWidth": 796,
+  "nativeHeight": 1072,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "michael kors",
+    "vincent",
+    "чанта",
+    "35F4G2VC5L"
+  ],
+  "priorProducts": [
+    "PM-025",
+    "PM-026",
+    "PM-027",
+    "PM-028",
+    "PM-029",
+    "PM-030",
+    "PM-031",
+    "PM-032",
+    "PM-033"
+  ],
+  "frames": [
+    {
+      "file": "PM-036-main.webp",
+      "sha256": "5f3e978c26a4f5e50dd6646fb319b39051732fb7235e6eeb874bd2c33ca6687a",
+      "width": 796,
+      "height": 1072
+    },
+    {
+      "file": "PM-036-02.webp",
+      "sha256": "dd439f43c54413611eb419d3bbbe1d58e6378f87c18c301727bc28b2c8d79fbb",
+      "width": 796,
+      "height": 1072
+    },
+    {
+      "file": "PM-036-03.webp",
+      "sha256": "89b1d25c6d81e1108dcfa37178e196fa9640fdec3529ba38370e34df06a891b7",
+      "width": 796,
+      "height": 1072
+    },
+    {
+      "file": "PM-036-04.webp",
+      "sha256": "48bc9a9ff3162a1401ae56bb5146509b339af3efc7fc635c743ae5754c9628ae",
+      "width": 796,
+      "height": 1072
+    }
+  ]
+}

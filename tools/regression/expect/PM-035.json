@@ -1,0 +1,63 @@
+{
+  "id": "PM-035",
+  "catalogueSize": 36,
+  "brand": "Michael Kors",
+  "manufacturerItemNo": "30S4SBAL2L",
+  "name": "Colby Medium Leather Shoulder Bag",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Smokey Rose",
+  "composition": "100% Leather",
+  "priceEUR": 119,
+  "newUntil": "2026-09-11",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": null,
+  "nativeWidth": 1125,
+  "nativeHeight": 1500,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "michael kors",
+    "colby",
+    "чанта",
+    "30S4SBAL2L"
+  ],
+  "priorProducts": [
+    "PM-025",
+    "PM-026",
+    "PM-027",
+    "PM-028",
+    "PM-029",
+    "PM-030",
+    "PM-031",
+    "PM-032",
+    "PM-033"
+  ],
+  "frames": [
+    {
+      "file": "PM-035-main.webp",
+      "sha256": "8082f8bbf81dd5baca1dff922d49b94328444b005b335eab59d787ef3833ef23",
+      "width": 1125,
+      "height": 1500
+    },
+    {
+      "file": "PM-035-02.webp",
+      "sha256": "9badef9822c4547c821a3719313963b54f5a9688b5e88e00632387ff5d403ea8",
+      "width": 1125,
+      "height": 1500
+    },
+    {
+      "file": "PM-035-03.webp",
+      "sha256": "f1f2a46ffe98915f8287c9f0a7a77c4456587bb386bb23a7c5b423fe46e6a1f8",
+      "width": 1125,
+      "height": 1500
+    },
+    {
+      "file": "PM-035-04.webp",
+      "sha256": "9d854d039ef5d76482da282a1f493c5667acdc61067b699efc694342799bbc72",
+      "width": 1125,
+      "height": 1500
+    }
+  ]
+}

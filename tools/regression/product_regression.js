@@ -27,6 +27,10 @@ const BASE = `http://127.0.0.1:${PORT}/${FILE}`;
 
 const ID = EXPECT.id;
 const NAMES = EXPECT.frames.map(f => f.file);
+const dimsFor = (name) => {
+  const f = EXPECT.frames.find(x => x.file === name) || {};
+  return { w: f.width || EXPECT.nativeWidth, h: f.height || EXPECT.nativeHeight };
+};
 const LIVE = {};
 for (const f of EXPECT.frames) LIVE[f.sha256] = f.file;
 
@@ -142,8 +146,10 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
       const bmp = await createImageBitmap(b);
       return { ok: true, bytes: b.size, w: bmp.width, h: bmp.height, type: b.type };
     }, u);
-    is(r.ok && r.bytes > 5000 && r.w === EXPECT.nativeWidth && r.h === EXPECT.nativeHeight,
-       `native ${EXPECT.nativeWidth}×${EXPECT.nativeHeight}: ` + (await nameOf(u)),
+    const nm = await nameOf(u);
+    const d = dimsFor(nm);
+    is(r.ok && r.bytes > 5000 && r.w === d.w && r.h === d.h,
+       `native ${d.w}×${d.h}: ` + nm,
        r.ok ? `${r.bytes}B ${r.w}×${r.h} ${r.type}` : 'status ' + r.status);
   }
 
@@ -172,7 +178,9 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   is(!!card, `${ID} card rendered in ${EXPECT.category}`);
   if (card) {
     is(await nameOf(card.src) === NAMES[0], 'card shows MAIN', await nameOf(card.src));
-    is(card.natural && card.natural[0] === EXPECT.nativeWidth, 'card image decoded', String(card.natural));
+    const md = dimsFor(NAMES[0]);
+    is(card.natural && card.natural[0] === md.w && card.natural[1] === md.h,
+       'card image decoded', String(card.natural));
     is(card.alt === p.media.imageAlt, 'card alt is the authored Bulgarian', card.alt);
     is(card.objectFit === 'contain', 'card fit contain', card.objectFit);
     is(new RegExp(String(EXPECT.priceEUR)).test(card.text), `card shows €${EXPECT.priceEUR}`);

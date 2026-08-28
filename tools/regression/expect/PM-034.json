@@ -1,0 +1,63 @@
+{
+  "id": "PM-034",
+  "catalogueSize": 36,
+  "brand": "19V69 ITALIA",
+  "manufacturerItemNo": "V69WBAG152",
+  "name": "LIERNA",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Pink",
+  "composition": "80% Polyamide / 20% Polyurethane",
+  "priceEUR": 74,
+  "newUntil": "2026-09-11",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": null,
+  "nativeWidth": 1385,
+  "nativeHeight": 2000,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "19v69 italia",
+    "lierna",
+    "чанта",
+    "V69WBAG152"
+  ],
+  "priorProducts": [
+    "PM-025",
+    "PM-026",
+    "PM-027",
+    "PM-028",
+    "PM-029",
+    "PM-030",
+    "PM-031",
+    "PM-032",
+    "PM-033"
+  ],
+  "frames": [
+    {
+      "file": "PM-034-main.webp",
+      "sha256": "6599c63af6bad5a3c83ccd86a57983cfb4f03e286f2f436aadd87e35a4814d68",
+      "width": 1385,
+      "height": 2000
+    },
+    {
+      "file": "PM-034-02.webp",
+      "sha256": "ced821a7406fd201c1ae20411deb815d1ef4606e4939242174b148737a43b041",
+      "width": 1800,
+      "height": 2600
+    },
+    {
+      "file": "PM-034-03.webp",
+      "sha256": "b8168e16b85565a62ebcf135b24c35f81c03ca6204c853d18472d0bf45c1ccb4",
+      "width": 1800,
+      "height": 2600
+    },
+    {
+      "file": "PM-034-04.webp",
+      "sha256": "01644298b2d66c97e1b5bcc2fdbab9f250fe3ab4efe8442d2e84e14c0681a733",
+      "width": 1800,
+      "height": 2601
+    }
+  ]
+}
