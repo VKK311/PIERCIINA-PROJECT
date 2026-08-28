@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-034–PM-036 publication.
-Status: **PM-001…PM-036 PUBLISHED.**
+Updated: PM-037 publication.
+Status: **PM-001…PM-037 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `315131af07404451030351bf7fd90e46e9321022cd60fa58fe9e2dff8464ca2f` |
-| CANONICAL WEBSITE BYTES | 2573962 |
+| CANONICAL WEBSITE SHA-256 | `3b29e9e0d28ae45f39fec35d49238ccca80175f5bc63262c3c9dd5adf5c07d39` |
+| CANONICAL WEBSITE BYTES | 2591742 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-036 |
-| NEXT ID | PM-037 |
+| PUBLIC CATALOG | PM-001 … PM-037 |
+| NEXT ID | PM-038 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -42,7 +42,7 @@ canonical build by hash before treating it as canonical.
 | V69WBAG152 | **PUBLISHED as PM-034** on 2026-08-28 |
 | 30S4SBAL2L | **PUBLISHED as PM-035** on 2026-08-28 |
 | 35F4G2VC5L | **PUBLISHED as PM-036** on 2026-08-28 |
-| 134-200-409 | **BLOCKED — PHOTO SET INCOMPLETE**; 1 unique exact-SKU image |
+| 134-200-409 | **PUBLISHED as PM-037** on 2026-08-28 — unblocked by owner-supplied photographs |
 
 ## Media acquisition automation
 
@@ -683,6 +683,44 @@ dict literal, and the surviving write required media or sizes — so a document
 whose gallery is client-rendered stopped counting as exact identity. Exactness
 is now an explicit `skuInBody` assertion from a transport that read the body,
 never inferred from a SKU in a path we chose to request.
+
+## PM-037 — published (previously BLOCKED)
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-28 |
+| BRAND / MODEL | VEE Collective / **Porter Messenger Mini** |
+| ITEM | 134-200-409, variant `Seashell Pink` |
+| CATEGORY | BAGS, `subcategory: null` |
+| PUBLIC COLOUR | `Pink` (manufacturer: Seashell Pink) |
+| COMPOSITION | omitted — no exact-product source states one |
+| PRICE | €59, no SALE |
+| AVAILABILITY | ONE SIZE |
+| NEW UNTIL | 2026-09-11 |
+| MAIN | SUPPLIED 02 · GALLERY main → 02 → 03 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-037/` — 3 × 1200×1500 WebP |
+| IDENTITY TIER | TRUSTED_RETAILER — `tootsies.com`, `VARIANT_CONFIDENCE_PASS` |
+| MEDIA TIER | **USER_SUPPLIED** — recorded separately from identity |
+| SURFACE | `#E8E8E8`, measured median border |
+
+This clears the last standing **BLOCKED — PHOTO SET INCOMPLETE** record. The
+article had one unique exact-SKU image where the policy needs three; the owner
+supplied three, and they were checked against the evidenced image rather than
+taken on trust — same quilted body, same knotted straps, same pale pink, and
+every pair perceptually distinct at a minimum distance of 57 where a duplicate
+scores 4 or below.
+
+Identity and media are recorded as separate claims. Identity is trusted-retailer
+and established the model name, variant and `O/S` scale; the photographs carry
+no source URL and establish nothing but themselves, so the media tier is
+USER_SUPPLIED and does not inherit the retailer's standing.
+
+The evidenced 1600×1600 tootsies image stays on record but is out of the
+gallery: it is 1:1 where the supplied frames are 4:5, and one gallery should not
+mix aspect ratios.
+
+Files were copied rather than re-encoded — they were already WebP, and a second
+pass would only have cost quality — so the live hashes equal the originals'.
 
 ## Bounded SPA rendering — built, proven, and refused by one site
 

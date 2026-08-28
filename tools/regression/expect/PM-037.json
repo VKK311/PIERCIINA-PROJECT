@@ -1,0 +1,48 @@
+{
+  "id": "PM-037",
+  "catalogueSize": 37,
+  "brand": "VEE Collective",
+  "manufacturerItemNo": "134-200-409",
+  "name": "Porter Messenger Mini",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Pink",
+  "priceEUR": 59,
+  "newUntil": "2026-09-11",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#E8E8E8",
+  "nativeWidth": 1200,
+  "nativeHeight": 1500,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "vee collective",
+    "porter",
+    "messenger",
+    "чанта",
+    "134-200-409"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036"
+  ],
+  "frames": [
+    {
+      "file": "PM-037-main.webp",
+      "sha256": "ba3f70df3d152ee9bf6ff3de826fdac61e29678bb4dd108c350ad011de33d972"
+    },
+    {
+      "file": "PM-037-02.webp",
+      "sha256": "0d45f15bf376616f1738075dea8b9d5049de64ef5403aa3b84dfbdcba4c19b1c"
+    },
+    {
+      "file": "PM-037-03.webp",
+      "sha256": "2f383b4b1d05f80d4d51b5df25dc8d77e857b34c7c1f655bab9d848cbeeb51d4"
+    }
+  ]
+}

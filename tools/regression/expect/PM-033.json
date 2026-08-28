@@ -1,6 +1,6 @@
 {
   "id": "PM-033",
-  "catalogueSize": 33,
+  "catalogueSize": 37,
   "brand": "Stella McCartney",
   "manufacturerItemNo": "TU0A28Z0699",
   "name": "Pineapple Bucket Bag",
@@ -10,17 +10,46 @@
   "composition": "100% Polyurethane",
   "priceEUR": 109,
   "newUntil": "2026-09-10",
-  "sizes": ["ONE SIZE"],
+  "sizes": [
+    "ONE SIZE"
+  ],
   "surface": null,
   "nativeWidth": 1125,
   "nativeHeight": 1500,
   "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
-  "searchTerms": ["stella mccartney", "pineapple", "bucket bag", "чанта", "TU0A28Z0699"],
-  "priorProducts": ["PM-025", "PM-026", "PM-027", "PM-028", "PM-029", "PM-030", "PM-031", "PM-032"],
+  "searchTerms": [
+    "stella mccartney",
+    "pineapple",
+    "bucket bag",
+    "чанта",
+    "TU0A28Z0699"
+  ],
+  "priorProducts": [
+    "PM-025",
+    "PM-026",
+    "PM-027",
+    "PM-028",
+    "PM-029",
+    "PM-030",
+    "PM-031",
+    "PM-032"
+  ],
   "frames": [
-    { "file": "PM-033-main.webp", "sha256": "cc6227c36e54907ecef7d8f8f4ab2779a47fcad1a040a51366d7d5675d67407d" },
-    { "file": "PM-033-02.webp",   "sha256": "3a4a30376af5d1d65bb41447670107fa7168fb54be959c993b1edd5b407de18c" },
-    { "file": "PM-033-03.webp",   "sha256": "451dc64913ab74f04fb916f1498d7c954059bfafcc8c9d9e832c323b35a0ff8f" },
-    { "file": "PM-033-04.webp",   "sha256": "ee9349e3398194480bca0de67e8760f811f30e62eabe54dfa8a752e89698e6cd" }
+    {
+      "file": "PM-033-main.webp",
+      "sha256": "cc6227c36e54907ecef7d8f8f4ab2779a47fcad1a040a51366d7d5675d67407d"
+    },
+    {
+      "file": "PM-033-02.webp",
+      "sha256": "3a4a30376af5d1d65bb41447670107fa7168fb54be959c993b1edd5b407de18c"
+    },
+    {
+      "file": "PM-033-03.webp",
+      "sha256": "451dc64913ab74f04fb916f1498d7c954059bfafcc8c9d9e832c323b35a0ff8f"
+    },
+    {
+      "file": "PM-033-04.webp",
+      "sha256": "ee9349e3398194480bca0de67e8760f811f30e62eabe54dfa8a752e89698e6cd"
+    }
   ]
 }
