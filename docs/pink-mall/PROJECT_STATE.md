@@ -13,7 +13,7 @@ canonical build by hash before treating it as canonical.
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
 | CANONICAL WEBSITE SHA-256 | `3b29e9e0d28ae45f39fec35d49238ccca80175f5bc63262c3c9dd5adf5c07d39` |
-| CANONICAL WEBSITE BYTES | 2591742 |
+| CANONICAL WEBSITE BYTES | 2576019 |
 
 ## Engine
 
