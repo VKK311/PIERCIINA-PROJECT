@@ -1,37 +1,72 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "PARTIAL",
   "sku": "280702-green",
   "brand": "Ted Baker",
   "model": "SLIDDS Club Ted Slider Keyring",
   "variant": "Green (dark green / rose)",
   "officialProductPage": null,
-  "generatedAt": "2026-08-28T18:22:27Z",
+  "generatedAt": "2026-08-28T18:25:36Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33198910294",
+    "githubRunId": "33199183993",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "6123e66ad75f842727220f2e5381a54fa271d1a9"
+    "githubSha": "08efc331a38beff6d971a5cdac4e9cb614d0eb4a"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 3,
+    "unique_selected": 1,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: green, green, rose"
+    ],
     "conflicts": [],
     "officialColour": "Green (dark green / rose)",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
-  "dominantBackdrop": null,
+  "proposedMain": "source/280702-green-01-original.jpg",
+  "dominantBackdrop": "#EBEAE8",
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/280702-green-01-original.jpg",
+      "preview": "preview/280702-green-01.webp",
+      "source_url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "requested_url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "anchor_url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "source_domain": "img01.ztat.net",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:25:35Z",
+      "width": 800,
+      "height": 1155,
+      "longest_edge": 1155,
+      "mime": "image/jpeg",
+      "bytes": 43885,
+      "sha256": "6a4bcde1eed2788ded0aad88c73327ef417cb33259da3950e9447df77c7a7369",
+      "dhash": "0000000000c00b2006c01f001a9006901680178016c816480b8004f003000000",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "backdrop": "#EBEAE8",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1155px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
@@ -446,22 +481,28 @@
       "total_unique_candidates": 22
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
-      "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "ok": true,
+      "size": "800x1155",
+      "bytes": 43885,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
-      "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "ok": true,
+      "size": "200x289",
+      "bytes": 5935,
+      "upgraded_from": null
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
-      "ok": false,
-      "error": "editorial or chrome asset path; rejected"
+      "ok": true,
+      "size": "200x289",
+      "bytes": 5851,
+      "upgraded_from": null
     },
     {
       "stage": "validate",
