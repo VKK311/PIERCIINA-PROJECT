@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 7,
+  "brand": "VEE Collective",
+  "manufacturerItemNo": "134-200-409",
+  "model": "Porter Messenger Mini",
+  "variant": "Seashell Pink",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [
+    "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760"
+  ],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "134-200-409",
+      "skuInBody": true,
+      "model": "Mini Porter Messenger Bag",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [{"size": "O/S", "declared": ""}],
+      "mediaUrls": [
+        {
+          "url": "https://www.tootsies.com/dw/image/v2/BJZB_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf294b944/images/products/134-200-409-PINK_v1.jpg?sh=936&sm=fit&sw=760",
+          "field": "product-image"
+        }
+      ],
+      "observedCdnHosts": ["www.tootsies.com"],
+      "notes": [
+        "Live exact-item retailer document. Body states Item No. 134-200-409 and O/S; the declared product image filename carries 134-200-409-PINK.",
+        "This is exact SKU/variant evidence at trusted-retailer tier. Retailer price and stock are not PINK MALL truth."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.vee-collective.com/products/porter-messenger-mini-seashell-pink",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": null,
+      "model": "Porter Messenger Mini",
+      "variant": "Seashell Pink",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": ["www.vee-collective.com"],
+      "notes": [
+        "Live official VEE COLLECTIVE page corroborates the model and official colour name Seashell Pink and states the recycled-nylon / recycled microfiber vegan-leather material construction.",
+        "The page does not expose manufacturer item 134-200-409 in its body, so it is corroborating model/variant evidence only and its gallery is not seeded as exact-SKU media."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html",
+    "https://www.vee-collective.com/products/porter-messenger-mini-seashell-pink"
+  ],
+  "discoveryRoutes": {
+    "https://www.tootsies.com/Mini-Porter-Messenger-Bag/134-200-409-VEE-COLLECTIVE.html": "TRUSTED_RETAILER_SEARCH",
+    "https://www.vee-collective.com/products/porter-messenger-mini-seashell-pink": "DIRECT_OFFICIAL_PAGE"
+  },
+  "officialHostSuffixes": ["vee-collective.com"],
+  "allowedHostSuffixes": ["vee-collective.com", "tootsies.com"],
+  "resolution": {"widthLadder": [1600, 1200, 1000]},
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User availability truth: ONE SIZE available. No external stock state may be imported.",
+    "Exact SKU mapping is strongest on Tootsies; official VEE evidence corroborates model/variant but does not carry the SKU.",
+    "Canonical gallery still requires 3-5 unique product-only images. Images containing foreign people are not canonical even if acquired."
+  ]
+}

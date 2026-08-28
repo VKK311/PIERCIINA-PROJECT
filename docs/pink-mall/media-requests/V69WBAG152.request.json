@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 7,
+  "brand": "19V69 ITALIA",
+  "manufacturerItemNo": "V69WBAG152",
+  "model": "LIERNA",
+  "variant": "Pink",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [
+    "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385",
+    "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800",
+    "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800",
+    "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800"
+  ],
+  "indexedAssetSearch": false,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.19v69-italia.com/en/products/v69wbag152",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "V69WBAG152",
+      "skuInBody": false,
+      "model": "LIERNA",
+      "variant": "Pink",
+      "aliases": [],
+      "sizeScale": [{"size": "one size", "declared": ""}],
+      "mediaUrls": [
+        {"url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-1.jpg?v=1771861868&width=1385", "field": "gallery"},
+        {"url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-2.jpg?v=1772094922&width=1800", "field": "gallery"},
+        {"url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-3.jpg?v=1772094922&width=1800", "field": "gallery"},
+        {"url": "https://www.19v69-italia.com/cdn/shop/files/4070437028539-4.jpg?v=1772094922&width=1800", "field": "gallery"}
+      ],
+      "observedCdnHosts": ["www.19v69-italia.com"],
+      "notes": [
+        "Live official product document at the exact SKU URL /en/products/v69wbag152. The body names LIERNA, Pink and one size; the SKU is carried by the exact product URL rather than printed in the visible body.",
+        "The document directly declares four Pink gallery images. Material stated on the page: 80% Polyamide, 20% Polyurethane."
+      ]
+    }
+  ],
+  "discoveryPages": ["https://www.19v69-italia.com/en/products/v69wbag152"],
+  "discoveryRoutes": {
+    "https://www.19v69-italia.com/en/products/v69wbag152": "DIRECT_OFFICIAL_PAGE"
+  },
+  "officialHostSuffixes": ["19v69-italia.com"],
+  "allowedHostSuffixes": ["19v69-italia.com"],
+  "resolution": {"widthLadder": [1800, 1600, 1200, 1000]},
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User availability truth: ONE SIZE available. No external stock state may be imported.",
+    "Four product-only official gallery targets were observed directly; no URL template was guessed."
+  ]
+}

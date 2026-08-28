@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 7,
+  "brand": "Michael Kors",
+  "manufacturerItemNo": "35F4G2VC5L",
+  "model": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+  "variant": "Powder Blush",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [
+    "https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif",
+    "https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif",
+    "https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif",
+    "https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif"
+  ],
+  "indexedAssetSearch": false,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "35F4G2VC5L",
+      "skuInBody": true,
+      "model": "Vincent Small Saffiano Leather Crossbody Bag with Signature Logo Card Case",
+      "variant": "POWDER BLUSH",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [
+        {"url":"https://assets.michaelkors.com/transform/ECOM_Image_Large/d5a3048a-abb6-4e3e-8988-0b6ed0ebb6fc/35F4G2VC5L-648-7278_1-tif","field":"gallery"},
+        {"url":"https://assets.michaelkors.com/transform/ECOM_Image_Large/a606d233-810b-416d-a6e7-ed7284d213a9/35F4G2VC5L-648-7278_2-tif","field":"gallery"},
+        {"url":"https://assets.michaelkors.com/transform/ECOM_Image_Large/e527311c-055d-420d-914d-b8c6b99fb0b7/35F4G2VC5L-648-7278_4-tif","field":"gallery"},
+        {"url":"https://assets.michaelkors.com/transform/ECOM_Image_Large/18cada50-d990-4a89-a4f1-d7d8624e3b1d/35F4G2VC5L-648-7278_6-tif","field":"gallery"}
+      ],
+      "observedCdnHosts": ["assets.michaelkors.com"],
+      "notes": [
+        "Live official Michael Kors document states Style # 35F4G2VC5L, colour POWDER BLUSH, Saffiano leather and 100% leather.",
+        "The page directly declares four assets.michaelkors.com gallery targets; every asset identifying path contains the exact SKU 35F4G2VC5L."
+      ]
+    }
+  ],
+  "discoveryPages": ["https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html"],
+  "discoveryRoutes": {
+    "https://www.michaelkors.com/ca/en/vincent-small-saffiano-leather-crossbody-bag-with-signature-logo-card-case/785370099.html": "DIRECT_OFFICIAL_PAGE"
+  },
+  "officialHostSuffixes": ["michaelkors.com", "michaelkors.global", "michaelkors.eu", "michaelkors.co.uk", "michaelkors.it"],
+  "allowedHostSuffixes": ["michaelkors.com", "michaelkors.global", "michaelkors.eu", "michaelkors.co.uk", "michaelkors.it"],
+  "resolution": {"widthLadder": [2000, 1600, 1200, 1000]},
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User availability truth: ONE SIZE available. No external stock state may be imported.",
+    "Four exact official product gallery URLs are seeded directly; the runner must still validate bytes, MIME, dimensions, hashes, uniqueness and variant confidence."
+  ]
+}

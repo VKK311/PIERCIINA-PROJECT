@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 7,
+  "brand": "Michael Kors",
+  "manufacturerItemNo": "30S4SBAL2L",
+  "model": "Colby Medium Leather Shoulder Bag",
+  "variant": "Smokey Rose",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [
+    "https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg",
+    "https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg",
+    "https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg",
+    "https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg",
+    "https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg"
+  ],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "30S4SBAL2L",
+      "skuInBody": true,
+      "model": "Colby Medium Leather Shoulder Bag",
+      "variant": "SMOKEY ROSE",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Michael Kors product page states Style # 30S4SBAL2L, model Colby Medium Leather Shoulder Bag, colour SMOKEY ROSE and 100% leather.",
+        "Official-page media is not guessed here; the runner is allowed to discover it if the live page exposes declarations."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-28T16:22:00Z",
+      "sku": "30S4SBAL2L",
+      "skuInBody": true,
+      "model": "Shoulder bag woman Michael Kors",
+      "variant": "Pink",
+      "aliases": ["30S4SBAL2L 688", "G71054.010"],
+      "sizeScale": [],
+      "mediaUrls": [
+        {"url":"https://img.giglio.com/imager/prodZoom/G71054.010_1/michael-kors.jpg","field":"gallery"},
+        {"url":"https://img.giglio.com/imager/prodZoom/G71054.010_2/michael-kors.jpg","field":"gallery"},
+        {"url":"https://img.giglio.com/imager/prodZoom/G71054.010_3/michael-kors.jpg","field":"gallery"},
+        {"url":"https://img.giglio.com/imager/prodZoom/G71054.010_4/michael-kors.jpg","field":"gallery"},
+        {"url":"https://img.giglio.com/imager/prodZoom/G71054.010_5/michael-kors.jpg","field":"gallery"}
+      ],
+      "observedCdnHosts": ["img.giglio.com"],
+      "notes": [
+        "Live Giglio exact-product document states Designer code 30S4SBAL2L 688 and Pink, and declares five gallery targets.",
+        "G71054.010 is the colour-scoped retailer asset alias observed in all five Pink gallery URLs. It is not treated as manufacturer authority.",
+        "Image 02 contains a foreign human model and must be excluded from the canonical gallery during visual QA even if acquisition validates the bytes."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html",
+    "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010"
+  ],
+  "discoveryRoutes": {
+    "https://www.michaelkors.global/bg/en/colby-medium-leather-shoulder-bag/30S4SBAL2L.html": "DIRECT_OFFICIAL_PAGE",
+    "https://www.giglio.com/en-ro/bags-woman_shoulder-bag-michael-kors-30s4sbal2l.html?cSel=010": "TRUSTED_RETAILER_SEARCH"
+  },
+  "officialHostSuffixes": ["michaelkors.com", "michaelkors.global", "michaelkors.eu", "michaelkors.co.uk", "michaelkors.it"],
+  "allowedHostSuffixes": ["michaelkors.com", "michaelkors.global", "michaelkors.eu", "michaelkors.co.uk", "michaelkors.it", "giglio.com", "img.giglio.com"],
+  "resolution": {"widthLadder": [2000, 1600, 1200, 1000]},
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User availability truth: ONE SIZE available. No external stock state may be imported.",
+    "Official identity/colour/composition is separated from retailer fallback media. Prefer any valid official Michael Kors gallery discovered by the runner over Giglio media.",
+    "Canonical gallery must remain product-only."
+  ]
+}
