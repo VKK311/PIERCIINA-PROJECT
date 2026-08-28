@@ -7,7 +7,11 @@
   "availableSizes": [
     "ONE SIZE"
   ],
-  "candidateMedia": [],
+  "candidateMedia": [
+    "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+    "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+    "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156"
+  ],
   "indexedAssetSearch": true,
   "indexedEvidence": false,
   "researchEvidence": [
@@ -38,15 +42,59 @@
         "Exact retailer document identifies 280702-green, colour green/dark green/rose, material 100% polyurethane, approximately 12 × 5 × 2.5 cm.",
         "This conflicts with the user's short descriptor pink; preserve the conflict for visual approval and never silently remap it."
       ]
+    },
+    {
+      "sourceUrl": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-28T18:20:00.000Z",
+      "sku": "TE451F0H6-M11",
+      "skuInBody": true,
+      "model": "SLIDDS - Keyring",
+      "variant": "Green with pink interior",
+      "aliases": [
+        "TE451F0H6-M11"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": "One Size"
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "img01.ztat.net"
+      ],
+      "notes": [
+        "The live exact-model Zalando document identifies article TE451F0H6-M11, SLIDDS, green, One Size and exposes three product-only frames.",
+        "Cross-retailer identity is based on the uncommon SLIDDS model name and matching green/pink slide-shaped keyring; the exact manufacturer code remains anchored by the Modeherz 280702-green document.",
+        "This does not resolve the user's pink descriptor conflict; human variant confirmation remains mandatory."
+      ]
     }
   ],
   "discoveryPages": [
     "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
-    "https://www.otto.de/p/ted-baker-schluesseltasche-slidds-club-ted-slider-keyring-S0BEZ0D6/"
+    "https://www.otto.de/p/ted-baker-schluesseltasche-slidds-club-ted-slider-keyring-S0BEZ0D6/",
+    "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html"
   ],
   "discoveryRoutes": {
     "trustedRetailer": "DIRECT_TRUSTED_RETAILER_PAGE",
-    "retailerCorroboration": "EXACT_MODEL_RETAILER_PAGE"
+    "retailerCorroboration": "EXACT_MODEL_RETAILER_PAGE",
+    "trustedRetailerMedia": "LIVE_EXACT_MODEL_PAGE"
   },
   "officialHostSuffixes": [
     "tedbaker.com"
@@ -55,7 +103,9 @@
     "tedbaker.com",
     "modeherz.de",
     "images.modeherz.de",
-    "otto.de"
+    "otto.de",
+    "zalando.de",
+    "ztat.net"
   ],
   "resolution": {
     "widthLadder": [
@@ -70,6 +120,7 @@
     "User source of truth: €49 and availability ONE SIZE.",
     "External retailer price and stock must not be imported.",
     "Only product-only media may pass; reject people and unrelated variants.",
-    "Variant gate: exact-SKU evidence supports green/dark green/rose rather than a pink-only variant."
+    "Variant gate: exact-SKU evidence supports green/dark green/rose rather than a pink-only variant.",
+    "Three exact-model Zalando product frames were live-browser verified on 2026-08-28; variant approval is still required."
   ]
 }

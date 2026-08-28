@@ -7,7 +7,13 @@
   "availableSizes": [
     "ONE SIZE"
   ],
-  "candidateMedia": [],
+  "candidateMedia": [
+    "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+    "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+    "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+    "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+    "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959"
+  ],
   "indexedAssetSearch": true,
   "indexedEvidence": false,
   "researchEvidence": [
@@ -30,14 +36,36 @@
           "declared": ""
         }
       ],
-      "mediaUrls": [],
+      "mediaUrls": [
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+          "field": "gallery"
+        }
+      ],
       "observedCdnHosts": [
         "img2.ans-media.com"
       ],
       "notes": [
         "Exact item document identifies 4AR165, green, 100% cotton textile, drawstring closure, fixed long strap and embroidered logo.",
         "One declared media item contains a person and must be excluded.",
-        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy."
+        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy.",
+        "Live browser verification on the exact 4AR165 document exposed frames F1-F6; F3 contains a person and is deliberately excluded, leaving F1, F2, F4, F5 and F6."
       ]
     }
   ],
@@ -72,6 +100,7 @@
     "User source of truth: €44 and availability ONE SIZE.",
     "External retailer price and stock must not be imported.",
     "Only product-only media may pass; reject people and unrelated variants.",
-    "Reject the source page's human-model image."
+    "Reject the source page's human-model image.",
+    "Exact-page media URLs were live-browser verified on 2026-08-28; human-model frame F3 is excluded."
   ]
 }
