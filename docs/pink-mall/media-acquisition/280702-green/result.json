@@ -6,12 +6,12 @@
   "model": "SLIDDS Club Ted Slider Keyring",
   "variant": "Green (dark green / rose)",
   "officialProductPage": null,
-  "generatedAt": "2026-08-28T18:11:19Z",
+  "generatedAt": "2026-08-28T18:22:27Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33198023037",
+    "githubRunId": "33198910294",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "6e08086cd4835358065e0d79420485e97ff0d8d4"
+    "githubSha": "6123e66ad75f842727220f2e5381a54fa271d1a9"
   },
   "counts": {
     "acquired": 0,
@@ -54,6 +54,47 @@
       "candidates": 0
     },
     {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-28T18:20:00.000Z",
+      "observedSku": "TE451F0H6-M11",
+      "model": "SLIDDS - Keyring",
+      "variant": "Green with pink interior",
+      "aliases": [
+        "TE451F0H6-M11"
+      ],
+      "mediaUrls": 3,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 3
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
       "result": "OK",
@@ -65,6 +106,14 @@
       "url": "https://www.otto.de/p/ted-baker-schluesseltasche-slidds-club-ted-slider-keyring-S0BEZ0D6/",
       "result": "FAIL",
       "error": "HTTPError: HTTP Error 400: Bad Request",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -112,7 +161,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 1 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -130,6 +179,19 @@
           "declared": ""
         }
       ]
+    },
+    {
+      "page": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "TRUSTED_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-28T18:20:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": "One Size"
+        }
+      ]
     }
   ],
   "sizeState": {
@@ -144,7 +206,8 @@
     "note": "every supplied size appears in the declared exact scale"
   },
   "identifierAliases": [
-    "280702"
+    "280702",
+    "TE451F0H6-M11"
   ],
   "researchEvidence": [
     {
@@ -174,6 +237,48 @@
         "Exact retailer document identifies 280702-green, colour green/dark green/rose, material 100% polyurethane, approximately 12 × 5 × 2.5 cm.",
         "This conflicts with the user's short descriptor pink; preserve the conflict for visual approval and never silently remap it."
       ]
+    },
+    {
+      "sourceUrl": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-28T18:20:00.000Z",
+      "sku": "TE451F0H6-M11",
+      "skuInBody": true,
+      "model": "SLIDDS - Keyring",
+      "variant": "Green with pink interior",
+      "aliases": [
+        "TE451F0H6-M11"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": "One Size"
+        }
+      ],
+      "mediaUrls": [
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+          "field": "gallery"
+        }
+      ],
+      "observedCdnHosts": [
+        "img01.ztat.net"
+      ],
+      "notes": [
+        "The live exact-model Zalando document identifies article TE451F0H6-M11, SLIDDS, green, One Size and exposes three product-only frames.",
+        "Cross-retailer identity is based on the uncommon SLIDDS model name and matching green/pink slide-shaped keyring; the exact manufacturer code remains anchored by the Modeherz 280702-green document.",
+        "This does not resolve the user's pink descriptor conflict; human variant confirmation remains mandatory."
+      ]
     }
   ],
   "refusalAudit": {
@@ -183,6 +288,7 @@
       "IDENTIFIER_EXPANSION",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE"
@@ -190,6 +296,7 @@
     "routesSucceeded": [
       "DIRECT_OFFICIAL_PAGE",
       "IDENTIFIER_EXPANSION",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE"
     ],
     "routesNotAttempted": [
@@ -208,6 +315,30 @@
         "candidates": 0
       },
       {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 3
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
         "route": "DIRECT_OFFICIAL_PAGE",
         "url": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
         "authorityTier": null,
@@ -215,7 +346,8 @@
       }
     ],
     "identifierAliases": [
-      "280702"
+      "280702",
+      "TE451F0H6-M11"
     ],
     "spaRenderPending": false,
     "refusalPermitted": false,
@@ -224,10 +356,32 @@
   },
   "log": [
     {
+      "stage": "research-media",
+      "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "field": "gallery",
+      "sourcePage": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+      "field": "gallery",
+      "sourcePage": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+      "field": "gallery",
+      "sourcePage": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
       "stage": "research",
-      "seeded_candidates": 0,
+      "seeded_candidates": 3,
       "observed_hosts": [
-        "images.modeherz.de"
+        "images.modeherz.de",
+        "img01.ztat.net"
       ]
     },
     {
@@ -237,7 +391,7 @@
       "raw_candidates": 28,
       "page_has_sku": true,
       "sku_evidence_where": "body-only",
-      "html_bytes": 509080,
+      "html_bytes": 509081,
       "shell_suspected": false
     },
     {
@@ -247,9 +401,20 @@
       "error": "HTTPError: HTTP Error 400: Bad Request"
     },
     {
+      "stage": "discover",
+      "url": "https://en.zalando.de/ted-baker-slidds-keyring-green-te451f0h6-m11.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 3 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
       "stage": "observed-hosts",
       "hosts": [
-        "images.modeherz.de"
+        "images.modeherz.de",
+        "img01.ztat.net"
       ]
     },
     {
@@ -278,7 +443,25 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 19
+      "total_unique_candidates": 22
+    },
+    {
+      "stage": "identity",
+      "url": "https://img01.ztat.net/article/spp-media-p1/bdf1512e7143473a8827dbc83dd000e9/94cb104cc64347a9b08ab9756a4a21f3.jpg?imwidth=762&filter=packshot",
+      "ok": false,
+      "error": "editorial or chrome asset path; rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://img01.ztat.net/article/spp-media-p1/9ea0bee08ce4416c9937cd42b381d4d2/bbe3249fd5c84054950b654bcbb906a7.jpg?imwidth=156",
+      "ok": false,
+      "error": "editorial or chrome asset path; rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://img01.ztat.net/article/spp-media-p1/56bc5261b59540eeb299e66e3f335574/372aa613578c47c192d5673e8f75d516.jpg?imwidth=156",
+      "ok": false,
+      "error": "editorial or chrome asset path; rejected"
     },
     {
       "stage": "validate",

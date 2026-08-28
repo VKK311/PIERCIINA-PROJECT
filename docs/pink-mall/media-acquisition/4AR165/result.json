@@ -1,37 +1,196 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "PASS",
   "sku": "4AR165",
   "brand": "Polo Ralph Lauren",
   "model": "Cotton Drawstring Shoulder Bag",
   "variant": "Green",
   "officialProductPage": null,
-  "generatedAt": "2026-08-28T18:11:22Z",
+  "generatedAt": "2026-08-28T18:22:38Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33198023037",
+    "githubRunId": "33198910294",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "6e08086cd4835358065e0d79420485e97ff0d8d4"
+    "githubSha": "6123e66ad75f842727220f2e5381a54fa271d1a9"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 5,
+    "unique_selected": 5,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: green"
+    ],
     "conflicts": [],
     "officialColour": "Green",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
+  "proposedMain": "source/4AR165-01-original.jpg",
   "dominantBackdrop": null,
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/4AR165-01-original.jpg",
+      "preview": "preview/4AR165-01.webp",
+      "source_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "requested_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "anchor_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "source_domain": "img2.ans-media.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:22:30Z",
+      "width": 700,
+      "height": 1050,
+      "longest_edge": 1050,
+      "mime": "image/jpeg",
+      "bytes": 105215,
+      "sha256": "c148fa021c76ffafb94565d98e65c01bbbe91ea1641d794d8e2a6f9633546b88",
+      "dhash": "01200a80069016d004c80c4804680ea01f485f245b243d02ba823f021f0400b8",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "backdrop": "#F0F0F0",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1050px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/4AR165-02-original.jpg",
+      "preview": "preview/4AR165-02.webp",
+      "source_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "requested_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "anchor_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "source_domain": "img2.ans-media.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:22:31Z",
+      "width": 700,
+      "height": 1050,
+      "longest_edge": 1050,
+      "mime": "image/jpeg",
+      "bytes": 102110,
+      "sha256": "db93fb5e9747483a20ac123d87c7cbeedd4c453e19b0ccbb5dd6e2d44435296b",
+      "dhash": "03400b400a2006200620162016b016882dc85dc83b843ac45ac45f842f081230",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "backdrop": "#F0F0F0",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1050px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "gallery",
+      "file": "source/4AR165-03-original.jpg",
+      "preview": "preview/4AR165-03.webp",
+      "source_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "requested_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "anchor_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "source_domain": "img2.ans-media.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:22:33Z",
+      "width": 700,
+      "height": 1050,
+      "longest_edge": 1050,
+      "mime": "image/jpeg",
+      "bytes": 363734,
+      "sha256": "d754c0007696b6bab8d4e04f47312afb15e701fc18fd78a708ea660167c8d1c1",
+      "dhash": "99a877a6e947cd23a790cad83a48f34ca868cc71e07071a06288cde1dc0efe18",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1050px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "gallery",
+      "file": "source/4AR165-04-original.jpg",
+      "preview": "preview/4AR165-04.webp",
+      "source_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "requested_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "anchor_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "source_domain": "img2.ans-media.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:22:35Z",
+      "width": 700,
+      "height": 1050,
+      "longest_edge": 1050,
+      "mime": "image/jpeg",
+      "bytes": 145230,
+      "sha256": "76e2ef003cdad1a12a48b9e117e36c14fa4fe30c854b071189fe276eafb2b059",
+      "dhash": "0900588010400630020809e40284818b2c474c84c212a6022f001f0003e0e0c0",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1050px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "gallery",
+      "file": "source/4AR165-05-original.jpg",
+      "preview": "preview/4AR165-05.webp",
+      "source_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "requested_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "anchor_url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "source_domain": "img2.ans-media.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-28T18:22:37Z",
+      "width": 700,
+      "height": 1050,
+      "longest_edge": 1050,
+      "mime": "image/jpeg",
+      "bytes": 35954,
+      "sha256": "61f220b132c08b9ec799ea3d66338db2afaba5c5fd3181451ebfe36390fcbcdc",
+      "dhash": "00000000000000006000c000c810484848e068b44ae448c401c421c7601f2280",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "backdrop": null,
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1050px longest edge — usable, 1600px ideal",
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
@@ -48,10 +207,45 @@
       "aliases": [
         "PPYA-TOG02K_76X"
       ],
-      "mediaUrls": 0,
+      "mediaUrls": 5,
       "sizeLabels": 1,
       "sku_evidence": true,
-      "candidates": 0
+      "candidates": 5
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
@@ -159,14 +353,36 @@
           "declared": ""
         }
       ],
-      "mediaUrls": [],
+      "mediaUrls": [
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+          "field": "gallery"
+        },
+        {
+          "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+          "field": "gallery"
+        }
+      ],
       "observedCdnHosts": [
         "img2.ans-media.com"
       ],
       "notes": [
         "Exact item document identifies 4AR165, green, 100% cotton textile, drawstring closure, fixed long strap and embroidered logo.",
         "One declared media item contains a person and must be excluded.",
-        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy."
+        "Age/child segmentation is internal evidence only and must not appear in public name, copy, tags, alt text or taxonomy.",
+        "Live browser verification on the exact 4AR165 document exposed frames F1-F6; F3 contains a person and is deliberately excluded, leaving F1, F2, F4, F5 and F6."
       ]
     }
   ],
@@ -177,12 +393,14 @@
       "IDENTIFIER_EXPANSION",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
       "IDENTIFIER_EXPANSION",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE"
     ],
     "routesNotAttempted": [
@@ -202,7 +420,37 @@
         "route": "RESEARCH_EVIDENCE",
         "url": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
         "authorityTier": "TRUSTED_RETAILER",
-        "candidates": 0
+        "candidates": 5
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+        "authorityTier": null,
+        "candidates": 1
       }
     ],
     "identifierAliases": [
@@ -215,8 +463,43 @@
   },
   "log": [
     {
+      "stage": "research-media",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "field": "gallery",
+      "sourcePage": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "field": "gallery",
+      "sourcePage": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "field": "gallery",
+      "sourcePage": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "field": "gallery",
+      "sourcePage": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "field": "gallery",
+      "sourcePage": "https://answear.com/p/polo-ralph-lauren-torebka-dziecieca-kolor-zielony-4ar165-1344840",
+      "authorityTier": "TRUSTED_RETAILER"
+    },
+    {
       "stage": "research",
-      "seeded_candidates": 0,
+      "seeded_candidates": 5,
       "observed_hosts": [
         "img2.ans-media.com"
       ]
@@ -228,6 +511,10 @@
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 5 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
       "stage": "observed-hosts",
       "hosts": [
         "img2.ans-media.com"
@@ -235,7 +522,47 @@
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 0
+      "total_unique_candidates": 5
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F1.webp?v=1739953512",
+      "ok": true,
+      "size": "700x1050",
+      "bytes": 105215,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F2.webp?v=1739954584",
+      "ok": true,
+      "size": "700x1050",
+      "bytes": 102110,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F4.webp?v=1739953884",
+      "ok": true,
+      "size": "700x1050",
+      "bytes": 363734,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F5.webp?v=1739954228",
+      "ok": true,
+      "size": "700x1050",
+      "bytes": 145230,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://img2.ans-media.com/i/700x1050/SS25-TOG02K-76X_F6.webp?v=1739952959",
+      "ok": true,
+      "size": "700x1050",
+      "bytes": 35954,
+      "upgraded_from": null
     }
   ],
   "notes": [
