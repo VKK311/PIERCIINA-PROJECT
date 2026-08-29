@@ -4,7 +4,9 @@
   "manufacturerItemNo": "KL080V",
   "model": "UNRESOLVED — Kartell pink sunglasses",
   "variant": "Pink — exact Kartell model/colour code not yet verified",
-  "availableSizes": ["ONE SIZE"],
+  "availableSizes": [
+    "ONE SIZE"
+  ],
   "candidateMedia": [],
   "indexedAssetSearch": true,
   "indexedEvidence": false,
@@ -15,18 +17,39 @@
   "discoveryRoutes": {
     "official": "OFFICIAL_EYEWEAR_CATALOGUE_SEARCH_REQUIRED"
   },
-  "officialHostSuffixes": ["kartell.com"],
-  "allowedHostSuffixes": ["kartell.com"],
+  "officialHostSuffixes": [
+    "kartell.com"
+  ],
+  "allowedHostSuffixes": [
+    "kartell.com"
+  ],
   "resolution": {
-    "widthLadder": [2000, 1600, 1200, 1000]
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
   },
   "requestedBy": "chatgpt",
   "notes": [
-    "User source of truth: €49 and availability ONE SIZE.",
-    "User supplied brand Kartell, descriptor pink sunglasses, and item number KL080V.",
-    "Open-web exact-code research did not establish a reliable Kartell product page or exact model for KL080V; do not map it to a visually similar Kartell frame.",
-    "Acquisition may search only for exact-item evidence. If exact identity cannot be established, return identity/media BLOCKED rather than guessing.",
-    "External retailer/manufacturer price and stock must not be imported.",
-    "Only product-only media may pass; reject people and unrelated variants."
-  ]
+    "IDENTITY CONFLICT — DO NOT PUBLISH AS KARTELL. The user supplied three photographs of a pink cat-eye sunglass under the item number KL080V. The photographs do not support the Kartell attribution.",
+    "EVIDENCE 1, from the product itself: the left temple carries a short three-glyph wordmark, legible at 8x with autocontrast in supplied photo 2. Kartell brands its eyewear with the full word KARTELL along the temple. See user-supplied/IDENTITY_EVIDENCE.png.",
+    "EVIDENCE 2, from the index: the exact string KL080V returns no Kartell product page and no retailer listing anywhere. This matches the earlier run's own finding, recorded before any photograph existed.",
+    "EVIDENCE 3, from the code grammar: Kartell eyewear uses KL###S for sunglasses, and observed siblings are KL018S and KL021S. The V suffix conventionally denotes a vista/optical frame, which conflicts with the tinted lenses in every supplied photograph.",
+    "Each signal is weak alone. Together they point one way, and none points toward Kartell.",
+    "The photographs are recorded here as user-supplied evidence. They are NOT staged as product media, because attaching a designer brand name to a frame whose own temple carries a different mark would misrepresent the product to a customer.",
+    "WHAT WOULD RESOLVE IT: the retailer or supplier URL the item was bought from, or a photograph of the temple's inner compliance print, which normally carries brand, model, size and origin.",
+    "PRESERVED FROM THE EARLIER RUN: user source of truth is EUR 49 and ONE SIZE; external retailer and manufacturer price and stock must not be imported."
+  ],
+  "userSuppliedMedia": {
+    "recordedAt": "2026-08-28",
+    "files": {
+      "KL080V-supplied-01.jpg": "e3e1d5b83011821cb6e24758ed42a1315887c49a734c81094fa2733d51ee856f",
+      "KL080V-supplied-02.jpg": "67610d4db5ce93c682d729289723d406b13ed6d150f804514d52b79360e42e4a",
+      "KL080V-supplied-03.jpg": "087eb94fed97497b48ea2b8a7ceb528b8774cca6ec6f9011b3b8db16f1b2b5d2"
+    },
+    "staged": false,
+    "reason": "identity conflict — the frame's own marking is not Kartell"
+  }
 }
