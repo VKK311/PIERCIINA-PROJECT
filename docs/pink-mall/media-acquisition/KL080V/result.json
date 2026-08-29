@@ -6,12 +6,12 @@
   "model": "UNRESOLVED — Kartell pink sunglasses",
   "variant": "Pink — exact Kartell model/colour code not yet verified",
   "officialProductPage": null,
-  "generatedAt": "2026-08-29T10:21:23Z",
+  "generatedAt": "2026-08-29T14:22:15Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33247602139",
+    "githubRunId": "33257384416",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "a2d689157dd3c489822306535552d93211de79d8"
+    "githubSha": "3496a304df11a84c2537d7edc21abcf4e8982e7e"
   },
   "counts": {
     "acquired": 0,
