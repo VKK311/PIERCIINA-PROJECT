@@ -5,7 +5,9 @@
   "variantCode": "8CQ",
   "model": "Sparks",
   "variant": "8CQ",
-  "availableSizes": ["ONE SIZE"],
+  "availableSizes": [
+    "ONE SIZE"
+  ],
   "candidateMedia": [],
   "indexedAssetSearch": true,
   "indexedEvidence": true,
@@ -19,14 +21,22 @@
       "sku": "SPARKS/G/S",
       "model": "Sparks",
       "variant": "8CQ/U1",
-      "aliases": ["SPARKSGS8CQ", "SPARKS-G-S-8CQ", "SPARKS_G_S_8CQ", "SparksGS-8CQU1", "8CQU1"],
+      "aliases": [
+        "SPARKSGS8CQ",
+        "SPARKS-G-S-8CQ",
+        "SPARKS_G_S_8CQ",
+        "SparksGS-8CQU1",
+        "8CQU1",
+        "sparksgs-8cq"
+      ],
       "sizeScale": [],
       "mediaUrls": [],
       "observedCdnHosts": [],
       "notes": [
         "Establishes the exact colourway the user selected: 8CQ, sold as 8CQ/U1. Frame transparent purple, lenses pink. Size 55-17-140.",
         "ALIASES ARE COLOUR-SCOPED ON PURPOSE. Every alias binds the model to 8CQ. Bare 'SPARKS' or bare '8CQ' are deliberately excluded: SPARKS/G/S ships at least three pink-ish colourways (8CQ, 8CO, 1N5) and a colour-agnostic alias would admit the wrong frame — the failure the exact-variant rule exists to prevent.",
-        "COLOUR IS CONTESTED ACROSS RETAILERS for this same code: violet, transparent purple, cherry and pink all appear. The public colour must be decided from the acquired frames, not from retailer text."
+        "COLOUR IS CONTESTED ACROSS RETAILERS for this same code: violet, transparent purple, cherry and pink all appear. The public colour must be decided from the acquired frames, not from retailer text.",
+        "ALIAS OBSERVED IN PASS 1'S OWN REJECTION LOG, not guessed: the retailer's asset path collapses the slashes entirely — SPARKS/G/S becomes 'sparksgs' — giving '...-sparksgs-8cq-55...'. The pass-1 alias set carried SPARKSGS8CQ and SPARKS-G-S-8CQ and missed that separator form by one hyphen. Still colour-scoped: every alias binds the model to 8CQ."
       ]
     },
     {
@@ -38,7 +48,11 @@
       "sku": "SPARKS/G/S",
       "model": "Sparks",
       "variant": "8CQ",
-      "aliases": ["SPARKSGS8CQ", "sparks-g-s-8cq"],
+      "aliases": [
+        "SPARKSGS8CQ",
+        "sparks-g-s-8cq",
+        "sparksgs-8cq"
+      ],
       "sizeScale": [],
       "mediaUrls": [],
       "observedCdnHosts": [],
@@ -60,14 +74,32 @@
     "https://www.designerframesoutlet.com/jimmy-choo-sunglasses-sparksgs": "TRUSTED_RETAILER_SEARCH",
     "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry": "DIRECT_RETAILER_PAGE"
   },
-  "officialHostSuffixes": ["jimmychoo.com", "safilo.com"],
-  "allowedHostSuffixes": [
-    "jimmychoo.com", "safilo.com", "smartbuyglasses.com", "jomashop.com",
-    "designerframesoutlet.com", "go-optic.com", "occhialando.eu"
+  "officialHostSuffixes": [
+    "jimmychoo.com",
+    "safilo.com"
   ],
-  "resolution": { "widthLadder": [2000, 1600, 1200, 1000] },
+  "allowedHostSuffixes": [
+    "cdn2.jomashop.com",
+    "designerframesoutlet.com",
+    "go-optic.com",
+    "jimmychoo.com",
+    "jomashop.com",
+    "occhialando.eu",
+    "safilo.com",
+    "smartbuyglasses.com"
+  ],
+  "resolution": {
+    "widthLadder": [
+      2000,
+      1600,
+      1200,
+      1000
+    ]
+  },
   "requestedBy": "claude",
   "notes": [
+    "PASS 2 — EVIDENCED ALIAS AND OBSERVED MEDIA HOST. Pass 1 established identity (MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED) and reached the retailer pages, but every candidate was rejected as a page sweep because no asset URL carried a known alias. The rejection log itself supplied the missing form, 'sparksgs-8cq', and the media host cdn2.jomashop.com. Both are now allowed on that observation.",
+    "The designerframesoutlet sweep returned 64 candidates that were icons and other brands' thumbnails, correctly rejected. occhialando returned 403, a transport failure rather than evidence.",
     "PASS 1. User supplied brand Jimmy Choo, code SPARKS/G/S, EUR 71, ONE SIZE, and selected colourway 8CQ when asked, because the model ships at least three pink-ish colourways and the code alone does not pin one.",
     "USER SOURCE OF TRUTH: EUR 71 and ONE SIZE. No external retailer price or stock state may be imported.",
     "COLOUR IS NOT SETTLED. The user described the item as pink; 8CQ is described by retailers as violet, transparent purple, cherry and pink, with pink lenses. The public colour is to be decided from the acquired frames and put to the user, never smoothed over.",
