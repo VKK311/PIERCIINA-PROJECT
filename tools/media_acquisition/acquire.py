@@ -143,6 +143,19 @@ REL_IMG_RE = re.compile(
     r"""(?:\?[^\s\"'()\\<>]*)?)""", re.I)
 
 
+def unescape_url(u):
+    """Decode HTML entities left in a scraped URL.
+
+    A URL lifted from markup can still carry &amp; between its parameters, so
+    the second parameter arrives named "amp;height" and is silently ignored by
+    the server. Observed on a real acquisition: ?width=800&amp;height=800.
+    """
+    if not u:
+        return u
+    return (str(u).replace("&amp;", "&").replace("&#38;", "&")
+                  .replace("&#x26;", "&").replace("&amp%3B", "&"))
+
+
 def _unescape_urls(html):
     """Normalise URL escapes used by embedded JSON before pattern matching.
 
@@ -452,7 +465,7 @@ def discover_from_page(url, allowed, log, sku=None, ledger=None, route="DIRECT_O
     if ledger is not None:
         ledger.append({"route": route, "url": final, "result": "OK",
                        "sku_evidence": page_has_sku, "candidates": len(found)})
-    return [(u, m, final, page_has_sku) for u, m in found]
+    return [(unescape_url(u), m, final, page_has_sku) for u, m in found]
 
 
 # ── Indexed source evidence ───────────────────────────────────────────────
@@ -728,7 +741,8 @@ def discover_from_indexed(origin_url, allowed, log, sku, ledger, rule, request,
     # Strip archive rewriting if any survived, so candidates are origin URLs.
     cleaned = []
     for u, m in found:
-        um = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_|im_)?/", "", u)
+        um = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_|im_)?/", "",
+                    unescape_url(u))
         if um.startswith("http"):
             cleaned.append((um, m))
     found = cleaned
@@ -839,7 +853,11 @@ def _decode_transform(url):
     return url.replace("%2C", ",").replace("%2c", ",")
 
 
-QUERY_SIZE_RE = re.compile(r"([?&])(wid|hei|sw|sh)=(\d+)", re.I)
+# Scene7 and SFCC use wid/hei/sw/sh; Magento storefronts spell them out as
+# width/height. Missing the spelled-out pair meant an asset served at
+# ?width=800 was never asked for a larger copy, and 800px was accepted as if it
+# were all the CDN had.
+QUERY_SIZE_RE = re.compile(r"([?&])(width|height|wid|hei|sw|sh)=(\d+)", re.I)
 
 # Cloudflare Image Resizing puts its instructions in a path segment:
 #   /cdn-cgi/image/h=785,w=628,fit=contain,.../product-vertical/<asset>.jpg

@@ -1057,6 +1057,29 @@ def main():
                    safe_dir_name("SPARKS/G/S" + "-8CQ")
                    != safe_dir_name("SPARKS/G/S" + "-8CO")))
 
+    # A URL lifted from markup can keep &amp; between its parameters, so the
+    # second parameter arrives named "amp;height" and the server ignores it.
+    # Observed live on ?width=800&amp;height=800.
+    from acquire import unescape_url, QUERY_SIZE_RE, resolution_variants  # noqa: E402
+    checks.append(("an entity-escaped ampersand is decoded",
+                   unescape_url("https://c.test/a.jpg?width=800&amp;height=800")
+                   == "https://c.test/a.jpg?width=800&height=800"))
+    checks.append(("a clean URL is left alone",
+                   unescape_url("https://c.test/a.jpg?w=1&h=2")
+                   == "https://c.test/a.jpg?w=1&h=2"))
+    # Magento spells the size parameters out; Scene7 abbreviates them.
+    checks.append(("spelled-out width/height are recognised as size params",
+                   [g[1].lower() for g in
+                    QUERY_SIZE_RE.findall("https://c.test/a.jpg?width=800&height=800")]
+                   == ["width", "height"]))
+    checks.append(("abbreviated Scene7 params still recognised",
+                   [g[1].lower() for g in
+                    QUERY_SIZE_RE.findall("https://c.test/a.jpg?wid=800&hei=800")]
+                   == ["wid", "hei"]))
+    _bigger = resolution_variants("https://c.test/a.jpg?width=800&height=800", [1600, 1200])
+    checks.append(("a spelled-out size param yields a larger request",
+                   any("width=1600" in u for u in _bigger)))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)
