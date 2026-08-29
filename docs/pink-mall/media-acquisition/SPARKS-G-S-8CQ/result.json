@@ -6,12 +6,12 @@
   "model": "Sparks",
   "variant": "8CQ",
   "officialProductPage": null,
-  "generatedAt": "2026-08-29T15:05:38Z",
+  "generatedAt": "2026-08-29T15:20:30Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33258828138",
+    "githubRunId": "33259469913",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "0fccc08ef7c36821f203c6b5e9735381076a9925"
+    "githubSha": "134091f443bc3aabde0e8b707fadc97ef9d3056a"
   },
   "counts": {
     "acquired": 1,
@@ -39,12 +39,12 @@
       "role": "MAIN",
       "file": "source/SPARKSGS-01-original.jpg",
       "preview": "preview/SPARKSGS-01.webp",
-      "source_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
-      "requested_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
-      "anchor_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
+      "source_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&height=800",
+      "requested_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&height=800",
+      "anchor_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&height=800",
       "source_domain": "cdn2.jomashop.com",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-29T15:05:24Z",
+      "acquired_at": "2026-08-29T15:20:13Z",
       "width": 800,
       "height": 800,
       "longest_edge": 800,
@@ -115,17 +115,24 @@
     },
     {
       "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-      "result": "OK",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "DIRECT_RETAILER_PAGE",
       "url": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
       "result": "OK",
       "sku_evidence": true,
       "candidates": 6
+    },
+    {
+      "route": "DIRECT_RETAILER_PAGE",
+      "url": "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 13
+    },
+    {
+      "route": "DIRECT_RETAILER_PAGE",
+      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 0
     },
     {
       "route": "TRUSTED_RETAILER_SEARCH",
@@ -133,14 +140,6 @@
       "result": "OK",
       "sku_evidence": true,
       "candidates": 64
-    },
-    {
-      "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 403: Forbidden",
-      "sku_evidence": false,
-      "candidates": 0
     },
     {
       "route": "JS_RENDERED_PAGE",
@@ -177,8 +176,44 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "cdn2.jomashop.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.timepiece.com (domain) ~ SPARKS/G/S",
+      "result": "FAIL",
       "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.timepiece.com (domain) ~ SPARKSGS8CQ",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.timepiece.com (domain) ~ SPARKS-G-S-8CQ",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -201,8 +236,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "designerframesoutlet.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -261,8 +296,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -273,8 +308,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -285,8 +320,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -297,7 +332,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jomashop.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -438,18 +473,44 @@
       "candidates": 0
     },
     {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "timepiece.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
       "error": "index phase deadline reached (600s)",
       "indexReachable": false,
+      "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "timepiece.com (domain) ~ SPARKSGS8CQ",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "timepiece.com (domain) ~ SPARKS-G-S-8CQ",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
       "sku_evidence": false,
       "candidates": 0
     },
     {
       "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
+      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
       "result": "FAIL",
       "error": "index phase deadline reached (600s)",
       "indexReachable": false,
@@ -604,9 +665,16 @@
       "INDEXED_OUTBOUND_MEDIA": [
         "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
         "TimeoutError: The read operation timed out",
         "URLError: <urlopen error timed out>",
-        "URLError: <urlopen error timed out>",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
@@ -620,7 +688,6 @@
         "index phase deadline reached (600s)"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "index phase deadline reached (600s)",
         "index phase deadline reached (600s)"
       ]
     },
@@ -630,6 +697,12 @@
         "url": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
         "authorityTier": null,
         "candidates": 6
+      },
+      {
+        "route": "DIRECT_RETAILER_PAGE",
+        "url": "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+        "authorityTier": null,
+        "candidates": 13
       },
       {
         "route": "TRUSTED_RETAILER_SEARCH",
@@ -655,16 +728,6 @@
   "log": [
     {
       "stage": "discover",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false,
-      "sku_evidence_where": null,
-      "html_bytes": 3151,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
       "url": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
       "ok": true,
       "raw_candidates": 6,
@@ -675,6 +738,26 @@
     },
     {
       "stage": "discover",
+      "url": "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+      "ok": true,
+      "raw_candidates": 13,
+      "page_has_sku": true,
+      "sku_evidence_where": "body-only",
+      "html_bytes": 57516,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "ok": true,
+      "raw_candidates": 0,
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 3151,
+      "shell_suspected": true
+    },
+    {
+      "stage": "discover",
       "url": "https://designerframesoutlet.com:443/jimmy-choo-sunglasses-sparksgs",
       "ok": true,
       "raw_candidates": 64,
@@ -682,12 +765,6 @@
       "sku_evidence_where": "body-only",
       "html_bytes": 180666,
       "shell_suspected": false
-    },
-    {
-      "stage": "discover",
-      "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "stage": "indexed-asset",
@@ -711,7 +788,31 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn2.timepiece.com",
+      "term": "SPARKS/G/S",
+      "rows": 0,
+      "hits": 0,
       "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn2.timepiece.com",
+      "term": "SPARKSGS8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn2.timepiece.com",
+      "term": "SPARKS-G-S-8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -727,7 +828,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -767,7 +868,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -775,7 +876,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -783,7 +884,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -791,7 +892,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -876,6 +977,30 @@
     {
       "stage": "indexed-asset",
       "domain": "smartbuyglasses.com",
+      "term": "SPARKS-G-S-8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "timepiece.com",
+      "term": "SPARKS/G/S",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "timepiece.com",
+      "term": "SPARKSGS8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "timepiece.com",
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
@@ -888,10 +1013,82 @@
       "error": "index phase deadline reached (600s)"
     },
     {
-      "stage": "indexed-cdx",
-      "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
-      "captures": 0,
-      "error": "index phase deadline reached (600s)"
+      "stage": "filter",
+      "url": "https://sep.turbifycdn.com/ty/cdn/yhst-92803816272180/ey-logo-16.png?t=1787990715&",
+      "ok": false,
+      "error": "host sep.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/men-s-watches-28.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/ladies-watches-27.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-sparks-g-s-8cq-55-ladies-sunglasses-20.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-sparks-g-s-8cq-55-ladies-sunglasses-21.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-sparks-g-s-8cq-55-ladies-sunglasses-22.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-sparks-g-s-8cq-55-ladies-sunglasses-23.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/seiko-snzg11-series-5-mens-automatic-watch-69.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-andie-n-s-54cc-54-ladies-sunglasses-18.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-andie-n-s-54fq-54-sunglasses-18.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://s.turbifycdn.com/aah/yhst-92803816272180/jimmy-choo-andie-n-s-54hd-54-ladies-sunglasses-18.jpg",
+      "ok": false,
+      "error": "host s.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://sep.turbifycdn.com/ty/cdn/yhst-92803816272180/ey-cc.png?t=1787990715&",
+      "ok": false,
+      "error": "host sep.turbifycdn.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://sep.turbifycdn.com/ty/cdn/yhst-92803816272180/reseller-badge.png?t=1787990715&",
+      "ok": false,
+      "error": "host sep.turbifycdn.com not in allow-list"
     },
     {
       "stage": "filter",
