@@ -6,12 +6,12 @@
   "model": "Sparks",
   "variant": "8CQ",
   "officialProductPage": null,
-  "generatedAt": "2026-08-29T15:20:30Z",
+  "generatedAt": "2026-08-29T15:33:39Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33259469913",
+    "githubRunId": "33260078326",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "134091f443bc3aabde0e8b707fadc97ef9d3056a"
+    "githubSha": "457ebdde073e2cb2d0183b7e499af52de89cc468"
   },
   "counts": {
     "acquired": 1,
@@ -44,7 +44,7 @@
       "anchor_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&height=800",
       "source_domain": "cdn2.jomashop.com",
       "discovery_method": "html-scan",
-      "acquired_at": "2026-08-29T15:20:13Z",
+      "acquired_at": "2026-08-29T15:33:38Z",
       "width": 800,
       "height": 800,
       "longest_edge": 800,
@@ -114,6 +114,30 @@
       "candidates": 0
     },
     {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": "https://www.jimmychoo.com/en/women/accessories/sunglasses/",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
       "route": "DIRECT_RETAILER_PAGE",
       "url": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
       "result": "OK",
@@ -126,27 +150,6 @@
       "result": "OK",
       "sku_evidence": true,
       "candidates": 13
-    },
-    {
-      "route": "DIRECT_RETAILER_PAGE",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-      "result": "OK",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "TRUSTED_RETAILER_SEARCH",
-      "url": "https://designerframesoutlet.com:443/jimmy-choo-sunglasses-sparksgs",
-      "result": "OK",
-      "sku_evidence": true,
-      "candidates": 64
-    },
-    {
-      "route": "JS_RENDERED_PAGE",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-      "result": "N/A",
-      "authorityTier": "TRUSTED_RETAILER",
-      "error": "render preconditions not met"
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
@@ -188,8 +191,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "cdn2.timepiece.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -212,8 +215,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "cdn2.timepiece.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": null,
-      "indexReachable": true,
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -236,8 +239,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "designerframesoutlet.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error timed out>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
       "exactProductDocument": false,
@@ -296,7 +299,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "index phase deadline reached (600s)",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -509,12 +512,68 @@
       "candidates": 0
     },
     {
-      "route": "INDEXED_SOURCE_EVIDENCE",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "us.jimmychoo.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
       "error": "index phase deadline reached (600s)",
       "indexReachable": false,
-      "authorityTier": "TRUSTED_RETAILER",
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "us.jimmychoo.com (domain) ~ SPARKSGS8CQ",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "us.jimmychoo.com (domain) ~ SPARKS-G-S-8CQ",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "OFFICIAL",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_SOURCE_EVIDENCE",
+      "url": "https://www.jimmychoo.com/en/women/accessories/sunglasses/",
+      "result": "FAIL",
+      "error": "index phase deadline reached (600s)",
+      "indexReachable": false,
+      "authorityTier": "OFFICIAL",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -523,14 +582,6 @@
       "url": null,
       "result": "N/A",
       "notApplicable": "brand registry declares no product API",
-      "sku_evidence": false,
-      "candidates": 0
-    },
-    {
-      "route": "OFFICIAL_REGIONAL_SEARCH",
-      "url": null,
-      "result": "N/A",
-      "notApplicable": "no official regional search entry point",
       "sku_evidence": false,
       "candidates": 0
     },
@@ -638,36 +689,43 @@
   "refusalAudit": {
     "routesAttempted": [
       "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
       "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
       "INDEXED_OUTBOUND_MEDIA",
       "INDEXED_SOURCE_EVIDENCE",
-      "JS_RENDERED_PAGE",
-      "NEW_RETAILER_DISCOVERY",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
       "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
-      "TRUSTED_RETAILER_INDEXED_EVIDENCE",
-      "TRUSTED_RETAILER_SEARCH"
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
       "DIRECT_RETAILER_PAGE",
       "IDENTIFIER_EXPANSION",
-      "NEW_RETAILER_DISCOVERY",
-      "RESEARCH_EVIDENCE",
-      "TRUSTED_RETAILER_SEARCH"
+      "RESEARCH_EVIDENCE"
     ],
     "routesNotAttempted": [
-      "DIRECT_OFFICIAL_PAGE"
+      "JS_RENDERED_PAGE",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
     ],
     "routesUnreachable": {
+      "DIRECT_OFFICIAL_PAGE": [
+        "HTTPError: HTTP Error 403: Forbidden",
+        "HTTPError: HTTP Error 403: Forbidden"
+      ],
+      "OFFICIAL_REGIONAL_SEARCH": [
+        "HTTPError: HTTP Error 403: Forbidden"
+      ],
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
         "URLError: <urlopen error timed out>",
         "TimeoutError: The read operation timed out",
         "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
         "index phase deadline reached (600s)",
@@ -688,6 +746,8 @@
         "index phase deadline reached (600s)"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
         "index phase deadline reached (600s)"
       ]
     },
@@ -703,12 +763,6 @@
         "url": "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
         "authorityTier": null,
         "candidates": 13
-      },
-      {
-        "route": "TRUSTED_RETAILER_SEARCH",
-        "url": "https://designerframesoutlet.com:443/jimmy-choo-sunglasses-sparksgs",
-        "authorityTier": null,
-        "candidates": 64
       }
     ],
     "identifierAliases": [
@@ -726,6 +780,24 @@
     "userInputPermitted": false
   },
   "log": [
+    {
+      "stage": "discover",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.jimmychoo.com/en/women/accessories/sunglasses/",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
     {
       "stage": "discover",
       "url": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
@@ -747,26 +819,6 @@
       "shell_suspected": false
     },
     {
-      "stage": "discover",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-      "ok": true,
-      "raw_candidates": 0,
-      "page_has_sku": false,
-      "sku_evidence_where": null,
-      "html_bytes": 3151,
-      "shell_suspected": true
-    },
-    {
-      "stage": "discover",
-      "url": "https://designerframesoutlet.com:443/jimmy-choo-sunglasses-sparksgs",
-      "ok": true,
-      "raw_candidates": 64,
-      "page_has_sku": true,
-      "sku_evidence_where": "body-only",
-      "html_bytes": 180666,
-      "shell_suspected": false
-    },
-    {
       "stage": "indexed-asset",
       "domain": "cdn2.jomashop.com",
       "term": "SPARKS/G/S",
@@ -796,7 +848,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -812,7 +864,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -828,7 +880,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -868,7 +920,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "index phase deadline reached (600s)"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -1001,6 +1053,30 @@
     {
       "stage": "indexed-asset",
       "domain": "timepiece.com",
+      "term": "SPARKS-G-S-8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "us.jimmychoo.com",
+      "term": "SPARKS/G/S",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "us.jimmychoo.com",
+      "term": "SPARKSGS8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "us.jimmychoo.com",
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
@@ -1008,7 +1084,19 @@
     },
     {
       "stage": "indexed-cdx",
-      "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/",
+      "captures": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/",
+      "captures": 0,
+      "error": "index phase deadline reached (600s)"
+    },
+    {
+      "stage": "indexed-cdx",
+      "url": "https://www.jimmychoo.com/en/women/accessories/sunglasses/",
       "captures": 0,
       "error": "index phase deadline reached (600s)"
     },
@@ -1091,38 +1179,8 @@
       "error": "host sep.turbifycdn.com not in allow-list"
     },
     {
-      "stage": "filter",
-      "url": "https://designerframes.com/images/thumbs/0073215_prada_420.jpeg",
-      "ok": false,
-      "error": "host designerframes.com not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://designerframes.com/images/thumbs/0073212_polo_420.png",
-      "ok": false,
-      "error": "host designerframes.com not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://designerframes.com/images/thumbs/0177648_tory-burch_420.png",
-      "ok": false,
-      "error": "host designerframes.com not in allow-list"
-    },
-    {
-      "stage": "filter",
-      "url": "https://designerframes.com/images/thumbs/0177449_kate-spade_420.png",
-      "ok": false,
-      "error": "host designerframes.com not in allow-list"
-    },
-    {
       "stage": "discover",
-      "total_unique_candidates": 65
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0822789_jimmy-choo-sunglasses-sparksgs.jpeg",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
+      "total_unique_candidates": 6
     },
     {
       "stage": "acquire",
@@ -1161,354 +1219,6 @@
       "url": "https://www.jomashop.com/assets/joma/jomashop_logo.png",
       "ok": false,
       "error": "aspect 8.3:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/Themes/DFO/Content/images/logo.png",
-      "ok": false,
-      "error": "aspect 4.3:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073188_versace_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177645_tom-ford_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073147_burberry_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073169_persol_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0174291_flexon_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177616_nike_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073171_dolce-gabbana_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0174443_giorgio-armani_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073225_armani-exchange_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073208_prada-sport_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0931297_coach_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073227_michael-kors_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0820150_guess_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0166795_bebe_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0816407_bcbgmaxazria_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0577067_dilli-dalli_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/1042737_miraflex_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0749243_kids-bright-eyes_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177459_kensie_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177464_lilly-pulitzer_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0577099_otis-and-piper_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0073149_ray-ban_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177634_skechers_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177619_penguin_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0177497_luxottica_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969961_air-optix_420.jpeg",
-      "ok": false,
-      "error": "aspect 3.6:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969963_dailies_420.png",
-      "ok": false,
-      "error": "aspect 2.7:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969964_biofinity_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969962_acuvue_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969978_precision-1_420.jpeg",
-      "ok": false,
-      "error": "aspect 4.3:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969969_bausch-lomb_420.png",
-      "ok": false,
-      "error": "aspect 8.2:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969971_biotrue_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969979_purevision_420.png",
-      "ok": false,
-      "error": "aspect 3.0:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969965_avaira_420.jpeg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969972_clariti_420.png",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0969976_miru_420.png",
-      "ok": false,
-      "error": "aspect 2.7:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/1014235_optical-connection_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0174473_gucci_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com/images/thumbs/0175027_jimmy-choo_420.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0822789_jimmy-choo-sunglasses-sparksgs_100.jpeg",
-      "ok": false,
-      "error": "aspect 2.4:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0871279_jimmy-choo-sunglasses-sparksgs.jpeg",
-      "ok": false,
-      "error": "aspect 2.5:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0871279_jimmy-choo-sunglasses-sparksgs_100.jpeg",
-      "ok": false,
-      "error": "aspect 2.5:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0754078_jimmy-choo-sunglasses-sparksgs.jpeg",
-      "ok": false,
-      "error": "aspect 2.5:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com/images/thumbs/0754078_jimmy-choo-sunglasses-sparksgs_100.jpeg",
-      "ok": false,
-      "error": "aspect 2.6:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/icons/icons_0/apple-touch-icon.png?v=4",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/icons/icons_0/favicon-32x32.png?v=4",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com:443/icons/icons_0/favicon-16x16.png?v=4",
-      "ok": false,
-      "error": "too small (915 B)"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/icons/icons_0/android-chrome-192x192.png?v=4.40",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "validate",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/ie_warning.jpg",
-      "ok": false,
-      "error": "aspect 19.5:1 — banner shape, not a product photograph"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/ships_same_day.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/2.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/3.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/4.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Plugins/NopStation.AfterpayPayment/logo.jpg",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/cards/paypal.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/cards/mastercard.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
-    },
-    {
-      "stage": "identity",
-      "url": "https://designerframesoutlet.com:443/Themes/DFO/Content/images/cards/visa.png",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
     }
   ],
   "notes": [
