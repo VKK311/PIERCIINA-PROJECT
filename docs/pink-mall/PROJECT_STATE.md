@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-037 publication.
-Status: **PM-001…PM-037 PUBLISHED.**
+Updated: PM-038 and PM-039 publication.
+Status: **PM-001…PM-039 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `3b29e9e0d28ae45f39fec35d49238ccca80175f5bc63262c3c9dd5adf5c07d39` |
-| CANONICAL WEBSITE BYTES | 2576019 |
+| CANONICAL WEBSITE SHA-256 | `9a58db3bb69135ecca41283b60b23a3745a4d6a7b2e6d815bc9b7d67ff3325cc` |
+| CANONICAL WEBSITE BYTES | 2580381 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-037 |
-| NEXT ID | PM-038 |
+| PUBLIC CATALOG | PM-001 … PM-039 |
+| NEXT ID | PM-040 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -43,6 +43,8 @@ canonical build by hash before treating it as canonical.
 | 30S4SBAL2L | **PUBLISHED as PM-035** on 2026-08-28 |
 | 35F4G2VC5L | **PUBLISHED as PM-036** on 2026-08-28 |
 | 134-200-409 | **PUBLISHED as PM-037** on 2026-08-28 — unblocked by owner-supplied photographs |
+| 40754650 (supplied alias 40754) | **PUBLISHED as PM-038** on 2026-08-29 |
+| 4AR165 | **PUBLISHED as PM-039** on 2026-08-29 |
 
 ## Media acquisition automation
 
@@ -50,7 +52,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-034, PM-035, PM-036, production + standalone |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-038 and PM-039, production + standalone |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -94,7 +96,10 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `8421111f08f7222ae642e6a26e4189655deda585ecb4dc786ee5267ef841ea62` |
+| SHA-256 | `1808971957464d5d275158b75a45a5354de14c952bfc2d3114c865fbb450be64` |
+| BYTES | 10463663 |
+| LAST PUBLICATION VALIDATION | PASS — GitHub Actions run `33246543092`, PM-038 + PM-039 production and standalone |
+| DEVELOPMENT REBUILD | PASS — GitHub Actions run `33246626108` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
 
@@ -1001,8 +1006,54 @@ provenance must be stated in the package rather than dressed up.
 | TIER | OFFICIAL |
 | VARIANT | VARIANT_CONFIDENCE_PASS |
 
-## Pending media — 134-200-409
+## PM-038 — published
 
-VEE Collective `134-200-409` remains **BLOCKED — PHOTO SET INCOMPLETE**.
-Identity and variant pass, but only one unique exact-SKU image survived
-deduplication. It was deliberately excluded from the approved publication batch.
+| | |
+|---|---|
+| PUBLISHED | 2026-08-29 |
+| BRAND / MODEL | Dr. Martens / Metallic Shift Leather Heart Shaped Bag |
+| MANUFACTURER ITEM | 40754650; supplied alias/base style 40754 |
+| CATEGORY | BAGS, `subcategory: null` |
+| PUBLIC COLOUR | Powder Pink / Gold |
+| COMPOSITION | PU Coated Suede |
+| PRICE | €104, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-12 |
+| MAIN | IMAGE 02 — whole-product view selected during visual review |
+| GALLERY ORDER | 02 → 01 → 03 → 04 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-038/` — 4 × 576×721 WebP, native aspect |
+| MEDIA TIER | OFFICIAL — drmartens.com |
+| VARIANT | VARIANT_CONFIDENCE_PASS |
+| VALIDATION | 73/73 production + 73/73 standalone, GitHub Actions run 33246543092 |
+
+The supplied `40754` is retained as an evidenced alias/base style; the exact
+manufacturer item number is `40754650`. All four official frames are below the
+1000 px preference and were published at their native 576×721 size — no
+upscaling and no manufactured canvas.
+
+## PM-039 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-29 |
+| BRAND / MODEL | Polo Ralph Lauren / Cotton Drawstring Shoulder Bag |
+| MANUFACTURER ITEM | 4AR165 |
+| CATEGORY | BAGS, `subcategory: null` |
+| PUBLIC COLOUR | Green |
+| COMPOSITION | 100% Cotton |
+| PRICE | €44, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-12 |
+| MAIN | IMAGE 01 |
+| GALLERY ORDER | 01 → 02 → 03 → 04 |
+| LIVE MEDIA | `assets/pink-mall/products/PM-039/` — 4 × 700×1050 WebP, native aspect |
+| MEDIA TIER | TRUSTED_RETAILER — answear.com |
+| VARIANT | VARIANT_CONFIDENCE_PASS |
+| VALIDATION | 73/73 production + 73/73 standalone, GitHub Actions run 33246543092 |
+
+IMAGE 05 was excluded because it contains a mannequin/person-like silhouette.
+The source's child-series classification is internal only; it is absent from
+the public name, description, tags, alt text and category, and the browser
+regression verifies that no child/junior marker is rendered.
