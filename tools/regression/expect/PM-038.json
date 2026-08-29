@@ -1,0 +1,26 @@
+{
+  "id": "PM-038",
+  "catalogueSize": 39,
+  "brand": "Dr. Martens",
+  "manufacturerItemNo": "40754650",
+  "name": "Metallic Shift Leather Heart Shaped Bag",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Powder Pink / Gold",
+  "composition": "PU Coated Suede",
+  "priceEUR": 104,
+  "newUntil": "2026-09-12",
+  "sizes": ["ONE SIZE"],
+  "surface": null,
+  "nativeWidth": 576,
+  "nativeHeight": 721,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": ["dr martens", "metallic shift", "сърцевиден", "40754", "40754650"],
+  "priorProducts": ["PM-031", "PM-032", "PM-033", "PM-034", "PM-035", "PM-036", "PM-037"],
+  "frames": [
+    {"file": "PM-038-main.webp", "sha256": "7534cb2f33699c394b46dc737a4184b8643ce359ad99919e00c2c827468f03ae"},
+    {"file": "PM-038-02.webp", "sha256": "9ec9948768b55395af80364b3f086f3d5eff9e683fd81de0bb6da7cff0adaf5c"},
+    {"file": "PM-038-03.webp", "sha256": "f4e8625a1c446b24759039f54411d94418d15b3232e0286e8825dbd7b4e678d6"},
+    {"file": "PM-038-04.webp", "sha256": "c8e786252b04c7a14cb9a2c1752c96e325d34651d5f47e573f012f893c772385"}
+  ]
+}

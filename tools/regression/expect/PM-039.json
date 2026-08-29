@@ -1,0 +1,26 @@
+{
+  "id": "PM-039",
+  "catalogueSize": 39,
+  "brand": "Polo Ralph Lauren",
+  "manufacturerItemNo": "4AR165",
+  "name": "Cotton Drawstring Shoulder Bag",
+  "category": "bags",
+  "subcategory": null,
+  "color": "Green",
+  "composition": "100% Cotton",
+  "priceEUR": 44,
+  "newUntil": "2026-09-12",
+  "sizes": ["ONE SIZE"],
+  "surface": "#F0F0F0",
+  "nativeWidth": 700,
+  "nativeHeight": 1050,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": ["polo ralph lauren", "drawstring", "зелено", "4AR165"],
+  "priorProducts": ["PM-031", "PM-032", "PM-033", "PM-034", "PM-035", "PM-036", "PM-037", "PM-038"],
+  "frames": [
+    {"file": "PM-039-main.webp", "sha256": "68819681db7fff93513e19c285f0a862fdaf8ec9a79cd049e28c537981f82a60"},
+    {"file": "PM-039-02.webp", "sha256": "3f4756e21b0ec0492adc442bd4506a76b89f9228809a69d0552104fca1135147"},
+    {"file": "PM-039-03.webp", "sha256": "6e8b48752d8ee770920b711b09fe0f087dc5b1b6a534543fec33780b557b4818"},
+    {"file": "PM-039-04.webp", "sha256": "e9b6b1b7d4b47d682f88a16857c7b19bd64f8466adb3e66ceae0d2022ebc800b"}
+  ]
+}

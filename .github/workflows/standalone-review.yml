@@ -12,7 +12,9 @@ name: Pink Mall standalone review build
 
 on:
   push:
-    branches: [claude/pink-mall-development]
+    branches:
+      - claude/pink-mall-development
+      - codex/pm-038-039-validation
     paths:
       - 'PINKMALL.html'
       - 'assets/**'
@@ -31,12 +33,12 @@ jobs:
   build:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: claude/pink-mall-development
+          ref: ${{ github.ref_name }}
           fetch-depth: 1
 
       - uses: actions/setup-python@v5
@@ -49,5 +51,27 @@ jobs:
       - name: Prove it works with no assets/ tree
         run: bash tools/verify_standalone.sh
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install publication browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/pinkmall-regression" --no-audit --no-fund playwright@1.62.1
+          "$RUNNER_TEMP/pinkmall-regression/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Validate PM-038 and PM-039 in production and standalone
+        env:
+          NODE_PATH: ${{ runner.temp }}/pinkmall-regression/node_modules
+        run: |
+          python -m http.server 8131 >"$RUNNER_TEMP/pinkmall-http.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node tools/regression/product_regression.js tools/regression/expect/PM-038.json PINKMALL.html 8131
+          node tools/regression/product_regression.js tools/regression/expect/PM-038.json PINKMALL_REVIEW_STANDALONE.html 8131
+          node tools/regression/product_regression.js tools/regression/expect/PM-039.json PINKMALL.html 8131
+          node tools/regression/product_regression.js tools/regression/expect/PM-039.json PINKMALL_REVIEW_STANDALONE.html 8131
+
       - name: Commit artifact
+        if: github.ref_name == 'claude/pink-mall-development'
         run: bash tools/commit_standalone.sh

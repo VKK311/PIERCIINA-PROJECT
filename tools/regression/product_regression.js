@@ -40,8 +40,12 @@ const bad = (n, x) => { fail++; console.log(`  FAIL  ${n}${x ? '  — ' + x : ''
 const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
 
 (async () => {
-  const browser = await chromium.launch({ executablePath: EXPECT.chromium
-    || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+  const pinnedChromium = EXPECT.chromium
+    || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+  const chromiumPath = fs.existsSync(pinnedChromium)
+    ? pinnedChromium
+    : chromium.executablePath();
+  const browser = await chromium.launch({ executablePath: chromiumPath });
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
   const page = await ctx.newPage();
 
