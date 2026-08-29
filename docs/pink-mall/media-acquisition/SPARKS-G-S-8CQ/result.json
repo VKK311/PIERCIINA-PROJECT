@@ -1,37 +1,70 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "PARTIAL",
   "sku": "SPARKS/G/S",
   "brand": "Jimmy Choo",
   "model": "Sparks",
   "variant": "8CQ",
   "officialProductPage": null,
-  "generatedAt": "2026-08-29T14:52:56Z",
+  "generatedAt": "2026-08-29T15:05:38Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33258325919",
+    "githubRunId": "33258828138",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "b233f8178de7900481f41ca886479cd6d7e8e56f"
+    "githubSha": "0fccc08ef7c36821f203c6b5e9735381076a9925"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 1,
+    "unique_selected": 1,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image"
+    ],
     "conflicts": [],
     "officialColour": "8CQ",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
-  "dominantBackdrop": null,
+  "proposedMain": "source/SPARKSGS-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/SPARKSGS-01-original.jpg",
+      "preview": "preview/SPARKSGS-01.webp",
+      "source_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
+      "requested_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
+      "anchor_url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8cq-55.jpg?width=800&amp;height=800",
+      "source_domain": "cdn2.jomashop.com",
+      "discovery_method": "html-scan",
+      "acquired_at": "2026-08-29T15:05:24Z",
+      "width": 800,
+      "height": 800,
+      "longest_edge": 800,
+      "mime": "image/jpeg",
+      "bytes": 37198,
+      "sha256": "f1434920bd2e11c4a4b6188932852b1e521ff843d840b5a9dab96b9a50adeed6",
+      "dhash": "000000000180040001f0867e0c0e80f870d81f34c1e1186c0100004000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "800px longest edge — below the 1000px preference"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
@@ -50,7 +83,8 @@
         "SPARKS-G-S-8CQ",
         "SPARKS_G_S_8CQ",
         "SparksGS-8CQU1",
-        "8CQU1"
+        "8CQU1",
+        "sparksgs-8cq"
       ],
       "mediaUrls": 0,
       "sizeLabels": 0,
@@ -71,7 +105,8 @@
       "variant": "8CQ",
       "aliases": [
         "SPARKSGS8CQ",
-        "sparks-g-s-8cq"
+        "sparks-g-s-8cq",
+        "sparksgs-8cq"
       ],
       "mediaUrls": 0,
       "sizeLabels": 0,
@@ -116,6 +151,42 @@
     },
     {
       "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.jomashop.com (domain) ~ SPARKS/G/S",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.jomashop.com (domain) ~ SPARKSGS8CQ",
+      "result": "FAIL",
+      "error": null,
+      "indexReachable": true,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "cdn2.jomashop.com (domain) ~ SPARKS-G-S-8CQ",
+      "result": "FAIL",
+      "error": "URLError: <urlopen error timed out>",
+      "indexReachable": false,
+      "indexedVia": "web.archive.org",
+      "authorityTier": "TRUSTED_RETAILER",
+      "exactProductDocument": false,
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "designerframesoutlet.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
       "error": null,
@@ -154,7 +225,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "go-optic.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -166,7 +237,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "go-optic.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "TimeoutError: The read operation timed out",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -178,7 +249,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "go-optic.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "TimeoutError: The read operation timed out",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -190,8 +261,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -202,8 +273,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -214,8 +285,8 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jimmychoo.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "indexReachable": false,
+      "error": null,
+      "indexReachable": true,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
       "exactProductDocument": false,
@@ -226,7 +297,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jomashop.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "URLError: <urlopen error timed out>",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -238,7 +309,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jomashop.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -250,7 +321,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "jomashop.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -262,7 +333,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "occhialando.eu (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -274,7 +345,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "occhialando.eu (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -286,7 +357,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "occhialando.eu (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -298,7 +369,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "safilo.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -310,7 +381,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "safilo.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -322,7 +393,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "safilo.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "OFFICIAL",
@@ -334,7 +405,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smartbuyglasses.com (domain) ~ SPARKS/G/S",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -346,7 +417,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smartbuyglasses.com (domain) ~ SPARKSGS8CQ",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -358,7 +429,7 @@
       "route": "INDEXED_OUTBOUND_MEDIA",
       "url": "smartbuyglasses.com (domain) ~ SPARKS-G-S-8CQ",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "indexedVia": "web.archive.org",
       "authorityTier": "TRUSTED_RETAILER",
@@ -370,7 +441,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -380,7 +451,7 @@
       "route": "INDEXED_SOURCE_EVIDENCE",
       "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
       "result": "FAIL",
-      "error": "index call budget exhausted (24 calls)",
+      "error": "index phase deadline reached (600s)",
       "indexReachable": false,
       "authorityTier": "TRUSTED_RETAILER",
       "sku_evidence": false,
@@ -430,7 +501,7 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 6 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 7 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
@@ -449,6 +520,7 @@
     "SPARKS_G_S_8CQ",
     "SparksGS-8CQU1",
     "8CQU1",
+    "sparksgs-8cq",
     "sparks-g-s-8cq"
   ],
   "researchEvidence": [
@@ -466,7 +538,8 @@
         "SPARKS-G-S-8CQ",
         "SPARKS_G_S_8CQ",
         "SparksGS-8CQU1",
-        "8CQU1"
+        "8CQU1",
+        "sparksgs-8cq"
       ],
       "sizeScale": [],
       "mediaUrls": [],
@@ -474,7 +547,8 @@
       "notes": [
         "Establishes the exact colourway the user selected: 8CQ, sold as 8CQ/U1. Frame transparent purple, lenses pink. Size 55-17-140.",
         "ALIASES ARE COLOUR-SCOPED ON PURPOSE. Every alias binds the model to 8CQ. Bare 'SPARKS' or bare '8CQ' are deliberately excluded: SPARKS/G/S ships at least three pink-ish colourways (8CQ, 8CO, 1N5) and a colour-agnostic alias would admit the wrong frame — the failure the exact-variant rule exists to prevent.",
-        "COLOUR IS CONTESTED ACROSS RETAILERS for this same code: violet, transparent purple, cherry and pink all appear. The public colour must be decided from the acquired frames, not from retailer text."
+        "COLOUR IS CONTESTED ACROSS RETAILERS for this same code: violet, transparent purple, cherry and pink all appear. The public colour must be decided from the acquired frames, not from retailer text.",
+        "ALIAS OBSERVED IN PASS 1'S OWN REJECTION LOG, not guessed: the retailer's asset path collapses the slashes entirely — SPARKS/G/S becomes 'sparksgs' — giving '...-sparksgs-8cq-55...'. The pass-1 alias set carried SPARKSGS8CQ and SPARKS-G-S-8CQ and missed that separator form by one hyphen. Still colour-scoped: every alias binds the model to 8CQ."
       ]
     },
     {
@@ -488,7 +562,8 @@
       "variant": "8CQ",
       "aliases": [
         "SPARKSGS8CQ",
-        "sparks-g-s-8cq"
+        "sparks-g-s-8cq",
+        "sparksgs-8cq"
       ],
       "sizeScale": [],
       "mediaUrls": [],
@@ -527,28 +602,26 @@
     ],
     "routesUnreachable": {
       "INDEXED_OUTBOUND_MEDIA": [
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
         "TimeoutError: The read operation timed out",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "URLError: <urlopen error [Errno 111] Connection refused>",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)"
+        "URLError: <urlopen error timed out>",
+        "URLError: <urlopen error timed out>",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ],
       "INDEXED_SOURCE_EVIDENCE": [
-        "index call budget exhausted (24 calls)",
-        "index call budget exhausted (24 calls)"
+        "index phase deadline reached (600s)",
+        "index phase deadline reached (600s)"
       ]
     },
     "exactProductDocuments": [
@@ -571,6 +644,7 @@
       "SPARKS_G_S_8CQ",
       "SparksGS-8CQU1",
       "8CQU1",
+      "sparksgs-8cq",
       "sparks-g-s-8cq"
     ],
     "spaRenderPending": false,
@@ -617,6 +691,30 @@
     },
     {
       "stage": "indexed-asset",
+      "domain": "cdn2.jomashop.com",
+      "term": "SPARKS/G/S",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn2.jomashop.com",
+      "term": "SPARKSGS8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": null
+    },
+    {
+      "stage": "indexed-asset",
+      "domain": "cdn2.jomashop.com",
+      "term": "SPARKS-G-S-8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
       "domain": "designerframesoutlet.com",
       "term": "SPARKS/G/S",
       "rows": 0,
@@ -645,31 +743,31 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
       "domain": "go-optic.com",
       "term": "SPARKSGS8CQ",
-      "rows": 0,
-      "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    },
-    {
-      "stage": "indexed-asset",
-      "domain": "go-optic.com",
-      "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
       "error": "TimeoutError: The read operation timed out"
     },
     {
       "stage": "indexed-asset",
+      "domain": "go-optic.com",
+      "term": "SPARKS-G-S-8CQ",
+      "rows": 0,
+      "hits": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "stage": "indexed-asset",
       "domain": "jimmychoo.com",
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -677,7 +775,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -685,7 +783,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "stage": "indexed-asset",
@@ -693,7 +791,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "stage": "indexed-asset",
@@ -701,7 +799,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -709,7 +807,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -717,7 +815,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -725,7 +823,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -733,7 +831,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -741,7 +839,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -749,7 +847,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -757,7 +855,7 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -765,7 +863,7 @@
       "term": "SPARKS/G/S",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -773,7 +871,7 @@
       "term": "SPARKSGS8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-asset",
@@ -781,19 +879,19 @@
       "term": "SPARKS-G-S-8CQ",
       "rows": 0,
       "hits": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "indexed-cdx",
       "url": "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry",
       "captures": 0,
-      "error": "index call budget exhausted (24 calls)"
+      "error": "index phase deadline reached (600s)"
     },
     {
       "stage": "filter",
@@ -830,10 +928,12 @@
       "error": "aspect 2.4:1 — banner shape, not a product photograph"
     },
     {
-      "stage": "identity",
+      "stage": "acquire",
       "url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/j/i/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparksgs-8cq-55-sparksgs-8c",
-      "ok": false,
-      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+      "ok": true,
+      "size": "800x800",
+      "bytes": 37198,
+      "upgraded_from": null
     },
     {
       "stage": "identity",
