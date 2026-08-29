@@ -1,0 +1,1375 @@
+{
+  "schemaVersion": 1,
+  "status": "ROUTES_NOT_EXHAUSTED",
+  "sku": "KL080V",
+  "brand": "Kartell",
+  "model": "UNRESOLVED — Kartell pink sunglasses",
+  "variant": "Pink — exact Kartell model/colour code not yet verified",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-29T10:21:23Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33247602139",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "a2d689157dd3c489822306535552d93211de79d8"
+  },
+  "counts": {
+    "acquired": 0,
+    "unique_selected": 0,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "signals": [],
+    "conflicts": [],
+    "officialColour": "Pink — exact Kartell model/colour code not yet verified",
+    "officialAnchor": false
+  },
+  "mediaTier": null,
+  "mediaTierMixed": false,
+  "proposedMain": null,
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": null,
+  "images": [],
+  "discoveryLedger": [
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.kartell.com/bg/en/kteu/shop/dept/eyewear/c_0503",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 204
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "no domain outside the starting host set was evaluated — a fixed list of known hosts is not exhausted discovery",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.kartell.com/bg/en/kteu/shop/dept/eyewear/c_0503",
+      "ok": true,
+      "raw_candidates": 204,
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 308866,
+      "shell_suspected": false
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE530S03.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/Media/KARTELL/KARTELL/Images/Global/menu/20251028menu.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/Media/KARTELL/KARTELL/Images/Commons/menu/image_menu_kworld-2024.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/Media/KARTELL/KARTELL/Images/Commons/menu/image_menu_contract-2024.jpg",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/IMAGE_NOT_FOUND.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE530S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE530S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE530S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/IMAGE_NOT_FOUND.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE530S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE531S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE531S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE532S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE532S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE065V02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE067V01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE067V04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE071V01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE071V01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE071V01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE071V01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE071V03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE071V04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE528S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE528S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE528S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE528S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE030S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE030S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE030S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE030S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE030S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE525S02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE525S02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE525S02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE525S02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE525S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE525S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE525S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE527S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE527S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE527S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE527S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE527S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE527S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE527S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE526S02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE526S02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE526S02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE526S02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE526S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE502S02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE502S02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE502S02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE502S02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE502S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE519S04.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE519S04_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE519S04_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE519S04_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE519S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE519S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE519S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE520S04.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE520S04_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE520S04_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE520S04_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE520S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE520S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE516S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE521S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE521S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE521S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE521S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE521S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE521S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE521S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE522S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE522S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE522S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE522S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE522S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE522S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE515S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE515S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE515S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE515S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE518S04.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE518S04_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE518S04_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE518S04_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE518S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE518S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE518S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE517S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE517S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE517S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE517S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE517S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE517S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE517S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE512S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE512S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE512S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE512S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE512S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE512S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE512S04.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE510S04.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE510S04_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE510S04_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE510S04_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE510S01.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE510S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE510S03.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE514S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE514S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE514S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE514S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE019S02.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE019S02_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE019S02_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE019S02_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE020S03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE020S03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE020S03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE020S03_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE523S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE523S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE523S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE051V03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE051V03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE051V03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE053V03.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE053V03_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE053V03_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE501S01.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE501S01_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE501S01_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE501S01_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE501S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE509S05.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE509S05_1.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE509S05_2.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE509S05_3.jpg?t=big",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/COLORS/KARE509S02.jpg?t=variant",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE530S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE531S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE532S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE065V04.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE067V02.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE071V01.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE528S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE030S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE525S02.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d3trhmpc56lg1h.cloudfront.net/IMG/KARTELL/PRODUCTS/HD/KARE527S03.jpg?t=large",
+      "ok": false,
+      "error": "host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 17
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Global/Social/wechat.jpg",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/Media/KARTELL/KARTELL/Images/Global/footer/pre-footer-appuntamento.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/Media/KARTELL/KARTELL/Images/Global/footer/pre-footer-resi.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/Media/KARTELL/KARTELL/Images/Global/footer/pre-footer-assistenza.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/Media/KARTELL/KARTELL/Images/Global/footer/pre-footer-pick_collect.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6001.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6002.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6003.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6004.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6005.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6006.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6007.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6008.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x6009.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x60010.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL/Images/Commons/Footer/icone_600x60011.png",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.kartell.com/MEDIA/KARTELL/KARTELL//Images/Global/HomePage/popup/Banner_newsletter_NLPOPUP.jpg",
+      "ok": false,
+      "error": "Refused: host d3trhmpc56lg1h.cloudfront.net not in allow-list"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 1,
+  "status": "PARTIAL",
+  "sku": "SPLA94",
+  "brand": "Police",
+  "model": "MOONBEAM 1",
+  "variant": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-29T10:21:31Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33247602139",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "a2d689157dd3c489822306535552d93211de79d8"
+  },
+  "counts": {
+    "acquired": 12,
+    "unique_selected": 1,
+    "duplicates_collapsed": 11
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
+    "conflicts": [],
+    "officialColour": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+    "officialAnchor": false
+  },
+  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTierMixed": false,
+  "proposedMain": "source/SPLA94-01-original.jpg",
+  "dominantBackdrop": "#FFFFFF",
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/SPLA94-01-original.jpg",
+      "preview": "preview/SPLA94-01.webp",
+      "source_url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+      "requested_url": "http://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+      "anchor_url": "http://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+      "source_domain": "www.otticanet.com",
+      "discovery_method": "og:image",
+      "acquired_at": "2026-08-29T10:21:26Z",
+      "width": 1000,
+      "height": 455,
+      "longest_edge": 1000,
+      "mime": "image/jpeg",
+      "bytes": 23595,
+      "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba",
+      "dhash": "0c009a00930089004645cf2bed37ef8dac92adc4edc8cd900d80149006800300",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=1024",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&amp;width=96",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=1024",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&amp;width=96",
+          "size": "1000x455",
+          "sha256": "f9d317c6a02d34592511c336050697173a947d41d6b4962b1fd1b7436204eeba"
+        },
+        {
+          "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=320",
+          "size": "320x146",
+          "sha256": "6c019df4252d2244406bea7f4f8fc8689efff5ba62f75ee563731a228c47758c"
+        },
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=320",
+          "size": "320x146",
+          "sha256": "6c019df4252d2244406bea7f4f8fc8689efff5ba62f75ee563731a228c47758c"
+        },
+        {
+          "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=100",
+          "size": "100x46",
+          "sha256": "b815573e6a8e0d8a53001a510c03b06da979a03564d758cec0d3a3e5850c72f0"
+        },
+        {
+          "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=100",
+          "size": "100x46",
+          "sha256": "b815573e6a8e0d8a53001a510c03b06da979a03564d758cec0d3a3e5850c72f0"
+        }
+      ],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1000px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 25
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 56
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115",
+      "result": "FAIL",
+      "error": "unsupported type (image/jpeg)",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://twitter.com/intent/tweet?text=MOONBEAM%201%20SPLA94&amp;url=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "result": "FAIL",
+      "error": "Refused: host twitter.com not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.facebook.com/sharer.php?u=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "result": "FAIL",
+      "error": "Refused: host www.facebook.com not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://pinterest.com/pin/create/button/?url=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?crop=center&height=1024&v=1750056115&width=1024&amp;description=MOONBEAM%201%20SPLA94",
+      "result": "FAIL",
+      "error": "Refused: host pinterest.com not in allow-list",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083",
+      "result": "FAIL",
+      "error": "unsupported type (image/jpeg)",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [],
+  "sizeState": {
+    "state": "SIZE_SCALE_NOT_PROVEN",
+    "declaredScale": [],
+    "matched": [],
+    "missing": [],
+    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "SPLA94",
+      "skuInBody": true,
+      "model": "MOONBEAM 1",
+      "variant": "8RFX — Pink / Pink Shaded",
+      "aliases": [
+        "SPLA94 8RFX"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": "54/18/140"
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Police retailer identifies MOONBEAM 1 SPLA94, colour code 8RFX, pink metal frame, pink shaded/mirrored lenses, size 54/18/140.",
+        "Base style SPLA94 also appears online with other colour suffixes; do not publish a suffix without visual/identity confirmation."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_OUTBOUND_MEDIA",
+      "NEW_RETAILER_DISCOVERY",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [
+      {
+        "route": "DIRECT_OFFICIAL_PAGE",
+        "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+        "authorityTier": null,
+        "candidates": 25
+      },
+      {
+        "route": "DIRECT_OFFICIAL_PAGE",
+        "url": "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567",
+        "authorityTier": null,
+        "candidates": 56
+      }
+    ],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research",
+      "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": false,
+      "error": "unknown discoveryTransport 'CHATGPT_WEB_RESEARCH'"
+    },
+    {
+      "stage": "link-target",
+      "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": true,
+      "targets": 5,
+      "sample": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": true,
+      "raw_candidates": 25,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 1366712,
+      "shell_suspected": false
+    },
+    {
+      "stage": "link-target",
+      "url": "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": true,
+      "targets": 5,
+      "sample": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": true,
+      "raw_candidates": 56,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 2376857,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115",
+      "ok": false,
+      "error": "unsupported type (image/jpeg)"
+    },
+    {
+      "stage": "discover",
+      "url": "https://twitter.com/intent/tweet?text=MOONBEAM%201%20SPLA94&amp;url=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": false,
+      "error": "Refused: host twitter.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.facebook.com/sharer.php?u=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "ok": false,
+      "error": "Refused: host www.facebook.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://pinterest.com/pin/create/button/?url=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?crop=center&height=1024&v=1750056115&width=1024&amp;description=MOONBEAM%201%20SPLA94",
+      "ok": false,
+      "error": "Refused: host pinterest.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083",
+      "ok": false,
+      "error": "unsupported type (image/jpeg)"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_1.png?v=1773421635",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_2.png?v=1773416624",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_3.png?v=1773417281",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_5.png?v=1773417698",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Small_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Medium_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Large_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0692/6807/8847/files/badge-sconti-left-2026.png?v=1784897726",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0692/6807/8847/files/logo3w-round.png?v=1721117489",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://pinterest.com/pin/create/button/?url=https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.com/cdn/shop/fil",
+      "ok": false,
+      "error": "host pinterest.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_1.png?v=1773421635",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_2.png?v=1773416624",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_3.png?v=1773417281",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Size_Guide_5.png?v=1773417698",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Small_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Medium_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0866/1388/5254/files/Large_Size.png?v=1773419898",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0692/6807/8847/files/badge-sconti-left-2026.png?v=1784897726",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/s/files/1/0692/6807/8847/files/logo3w-round.png?v=1721117489",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://d33a6lvgbd0fej.cloudfront.net/bogos-images/1772523961.png",
+      "ok": false,
+      "error": "host d33a6lvgbd0fej.cloudfront.net not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/fg-icon-red_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-1_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-2_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-3_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-4_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-5_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-6_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-7_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/widget-icon-8_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-1_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-2_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-3_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-4_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-5_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-6_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/step-icon-7_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-1_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-2_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-3_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-4_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-5_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-6_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-7_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/summary-icon-8_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/shipping-icon-1_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/shipping-icon-2_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/shipping-icon-3_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/shipping-icon-4_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://cdn.shopify.com/extensions/01a04677-5789-7ff3-8ba2-0b78527b807f/freegifts-222/assets/shipping_product_small.png",
+      "ok": false,
+      "error": "host cdn.shopify.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://pinterest.com/pin/create/button/?url=https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.it/cdn/shop",
+      "ok": false,
+      "error": "host pinterest.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 27
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=1024",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=1024",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?c",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.com/cdn/shop/files/Immagine-promo-menu-sole_RayBan-Meta-NOlogo.webp?v=1760965974&width=320",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.com/cdn/shop/files/Immagine-promo-menu-sole_RayBan-Meta-NOlogo.webp?v=1760965974&width=100",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.com/cdn/shop/files/Immagine-promo-menu-vista.webp?v=1748267847&width=320",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.com/cdn/shop/files/Immagine-promo-menu-vista.webp?v=1748267847&width=100",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.otticanet.com/cdn/shop/files/police_logo.jpg?v=1729435460&amp;width=130",
+      "ok": false,
+      "error": "aspect 6.7:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=320",
+      "ok": true,
+      "size": "320x146",
+      "bytes": 9535,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&width=100",
+      "ok": true,
+      "size": "100x46",
+      "bytes": 2780,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.com/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056115&amp;width=96",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.otticanet.com/cdn/shop/files/police_logo.jpg?height=18&amp;v=1729435460",
+      "ok": false,
+      "error": "aspect 6.7:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=1024",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567&amp;media=//www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.j",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.it/cdn/shop/files/O-sunglasess-woman-trends-13aprile2026.webp?v=1776075622&width=320",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.it/cdn/shop/files/O-sunglasess-woman-trends-13aprile2026.webp?v=1776075622&width=100",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.it/cdn/shop/files/Immagine-promo-menu-vista.webp?v=1748262207&width=320",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.otticanet.it/cdn/shop/files/Immagine-promo-menu-vista.webp?v=1748262207&width=100",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.otticanet.it/cdn/shop/files/police_logo.jpg?v=1725266320&amp;width=130",
+      "ok": false,
+      "error": "aspect 6.7:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=320",
+      "ok": true,
+      "size": "320x146",
+      "bytes": 9535,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&width=100",
+      "ok": true,
+      "size": "100x46",
+      "bytes": 2780,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.otticanet.it/cdn/shop/files/img_art_MOONBEAM_1_SPLA94_8RFX-large.jpg?v=1750056083&amp;width=96",
+      "ok": true,
+      "size": "1000x455",
+      "bytes": 23595,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.otticanet.it/cdn/shop/files/police_logo.jpg?height=18&amp;v=1725266320",
+      "ok": false,
+      "error": "aspect 6.7:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.otticanet.it/cdn/shop/collections/Fall_Shades.png?v=1757944867",
+      "ok": false,
+      "error": "aspect 4.3:1 — banner shape, not a product photograph"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}

@@ -1,0 +1,913 @@
+{
+  "schemaVersion": 1,
+  "status": "PARTIAL",
+  "sku": "STOC39V",
+  "brand": "Tous",
+  "model": "STOC39V",
+  "variant": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-29T10:21:53Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33247602139",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "a2d689157dd3c489822306535552d93211de79d8"
+  },
+  "counts": {
+    "acquired": 19,
+    "unique_selected": 1,
+    "duplicates_collapsed": 17
+  },
+  "variantConfidence": {
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
+    "conflicts": [],
+    "officialColour": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+    "officialAnchor": false
+  },
+  "mediaTier": "TRUSTED_RETAILER",
+  "mediaTierMixed": false,
+  "proposedMain": "source/STOC39V-01-original.webp",
+  "dominantBackdrop": "#FFFFFF",
+  "cutoutSet": false,
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/STOC39V-01-original.webp",
+      "preview": "preview/STOC39V-01.webp",
+      "source_url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "requested_url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "anchor_url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "source_domain": "www.tradeinn.com",
+      "discovery_method": "json-ld",
+      "acquired_at": "2026-08-29T10:21:39Z",
+      "width": 1000,
+      "height": 1000,
+      "longest_edge": 1000,
+      "mime": "image/webp",
+      "bytes": 20474,
+      "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c",
+      "dhash": "0000000000002200800e7002c20cc218f602f7845f8024e00000000000000000",
+      "sku_in_url": true,
+      "sku_evidence": "asset-url",
+      "source_page": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "backdrop": "#FFFFFF",
+      "duplicates_collapsed": [
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.webp",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.webp",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-damen-sonnenbrille.webp",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.webp",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.webp",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-damen-sonnenbrille.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/f/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.jpg",
+          "size": "1000x1000",
+          "sha256": "b8b8be90ab388396889bcbe780f23eb622d9caadb673506e3f0975625e0d388c"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-stoc39v-damen-sonnenbrille.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        },
+        {
+          "url": "https://www.tradeinn.com/d/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.webp",
+          "size": "500x500",
+          "sha256": "bdb59d0ba2826067d3488094b2adc31d42f02a8e5f04734c35a504cbaa0e35b7"
+        }
+      ],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "1000px longest edge — usable, 1600px ideal"
+      ]
+    }
+  ],
+  "discoveryLedger": [
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://designeroptics.com/products/tous-stoc39v-sunglasses",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.tradeinn.com/dressinn/fr/tous-lunettes-de-soleil-pour-femme-stoc39v/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.tradeinn.com/dressinn/de/tous-stoc39v-damen-sonnenbrille/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.tradeinn.com/dressinn/it/tous-occhiali-da-sole-da-donna-stoc39v/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "url": "https://www.tradeinn.com/dressinn/pt/tous-oculos-de-sol-femininos-stoc39v/141504278/p",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 17
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    },
+    {
+      "page": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    },
+    {
+      "page": "https://www.tradeinn.com/dressinn/fr/tous-lunettes-de-soleil-pour-femme-stoc39v/141504278/p",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    },
+    {
+      "page": "https://www.tradeinn.com/dressinn/de/tous-stoc39v-damen-sonnenbrille/141504278/p",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    },
+    {
+      "page": "https://www.tradeinn.com/dressinn/it/tous-occhiali-da-sole-da-donna-stoc39v/141504278/p",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    },
+    {
+      "page": "https://www.tradeinn.com/dressinn/pt/tous-oculos-de-sol-femininos-stoc39v/141504278/p",
+      "route": "INDEXED_OUTBOUND_MEDIA",
+      "sizes": [
+        {
+          "size": "Brown/CAT2",
+          "declared": "InStock"
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMATION_REQUIRED",
+    "declaredScale": [
+      "Brown/CAT2"
+    ],
+    "matched": [],
+    "missing": [
+      "ONE SIZE"
+    ],
+    "note": "size label could not be compared to the declared scale"
+  },
+  "identifierAliases": [],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "STOC39V",
+      "skuInBody": true,
+      "model": "STOC39V",
+      "variant": "Pink frame / brown lenses",
+      "aliases": [],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Exact-model retailer page identifies Tous STOC39V as a women's pink square sunglass frame; the page describes acetate/cellulose-acetate construction and brown lenses.",
+        "Retailer copy is evidence for research only; publication must use only facts that survive exact-item verification."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "STOC39V-06HB",
+      "skuInBody": true,
+      "model": "STOC39V",
+      "variant": "Gloss peach pink frame / brown lens",
+      "aliases": [
+        "STOC39V"
+      ],
+      "sizeScale": [
+        {
+          "size": "ONE SIZE",
+          "declared": "56-17-140"
+        }
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Authorized-retailer page exposes a pink STOC39V colour suffix 06HB and dimensions 56-17-140.",
+        "Because the user supplied only base code STOC39V, do not silently assume 06HB is the owned colourway; use the acquired preview for human variant confirmation if multiple pink variants survive."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "INDEXED_OUTBOUND_MEDIA",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "INDEXED_OUTBOUND_MEDIA"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [
+      {
+        "route": "DIRECT_OFFICIAL_PAGE",
+        "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.tradeinn.com/dressinn/fr/tous-lunettes-de-soleil-pour-femme-stoc39v/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.tradeinn.com/dressinn/de/tous-stoc39v-damen-sonnenbrille/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.tradeinn.com/dressinn/it/tous-occhiali-da-sole-da-donna-stoc39v/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      },
+      {
+        "route": "INDEXED_OUTBOUND_MEDIA",
+        "url": "https://www.tradeinn.com/dressinn/pt/tous-oculos-de-sol-femininos-stoc39v/141504278/p",
+        "authorityTier": null,
+        "candidates": 17
+      }
+    ],
+    "identifierAliases": [],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "research",
+      "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "ok": false,
+      "error": "unknown discoveryTransport 'CHATGPT_WEB_RESEARCH'"
+    },
+    {
+      "stage": "research",
+      "url": "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+      "ok": false,
+      "error": "unknown discoveryTransport 'CHATGPT_WEB_RESEARCH'"
+    },
+    {
+      "stage": "link-target",
+      "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "ok": true,
+      "targets": 6,
+      "sample": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p"
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 342027,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://designeroptics.com/products/tous-stoc39v-sunglasses",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/es/tous-gafas-de-sol-de-mujer-stoc39v/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 344684,
+      "shell_suspected": false
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/fr/tous-lunettes-de-soleil-pour-femme-stoc39v/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/fr/tous-lunettes-de-soleil-pour-femme-stoc39v/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 346966,
+      "shell_suspected": false
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/de/tous-stoc39v-damen-sonnenbrille/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/de/tous-stoc39v-damen-sonnenbrille/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 344839,
+      "shell_suspected": false
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/it/tous-occhiali-da-sole-da-donna-stoc39v/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/it/tous-occhiali-da-sole-da-donna-stoc39v/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 345001,
+      "shell_suspected": false
+    },
+    {
+      "stage": "size-scale",
+      "url": "https://www.tradeinn.com/dressinn/pt/tous-oculos-de-sol-femininos-stoc39v/141504278/p",
+      "ok": true,
+      "declared": 1
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tradeinn.com/dressinn/pt/tous-oculos-de-sol-femininos-stoc39v/141504278/p",
+      "ok": true,
+      "raw_candidates": 17,
+      "page_has_sku": true,
+      "sku_evidence_where": "body",
+      "html_bytes": 344149,
+      "shell_suspected": false
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 47
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cache.tradeinn.com/web/home_tradeinn/dressinn-thmini.webp",
+      "ok": true,
+      "size": "331x181",
+      "bytes": 18262,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-damen-sonnenbrille.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.webp",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2a0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_stars_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_en_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_es.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_es_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_fr.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_fr_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_de.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_de_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_it.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_it_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_pt.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/web/opi-verificadas_pt_mobile.svg",
+      "ok": false,
+      "error": "undecodable: cannot identify image file <_io.BytesIO object at 0x7f600203a2f0>"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-woman-sunglasses.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-stoc39v-woman-sunglasses.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://cache.tradeinn.com/web/logos_proveidors/5135.webp",
+      "ok": false,
+      "error": "aspect 2.5:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cache.tradeinn.com/web/web/banner-app-rebajasv26.jpg",
+      "ok": false,
+      "error": "source-page evidence requires an authoritative declaration; html-scan is a page sweep"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-stoc39v-woman-sunglasses.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-gafas-de-sol-de-mujer-stoc39v.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-lunettes-de-soleil-pour-femme-stoc39v.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-stoc39v-damen-sonnenbrille.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-stoc39v-damen-sonnenbrille.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-stoc39v-damen-sonnenbrille.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-stoc39v-damen-sonnenbrille.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-occhiali-da-sole-da-donna-stoc39v.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/d/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.webp",
+      "ok": true,
+      "size": "500x500",
+      "bytes": 7244,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://www.tradeinn.com/f/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.jpg",
+      "ok": true,
+      "size": "1000x1000",
+      "bytes": 20474,
+      "upgraded_from": null
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.jpg",
+      "ok": false,
+      "error": "too small (360 B)"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tradeinn.com/m/14150/141504278/tous-oculos-de-sol-femininos-stoc39v.webp",
+      "ok": false,
+      "error": "too small (360 B)"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
