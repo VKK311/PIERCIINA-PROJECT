@@ -63,16 +63,18 @@
     }
   ],
   "discoveryPages": [
+    "https://us.jimmychoo.com/en/women/accessories/sunglasses/",
+    "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/",
+    "https://www.jimmychoo.com/en/women/accessories/sunglasses/",
     "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
-    "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
-    "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
-    "https://www.designerframesoutlet.com/jimmy-choo-sunglasses-sparksgs"
+    "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html"
   ],
   "discoveryRoutes": {
+    "https://us.jimmychoo.com/en/women/accessories/sunglasses/": "DIRECT_OFFICIAL_PAGE",
+    "https://us.jimmychoo.com/en/women/accessories/sunglasses/sparks/": "DIRECT_OFFICIAL_PAGE",
+    "https://www.jimmychoo.com/en/women/accessories/sunglasses/": "OFFICIAL_REGIONAL_SEARCH",
     "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html": "DIRECT_RETAILER_PAGE",
-    "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html": "DIRECT_RETAILER_PAGE",
-    "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html": "DIRECT_RETAILER_PAGE",
-    "https://www.designerframesoutlet.com/jimmy-choo-sunglasses-sparksgs": "TRUSTED_RETAILER_SEARCH"
+    "https://www.timepiece.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html": "DIRECT_RETAILER_PAGE"
   },
   "officialHostSuffixes": [
     "jimmychoo.com",
@@ -88,7 +90,8 @@
     "occhialando.eu",
     "safilo.com",
     "smartbuyglasses.com",
-    "timepiece.com"
+    "timepiece.com",
+    "us.jimmychoo.com"
   ],
   "resolution": {
     "widthLadder": [
@@ -100,6 +103,9 @@
   },
   "requestedBy": "claude",
   "notes": [
+    "PASS 4 — CLOSE THE OFFICIAL ROUTE. The pass-3 audit reported DIRECT_OFFICIAL_PAGE as never attempted, which was my omission rather than an exhausted route: I never supplied an official page because none surfaced in early research. The brand's sunglasses listing is a real observed URL and is not a search route, so link-target recovery can reach a Sparks page from it; the /sparks/ URL is a constructed lead from the observed grammar /sunglasses/<model>/ and costs a 404 if wrong.",
+    "EXPECTED OUTCOME IS UNCERTAIN. jimmychoo.com indexes its own JC-prefixed codes such as LOU0JC5062UE87014099, not the Safilo code SPARKS/G/S 8CQ, and the model appears to be discontinued at several retailers. If the official route yields nothing, the honest state is PHOTO SET INCOMPLETE with one unique exact-SKU image, not a claim that no media exists.",
+    "PASS 3 RESULT: still ONE unique image at 800x800. The resolution upgrade now fires correctly but the retailer's cache path is baked to 800px, so that is a real ceiling on that asset rather than a missed transform. Timepiece yielded 13 candidates and designerframesoutlet 64, none carrying the article code in the asset path.",
     "PASS 3 — RESOLUTION UPGRADE AND A SECOND CATALOGUE. Pass 2 acquired ONE image at 800x800 on asset-url evidence, which is below the media policy's three and below the 1000px preference. Two causes, both now fixed generically: the asset URL carried an undecoded &amp; between its parameters, so the second size parameter arrived named 'amp;height' and was ignored; and the size-transform regex covered wid/hei but not the spelled-out width/height a Magento storefront uses, so a larger copy of the same asset was never requested.",
     "COLOUR IS NOW SETTLED BY THE FRAME, and it is not plain pink. The acquired image shows a translucent plum/wine-purple frame with rose-pink lenses and a crystal-set CHOO logo on the temple. Retailer text agrees on the purple reading: eBay via Otticanet says VIOLET, SmartBuyGlasses says Transparent Purple with Pink lenses, Go-Optic says Cherry. Only Jomashop and Timepiece say 'pink'. The public colour must reflect the frame, and the user is to decide the exact wording.",
     "PASS 2 — EVIDENCED ALIAS AND OBSERVED MEDIA HOST. Pass 1 established identity (MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED) and reached the retailer pages, but every candidate was rejected as a page sweep because no asset URL carried a known alias. The rejection log itself supplied the missing form, 'sparksgs-8cq', and the media host cdn2.jomashop.com. Both are now allowed on that observation.",
