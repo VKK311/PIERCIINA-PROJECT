@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-038 and PM-039 publication.
-Status: **PM-001…PM-039 PUBLISHED.**
+Updated: PM-040 publication.
+Status: **PM-001…PM-040 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `9a58db3bb69135ecca41283b60b23a3745a4d6a7b2e6d815bc9b7d67ff3325cc` |
-| CANONICAL WEBSITE BYTES | 2580381 |
+| CANONICAL WEBSITE SHA-256 | `45db7d36906e65b778b1f32c16d1c40ba1757dce1f658818a8be13433cf78141` |
+| CANONICAL WEBSITE BYTES | 2582490 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-039 |
-| NEXT ID | PM-040 |
+| PUBLIC CATALOG | PM-001 … PM-040 |
+| NEXT ID | PM-041 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -45,14 +45,15 @@ canonical build by hash before treating it as canonical.
 | 134-200-409 | **PUBLISHED as PM-037** on 2026-08-28 — unblocked by owner-supplied photographs |
 | 40754650 (supplied alias 40754) | **PUBLISHED as PM-038** on 2026-08-29 |
 | 4AR165 | **PUBLISHED as PM-039** on 2026-08-29 |
+| SPARKS/G/S 8CQ | **PUBLISHED as PM-040** on 2026-08-29 — identity from the frame's own temple print; media `USER_SUPPLIED` |
 
 ## Media acquisition automation
 
 | | |
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
-| SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 94/94 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-038 and PM-039, production + standalone |
+| SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 177/177 guards |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031…PM-040, production + standalone |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`

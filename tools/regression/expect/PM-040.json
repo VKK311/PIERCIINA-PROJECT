@@ -1,0 +1,24 @@
+{
+  "id": "PM-040",
+  "catalogueSize": 40,
+  "brand": "Jimmy Choo",
+  "manufacturerItemNo": "SPARKS/G/S",
+  "name": "Sparks",
+  "category": "accessories",
+  "subcategory": null,
+  "color": "Pink",
+  "priceEUR": 71,
+  "newUntil": "2026-09-12",
+  "sizes": ["ONE SIZE"],
+  "surface": "#F1F1F1",
+  "nativeWidth": 1284,
+  "nativeHeight": 1333,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": ["jimmy choo", "sparks", "очила", "SPARKS/G/S"],
+  "priorProducts": ["PM-031", "PM-032", "PM-033", "PM-034", "PM-035", "PM-036", "PM-037", "PM-038", "PM-039"],
+  "frames": [
+    {"file": "PM-040-main.webp", "sha256": "c152102eabfd3bff4159ae191c50f0236b7b973e8e19634d25c66b0e9a197b8f", "width": 1284, "height": 1333},
+    {"file": "PM-040-02.webp", "sha256": "28aab73f655cf979a9c309f971962c9b3c629ab3ea4a612c213bfaf93ed9e534", "width": 1284, "height": 1342},
+    {"file": "PM-040-03.webp", "sha256": "48bf6765f10082ab03670bd9b52e5c460cf91b9ff0465d74827a6fa35b27ef8a", "width": 1284, "height": 1404}
+  ]
+}

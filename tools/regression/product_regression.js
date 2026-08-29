@@ -74,15 +74,29 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   const nameOf = (src) => page.evaluate(([s, l]) => window.__frameName(s, l), [src, LIVE]);
 
   console.log(`\n== load (${FILE}) ==`);
-  // fonts.googleapis.com is reset by this container's egress proxy, identically
+  // fonts.googleapis.com is blocked by this container's egress proxy, identically
   // on builds that predate the product. Environment fact, not a product defect.
+  // The proxy's refusal has changed shape over time (connection reset, then an
+  // untrusted MITM certificate), so do not hard-code the error string.
   const isFont = u => /fonts\.(googleapis|gstatic)\.com/.test(u);
   const realFails = failedReqs.filter(u => !isFont(u));
   const fontBlocked = failedReqs.length - realFails.length;
   const favicons = badResponses.filter(r => /favicon/i.test(r));
   const realBad  = badResponses.filter(r => !/favicon/i.test(r));
+  // Chromium logs a subresource failure as a bare "Failed to load resource:
+  // net::ERR_x" with no URL, so it can only be attributed by correlation:
+  // forgive one only when some font request failed with that same net:: code
+  // and no non-font request did.
+  const netCode = t => (t.match(/net::([A-Z_]+)/) || [])[1] || null;
+  const codesOf = list => new Set(list.map(netCode).filter(Boolean));
+  const fontCodes = codesOf(failedReqs.filter(isFont));
+  const realCodes = codesOf(realFails);
+  const isBlockedFontEcho = t => {
+    const c = netCode(t);
+    return !!c && /^Failed to load resource/.test(t) && fontCodes.has(c) && !realCodes.has(c);
+  };
   const realErrors = consoleErrors.filter(t =>
-    !/ERR_CONNECTION_RESET/.test(t) && !(/404/.test(t) && !realBad.length));
+    !isBlockedFontEcho(t) && !(/404/.test(t) && !realBad.length));
   is(realErrors.length === 0, 'no console errors beyond blocked fonts/favicon',
      realErrors.slice(0, 3).join(' | '));
   is(realFails.length === 0, 'no failed requests beyond the blocked font CDN',
