@@ -727,6 +727,62 @@ mix aspect ratios.
 Files were copied rather than re-encoded — they were already WebP, and a second
 pass would only have cost quality — so the live hashes equal the originals'.
 
+## SPARKS/G/S 8CQ — PHOTO SET INCOMPLETE (identity established)
+
+| | |
+|---|---|
+| STATE | **not staged, not published** |
+| BRAND / MODEL | Jimmy Choo / Sparks (Safilo licence) |
+| ITEM | `SPARKS/G/S`, colourway **8CQ** (sold as 8CQ/U1), 55-17-140 |
+| CATEGORY | ACCESSORIES, `subcategory: null` |
+| PRICE / AVAILABILITY | €71 · ONE SIZE (user source of truth) |
+| IDENTITY | **ESTABLISHED** — exact-SKU, asset-url evidence via the colour-scoped alias |
+| MEDIA | **1 unique image** at 800×800; policy minimum is 3 |
+| TIER | TRUSTED_RETAILER (`cdn2.jomashop.com`) |
+| PASSES | 4, across 6 retailer catalogues and 3 official URLs |
+
+**The colour is not pink, and that matters for the listing.** The acquired frame
+is translucent **plum / wine-purple with rose-pink lenses** and a crystal-set
+CHOO logo on the temple. Retailer text agrees on the purple reading — eBay via
+Otticanet says VIOLET, SmartBuyGlasses says Transparent Purple with Pink
+lenses, Go-Optic says Cherry — against Jomashop and Timepiece, which say
+"pink" and appear to be describing the lenses. The user's brief said "Jimmy
+Choo Pink". The public colour must follow the frame and the exact wording is
+the user's to choose.
+
+**Why only one image.** Four passes reached jomashop, timepiece,
+smartbuyglasses, designerframesoutlet, occhialando and three jimmychoo.com
+URLs. Retailers carry a single catalogue shot for this discontinued frame:
+timepiece yielded 13 candidates and designerframesoutlet 64, none carrying the
+article code in the asset path. The official route returned **403 on all three
+URLs** — bot protection, recorded as unreachable rather than as evidence that
+no official media exists.
+
+Resolution is capped at 800×800 by the retailer's baked cache path. That is a
+real ceiling on that asset, not a missed transform.
+
+### Three generic defects this product exposed, all fixed
+
+1. **Slashed article codes broke the output path.** `SPARKS/G/S` joined onto a
+   path silently created nested directories instead of one product folder. Only
+   the path is sanitised; the code keeps its slashes wherever identity is
+   judged. The folder now also carries the colour code, because this model
+   ships 8CQ, 8CO and 1N5 and two colourways would have overwritten each other.
+2. **Entity-escaped URLs were fetched verbatim.** The asset URL carried
+   `?width=800&amp;height=800`, so the second parameter reached the server named
+   `amp;height` and was ignored. Scraped URLs are now decoded wherever
+   candidates are assembled.
+3. **The size-transform regex was too narrow.** It covered Scene7's `wid`/`hei`
+   but not the spelled-out `width`/`height` a Magento storefront uses, so a
+   larger copy of the asset was never requested and 800px was accepted as
+   though it were all the CDN had.
+
+### What would complete it
+
+Three product photographs, as for VEE Collective 134-200-409. Padding the
+gallery with the same shot twice, or borrowing a neighbouring colourway, are
+both excluded.
+
 ## Bounded SPA rendering — built, proven, and refused by one site
 
 `tools/media_acquisition/render.py` renders ONE already evidenced product URL
