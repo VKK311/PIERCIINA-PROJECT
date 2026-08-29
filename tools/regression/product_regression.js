@@ -266,17 +266,29 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
 
   console.log('\n== every authored alt reaches the hero ==');
   const nThumb = await page.evaluate(() => document.querySelectorAll('#pmsSheet .pms-thumb').length);
-  is(nThumb === NAMES.length, `${NAMES.length} thumbnails`, String(nThumb));
+  // The storefront intentionally suppresses the thumbnail rail for a one-image
+  // product. Multi-image products still expose one thumbnail per frame.
+  const expectedThumbs = NAMES.length > 1 ? NAMES.length : 0;
+  is(nThumb === expectedThumbs, `${expectedThumbs} thumbnails for ${NAMES.length} frame(s)`, String(nThumb));
   const wantAlt = [p.media.imageAlt].concat(p.media.galleryAlt);
-  for (let i = 0; i < nThumb; i++) {
-    await page.evaluate(k => document.querySelectorAll('#pmsSheet .pms-thumb')[k].click(), i);
-    await page.waitForTimeout(300);
+  if (NAMES.length === 1) {
     const h = await page.evaluate(() => {
       const el = document.querySelector('#pmsSheet .pms-detail-main img');
       return { rawSrc: el.getAttribute('src') || '', alt: el.getAttribute('alt') };
     });
     const nm = await nameOf(h.rawSrc);
-    is(nm === NAMES[i] && h.alt === wantAlt[i], `frame ${i} is ${NAMES[i]} with its authored alt`, h.alt);
+    is(nm === NAMES[0] && h.alt === wantAlt[0], `single frame is ${NAMES[0]} with its authored alt`, h.alt);
+  } else {
+    for (let i = 0; i < nThumb; i++) {
+      await page.evaluate(k => document.querySelectorAll('#pmsSheet .pms-thumb')[k].click(), i);
+      await page.waitForTimeout(300);
+      const h = await page.evaluate(() => {
+        const el = document.querySelector('#pmsSheet .pms-detail-main img');
+        return { rawSrc: el.getAttribute('src') || '', alt: el.getAttribute('alt') };
+      });
+      const nm = await nameOf(h.rawSrc);
+      is(nm === NAMES[i] && h.alt === wantAlt[i], `frame ${i} is ${NAMES[i]} with its authored alt`, h.alt);
+    }
   }
 
   console.log('\n== order path ==');

@@ -1,0 +1,45 @@
+{
+  "id": "PM-041",
+  "catalogueSize": 41,
+  "brand": "Police",
+  "manufacturerItemNo": "SPLA94",
+  "name": "Moonbeam 1",
+  "category": "accessories",
+  "subcategory": null,
+  "color": "Pink",
+  "priceEUR": 64,
+  "newUntil": "2026-09-12",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#FFFFFF",
+  "nativeWidth": 1000,
+  "nativeHeight": 455,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "police",
+    "moonbeam",
+    "очила",
+    "SPLA94"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036",
+    "PM-037",
+    "PM-038",
+    "PM-039",
+    "PM-040"
+  ],
+  "frames": [
+    {
+      "file": "PM-041-main.webp",
+      "sha256": "f80fc9f37ba69ab0f3e9630d167196e885958ca62c1e2a03444789c48cff2ad9",
+      "width": 1000,
+      "height": 455
+    }
+  ]
+}

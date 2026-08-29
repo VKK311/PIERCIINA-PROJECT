@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-040 publication.
-Status: **PM-001…PM-040 PUBLISHED.**
+Updated: PM-041 publication.
+Status: **PM-001…PM-041 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `45db7d36906e65b778b1f32c16d1c40ba1757dce1f658818a8be13433cf78141` |
-| CANONICAL WEBSITE BYTES | 2582490 |
+| CANONICAL WEBSITE SHA-256 | `c233bc784c2a7c2bc236c00d3879e032c1fdb16fed36afdb7ab71c59a85fd5c7` |
+| CANONICAL WEBSITE BYTES | 2584166 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-040 |
-| NEXT ID | PM-041 |
+| PUBLIC CATALOG | PM-001 … PM-041 |
+| NEXT ID | PM-042 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -46,6 +46,7 @@ canonical build by hash before treating it as canonical.
 | 40754650 (supplied alias 40754) | **PUBLISHED as PM-038** on 2026-08-29 |
 | 4AR165 | **PUBLISHED as PM-039** on 2026-08-29 |
 | SPARKS/G/S 8CQ | **PUBLISHED as PM-040** on 2026-08-29 — identity from the frame's own temple print; media `USER_SUPPLIED` |
+| SPLA94 | **PUBLISHED as PM-041** on 2026-08-29 — owner-approved one-image exception; exact pink variant 8RFX |
 
 ## Media acquisition automation
 
@@ -53,7 +54,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 177/177 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031…PM-040, production + standalone |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031…PM-041, production + standalone |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
@@ -97,9 +98,9 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `1808971957464d5d275158b75a45a5354de14c952bfc2d3114c865fbb450be64` |
-| BYTES | 10463663 |
-| LAST PUBLICATION VALIDATION | PASS — GitHub Actions run `33246543092`, PM-038 + PM-039 production and standalone |
+| SHA-256 | `287fe7d710d20bc7284382b631ddaee01248ff362ce814a15107178157b1d4df` |
+| BYTES | 10582972 |
+| LAST PUBLICATION VALIDATION | PASS — PM-041 production + standalone + viewport smoke |
 | DEVELOPMENT REBUILD | PASS — GitHub Actions run `33246626108` |
 | BUILDER | `python tools/build_standalone_review.py` |
 | AUTOMATION | `.github/workflows/standalone-review.yml`, on any change to `PINKMALL.html` or `assets/` |
@@ -1114,3 +1115,26 @@ IMAGE 05 was excluded because it contains a mannequin/person-like silhouette.
 The source's child-series classification is internal only; it is absent from
 the public name, description, tags, alt text and category, and the browser
 regression verifies that no child/junior marker is rendered.
+
+
+## PM-041 — published
+
+| | |
+|---|---|
+| PUBLISHED | 2026-08-29 |
+| BRAND / MODEL | Police / Moonbeam 1 |
+| MANUFACTURER ITEM | SPLA94 |
+| VERIFIED VARIANT | 8RFX — Pink / Pink Shaded |
+| PUBLIC COLOUR | Pink |
+| MATERIAL | omitted — no customer-facing composition claim published |
+| PRICE | €64, no SALE |
+| INVENTORY MODE | availability |
+| SIZES | ONE SIZE — available |
+| NEW UNTIL | 2026-09-12 |
+| MAIN | IMAGE 01 — exact-item front product shot |
+| GALLERY | **1 image total — OWNER-APPROVED EXCEPTION** |
+| LIVE MEDIA | `assets/pink-mall/products/PM-041/PM-041-main.webp` — 1000×455 WebP, native aspect |
+| ORIGINAL | `assets/pink-mall/products/PM-041/source/SPLA94-01-original.jpg` |
+| MEDIA TIER | TRUSTED_RETAILER — exact SKU present in asset URL |
+
+The normal Pink Mall media contract still requires at least three unique exact-product images. PM-041 is a product-specific exception explicitly approved by the owner on 2026-08-29; it does not change the default acquisition or approval gate for any other SKU.
