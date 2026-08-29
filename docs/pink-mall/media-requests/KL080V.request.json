@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 7,
+  "brand": "Kartell",
+  "manufacturerItemNo": "KL080V",
+  "model": "UNRESOLVED — Kartell pink sunglasses",
+  "variant": "Pink — exact Kartell model/colour code not yet verified",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [],
+  "discoveryPages": [
+    "https://www.kartell.com/bg/en/kteu/shop/dept/eyewear/c_0503"
+  ],
+  "discoveryRoutes": {
+    "official": "OFFICIAL_EYEWEAR_CATALOGUE_SEARCH_REQUIRED"
+  },
+  "officialHostSuffixes": ["kartell.com"],
+  "allowedHostSuffixes": ["kartell.com"],
+  "resolution": {
+    "widthLadder": [2000, 1600, 1200, 1000]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €49 and availability ONE SIZE.",
+    "User supplied brand Kartell, descriptor pink sunglasses, and item number KL080V.",
+    "Open-web exact-code research did not establish a reliable Kartell product page or exact model for KL080V; do not map it to a visually similar Kartell frame.",
+    "Acquisition may search only for exact-item evidence. If exact identity cannot be established, return identity/media BLOCKED rather than guessing.",
+    "External retailer/manufacturer price and stock must not be imported.",
+    "Only product-only media may pass; reject people and unrelated variants."
+  ]
+}

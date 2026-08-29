@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 7,
+  "brand": "Police",
+  "manufacturerItemNo": "SPLA94",
+  "model": "MOONBEAM 1",
+  "variant": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "SPLA94",
+      "skuInBody": true,
+      "model": "MOONBEAM 1",
+      "variant": "8RFX — Pink / Pink Shaded",
+      "aliases": ["SPLA94 8RFX"],
+      "sizeScale": [{"size": "ONE SIZE", "declared": "54/18/140"}],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Police retailer identifies MOONBEAM 1 SPLA94, colour code 8RFX, pink metal frame, pink shaded/mirrored lenses, size 54/18/140.",
+        "Base style SPLA94 also appears online with other colour suffixes; do not publish a suffix without visual/identity confirmation."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.otticanet.com/products/police-moonbeam-1-spla94-pink-1248567",
+    "https://www.otticanet.it/en-de/products/police-moonbeam-1-spla94-pink-1248567"
+  ],
+  "discoveryRoutes": {
+    "trustedRetailer": "OFFICIAL_RETAILER_EXACT_MODEL_PAGE",
+    "variantGate": "BASE_CODE_REQUIRES_VISUAL_CONFIRMATION_IF_MULTIPLE_PINK_VARIANTS"
+  },
+  "officialHostSuffixes": ["policelifestyle.com"],
+  "allowedHostSuffixes": [
+    "policelifestyle.com",
+    "otticanet.com",
+    "otticanet.it"
+  ],
+  "resolution": {
+    "widthLadder": [2000, 1600, 1200, 1000]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €64 and availability ONE SIZE.",
+    "External retailer/manufacturer price and stock must not be imported.",
+    "Category target: ACCESSORIES.",
+    "Only product-only media may pass; reject people and unrelated variants.",
+    "Human approval remains required before publication; if the acquisition finds multiple pink SPLA94 colourways, return variant confirmation required rather than choosing automatically."
+  ]
+}

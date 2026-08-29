@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 7,
+  "brand": "Tous",
+  "manufacturerItemNo": "STOC39V",
+  "model": "STOC39V",
+  "variant": "Pink — base style; exact colour suffix to be confirmed by visual approval",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "STOC39V",
+      "skuInBody": true,
+      "model": "STOC39V",
+      "variant": "Pink frame / brown lenses",
+      "aliases": [],
+      "sizeScale": [{"size": "ONE SIZE", "declared": ""}],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Exact-model retailer page identifies Tous STOC39V as a women's pink square sunglass frame; the page describes acetate/cellulose-acetate construction and brown lenses.",
+        "Retailer copy is evidence for research only; publication must use only facts that survive exact-item verification."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-29T00:00:00.000Z",
+      "sku": "STOC39V-06HB",
+      "skuInBody": true,
+      "model": "STOC39V",
+      "variant": "Gloss peach pink frame / brown lens",
+      "aliases": ["STOC39V"],
+      "sizeScale": [{"size": "ONE SIZE", "declared": "56-17-140"}],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Authorized-retailer page exposes a pink STOC39V colour suffix 06HB and dimensions 56-17-140.",
+        "Because the user supplied only base code STOC39V, do not silently assume 06HB is the owned colourway; use the acquired preview for human variant confirmation if multiple pink variants survive."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.tradeinn.com/dressinn/en/tous-stoc39v-woman-sunglasses/141504278/p",
+    "https://www.congafasdesol.com/tous-stoc39v-06hb.html",
+    "https://designeroptics.com/products/tous-stoc39v-sunglasses"
+  ],
+  "discoveryRoutes": {
+    "trustedRetailer": "EXACT_MODEL_RETAILER_PAGES",
+    "variantGate": "BASE_CODE_REQUIRES_VISUAL_CONFIRMATION_IF_MULTIPLE_PINK_VARIANTS"
+  },
+  "officialHostSuffixes": ["tous.com"],
+  "allowedHostSuffixes": [
+    "tous.com",
+    "tradeinn.com",
+    "congafasdesol.com",
+    "designeroptics.com"
+  ],
+  "resolution": {
+    "widthLadder": [2000, 1600, 1200, 1000]
+  },
+  "requestedBy": "chatgpt",
+  "notes": [
+    "User source of truth: €49 and availability ONE SIZE.",
+    "External retailer/manufacturer price and stock must not be imported.",
+    "Category target: ACCESSORIES.",
+    "Only product-only media may pass; reject people and unrelated variants.",
+    "Human approval remains required before publication, especially if more than one pink STOC39V colour suffix is discovered."
+  ]
+}
