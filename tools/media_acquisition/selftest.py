@@ -1038,6 +1038,25 @@ def main():
     checks.append(("a body assertion without a SKU is not exact",
                    _e3.get("exactProductDocument") is not True))
 
+    # Eyewear codes carry slashes. Joining one onto a path silently creates
+    # nested directories instead of one product folder, and only the path may
+    # be sanitised — the article code keeps its slashes wherever identity is
+    # judged.
+    from acquire import safe_dir_name  # noqa: E402
+    checks.append(("a slashed article code yields one flat folder",
+                   safe_dir_name("SPARKS/G/S") == "SPARKS-G-S"))
+    checks.append(("ordinary codes are untouched",
+                   safe_dir_name("HC.RBGLOW01") == "HC.RBGLOW01"
+                   and safe_dir_name("27733247") == "27733247"))
+    checks.append(("path traversal cannot escape the output root",
+                   "/" not in safe_dir_name("../../etc/passwd")
+                   and ".." not in safe_dir_name("../../etc/passwd")))
+    checks.append(("an empty code still yields a usable name",
+                   safe_dir_name("   ") == "unnamed"))
+    checks.append(("two colourways of one model do not share a folder",
+                   safe_dir_name("SPARKS/G/S" + "-8CQ")
+                   != safe_dir_name("SPARKS/G/S" + "-8CO")))
+
     ok = True
     for name, passed in checks:
         print(("  PASS  " if passed else "  FAIL  ") + name)

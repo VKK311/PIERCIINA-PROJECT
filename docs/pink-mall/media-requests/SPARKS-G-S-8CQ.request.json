@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 7,
+  "brand": "Jimmy Choo",
+  "manufacturerItemNo": "SPARKS/G/S",
+  "variantCode": "8CQ",
+  "model": "Sparks",
+  "variant": "8CQ",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": true,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-28T00:00:00Z",
+      "sku": "SPARKS/G/S",
+      "model": "Sparks",
+      "variant": "8CQ/U1",
+      "aliases": ["SPARKSGS8CQ", "SPARKS-G-S-8CQ", "SPARKS_G_S_8CQ", "SparksGS-8CQU1", "8CQU1"],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Establishes the exact colourway the user selected: 8CQ, sold as 8CQ/U1. Frame transparent purple, lenses pink. Size 55-17-140.",
+        "ALIASES ARE COLOUR-SCOPED ON PURPOSE. Every alias binds the model to 8CQ. Bare 'SPARKS' or bare '8CQ' are deliberately excluded: SPARKS/G/S ships at least three pink-ish colourways (8CQ, 8CO, 1N5) and a colour-agnostic alias would admit the wrong frame — the failure the exact-variant rule exists to prevent.",
+        "COLOUR IS CONTESTED ACROSS RETAILERS for this same code: violet, transparent purple, cherry and pink all appear. The public colour must be decided from the acquired frames, not from retailer text."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-28T00:00:00Z",
+      "sku": "SPARKS/G/S",
+      "model": "Sparks",
+      "variant": "8CQ",
+      "aliases": ["SPARKSGS8CQ", "sparks-g-s-8cq"],
+      "sizeScale": [],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Second independent listing of the same code, describing it as pink cat-eye at size 55. Corroborates the code and the model; contributes no image.",
+        "Product type: angular cat-eye women's sunglasses. ONE SIZE for the Mall; 55-17-140 is an eyewear measurement, not a size ladder."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html",
+    "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html",
+    "https://www.designerframesoutlet.com/jimmy-choo-sunglasses-sparksgs",
+    "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry"
+  ],
+  "discoveryRoutes": {
+    "https://www.smartbuyglasses.com/designer-sunglasses/Jimmy-Choo/Jimmy-Choo-SparksGS-8CQU1-492878.html": "DIRECT_RETAILER_PAGE",
+    "https://www.jomashop.com/jimmy-choo-ladies-pink-cat-eye-sunglasses-sparks-g-s-8cq-55.html": "DIRECT_RETAILER_PAGE",
+    "https://www.designerframesoutlet.com/jimmy-choo-sunglasses-sparksgs": "TRUSTED_RETAILER_SEARCH",
+    "https://www.occhialando.eu/sunglasses/jimmy-choo-sparksgs-8cq-u1-cherry": "DIRECT_RETAILER_PAGE"
+  },
+  "officialHostSuffixes": ["jimmychoo.com", "safilo.com"],
+  "allowedHostSuffixes": [
+    "jimmychoo.com", "safilo.com", "smartbuyglasses.com", "jomashop.com",
+    "designerframesoutlet.com", "go-optic.com", "occhialando.eu"
+  ],
+  "resolution": { "widthLadder": [2000, 1600, 1200, 1000] },
+  "requestedBy": "claude",
+  "notes": [
+    "PASS 1. User supplied brand Jimmy Choo, code SPARKS/G/S, EUR 71, ONE SIZE, and selected colourway 8CQ when asked, because the model ships at least three pink-ish colourways and the code alone does not pin one.",
+    "USER SOURCE OF TRUTH: EUR 71 and ONE SIZE. No external retailer price or stock state may be imported.",
+    "COLOUR IS NOT SETTLED. The user described the item as pink; 8CQ is described by retailers as violet, transparent purple, cherry and pink, with pink lenses. The public colour is to be decided from the acquired frames and put to the user, never smoothed over.",
+    "The article code contains slashes. Only the output PATH is sanitised; the code keeps its slashes wherever identity is judged.",
+    "Official media is preferred, but Jimmy Choo eyewear is licensed to Safilo and the brand's own site may not index the Safilo colour code. Retailer media is the expected tier and must be recorded as such."
+  ]
+}

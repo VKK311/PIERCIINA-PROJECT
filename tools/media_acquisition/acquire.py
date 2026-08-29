@@ -261,6 +261,19 @@ def is_search_route(url):
 # client-side shell rather than a document we failed to parse.
 SHELL_HTML_BYTES = 15000
 
+def safe_dir_name(sku):
+    """A filesystem-safe folder name for an article code.
+
+    Eyewear codes carry slashes — Jimmy Choo's SPARKS/G/S is a real Safilo
+    code — and joining one straight onto a path silently creates nested
+    directories (SPARKS/G/S/source) instead of one product folder. Only the
+    PATH is sanitised; the article code itself is untouched and keeps its
+    slashes everywhere identity is judged.
+    """
+    out = re.sub(r"[^A-Za-z0-9._-]+", "-", str(sku or "").strip())
+    return out.strip("-.") or "unnamed"
+
+
 MAX_ASPECT = 2.2
 
 
@@ -2099,7 +2112,12 @@ def write_outputs(request, selected, all_acquired, log, outroot, ledger=None,
     sku = request["manufacturerItemNo"].strip()
     brand = request["brand"].strip()
     rule = brand_rule(brand)
-    base = os.path.join(outroot, sku)
+    # Include the colour code in the folder when the request carries one.
+    # Two colourways of one model share an article code — SPARKS/G/S ships 8CQ,
+    # 8CO and 1N5 — so without it the second run would silently overwrite the
+    # first one's results.
+    _vc = str(request.get("variantCode") or "").strip()
+    base = os.path.join(outroot, safe_dir_name(sku + ("-" + _vc if _vc else "")))
     src_dir, prev_dir = os.path.join(base, "source"), os.path.join(base, "preview")
     # Wipe the previous run's artefacts. These directories are fully
     # regenerated, and leaving stragglers behind is genuinely dangerous: the

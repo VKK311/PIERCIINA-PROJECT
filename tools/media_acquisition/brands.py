@@ -267,6 +267,34 @@ BRANDS = {
         "sku_in_url": True,
         "view_re": None,
     },
+
+    "jimmy choo": {
+        "allowed_hosts": [
+            "www.jimmychoo.com", "jimmychoo.com",
+            "www.safilo.com", "safilo.com",
+            # Established eyewear retailers that publish the full Safilo code
+            # including the colour, which the brand's own site often does not.
+            "www.smartbuyglasses.com", "smartbuyglasses.com",
+            "www.jomashop.com", "jomashop.com",
+            "www.designerframesoutlet.com", "designerframesoutlet.com",
+            "www.go-optic.com", "go-optic.com",
+            "www.occhialando.eu", "occhialando.eu",
+        ],
+        # Manufacturer authority only. Jimmy Choo eyewear is made under licence
+        # by Safilo, so both are the brand side; every retailer above is a
+        # retailer we may connect to and nothing more.
+        "official_hosts": ["jimmychoo.com", "safilo.com"],
+        "page_templates": [],
+        # Left empty deliberately: this brand's media host has not been
+        # observed yet, and it gets filled in from a run's own rejection log
+        # rather than guessed.
+        "cdn_hosts": [],
+        "cdn_probe": [],
+        "cdn_probe_views": [],
+        "width_ladder": [2000, 1600, 1200, 1000],
+        "sku_in_url": True,
+        "view_re": None,
+    },
 }
 
 DEFAULT = {
