@@ -12,7 +12,7 @@
     {
       "sourceUrl": "https://www.ebay.ca/itm/266355004978",
       "authorityTier": "MARKETPLACE",
-      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-30T00:00:00.000Z",
       "sku": "6LPESC-J4836-2",
@@ -31,7 +31,7 @@
     {
       "sourceUrl": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
       "authorityTier": "OTHER_RETAILER",
-      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-30T00:00:00.000Z",
       "sku": "6LPESC J4836 2",
