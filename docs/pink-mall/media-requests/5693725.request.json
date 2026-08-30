@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 7,
+  "brand": "Swarovski",
+  "manufacturerItemNo": "5693725",
+  "model": "Crystalline Ballpoint Pen",
+  "variant": "Pink / Gold-tone plated",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.swarovski.com/en-BG/p-M5694180/Crystalline-ballpoint-pen-Pink-Gold-tone-plated/?variantID=5693725",
+      "authorityTier": "OFFICIAL",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "sku": "5693725",
+      "skuInBody": true,
+      "model": "Crystalline ballpoint pen",
+      "variant": "Pink / Gold-tone plated",
+      "aliases": ["M5694180"],
+      "sizeScale": [{"size":"ONE SIZE","declared":"14.4 x 1.1 cm"}],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Official Swarovski product document confirms article 5693725, Crystalline ballpoint pen, Pink, Gold-tone plated.",
+        "Owner supplied and approved three product-only photographs on 2026-08-30; they are the visual approval reference.",
+        "External retail price/stock must not be imported."
+      ]
+    }
+  ],
+  "discoveryPages": ["https://www.swarovski.com/en-BG/p-M5694180/Crystalline-ballpoint-pen-Pink-Gold-tone-plated/?variantID=5693725"],
+  "discoveryRoutes": {"official":"DIRECT_OFFICIAL_PAGE"},
+  "officialHostSuffixes": ["swarovski.com"],
+  "allowedHostSuffixes": ["swarovski.com"],
+  "resolution": {"widthLadder":[2000,1600,1200,1000]},
+  "requestedBy":"chatgpt",
+  "notes":[
+    "User source of truth: €49, ONE SIZE available, category ACCESSORIES.",
+    "Correct public product type is ballpoint pen, not fountain pen.",
+    "Owner explicitly approved publication in APPROVE ALL READY on 2026-08-30.",
+    "Only exact-product media may pass; do not import official price or stock."
+  ]
+}
