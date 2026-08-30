@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 7,
+  "brand": "Calvin Klein",
+  "manufacturerItemNo": "CKNYC1852S",
+  "model": "CKNYC1852S Sunglasses",
+  "variant": "680 / BLUSH",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.styliafoe.com/it/calvin-klein/occhiali/cknyc1852s.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "A",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "sku": "CKNYC1852S",
+      "skuInBody": true,
+      "model": "CKNYC1852S",
+      "variant": "680 / BLUSH",
+      "aliases": ["CKNYC1852S 680"],
+      "sizeScale": [{"size":"ONE SIZE","declared":"52/18"}],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Exact retailer listing confirms Calvin Klein CKNYC1852S colour 680 BLUSH.",
+        "Owner supplied and approved three product-only photographs on 2026-08-30; they are the visual approval reference.",
+        "Do not publish retailer stock, price or measurement as Mall availability."
+      ]
+    }
+  ],
+  "discoveryPages": ["https://www.styliafoe.com/it/calvin-klein/occhiali/cknyc1852s.html"],
+  "discoveryRoutes": {"trustedRetailer":"DIRECT_TRUSTED_RETAILER_PAGE"},
+  "officialHostSuffixes": ["calvinklein.com"],
+  "allowedHostSuffixes": ["styliafoe.com","calvinklein.com"],
+  "resolution": {"widthLadder":[2000,1600,1200,1000]},
+  "requestedBy":"chatgpt",
+  "notes":[
+    "User source of truth: €119, ONE SIZE available, category ACCESSORIES.",
+    "Owner explicitly approved publication in APPROVE ALL READY on 2026-08-30.",
+    "Only exact 680 / BLUSH product media may pass; do not import external price or stock."
+  ]
+}
