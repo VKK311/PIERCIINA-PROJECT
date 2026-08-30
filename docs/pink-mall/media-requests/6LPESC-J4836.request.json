@@ -7,6 +7,7 @@
   "availableSizes": ["ONE SIZE"],
   "candidateMedia": [
     "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+    "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
     "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg"
   ],
   "indexedAssetSearch": true,
@@ -45,6 +46,7 @@
       "sizeScale": [],
       "mediaUrls": [
         {"url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg", "field": "gallery"},
+        {"url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg", "field": "gallery"},
         {"url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg", "field": "gallery"}
       ],
       "observedCdnHosts": ["cdn.theluxurycloset.com"],
