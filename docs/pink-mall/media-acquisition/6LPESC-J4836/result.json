@@ -1,37 +1,101 @@
 {
   "schemaVersion": 1,
-  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "status": "PARTIAL",
   "sku": "6LPESC J4836",
   "brand": "Lanvin",
   "model": "Reversible Bucket Hat",
-  "variant": "Pink — user-supplied colour; exact colour suffix not yet established",
+  "variant": "Pink — owner visually confirmed from three supplied exact-product photographs on 2026-08-30",
   "officialProductPage": null,
-  "generatedAt": "2026-08-30T13:09:23Z",
+  "generatedAt": "2026-08-30T14:13:40Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33313377395",
+    "githubRunId": "33316215467",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "70b18beddb90e94ba5c8caae12b0c6695c2ee422"
+    "githubSha": "c375c9b7cbc2016fadb3b028a6b1e473bc162430"
   },
   "counts": {
-    "acquired": 0,
-    "unique_selected": 0,
+    "acquired": 2,
+    "unique_selected": 2,
     "duplicates_collapsed": 0
   },
   "variantConfidence": {
-    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
-    "signals": [],
+    "state": "VARIANT_CONFIDENCE_PASS",
+    "signals": [
+      "exact-SKU evidence on every image",
+      "official colour term(s) present in frame: pink"
+    ],
     "conflicts": [],
-    "officialColour": "Pink — user-supplied colour; exact colour suffix not yet established",
+    "officialColour": "Pink — owner visually confirmed from three supplied exact-product photographs on 2026-08-30",
     "officialAnchor": false
   },
-  "mediaTier": null,
+  "mediaTier": "TRUSTED_RETAILER",
   "mediaTierMixed": false,
-  "proposedMain": null,
-  "dominantBackdrop": null,
+  "proposedMain": "source/6LPESCJ4836-01-original.jpg",
+  "dominantBackdrop": "#EFEFEF",
   "cutoutSet": false,
-  "contactSheet": null,
-  "images": [],
+  "contactSheet": "CONTACT_SHEET.webp",
+  "images": [
+    {
+      "index": 1,
+      "role": "MAIN",
+      "file": "source/6LPESCJ4836-01-original.jpg",
+      "preview": "preview/6LPESCJ4836-01.webp",
+      "source_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "requested_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "anchor_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "source_domain": "cdn.theluxurycloset.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-30T14:12:44Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/jpeg",
+      "bytes": 430985,
+      "sha256": "d8997cc728fcf4ff51944ad810c0cbe764a7ef14c2947ff6a519e4494ac4ced9",
+      "dhash": "04101b0039527372736078a072a16cd9f150e630d8e4f158fd413ec242180800",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "backdrop": "#EFEFEF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "gallery",
+      "file": "source/6LPESCJ4836-02-original.jpg",
+      "preview": "preview/6LPESCJ4836-02.webp",
+      "source_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "requested_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "anchor_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "source_domain": "cdn.theluxurycloset.com",
+      "discovery_method": "research-evidence",
+      "acquired_at": "2026-08-30T14:12:45Z",
+      "width": 2000,
+      "height": 2000,
+      "longest_edge": 2000,
+      "mime": "image/jpeg",
+      "bytes": 285219,
+      "sha256": "b5340153469acac478291f165d4388cf9321b7858b8519d7cbeccfce2a07b336",
+      "dhash": "0000082004983f84313275306a496529d699f940d780c300c260fec07c838238",
+      "sku_in_url": false,
+      "sku_evidence": "source-page",
+      "source_page": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "backdrop": "#EFEFEF",
+      "duplicates_collapsed": [],
+      "authorityTier": "TRUSTED_RETAILER",
+      "cutout": false,
+      "validation": "PASS",
+      "warnings": [
+        "SKU not present in asset URL"
+      ]
+    }
+  ],
   "discoveryLedger": [
     {
       "route": "RESEARCH_EVIDENCE",
@@ -44,7 +108,7 @@
       "capturedAt": "2026-08-30T00:00:00.000Z",
       "observedSku": "6LPESC-J4836-2",
       "model": "Reversible Bucket Hat",
-      "variant": "Black / navy listing — NOT the user-supplied pink variant",
+      "variant": "Black / navy listing — NOT the owner-confirmed pink variant",
       "aliases": [
         "6LPESC J4836",
         "6LPESCJ48362"
@@ -56,24 +120,35 @@
     },
     {
       "route": "RESEARCH_EVIDENCE",
-      "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+      "url": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
       "result": "OK",
-      "exactProductDocument": true,
+      "exactProductDocument": false,
       "authorityTier": "OTHER_RETAILER",
       "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "B",
+      "confidence": "A",
       "capturedAt": "2026-08-30T00:00:00.000Z",
-      "observedSku": "6LPESC J4836 2",
-      "model": "Reversible Bucket Hat",
-      "variant": "Beige / khaki desert camo listing — NOT the user-supplied pink variant",
-      "aliases": [
-        "6LPESCJ48362",
-        "6LPESC J4836"
-      ],
-      "mediaUrls": 0,
-      "sizeLabels": 1,
+      "observedSku": "6LPESC J4836",
+      "model": "Pink Geometric Print Coated Cotton Bucket Hat",
+      "variant": "Pink — exact visual match to the owner's three supplied photographs",
+      "aliases": [],
+      "mediaUrls": 2,
+      "sizeLabels": 0,
       "sku_evidence": true,
-      "candidates": 0
+      "candidates": 2
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
@@ -85,11 +160,10 @@
     },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
-      "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
-      "result": "FAIL",
-      "error": "HTTPError: HTTP Error 404: Not Found",
+      "url": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "result": "OK",
       "sku_evidence": false,
-      "candidates": 0
+      "candidates": 404
     },
     {
       "route": "DIRECT_OFFICIAL_API",
@@ -153,19 +227,6 @@
           "declared": "ONE SIZE"
         }
       ]
-    },
-    {
-      "page": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
-      "route": "RESEARCH_EVIDENCE",
-      "authorityTier": "OTHER_RETAILER",
-      "transport": "CLAUDE_RESEARCH",
-      "capturedAt": "2026-08-30T00:00:00.000Z",
-      "sizes": [
-        {
-          "size": "ONE SIZE",
-          "declared": "ONE SIZE"
-        }
-      ]
     }
   ],
   "sizeState": {
@@ -193,7 +254,7 @@
       "sku": "6LPESC-J4836-2",
       "skuInBody": true,
       "model": "Reversible Bucket Hat",
-      "variant": "Black / navy listing — NOT the user-supplied pink variant",
+      "variant": "Black / navy listing — NOT the owner-confirmed pink variant",
       "aliases": [
         "6LPESC J4836",
         "6LPESCJ48362"
@@ -208,34 +269,39 @@
       "observedCdnHosts": [],
       "notes": [
         "Exact style code family 6LPESC J4836 is evidenced as a Lanvin reversible bucket hat and ONE SIZE.",
-        "This listing is a non-pink colourway and must not be used as canonical media for the user's pink item."
+        "This listing is a non-pink colourway and must not be used as canonical media for the owner's pink item."
       ]
     },
     {
-      "sourceUrl": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+      "sourceUrl": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
       "authorityTier": "OTHER_RETAILER",
       "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "B",
+      "confidence": "A",
       "capturedAt": "2026-08-30T00:00:00.000Z",
-      "sku": "6LPESC J4836 2",
-      "skuInBody": true,
-      "model": "Reversible Bucket Hat",
-      "variant": "Beige / khaki desert camo listing — NOT the user-supplied pink variant",
-      "aliases": [
-        "6LPESCJ48362",
-        "6LPESC J4836"
-      ],
-      "sizeScale": [
+      "sku": "6LPESC J4836",
+      "skuInBody": false,
+      "model": "Pink Geometric Print Coated Cotton Bucket Hat",
+      "variant": "Pink — exact visual match to the owner's three supplied photographs",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [
         {
-          "size": "ONE SIZE",
-          "declared": "ONE SIZE"
+          "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+          "field": "gallery"
+        },
+        {
+          "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+          "field": "gallery"
         }
       ],
-      "mediaUrls": [],
-      "observedCdnHosts": [],
+      "observedCdnHosts": [
+        "cdn.theluxurycloset.com"
+      ],
       "notes": [
-        "Listing ties the exact style family to Nordstrom item 7686510 and describes it as reversible and ONE SIZE.",
-        "Colour conflicts with the user's pink item; do not import its media or composition as pink-variant truth."
+        "The retailer page is an exact visual match to the owner-supplied pink reversible hat: pale-pink repeating JL monogram side and vivid-pink LANVIN-logo reverse.",
+        "The page does not expose manufacturer code 6LPESC J4836, so it is a visual/media bridge only; it must not independently assert SKU identity.",
+        "Owner supplied and explicitly approved three current product-only photographs on 2026-08-30, resolving the pink variant visually.",
+        "Do not import retailer price, stock, condition notes, measurements or composition into PINK MALL."
       ]
     }
   ],
@@ -246,12 +312,15 @@
       "IDENTIFIER_EXPANSION",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
     "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
       "IDENTIFIER_EXPANSION",
+      "REQUEST_SEED",
       "RESEARCH_EVIDENCE"
     ],
     "routesNotAttempted": [
@@ -261,11 +330,7 @@
       "TRUSTED_RETAILER_SEARCH",
       "NEW_RETAILER_DISCOVERY"
     ],
-    "routesUnreachable": {
-      "DIRECT_OFFICIAL_PAGE": [
-        "HTTPError: HTTP Error 403: Forbidden"
-      ]
-    },
+    "routesUnreachable": {},
     "exactProductDocuments": [
       {
         "route": "RESEARCH_EVIDENCE",
@@ -275,9 +340,21 @@
       },
       {
         "route": "RESEARCH_EVIDENCE",
-        "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+        "url": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
         "authorityTier": "OTHER_RETAILER",
-        "candidates": 0
+        "candidates": 2
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+        "authorityTier": null,
+        "candidates": 1
       }
     ],
     "identifierAliases": [
@@ -291,6 +368,27 @@
   },
   "log": [
     {
+      "stage": "research-media",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "field": "gallery",
+      "sourcePage": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "authorityTier": "OTHER_RETAILER"
+    },
+    {
+      "stage": "research-media",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "field": "gallery",
+      "sourcePage": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "authorityTier": "OTHER_RETAILER"
+    },
+    {
+      "stage": "research",
+      "seeded_candidates": 2,
+      "observed_hosts": [
+        "cdn.theluxurycloset.com"
+      ]
+    },
+    {
       "stage": "discover",
       "url": "https://www.ebay.ca/itm/266355004978",
       "ok": false,
@@ -298,13 +396,991 @@
     },
     {
       "stage": "discover",
-      "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
-      "ok": false,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "url": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "ok": true,
+      "raw_candidates": 404,
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 945899,
+      "shell_suspected": false
+    },
+    {
+      "stage": "index-continue",
+      "reason": "research evidence supplied 2 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+    },
+    {
+      "stage": "observed-hosts",
+      "hosts": [
+        "cdn.theluxurycloset.com"
+      ]
     },
     {
       "stage": "discover",
-      "total_unique_candidates": 0
+      "total_unique_candidates": 160
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "ok": true,
+      "size": "2000x2000",
+      "bytes": 430985,
+      "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
+      "ok": true,
+      "size": "2000x2000",
+      "bytes": 285219,
+      "upgraded_from": null
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1418844-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1418844-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420236-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420236-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420247-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420247-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-fendi-used-accessories-p1420140-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-fendi-used-accessories-p1420140-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-chanel-used-accessories-p1420133-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-chanel-used-accessories-p1420133-001.jpeg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-bottega-veneta-new-accessories-p1420473-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-bottega-veneta-new-accessories-p1420473-009.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420770-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420770-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420771-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420771-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-men-bottega-veneta-new-accessories-p1416415-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-men-bottega-veneta-new-accessories-p1416415-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420782-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/250x250/luxury-women-hermes-used-accessories-p1420782-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-accessories-p1131056-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-accessories-p1131056-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/750x750/luxury-women-lanvin-used-accessories-p1126627-007.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/full/luxury-women-lanvin-used-accessories-p1126627-007.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/full/luxury-women-lanvin-used-accessories-p1126627-007.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-007.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-007.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-009.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-009.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-002.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-002.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-006.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-006.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-004.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-004.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/250x250/luxury-women-lanvin-used-accessories-p1126627-005.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/250x250/luxury-women-lanvin-used-accessories-p1126627-005.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-used-accessories-p1131056-006.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-used-accessories-p1131056-006.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-used-shoes-p1409442-001.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-used-shoes-p1409442-001.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-used-shoes-p1409061-001.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-used-shoes-p1409061-001.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-new-clothes-p1407913-001.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-new-clothes-p1407913-001.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-new-clothes-p1407905-002.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-new-clothes-p1407905-002.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-women-lanvin-used-clothes-p1404960-001.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-women-lanvin-used-clothes-p1404960-001.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/avif/products/300x300/luxury-men-lanvin-used-shoes-p1399733-001.avif",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/webp/products/300x300/luxury-men-lanvin-used-shoes-p1399733-001.webp",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-007.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1131056-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420782-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420782-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420782-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420782-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420782-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-men-bottega-veneta-new-accessories-p1416415-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-men-bottega-veneta-new-accessories-p1416415-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-men-bottega-veneta-new-accessories-p1416415-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-men-bottega-veneta-new-accessories-p1416415-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420771-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420771-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420771-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420771-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420771-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420770-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420770-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420770-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420770-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420770-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-009.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-010.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-007.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-bottega-veneta-new-accessories-p1420473-008.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-chanel-used-accessories-p1420133-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-chanel-used-accessories-p1420133-001.jpeg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-chanel-used-accessories-p1420133-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-chanel-used-accessories-p1420133-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-chanel-used-accessories-p1420133-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-fendi-used-accessories-p1420140-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-fendi-used-accessories-p1420140-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-fendi-used-accessories-p1420140-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-fendi-used-accessories-p1420140-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420247-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420247-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420247-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420247-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420247-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420236-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420236-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420236-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420236-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1420236-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1418844-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1418844-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1418844-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1418844-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-accessories-p1418844-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-shoes-p1417704-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-shoes-p1417704-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-007.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-008.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1417704-009.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-handbags-p1416744-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-handbags-p1416744-011.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-011.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-009.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-010.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-007.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1416744-008.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-handbags-p1417009-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-handbags-p1417009-014.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-014.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-006.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-008.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-004.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-007.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-003.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-009.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-012.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-013.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-005.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-010.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-handbags-p1417009-011.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-shoes-p1412747-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/355x355/luxury-women-lanvin-used-shoes-p1412747-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1412747-001.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
+    },
+    {
+      "stage": "identity",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1412747-002.jpg",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
     }
   ],
   "notes": [
