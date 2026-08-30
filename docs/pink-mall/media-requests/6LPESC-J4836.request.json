@@ -3,9 +3,12 @@
   "brand": "Lanvin",
   "manufacturerItemNo": "6LPESC J4836",
   "model": "Reversible Bucket Hat",
-  "variant": "Pink — user-supplied colour; exact colour suffix not yet established",
+  "variant": "Pink — owner visually confirmed from three supplied exact-product photographs on 2026-08-30",
   "availableSizes": ["ONE SIZE"],
-  "candidateMedia": [],
+  "candidateMedia": [
+    "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+    "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg"
+  ],
   "indexedAssetSearch": true,
   "indexedEvidence": false,
   "researchEvidence": [
@@ -18,43 +21,48 @@
       "sku": "6LPESC-J4836-2",
       "skuInBody": true,
       "model": "Reversible Bucket Hat",
-      "variant": "Black / navy listing — NOT the user-supplied pink variant",
+      "variant": "Black / navy listing — NOT the owner-confirmed pink variant",
       "aliases": ["6LPESC J4836", "6LPESCJ48362"],
       "sizeScale": [{"size": "ONE SIZE", "declared": "ONE SIZE"}],
       "mediaUrls": [],
       "observedCdnHosts": [],
       "notes": [
         "Exact style code family 6LPESC J4836 is evidenced as a Lanvin reversible bucket hat and ONE SIZE.",
-        "This listing is a non-pink colourway and must not be used as canonical media for the user's pink item."
+        "This listing is a non-pink colourway and must not be used as canonical media for the owner's pink item."
       ]
     },
     {
-      "sourceUrl": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+      "sourceUrl": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
       "authorityTier": "OTHER_RETAILER",
       "discoveryTransport": "CLAUDE_RESEARCH",
-      "confidence": "B",
+      "confidence": "A",
       "capturedAt": "2026-08-30T00:00:00.000Z",
-      "sku": "6LPESC J4836 2",
-      "skuInBody": true,
-      "model": "Reversible Bucket Hat",
-      "variant": "Beige / khaki desert camo listing — NOT the user-supplied pink variant",
-      "aliases": ["6LPESCJ48362", "6LPESC J4836"],
-      "sizeScale": [{"size": "ONE SIZE", "declared": "ONE SIZE"}],
-      "mediaUrls": [],
-      "observedCdnHosts": [],
+      "sku": "6LPESC J4836",
+      "skuInBody": false,
+      "model": "Pink Geometric Print Coated Cotton Bucket Hat",
+      "variant": "Pink — exact visual match to the owner's three supplied photographs",
+      "aliases": [],
+      "sizeScale": [],
+      "mediaUrls": [
+        {"url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg", "field": "gallery"},
+        {"url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg", "field": "gallery"}
+      ],
+      "observedCdnHosts": ["cdn.theluxurycloset.com"],
       "notes": [
-        "Listing ties the exact style family to Nordstrom item 7686510 and describes it as reversible and ONE SIZE.",
-        "Colour conflicts with the user's pink item; do not import its media or composition as pink-variant truth."
+        "The retailer page is an exact visual match to the owner-supplied pink reversible hat: pale-pink repeating JL monogram side and vivid-pink LANVIN-logo reverse.",
+        "The page does not expose manufacturer code 6LPESC J4836, so it is a visual/media bridge only; it must not independently assert SKU identity.",
+        "Owner supplied and explicitly approved three current product-only photographs on 2026-08-30, resolving the pink variant visually.",
+        "Do not import retailer price, stock, condition notes, measurements or composition into PINK MALL."
       ]
     }
   ],
   "discoveryPages": [
     "https://www.ebay.ca/itm/266355004978",
-    "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/"
+    "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627"
   ],
   "discoveryRoutes": {
-    "trustedRetailer": "EXACT_STYLE_CODE_DISCOVERY",
-    "variantGate": "USER_COLOUR_PINK_MUST_BE_PROVEN_BEFORE_MEDIA_CAN_PASS"
+    "trustedRetailer": "EXACT_STYLE_CODE_PLUS_OWNER_VISUAL_BRIDGE",
+    "variantGate": "OWNER_VISUAL_CONFIRMATION_PASS_2026-08-30"
   },
   "officialHostSuffixes": ["lanvin.com"],
   "allowedHostSuffixes": [
@@ -63,18 +71,20 @@
     "ebay.ca",
     "ebay.com",
     "ebay.co.uk",
-    "masteelfab.org"
+    "theluxurycloset.com",
+    "cdn.theluxurycloset.com"
   ],
   "resolution": {
     "widthLadder": [2000, 1600, 1200, 1000]
   },
   "requestedBy": "chatgpt",
   "notes": [
-    "User source of truth: Pink, €69, ONE SIZE available.",
+    "User source of truth: Pink, €69, ONE SIZE available, category ACCESSORIES.",
     "External price and stock must never be imported into PINK MALL.",
-    "Category target: ACCESSORIES.",
+    "Owner explicitly approved publication with three current product-only photographs on 2026-08-30.",
+    "The owner-supplied photographs are the variant truth; external media may only pass when visually identical to them.",
     "Do not publish a non-pink 6LPESC J4836 colourway merely because the base style code matches.",
-    "Pink Lanvin bucket-hat images found during web research without exact 6LPESC J4836 evidence are not admissible as canonical product media.",
-    "Only product-only exact-variant media may pass. Human approval remains required before publication."
+    "Do not publish composition/material unless independently tied to this exact manufacturer item and owner-confirmed variant.",
+    "Only product-only exact-variant media may pass."
   ]
 }
