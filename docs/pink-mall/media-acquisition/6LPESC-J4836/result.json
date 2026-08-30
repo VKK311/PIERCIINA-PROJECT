@@ -6,12 +6,12 @@
   "model": "Reversible Bucket Hat",
   "variant": "Pink — owner visually confirmed from three supplied exact-product photographs on 2026-08-30",
   "officialProductPage": null,
-  "generatedAt": "2026-08-30T14:13:40Z",
+  "generatedAt": "2026-08-30T14:17:48Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33316215467",
+    "githubRunId": "33316356911",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "c375c9b7cbc2016fadb3b028a6b1e473bc162430"
+    "githubSha": "3c1b5bc89f794c0422e89b6683441336ec7f79e6"
   },
   "counts": {
     "acquired": 2,
@@ -45,7 +45,7 @@
       "anchor_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
       "source_domain": "cdn.theluxurycloset.com",
       "discovery_method": "research-evidence",
-      "acquired_at": "2026-08-30T14:12:44Z",
+      "acquired_at": "2026-08-30T14:15:53Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
@@ -75,7 +75,7 @@
       "anchor_url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
       "source_domain": "cdn.theluxurycloset.com",
       "discovery_method": "research-evidence",
-      "acquired_at": "2026-08-30T14:12:45Z",
+      "acquired_at": "2026-08-30T14:15:54Z",
       "width": 2000,
       "height": 2000,
       "longest_edge": 2000,
@@ -131,14 +131,21 @@
       "model": "Pink Geometric Print Coated Cotton Bucket Hat",
       "variant": "Pink — exact visual match to the owner's three supplied photographs",
       "aliases": [],
-      "mediaUrls": 2,
+      "mediaUrls": 3,
       "sizeLabels": 0,
       "sku_evidence": true,
-      "candidates": 2
+      "candidates": 3
     },
     {
       "route": "REQUEST_SEED",
       "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+      "result": "OK",
+      "sku_evidence": true,
+      "candidates": 1
+    },
+    {
+      "route": "REQUEST_SEED",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
       "result": "OK",
       "sku_evidence": true,
       "candidates": 1
@@ -290,6 +297,10 @@
           "field": "gallery"
         },
         {
+          "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
+          "field": "gallery"
+        },
+        {
           "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
           "field": "gallery"
         }
@@ -342,11 +353,17 @@
         "route": "RESEARCH_EVIDENCE",
         "url": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
         "authorityTier": "OTHER_RETAILER",
-        "candidates": 2
+        "candidates": 3
       },
       {
         "route": "REQUEST_SEED",
         "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-007.jpg",
+        "authorityTier": null,
+        "candidates": 1
+      },
+      {
+        "route": "REQUEST_SEED",
+        "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
         "authorityTier": null,
         "candidates": 1
       },
@@ -376,6 +393,13 @@
     },
     {
       "stage": "research-media",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
+      "field": "gallery",
+      "sourcePage": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
+      "authorityTier": "OTHER_RETAILER"
+    },
+    {
+      "stage": "research-media",
       "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-009.jpg",
       "field": "gallery",
       "sourcePage": "https://theluxurycloset.com/us-en/women/lanvin-pink-geometric-print-coated-cotton-bucket-hat-p1126627",
@@ -383,7 +407,7 @@
     },
     {
       "stage": "research",
-      "seeded_candidates": 2,
+      "seeded_candidates": 3,
       "observed_hosts": [
         "cdn.theluxurycloset.com"
       ]
@@ -401,12 +425,12 @@
       "raw_candidates": 404,
       "page_has_sku": false,
       "sku_evidence_where": null,
-      "html_bytes": 945899,
+      "html_bytes": 945901,
       "shell_suspected": false
     },
     {
       "stage": "index-continue",
-      "reason": "research evidence supplied 2 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
+      "reason": "research evidence supplied 3 retailer-tier media URL(s); official routes still run so the source hierarchy can be applied"
     },
     {
       "stage": "observed-hosts",
@@ -425,6 +449,12 @@
       "size": "2000x2000",
       "bytes": 430985,
       "upgraded_from": null
+    },
+    {
+      "stage": "acquire",
+      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "stage": "acquire",
@@ -1373,12 +1403,6 @@
     {
       "stage": "identity",
       "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1412747-001.jpg",
-      "ok": false,
-      "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
-    },
-    {
-      "stage": "identity",
-      "url": "https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-shoes-p1412747-002.jpg",
       "ok": false,
       "error": "neither asset URL nor source page evidences SKU 6LPESC J4836"
     }
