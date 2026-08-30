@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "DISCOVERY_TRANSPORT_BLOCKED",
+  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
   "sku": "6LPESC J4836",
   "brand": "Lanvin",
   "model": "Reversible Bucket Hat",
   "variant": "Pink — user-supplied colour; exact colour suffix not yet established",
   "officialProductPage": null,
-  "generatedAt": "2026-08-30T13:05:57Z",
+  "generatedAt": "2026-08-30T13:09:23Z",
   "generatedBy": "tools/media_acquisition/acquire.py",
   "runner": {
-    "githubRunId": "33313216720",
+    "githubRunId": "33313377395",
     "githubRepository": "VKK311/PIERCIINA-PROJECT",
-    "githubSha": "f33c51277f9aaedcd3494cfa567437837023b3cf"
+    "githubSha": "70b18beddb90e94ba5c8caae12b0c6695c2ee422"
   },
   "counts": {
     "acquired": 0,
@@ -33,6 +33,48 @@
   "contactSheet": null,
   "images": [],
   "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.ebay.ca/itm/266355004978",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "MARKETPLACE",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "observedSku": "6LPESC-J4836-2",
+      "model": "Reversible Bucket Hat",
+      "variant": "Black / navy listing — NOT the user-supplied pink variant",
+      "aliases": [
+        "6LPESC J4836",
+        "6LPESCJ48362"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "OTHER_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "observedSku": "6LPESC J4836 2",
+      "model": "Reversible Bucket Hat",
+      "variant": "Beige / khaki desert camo listing — NOT the user-supplied pink variant",
+      "aliases": [
+        "6LPESCJ48362",
+        "6LPESC J4836"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 0
+    },
     {
       "route": "DIRECT_OFFICIAL_PAGE",
       "url": "https://www.ebay.ca/itm/266355004978",
@@ -93,25 +135,59 @@
       "route": "IDENTIFIER_EXPANSION",
       "url": null,
       "result": "N/A",
-      "notApplicable": "ran over every evidenced document; 0 alias(es) found",
+      "notApplicable": "ran over every evidenced document; 2 alias(es) found",
       "sku_evidence": false,
       "candidates": 0
     }
   ],
-  "sizeEvidence": [],
+  "sizeEvidence": [
+    {
+      "page": "https://www.ebay.ca/itm/266355004978",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "MARKETPLACE",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": "ONE SIZE"
+        }
+      ]
+    },
+    {
+      "page": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "OTHER_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-30T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": "ONE SIZE"
+        }
+      ]
+    }
+  ],
   "sizeState": {
-    "state": "SIZE_SCALE_NOT_PROVEN",
-    "declaredScale": [],
-    "matched": [],
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "ONE SIZE"
+    ],
+    "matched": [
+      "ONE SIZE"
+    ],
     "missing": [],
-    "note": "no source declared an exact size scale; user-supplied sizes stand as availability truth and no sold-out ladder is asserted"
+    "note": "every supplied size appears in the declared exact scale"
   },
-  "identifierAliases": [],
+  "identifierAliases": [
+    "6LPESC J4836",
+    "6LPESCJ48362"
+  ],
   "researchEvidence": [
     {
       "sourceUrl": "https://www.ebay.ca/itm/266355004978",
       "authorityTier": "MARKETPLACE",
-      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-30T00:00:00.000Z",
       "sku": "6LPESC-J4836-2",
@@ -138,7 +214,7 @@
     {
       "sourceUrl": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
       "authorityTier": "OTHER_RETAILER",
-      "discoveryTransport": "CHATGPT_WEB_RESEARCH",
+      "discoveryTransport": "CLAUDE_RESEARCH",
       "confidence": "B",
       "capturedAt": "2026-08-30T00:00:00.000Z",
       "sku": "6LPESC J4836 2",
@@ -170,10 +246,14 @@
       "IDENTIFIER_EXPANSION",
       "OFFICIAL_CDN_PROBE",
       "OFFICIAL_REGIONAL_SEARCH",
+      "RESEARCH_EVIDENCE",
       "SEARCH_INDEX_OFFICIAL",
       "TRUSTED_RETAILER_INDEXED_EVIDENCE"
     ],
-    "routesSucceeded": [],
+    "routesSucceeded": [
+      "IDENTIFIER_EXPANSION",
+      "RESEARCH_EVIDENCE"
+    ],
     "routesNotAttempted": [
       "JS_RENDERED_PAGE",
       "INDEXED_SOURCE_EVIDENCE",
@@ -186,26 +266,30 @@
         "HTTPError: HTTP Error 403: Forbidden"
       ]
     },
-    "exactProductDocuments": [],
-    "identifierAliases": [],
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.ebay.ca/itm/266355004978",
+        "authorityTier": "MARKETPLACE",
+        "candidates": 0
+      },
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
+        "authorityTier": "OTHER_RETAILER",
+        "candidates": 0
+      }
+    ],
+    "identifierAliases": [
+      "6LPESC J4836",
+      "6LPESCJ48362"
+    ],
     "spaRenderPending": false,
     "refusalPermitted": false,
-    "refusalBlockedBecause": "no domain outside the starting host set was evaluated — a fixed list of known hosts is not exhausted discovery",
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
     "userInputPermitted": false
   },
   "log": [
-    {
-      "stage": "research",
-      "url": "https://www.ebay.ca/itm/266355004978",
-      "ok": false,
-      "error": "unknown discoveryTransport 'CHATGPT_WEB_RESEARCH'"
-    },
-    {
-      "stage": "research",
-      "url": "https://masteelfab.org/products/lanvin-reversible-bucket-hat-beige-khaki-desert-camo-logo-6l/1331815/",
-      "ok": false,
-      "error": "unknown discoveryTransport 'CHATGPT_WEB_RESEARCH'"
-    },
     {
       "stage": "discover",
       "url": "https://www.ebay.ca/itm/266355004978",
