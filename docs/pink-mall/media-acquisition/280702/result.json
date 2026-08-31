@@ -1,0 +1,1442 @@
+{
+  "schemaVersion": 1,
+  "status": "MEDIA_NOT_ACQUIRED_IDENTITY_EVIDENCED",
+  "sku": "280702",
+  "brand": "Ted Baker",
+  "model": "SLIDDS Slider Keyring",
+  "variant": "Pink",
+  "officialProductPage": null,
+  "generatedAt": "2026-08-31T12:12:26Z",
+  "generatedBy": "tools/media_acquisition/acquire.py",
+  "runner": {
+    "githubRunId": "33390367943",
+    "githubRepository": "VKK311/PIERCIINA-PROJECT",
+    "githubSha": "42c984dd2a0275e87bf5a3997f239e16af83a227"
+  },
+  "counts": {
+    "acquired": 0,
+    "unique_selected": 0,
+    "duplicates_collapsed": 0
+  },
+  "variantConfidence": {
+    "state": "HUMAN_VARIANT_REVIEW_REQUIRED",
+    "signals": [],
+    "conflicts": [],
+    "officialColour": "Pink",
+    "officialAnchor": false
+  },
+  "mediaTier": null,
+  "mediaTierMixed": false,
+  "proposedMain": null,
+  "dominantBackdrop": null,
+  "cutoutSet": false,
+  "contactSheet": null,
+  "images": [],
+  "discoveryLedger": [
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "result": "OK",
+      "exactProductDocument": false,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "observedSku": "280702",
+      "model": "SLIDDS",
+      "variant": "Pink",
+      "aliases": [
+        "280702-pink",
+        "SLIDDS pink",
+        "te451f0h6-j11"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "RESEARCH_EVIDENCE",
+      "url": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+      "result": "OK",
+      "exactProductDocument": true,
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "observedSku": "280702",
+      "model": "SLIDDS Club Ted Slider Keyring",
+      "variant": "Green",
+      "aliases": [
+        "280702-green"
+      ],
+      "mediaUrls": 0,
+      "sizeLabels": 1,
+      "sku_evidence": true,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "result": "FAIL",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "DIRECT_OFFICIAL_PAGE",
+      "url": "https://www.tedbaker.com",
+      "result": "OK",
+      "sku_evidence": false,
+      "candidates": 294
+    },
+    {
+      "route": "DIRECT_OFFICIAL_API",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand registry declares no product API",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_REGIONAL_SEARCH",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official regional search entry point",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "SEARCH_INDEX_OFFICIAL",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no official index entry point supplied",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "OFFICIAL_CDN_PROBE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "brand asset paths are not derivable from the style code",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "TRUSTED_RETAILER_INDEXED_EVIDENCE",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "no trusted-retailer page reached indexed evaluation",
+      "sku_evidence": false,
+      "candidates": 0
+    },
+    {
+      "route": "IDENTIFIER_EXPANSION",
+      "url": null,
+      "result": "N/A",
+      "notApplicable": "ran over every evidenced document; 4 alias(es) found",
+      "sku_evidence": false,
+      "candidates": 0
+    }
+  ],
+  "sizeEvidence": [
+    {
+      "page": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "TRUSTED_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ]
+    },
+    {
+      "page": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+      "route": "RESEARCH_EVIDENCE",
+      "authorityTier": "TRUSTED_RETAILER",
+      "transport": "CLAUDE_RESEARCH",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sizes": [
+        {
+          "size": "ONE SIZE",
+          "declared": ""
+        }
+      ]
+    }
+  ],
+  "sizeState": {
+    "state": "SIZE_CONFIRMED",
+    "declaredScale": [
+      "ONE SIZE"
+    ],
+    "matched": [
+      "ONE SIZE"
+    ],
+    "missing": [],
+    "note": "every supplied size appears in the declared exact scale"
+  },
+  "identifierAliases": [
+    "280702-pink",
+    "SLIDDS pink",
+    "te451f0h6-j11",
+    "280702-green"
+  ],
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sku": "280702",
+      "skuInBody": false,
+      "model": "SLIDDS",
+      "variant": "Pink",
+      "aliases": [
+        "280702-pink",
+        "SLIDDS pink",
+        "te451f0h6-j11"
+      ],
+      "sizeScale": [
+        "ONE SIZE"
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Zalando UK lists Ted Baker SLIDDS keyring in pink; the green sibling is te451f0h6-m11.",
+        "Colourway pink is established as existing; the model number is not visible in this listing body."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sku": "280702",
+      "skuInBody": true,
+      "model": "SLIDDS Club Ted Slider Keyring",
+      "variant": "Green",
+      "aliases": [
+        "280702-green"
+      ],
+      "sizeScale": [
+        "ONE SIZE"
+      ],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Carries model number 280702 against the SLIDDS slider key case, establishing 280702 as the style root.",
+        "This evidence is the GREEN colourway. It establishes the model number and the article, NOT the pink colourway.",
+        "Material 100% polyurethane; approx 12 x 5 x 2.5 cm; ships with key ring and carabiner."
+      ]
+    }
+  ],
+  "refusalAudit": {
+    "routesAttempted": [
+      "DIRECT_OFFICIAL_API",
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "OFFICIAL_CDN_PROBE",
+      "OFFICIAL_REGIONAL_SEARCH",
+      "RESEARCH_EVIDENCE",
+      "SEARCH_INDEX_OFFICIAL",
+      "TRUSTED_RETAILER_INDEXED_EVIDENCE"
+    ],
+    "routesSucceeded": [
+      "DIRECT_OFFICIAL_PAGE",
+      "IDENTIFIER_EXPANSION",
+      "RESEARCH_EVIDENCE"
+    ],
+    "routesNotAttempted": [
+      "JS_RENDERED_PAGE",
+      "INDEXED_SOURCE_EVIDENCE",
+      "INDEXED_OUTBOUND_MEDIA",
+      "TRUSTED_RETAILER_SEARCH",
+      "NEW_RETAILER_DISCOVERY"
+    ],
+    "routesUnreachable": {},
+    "exactProductDocuments": [
+      {
+        "route": "RESEARCH_EVIDENCE",
+        "url": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+        "authorityTier": "TRUSTED_RETAILER",
+        "candidates": 0
+      }
+    ],
+    "identifierAliases": [
+      "280702-pink",
+      "SLIDDS pink",
+      "te451f0h6-j11",
+      "280702-green"
+    ],
+    "spaRenderPending": false,
+    "refusalPermitted": false,
+    "refusalBlockedBecause": "an exact product document was found — identity is established",
+    "userInputPermitted": false
+  },
+  "log": [
+    {
+      "stage": "discover",
+      "url": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "stage": "discover",
+      "url": "https://www.tedbaker.com",
+      "ok": true,
+      "raw_candidates": 294,
+      "page_has_sku": false,
+      "sku_evidence_where": null,
+      "html_bytes": 2371234,
+      "shell_suspected": false
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1771972134244_upscaled-1737728878112_Ted_Baker_PDP_Modal.jpg",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1737159199118_480x400_evergreen-landscape.jpg",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1771970848447_1719411331889_Hunter_edited.png",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1771971807542_upscaled-1723573002903_400x480_VC2_1.jpg",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1771972208025_fal-upscale-56ced518-1455-43c8-9039-413faa39b843.jpg",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/1771971910525_upscaled-1744642035818_HerveLeger_PDP_Modal.jpg",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://storage.googleapis.com/authentic-storage-bucket/authentic-rounded.png",
+      "ok": false,
+      "error": "host storage.googleapis.com not in allow-list"
+    },
+    {
+      "stage": "filter",
+      "url": "https://ted-baker-com.myshopify.com/cdn/shop/files/pandectes-reopen-logo.png?v=1787902862",
+      "ok": false,
+      "error": "host ted-baker-com.myshopify.com not in allow-list"
+    },
+    {
+      "stage": "discover",
+      "total_unique_candidates": 160
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/S-Icon-SS26-Joint.jpg?v=1780328625",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/S-Icon-SS26-Joint.jpg?v=1780328625",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/FAV_icon-circle_bdd2e178-ce18-4077-9d03-58fa85acd505.png?crop=center&height=2000&v=1726863856&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C4.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C4.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026918_RICHBLACK_5.jpg?v=1775656445&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026918_RICHBLACK_5.jpg?v=1775656445&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036971_078_LT-HTHR-GREY_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C1.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C1.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 9); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1600",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 12); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1200",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 11); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 13); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=165",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 23); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1600",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 20); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1200",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 23); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=1000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 19); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C3.jpg?v=1778508968&width=495",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C1.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036218_112_CRYSTAL-CREAM_C1.jpg?v=1778508968&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C2.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C2.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036412_268_ALMOND_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036220_879_GINGERSNAP_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C2.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036025_267_BISCOTTI-BEIGE_C1.jpg?v=1778508967&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C2.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C2.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2036310_267_BISCOTTI-BEIGE_C4.jpg?v=1778508969&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_1.jpg?v=1784639396&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_1.jpg?v=1784639396&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_2.jpg?v=1784639397&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_2.jpg?v=1784639397&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_BLUE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_BLUE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_1.jpg?v=1784639396&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285349_OLIVE_1.jpg?v=1784639396&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_1.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_1.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_2.jpg?v=1781281327&width=1200",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 9); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_2.jpg?v=1781281327&width=1000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 10); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_2.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_2.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_1.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285479_OLIVE_1.jpg?v=1781281327&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_1.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_1.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_2.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_2.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_1.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284731_OLIVE_1.jpg?v=1773670905&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_1.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_1.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_2.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_2.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_1.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/285066_TAUPE_1.jpg?v=1784639286&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_1.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_1.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_2.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_2.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 9); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_2.jpg?v=1773741338&width=1600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_1.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_BLACK_1.jpg?v=1773741338&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_NAVY_1.jpg?v=1749067627&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/281238_NAVY_1.jpg?v=1749067627&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_2.jpg?v=1781278410&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_2.jpg?v=1781278410&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_BLUE_1.jpg?v=1781278407&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_BLUE_1.jpg?v=1781278407&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283973_TAUPE_1.jpg?v=1781278409&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026939_CREAMEDCORN_5.jpg?v=1775658187&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/Special_JPG-280773_TAN_1.jpg?v=1755028248&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026009_FAIRWAY_C1.jpg?v=1775656991&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/S283791_TEDDOT_BLACK_2_58c569ac-ad35-42c0-9b7e-e4c781066f89.jpg?v=1776182894&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026209_ROSYTOUCH_5.jpg?v=1774036960&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/282170_DUSKY-PINK_1.jpg?v=1775663668&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-Drop-Down-23-08-13-v2.jpg?v=1786532436&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-Drop-Down-23-08-13-v2.jpg?v=1786532436&width=800",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/SS26-Gift-Card_469834f7-3891-4c9f-94fc-de6c7b19287b.jpg?v=1771407906&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/SS26-Gift-Card_469834f7-3891-4c9f-94fc-de6c7b19287b.jpg?v=1771407906&width=800",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/UK-Outlet-Drop-Down.jpg?v=1743607355&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/UK-Outlet-Drop-Down.jpg?v=1743607355&width=800",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/M-US-26-08-06-Hero_e1ce693a-734b-44be-b000-d5cd10781243.jpg?v=1786532334&width=3840",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/M-US-26-08-06-Hero_e1ce693a-734b-44be-b000-d5cd10781243.jpg?v=1786532334&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=3840",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=375",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=2000",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=1600",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=1200",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "validate",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Hero_cd108918-a97e-430c-93e3-21b221db6974.jpg?v=1786532320&width=1000",
+      "ok": false,
+      "error": "aspect 2.6:1 — banner shape, not a product photograph"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Dresses.jpg?v=1785847428&width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Dresses.jpg?v=1785847428&width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Tops.jpg?v=1785847428&width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Tops.jpg?v=1785847428&width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Polo.jpg?v=1785847428&width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Polo.jpg?v=1785847428&width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Shirts.jpg?v=1785847428&width=1000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/D-US-26-08-06-Shirts.jpg?v=1785847428&width=375",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBSS26_NA_MID_WW_SHOT_19_011JaniceGilman1.jpg?v=1776679593&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBSS26_NA_MID_WW_SHOT_19_011JaniceGilman1.jpg?v=1776679593&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026998_FIREORANGE_C4.jpg?v=1776679611&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026998_FIREORANGE_C4.jpg?v=1776679611&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026217_TOMATOORANGE_C1-1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026217_TOMATOORANGE_C1-1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026217_TOMATOORANGE_C2-1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026217_TOMATOORANGE_C2-1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026609_FIREORANGE_C1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026609_FIREORANGE_C1.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026609_FIREORANGE_C2.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026609_FIREORANGE_C2.jpg?v=1776165309&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBJ4095-02-02_MS_1.jpg?v=1762278553&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBJ4095-02-02_MS_1.jpg?v=1762278553&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBJ4095-02-02_PS_1.jpg?v=1762278556&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/TBJ4095-02-02_PS_1.jpg?v=1762278556&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/1119925_BLACK_1.jpg?v=1762292590&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/1119925_BLACK_1.jpg?v=1762292590&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/1119925_BLACK_3.jpg?v=1762292611&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/1119925_BLACK_3.jpg?v=1762292611&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283191_DEEP-PINK_1.jpg?v=1776944143&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283191_DEEP-PINK_1.jpg?v=1776944143&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283191_DEEP-PINK_2.jpg?v=1776944139&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283191_DEEP-PINK_2.jpg?v=1776944139&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284238_BLACK_1.jpg?v=1767091538&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284238_BLACK_1.jpg?v=1767091538&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284238_BLACK_2.jpg?v=1767091555&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/284238_BLACK_2.jpg?v=1767091555&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283704_BRN-RED_6.jpg?v=1776944189&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283704_BRN-RED_6.jpg?v=1776944189&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283704_BRN-RED_1.jpg?v=1776944194&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283704_BRN-RED_1.jpg?v=1776944194&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283737_RED_1.jpg?v=1776944199&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283737_RED_1.jpg?v=1776944199&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283737_RED_2.jpg?v=1776944188&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283737_RED_2.jpg?v=1776944188&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C2.jpg?v=1771887399&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C2.jpg?v=1771887399&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=2000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 13); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=1600",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 12); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=1200",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 11); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=1000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 14); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=165",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=2000",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 11); rejected"
+    },
+    {
+      "stage": "resolution",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=1200",
+      "ok": false,
+      "error": "variant differs from anchor (dHash 9); rejected"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026722_CLOUDPINK_C4.jpg?v=1771887410&width=1600",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026954_BEETROOTPINK_1.jpg?v=1775658152&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026954_BEETROOTPINK_1.jpg?v=1775658152&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026954_BEETROOTPINK_2.jpg?v=1775658152&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026954_BEETROOTPINK_2.jpg?v=1775658152&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026713_FIREORANGE_C2.jpg?v=1776165310&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026713_FIREORANGE_C2.jpg?v=1776165310&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026713_FIREORANGE_C4.jpg?v=1776165310&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/2026713_FIREORANGE_C4.jpg?v=1776165310&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283052_STONE_1.jpg?v=1765913517&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283052_STONE_1.jpg?v=1765913517&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283052_STONE_2.jpg?v=1765913517&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283052_STONE_2.jpg?v=1765913517&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    },
+    {
+      "stage": "identity",
+      "url": "https://www.tedbaker.com/cdn/shop/files/283213_BLUE_1.jpg?v=1767092289&width=2000",
+      "ok": false,
+      "error": "neither asset URL nor source page evidences SKU 280702"
+    }
+  ],
+  "notes": [
+    "Media is acquired but NOT published. Live assets live under assets/pink-mall/products/<PM-ID>/ and only after explicit approval.",
+    "Resolution upgrades rewrite only the CDN transform segment of the same asset URL and are accepted only if perceptually identical to the base image.",
+    "Images are delivered at their native aspect ratio. The storefront owns card and PDP fitting via media.fit; no per-SKU canvas is manufactured here."
+  ]
+}
