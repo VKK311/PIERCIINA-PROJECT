@@ -1,0 +1,59 @@
+{
+  "id": "PM-043",
+  "catalogueSize": 44,
+  "brand": "Swarovski",
+  "manufacturerItemNo": "5693725",
+  "name": "Crystalline Ballpoint Pen",
+  "category": "accessories",
+  "subcategory": null,
+  "color": "Pink",
+  "priceEUR": 49,
+  "newUntil": "2026-09-14",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#F1F1F1",
+  "nativeWidth": 970,
+  "nativeHeight": 1182,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "swarovski",
+    "crystalline",
+    "химикал",
+    "5693725"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036",
+    "PM-037",
+    "PM-038",
+    "PM-039",
+    "PM-040",
+    "PM-041",
+    "PM-042"
+  ],
+  "frames": [
+    {
+      "file": "PM-043-main.webp",
+      "sha256": "0eb15728d3b7f8a5367e2e4e52452cd2406ba640468721df768d09ab31bcd28e",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-043-02.webp",
+      "sha256": "1895b6e10a3a52a33a1282e2eea16a056f57eaf817a4d105dee8d37e0ca6fc86",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-043-03.webp",
+      "sha256": "cbc8027977e5421e6293c62b446e810b4fc630cbc744376058451a9f3b5bbeb1",
+      "width": 970,
+      "height": 1182
+    }
+  ]
+}

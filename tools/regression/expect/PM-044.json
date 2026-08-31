@@ -1,0 +1,60 @@
+{
+  "id": "PM-044",
+  "catalogueSize": 44,
+  "brand": "Calvin Klein",
+  "manufacturerItemNo": "CKNYC1852S",
+  "name": "CKNYC1852S",
+  "category": "accessories",
+  "subcategory": null,
+  "color": "Pink / Blush",
+  "priceEUR": 119,
+  "newUntil": "2026-09-14",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#F1F1F1",
+  "nativeWidth": 970,
+  "nativeHeight": 1182,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "calvin klein",
+    "blush",
+    "очила",
+    "CKNYC1852S"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036",
+    "PM-037",
+    "PM-038",
+    "PM-039",
+    "PM-040",
+    "PM-041",
+    "PM-042",
+    "PM-043"
+  ],
+  "frames": [
+    {
+      "file": "PM-044-main.webp",
+      "sha256": "e92c36207da5c51d5a6efb9811d7b463ca9a9af135bfb98792036df6c3f02544",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-044-02.webp",
+      "sha256": "d970a7f720a6d58159da98b5e983171fbaa2560f188b89177b9b891d7bba002c",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-044-03.webp",
+      "sha256": "dd255eae6885ac371f6c4696f810eaa3fc12416f2db74f6551738712a4f1b364",
+      "width": 970,
+      "height": 1182
+    }
+  ]
+}

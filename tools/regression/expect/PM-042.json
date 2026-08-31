@@ -1,0 +1,58 @@
+{
+  "id": "PM-042",
+  "catalogueSize": 44,
+  "brand": "Lanvin",
+  "manufacturerItemNo": "6LPESC J4836",
+  "name": "Reversible Bucket Hat",
+  "category": "accessories",
+  "subcategory": null,
+  "color": "Pink",
+  "priceEUR": 69,
+  "newUntil": "2026-09-14",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#F1F1F1",
+  "nativeWidth": 970,
+  "nativeHeight": 1182,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "lanvin",
+    "bucket",
+    "шапка",
+    "6LPESC J4836"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036",
+    "PM-037",
+    "PM-038",
+    "PM-039",
+    "PM-040",
+    "PM-041"
+  ],
+  "frames": [
+    {
+      "file": "PM-042-main.webp",
+      "sha256": "bb6cadaac313c677c5e46dddfa82ae70e02d6b77e87f2a725b83d953e5113e11",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-042-02.webp",
+      "sha256": "8cec9d7b42f605744876873c9bb277b63d397ed47f6cde1cdee698f791d82812",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-042-03.webp",
+      "sha256": "91a46ed40b93dfddafc37b5d5e59bf55a2370c3173daac748e52353d0ff32773",
+      "width": 970,
+      "height": 1182
+    }
+  ]
+}
