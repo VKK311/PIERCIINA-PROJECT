@@ -13,6 +13,8 @@ IDS = ('PM-042','PM-043','PM-044')
 def stage():
     if not ZIP.exists():
         raise SystemExit('owner media staging archive missing')
+    if not zipfile.is_zipfile(ZIP):
+        raise SystemExit('owner media staging archive is not a valid binary ZIP')
     if OWNER.exists():
         import shutil
         shutil.rmtree(OWNER)
