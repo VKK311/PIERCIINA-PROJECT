@@ -1,0 +1,105 @@
+name: Publish PM-042 to PM-044 batch
+
+on:
+  push:
+    branches: [claude/pink-mall-development]
+    paths:
+      - '.github/workflows/publish-pm042-044.yml'
+      - 'tools/publish_pm042_044.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-pm042-044
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 4
+
+      - name: Verify staged publication ancestry
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor df262ba50f8b0d0392a253bb7ab8dffc01545cc0 HEAD
+          test "$(git rev-parse HEAD^)" = "d5bd4512724c7f433063a71843c2ce866b367ecc"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install publication dependencies
+        run: |
+          python -m pip install --quiet Pillow playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Prepare PM-042 to PM-044
+        run: python tools/publish_pm042_044.py prepare
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install publication browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/pinkmall-regression" --no-audit --no-fund playwright@1.62.1
+          "$RUNNER_TEMP/pinkmall-regression/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Validate production batch
+        env:
+          NODE_PATH: ${{ runner.temp }}/pinkmall-regression/node_modules
+        run: |
+          set -euo pipefail
+          python -m http.server 8131 >"$RUNNER_TEMP/pinkmall-http.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for id in PM-042 PM-043 PM-044; do
+            node tools/regression/product_regression.js "tools/regression/expect/${id}.json" PINKMALL.html 8131
+          done
+          node tools/regression/pm042_044_mobile_smoke.js PINKMALL.html 8131
+
+      - name: Build portable standalone
+        run: |
+          python tools/build_standalone_review.py
+          bash tools/verify_standalone.sh
+
+      - name: Validate standalone batch
+        env:
+          NODE_PATH: ${{ runner.temp }}/pinkmall-regression/node_modules
+        run: |
+          set -euo pipefail
+          python -m http.server 8132 >"$RUNNER_TEMP/pinkmall-http-standalone.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for id in PM-042 PM-043 PM-044; do
+            node tools/regression/product_regression.js "tools/regression/expect/${id}.json" PINKMALL_REVIEW_STANDALONE.html 8132
+          done
+
+      - name: Finalize project state
+        run: python tools/publish_pm042_044.py finalize
+
+      - name: Remove one-shot publication tooling
+        run: |
+          rm -f .github/workflows/publish-pm042-044.yml tools/publish_pm042_044.py tools/regression/pm042_044_mobile_smoke.js
+
+      - name: Refuse concurrent branch movement
+        run: |
+          set -euo pipefail
+          remote_sha="$(git ls-remote origin refs/heads/claude/pink-mall-development | awk '{print $1}')"
+          test "$remote_sha" = "${GITHUB_SHA}"
+
+      - name: Commit validated publication
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish PM-042 Lanvin, PM-043 Swarovski, PM-044 Calvin Klein [skip ci]"
+          git push origin HEAD:claude/pink-mall-development
