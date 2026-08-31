@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 7,
+  "brand": "Ted Baker",
+  "manufacturerItemNo": "280702",
+  "model": "SLIDDS Slider Keyring",
+  "variant": "Pink",
+  "availableSizes": ["ONE SIZE"],
+  "candidateMedia": [],
+  "indexedAssetSearch": true,
+  "indexedEvidence": false,
+  "researchEvidence": [
+    {
+      "sourceUrl": "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sku": "280702",
+      "skuInBody": false,
+      "model": "SLIDDS",
+      "variant": "Pink",
+      "aliases": ["280702-pink", "SLIDDS pink", "te451f0h6-j11"],
+      "sizeScale": ["ONE SIZE"],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Zalando UK lists Ted Baker SLIDDS keyring in pink; the green sibling is te451f0h6-m11.",
+        "Colourway pink is established as existing; the model number is not visible in this listing body."
+      ]
+    },
+    {
+      "sourceUrl": "https://www.modeherz.de/en/ted-baker-key-case-slidds-club-slider-keyring-green_413732_316167",
+      "authorityTier": "TRUSTED_RETAILER",
+      "discoveryTransport": "CLAUDE_RESEARCH",
+      "confidence": "B",
+      "capturedAt": "2026-08-31T00:00:00.000Z",
+      "sku": "280702",
+      "skuInBody": true,
+      "model": "SLIDDS Club Ted Slider Keyring",
+      "variant": "Green",
+      "aliases": ["280702-green"],
+      "sizeScale": ["ONE SIZE"],
+      "mediaUrls": [],
+      "observedCdnHosts": [],
+      "notes": [
+        "Carries model number 280702 against the SLIDDS slider key case, establishing 280702 as the style root.",
+        "This evidence is the GREEN colourway. It establishes the model number and the article, NOT the pink colourway.",
+        "Material 100% polyurethane; approx 12 x 5 x 2.5 cm; ships with key ring and carabiner."
+      ]
+    }
+  ],
+  "discoveryPages": [
+    "https://www.zalando.co.uk/ted-baker-slidds-keyring-pink-te451f0h6-j11.html",
+    "https://www.tedbaker.com"
+  ],
+  "discoveryRoutes": {"trustedRetailer": "DIRECT_TRUSTED_RETAILER_PAGE"},
+  "officialHostSuffixes": ["tedbaker.com"],
+  "allowedHostSuffixes": ["tedbaker.com", "zalando.co.uk", "modeherz.de"],
+  "resolution": {"widthLadder": [2000, 1600, 1200, 1000]},
+  "requestedBy": "claude",
+  "notes": [
+    "User source of truth: EUR 49, ONE SIZE available, colour Pink, category ACCESSORIES.",
+    "280702 is a STYLE ROOT with colour suffixes (280702-green observed). Only exact PINK colourway media may pass; a green frame must be refused.",
+    "Owner supplied three photographs of the pink article but they never reached the container; acquisition is the fallback route, not a replacement for owner approval.",
+    "Do not import retailer price, stock or measurements as Mall truth."
+  ]
+}
