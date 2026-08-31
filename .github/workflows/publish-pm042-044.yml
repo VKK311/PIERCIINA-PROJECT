@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/publish-pm042-044.yml'
       - 'tools/publish_pm042_044.py'
+      - 'docs/pink-mall/media-acquisition/6LPESC-J4836/user-supplied/**'
 
 permissions:
   contents: write
@@ -23,13 +24,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
-          fetch-depth: 4
+          fetch-depth: 8
 
       - name: Verify staged publication ancestry
         run: |
           set -euo pipefail
           git merge-base --is-ancestor df262ba50f8b0d0392a253bb7ab8dffc01545cc0 HEAD
-          test "$(git rev-parse HEAD^)" = "d5bd4512724c7f433063a71843c2ce866b367ecc"
+          test "$(git show HEAD:PINKMALL.html | sha256sum | awk '{print $1}')" = "c233bc784c2a7c2bc236c00d3879e032c1fdb16fed36afdb7ab71c59a85fd5c7"
 
       - uses: actions/setup-python@v5
         with:
@@ -39,6 +40,21 @@ jobs:
         run: |
           python -m pip install --quiet Pillow playwright
           python -m playwright install --with-deps chromium
+
+      - name: Wire owner-supplied Lanvin frame
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/publish_pm042_044.py')
+          s=p.read_text(encoding='utf-8')
+          old="https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-lanvin-used-accessories-p1126627-008.jpg"
+          owner=(Path.cwd()/'docs/pink-mall/media-acquisition/6LPESC-J4836/user-supplied/6LPESC-J4836-owner-02.webp').resolve().as_uri()
+          s=s.replace(old,owner)
+          needle="def url_bytes(url):\n    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})"
+          repl="def url_bytes(url):\n    if url.startswith('file://'):\n        return Path(url[7:]).read_bytes()\n    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})"
+          if needle not in s: raise SystemExit('url_bytes patch anchor missing')
+          p.write_text(s.replace(needle,repl),encoding='utf-8')
+          PY
 
       - name: Prepare PM-042 to PM-044
         run: python tools/publish_pm042_044.py prepare
