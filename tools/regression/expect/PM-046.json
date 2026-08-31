@@ -1,0 +1,63 @@
+{
+  "id": "PM-046",
+  "catalogueSize": 46,
+  "brand": "Liewood",
+  "manufacturerItemNo": "LW12954",
+  "name": "Cornelius Snack Box",
+  "category": "home",
+  "subcategory": null,
+  "color": "Dark Rose",
+  "priceEUR": 14,
+  "newUntil": "2026-09-14",
+  "sizes": [
+    "ONE SIZE"
+  ],
+  "surface": "#F1F1F1",
+  "nativeWidth": 970,
+  "nativeHeight": 1182,
+  "viberUrl": "https://connect.viber.com/business/631d5a74-5919-11f1-b5e8-06dd2a4dc594",
+  "searchTerms": [
+    "liewood",
+    "cornelius",
+    "кутия",
+    "LW12954"
+  ],
+  "priorProducts": [
+    "PM-031",
+    "PM-032",
+    "PM-033",
+    "PM-034",
+    "PM-035",
+    "PM-036",
+    "PM-037",
+    "PM-038",
+    "PM-039",
+    "PM-040",
+    "PM-041",
+    "PM-042",
+    "PM-043",
+    "PM-044",
+    "PM-045"
+  ],
+  "frames": [
+    {
+      "file": "PM-046-main.webp",
+      "sha256": "9cebbb14f6d28f43b772f6496f16f1ada96a8835c80462e953e82badf00b8005",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-046-02.webp",
+      "sha256": "c33cdfa8bff862b5049a40aeb3ac11f3addc51a81317e89ea18cf2e50f310796",
+      "width": 970,
+      "height": 1182
+    },
+    {
+      "file": "PM-046-03.webp",
+      "sha256": "99075d8fbea4b66d17f8e9d681d45950b5534a1d6828aa86404352321c1f0355",
+      "width": 970,
+      "height": 1182
+    }
+  ],
+  "composition": "100% силикон"
+}

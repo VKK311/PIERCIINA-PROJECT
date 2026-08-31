@@ -1,7 +1,7 @@
 # PINK MALL — project state
 
-Updated: PM-042, PM-043 and PM-044 publication.
-Status: **PM-001…PM-044 PUBLISHED.**
+Updated: PM-045 and PM-046 publication; 953FLR1358 held.
+Status: **PM-001…PM-046 PUBLISHED.**
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | CANONICAL BRANCH | `claude/pink-mall-development` |
 | CANONICAL WEBSITE | `PINKMALL.html` |
-| CANONICAL WEBSITE SHA-256 | `499e5d0054c8155cc5a7bd84eeee2af5fa99482e5a3cc4b8c4421ef79bc0422f` |
-| CANONICAL WEBSITE BYTES | 2590104 |
+| CANONICAL WEBSITE SHA-256 | `cedd7611aba10442eb9a00161830f64dbbd37194b8eefe8bf53439b697168fb4` |
+| CANONICAL WEBSITE BYTES | 2594788 |
 
 ## Engine
 
@@ -28,8 +28,8 @@ canonical build by hash before treating it as canonical.
 
 | | |
 |---|---|
-| PUBLIC CATALOG | PM-001 … PM-044 |
-| NEXT ID | PM-045 |
+| PUBLIC CATALOG | PM-001 … PM-046 |
+| NEXT ID | PM-047 |
 | JQ4556 | **PUBLISHED as PM-025** on 2026-08-25 |
 | GC515KI | **PUBLISHED as PM-026** on 2026-08-25 |
 | A08745C | **PUBLISHED as PM-027** on 2026-08-25 |
@@ -50,6 +50,9 @@ canonical build by hash before treating it as canonical.
 | 6LPESC J4836 | **PUBLISHED as PM-042** on 2026-08-31 — Lanvin Reversible Bucket Hat; identity `OWNER_CONFIRMED`, media `USER_SUPPLIED` |
 | 5693725 | **PUBLISHED as PM-043** on 2026-08-31 — Swarovski Crystalline Ballpoint Pen; identity `OFFICIAL`, media `USER_SUPPLIED` |
 | CKNYC1852S / 680 | **PUBLISHED as PM-044** on 2026-08-31 — Calvin Klein BLUSH; identity `TRUSTED_RETAILER`, media `USER_SUPPLIED` |
+| A2245 | **PUBLISHED as PM-045** on 2026-08-31 — Minions Spread Happiness Strawberry candle; first real product in CANDLES; media `USER_SUPPLIED` |
+| LW12954 | **PUBLISHED as PM-046** on 2026-08-31 — Liewood Cornelius Snack Box, Cat, Dark Rose; first real product in HOME; media `USER_SUPPLIED` |
+| 953FLR1358 | **HELD** since 2026-08-31 — cat bed submitted as "Paws & Whiskers"; SKU indexes nowhere and the sewn tag in the owner photographs carries a different wordmark. Media preserved; see `docs/pink-mall/media-acquisition/953FLR1358/HOLD.md` |
 
 ## Media acquisition automation
 
@@ -57,8 +60,9 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | AUTOMATION | PASS — `tools/media_acquisition/`, `.github/workflows/media-acquisition.yml` |
 | SELF-TEST | PASS — `python tools/media_acquisition/selftest.py`, 176/176 guards |
-| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031…PM-044, production + standalone |
+| PUBLICATION REGRESSION | PASS — `tools/regression/product_regression.js`; PM-031…PM-046, production + standalone |
 | VIEWPORT SMOKE | PASS — `tools/regression/viewport_smoke.js`; 375/390/430/768/1366/1920, production + standalone |
+| CATEGORY COVERAGE | CANDLES and HOME now hold real products; no category was created or renamed |
 | JQ4556 PILOT | PASS — 4 exact official images, 1880×1880, zero manual preparation |
 
 Provenance: `docs/pink-mall/media-acquisition/JQ4556/result.json`
