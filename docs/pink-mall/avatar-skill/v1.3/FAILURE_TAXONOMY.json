@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "version": "FAILURE_TAXONOMY_v1.3",
+  "purpose": "Persistent failure codes so repeated defects are tracked across runs instead of re-diagnosed each time.",
+  "codes": {
+    "F01_IDENTITY_COLLISION": {
+      "label": "Identity collision",
+      "definition": "Two distinct subjects converge toward one person, or generated faces are near-duplicates.",
+      "gate": "identityCollisionDetected must be false",
+      "severity": "HARD_FAIL",
+      "protocol": "IDENTITY_COLLISION_PROTOCOL.json"
+    },
+    "F02_WARDROBE_LEAKAGE": {
+      "label": "Wardrobe leakage",
+      "definition": "Clothing, footwear or styling from the avatar calibration photographs is copied into the output instead of current PINK MALL fashion direction.",
+      "gate": "wardrobeSourceValid must be true for fashion-led campaigns",
+      "severity": "HARD_FAIL",
+      "protocol": "WARDROBE_AUTHORITY.json"
+    },
+    "F03_BRAND_HERITAGE_DRIFT": {
+      "label": "Brand heritage drift",
+      "definition": "Output loses the Pierciina retro/disco lineage and becomes a generic glossy pink luxury mall or anonymous AI-fashion aesthetic.",
+      "gate": "brandHeritageMatch must meet brandHeritageMatchMinimum",
+      "severity": "HARD_FAIL",
+      "protocol": "PIERCIINA_HERITAGE_DNA.json"
+    },
+    "F04_PRODUCT_GEOMETRY_DRIFT": {
+      "label": "Product geometry drift",
+      "definition": "Product shape, logo, hardware or proportions deviate from the authoritative catalogue image, or an avatar wear-reference was treated as product geometry.",
+      "gate": "productFidelity >= 8 when product-led",
+      "severity": "HARD_FAIL"
+    },
+    "F05_COMPOSITION_FAILURE": {
+      "label": "Composition failure",
+      "definition": "Banner geometry unusable — text-safe region violated, wrong aspect ratio, subject crosses a reserved band, face lost in a required crop.",
+      "gate": "compositionUsable must be true",
+      "severity": "HARD_FAIL"
+    },
+    "F06_SUBJECT_ROLE_SWAP": {
+      "label": "Subject role swap",
+      "definition": "INA appears in SIS's designated zone or creative register, or vice versa.",
+      "gate": "subjectRoleSwapDetected must be false",
+      "severity": "HARD_FAIL"
+    },
+    "F07_REFERENCE_OVERFIT": {
+      "label": "Reference overfit",
+      "definition": "Output reproduces a specific reference frame — its background, pose or framing — instead of using it as evidence. The domestic terrace appearing in a campaign is the signature.",
+      "gate": "none (scored via brandFit and creativeOriginality)",
+      "severity": "SOFT_FAIL"
+    },
+    "F08_GENERIC_FASHION_DRIFT": {
+      "label": "Generic fashion drift",
+      "definition": "Output reads as anonymous stock fashion — no PINK MALL character, no Pierciina lineage, interchangeable with any brand.",
+      "gate": "none (scored via brandFit and brandHeritageMatch)",
+      "severity": "SOFT_FAIL"
+    }
+  },
+  "runLog": [
+    {
+      "run": "T04_RUN_001",
+      "scenario": "T04_SISTER_BATTLE",
+      "skillVersion": "1.2",
+      "date": "2026-09-14",
+      "generatedBy": "owner, outside this session",
+      "result": "FAIL",
+      "codes": {
+        "F01_IDENTITY_COLLISION": "FAIL",
+        "F02_WARDROBE_LEAKAGE": "FAIL",
+        "F03_BRAND_HERITAGE_DRIFT": "FAIL",
+        "F04_PRODUCT_GEOMETRY_DRIFT": "N/A",
+        "F05_COMPOSITION_FAILURE": "NOT_ASSESSED",
+        "F06_SUBJECT_ROLE_SWAP": "NOT_ASSESSED",
+        "F07_REFERENCE_OVERFIT": "NOT_ASSESSED",
+        "F08_GENERIC_FASHION_DRIFT": "NOT_ASSESSED"
+      },
+      "observed": [
+        "Both generated women converged toward INA; SIS was not preserved as a distinct second person.",
+        "Generator copied the clothing language of the calibration photographs instead of current PINK MALL fashion direction.",
+        "Output became a generic glossy pink luxury mall with no retro Pierciina lineage."
+      ],
+      "diagnosis": "Three independent pipeline defects, not evidence against the identity pools. F01 points to undifferentiated reference grouping in the handoff. F02 points to a missing wardrobe authority layer - the only clothing the model could see was calibration clothing. F03 points to a brand layer that described PINK MALL generically without the Pierciina heritage anchors.",
+      "identityPoolsImplicated": false,
+      "actionTaken": "v1.3 hardening patch: collision protocol, wardrobe authority separation, heritage DNA layer, revised assembly order, failure taxonomy, new hard gates.",
+      "canonicalReferencesChanged": "none"
+    }
+  ],
+  "doctrine": "A failed generation is evidence about the pipeline. It is never permission to rewrite the identity system."
+}

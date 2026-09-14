@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "version": "PINK_MALL_CANONICAL_PACKS_v1.3",
+  "terminology": {
+    "candidatePool": "The full approved evidence set for a role. Pools are NOT sent to a generator.",
+    "runtimePack": "The 4-6 (single) or 6-8 (duo) images actually selected for one task, drawn from the pools by role.",
+    "changedInV12": "v1.1 called both of these a 'pack'. A literal reading loaded 11 identity anchors and busted the budget before adding pose or product."
+  },
+  "runtimeSelection": {
+    "singleSubject": {
+      "min": 4,
+      "max": 6
+    },
+    "duo": {
+      "min": 6,
+      "max": 8
+    },
+    "upperGuideline": "8-10 only when every image has a demonstrably distinct role",
+    "rule": "Select BY ROLE from candidatePools. Never emit a whole pool.",
+    "roleOrder": [
+      "FACE anchor",
+      "matching FACE angle",
+      "BODY anchor",
+      "matching BODY angle",
+      "one task pose",
+      "one product wear reference",
+      "one expression",
+      "DUO composition"
+    ]
+  },
+  "INA": {
+    "CORE_FACE": {
+      "role": "identity anchor - face",
+      "candidates": [
+        "INA/IMG_3854.JPEG",
+        "INA/IMG_3856.JPEG",
+        "INA/IMG_3866.JPEG",
+        "INA/IMG_3859.JPEG",
+        "INA/IMG_3868.JPEG"
+      ],
+      "count": 5,
+      "note": "Preserved unchanged from v1.1. Audit confirmed complete angle coverage."
+    },
+    "CORE_BODY": {
+      "role": "identity anchor - body geometry",
+      "candidates": [
+        "INA/IMG_3380.JPEG",
+        "INA/IMG_3387.JPEG",
+        "INA/IMG_3406.JPEG",
+        "INA/IMG_3391.JPEG",
+        "INA/IMG_3397.JPEG",
+        "INA/IMG_3393.JPEG"
+      ],
+      "count": 6,
+      "note": "Preserved unchanged from v1.1."
+    },
+    "EXPRESSIONS": {
+      "role": "expression reference",
+      "candidates": [
+        "INA/IMG_3863.JPEG",
+        "INA/IMG_3874.JPEG",
+        "INA/IMG_3861.JPEG"
+      ],
+      "count": 3,
+      "note": "Add only when the requested expression differs materially from neutral."
+    },
+    "FASHION_POSE": {
+      "role": "pose reference",
+      "count": 9,
+      "preferred": [
+        "INA/IMG_3413.JPEG",
+        "INA/IMG_3427.JPEG",
+        "INA/IMG_3511.JPEG",
+        "INA/IMG_3533.JPEG"
+      ],
+      "secondary": [
+        "INA/IMG_3415.JPEG",
+        "INA/IMG_3429.JPEG",
+        "INA/IMG_3515.JPEG",
+        "INA/IMG_3541.JPEG",
+        "INA/IMG_3543.JPEG"
+      ],
+      "defaultRankRule": "Two per wardrobe series, spread within the series, clothed editorial series first.",
+      "status": "TEST_DEFAULT_OWNER_EDITABLE",
+      "note": "All v1.1 candidates retained. Ranking only changes what the selector reaches for first."
+    },
+    "MOTION": {
+      "role": "motion / movement reference",
+      "candidates": [
+        "INA/IMG_3682.JPEG",
+        "INA/IMG_3695.JPEG",
+        "INA/IMG_3708.JPEG",
+        "INA/IMG_3769.JPEG",
+        "INA/IMG_3781.JPEG"
+      ],
+      "count": 5
+    },
+    "EYEWEAR": {
+      "role": "eyewear WEAR reference",
+      "candidates": [
+        "INA/IMG_3639.JPEG",
+        "INA/IMG_3645.JPEG"
+      ],
+      "count": 2,
+      "note": "Full-body frames. Eyewear occupies roughly 2% of frame height; no temple, lens or frame detail is readable.",
+      "productAuthority": "WEAR_REFERENCE_ONLY",
+      "notAuthoritativeFor": "product geometry, logo, hardware, colour, proportions"
+    },
+    "HEADWEAR": {
+      "role": "headwear WEAR reference",
+      "candidates": [
+        "INA/IMG_3661.JPEG",
+        "INA/IMG_3664.JPEG"
+      ],
+      "count": 2,
+      "note": "Brim silhouette reads; material, band and logo do not.",
+      "productAuthority": "WEAR_REFERENCE_ONLY",
+      "notAuthoritativeFor": "product geometry, logo, hardware, colour, proportions"
+    },
+    "IDENTITY_DETAILS": {
+      "role": "identity detail - ear / piercing",
+      "candidates": [
+        "INA/IMG_3870.JPEG",
+        "INA/IMG_3872.JPEG"
+      ],
+      "count": 2
+    }
+  },
+  "SIS": {
+    "CORE_FACE": {
+      "role": "identity anchor - face",
+      "candidates": [
+        "SIS/IMG_3884.JPEG",
+        "SIS/IMG_3890.JPEG",
+        "SIS/IMG_3893.JPEG",
+        "SIS/IMG_3891.JPEG",
+        "SIS/IMG_3894.JPEG"
+      ],
+      "count": 5,
+      "note": "Preserved unchanged from v1.1. Audit confirmed complete angle coverage."
+    },
+    "CORE_BODY": {
+      "role": "identity anchor - body geometry",
+      "candidates": [
+        "SIS/IMG_3347.JPEG",
+        "SIS/IMG_3348.JPEG",
+        "SIS/IMG_3354.JPEG",
+        "SIS/IMG_3350.JPEG",
+        "SIS/IMG_3353.JPEG",
+        "SIS/IMG_3352.JPEG"
+      ],
+      "count": 6,
+      "note": "Preserved unchanged from v1.1."
+    },
+    "EXPRESSIONS": {
+      "role": "expression reference",
+      "candidates": [
+        "SIS/IMG_3897.JPEG",
+        "SIS/IMG_3892.JPEG"
+      ],
+      "count": 2,
+      "note": "Add only when the requested expression differs materially from neutral."
+    },
+    "FASHION_POSE": {
+      "role": "pose reference",
+      "count": 8,
+      "preferred": [
+        "SIS/IMG_3355.JPEG",
+        "SIS/IMG_3363.JPEG",
+        "SIS/IMG_3577.JPEG",
+        "SIS/IMG_3589.JPEG"
+      ],
+      "secondary": [
+        "SIS/IMG_3359.JPEG",
+        "SIS/IMG_3367.JPEG",
+        "SIS/IMG_3580.JPEG",
+        "SIS/IMG_3592.JPEG"
+      ],
+      "defaultRankRule": "Two per wardrobe series, spread within the series, clothed editorial series first.",
+      "status": "TEST_DEFAULT_OWNER_EDITABLE",
+      "note": "All v1.1 candidates retained. Ranking only changes what the selector reaches for first."
+    },
+    "MOTION": {
+      "role": "motion / movement reference",
+      "candidates": [
+        "SIS/IMG_3715.JPEG",
+        "SIS/IMG_3724.JPEG",
+        "SIS/IMG_3735.JPEG",
+        "SIS/IMG_3738.JPEG",
+        "SIS/IMG_3747.JPEG",
+        "SIS/IMG_3749.JPEG"
+      ],
+      "count": 6
+    },
+    "EYEWEAR": {
+      "role": "eyewear WEAR reference",
+      "candidates": [
+        "SIS/IMG_3650.JPEG",
+        "SIS/IMG_3651.JPEG"
+      ],
+      "count": 2,
+      "note": "Full-body frames. Eyewear occupies roughly 2% of frame height; no temple, lens or frame detail is readable.",
+      "productAuthority": "WEAR_REFERENCE_ONLY",
+      "notAuthoritativeFor": "product geometry, logo, hardware, colour, proportions"
+    },
+    "HEADWEAR": {
+      "role": "headwear WEAR reference",
+      "candidates": [
+        "SIS/IMG_3670.JPEG",
+        "SIS/IMG_3673.JPEG",
+        "SIS/IMG_3676.JPEG"
+      ],
+      "count": 3,
+      "note": "Brim silhouette reads; material, band and logo do not.",
+      "productAuthority": "WEAR_REFERENCE_ONLY",
+      "notAuthoritativeFor": "product geometry, logo, hardware, colour, proportions"
+    },
+    "HAIR_TIED": {
+      "role": "hair-state variant",
+      "candidates": [
+        "SIS/IMG_3898.JPEG",
+        "SIS/IMG_3899.JPEG"
+      ],
+      "count": 2
+    },
+    "IDENTITY_DETAILS": {
+      "role": "identity detail - ear / piercing",
+      "state": "notCaptured",
+      "candidates": [],
+      "count": 0,
+      "rule": "Do NOT borrow INA detail frames and do NOT infer piercings, jewellery or ear anatomy for SIS.",
+      "effect": "Any task requiring a SIS identity detail sets identityConfidence to LOW and raises a warning.",
+      "resolution": "Capture SIS ear/detail macros in the next calibration session."
+    }
+  },
+  "DUO": {
+    "commercialDefault": "BLAZER_EDITORIAL",
+    "BLAZER_EDITORIAL": {
+      "role": "clothed retail / editorial duo composition",
+      "candidates": [
+        "DUO/IMG_3598.JPEG",
+        "DUO/IMG_3600.JPEG",
+        "DUO/IMG_3620.JPEG",
+        "DUO/IMG_3624.JPEG",
+        "DUO/IMG_3625.JPEG",
+        "DUO/IMG_3633.JPEG"
+      ],
+      "count": 6,
+      "note": "DEFAULT for commercial hero and retail work. Only clothed, camera-facing DUO family."
+    },
+    "ACTIVE_DUO": {
+      "role": "activewear / movement duo composition",
+      "candidates": [
+        "DUO/IMG_3794.JPEG",
+        "DUO/IMG_3798.JPEG",
+        "DUO/IMG_3802.JPEG",
+        "DUO/IMG_3807.JPEG"
+      ],
+      "count": 4
+    },
+    "FOUNDATION_STORY": {
+      "role": "body-geometry duo reference",
+      "candidates": [
+        "DUO/IMG_3442.JPEG",
+        "DUO/IMG_3450.JPEG",
+        "DUO/IMG_3470.JPEG",
+        "DUO/IMG_3497.JPEG",
+        "DUO/IMG_3506.JPEG"
+      ],
+      "count": 5,
+      "heroDefault": false,
+      "notForHeroDefault": true,
+      "reason": "Underwear-series frames; DUO/IMG_3497.JPEG has both subjects facing away. Not suitable as the automatic composition reference for clothed retail or hero work.",
+      "permittedUse": "Explicit owner request, or duo body-geometry study only."
+    }
+  },
+  "knownLibraryLimits": {
+    "orientation": "All 190 frames are portrait 1536x2048. No landscape or 9:16 reference exists.",
+    "environment": "All 190 frames share one location and flat daylight. No environmental variety.",
+    "negativeSpace": "Subjects are centred and fill the frame. No frame demonstrates offset-subject copy space.",
+    "productGeometry": "No frame contains a PINK MALL catalogue SKU. Product frames show personal items.",
+    "effect": "These limits lower compositionConfidence and productConfidence; they do not lower identityConfidence."
+  },
+  "referencePhotoWardrobe": "IGNORE_FOR_STYLING",
+  "wardrobeAuthorityNote": "Every frame in every pool below is an identityReference. None is a wardrobeAuthority. The calibration clothing keeps body geometry readable; it carries no PINK MALL assortment information and must never be copied as styling. See WARDROBE_AUTHORITY.json.",
+  "identityAuthorityNote": "INA pools are authoritative only for INA, SIS pools only for SIS, DUO pools for staging only and never for identity. See IDENTITY_COLLISION_PROTOCOL.json."
+}

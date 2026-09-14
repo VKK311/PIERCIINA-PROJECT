@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 3,
+  "version": "PINK_MALL_AVATAR_TEST_SCENARIOS_v1.3",
+  "tests": [
+    {
+      "id": "T01_INA_HERO",
+      "subject": "INA",
+      "preset": "hero_banner",
+      "brief": "Create a premium PINK MALL horizontal hero with INA as the primary subject. Preserve strong text-safe negative space and use an editorial, polished, slightly strange PINK MALL environment.",
+      "testFocus": [
+        "identity fidelity",
+        "INA creative profile",
+        "brand DNA",
+        "hero composition",
+        "text-safe space"
+      ],
+      "referenceExpectation": "4-6 references; CORE_FACE + CORE_BODY + one FASHION_POSE when useful",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "LOW",
+        "productConfidence": null,
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "No landscape or offset-subject reference exists; hero geometry is generator-side.",
+      "requiresCompositionUsableGate": true,
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true
+    },
+    {
+      "id": "T02_SIS_ACCESSORY",
+      "subject": "SIS",
+      "preset": "accessories_spotlight",
+      "brief": "Create an accessories-focused PINK MALL campaign with SIS using either eyewear or headwear reference logic. Keep the accessory clearly readable and preserve SIS identity.",
+      "testFocus": [
+        "identity fidelity",
+        "SIS creative profile",
+        "product-first selection",
+        "upper-body clarity"
+      ],
+      "referenceExpectation": "4-6 references; CORE_FACE + matching face angle + one EYEWEAR/HEADWEAR reference + product source when supplied",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "MEDIUM",
+        "productConfidence": "LOW",
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "Eyewear frames are wear-reference only. Product geometry must come from the PINK MALL catalogue image.",
+      "requiresCompositionUsableGate": true,
+      "productGeometrySource": "REQUIRED_FROM_PINK_MALL_CATALOGUE",
+      "productWearReference": "SIS.EYEWEAR candidatePool (wear position and attitude only)",
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true
+    },
+    {
+      "id": "T03_DUO_HERO",
+      "subject": "DUO",
+      "preset": "hero_banner",
+      "brief": "Create a wide PINK MALL hero with INA and SIS together. Their identities must remain distinct. Use one strong DUO composition and retain clean space for campaign copy.",
+      "testFocus": [
+        "separate identity locks",
+        "duo chemistry",
+        "composition",
+        "brand consistency",
+        "responsive crop potential"
+      ],
+      "referenceExpectation": "6-8 references total; identity anchors for both sisters + body anchors + one primary DUO composition",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "LOW",
+        "productConfidence": null,
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "Portrait-only DUO sources; BLAZER_EDITORIAL is the clothed default.",
+      "requiresCompositionUsableGate": true,
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true,
+      "requiresIdentityCollisionCheck": true,
+      "referenceGrouping": [
+        "GROUP_INA_IDENTITY",
+        "GROUP_SIS_IDENTITY",
+        "GROUP_DUO_STAGING"
+      ]
+    },
+    {
+      "id": "T04_SISTER_BATTLE",
+      "subject": "DUO",
+      "preset": "sister_battle",
+      "brief": "Create a playful PINK MALL Sister Battle visual with a clear A/B or left/right distinction. The sisters should feel related but visually different in expression/body language.",
+      "testFocus": [
+        "sister distinction",
+        "playful tension",
+        "label-safe layout",
+        "non-blending",
+        "creative originality"
+      ],
+      "referenceExpectation": "6-8 references total; separate face/body anchors + one tension-supporting DUO reference",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "MEDIUM",
+        "productConfidence": null,
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "Best-supported scenario. Both identity sets complete; centre-band geometry still generator-side.",
+      "requiresCompositionUsableGate": true,
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true,
+      "requiresIdentityCollisionCheck": true,
+      "referenceGrouping": [
+        "GROUP_INA_IDENTITY",
+        "GROUP_SIS_IDENTITY",
+        "GROUP_DUO_STAGING"
+      ],
+      "priorRuns": [
+        {
+          "run": "T04_RUN_001",
+          "skillVersion": "1.2",
+          "result": "FAIL",
+          "failureCodes": [
+            "F01_IDENTITY_COLLISION",
+            "F02_WARDROBE_LEAKAGE",
+            "F03_BRAND_HERITAGE_DRIFT"
+          ],
+          "identityPoolsImplicated": false,
+          "see": "FAILURE_TAXONOMY.json"
+        }
+      ],
+      "retryPolicy": "Next retry uses a new controlled prompt after independent review. Do not auto-retry."
+    },
+    {
+      "id": "T05_VERTICAL_STORY",
+      "subject": "SIS_OR_INA",
+      "preset": "story_vertical",
+      "brief": "Create a 9:16 PINK MALL product-led story with one sister. Preserve top/bottom UI-safe zones, product visibility and immediate identity recognition.",
+      "testFocus": [
+        "mobile crop",
+        "identity",
+        "product visibility",
+        "quick readability",
+        "reference compactness"
+      ],
+      "referenceExpectation": "4-6 references; CORE_FACE + one BODY angle + one task-specific pose + product source when supplied",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "LOW",
+        "productConfidence": null,
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "No 9:16 reference; UI-safe bands unsupported by evidence.",
+      "requiresCompositionUsableGate": true,
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true
+    },
+    {
+      "id": "T06_WEIRD_EDITORIAL_STRESS_TEST",
+      "subject": "DUO",
+      "preset": "pierciina_weird_editorial",
+      "brief": "Create a deliberately strange Pierciina/PINK MALL duo campaign using one memorable surreal idea while preserving both sisters, product readability and commercial usability.",
+      "testFocus": [
+        "identity under high creativity",
+        "controlled surrealism",
+        "brand fit",
+        "non-blending",
+        "commercial usability"
+      ],
+      "referenceExpectation": "6-8 references total; strong identity anchors + one DUO composition; do not increase reference count merely because the concept is surreal",
+      "expectedConfidence": {
+        "identityConfidence": "HIGH",
+        "compositionConfidence": "MEDIUM",
+        "productConfidence": null,
+        "wardrobeConfidence": "LOW_UNLESS_CONTEXT_SUPPLIED"
+      },
+      "expectedConfidenceRationale": "Concept is generator-side by design; identity anchors are complete.",
+      "requiresCompositionUsableGate": true,
+      "fashionLed": true,
+      "requiresWardrobeAuthority": true,
+      "requiresHeritageGate": true,
+      "requiresIdentityCollisionCheck": true,
+      "referenceGrouping": [
+        "GROUP_INA_IDENTITY",
+        "GROUP_SIS_IDENTITY",
+        "GROUP_DUO_STAGING"
+      ]
+    }
+  ]
+}

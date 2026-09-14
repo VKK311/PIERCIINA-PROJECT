@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "version": "CURRENT_PINK_MALL_FASHION_CONTEXT_SCHEMA_v1.3",
+  "purpose": "Runtime adapter. Fashion direction must NOT be frozen into the Avatar Skill. This file is a SCHEMA; the instance is generated at task time from the current canonical catalogue so the skill stays identity-stable while the store's fashion direction evolves.",
+  "doNotCommitInstances": true,
+  "generator": "build_fashion_context.py",
+  "sourceOfTruth": "PINKMALL.html -> PINK_MALL_PRODUCTS (canonical catalogue on claude/pink-mall-development)",
+  "staleness": {
+    "maxAgeDays": 14,
+    "onStale": [
+      "wardrobeConfidence cannot exceed MEDIUM",
+      "emit a wardrobeWarning naming the generation date"
+    ]
+  },
+  "instanceShape": {
+    "generatedAt": "ISO-8601 date",
+    "catalogueSource": "path + SHA-256 of the build the context was derived from",
+    "catalogueSize": "integer",
+    "activeCategories": "list of category keys with live products",
+    "assortment": "per-category list of {id, brand, name, category, subcategory, priceEUR, tags}",
+    "activeCampaigns": "campaign keys present in the catalogue",
+    "newIn": "products flagged isNew",
+    "silhouetteVocabulary": "derived from product names/tags — the shapes actually stocked",
+    "colourVocabulary": "derived from product names/tags",
+    "wardrobeAuthorityStatus": "VALID | STALE | ABSENT"
+  },
+  "rule": "If no instance exists for this task, wardrobeSource=NONE and wardrobeConfidence=LOW. Never substitute avatar-source clothing."
+}

@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "version": "PINK_MALL_SISTER_STYLE_PROFILES_v1.1",
+  "status": "CREATIVE_HYPOTHESES_FOR_TESTING",
+  "important": "These profiles are art-direction defaults, not claims about the sisters' real personalities. They may be changed after campaign testing without changing identity versions.",
+  "INA": {
+    "identityVersion": "INA_v1.0",
+    "creativeRole": "editorial lead",
+    "energy": [
+      "composed",
+      "refined",
+      "confident",
+      "fashion-forward"
+    ],
+    "poseLanguage": [
+      "controlled posture",
+      "long lines",
+      "clean asymmetry",
+      "subtle attitude",
+      "strong but economical hand placement"
+    ],
+    "expressionDirection": [
+      "neutral premium",
+      "soft confidence",
+      "controlled smile"
+    ],
+    "visualUseCases": [
+      "hero banner",
+      "premium accessories",
+      "editorial cover",
+      "new-in campaign",
+      "high-fashion product spotlight"
+    ],
+    "stylingDirection": [
+      "clean silhouettes",
+      "strong jewelry details",
+      "editorial styling with one unexpected element",
+      "structured or sculptural accessories"
+    ],
+    "avoidAsDefault": [
+      "childish pose language",
+      "slapstick energy",
+      "overly comic facial exaggeration",
+      "busy styling that competes with identity"
+    ]
+  },
+  "SIS": {
+    "identityVersion": "SIS_v1.0",
+    "creativeRole": "playful contrast lead",
+    "energy": [
+      "fresh",
+      "vibrant",
+      "playful",
+      "slightly cheeky"
+    ],
+    "poseLanguage": [
+      "lighter movement",
+      "more spontaneity",
+      "natural interaction",
+      "expressive asymmetry",
+      "playful product interaction"
+    ],
+    "expressionDirection": [
+      "soft smile",
+      "friendly confidence",
+      "bright expression",
+      "controlled cheekiness"
+    ],
+    "visualUseCases": [
+      "social banners",
+      "playful vertical stories",
+      "sunglasses campaigns",
+      "accessories spotlight",
+      "high-energy new-in creative"
+    ],
+    "stylingDirection": [
+      "lighter layering",
+      "dynamic accessories",
+      "unexpected color or prop accents",
+      "movement-friendly silhouettes"
+    ],
+    "avoidAsDefault": [
+      "rigid formal stiffness",
+      "cold aloof luxury posing",
+      "heavy dramatic darkness",
+      "static catalog posture when movement would serve the concept"
+    ]
+  },
+  "DUO": {
+    "creativeRole": "complementary contrast",
+    "energy": [
+      "sister chemistry",
+      "editorial balance",
+      "premium playfulness",
+      "alive but polished"
+    ],
+    "relationshipLanguage": [
+      "contrast rather than duplication",
+      "clear visual hierarchy or deliberate equality",
+      "interaction that feels specific rather than generic",
+      "distinct expressions and body language when the concept benefits from it"
+    ],
+    "preferredCompositionFamilies": [
+      "staggered depth",
+      "mirrored asymmetry",
+      "campaign triangle",
+      "walking side by side",
+      "camera-plus-sister gaze",
+      "playful opposition"
+    ],
+    "avoidAsDefault": [
+      "identity blending",
+      "same-expression symmetry in every frame",
+      "flat catalog pairing without chemistry",
+      "one sister visually swallowing the other unless hierarchy is explicitly intended"
+    ]
+  }
+}

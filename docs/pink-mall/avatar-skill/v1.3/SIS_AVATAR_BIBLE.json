@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "identityVersion": "SIS_v1.0",
+  "status": "CURATED_FOUNDATION_CANDIDATE",
+  "approvedCoreFace": [
+    "SIS/IMG_3884.JPEG",
+    "SIS/IMG_3890.JPEG",
+    "SIS/IMG_3893.JPEG",
+    "SIS/IMG_3891.JPEG",
+    "SIS/IMG_3894.JPEG"
+  ],
+  "approvedCoreBody": [
+    "SIS/IMG_3347.JPEG",
+    "SIS/IMG_3348.JPEG",
+    "SIS/IMG_3354.JPEG",
+    "SIS/IMG_3350.JPEG",
+    "SIS/IMG_3353.JPEG",
+    "SIS/IMG_3352.JPEG"
+  ],
+  "observedStableMarkers": [
+    "Long dark-brown hair is a strong silhouette anchor in the current reference set.",
+    "Face foundation includes front, both oblique sides and both profiles.",
+    "Hair-tied references add useful silhouette variation."
+  ],
+  "strongReferenceUse": [
+    "Use front + matching 45/profile face references for facial rotation.",
+    "Use BODY_FRONT plus the matching body angle for full-body generation.",
+    "For eyewear/headwear, include a product-specific pose reference in addition to identity anchors."
+  ],
+  "knownGaps": [
+    "No equivalent close-up ear/piercing detail set is present in this archive.",
+    "No dedicated hand close-up identity series.",
+    "Expression coverage is narrower than ideal for a full emotional atlas.",
+    "Body foundation background is serviceable but not a seamless calibrated studio backdrop."
+  ],
+  "doNotInfer": [
+    "Do not add permanent tattoos or piercings not supported by references.",
+    "Do not treat outfit color as identity."
+  ]
+}

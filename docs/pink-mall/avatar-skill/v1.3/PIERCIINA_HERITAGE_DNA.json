@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "version": "PIERCIINA_HERITAGE_DNA_v1.3",
+  "status": "DERIVED_FROM_PROJECT_SOURCE",
+  "provenance": {
+    "extractedFrom": "PINKMALL.html (canonical website, claude/pink-mall-development)",
+    "method": "CSS custom properties, font stacks, motif class names, glyph frequency and on-page copy read directly out of the canonical build. Nothing here is a generic fashion assumption.",
+    "note": "Re-derive this file if the canonical site's design tokens change."
+  },
+  "lineage": {
+    "parentBrand": "Pierciina",
+    "parentBrandMeaning": "Ина Ангелова | Студио за пиърсинг — a piercing studio, not a fashion house",
+    "childBrand": "PINK MALL",
+    "childBrandMeaning": "Interactive Y2K editorial fashion stage",
+    "relationship": "PINK MALL is an EVOLUTION of Pierciina, never a replacement. Y2K is the newer layer sitting on top of a retro/disco studio lineage that must remain visible.",
+    "sourceCopy": [
+      "PIERCIINA STUDIO",
+      "STERILE & PRECISE",
+      "MADE WITH LOVE",
+      "NEW DROP ★ 2026 ★",
+      "малки количества, много розово и две сестрички"
+    ]
+  },
+  "designTarget": {
+    "premiumEcommerceUsability": 0.7,
+    "strangeSisterChaosY2K": 0.3,
+    "rule": "70/30. If the strange half exceeds 30% the asset stops selling; if it drops far below, the asset stops being PINK MALL."
+  },
+  "palette": {
+    "heritageCore": {
+      "magenta": "#C3537D",
+      "magentaDeep": "#8B3A5C",
+      "magentaDark": "#5A2640",
+      "cream": "#FDF59A",
+      "creamDeep": "#E8C547",
+      "creamBright": "#F5D976",
+      "creamSoft": "#EFEFCE",
+      "gold": "#D4AF37",
+      "goldDark": "#B8941F",
+      "goldSoft": "#E8D08A",
+      "paperBlush": "#FDF6F0",
+      "paperCream": "#FFFAF7"
+    },
+    "y2kLayer": {
+      "hotPink": "#FF2E88",
+      "hotPinkDeep": "#A8004F",
+      "ink": "#3A0A22",
+      "night": "#2A0618",
+      "pinkChrome": "#FFE9F3",
+      "note": "pinkChrome is a warm PINK chrome, not the cold silver chrome of generic AI fashion imagery."
+    },
+    "rule": "Deep magenta, cream and warm gold carry the heritage. Hot pink is the Y2K accent on top of it, never the whole palette."
+  },
+  "typography": {
+    "retroDisplay": {
+      "family": "Bungee",
+      "shadow": "Bungee Shade",
+      "use": "marquee, signage, billboard, sticker type"
+    },
+    "groovy": {
+      "family": "Lilita One / Fugaz One",
+      "use": "retro groovy headline voice"
+    },
+    "editorialSerif": {
+      "family": "Playfair Display",
+      "use": "editorial and premium register"
+    },
+    "script": {
+      "family": "Allura",
+      "use": "handwritten signature accents"
+    },
+    "body": {
+      "family": "Montserrat"
+    },
+    "rule": "Display type is retro signage, not modern minimal sans. Bungee is the signature."
+  },
+  "motifs": {
+    "marquee": {
+      "evidence": "marquee-track / marquee-item / marquee-star / retro-marquee / pms-ticker",
+      "meaning": "Scrolling signage is a core Pierciina device — shop-front lettering in motion."
+    },
+    "stars": {
+      "glyph": "★",
+      "occurrences": 40
+    },
+    "sparkles": {
+      "glyph": "✦",
+      "occurrences": 60,
+      "classes": [
+        "pm-bg-sparkle",
+        "by-ina-sparkle",
+        "sparkle"
+      ]
+    },
+    "hearts": {
+      "glyphs": [
+        "♡",
+        "♥"
+      ],
+      "occurrences": 21
+    },
+    "bolt": {
+      "glyph": "⚡",
+      "occurrences": 5
+    },
+    "retroSticker": {
+      "evidence": "retro-sticker — 'NEW DROP ★ 2026 ★'",
+      "meaning": "Hand-applied boutique sticker, deliberately imperfect."
+    },
+    "neonRibbon": {
+      "evidence": "pm-neon--1/2/3",
+      "meaning": "Soft neon light ribbons, warm not clinical."
+    },
+    "billboard": {
+      "occurrences": 20,
+      "meaning": "Hero billboard staging — vintage boutique poster energy."
+    },
+    "soft focus": {
+      "evidence": "filter: blur used 40x, radial-gradient 19x",
+      "meaning": "Glow comes from soft warm gradients, not hard specular chrome."
+    }
+  },
+  "vocabularyWeight": {
+    "retro": 66,
+    "Y2K": 28,
+    "billboard": 20,
+    "disco": 14,
+    "groovy": 12,
+    "neon": 12,
+    "chrome": 3,
+    "vintage": 0,
+    "note": "Measured word frequency in the canonical source. retro outweighs Y2K roughly 2:1 — the heritage is the base layer."
+  },
+  "requiredAnchors": [
+    "retro/disco lineage",
+    "deep magenta / magenta",
+    "cream",
+    "warm gold accent",
+    "retro display typography",
+    "marquee / signage language",
+    "stars and sparkles",
+    "vintage boutique / editorial poster energy",
+    "playful handmade imperfection",
+    "Y2K as an evolution of Pierciina, not a replacement of it"
+  ],
+  "forbidden": [
+    "generic futuristic pink mall",
+    "generic luxury shopping centre",
+    "Barbie-like pink",
+    "anonymous chrome-heavy AI-fashion aesthetic",
+    "cold silver or steel chrome",
+    "visual language disconnected from Pierciina",
+    "minimal modern sans display type in place of retro signage",
+    "clinical white-box retail environments"
+  ],
+  "failureSignature": {
+    "code": "F03_BRAND_HERITAGE_DRIFT",
+    "looksLike": "Glossy pink luxury mall interior, cold chrome, modern sans signage, no marquee, no cream or gold, no visible Pierciina studio lineage.",
+    "observedIn": "T04 run 001"
+  }
+}

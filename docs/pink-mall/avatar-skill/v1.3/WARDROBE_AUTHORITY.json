@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "version": "WARDROBE_AUTHORITY_v1.3",
+  "purpose": "Separate who a person is from what they are wearing. Introduced after T04 run 001 (F02_WARDROBE_LEAKAGE).",
+  "coreDistinction": {
+    "identityReference": "Establishes face, body geometry and permanent markers. The avatar calibration photographs.",
+    "wardrobeAuthority": "Establishes clothing, footwear, bags and styling. NEVER the avatar calibration photographs."
+  },
+  "referencePhotoWardrobe": "IGNORE_FOR_STYLING",
+  "referencePhotoWardrobeRationale": "The calibration library was shot in plain crop tops, jeans, leggings and neutral underwear on a domestic terrace. That clothing exists to keep body geometry readable. It is not fashion direction and carries no PINK MALL assortment information.",
+  "wardrobeSourcePriority": [
+    {
+      "rank": 1,
+      "source": "CURRENT_PINK_MALL_CATALOGUE",
+      "description": "Current canonical PINK MALL catalogue / active campaign assortment, generated at task time."
+    },
+    {
+      "rank": 2,
+      "source": "APPROVED_CAMPAIGN_WARDROBE_REFERENCE",
+      "description": "Explicit wardrobe reference supplied and approved for this campaign."
+    },
+    {
+      "rank": 3,
+      "source": "OWNER_APPROVED_TREND_BRIEF",
+      "description": "Owner-approved trend direction."
+    }
+  ],
+  "forbiddenFallback": {
+    "rule": "Avatar-source clothing is NEVER a fallback fashion direction.",
+    "onMissingAuthority": [
+      "Set wardrobeSource to NONE",
+      "Set wardrobeConfidence to LOW",
+      "Emit a wardrobeWarning",
+      "Request a wardrobe authority rather than inventing or copying one"
+    ]
+  },
+  "fields": {
+    "wardrobeSource": {
+      "type": "enum",
+      "values": [
+        "CURRENT_PINK_MALL_CATALOGUE",
+        "APPROVED_CAMPAIGN_WARDROBE_REFERENCE",
+        "OWNER_APPROVED_TREND_BRIEF",
+        "NONE"
+      ]
+    },
+    "wardrobeConfidence": {
+      "type": "enum",
+      "values": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "rule": "LOW whenever wardrobeSource is NONE. A fashion-led campaign without a current wardrobe authority CANNOT exceed LOW."
+    },
+    "wardrobeLocks": {
+      "type": "array",
+      "meaning": "Specific garment/colour/silhouette constraints that must survive generation."
+    },
+    "wardrobeWarnings": {
+      "type": "array",
+      "meaning": "Every styling element not backed by a wardrobe authority."
+    }
+  },
+  "gate": {
+    "wardrobeSourceValid": "Must be true for fashion-led campaigns. False when wardrobeSource is NONE."
+  },
+  "failureSignature": {
+    "code": "F02_WARDROBE_LEAKAGE",
+    "looksLike": "Generated subjects wearing the calibration library's crop tops, wide-leg jeans and trainers instead of current PINK MALL assortment.",
+    "observedIn": "T04 run 001"
+  }
+}

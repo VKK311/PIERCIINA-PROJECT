@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "version": "IDENTITY_COLLISION_PROTOCOL_v1.3",
+  "purpose": "Prevent two distinct people collapsing into one generated face. Introduced after T04 run 001 (F01_IDENTITY_COLLISION).",
+  "authorityRules": {
+    "INA": "INA/ references are authoritative ONLY for INA.",
+    "SIS": "SIS/ references are authoritative ONLY for SIS.",
+    "DUO": "DUO/ references are composition and staging evidence ONLY. They are NEVER identity authority for either sister.",
+    "absolute": "No reference may contribute identity to a subject it is not labelled for."
+  },
+  "referenceGrouping": {
+    "rule": "DUO handoffs MUST present references in separate labelled groups, never as one undifferentiated list.",
+    "groups": [
+      "GROUP_INA_IDENTITY",
+      "GROUP_SIS_IDENTITY",
+      "GROUP_DUO_STAGING"
+    ],
+    "reason": "An unlabelled mixed pool is the mechanism by which both subjects converge on the dominant face."
+  },
+  "detection": {
+    "identityCollisionDetected": {
+      "type": "boolean",
+      "meaning": "Both generated subjects resolve toward the same sister, or the two faces are near-duplicates.",
+      "checks": [
+        "Would an unfamiliar viewer say these are two different people?",
+        "Do the two faces share a single facial structure with only hair or wardrobe differing?",
+        "Has one sister's distinguishing geometry been applied to both?"
+      ]
+    },
+    "subjectRoleSwapDetected": {
+      "type": "boolean",
+      "meaning": "INA appears in SIS's designated zone/role or vice versa.",
+      "checks": [
+        "Does the subject in the INA zone match INA's anchors?",
+        "Are the creative registers reversed?"
+      ]
+    },
+    "rule": "Either boolean true is a HARD FAIL regardless of weighted score."
+  },
+  "escalation": {
+    "LEVEL_1": {
+      "name": "single-pass DUO",
+      "when": "Default first attempt.",
+      "method": "One generation with separate labelled reference groups and explicit per-subject zone assignment.",
+      "exitCriteria": "identityCollisionDetected=false and subjectRoleSwapDetected=false and sisterDistinction>=8."
+    },
+    "LEVEL_2": {
+      "name": "sequential identity lock",
+      "when": "LEVEL_1 produced identityCollisionDetected=true.",
+      "method": [
+        "Generate and lock INA alone from INA anchors only.",
+        "Generate and lock SIS alone from SIS anchors only.",
+        "Verify each solo result independently against its own identity gate.",
+        "Compose the two locked subjects into the DUO campaign frame using DUO references for staging only."
+      ],
+      "rule": "Composition happens after both identities are individually locked, never before."
+    },
+    "prohibited": [
+      "Rewriting canonical identity references after a single collision.",
+      "Editing CORE_FACE or CORE_BODY pools to 'fix' a collision.",
+      "Merging INA and SIS anchors into a shared pool to 'average' them."
+    ]
+  },
+  "doctrine": "One failed generation is evidence about the pipeline, not proof that the identity pools are wrong. Escalate the method before touching the evidence."
+}

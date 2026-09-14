@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 3,
+  "version": "PINK_MALL_AVATAR_TEST_EVALUATION_RUBRIC_v1.3",
+  "scale": "0-10 per criterion",
+  "criteria": [
+    {
+      "key": "identityLikeness",
+      "label": "Identity likeness",
+      "weight": 0.2
+    },
+    {
+      "key": "sisterDistinction",
+      "label": "Sister distinction / non-blending",
+      "weight": 0.12
+    },
+    {
+      "key": "productFidelity",
+      "label": "Product fidelity / visibility",
+      "weight": 0.12
+    },
+    {
+      "key": "brandFit",
+      "label": "PINK MALL / Pierciina style fit",
+      "weight": 0.06
+    },
+    {
+      "key": "brandHeritageMatch",
+      "label": "Pierciina heritage match",
+      "weight": 0.08,
+      "definition": "Does the output carry the Pierciina retro/disco lineage — magenta/cream/gold, retro display type, marquee or signage language, stars and sparkles, boutique poster energy — rather than a generic pink mall?",
+      "source": "PIERCIINA_HERITAGE_DNA.json"
+    },
+    {
+      "key": "campaignUsability",
+      "label": "Campaign usability",
+      "weight": 0.12
+    },
+    {
+      "key": "composition",
+      "label": "Composition quality",
+      "weight": 0.1
+    },
+    {
+      "key": "cropTextSafety",
+      "label": "Crop / text-space safety",
+      "weight": 0.07
+    },
+    {
+      "key": "creativeOriginality",
+      "label": "Creative originality",
+      "weight": 0.05
+    },
+    {
+      "key": "promptAdherence",
+      "label": "Prompt adherence",
+      "weight": 0.08
+    }
+  ],
+  "gates": {
+    "identityMinimum": 8,
+    "productMinimumWhenProductLed": 8,
+    "sisterDistinctionMinimumForDuo": 8,
+    "compositionUsableRequired": true,
+    "rule": "A high weighted score cannot override a failed identity/product/non-blending gate, cannot override compositionUsable=false, cannot override identityCollisionDetected=true or subjectRoleSwapDetected=true, cannot override wardrobeSourceValid=false on a fashion-led campaign, and cannot override brandHeritageMatch below brandHeritageMatchMinimum. A visually beautiful image fails if either sister collapses into the other, if calibration clothing was copied, or if Pierciina heritage was lost.",
+    "sisterDistinctnessRequired": true,
+    "identityCollisionDetected": false,
+    "subjectRoleSwapDetected": false,
+    "wardrobeSourceValid": true,
+    "wardrobeSourceValidAppliesTo": "fashion-led campaigns",
+    "brandHeritageMatchMinimum": 7
+  },
+  "reviewFields": [
+    "whatWorked",
+    "whatDrifted",
+    "suspectedCause",
+    "referenceSelectionChange",
+    "promptChange",
+    "canonicalRuleChangeCandidate",
+    "ownerDecision",
+    "compositionUsable",
+    "compositionFailReason",
+    "identityCollisionDetected",
+    "subjectRoleSwapDetected",
+    "wardrobeSource",
+    "wardrobeConfidence",
+    "wardrobeSourceValid",
+    "brandHeritageMatch",
+    "failureCodes"
+  ],
+  "compositionUsable": {
+    "type": "boolean hard gate",
+    "question": "Can this image actually ship in its intended placement?",
+    "failIfAny": [
+      "Essential face or product detail falls inside the preset textSafeRegion.",
+      "Required aspect ratio was not produced.",
+      "Subject crosses a reserved band (e.g. the Sister Battle centre band).",
+      "Face or product sits in the outer edgeMargin of a responsive banner.",
+      "A required 9:16 asset loses the face under platform UI bands.",
+      "accessories_spotlight product occupies less than minProductAreaFraction."
+    ],
+    "rule": "compositionUsable=false is a FAIL regardless of weighted score. A beautiful image with unusable banner geometry does not pass.",
+    "source": "CAMPAIGN_STYLE_PRESETS.json -> presets.<preset>.compositionSafety"
+  },
+  "weightRebalanceNote": "v1.3 added brandHeritageMatch (0.08), funded by brandFit 0.12->0.06 and creativeOriginality 0.07->0.05. Heritage now outweighs generic brand fit, reflecting F03 in T04 run 001. Sum remains exactly 1.",
+  "identityCollisionDetected": {
+    "type": "boolean hard gate",
+    "mustBe": false,
+    "definition": "Both generated subjects resolve toward the same sister, or the two faces are near-duplicates.",
+    "source": "IDENTITY_COLLISION_PROTOCOL.json",
+    "failureCode": "F01_IDENTITY_COLLISION",
+    "onTrue": "HARD FAIL. Escalate to IDENTITY_COLLISION_PROTOCOL LEVEL_2 sequential identity lock. Do not edit canonical identity pools."
+  },
+  "subjectRoleSwapDetected": {
+    "type": "boolean hard gate",
+    "mustBe": false,
+    "definition": "INA appears in SIS's designated zone or creative register, or vice versa.",
+    "source": "IDENTITY_COLLISION_PROTOCOL.json",
+    "failureCode": "F06_SUBJECT_ROLE_SWAP"
+  },
+  "wardrobeSourceValid": {
+    "type": "boolean hard gate",
+    "mustBe": true,
+    "appliesTo": "fashion-led campaigns",
+    "definition": "Styling came from a declared wardrobe authority, not from the avatar calibration photographs.",
+    "source": "WARDROBE_AUTHORITY.json",
+    "failureCode": "F02_WARDROBE_LEAKAGE",
+    "falseWhen": [
+      "wardrobeSource is NONE",
+      "calibration clothing is visibly reproduced in the output"
+    ]
+  },
+  "failureTaxonomy": "FAILURE_TAXONOMY.json"
+}

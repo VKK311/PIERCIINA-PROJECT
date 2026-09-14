@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "version": "PINK_MALL_BRAND_DNA_v1.1",
+  "status": "TEST_DEFAULTS_OWNER_EDITABLE",
+  "brand": "PINK MALL",
+  "parentBrand": "Pierciina",
+  "purpose": "Creative direction defaults for avatar-led campaigns. These are brand rules, not identity facts about INA or SIS.",
+  "coreAesthetic": [
+    "premium playful",
+    "editorial commercial",
+    "pink surreal retail fantasy",
+    "glossy fashion energy",
+    "controlled chaos",
+    "Y2K-adjacent attitude used selectively rather than as costume"
+  ],
+  "brandBalance": {
+    "premiumEcommerceUsability": 0.70,
+    "strangeY2KSisterChaos": 0.30
+  },
+  "visualKeywords": [
+    "pink",
+    "gloss",
+    "chrome or metallic accents",
+    "reflective surfaces",
+    "clean studio polish",
+    "bold femininity",
+    "high-detail fashion",
+    "mall fantasy",
+    "soft gradients",
+    "piercing and jewelry culture"
+  ],
+  "tone": [
+    "confident",
+    "fun",
+    "fashion-aware",
+    "slightly strange",
+    "polished rather than precious"
+  ],
+  "surrealismPolicy": {
+    "allowed": true,
+    "level": "moderate",
+    "rule": "Surreal or bizarre elements may support the concept but must not obscure the sisters, the product, or campaign readability."
+  },
+  "backgroundDirections": [
+    "glossy pink interiors",
+    "abstract mall architecture",
+    "reflective floors and chrome structures",
+    "soft sculptural retail spaces",
+    "editorial fantasy storefronts",
+    "unexpected oversized jewelry or piercing-inspired objects when conceptually useful"
+  ],
+  "compositionPreferences": [
+    "strong focal subject",
+    "clear product visibility",
+    "usable negative space for copy",
+    "editorial asymmetry",
+    "clean visual hierarchy",
+    "banner-safe and mobile-aware framing",
+    "one memorable strange idea rather than many competing gimmicks"
+  ],
+  "commercialPriorities": [
+    "identity recognizability",
+    "product fidelity",
+    "clear campaign message",
+    "usable crop",
+    "brand character"
+  ],
+  "avoid": [
+    "generic white-background ecommerce stiffness when a campaign visual is requested",
+    "cheap party aesthetic",
+    "childish cartoon pink",
+    "muddy or unflattering lighting",
+    "overcrowded layouts",
+    "dark heavy luxury without freshness",
+    "visual clutter that hides the product",
+    "generic stock-fashion energy",
+    "random surrealism with no relationship to the campaign idea"
+  ]
+}

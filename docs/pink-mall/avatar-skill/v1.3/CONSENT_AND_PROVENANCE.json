@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "version": "PINK_MALL_AVATAR_CONSENT_AND_PROVENANCE_v1.2",
+  "status": "OWNER_CONFIRMATION_REQUIRED",
+  "important": "This file is a SCHEMA with unset authorisation fields. Claude did not and cannot establish consent. Every field below marked OWNER_CONFIRMATION_REQUIRED must be completed by the owner before any generated likeness of INA or SIS is used commercially.",
+  "subjects": {
+    "INA": {
+      "label": "INA",
+      "sourceOwnership": "OWNER_CONFIRMATION_REQUIRED",
+      "photographer": "OWNER_CONFIRMATION_REQUIRED",
+      "captureDate": "OWNER_CONFIRMATION_REQUIRED",
+      "subjectIsOwnerOrAffiliate": "OWNER_CONFIRMATION_REQUIRED",
+      "writtenAuthorisationOnFile": "OWNER_CONFIRMATION_REQUIRED",
+      "authorisationReference": null,
+      "allowedUse": {
+        "internalReference": "OWNER_CONFIRMATION_REQUIRED",
+        "aiGeneratedLikeness": "OWNER_CONFIRMATION_REQUIRED",
+        "commercialCampaign": "OWNER_CONFIRMATION_REQUIRED",
+        "socialDistribution": "OWNER_CONFIRMATION_REQUIRED",
+        "thirdPartyLicensing": "OWNER_CONFIRMATION_REQUIRED"
+      },
+      "restrictions": "OWNER_CONFIRMATION_REQUIRED",
+      "expiryOrReviewDate": "OWNER_CONFIRMATION_REQUIRED",
+      "revocationPath": "OWNER_CONFIRMATION_REQUIRED"
+    },
+    "SIS": {
+      "label": "SIS",
+      "sourceOwnership": "OWNER_CONFIRMATION_REQUIRED",
+      "photographer": "OWNER_CONFIRMATION_REQUIRED",
+      "captureDate": "OWNER_CONFIRMATION_REQUIRED",
+      "subjectIsOwnerOrAffiliate": "OWNER_CONFIRMATION_REQUIRED",
+      "writtenAuthorisationOnFile": "OWNER_CONFIRMATION_REQUIRED",
+      "authorisationReference": null,
+      "allowedUse": {
+        "internalReference": "OWNER_CONFIRMATION_REQUIRED",
+        "aiGeneratedLikeness": "OWNER_CONFIRMATION_REQUIRED",
+        "commercialCampaign": "OWNER_CONFIRMATION_REQUIRED",
+        "socialDistribution": "OWNER_CONFIRMATION_REQUIRED",
+        "thirdPartyLicensing": "OWNER_CONFIRMATION_REQUIRED"
+      },
+      "restrictions": "OWNER_CONFIRMATION_REQUIRED",
+      "expiryOrReviewDate": "OWNER_CONFIRMATION_REQUIRED",
+      "revocationPath": "OWNER_CONFIRMATION_REQUIRED"
+    },
+    "DUO": {
+      "label": "DUO",
+      "sourceOwnership": "OWNER_CONFIRMATION_REQUIRED",
+      "photographer": "OWNER_CONFIRMATION_REQUIRED",
+      "captureDate": "OWNER_CONFIRMATION_REQUIRED",
+      "subjectIsOwnerOrAffiliate": "OWNER_CONFIRMATION_REQUIRED",
+      "writtenAuthorisationOnFile": "OWNER_CONFIRMATION_REQUIRED",
+      "authorisationReference": null,
+      "allowedUse": {
+        "internalReference": "OWNER_CONFIRMATION_REQUIRED",
+        "aiGeneratedLikeness": "OWNER_CONFIRMATION_REQUIRED",
+        "commercialCampaign": "OWNER_CONFIRMATION_REQUIRED",
+        "socialDistribution": "OWNER_CONFIRMATION_REQUIRED",
+        "thirdPartyLicensing": "OWNER_CONFIRMATION_REQUIRED"
+      },
+      "restrictions": "OWNER_CONFIRMATION_REQUIRED",
+      "expiryOrReviewDate": "OWNER_CONFIRMATION_REQUIRED",
+      "revocationPath": "OWNER_CONFIRMATION_REQUIRED"
+    }
+  },
+  "library": {
+    "totalImages": 190,
+    "INA": 77,
+    "SIS": 76,
+    "DUO": 37,
+    "sourceArchive": "Avatarskill.rar",
+    "storageLocation": "OWNER_CONFIRMATION_REQUIRED",
+    "publicRepositoryExposure": "PROHIBITED",
+    "containsSensitivePersonalImagery": true,
+    "sensitivityNote": "The library includes body-reference and underwear-series frames of identifiable private individuals. Treat the whole library at that sensitivity level."
+  },
+  "generatedOutputs": {
+    "derivativeLikenessPolicy": "OWNER_CONFIRMATION_REQUIRED",
+    "retentionPolicy": "OWNER_CONFIRMATION_REQUIRED",
+    "watermarkOrDisclosurePolicy": "OWNER_CONFIRMATION_REQUIRED",
+    "note": "Generated campaign images are derivative likenesses of real people and inherit these constraints."
+  },
+  "revocation": {
+    "process": "OWNER_CONFIRMATION_REQUIRED",
+    "effectOnExistingAssets": "OWNER_CONFIRMATION_REQUIRED",
+    "contact": "OWNER_CONFIRMATION_REQUIRED"
+  },
+  "gate": {
+    "rule": "If subjectIsOwnerOrAffiliate or writtenAuthorisationOnFile is still OWNER_CONFIRMATION_REQUIRED, controlled internal testing is permitted but commercial publication is NOT.",
+    "enforcedBy": "CREATIVE_GUARDRAILS.md and TEST_EVALUATION_RUBRIC.json"
+  }
+}
