@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Private transfer of the full PINK MALL avatar reference library to Claude Code without publishing the photos to the public GitHub repository.",
+  "sourceArchive": {
+    "filename": "Avatarskill.rar",
+    "bytes": 200471798,
+    "sha256": "9b90375bddbd39b957faa71d03b1f2881e04e6956743fb0c7a16a9b862ef96cd"
+  },
+  "expectedLibrary": {
+    "total": 190,
+    "INA": 77,
+    "SIS": 76,
+    "DUO": 37
+  },
+  "transferParts": [
+    {"part":1,"filename":"AVATAR_LIBRARY_PART_01_INA_01.zip","subject":"INA","fileCount":21,"bytes":23933360,"sha256":"e2341216f0141ae9c2157bac45112c626aaffbee3e49bb7597b290c6a57a6986"},
+    {"part":2,"filename":"AVATAR_LIBRARY_PART_02_INA_02.zip","subject":"INA","fileCount":21,"bytes":24093509,"sha256":"80ebfccf9b363ec8e6f5c45a7ee5b00e42c27483c98466017b8fe6ac2472f57d"},
+    {"part":3,"filename":"AVATAR_LIBRARY_PART_03_INA_03.zip","subject":"INA","fileCount":21,"bytes":23379992,"sha256":"08f51ad81e1e6fc8ac6e121732386c6f96578f120a063de81662adc94118770f"},
+    {"part":4,"filename":"AVATAR_LIBRARY_PART_04_INA_04.zip","subject":"INA","fileCount":14,"bytes":11172098,"sha256":"4179aec5e3e614b6e8be5493ac0df179dda52a4f6bbbde2c4701d6379f071314"},
+    {"part":5,"filename":"AVATAR_LIBRARY_PART_05_SIS_01.zip","subject":"SIS","fileCount":21,"bytes":23696548,"sha256":"7ebd8ee5eb74e53b205fe9c50ea277fb7075549e915eea66bd19621126305c87"},
+    {"part":6,"filename":"AVATAR_LIBRARY_PART_06_SIS_02.zip","subject":"SIS","fileCount":20,"bytes":23286301,"sha256":"5938c9f181f503bbe8edcfbbddf2d43a6fc6a0e1f5cb3d86d3b6580881d97d98"},
+    {"part":7,"filename":"AVATAR_LIBRARY_PART_07_SIS_03.zip","subject":"SIS","fileCount":21,"bytes":23296142,"sha256":"9e5b5c1e5367715756bb2b4befab644ce05c211e2d310af94eae55b347f9fc99"},
+    {"part":8,"filename":"AVATAR_LIBRARY_PART_08_SIS_04.zip","subject":"SIS","fileCount":14,"bytes":11948553,"sha256":"0842d62f5ef2875a049939990dc3169def34962e61d713b260bc3cc4cad36d8a"},
+    {"part":9,"filename":"AVATAR_LIBRARY_PART_09_DUO_01.zip","subject":"DUO","fileCount":23,"bytes":23903964,"sha256":"4cfe61addfd8d60c875aaf309f676598769d294391028a03a7cc7306b97dc330"},
+    {"part":10,"filename":"AVATAR_LIBRARY_PART_10_DUO_02.zip","subject":"DUO","fileCount":14,"bytes":16007167,"sha256":"d7d9d8c5ef1888c10831e86314d0d23bc794300778215c66fd6944ac69d26ed1"}
+  ],
+  "perImageIntegrity": "Verify extracted image relativePath and sha256 against AVATAR_LIBRARY_MANIFEST.json inside PINK_MALL_AVATAR_CLAUDE_SKILL_v1_1.zip.",
+  "instructions": [
+    "Upload all 10 ZIP parts to the same Claude Code session.",
+    "Verify each ZIP SHA-256 before extraction.",
+    "Extract all parts into one temporary untracked root.",
+    "Verify exactly 190 JPEGs: INA 77, SIS 76, DUO 37.",
+    "Then verify every extracted JPEG SHA-256 against AVATAR_LIBRARY_MANIFEST.json.",
+    "Never commit or push the private images to the public repository."
+  ]
+}
