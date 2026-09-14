@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "version": "PINK_MALL_CAMPAIGN_STYLE_PRESETS_v1.2",
+  "status": "TEST_DEFAULTS_OWNER_EDITABLE",
+  "presets": {
+    "hero_banner": {
+      "goal": "Main premium PINK MALL visual with immediate identity and brand recognition.",
+      "mood": [
+        "editorial",
+        "striking",
+        "premium playful"
+      ],
+      "subjectPriority": "avatar-first or duo-first",
+      "textSpace": "required",
+      "composition": [
+        "clear focal hierarchy",
+        "strong subject placement",
+        "negative space for banner copy",
+        "desktop-safe and mobile-aware crop"
+      ],
+      "recommendedReferenceTypes": [
+        "CORE_FACE",
+        "CORE_BODY",
+        "FASHION_POSE",
+        "DUO composition when relevant"
+      ],
+      "creativityBudget": "high but controlled",
+      "compositionSafety": {
+        "aspectRatios": [
+          "16:9",
+          "21:9"
+        ],
+        "primary": "16:9",
+        "textSafeRegion": {
+          "side": "left",
+          "x": 0.0,
+          "y": 0.0,
+          "width": 0.38,
+          "height": 1.0
+        },
+        "subjectZone": {
+          "x": 0.42,
+          "y": 0.0,
+          "width": 0.58,
+          "height": 1.0
+        },
+        "keepClear": "No essential face or product detail inside the textSafeRegion.",
+        "edgeMargin": 0.06,
+        "mobileCrop": "Must survive a centre 4:5 crop with the face intact."
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    },
+    "new_in": {
+      "goal": "Fresh product-arrival campaign with fast product readability.",
+      "mood": [
+        "clean",
+        "current",
+        "exciting"
+      ],
+      "subjectPriority": "product-first with avatar support",
+      "textSpace": "required",
+      "composition": [
+        "clear product visibility",
+        "clean framing",
+        "reduced environmental clutter",
+        "fast readability"
+      ],
+      "recommendedReferenceTypes": [
+        "CORE_FACE",
+        "matching BODY angle",
+        "one product-relevant pose"
+      ],
+      "creativityBudget": "medium",
+      "compositionSafety": {
+        "aspectRatios": [
+          "4:5",
+          "1:1"
+        ],
+        "primary": "4:5",
+        "textSafeRegion": {
+          "side": "bottom",
+          "x": 0.0,
+          "y": 0.76,
+          "width": 1.0,
+          "height": 0.24
+        },
+        "subjectZone": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 0.74
+        },
+        "keepClear": "Product must sit fully above the bottom text band.",
+        "edgeMargin": 0.05
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    },
+    "accessories_spotlight": {
+      "goal": "Highlight an accessory or jewelry detail without losing identity.",
+      "mood": [
+        "fashion close-up",
+        "stylish",
+        "bright",
+        "precise"
+      ],
+      "subjectPriority": "product-first",
+      "textSpace": "optional",
+      "composition": [
+        "face or upper-body relevance",
+        "detail clarity",
+        "clean product presentation",
+        "reduced clutter"
+      ],
+      "recommendedReferenceTypes": [
+        "CORE_FACE",
+        "matching FACE angle",
+        "EYEWEAR or HEADWEAR or IDENTITY_DETAILS"
+      ],
+      "creativityBudget": "medium",
+      "compositionSafety": {
+        "aspectRatios": [
+          "1:1",
+          "4:5"
+        ],
+        "primary": "1:1",
+        "textSafeRegion": null,
+        "subjectZone": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0
+        },
+        "keepClear": "Product detail must occupy at least 12% of frame area to remain legible.",
+        "minProductAreaFraction": 0.12,
+        "edgeMargin": 0.04
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    },
+    "sister_battle": {
+      "goal": "Playful comparison or dual-feature campaign with clear sister distinction.",
+      "mood": [
+        "playful tension",
+        "fashion rivalry",
+        "high readability"
+      ],
+      "subjectPriority": "balanced duo",
+      "textSpace": "required",
+      "composition": [
+        "clear left-right or A-B distinction",
+        "interactive tension",
+        "space for labels or callouts",
+        "strong symmetry or purposeful asymmetry"
+      ],
+      "recommendedReferenceTypes": [
+        "INA CORE_FACE",
+        "SIS CORE_FACE",
+        "matching BODY anchors",
+        "one DUO composition"
+      ],
+      "creativityBudget": "high",
+      "compositionSafety": {
+        "aspectRatios": [
+          "16:9",
+          "1:1"
+        ],
+        "primary": "16:9",
+        "textSafeRegion": {
+          "side": "centre-band",
+          "x": 0.4,
+          "y": 0.0,
+          "width": 0.2,
+          "height": 1.0
+        },
+        "subjectZone": {
+          "INA": {
+            "x": 0.02,
+            "y": 0.0,
+            "width": 0.36,
+            "height": 1.0
+          },
+          "SIS": {
+            "x": 0.62,
+            "y": 0.0,
+            "width": 0.36,
+            "height": 1.0
+          }
+        },
+        "keepClear": "Central band reserved for labels or callouts; neither sister may cross it.",
+        "edgeMargin": 0.05,
+        "mobileCrop": "Both faces must remain inside a centre 1:1 crop."
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    },
+    "story_vertical": {
+      "goal": "Social-first vertical campaign with immediate impact and crop safety.",
+      "mood": [
+        "bold",
+        "stylish",
+        "fast-impact"
+      ],
+      "subjectPriority": "avatar plus product",
+      "textSpace": "required",
+      "composition": [
+        "9:16 safe framing",
+        "top and bottom UI-safe space",
+        "strong central or intentionally offset subject",
+        "quick readability"
+      ],
+      "recommendedReferenceTypes": [
+        "CORE_FACE",
+        "one BODY angle",
+        "one task-specific pose"
+      ],
+      "creativityBudget": "medium-high",
+      "compositionSafety": {
+        "aspectRatios": [
+          "9:16"
+        ],
+        "primary": "9:16",
+        "textSafeRegion": {
+          "side": "top-and-bottom",
+          "topHeight": 0.16,
+          "bottomHeight": 0.2
+        },
+        "subjectZone": {
+          "x": 0.0,
+          "y": 0.16,
+          "width": 1.0,
+          "height": 0.64
+        },
+        "keepClear": "Platform UI occupies the top 16% and bottom 20%. No face or product there.",
+        "edgeMargin": 0.05,
+        "mobileCrop": "Native 9:16; must also survive a 4:5 centre crop."
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    },
+    "pierciina_weird_editorial": {
+      "goal": "A deliberately strange but commercially usable Pierciina/PINK MALL editorial concept.",
+      "mood": [
+        "surreal",
+        "glossy",
+        "fashion-forward",
+        "slightly absurd",
+        "confident"
+      ],
+      "subjectPriority": "identity-first with concept support",
+      "textSpace": "optional but must remain possible",
+      "composition": [
+        "one dominant strange visual idea",
+        "clear sister silhouette",
+        "controlled reflective or oversized objects",
+        "product and face remain readable"
+      ],
+      "recommendedReferenceTypes": [
+        "CORE_FACE",
+        "CORE_BODY",
+        "one signature pose",
+        "DUO composition when relevant"
+      ],
+      "creativityBudget": "very high, guarded by identity and product locks",
+      "compositionSafety": {
+        "aspectRatios": [
+          "4:5",
+          "16:9"
+        ],
+        "primary": "4:5",
+        "textSafeRegion": {
+          "side": "optional",
+          "x": 0.0,
+          "y": 0.0,
+          "width": 0.3,
+          "height": 1.0
+        },
+        "subjectZone": {
+          "x": 0.25,
+          "y": 0.0,
+          "width": 0.75,
+          "height": 1.0
+        },
+        "keepClear": "Text space optional but must remain physically possible.",
+        "edgeMargin": 0.06
+      },
+      "compositionSafetyStatus": "TEST_DEFAULT"
+    }
+  },
+  "compositionSafetyStatus": "TEST_DEFAULTS_NOT_PERMANENT_BRAND_TRUTH",
+  "compositionSafetyNote": "textSafeRegion is expressed as fractions of frame width/height. The reference library contains no landscape or 9:16 frame and no offset-subject example, so these are targets for the generator, not values any reference demonstrates."
+}

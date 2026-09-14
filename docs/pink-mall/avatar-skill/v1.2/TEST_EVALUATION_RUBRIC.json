@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "version": "PINK_MALL_AVATAR_TEST_EVALUATION_RUBRIC_v1.2",
+  "scale": "0-10 per criterion",
+  "criteria": [
+    {
+      "key": "identityLikeness",
+      "label": "Identity likeness",
+      "weight": 0.2
+    },
+    {
+      "key": "sisterDistinction",
+      "label": "Sister distinction / non-blending",
+      "weight": 0.12
+    },
+    {
+      "key": "productFidelity",
+      "label": "Product fidelity / visibility",
+      "weight": 0.12
+    },
+    {
+      "key": "brandFit",
+      "label": "PINK MALL / Pierciina style fit",
+      "weight": 0.12
+    },
+    {
+      "key": "campaignUsability",
+      "label": "Campaign usability",
+      "weight": 0.12
+    },
+    {
+      "key": "composition",
+      "label": "Composition quality",
+      "weight": 0.1
+    },
+    {
+      "key": "cropTextSafety",
+      "label": "Crop / text-space safety",
+      "weight": 0.07
+    },
+    {
+      "key": "creativeOriginality",
+      "label": "Creative originality",
+      "weight": 0.07
+    },
+    {
+      "key": "promptAdherence",
+      "label": "Prompt adherence",
+      "weight": 0.08
+    }
+  ],
+  "gates": {
+    "identityMinimum": 8,
+    "productMinimumWhenProductLed": 8,
+    "sisterDistinctionMinimumForDuo": 8,
+    "compositionUsableRequired": true,
+    "rule": "A high weighted score cannot override a failed identity/product/non-blending gate, and cannot override compositionUsable=false."
+  },
+  "reviewFields": [
+    "whatWorked",
+    "whatDrifted",
+    "suspectedCause",
+    "referenceSelectionChange",
+    "promptChange",
+    "canonicalRuleChangeCandidate",
+    "ownerDecision",
+    "compositionUsable",
+    "compositionFailReason"
+  ],
+  "compositionUsable": {
+    "type": "boolean hard gate",
+    "question": "Can this image actually ship in its intended placement?",
+    "failIfAny": [
+      "Essential face or product detail falls inside the preset textSafeRegion.",
+      "Required aspect ratio was not produced.",
+      "Subject crosses a reserved band (e.g. the Sister Battle centre band).",
+      "Face or product sits in the outer edgeMargin of a responsive banner.",
+      "A required 9:16 asset loses the face under platform UI bands.",
+      "accessories_spotlight product occupies less than minProductAreaFraction."
+    ],
+    "rule": "compositionUsable=false is a FAIL regardless of weighted score. A beautiful image with unusable banner geometry does not pass.",
+    "source": "CAMPAIGN_STYLE_PRESETS.json -> presets.<preset>.compositionSafety"
+  }
+}

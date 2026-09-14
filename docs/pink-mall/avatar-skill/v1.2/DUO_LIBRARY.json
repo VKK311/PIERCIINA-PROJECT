@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "version": "DUO_LIBRARY_v1.0",
+  "identityRule": "Always anchor INA and SIS separately before adding a DUO composition reference.",
+  "compositions": {
+    "D01_SYMMETRIC_SISTERS": {
+      "preferred": [
+        "DUO/IMG_3442.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3450.JPEG"
+      ],
+      "notes": "Balanced front-facing sister presence."
+    },
+    "D02_STAGGERED_DEPTH": {
+      "preferred": [
+        "DUO/IMG_3434.JPEG",
+        "DUO/IMG_3436.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3620.JPEG"
+      ],
+      "notes": "Use for hierarchy/depth, not as sole face identity source."
+    },
+    "D03_MIRROR_OPPOSITION": {
+      "preferred": [
+        "DUO/IMG_3794.JPEG",
+        "DUO/IMG_3798.JPEG"
+      ],
+      "alternates": [],
+      "notes": "Best current mirrored opposing active composition."
+    },
+    "D04_SHOULDER_LINK": {
+      "preferred": [
+        "DUO/IMG_3598.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3450.JPEG",
+        "DUO/IMG_3802.JPEG"
+      ],
+      "notes": "Good for close brand storytelling."
+    },
+    "D05_CROSSING_WALK": {
+      "preferred": [
+        "DUO/IMG_3434.JPEG",
+        "DUO/IMG_3436.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3499.JPEG",
+        "DUO/IMG_3503.JPEG"
+      ],
+      "notes": "Motion/crossing-walk reference."
+    },
+    "D06_CAMERA_SISTER_GAZE": {
+      "preferred": [
+        "DUO/IMG_3506.JPEG"
+      ],
+      "alternates": [],
+      "notes": "Useful story cue with shared movement."
+    },
+    "D07_SEATED_STANDING_SPLIT": {
+      "preferred": [
+        "DUO/IMG_3625.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3628.JPEG"
+      ],
+      "notes": "Current archive uses crouched/standing hierarchy rather than formal stool setup."
+    },
+    "D08_CAMPAIGN_TRIANGLE": {
+      "preferred": [
+        "DUO/IMG_3624.JPEG",
+        "DUO/IMG_3626.JPEG"
+      ],
+      "alternates": [
+        "DUO/IMG_3633.JPEG"
+      ],
+      "notes": "Best current graphic editorial triangle candidates."
+    }
+  }
+}

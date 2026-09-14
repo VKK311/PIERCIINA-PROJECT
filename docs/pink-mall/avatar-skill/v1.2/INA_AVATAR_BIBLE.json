@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "identityVersion": "INA_v1.0",
+  "status": "CURATED_FOUNDATION_CANDIDATE",
+  "approvedCoreFace": [
+    "INA/IMG_3854.JPEG",
+    "INA/IMG_3856.JPEG",
+    "INA/IMG_3866.JPEG",
+    "INA/IMG_3859.JPEG",
+    "INA/IMG_3868.JPEG"
+  ],
+  "approvedCoreBody": [
+    "INA/IMG_3380.JPEG",
+    "INA/IMG_3387.JPEG",
+    "INA/IMG_3406.JPEG",
+    "INA/IMG_3391.JPEG",
+    "INA/IMG_3397.JPEG",
+    "INA/IMG_3393.JPEG"
+  ],
+  "observedStableMarkers": [
+    "Multiple visible ear and nose piercings are useful identity/detail anchors.",
+    "Several visible tattoos across torso/arms/legs provide strong body-identity anchors.",
+    "Mid-length brown hair appears consistently across the calibrated face series."
+  ],
+  "strongReferenceUse": [
+    "Use front + matching 45/profile face references for facial rotation.",
+    "Use BODY_FRONT plus the matching body angle for full-body generation.",
+    "For eyewear/headwear, include a product-specific pose reference in addition to identity anchors."
+  ],
+  "knownGaps": [
+    "No dedicated hand close-up identity series.",
+    "Expression coverage is useful but not yet broad enough for a full emotional atlas.",
+    "Body foundation background is serviceable but not a seamless calibrated studio backdrop."
+  ],
+  "doNotInfer": [
+    "Do not infer permanent makeup, styling, or wardrobe from temporary shoot looks.",
+    "Do not treat outfit color as identity."
+  ]
+}
