@@ -17,12 +17,21 @@
     "catalogueSource": "path + SHA-256 of the build the context was derived from",
     "catalogueSize": "integer",
     "activeCategories": "list of category keys with live products",
-    "assortment": "per-category list of {id, brand, name, category, subcategory, priceEUR, tags}",
+    "assortment": "per-category list of {id, brand, name, category, subcategory, priceEUR, campaign, isNew, newUntil, tags}. isNew and newUntil are the RAW catalogue values, kept for provenance; they are not the freshness verdict",
     "activeCampaigns": "campaign keys present in the catalogue",
-    "newIn": "products flagged isNew",
+    "newIn": "product ids that are NEW as of asOfDate, decided by the canonical storefront rule — NOT the raw isNew flag",
     "silhouetteVocabulary": "derived from product names/tags — the shapes actually stocked",
     "colourVocabulary": "derived from product names/tags",
-    "wardrobeAuthorityStatus": "VALID | STALE | ABSENT"
+    "wardrobeAuthorityStatus": "VALID | STALE | ABSENT",
+    "asOfDate": "ISO-8601 date the freshness rule was evaluated against (--as-of, default today)",
+    "newInPolicy": "human-readable statement of the freshness rule the instance was built with"
   },
-  "rule": "If no instance exists for this task, wardrobeSource=NONE and wardrobeConfidence=LOW. Never substitute avatar-source clothing."
+  "rule": "If no instance exists for this task, wardrobeSource=NONE and wardrobeConfidence=LOW. Never substitute avatar-source clothing.",
+  "freshnessRule": {
+    "authority": "PINKMALL.html -> isProductNew()",
+    "rule": "A parseable newUntil decides freshness outright and is INCLUSIVE through 23:59:59 local time on that date. Raw isNew is only the fallback when newUntil is absent, empty or unparseable.",
+    "whyItMatters": "Raw isNew can stay true after a product's newUntil has passed. Reading it directly would hand the avatar skill a NEW IN set the Mall no longer shows, so the context would style from products the customer sees as ordinary stock.",
+    "oneRule": "The storefront and the fashion context must never carry two definitions of NEW. If isProductNew() changes, is_product_new() in build_fashion_context.py changes with it.",
+    "contractTest": "tools/regression/fashion_context_contract.py"
+  }
 }

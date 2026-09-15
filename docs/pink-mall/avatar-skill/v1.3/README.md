@@ -31,6 +31,12 @@ python VALIDATE_SKILL.py
 # resolve the current wardrobe authority before any fashion-led task
 python build_fashion_context.py --catalogue ../../../../PINKMALL.html \
                                 --out /tmp/fashion_context.json
+# optional: pin the freshness date (defaults to today)
+#                               --as-of 2026-09-15
+
+# prove the catalogue seam still holds
+cd "$(git rev-parse --show-toplevel)"
+python tools/regression/fashion_context_contract.py PINKMALL.html
 ```
 
 ## The library is private and is not here
@@ -69,6 +75,24 @@ the campaign layer. New hard gates: `sisterDistinctnessRequired`,
 `wardrobeSourceValid=true` for fashion-led work, and
 `brandHeritageMatchMinimum`. Fashion direction is **not** frozen into the skill
 — `build_fashion_context.py` reads the live catalogue at task time.
+
+### `newIn` follows the storefront, not the raw flag
+
+`build_fashion_context.py` decides freshness the way `PINKMALL.html` does: a
+parseable `newUntil` wins outright and is **inclusive** through the end of that
+day, and the raw `isNew` flag is only the fallback when `newUntil` is absent or
+unreadable. Both values stay in `assortment` for provenance, but `newIn` is the
+date-gated set.
+
+This matters because the two can disagree. A product may keep `isNew: true`
+after its `newUntil` has passed; the Mall stops showing its NEW badge and drops
+it from NEW IN, so reading the flag directly would hand the skill a wardrobe
+authority the customer never sees.
+
+`--as-of YYYY-MM-DD` pins the evaluation date for reproducible runs and
+defaults to today; the emitted context records it as `asOfDate`.
+`tools/regression/fashion_context_contract.py` holds this seam, including the
+boundary day, and fails loudly on structural drift in the catalogue.
 
 ## What changed in v1.2
 
