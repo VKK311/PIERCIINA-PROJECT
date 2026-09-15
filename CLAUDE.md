@@ -111,6 +111,16 @@ recreate the isolated clone**. Do not try to repair it in place.
 
 See `docs/pink-mall/CHECKPOINT_POLICY.md` for the full policy.
 
+## System contracts
+
+For any task involving campaign systems, Story State, Social Intelligence,
+Super Brain, the Workstation, generated campaign media, or system governance,
+read `docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md` before acting.
+
+It defines which system is authoritative for which domain, what happens when two
+sources disagree, and which data may live in this public repository. Product
+onboarding authority is unchanged by it.
+
 ## Standing product constraints
 
 These come from the user and hold across every task:
