@@ -32,6 +32,8 @@
     "rule": "A parseable newUntil decides freshness outright and is INCLUSIVE through 23:59:59 local time on that date. Raw isNew is only the fallback when newUntil is absent, empty or unparseable.",
     "whyItMatters": "Raw isNew can stay true after a product's newUntil has passed. Reading it directly would hand the avatar skill a NEW IN set the Mall no longer shows, so the context would style from products the customer sees as ordinary stock.",
     "oneRule": "The storefront and the fashion context must never carry two definitions of NEW. If isProductNew() changes, is_product_new() in build_fashion_context.py changes with it.",
-    "contractTest": "tools/regression/fashion_context_contract.py"
+    "contractTest": "tools/regression/fashion_context_contract.py",
+    "dateFormat": "newUntil and --as-of are both exactly YYYY-MM-DD. Anything else — 20260915, 2026-W38-2, 2026-9-15, a full datetime — is treated as unparseable, and freshness falls back to the raw isNew flag, mirroring the storefront's isFinite(Date.parse(newUntil + 'T23:59:59')) guard.",
+    "parsing": "Each product is read only from within its own top-level record. Field lookups are key-boundary anchored so that 'category' cannot match inside 'subcategory'. A record with no id, more than one id, or a missing id/name/category is a hard error, never a silently reduced catalogue."
   }
 }

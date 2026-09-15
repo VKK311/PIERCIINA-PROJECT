@@ -84,10 +84,18 @@ day, and the raw `isNew` flag is only the fallback when `newUntil` is absent or
 unreadable. Both values stay in `assortment` for provenance, but `newIn` is the
 date-gated set.
 
-This matters because the two can disagree. A product may keep `isNew: true`
-after its `newUntil` has passed; the Mall stops showing its NEW badge and drops
-it from NEW IN, so reading the flag directly would hand the skill a wardrobe
-authority the customer never sees.
+This matters because the two disagree in practice. Every published product
+(PM-025 onward) carries `isNew: false` with a fourteen-day `newUntil` window,
+so during that window the Mall shows it as NEW while the raw flag says it is
+not. On 2026-09-14 that was five products — PM-042 through PM-046 — live in
+NEW IN and invisible to a flag-reading builder. The divergence runs the other
+way too: a product keeping `isNew: true` past its `newUntil` would be reported
+as NEW after the Mall had stopped showing it.
+
+Dates are exactly `YYYY-MM-DD`. A `newUntil` in any other shape is treated as
+unparseable and falls back to the raw flag, matching the storefront. Each
+product is parsed only from inside its own record, so a missing field can never
+be borrowed from the next product.
 
 `--as-of YYYY-MM-DD` pins the evaluation date for reproducible runs and
 defaults to today; the emitted context records it as `asOfDate`.

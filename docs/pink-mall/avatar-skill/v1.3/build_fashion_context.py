@@ -18,19 +18,48 @@ snapshot silently becomes wrong. Regenerate per task.
 """
 import argparse, collections, datetime, hashlib, json, os, re, sys
 
+# A key must not be matched as the tail of a longer one. Without the guard,
+# `category` also matches inside `subcategory`, and the right value is only
+# returned because `category:` happens to be written first in every record.
+# Reorder the fields, or omit `category`, and the product would silently take
+# its subcategory as its category.
+_KEY_BOUNDARY = r"(?<![A-Za-z0-9_$])"
+
+
 def _str(seg, key):
-    m = re.search(r"""["']?%s["']?\s*:\s*(?:["']([^"']*)["']|(\d+))""" % key, seg)
+    m = re.search(_KEY_BOUNDARY + r"""["']?%s["']?\s*:\s*(?:["']([^"']*)["']|(\d+))""" % key, seg)
     return (m.group(1) or m.group(2)) if m else None
 
 
 def _bool(seg, key):
-    m = re.search(r"""["']?%s["']?\s*:\s*(\w+)""" % key, seg)
+    m = re.search(_KEY_BOUNDARY + r"""["']?%s["']?\s*:\s*(\w+)""" % key, seg)
     return bool(m) and m.group(1).lower() == "true"
 
 
 def _list(seg, key):
-    m = re.search(r"""["']?%s["']?\s*:\s*\[(.*?)\]""" % key, seg, re.S)
+    m = re.search(_KEY_BOUNDARY + r"""["']?%s["']?\s*:\s*\[(.*?)\]""" % key, seg, re.S)
     return [t.strip(" '\"") for t in m.group(1).split(",") if t.strip()] if m else []
+
+
+# The catalogue and the CLI both document YYYY-MM-DD. datetime.date.fromisoformat
+# is broader than that on modern Pythons — it accepts 20260915, 2026-W38-2 and
+# full datetimes — so a value that is not the documented shape would be read as
+# a date instead of being treated as unparseable. One strict parser is used for
+# both --as-of and newUntil so the two can never drift apart.
+_ISO_DATE = re.compile(r"\A(\d{4})-(\d{2})-(\d{2})\Z")
+
+
+def parse_iso_date(value):
+    """Exactly YYYY-MM-DD and a real calendar date, else None."""
+    if not isinstance(value, str):
+        return None
+    m = _ISO_DATE.match(value)
+    if not m:
+        return None
+    try:
+        return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None
 
 
 class CatalogueError(Exception):
@@ -42,6 +71,8 @@ ARRAY_MARKER = "var PINK_MALL_PRODUCTS = ["
 # Required for wardrobe authority. A record missing one of these is drift,
 # not a product we may quietly style from.
 REQUIRED_FIELDS = ("id", "name", "category")
+
+ID_PATTERN = re.compile(r"""["']?id["']?\s*:\s*["'](PM-\d+)["']""")
 
 
 def is_product_new(product, as_of):
@@ -67,15 +98,97 @@ def is_product_new(product, as_of):
         return False
     nu = product.get("newUntil")
     if nu:
-        try:
-            return as_of <= datetime.date.fromisoformat(nu)
-        except (ValueError, TypeError):
-            pass
+        until = parse_iso_date(nu)
+        # A newUntil that is not exactly YYYY-MM-DD is treated as unparseable
+        # and falls through to the raw flag, mirroring the storefront's
+        # isFinite(Date.parse(newUntil + 'T23:59:59')) guard.
+        if until is not None:
+            return as_of <= until
     return bool(product.get("isNew"))
+
+
+def _scan_structure(text, start, open_ch, close_ch):
+    """Return the index of the delimiter closing the one at `start`.
+
+    String-aware: quotes suspend structural meaning, so a brace or bracket
+    inside a name, an alt text or a base64 data URI cannot be mistaken for
+    structure. Returns None if it is never closed.
+    """
+    depth, i, n = 0, start, len(text)
+    quote, esc = None, False
+    while i < n:
+        ch = text[i]
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+        elif ch in "'\"`":
+            quote = ch
+        elif ch == open_ch:
+            depth += 1
+        elif ch == close_ch:
+            depth -= 1
+            if depth == 0:
+                return i
+            if depth < 0:
+                return None
+        i += 1
+    return None
+
+
+def split_records(blob):
+    """Split the product array into its top-level {...} records.
+
+    Each record is returned whole and separately. This is what makes parsing
+    record-bounded: a field is only ever read from the object that owns it.
+    """
+    records, i, n = [], 0, len(blob)
+    quote, esc, depth = None, False, 0
+    while i < n:
+        ch = blob[i]
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+            i += 1
+            continue
+        if ch in "'\"`":
+            quote = ch
+            i += 1
+            continue
+        if ch == "[":
+            depth += 1
+        elif ch == "]":
+            depth -= 1
+        elif ch == "{" and depth == 1:
+            close = _scan_structure(blob, i, "{", "}")
+            if close is None:
+                raise CatalogueError(
+                    f"product record starting at offset {i} is never closed")
+            records.append(blob[i:close + 1])
+            i = close + 1
+            continue
+        i += 1
+    if quote is not None:
+        raise CatalogueError("unterminated string literal inside the product array")
+    return records
 
 
 def parse_catalogue(html):
     """Slice PINK_MALL_PRODUCTS out of the canonical build and read each record.
+
+    Every field is read from within its own top-level record. An earlier
+    version took a fixed 4000-character window from each id match, but every
+    record in the catalogue is shorter than that (max 2463 characters), so a
+    product missing a field would silently inherit the next product's value —
+    a wrong brand or category reaching the wardrobe authority with nothing
+    flagged. Record-bounded parsing makes that impossible.
 
     Every structural assumption raises CatalogueError rather than returning a
     short list. A partially parsed catalogue emitted as wardrobe authority is
@@ -89,37 +202,34 @@ def parse_catalogue(html):
             f"{ARRAY_MARKER!r}. The catalogue structure has changed.")
 
     i = html.index("[", start)
-    depth, j, n = 0, i, len(html)
-    closed = False
-    while j < n:
-        if html[j] == "[":
-            depth += 1
-        elif html[j] == "]":
-            depth -= 1
-            if depth == 0:
-                closed = True
-                break
-        j += 1
-    if not closed:
+    close = _scan_structure(html, i, "[", "]")
+    if close is None:
         raise CatalogueError("PINK_MALL_PRODUCTS array is never closed — truncated catalogue.")
-    blob = html[i:j + 1]
+    blob = html[i:close + 1]
 
     products = []
-    for m in re.finditer(r"""["']?id["']?\s*:\s*["'](PM-\d+)["']""", blob):
-        seg = blob[m.start():m.start() + 4000]
+    for pos, record in enumerate(split_records(blob)):
+        found = ID_PATTERN.findall(record)
+        if not found:
+            raise CatalogueError(
+                f"product record #{pos + 1} carries no PM-* id — "
+                "a record without an id would vanish from the catalogue silently")
+        if len(found) > 1:
+            raise CatalogueError(
+                f"product record #{pos + 1} carries more than one PM-* id: {found}")
         products.append({
-            "id": m.group(1),
-            "brand": _str(seg, "brand"),
-            "name": _str(seg, "name"),
-            "category": _str(seg, "category"),
-            "subcategory": _str(seg, "subcategory"),
-            "priceEUR": _str(seg, "priceEUR"),
-            "campaign": _str(seg, "campaign"),
+            "id": found[0],
+            "brand": _str(record, "brand"),
+            "name": _str(record, "name"),
+            "category": _str(record, "category"),
+            "subcategory": _str(record, "subcategory"),
+            "priceEUR": _str(record, "priceEUR"),
+            "campaign": _str(record, "campaign"),
             # Raw flag preserved for provenance; freshness is decided by
             # is_product_new(), which date-gates it the way the store does.
-            "isNew": _bool(seg, "isNew"),
-            "newUntil": _str(seg, "newUntil"),
-            "tags": _list(seg, "tags"),
+            "isNew": _bool(record, "isNew"),
+            "newUntil": _str(record, "newUntil"),
+            "tags": _list(record, "tags"),
         })
 
     if not products:
@@ -144,11 +254,11 @@ def parse_catalogue(html):
 def _as_of(value):
     """Strict YYYY-MM-DD. A silently mis-parsed date would mis-date the whole
     wardrobe authority, so anything else is rejected outright."""
-    try:
-        return datetime.date.fromisoformat(value)
-    except (ValueError, TypeError):
+    d = parse_iso_date(value)
+    if d is None:
         raise argparse.ArgumentTypeError(
-            f"--as-of must be an ISO date (YYYY-MM-DD), got {value!r}")
+            f"--as-of must be exactly YYYY-MM-DD, got {value!r}")
+    return d
 
 
 def main():
