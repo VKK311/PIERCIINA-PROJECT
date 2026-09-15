@@ -48,8 +48,8 @@
         "fileExistenceImpliesCanonicality",
         "candidateBranchIsReviewMaterial",
         "statusFieldSemantics",
-        "statusIsInformationalOnly",
-        "statusRule"
+        "statusRule",
+        "statusSemantics"
       ],
       "properties": {
         "ruleId": {
@@ -60,11 +60,11 @@
         },
         "conditions": {
           "type": "array",
-          "minItems": 3,
+          "minItems": 4,
+          "uniqueItems": true,
           "items": {
             "type": "string"
-          },
-          "uniqueItems": true
+          }
         },
         "fileExistenceImpliesCanonicality": {
           "const": false
@@ -73,17 +73,94 @@
           "const": true
         },
         "statusFieldSemantics": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "CANDIDATE",
+            "CANONICAL",
+            "SUPERSEDED"
+          ],
+          "properties": {
+            "CANDIDATE": {
+              "type": "string",
+              "minLength": 1
+            },
+            "CANONICAL": {
+              "type": "string",
+              "minLength": 1
+            },
+            "SUPERSEDED": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         },
         "promotionNote": {
           "type": "string"
         },
-        "statusIsInformationalOnly": {
-          "const": true
-        },
         "statusRule": {
           "type": "string",
           "minLength": 1
+        },
+        "statusSemantics": {
+          "type": "object",
+          "required": [
+            "canonicalityLabels",
+            "tombstoneLabels",
+            "candidateAloneDeniesCanonicality",
+            "canonicalAloneGrantsCanonicality",
+            "supersededDisqualifiesReliance",
+            "exactByteCandidatePromotionPermitted",
+            "rule",
+            "promotionRule"
+          ],
+          "properties": {
+            "canonicalityLabels": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "CANDIDATE",
+                  "CANONICAL"
+                ]
+              }
+            },
+            "tombstoneLabels": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "SUPERSEDED"
+                ]
+              }
+            },
+            "candidateAloneDeniesCanonicality": {
+              "const": false
+            },
+            "canonicalAloneGrantsCanonicality": {
+              "const": false
+            },
+            "supersededDisqualifiesReliance": {
+              "const": true
+            },
+            "exactByteCandidatePromotionPermitted": {
+              "const": true
+            },
+            "rule": {
+              "type": "string",
+              "minLength": 1
+            },
+            "promotionRule": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         }
       }
     },
@@ -245,7 +322,250 @@
         },
         "additionalProperties": false
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "OWNER"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "CANONICAL_REPOSITORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "PRODUCT_ONBOARDING_SYSTEM"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "AVATAR_SKILL"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "FASHION_CONTEXT_BUILDER"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "CAMPAIGN_REGISTRY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "STORY_STATE_ENGINE"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_PLATFORM_API"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "SUPER_BRAIN"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "CYBERNINJAS_STUDIO"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "WORKSTATION"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "CLAUDE_ORCHESTRATOR"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "MODEL_MEMORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "CHAT_HISTORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "const": "PRIVATE_OPS_STORE"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ],
+      "description": "Every required source id must appear exactly once, for the same reason authorityDomains needs it: uniqueItems compares whole objects, so two records could share a sourceId while differing in note or status, satisfying minItems and uniqueItems while another required source is absent. Authority domains reference these ids, so a gap here is a dangling reference."
     },
     "authorityDomains": {
       "type": "array",
@@ -1082,6 +1402,46 @@
         }
       },
       "additionalProperties": false
+    },
+    "requiredSourceRegistry": {
+      "type": "object",
+      "required": [
+        "sourceIds",
+        "rule"
+      ],
+      "properties": {
+        "sourceIds": {
+          "type": "array",
+          "minItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "OWNER",
+              "CANONICAL_REPOSITORY",
+              "PRODUCT_ONBOARDING_SYSTEM",
+              "AVATAR_SKILL",
+              "FASHION_CONTEXT_BUILDER",
+              "CAMPAIGN_REGISTRY",
+              "STORY_STATE_ENGINE",
+              "SOCIAL_PLATFORM_API",
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SUPER_BRAIN",
+              "CYBERNINJAS_STUDIO",
+              "WORKSTATION",
+              "CLAUDE_ORCHESTRATOR",
+              "MODEL_MEMORY",
+              "CHAT_HISTORY",
+              "PRIVATE_OPS_STORE"
+            ]
+          }
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
@@ -1112,7 +1472,8 @@
     "plannedContracts",
     "earnedAutonomy",
     "nonAuthoritativeAssertions",
-    "spendAuthorityOwner"
+    "spendAuthorityOwner",
+    "requiredSourceRegistry"
   ],
   "x-requiredAuthorityDomains": [
     "SYSTEM_GOVERNANCE",
@@ -1134,5 +1495,23 @@
     "COMMERCIAL_PUBLICATION",
     "PRIVATE_STRATEGIC_DATA"
   ],
-  "x-note": "authorityDomains enforces exactly-once coverage of every required domain id via allOf/contains with minContains=maxContains=1. The closed domainId enum bars unknown domains. x-requiredAuthorityDomains is the canonical list, which the companion validator cross-checks against both the contract and these rules."
+  "x-note": "authorityDomains and sourceTypes both enforce exactly-once coverage via allOf/contains with minContains=maxContains=1; closed enums bar unknown ids. x-requiredAuthorityDomains and x-requiredSourceIds are the canonical lists the companion validator cross-checks against the contract, the schema rules and every cross-reference.",
+  "x-requiredSourceIds": [
+    "OWNER",
+    "CANONICAL_REPOSITORY",
+    "PRODUCT_ONBOARDING_SYSTEM",
+    "AVATAR_SKILL",
+    "FASHION_CONTEXT_BUILDER",
+    "CAMPAIGN_REGISTRY",
+    "STORY_STATE_ENGINE",
+    "SOCIAL_PLATFORM_API",
+    "SOCIAL_INTELLIGENCE_ENGINE",
+    "SUPER_BRAIN",
+    "CYBERNINJAS_STUDIO",
+    "WORKSTATION",
+    "CLAUDE_ORCHESTRATOR",
+    "MODEL_MEMORY",
+    "CHAT_HISTORY",
+    "PRIVATE_OPS_STORE"
+  ]
 }

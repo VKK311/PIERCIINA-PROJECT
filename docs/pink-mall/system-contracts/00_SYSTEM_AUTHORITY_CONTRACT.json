@@ -10,20 +10,35 @@
     "ruleId": "CANONICALITY_V1",
     "statement": "A contract is canonical only when all three conditions hold simultaneously.",
     "conditions": [
-      "It has passed owner or independent review.",
+      "It has passed current owner or independent review.",
       "It is committed to the canonical project branch claude/pink-mall-development.",
-      "Its machine-readable form passes its own validator."
+      "Its machine-readable form passes its validator.",
+      "Its status is not SUPERSEDED."
     ],
     "fileExistenceImpliesCanonicality": false,
     "candidateBranchIsReviewMaterial": true,
     "statusFieldSemantics": {
-      "CANDIDATE": "Originated as a review candidate. Provenance only — this value alone neither grants nor denies canonicality.",
-      "CANONICAL": "Originated as, or was re-issued as, a canonical edition. Provenance only — this value alone neither grants nor denies canonicality.",
-      "SUPERSEDED": "Replaced by a later version. Retained for history. A superseded contract MUST NOT be relied upon regardless of location."
+      "CANDIDATE": "Lifecycle provenance: originated as a review candidate. Does not by itself deny canonicality.",
+      "CANONICAL": "Lifecycle provenance: originated as, or was re-issued as, a canonical edition. Does not by itself grant canonicality.",
+      "SUPERSEDED": "Terminal tombstone: replaced by a later version. Disqualifies reliance wherever the file sits."
     },
-    "promotionNote": "This is what makes exact-byte promotion possible: the reviewed bytes move to the canonical branch unchanged, including the status string, and become canonical by satisfying the three conditions. Rewriting a flag at promotion time would mean the promoted artefact is not the reviewed artefact.",
-    "statusIsInformationalOnly": true,
-    "statusRule": "`status` records lifecycle provenance and is location-neutral. It is NOT a second source of canonicality truth. Canonicality is determined solely by the three conditions above. A file whose status still reads CANDIDATE because it was promoted unchanged IS canonical once those conditions hold, and no text may describe it as under review or unreliable on the strength of the status string alone. SUPERSEDED is the one status that independently disqualifies reliance, because a superseded contract fails condition 1 wherever it sits."
+    "promotionNote": "Exact-byte promotion: the reviewed bytes move to the canonical branch unchanged. Condition 4 is what retires a contract, not a rewrite of the label on promotion.",
+    "statusRule": "Status is not a substitute for the canonicality conditions. CANDIDATE and CANONICAL neither grant nor deny; SUPERSEDED disqualifies. Nothing may be described as unreliable merely because its label reads CANDIDATE.",
+    "statusSemantics": {
+      "canonicalityLabels": [
+        "CANDIDATE",
+        "CANONICAL"
+      ],
+      "tombstoneLabels": [
+        "SUPERSEDED"
+      ],
+      "candidateAloneDeniesCanonicality": false,
+      "canonicalAloneGrantsCanonicality": false,
+      "supersededDisqualifiesReliance": true,
+      "exactByteCandidatePromotionPermitted": true,
+      "rule": "CANDIDATE and CANONICAL are lifecycle provenance labels and are location-neutral: neither independently grants nor denies canonicality, which conditions 1-3 decide. SUPERSEDED is different in kind — a terminal tombstone that disqualifies reliance by condition 4, even while the file is still physically present on the canonical branch. A superseded contract is disqualified because it was replaced, NOT because its historical review stopped having happened.",
+      "promotionRule": "A reviewed CANDIDATE is promoted unchanged, status string included. Rewriting the label at promotion time would mean the promoted artefact is not the reviewed artefact, so it is never required."
+    }
   },
   "implementationStates": {
     "ACTIVE": "Implemented, validated and in use on the canonical branch.",
@@ -932,5 +947,26 @@
       "earned automation grants"
     ],
     "note": "A Campaign Execution Plan is a structured object a domain contract may define or reference. It is not a numbered contract in the 00-08 sequence."
+  },
+  "requiredSourceRegistry": {
+    "sourceIds": [
+      "OWNER",
+      "CANONICAL_REPOSITORY",
+      "PRODUCT_ONBOARDING_SYSTEM",
+      "AVATAR_SKILL",
+      "FASHION_CONTEXT_BUILDER",
+      "CAMPAIGN_REGISTRY",
+      "STORY_STATE_ENGINE",
+      "SOCIAL_PLATFORM_API",
+      "SOCIAL_INTELLIGENCE_ENGINE",
+      "SUPER_BRAIN",
+      "CYBERNINJAS_STUDIO",
+      "WORKSTATION",
+      "CLAUDE_ORCHESTRATOR",
+      "MODEL_MEMORY",
+      "CHAT_HISTORY",
+      "PRIVATE_OPS_STORE"
+    ],
+    "rule": "Every id listed here MUST appear in sourceTypes exactly once, and every source referenced by an authority domain, a write authority or a non-authoritative assertion MUST be declared here. Authority domains address sources by id, so a missing or duplicated registry entry would leave a domain pointing at nothing or at two different descriptions of the same system."
   }
 }
