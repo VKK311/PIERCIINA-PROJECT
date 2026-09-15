@@ -40,6 +40,12 @@ REQUIRED_DOMAINS = {
     "CAMPAIGN_APPROVAL", "PAID_GENERATION_AUTHORITY", "COMMERCIAL_PUBLICATION",
     "PRIVATE_STRATEGIC_DATA",
 }
+REQUIRED_SOURCES = {
+    "OWNER", "CANONICAL_REPOSITORY", "PRODUCT_ONBOARDING_SYSTEM", "AVATAR_SKILL",
+    "FASHION_CONTEXT_BUILDER", "CAMPAIGN_REGISTRY", "STORY_STATE_ENGINE", "SOCIAL_PLATFORM_API",
+    "SOCIAL_INTELLIGENCE_ENGINE", "SUPER_BRAIN", "CYBERNINJAS_STUDIO", "WORKSTATION",
+    "CLAUDE_ORCHESTRATOR", "MODEL_MEMORY", "CHAT_HISTORY", "PRIVATE_OPS_STORE",
+}
 VALID_STATES = {"ACTIVE", "PARTIAL", "PLANNED", "BLOCKED", "HISTORICAL"}
 REQUIRED_TRUTH_CLASSES = {"FACT", "DERIVED_FACT", "INTERPRETATION", "PROPOSAL",
                           "GENERATED_OUTPUT", "APPROVAL"}
@@ -111,10 +117,17 @@ def main():
     check("   status is a known lifecycle value",
           c.get("status") in {"CANDIDATE", "CANONICAL", "SUPERSEDED"}, str(c.get("status")))
 
-    # 4 — canonicality rule
+    # 4 — canonicality rule: four conditions, retirement among them
     cr = c.get("canonicalityRule") or {}
-    check("4. canonicalityRule exists with at least three conditions",
-          bool(cr) and len(cr.get("conditions", [])) >= 3, f"{len(cr.get('conditions', []))} conditions")
+    conds = cr.get("conditions", [])
+    check("4. canonicalityRule exists with all four conditions",
+          bool(cr) and len(conds) >= 4, f"{len(conds)} conditions")
+    joined = " ".join(conds).lower()
+    for label, needle in (("review", "review"),
+                          ("canonical branch", "claude/pink-mall-development"),
+                          ("validator", "validator"),
+                          ("not superseded", "superseded")):
+        check(f"   condition present: {label}", needle in joined)
     check("   file existence alone is NOT canonicality",
           cr.get("fileExistenceImpliesCanonicality") is False)
     check("   candidate branch is declared review material",
@@ -334,37 +347,64 @@ def main():
           set(schema.get("required", [])) >= set(props) - {"supersedes"},
           str(sorted(set(props) - {"supersedes"} - set(schema.get("required", [])))))
 
-    # ── status semantics must not act as a second canonicality test ────────
-    print("  -- status is provenance, not the canonicality test --")
-    check("21. contract declares status informational only",
-          cr.get("statusIsInformationalOnly") is True)
-    check("    contract carries an explicit status rule", bool(cr.get("statusRule")))
-    sr = (cr.get("statusRule") or "").lower()
-    check("    status alone neither grants nor denies canonicality",
-          "neither grants nor denies" in sr or
-          ("alone" in sr and "not" in sr and "canonicality" in sr))
-    # normalise both key and value case so the check cannot depend on spelling
+    # ── status: two kinds of label, not one informational blanket ─────────
+    print("  -- status model --")
+    ss = cr.get("statusSemantics") or {}
+    check("21. status semantics distinguish provenance labels from a tombstone",
+          set(ss.get("canonicalityLabels", [])) == {"CANDIDATE", "CANONICAL"}
+          and ss.get("tombstoneLabels") == ["SUPERSEDED"],
+          f"labels={ss.get('canonicalityLabels')} tombstone={ss.get('tombstoneLabels')}")
+    check("    CANDIDATE alone does not deny canonicality",
+          ss.get("candidateAloneDeniesCanonicality") is False)
+    check("    CANONICAL alone does not grant canonicality",
+          ss.get("canonicalAloneGrantsCanonicality") is False)
+    check("    SUPERSEDED explicitly disqualifies reliance",
+          ss.get("supersededDisqualifiesReliance") is True)
+    check("    exact-byte candidate promotion remains permitted",
+          ss.get("exactByteCandidatePromotionPermitted") is True)
+    check("    no field claims every status value is purely informational",
+          "statusIsInformationalOnly" not in cr,
+          "legacy blanket field still present" if "statusIsInformationalOnly" in cr else "")
+    # the contract must not resurrect the fiction that a superseded contract
+    # retroactively fails its historical review
+    rule_text = (ss.get("rule", "") + " " + cr.get("statusRule", "")).lower()
+    check("    superseded is disqualified by replacement, not by failed review",
+          "replaced" in rule_text and "historical review" in rule_text)
     sem = {str(k).upper(): str(v).lower()
            for k, v in (cr.get("statusFieldSemantics") or {}).items()}
+    check("    all three status values are defined",
+          {"CANDIDATE", "CANONICAL", "SUPERSEDED"} <= set(sem), str(sorted(sem)))
     check("    CANDIDATE is not described as unreliable by status alone",
-          "CANDIDATE" in sem and "must not be relied upon" not in sem["CANDIDATE"],
+          "must not be relied upon" not in sem.get("CANDIDATE", ""),
           str(sem.get("CANDIDATE", "<absent>"))[:70])
-    check("    SUPERSEDED remains independently disqualifying",
-          "must not be relied upon" in sem.get("SUPERSEDED", ""))
-    check("22. canonicality still requires review, canonical branch and validator",
-          len(cr.get("conditions", [])) >= 3 and
-          any("review" in x.lower() for x in cr.get("conditions", [])) and
-          any("claude/pink-mall-development" in x for x in cr.get("conditions", [])) and
-          any("validator" in x.lower() for x in cr.get("conditions", [])))
+    check("    SUPERSEDED is described as disqualifying",
+          "disqualif" in sem.get("SUPERSEDED", ""))
     for label, text in (("markdown", md), ("index", idx)):
         low = text.lower()
-        bad = ("candidate" in low and "must not be relied upon" in low and
-               "superseded" not in low.split("must not be relied upon")[0][-260:])
-        check(f"    {label} does not call a CANDIDATE unreliable by status alone", not bad)
-    check("    markdown states status is location-neutral",
+        check(f"    {label} states all four canonicality conditions",
+              "all **four**" in low or "four** conditions" in low or "all four" in low)
+        check(f"    {label} does not claim superseded fails its historical review",
+              not ("superseded" in low and "fails condition 1" in low))
+    check("    markdown keeps status location-neutral for the provenance labels",
           "location-neutral" in md.lower())
-    check("    index states status is location-neutral",
+    check("    index keeps status location-neutral for the provenance labels",
           "location-neutral" in idx.lower())
+    check("    markdown names SUPERSEDED a tombstone",
+          "tombstone" in md.lower())
+
+    # ── the index must not erase locked decisions ─────────────────────────
+    print("  -- index preserves locked decisions --")
+    ilow = idx.lower()
+    check("22. index does not claim future subject matter is undecided",
+          "assumed decided" not in ilow)
+    check("    index states the future contracts do not yet exist",
+          "not yet created" in ilow or "do not yet exist" in ilow)
+    check("    index points at the decision coverage matrix",
+          "decision_coverage_matrix" in ilow)
+    check("    index requires locked decisions to be preserved",
+          "locked" in ilow and "preserved" in ilow)
+    check("    index states only unrecorded questions remain open",
+          "remain open" in ilow or "remains open" in ilow)
 
     # ── no orphan contract outside the 00-08 sequence ─────────────────────
     print("  -- spend authority routes to a real contract --")
@@ -422,6 +462,69 @@ def main():
           "private detail deferred to private ops layer" in mlow)
     check("    matrix still records zero detailed contracts created",
           "zero" in mlow and "detailed canonical contract" in mlow)
+
+    # ── source registry: complete, exactly-once, and referentially sound ──
+    # Authority domains address sources by id, so a missing or duplicated
+    # registry entry leaves a domain pointing at nothing, or at two different
+    # descriptions of the same system.
+    print("  -- source registry --")
+    sids = [x.get("sourceId") for x in c.get("sourceTypes", [])]
+    reg = c.get("requiredSourceRegistry", {})
+    check("26. all required source ids are present",
+          REQUIRED_SOURCES <= set(sids), f"missing={sorted(REQUIRED_SOURCES - set(sids))}")
+    dup_src = [x for x in REQUIRED_SOURCES if sids.count(x) != 1]
+    check("    every required source appears exactly once", not dup_src, f"wrong-count={sorted(dup_src)}")
+    check("    no unknown source id appears",
+          not (set(sids) - REQUIRED_SOURCES), f"unknown={sorted(set(sids) - REQUIRED_SOURCES)}")
+    check("    the contract declares its required source registry",
+          set(reg.get("sourceIds", [])) == REQUIRED_SOURCES,
+          f"declared={len(reg.get('sourceIds', []))}")
+
+    declared = set(sids)
+    dangling = []
+    for d in domains:
+        for field in ("primaryAuthority", "secondaryEvidence", "nonAuthoritative"):
+            for ref in d.get(field, []):
+                if ref not in declared:
+                    dangling.append(f"{d['domainId']}.{field}->{ref}")
+    check("27. every authority-domain source reference is declared",
+          not dangling, str(dangling[:6]))
+    wdangling = [f"{w.get('target')}->{r}" for w in c.get("writeAuthorities", [])
+                 for r in w.get("mayWrite", []) if r not in declared]
+    check("    every writeAuthorities.mayWrite source is declared", not wdangling, str(wdangling))
+    ndangling = [n.get("sourceId") for n in c.get("nonAuthoritativeAssertions", [])
+                 if n.get("sourceId") not in declared]
+    check("    every nonAuthoritativeAssertions source is declared", not ndangling, str(ndangling))
+
+    st_schema = props.get("sourceTypes", {})
+    st_allof = st_schema.get("allOf", [])
+    st_cov, st_bad = set(), []
+    for rule in st_allof:
+        const = rule.get("contains", {}).get("properties", {}).get("sourceId", {}).get("const")
+        if const is None:
+            st_bad.append(rule)
+            continue
+        st_cov.add(const)
+        if rule.get("minContains") != 1 or rule.get("maxContains") != 1:
+            st_bad.append(const)
+    check("28. schema requires EACH source id exactly once via allOf/contains",
+          st_cov == REQUIRED_SOURCES and not st_bad,
+          f"covered={len(st_cov)}/{len(REQUIRED_SOURCES)} "
+          f"missing={sorted(REQUIRED_SOURCES - st_cov)} malformed={st_bad}")
+    check("    schema does not rely on uniqueItems alone for sources", bool(st_allof))
+    check("    schema constrains the status-semantics object",
+          bool(props.get("canonicalityRule", {}).get("properties", {})
+               .get("statusSemantics", {}).get("required")))
+    check("    schema requires all three status definitions",
+          {"CANDIDATE", "CANONICAL", "SUPERSEDED"} <= set(
+              props.get("canonicalityRule", {}).get("properties", {})
+              .get("statusFieldSemantics", {}).get("required", [])))
+    check("    schema rejects unknown status values",
+          props.get("canonicalityRule", {}).get("properties", {})
+          .get("statusFieldSemantics", {}).get("additionalProperties") is False)
+    check("    schema requires at least four canonicality conditions",
+          props.get("canonicalityRule", {}).get("properties", {})
+          .get("conditions", {}).get("minItems") == 4)
 
     # ── the contract itself must contain each domain exactly once ─────────
     once = [d for d in REQUIRED_DOMAINS if ids.count(d) != 1]
