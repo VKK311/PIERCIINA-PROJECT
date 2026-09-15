@@ -34,6 +34,26 @@ const dimsFor = (name) => {
 const LIVE = {};
 for (const f of EXPECT.frames) LIVE[f.sha256] = f.file;
 
+// ── Canonical freshness rule, re-implemented test-side ──────────────────
+// PINKMALL.html decides NEW with isProductNew(p):
+//     if (p.newUntil) { until = Date.parse(p.newUntil+'T23:59:59');
+//                       if (isFinite(until)) return Date.now() <= until; }
+//     return !!p.isNew;
+// newUntil wins whenever it parses, it is INCLUSIVE through 23:59:59 local
+// time on that date, and raw isNew is only the fallback.
+//
+// This is deliberately a second implementation rather than a call to
+// PinkMallStore.__isProductNew: the expectation must be derived from the
+// product's own newUntil/isNew data, so the assertion compares data-derived
+// truth against rendered UI instead of comparing the storefront to itself.
+const expectedNew = (prod, now = Date.now()) => {
+  if (prod && prod.newUntil) {
+    const until = Date.parse(prod.newUntil + 'T23:59:59');
+    if (isFinite(until)) return now <= until;
+  }
+  return !!(prod && prod.isNew);
+};
+
 let pass = 0, fail = 0;
 const ok  = (n, x) => { pass++; console.log(`  PASS  ${n}${x ? '  — ' + x : ''}`); };
 const bad = (n, x) => { fail++; console.log(`  FAIL  ${n}${x ? '  — ' + x : ''}`); };
@@ -191,6 +211,9 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
     return { src: img && img.getAttribute('src'), alt: img && img.getAttribute('alt'),
              natural: img && [img.naturalWidth, img.naturalHeight],
              objectFit: img && getComputedStyle(img).objectFit,
+             // Read the badge as an element, not by matching 'NEW' in the card
+             // text, so that absence is asserted as reliably as presence.
+             newBadge: !!(root && root.querySelector('.pms-badge--new')),
              text: root ? root.innerText.replace(/\s+/g, ' ').trim() : '' };
   }, ID);
   is(!!card, `${ID} card rendered in ${EXPECT.category}`);
@@ -202,7 +225,13 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
     is(card.alt === p.media.imageAlt, 'card alt is the authored Bulgarian', card.alt);
     is(card.objectFit === 'contain', 'card fit contain', card.objectFit);
     is(new RegExp(String(EXPECT.priceEUR)).test(card.text), `card shows €${EXPECT.priceEUR}`);
-    is(/NEW|НОВО/i.test(card.text), 'NEW badge shown');
+    // Time-safe: a product past its newUntil MUST NOT show the badge, and one
+    // still inside its window MUST. Asserting both directions keeps this
+    // proving the freshness rule long after these fixtures expire.
+    const wantNew = expectedNew(p);
+    is(card.newBadge === wantNew,
+       `NEW badge ${wantNew ? 'shown' : 'absent'} (newUntil ${p.newUntil || 'none'}, isNew ${!!p.isNew})`,
+       `badge=${card.newBadge}`);
   }
 
   console.log('\n== search ==');
@@ -346,6 +375,47 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
     x[2] !== 'soldout' || live.slice(i).every(y => y[2] === 'soldout'));
   is(idx >= 0 && monotonic && soldLast, `price-asc sort places ${ID} correctly`,
      live.map(x => x[0] + ':' + x[1] + (x[2] === 'soldout' ? '(sold out)' : '')).join(' '));
+
+  // ── Deterministic NEW-boundary checks ─────────────────────────────────
+  // The real fixtures above age out; these do not. Synthetic product objects
+  // are passed straight to the storefront's own isProductNew, with dates
+  // expressed RELATIVE to today, so the boundary is exercised identically
+  // whenever this runs. Nothing is added to the catalogue and no product
+  // record is touched.
+  console.log('\n== NEW boundary (synthetic, non-mutating) ==');
+  const dayOffset = (n) => {
+    const d = new Date(); d.setDate(d.getDate() + n);
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0')
+           + '-' + String(d.getDate()).padStart(2, '0');
+  };
+  // expected values come from the documented rule, not from the function.
+  const CASES = [
+    { label: 'newUntil yesterday, isNew false', newUntil: dayOffset(-1), isNew: false, want: false },
+    { label: 'newUntil yesterday, isNew true  -> newUntil wins', newUntil: dayOffset(-1), isNew: true, want: false },
+    { label: 'newUntil today, isNew false     -> inclusive', newUntil: dayOffset(0), isNew: false, want: true },
+    { label: 'newUntil today, isNew true', newUntil: dayOffset(0), isNew: true, want: true },
+    { label: 'newUntil tomorrow, isNew false', newUntil: dayOffset(1), isNew: false, want: true },
+    { label: 'newUntil tomorrow, isNew true', newUntil: dayOffset(1), isNew: true, want: true },
+    { label: 'no newUntil, isNew true         -> fallback', isNew: true, want: true },
+    { label: 'no newUntil, isNew false        -> fallback', isNew: false, want: false },
+    { label: 'newUntil null, isNew true       -> fallback', newUntil: null, isNew: true, want: true },
+    { label: 'unparseable newUntil, isNew true  -> fallback', newUntil: 'not-a-date', isNew: true, want: true },
+    { label: 'unparseable newUntil, isNew false -> fallback', newUntil: 'not-a-date', isNew: false, want: false },
+  ];
+  const got = await page.evaluate(cases =>
+    cases.map(c => {
+      const synthetic = { id: 'SYNTHETIC', isNew: c.isNew };
+      if ('newUntil' in c) synthetic.newUntil = c.newUntil;
+      return window.PinkMallStore.__isProductNew(synthetic);
+    }), CASES);
+  CASES.forEach((c, i) => {
+    is(got[i] === c.want, `boundary: ${c.label}`, `got=${got[i]} want=${c.want}`);
+    // the test-side re-implementation must agree with the storefront too
+    is(expectedNew({ isNew: c.isNew, newUntil: 'newUntil' in c ? c.newUntil : undefined }) === c.want,
+       `boundary: test-side rule agrees — ${c.label}`);
+  });
+  is(await page.evaluate(() => window.PinkMallStore.__isProductNew(null)) === false,
+     'boundary: null product is not NEW');
 
   await browser.close();
   console.log(`\nREGRESSION (${FILE}): ${pass} passed, ${fail} failed`);

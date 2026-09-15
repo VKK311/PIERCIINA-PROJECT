@@ -32,6 +32,19 @@ for (const id of IDS) {
 // Phone, large phone, tablet, laptop, desktop.
 const VIEWPORTS = [[375,667],[390,844],[430,932],[768,1024],[1366,768],[1920,1080]];
 
+// ── Canonical freshness rule, re-implemented test-side ──────────────────
+// Mirrors isProductNew() in PINKMALL.html: a parseable newUntil wins and is
+// INCLUSIVE through 23:59:59 local time on that date; raw isNew is only the
+// fallback. Implemented here rather than called from the store so that the
+// expectation is derived from product data, not from the code under test.
+const expectedNew = (prod, now = Date.now()) => {
+  if (prod && prod.newUntil) {
+    const until = Date.parse(prod.newUntil + 'T23:59:59');
+    if (isFinite(until)) return now <= until;
+  }
+  return !!(prod && prod.isNew);
+};
+
 let fail = 0;
 const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL  ') + m + (d ? '  — ' + d : '')); };
 
@@ -60,39 +73,55 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
       const native = `${exp.nativeWidth}x${exp.nativeHeight}`;
       await page.evaluate(c => window.PinkMallStore.setFilters({ category: c, query: '' }), exp.category);
       await page.waitForTimeout(300);
+      // Scope to the filtered shop grid. A product also renders in #pmsNewRail
+      // while it is NEW, and that rail sits earlier in the document, so an
+      // unscoped querySelector silently changes which node it measures the day
+      // a product stops being NEW. Scoping keeps this assertion about the
+      // category grid regardless of freshness.
       await page.evaluate(i => {
-        const el = document.querySelector(`[data-pms-id="${i}"]`);
+        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`)
+                || document.querySelector(`[data-pms-id="${i}"]`);
         if (el) el.scrollIntoView({ block: 'center', inline: 'center' });
       }, id);
       await page.waitForFunction(i => {
-        const im = document.querySelector(`[data-pms-id="${i}"] img`);
+        const im = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"] img`)
+                || document.querySelector(`[data-pms-id="${i}"] img`);
         return im && im.complete && im.naturalWidth > 0;
       }, id, { timeout: 20000 }).catch(() => {});
       await page.waitForTimeout(250);
 
       const card = await page.evaluate(i => {
-        const el = document.querySelector(`[data-pms-id="${i}"]`);
+        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`)
+                || document.querySelector(`[data-pms-id="${i}"]`);
         if (!el) return null;
         const root = el.closest('article.pms-card') || el;
         const r = root.getBoundingClientRect();
         const im = el.querySelector('img');
-        // Cards sit in div.pms-rail, a deliberate horizontal scroller. A card
-        // off-screen at rest is the design, so assert that scrolling the rail
-        // brings it fully into the rail, and that the rail itself never spills
-        // onto the page (page-level overflow is asserted above).
+        // A card lives either in div.pms-rail (a deliberate horizontal
+        // scroller, where being off-screen at rest is the design) or in the
+        // div.pms-grid of the filtered shop. Measure against whichever
+        // container actually holds it, and name it, so a layout failure says
+        // which surface broke instead of dereferencing null.
         const rail = root.closest('.pms-rail');
-        const rr = rail ? rail.getBoundingClientRect() : null;
+        const grid = root.closest('.pms-grid');
+        const box  = rail || grid;
+        const rr   = box ? box.getBoundingClientRect() : null;
         return { natural: im ? im.naturalWidth + 'x' + im.naturalHeight : null,
                  fit: im && getComputedStyle(im).objectFit,
                  x: r.x, w: r.width,
-                 inRail: rr ? (r.left >= rr.left - 1 && r.right <= rr.right + 1) : null,
-                 railInPage: rr ? (rr.left >= -1 && rr.right <= innerWidth + 1) : null };
+                 container: rail ? 'rail' : (grid ? 'grid' : 'none'),
+                 inContainer: rr ? (r.left >= rr.left - 1 && r.right <= rr.right + 1) : null,
+                 containerInPage: rr ? (rr.left >= -1 && rr.right <= innerWidth + 1) : null };
       }, id);
       ok(!!card, `${id}: card in ${exp.category}`);
       if (card) {
-        ok(card.inRail === true, `${id}: card scrolls fully into the ${exp.category} rail`,
-           `x=${Math.round(card.x)} w=${Math.round(card.w)}`);
-        ok(card.railInPage === true, `${id}: the rail itself stays inside the viewport`);
+        ok(card.container !== 'none', `${id}: card sits in a known layout container`,
+           `container=${card.container}`);
+        ok(card.inContainer === true,
+           `${id}: card scrolls fully into the ${exp.category} ${card.container}`,
+           `x=${Math.round(card.x)} w=${Math.round(card.w)} container=${card.container}`);
+        ok(card.containerInPage === true,
+           `${id}: the ${card.container} itself stays inside the viewport`);
         ok(card.natural === native, `${id}: card image native ${native}`, card.natural);
         ok(card.fit === 'contain', `${id}: card fit contain`, card.fit);
       }
@@ -113,7 +142,14 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
       });
       ok(pdp.open, `${id}: PDP opens`);
       ok(pdp.ovf <= 1, `${id}: PDP no horizontal overflow`, 'ovf=' + pdp.ovf);
-      ok(pdp.thumbs === exp.frames.length, `${id}: ${exp.frames.length} gallery frames on the PDP`,
+      // detailMediaHTML() sets multi = imgs.length > 1 and renders the thumb
+      // strip only when multi, so a single-frame product correctly shows no
+      // thumbnails. PM-041 is the owner-approved one-image exception; the
+      // expectation is derived from the frame count rather than assuming
+      // every product has a multi-image gallery.
+      const wantThumbs = exp.frames.length > 1 ? exp.frames.length : 0;
+      ok(pdp.thumbs === wantThumbs,
+         `${id}: ${wantThumbs} gallery thumbnails on the PDP for ${exp.frames.length} frame(s)`,
          'thumbs=' + pdp.thumbs);
       ok(pdp.heroFit === 'contain', `${id}: PDP hero contain`, pdp.heroFit);
       ok(pdp.heroNatural === native, `${id}: PDP hero native ${native}`, pdp.heroNatural);
@@ -132,12 +168,32 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
     const S = window.PinkMallStore, out = {};
     for (const id of ids) {
       const p = S.products.find(x => x.id === id);
+      // A fixture naming a product the catalogue no longer carries is a real
+      // finding. Record it and move on rather than throwing inside the page.
+      if (!p) { out[id] = { missing: true }; continue; }
+      // The order path must be exercised with a size the product actually
+      // has. Hard-coding 'ONE SIZE' silently broke every product with real
+      // sizes (PM-031 is 36-40): resolveOrder() rejected the size, so
+      // buildViberOrderUrl() returned null and the suite died on a
+      // TypeError instead of reporting a failure. Take the size from the
+      // product's own availability/inventory bag and keep only sizes the
+      // store does not consider sold out; ONE SIZE products still pick
+      // 'ONE SIZE' naturally because that is the only key they carry.
+      const bag = S.__isAvailabilityMode(p) ? p.availability : p.inventory;
+      const allSizes = bag ? Object.keys(bag) : [];
+      const sellable = allSizes.filter(sz => S.__sizeState(p, sz) !== 'soldout');
+      const size = sellable.length ? sellable[0] : null;
       out[id] = { price: p.priceEUR, oldPrice: p.oldPriceEUR, selectedBy: p.selectedBy,
-                  name: p.name, slug: p.slug, isNew: S.__isProductNew(p),
+                  name: p.name, slug: p.slug,
+                  isNew: S.__isProductNew(p),
+                  newUntil: p.newUntil === undefined ? null : p.newUntil,
+                  rawIsNew: !!p.isNew,
+                  inNewRail: !!document.querySelector(`#pmsNewRail [data-pms-id="${id}"]`),
+                  allSizes, sellable, size,
                   hasComposition: 'composition' in p && p.composition != null,
-                  msg: S.buildViberMessage(id, 'ONE SIZE'),
-                  url: S.buildViberOrderUrl(id, 'ONE SIZE'),
-                  canOrder: S.canOrder(id, 'ONE SIZE') };
+                  msg: size === null ? null : S.buildViberMessage(id, size),
+                  url: size === null ? null : S.buildViberOrderUrl(id, size),
+                  canOrder: size === null ? null : S.canOrder(id, size) };
       S.toggleWishlist(id); out[id].wishOn = S.isWishlisted(id);
       S.toggleWishlist(id); out[id].wishOff = !S.isWishlisted(id);
     }
@@ -156,18 +212,49 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
 
   for (const id of IDS) {
     const exp = EXPECT[id], f = cat[id];
+    if (!f || f.missing) {
+      ok(false, `${id}: product present in the catalogue`,
+         f && f.missing ? 'not found in PinkMallStore.products' : 'no data collected');
+      continue;
+    }
     ok(f.price === exp.priceEUR, `${id}: price is exactly EUR ${exp.priceEUR}`, 'EUR ' + f.price);
     ok(f.oldPrice === null, `${id}: no old price`);
     ok(f.selectedBy === null, `${id}: selectedBy null`);
     ok(f.hasComposition === !!exp.composition,
        `${id}: ${exp.composition ? 'material published' : 'no material row'}`);
-    ok(f.isNew === true, `${id}: counts as NEW IN (newUntil ${exp.newUntil})`);
-    ok(f.canOrder === true, `${id}: ONE SIZE orderable`);
-    ok(f.msg.includes(f.name), `${id}: Viber message names the product`, f.name);
-    ok(/ONE SIZE/i.test(f.msg), `${id}: Viber message states ONE SIZE`);
-    ok(f.msg.includes(id), `${id}: Viber message carries the product ID`);
-    ok(f.url.startsWith(exp.viberUrl), `${id}: canonical Viber route unchanged`);
-    ok(!/\?text=/.test(f.url), `${id}: no ?text= on the Viber URL`);
+    // Freshness expectation derived from the product's own data, then checked
+    // against both the store's verdict and NEW IN rail membership. Expired
+    // products are expected to be absent, not expected to still be NEW.
+    const wantNew = expectedNew({ newUntil: f.newUntil, isNew: f.rawIsNew });
+    ok(f.isNew === wantNew,
+       `${id}: freshness matches the catalogue rule (newUntil ${f.newUntil || 'none'}, isNew ${f.rawIsNew})`,
+       `store=${f.isNew} want=${wantNew}`);
+    ok(f.inNewRail === wantNew,
+       `${id}: ${wantNew ? 'present in' : 'absent from'} the NEW IN rail`,
+       `inRail=${f.inNewRail}`);
+
+    // Order path, on a size the product really has.
+    ok(f.size !== null, `${id}: has at least one sellable size`,
+       `sizes=[${f.allSizes.join(',')}] sellable=[${f.sellable.join(',')}]`);
+    ok(exp.sizes.includes(f.size), `${id}: chosen size ${f.size} is one the fixture declares`,
+       `fixture=[${exp.sizes.join(',')}]`);
+    ok(f.canOrder === true, `${id}: size ${f.size} orderable`, `canOrder=${f.canOrder}`);
+    // Guarded: a null message/url is a FAIL with context, never a crash.
+    if (f.msg === null || typeof f.msg !== 'string') {
+      ok(false, `${id}: Viber message built for size ${f.size}`, `msg=${JSON.stringify(f.msg)}`);
+    } else {
+      ok(f.msg.includes(f.name), `${id}: Viber message names the product`, f.name);
+      ok(f.msg.includes(f.size), `${id}: Viber message states size ${f.size}`, f.msg);
+      ok(f.msg.includes(id), `${id}: Viber message carries the product ID`);
+    }
+    if (typeof f.url !== 'string' || !f.url) {
+      ok(false, `${id}: Viber order URL built for size ${f.size}`, `url=${JSON.stringify(f.url)}`);
+    } else {
+      ok(f.url.startsWith(exp.viberUrl), `${id}: canonical Viber route unchanged`, f.url);
+      // CONFIG.viberUrl is an https business link, and supportsPrefill() only
+      // accepts viber: deep links, so no prefill is appended.
+      ok(!/\?text=/.test(f.url), `${id}: no ?text= on the Viber URL`);
+    }
     ok(f.wishOn && f.wishOff, `${id}: wishlist add and remove both work`);
   }
 
@@ -187,4 +274,10 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
   await browser.close();
   console.log(`\nVIEWPORT SMOKE (${FILE}): ${fail ? fail + ' FAILED' : 'all passed'}`);
   process.exit(fail ? 1 : 0);
-})();
+})().catch(e => {
+  // Exit 1 means the storefront failed an assertion; exit 2 means the harness
+  // itself broke. Collapsing the two hides product defects behind stack
+  // traces, which is exactly how the ONE SIZE assumption stayed invisible.
+  console.error('HARNESS CRASH', e && e.stack ? e.stack : e);
+  process.exit(2);
+});
