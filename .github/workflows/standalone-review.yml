@@ -20,6 +20,10 @@ on:
       - 'assets/**'
       - 'tools/build_standalone_review.py'
       - '.github/workflows/standalone-review.yml'
+      # The catalogue parser and its contract test guard the same seam, so a
+      # change to either must re-run the check that proves it.
+      - 'tools/regression/**'
+      - 'docs/pink-mall/avatar-skill/v1.3/build_fashion_context.py'
   workflow_dispatch:
 
 permissions:
@@ -50,6 +54,13 @@ jobs:
 
       - name: Prove it works with no assets/ tree
         run: bash tools/verify_standalone.sh
+
+      - name: Validate the fashion-context contract
+        # The Avatar Skill reads PINK_MALL_PRODUCTS out of PINKMALL.html by
+        # regex. Nothing else in this build enforces that seam, so a rename or
+        # a reshape would silently narrow the wardrobe authority instead of
+        # breaking. Pure Python, no browser, so it runs before the heavier steps.
+        run: python tools/regression/fashion_context_contract.py PINKMALL.html
 
       - uses: actions/setup-node@v4
         with:
