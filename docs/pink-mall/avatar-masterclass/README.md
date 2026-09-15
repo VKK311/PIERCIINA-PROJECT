@@ -187,3 +187,100 @@ The solo and duo field sheets are print-only blocks generated from the same data
   encodes it: temporary technical cleanup is allowed, anatomy is not.
 - No stock photography. Every illustration is generated.
 - No framework, no CDN, no fonts fetched, no analytics.
+
+---
+
+## v4 · Real-photo instructional plates
+
+The Masterclass is no longer a diagram-only system. Every important
+instructional unit can now carry a **real human photograph** beside its
+geometry, because a drawn croquis tells a model what the *structure* is but
+not what it should *look like* on a body.
+
+### Where plates exist
+
+| Family | Units | Plate slots |
+|---|---|---|
+| SOLO poses | P01–P20 | ✓ |
+| DUO compositions | D01–D08 | ✓ |
+| FACE MASTER SET | F01–F06 | ✓ |
+| BODY MASTER SET | B01–B06 | ✓ |
+| PRODUCT-FIRST posing | bags · eyewear · hats · shoes · clothing · jewellery | ✓ |
+
+46 units in total, each with its own shot specification.
+
+### The four layers
+
+Each pose opens on a tabbed stage:
+
+```
+ФОТО  →  ГЕОМЕТРИЯ  →  ПОСТРОЙ  →  ГРЕШКА
+PHOTO     GEOMETRY      BUILD       WRONG
+```
+
+**PHOTO is the default layer.** A model opening a pose sees the human
+reference first. A photographer switches to GEOMETRY, the stage/floor map or
+DIRECTOR mode exactly as before — nothing was removed from the diagram system.
+
+### Slots
+
+Three named slots per unit:
+
+- `examplePhoto` — the correct pose on a real body
+- `examplePhotoAlt` — a second angle
+- `wrongExamplePhoto` — the same frame showing the common error
+
+Slots are addressed by `(lessonId, slot)` and resolved at render time. No
+image is inlined into lesson markup, so replacing a demonstration frame with a
+real sister frame later touches no lesson at all.
+
+### An empty slot is a shot brief
+
+An empty slot is not a blank box. It renders the specification for the frame
+that belongs there — crop, camera, and the checkpoints the frame must prove,
+derived from that lesson's own authored geometry. The **ФОТО ПЛОЧИ** section
+(09B) aggregates all 46 into a live coverage dashboard: every empty cell is a
+frame the calibration shoot still owes.
+
+### Labelling — identity is never invented
+
+No physical attribute of either sister is asserted anywhere. Loaded plates are
+labelled **DEMONSTRATION EXAMPLE · НЕ Е КАНОНИЧНА ИДЕНТИЧНОСТ** until the owner
+marks them as real calibration frames, at which point they read
+**SISTER CALIBRATION FRAME**. The interim figure shown when a slot is empty is
+a volumetric render built from the pose's own rig and is always labelled
+**ДЕМОНСТРАЦИОНЕН РЕНДЕР · НЕ Е ФОТОГРАФИЯ**. It has no face.
+
+### Adding photographs
+
+Drag a file onto a slot, use **＋ ДОБАВИ СНИМКА**, or paste from the clipboard.
+Images are downscaled to a 1600 px long edge and stored as WebP.
+
+Storage is per-browser: IndexedDB `pinkmall_avatarlab_photos` for the blobs,
+`localStorage` for metadata. Nothing leaves the machine and the file still
+makes no network requests.
+
+Use **ЕКСПОРТ НА ФОТО ПАКЕТ** to produce `PINK_MALL_AVATAR_PHOTO_PACK.json`,
+which carries the plates between machines or hands them to whoever bakes the
+final artifact. **ВНОС НА ФОТО ПАКЕТ** restores one.
+
+### Bulk loading a finished shoot
+
+```js
+// one plate
+PINKMALL_PLATES.PhotoStore.put('P07', 'examplePhoto', fileObject);
+
+// a whole shoot
+PINKMALL_PLATES.PhotoStore.importPack(packJson);
+
+// mark a frame as a real sister calibration frame
+PINKMALL_PLATES.PhotoStore.mark('P07', 'examplePhoto', 'real');
+
+PINKMALL_PLATES.refresh();
+```
+
+### Print
+
+`PRINT SOLO POSES` includes each pose's `examplePhoto` on the field sheet, and
+prints an explicit `[ реален кадър още не е добавен ]` marker where one is
+still missing, so a printed sheet never silently hides a gap.
