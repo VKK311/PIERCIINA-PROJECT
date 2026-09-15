@@ -51,26 +51,74 @@ def load_builder():
 
 
 # ── independent extraction ────────────────────────────────────────────────
-# Deliberately NOT the builder's code path. The builder scans the whole array
-# with one regex; this splits the array into top-level {...} records first and
-# reads one id out of each. Different algorithm, same source, so agreement is
-# evidence rather than a tautology — and record-wise walking also proves the
-# array really holds one id per record.
+# Deliberately NOT the builder's code path. The builder walks the array once
+# and slices each record as it goes; this one first collects every top-level
+# record, then reports the ids found in each, so it can answer a question the
+# builder cannot be asked to answer about itself: how many records are there,
+# and does every one of them carry exactly one id?
+#
+# Counting records rather than ids is the point. An extractor that only
+# appends when it finds an id would let an id-less record disappear from both
+# sides and still agree.
 #
 # The catalogue is written in two styles: early records use a bare `id:` key,
-# records from PM-034 onward use JSON-style `"id":`. Both are accepted here.
+# records from PM-034 onward use JSON-style `"id":`. Both are accepted.
 ID_IN_RECORD = re.compile(r"""["']?id["']?\s*:\s*["'](PM-\d+)["']""")
 
 
-def independent_ids(html):
+def _records(region):
+    """Every top-level {...} record in the array, quote-aware."""
+    out, buf, depth = [], None, 0
+    quote, esc, arr = None, False, 0
+    for ch in region:
+        if buf is not None:
+            buf.append(ch)
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+            continue
+        if ch in "'\"`":
+            quote = ch
+            continue
+        if ch == "[":
+            arr += 1
+        elif ch == "]":
+            arr -= 1
+        elif ch == "{":
+            if depth == 0 and arr == 1:
+                buf = [ch]
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and buf is not None:
+                out.append("".join(buf))
+                buf = None
+    return out
+
+
+def independent_extract(html):
+    """(records, ids_per_record, region) or None if the array is not found."""
     at = html.find("var PINK_MALL_PRODUCTS")
     if at < 0:
         return None
     start = html.index("[", at)
-    depth, k = 0, start
+    depth, k, quote, esc = 0, start, None, False
     while k < len(html):
         ch = html[k]
-        if ch == "[":
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+        elif ch in "'\"`":
+            quote = ch
+        elif ch == "[":
             depth += 1
         elif ch == "]":
             depth -= 1
@@ -80,31 +128,28 @@ def independent_ids(html):
     else:
         return None
     region = html[start:k + 1]
+    recs = _records(region)
+    return recs, [ID_IN_RECORD.findall(r) for r in recs], region
 
-    # Split into top-level records by brace depth, then read each record's id.
-    ids, depth, rec_start = [], 0, None
-    for idx, ch in enumerate(region):
-        if ch == "{":
-            if depth == 0:
-                rec_start = idx
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0 and rec_start is not None:
-                m = ID_IN_RECORD.search(region[rec_start:idx + 1])
-                if m:
-                    ids.append(m.group(1))
-                rec_start = None
-    return ids, region
+
+_STRICT = re.compile(r"\A(\d{4})-(\d{2})-(\d{2})\Z")
 
 
 def independent_is_new(raw_is_new, new_until, as_of):
-    """The canonical rule, written out again from PINKMALL.html's isProductNew."""
+    """The canonical rule, written out again from PINKMALL.html's isProductNew.
+
+    Only an exact YYYY-MM-DD calendar date counts; anything else is treated as
+    unparseable and falls through to the raw flag, mirroring the storefront's
+    isFinite(Date.parse(...)) guard for the catalogue's date format.
+    """
     if new_until:
-        try:
-            return as_of <= datetime.date.fromisoformat(new_until)
-        except (ValueError, TypeError):
-            pass
+        m = _STRICT.match(new_until) if isinstance(new_until, str) else None
+        if m:
+            try:
+                return as_of <= datetime.date(int(m.group(1)), int(m.group(2)),
+                                              int(m.group(3)))
+            except ValueError:
+                pass
     return bool(raw_is_new)
 
 
@@ -136,22 +181,34 @@ def main():
     check("1. PINK_MALL_PRODUCTS array is discoverable",
           bfc.ARRAY_MARKER in html, bfc.ARRAY_MARKER)
 
-    ind = independent_ids(html)
+    ind = independent_extract(html)
     if not check("   independent extractor located the array", ind is not None):
         print("\nFASHION CONTEXT CONTRACT: FAIL (cannot continue)")
         sys.exit(1)
-    ind_ids, _region = ind
+    ind_recs, ind_per_rec, _region = ind
+    ind_ids = [g[0] for g in ind_per_rec if g]
+
+    # Record-level structure, independent of the builder entirely.
+    check("   every top-level record carries exactly one PM id",
+          all(len(g) == 1 for g in ind_per_rec),
+          f"idless={sum(1 for g in ind_per_rec if not g)} "
+          f"multi={sum(1 for g in ind_per_rec if len(g) > 1)}")
+    check("   no id-less top-level record", all(g for g in ind_per_rec),
+          f"{sum(1 for g in ind_per_rec if not g)} id-less")
 
     products = bfc.parse_catalogue(html)
     ids = [p["id"] for p in products]
+
+    check("   independent record count equals builder product count",
+          len(ind_recs) == len(products), f"records={len(ind_recs)} products={len(products)}")
 
     # 2 — non-empty
     check("2. parser output is non-empty", len(products) > 0, f"{len(products)} products")
     # 3 — unique
     check("3. all PM ids are unique", len(set(ids)) == len(ids),
           f"{len(ids) - len(set(ids))} duplicates")
-    # 4 — matches the independent view
-    check("4. parsed ids match the independent extraction",
+    # 4 — matches the independent view, in order
+    check("4. parsed id sequence matches the independent extraction",
           ids == ind_ids, f"builder={len(ids)} independent={len(ind_ids)}")
     # 5 — nothing disappears
     missing, extra = set(ind_ids) - set(ids), set(ids) - set(ind_ids)
@@ -179,8 +236,9 @@ def main():
     # 8 — catalogueSize
     check("8. catalogueSize equals the parsed catalogue count",
           ctx["catalogueSize"] == len(products), f"{ctx['catalogueSize']} vs {len(products)}")
-    check("   catalogueSize equals the independent count",
-          ctx["catalogueSize"] == len(ind_ids))
+    check("   catalogueSize equals the independent RECORD count",
+          ctx["catalogueSize"] == len(ind_recs),
+          f"{ctx['catalogueSize']} vs {len(ind_recs)} records")
     # 9 — source sha
     check("9. catalogueSource.sha256 matches the input file",
           ctx["catalogueSource"]["sha256"] == hashlib.sha256(raw).hexdigest(),
@@ -205,13 +263,53 @@ def main():
         except Exception as e:                                   # noqa: BLE001
             return check(label, False, f"wrong exception: {type(e).__name__}: {e}")
 
-    print("  -- structural drift --")
-    expect_raise("11. renamed/absent array fails loudly",
+    print("  -- structural drift (mutation tests) --")
+    expect_raise("11. renamed array fails loudly",
                  html.replace(bfc.ARRAY_MARKER, "var SOMETHING_ELSE = ["))
     expect_raise("    empty catalogue fails loudly", "var PINK_MALL_PRODUCTS = [];")
-    expect_raise("12. duplicate ids fail loudly", _with_duplicate(html, bfc))
+    expect_raise("12. duplicate id fails loudly", _with_duplicate(html, bfc))
     expect_raise("13. truncated array fails loudly — no partial success",
                  _truncated(html, bfc))
+    expect_raise("    id-less record fails loudly", _drop_field(html, bfc, 1, "id"))
+    expect_raise("    missing-name record fails loudly", _drop_field(html, bfc, 1, "name"))
+    expect_raise("    missing-category record fails loudly",
+                 _drop_field(html, bfc, 1, "category"))
+
+    # ── cross-record field bleed ──────────────────────────────────────────
+    # The defect this replaced: parsing took a fixed 4000-character window from
+    # each id match, and every record is shorter than that, so a product
+    # missing a field silently inherited the NEXT product's value. Proven here
+    # on an OPTIONAL field, because a required one would (correctly) raise
+    # before the value could be observed.
+    print("  -- cross-record field bleed --")
+    real = bfc.parse_catalogue(html)
+    # Pick a record that actually carries the optional field, and whose
+    # neighbour carries a DIFFERENT value for it — otherwise a bleed would be
+    # indistinguishable from a correct read.
+    victim = next((i for i in range(len(real) - 1)
+                   if real[i]["brand"] and real[i + 1]["brand"]
+                   and real[i]["brand"] != real[i + 1]["brand"]), None)
+    if victim is None:
+        check("    a usable bleed fixture exists", False, "no adjacent pair with distinct brands")
+        victim = 0
+    donor = victim + 1
+    mutated_html = _drop_field(html, bfc, victim, "brand")
+    try:
+        mutated = bfc.parse_catalogue(mutated_html)
+        check("    catalogue still parses with one optional field removed",
+              len(mutated) == len(real), f"{len(mutated)} vs {len(real)}")
+        got = mutated[victim]["brand"]
+        check("    a record missing an optional field yields None, not a value",
+              got is None, f"{real[victim]['id']} brand={got!r}")
+        check("    the missing field is NOT borrowed from the next record",
+              got != real[donor]["brand"],
+              f"{real[donor]['id']} brand={real[donor]['brand']!r}, got {got!r}")
+        check("    every other record is unaffected by the mutation",
+              [q["id"] for q in mutated] == [q["id"] for q in real]
+              and all(mutated[i]["brand"] == real[i]["brand"]
+                      for i in range(len(real)) if i != victim))
+    except bfc.CatalogueError as e:                               # noqa: BLE001
+        check("    optional-field mutation parses without raising", False, str(e)[:80])
 
     rc2, _d, log2 = run_builder_on_text(bfc, "var PINK_MALL_PRODUCTS = [];")
     check("    the CLI itself refuses a broken catalogue", rc2 != 0, log2.strip()[:90])
@@ -263,9 +361,49 @@ def main():
           set(ctx["newIn"]) == gated,
           f"gated={len(gated)} rawFlag={len(raw_new)} divergence={sorted(raw_new ^ gated)}")
 
-    # bad --as-of must be rejected
-    rc3, _d3, log3 = run_builder(catalogue, "2026-13-99")
-    check("    --as-of rejects a malformed date", rc3 != 0, log3.strip().splitlines()[-1][:80] if log3.strip() else "")
+    # Today the two sets can coincide — every newUntil window in the catalogue
+    # happens to have closed. That must not be mistaken for the two rules being
+    # equivalent, so prove the divergence on a date when a window was open.
+    dated_days = sorted({p["newUntil"] for p in dated if p["newUntil"]})
+    if dated_days:
+        open_day = datetime.date.fromisoformat(dated_days[-1])
+        on_open, _r, _l = newin_for(open_day.isoformat())
+        raw_on_open = {p["id"] for p in products if p["isNew"]}
+        check("    the two rules genuinely differ when a NEW window is open",
+              on_open is not None and on_open != raw_on_open,
+              f"as of {open_day}: gated={len(on_open or [])} rawFlag={len(raw_on_open)} "
+              f"only-gated={sorted((on_open or set()) - raw_on_open)}")
+
+    # ── strict YYYY-MM-DD, for --as-of and for newUntil alike ─────────────
+    print("  -- date shape --")
+    for bad_date, why in (("2026-13-99", "impossible calendar date"),
+                          ("20260915", "no separators"),
+                          ("2026-W38-2", "ISO week date"),
+                          ("2026-9-15", "single-digit month/day"),
+                          ("2026-09-15T00:00:00", "datetime, not a date")):
+        rcx, _dx, logx = run_builder(catalogue, bad_date)
+        check(f"    --as-of rejects {bad_date} ({why})", rcx != 0,
+              (logx.strip().splitlines() or [""])[-1][:70])
+    check("    --as-of accepts a well-formed date",
+          run_builder(catalogue, datetime.date.today().isoformat())[0] == 0)
+
+    # A newUntil that is not exactly YYYY-MM-DD must fall back to raw isNew,
+    # never be coerced into a date. Checked directly against the builder's rule.
+    print("  -- malformed newUntil falls back to raw isNew --")
+    for bad_nu in ("20260915", "2026-W38-2", "2026-9-15", "2026-09-15T00:00:00",
+                   "not-a-date", "2026-13-99"):
+        for flag in (True, False):
+            got = bfc.is_product_new({"id": "X", "isNew": flag, "newUntil": bad_nu}, today)
+            check(f"    newUntil={bad_nu!r} isNew={flag} -> {flag} (fallback)",
+                  got is flag, f"got={got}")
+    check("    a well-formed future newUntil still overrides isNew=False",
+          bfc.is_product_new(
+              {"id": "X", "isNew": False,
+               "newUntil": (today + datetime.timedelta(days=1)).isoformat()}, today) is True)
+    check("    a well-formed past newUntil still overrides isNew=True",
+          bfc.is_product_new(
+              {"id": "X", "isNew": True,
+               "newUntil": (today - datetime.timedelta(days=1)).isoformat()}, today) is False)
 
     print(f"\nobserved catalogue size: {len(products)} products "
           f"(reported, not asserted — new publications must not break this test)")
@@ -289,6 +427,72 @@ def _with_duplicate(html, bfc):
         k += 1
     record = html[start:k + 1]
     return html[:k + 1] + "," + record + html[k + 1:]
+
+
+def _nth_record_span(html, bfc, n):
+    """Byte span of the nth (0-based) top-level record in the product array."""
+    at = html.index(bfc.ARRAY_MARKER)
+    start = html.index("[", at)
+    depth, k, quote, esc = 0, start, None, False
+    while k < len(html):
+        ch = html[k]
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+        elif ch in "'\"`":
+            quote = ch
+        elif ch == "[":
+            depth += 1
+        elif ch == "]":
+            depth -= 1
+            if depth == 0:
+                break
+        k += 1
+    region_start, region_end = start, k + 1
+    recs, spans, buf_start, depth = [], [], None, 0
+    quote, esc, arr = None, False, 0
+    for i in range(region_start, region_end):
+        ch = html[i]
+        if quote:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == quote:
+                quote = None
+            continue
+        if ch in "'\"`":
+            quote = ch
+            continue
+        if ch == "[":
+            arr += 1
+        elif ch == "]":
+            arr -= 1
+        elif ch == "{":
+            if depth == 0 and arr == 1:
+                buf_start = i
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and buf_start is not None:
+                spans.append((buf_start, i + 1))
+                buf_start = None
+    return spans[n]
+
+
+def _drop_field(html, bfc, n, field):
+    """Remove one `field: value,` pair from the nth top-level record."""
+    a, b = _nth_record_span(html, bfc, n)
+    rec = html[a:b]
+    pat = re.compile(r"""["']?%s["']?\s*:\s*(?:"[^"]*"|'[^']*'|[^,}]+)\s*,?""" % field)
+    m = pat.search(rec)
+    if not m:
+        raise AssertionError(f"field {field!r} not found in record #{n + 1}")
+    return html[:a] + rec[:m.start()] + rec[m.end():] + html[b:]
 
 
 def _truncated(html, bfc):
