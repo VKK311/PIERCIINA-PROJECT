@@ -42,13 +42,30 @@ A contract is canonical only when **all three** conditions hold:
 3. its machine-readable form passes its validator.
 
 **A file's existence MUST NOT be read as canonicality.** These same files exist
-on a review candidate branch while under review. A candidate branch is review
-material, not project truth.
+on a review candidate branch. A candidate branch is review material, not project
+truth — but it is the *branch* that makes the difference, not a string inside
+the file.
 
-The `status` field records **review lifecycle**, not location. This lets the
-exact reviewed bytes be promoted without rewriting them: once a reviewed
-`CANDIDATE` sits on the canonical branch and passes its validator, the three
-conditions above are satisfied and it is canonical.
+### `status` is provenance, not the test
+
+The `status` field records **lifecycle provenance** and is **location-neutral**.
+It is **not** a second source of canonicality truth, and it **MUST NOT** be used
+as one.
+
+| Value | Meaning |
+|---|---|
+| `CANDIDATE` | Originated as a review candidate. **This value alone neither grants nor denies canonicality.** |
+| `CANONICAL` | Originated as, or was re-issued as, a canonical edition. Also provenance only. |
+| `SUPERSEDED` | Replaced by a later version. **MUST NOT** be relied upon wherever it sits, because it fails condition 1. |
+
+Canonicality is decided **only** by the three conditions above. A contract whose
+status still reads `CANDIDATE` because it was promoted unchanged **is canonical**
+once those conditions hold. No text may describe such a file as "under review"
+or "not to be relied upon" on the strength of the status string alone.
+
+This is what makes exact-byte promotion possible: the reviewed bytes move to the
+canonical branch unchanged, status string included. Rewriting a flag at
+promotion time would mean the promoted artefact is not the reviewed artefact.
 
 Underlying rule, inherited from `CLAUDE.md` and unchanged here: **GitHub is the
 project state; model memory is not.** Work that exists only in an ephemeral
@@ -288,7 +305,12 @@ paid generation may proceed within that approved ceiling; if the first planned
 batch fails QA and correction spend is needed, owner review is required before
 that additional spend. This contract records the authority shape and nothing
 else. Budget modes, ceilings and credit limits are **not defined here** and
-belong to the future Campaign Execution contract.
+belong to **contract 06 — Automation & Approval**.
+
+A *Campaign Execution Plan* may be a structured object that a future domain
+contract defines or references. It is **not** a separate numbered contract in
+the 00–08 sequence, and it MUST NOT be cited as one unless the owner creates it
+through durable change control.
 
 ## 18. Earned autonomy
 

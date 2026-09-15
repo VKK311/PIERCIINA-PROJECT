@@ -23,9 +23,15 @@ A contract is canonical only when **all three** hold:
 3. its machine-readable form passes its validator.
 
 **A file's existence does not make it canonical.** These files also exist on
-review candidate branches. A candidate branch is review material, not project
-truth. The `status` field records review lifecycle, not location — so the exact
-reviewed bytes can be promoted without rewriting them.
+review candidate branches, and a candidate branch is review material rather than
+project truth.
+
+The `status` field is **lifecycle provenance and is location-neutral**. It is not
+a second source of canonicality truth: a contract whose status still reads
+`CANDIDATE` because it was promoted unchanged *is* canonical once the three
+conditions hold. That is what lets the exact reviewed bytes be promoted without
+rewriting them. `SUPERSEDED` is the one status that independently disqualifies
+reliance, because it fails condition 1 wherever it sits.
 
 ## Reading order
 
@@ -40,7 +46,7 @@ reviewed bytes can be promoted without rewriting them.
 
 | # | Contract | Files | Status |
 |---|---|---|---|
-| 00 | **System Authority** | `00_SYSTEM_AUTHORITY_CONTRACT.md` / `.json` / `.schema.json` | **CANDIDATE** — under review |
+| 00 | **System Authority** | `00_SYSTEM_AUTHORITY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 
 Validator: `tools/regression/system_authority_contract.py` (standard library only).
 

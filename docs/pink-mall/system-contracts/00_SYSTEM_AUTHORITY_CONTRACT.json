@@ -17,11 +17,13 @@
     "fileExistenceImpliesCanonicality": false,
     "candidateBranchIsReviewMaterial": true,
     "statusFieldSemantics": {
-      "CANDIDATE": "Under review. MUST NOT be relied upon as project policy.",
-      "CANONICAL": "All three conditions met. May be relied upon.",
-      "SUPERSEDED": "Replaced by a later version. Retained for history only."
+      "CANDIDATE": "Originated as a review candidate. Provenance only — this value alone neither grants nor denies canonicality.",
+      "CANONICAL": "Originated as, or was re-issued as, a canonical edition. Provenance only — this value alone neither grants nor denies canonicality.",
+      "SUPERSEDED": "Replaced by a later version. Retained for history. A superseded contract MUST NOT be relied upon regardless of location."
     },
-    "promotionNote": "The status field is evaluated against the branch the file is read from. A file marked CANDIDATE on the canonical branch after review is canonical by the three conditions; the flag records review lifecycle, not location, so the exact reviewed bytes can be promoted without rewriting them."
+    "promotionNote": "This is what makes exact-byte promotion possible: the reviewed bytes move to the canonical branch unchanged, including the status string, and become canonical by satisfying the three conditions. Rewriting a flag at promotion time would mean the promoted artefact is not the reviewed artefact.",
+    "statusIsInformationalOnly": true,
+    "statusRule": "`status` records lifecycle provenance and is location-neutral. It is NOT a second source of canonicality truth. Canonicality is determined solely by the three conditions above. A file whose status still reads CANDIDATE because it was promoted unchanged IS canonical once those conditions hold, and no text may describe it as under review or unreliable on the strength of the status string alone. SUPERSEDED is the one status that independently disqualifies reliance, because a superseded contract fails condition 1 wherever it sits."
   },
   "implementationStates": {
     "ACTIVE": "Implemented, validated and in use on the canonical branch.",
@@ -493,7 +495,7 @@
         "CYBERNINJAS_STUDIO"
       ],
       "conflictAction": "STOP",
-      "note": "Authority implication only: once the owner approves a campaign idea and selects a budget mode, planned paid generation may proceed within that approved ceiling; if the first batch fails QA, additional correction spend requires owner review. Budget modes, ceilings and credit limits are NOT defined here and belong to the future Campaign Execution contract."
+      "note": "Authority implication only: once the owner approves a campaign idea and selects a budget mode, planned paid generation may proceed within that approved ceiling; if the first batch fails QA, additional correction spend requires owner review. Budget modes, ceilings and credit limits are NOT defined here and belong to contract 06 — Automation & Approval. A Campaign Execution Plan may be a structured object defined or referenced by a future domain contract; it is not a separate numbered contract unless the owner creates one through durable change control."
     },
     {
       "domainId": "COMMERCIAL_PUBLICATION",
@@ -918,5 +920,17 @@
         "approval state"
       ]
     }
-  ]
+  ],
+  "spendAuthorityOwner": {
+    "targetContract": "06",
+    "targetContractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+    "covers": [
+      "budget modes",
+      "budget-mode ceilings",
+      "credit limits",
+      "correction-spend rules",
+      "earned automation grants"
+    ],
+    "note": "A Campaign Execution Plan is a structured object a domain contract may define or reference. It is not a numbered contract in the 00-08 sequence."
+  }
 }
