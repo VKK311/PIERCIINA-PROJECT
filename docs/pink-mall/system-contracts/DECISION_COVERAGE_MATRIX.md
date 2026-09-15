@@ -5,26 +5,32 @@ story, social, operating, approval, memory and HQ domains. Their detailed
 contracts are **not** being authored yet.
 
 This matrix exists so that a decision already taken is not lost merely because
-its contract has not been written. It records **that** a decision exists, where
-its detail belongs, and whether that detail is safe for a public repository.
+its contract has not been written. It records **that** a decision exists, its
+public-safe structural content, where its detail belongs, and whether that
+detail is safe for a public repository.
 
-## Two states that are not the same
+## Three states, deliberately kept apart
 
 | State | Meaning |
 |---|---|
-| **LOCKED DECISION EXISTS** | The owner has decided. The decision is authoritative input. |
+| **LOCKED DECISION EXISTS** | The owner has decided. The decision is authoritative input and MUST be preserved. |
 | **DETAILED CANONICAL CONTRACT CREATED** | A reviewed, validated, committed contract carries the detail. |
+| **GENUINELY OPEN** | No decision has been taken. Nothing to preserve yet. |
 
-A locked decision is **not** a canonical contract. Only the System Authority
-Contract (00) has reached candidate contract status; every domain contract below
-is **NOT YET CREATED**.
+A locked decision is **not** a canonical contract — and it is **not** an open
+question either. Writing "undefined" over a decision the owner has already made
+would erase it, which is the exact failure this matrix exists to prevent. Where
+a decision is locked but its contract is unwritten, the row says
+**LOCKED — AWAITING CANONICAL CONTRACT**, never "undefined".
 
 ## Privacy note
 
 This file is in a **PUBLIC** repository. Confidential creative and operating
-strategy is **not** reproduced here. Where detail is sensitive, the row says
-`PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER` and stops there.
-That is deliberate, not an omission.
+strategy is **not** reproduced here. Where the owner has decided but the detail
+is sensitive, the row says
+`LOCKED — PRIVATE DETAIL DEFERRED TO PRIVATE OPS LAYER`.
+That phrasing preserves the decision while withholding the content. It is never
+used to mean "undecided".
 
 ## Matrix
 
@@ -33,101 +39,251 @@ That is deliberate, not an omission.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 01 — Campaign Context |
 | **Private detail required** | PARTIAL |
-| **Public-safe summary** | Campaigns are purpose-driven and context-assembled rather than ad-hoc. Campaign operational state will be owned by a Campaign Registry, which is PLANNED and does not exist. Authority is reserved in contract 00 under `CAMPAIGN_OPERATIONAL_STATE`. |
-| **Open items** | Campaign taxonomy, context-assembly inputs and registry schema are undefined. Unpublished campaign concepts: PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER. |
+
+**Locked, public-safe structure**
+
+- Campaign Context is **idea-first, not product-first**.
+- Context is assembled from: current world/story state; cultural and social
+  signals; PINK MALL DNA; INA/SIS context; current products; target format.
+- The initial operating mode produces **three competing campaign/story ideas**
+  for owner selection.
+- Product use is **contextual** — a campaign is not required to begin from a SKU.
+- Detailed unpublished campaign concepts: `LOCKED — PRIVATE DETAIL DEFERRED TO
+  PRIVATE OPS LAYER`.
+
+**Genuinely open**
+
+- the exact serialized Campaign Context schema;
+- external trend/social ingestion implementation;
+- later autonomous idea-selection policy.
 
 ### 2. Product Creative / Product Truth
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — but the governing authority rule **is** canonical via the existing product-onboarding system |
+| **Detailed canonical contract created** | NO — but the governing authority rule **is already canonical** via the product-onboarding system |
 | **Target contract** | 02 — Product Creative |
 | **Private detail required** | NO |
-| **Public-safe summary** | Product truth may not be transformed by creative work. Generated campaign media never becomes canonical commerce media. The three media classes are defined in contract 00 §16. Product identity, price, availability and canonical media authority are already ACTIVE and unchanged. |
-| **Open items** | Product-lock enforcement mechanics, per-category creative rules and QA criteria for product geometry in generated media. |
+
+**Locked, public-safe structure**
+
+- **Product Truth is fixed.** **Human Truth is fixed.** The creative world may
+  transform around them.
+- Canonical commerce media is a separate class from campaign media and is never
+  generatively altered.
+- Product geometry and intrinsic construction **must not drift**.
+- Product identity, price, availability and canonical media authority are ACTIVE
+  and unchanged by this contract.
+
+**Genuinely open**
+
+- product-lock enforcement mechanics;
+- per-category creative rules;
+- QA criteria for product geometry in generated media.
 
 ### 3. INA / SIS Character & Story
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 03 — Character & Story |
 | **Private detail required** | YES |
-| **Public-safe summary** | Human identity truth belongs to the Avatar Skill. One sister is never substituted for the other; identity is never inferred from generated output. **Commercial generated-likeness publication remains BLOCKED** behind the Consent Gate — `CONSENT_AND_PROVENANCE.json` records `OWNER_CONFIRMATION_REQUIRED` for every subject and every allowed use. |
-| **Open items** | Character canon and story continuity rules undefined. Consent resolution is an owner action, not a contract action. Character backstory and personal profile detail: PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER. |
+
+**Locked, public-safe structure**
+
+- **Identity is persistent.** Personality role is **dynamic**. Relationship
+  state is **dynamic**.
+- **Narrative continuity is required.**
+- **TEAM INA vs TEAM SIS** exists as an engagement and story mechanic.
+- Audience input **may sometimes affect later canon**.
+- **Story State must carry structured continuity** rather than relying on model
+  memory.
+- Identity truth belongs to the Avatar Skill; one sister is never substituted for
+  the other; identity is never inferred from generated output.
+- **Commercial generated-likeness publication remains BLOCKED** behind the
+  Consent Gate — `CONSENT_AND_PROVENANCE.json` records
+  `OWNER_CONFIRMATION_REQUIRED` for every subject and every allowed use.
+- Character biography, personal material and Creative Director detail:
+  `LOCKED — PRIVATE DETAIL DEFERRED TO PRIVATE OPS LAYER`.
+
+**Genuinely open**
+
+- the exact Story State schema;
+- exact audience-to-canon decision rules;
+- implementation mechanics.
+- *(Consent resolution is an owner action, not a contract action.)*
 
 ### 4. Story Engine + Social Intelligence
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 03 — Character & Story, and 04 — Social Intelligence |
 | **Private detail required** | YES |
-| **Public-safe summary** | Raw platform metrics are evidence; conclusions drawn from them are interpretation. Contract 00 defines that distinction (`SOCIAL_RAW_METRICS` vs `SOCIAL_INTERPRETATION`) and nothing further. Story State and the Social Intelligence engine are PLANNED. |
-| **Open items** | Metric weighting, scoring, creative-fatigue thresholds and story cadence are all undefined. Audience-performance history and private account data: PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER. |
+
+**Locked, public-safe structure**
+
+- Raw metrics and interpretation **remain separate** — evidence is not a
+  conclusion.
+- A **response-priority hierarchy exists**.
+- Story arcs may **CONTINUE / EVOLVE / PAUSE / CLOSE / REVIVE** according to
+  evidence.
+- Winning creative mechanisms **may be exploited temporarily**.
+- **Fatigue must be tracked** before repetitive continuation.
+- Private performance history: `LOCKED — PRIVATE DETAIL DEFERRED TO PRIVATE OPS
+  LAYER`.
+
+**Genuinely open**
+
+- exact metric weights (explicitly **not** yet locked);
+- fatigue thresholds and cooldown durations;
+- exploration/exploitation ratio;
+- API and data-ingestion implementation;
+- later autonomous selection and publication rules.
 
 ### 5. Workstation Operating Model
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 05 — Workstation Operating |
 | **Private detail required** | NO |
-| **Public-safe summary** | The Workstation is the intended persistent visual workflow graph. It is PLANNED and does not exist. It may generate, transform, propose, render, compare and organise; it never becomes factual authority by producing an asset. Generated output is a candidate until QA and approval. |
-| **Open items** | Node architecture, run model and graph persistence undefined. Whether the CyberNinjas platform can host it is a capability question already audited and unresolved. |
+
+**Locked, public-safe structure**
+
+- **PINK MALL HQ / Master Station**, plus a **separate station per campaign**.
+- Once an idea is approved, **campaign-station construction may begin without a
+  further architecture approval**.
+- Checkpoints are **CONCEPT → IMAGES → VIDEO (if applicable) → FINAL**.
+- The initial image phase normally explores **2–3 meaningfully different
+  variants**.
+- **Claude selects the generation model.**
+- **ECONOMY / STANDARD / PREMIUM** budget modes exist conceptually. *(Ceilings
+  are not defined — see domain 6.)*
+- Output quantity is **campaign-dependent**, not a fixed template.
+- The Workstation is PLANNED and does not exist; generated output is a candidate
+  until QA and approval.
+
+**Genuinely open / implementation-dependent**
+
+- exact CyberNinjas node implementation;
+- whether the available CyberNinjas control surface can manipulate all required
+  Workstation nodes programmatically;
+- final reusable station-template serialization.
 
 ### 6. Approval / Automation
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 06 — Automation & Approval |
 | **Private detail required** | NO |
-| **Public-safe summary** | Human approval is the current default for commercial publication; no system holds autonomous publishing authority. Autonomy is capability-specific, never a global flag. Paid-generation authority shape is recorded in contract 00 §17: owner approves idea plus budget mode, planned spend may proceed within the approved ceiling, correction spend after a failed QA batch requires owner review. |
-| **Open items** | Budget modes, ceilings and credit limits are **deliberately not defined**. Earned-autonomy grants and confidence thresholds are undefined. |
+
+**Locked, public-safe structure**
+
+- The owner approves **campaign idea + budget mode**.
+- That approval **may authorise planned first-batch spend** within the future
+  mode ceiling.
+- **Extra correction spend after a failed QA batch requires owner review.**
+- **Human approval remains the current default** for commercial publication.
+- **Auto-publish is NOT authorised.**
+- **Autonomy is capability-specific and earned**, never a global flag.
+- Contract 06 also owns budget modes, ceilings, credit limits and correction-spend
+  rules. There is no separate numbered "Campaign Execution" contract.
+
+**Genuinely open**
+
+- exact credit ceilings;
+- numeric autonomy thresholds;
+- future autonomous publication criteria.
 
 ### 7. Super Brain Memory
 
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 07 — Super Brain Memory |
 | **Private detail required** | YES |
-| **Public-safe summary** | Super Brain may govern interpretation, learning and creative memory. It is explicitly **non-authoritative** for PM IDs, prices, sizes, availability, canonical product identity, approval state, branch or hash, campaign spend and publication state. GitHub wins for factual truth. Autonomous real-time knowledge is a **target**, not a current capability. |
-| **Open items** | Memory schema, write rules and staleness handling undefined. Memory content and private strategy exports: PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER. |
+
+**Locked, public-safe structure**
+
+- Architecture is **structured clusters + free graph relationships**.
+- **Campaign Memory is written after campaigns.**
+- **Durable Learning requires** repeated evidence, sufficient signal, or explicit
+  owner confirmation.
+- **One viral result must not become permanent truth automatically.**
+- Preference drift must distinguish **stable / emerging / declining / retired**
+  patterns.
+- **Periodic memory maintenance and cleanup is required.**
+- **GitHub remains factual authority.** Super Brain is non-authoritative for PM
+  IDs, prices, sizes, availability, canonical product identity, approval state,
+  branch or hash, campaign spend and publication state.
+- Autonomous real-time knowledge is a **target**, not a current capability.
+- Memory content and private strategy exports: `LOCKED — PRIVATE DETAIL DEFERRED
+  TO PRIVATE OPS LAYER`.
+
+**Genuinely open**
+
+- exact storage schema;
+- exact implementation and API bridge;
+- the private memory content itself.
 
 ### 8. PINK MALL HQ Blueprint
 
 | | |
 |---|---|
-| **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO |
+| **Locked decision exists** | YES — **a blueprint already exists** |
+| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
 | **Target contract** | 08 — PINK MALL HQ |
 | **Private detail required** | PARTIAL |
-| **Public-safe summary** | HQ is the intended operating surface over the campaign, story, social and memory systems. It is PLANNED and does not exist. |
-| **Open items** | Blueprint, layout and surface scope undefined. Depends on contracts 01–07. Internal commercial analysis surfaced by HQ: PRIVATE DETAIL REQUIRED — MOVE TO PRIVATE OPS CONTRACT LAYER. |
+
+**Locked, public-safe structural elements**
+
+- **CURRENT STORY**
+- **ACTIVE CAMPAIGNS**
+- **WAITING FOR APPROVAL**
+- recent winner / social signals
+- **creative-fatigue visibility**
+- **NEXT 3 IDEAS**
+- credit and cost visibility
+- **EXPERIMENT LAB**
+- **WORLD / STORY MAP**
+- a separate **REJECTS & LEARNINGS** area within campaign stations
+- a **hybrid surface**: simple creative overview, with expandable
+  technical/audit detail
+- HQ is PLANNED and does not exist.
+- Detailed private commercial metrics and sensitive strategy:
+  `LOCKED — PRIVATE DETAIL DEFERRED TO PRIVATE OPS LAYER`.
+
+**Genuinely open**
+
+- exact UI implementation;
+- exact Workstation node layout;
+- data connectors;
+- production visualization technology.
 
 ## Summary
 
 | # | Domain | Locked | Contract created | Target | Private detail |
 |---|---|---|---|---|---|
-| 1 | Campaign Context / Purpose | YES | NO | 01 | PARTIAL |
-| 2 | Product Creative / Product Truth | YES | NO | 02 | NO |
-| 3 | INA/SIS Character & Story | YES | NO | 03 | YES |
-| 4 | Story Engine + Social Intelligence | YES | NO | 03, 04 | YES |
-| 5 | Workstation Operating Model | YES | NO | 05 | NO |
-| 6 | Approval / Automation | YES | NO | 06 | NO |
-| 7 | Super Brain Memory | YES | NO | 07 | YES |
-| 8 | PINK MALL HQ Blueprint | YES | NO | 08 | PARTIAL |
+| 1 | Campaign Context / Purpose | YES | NO — awaiting | 01 | PARTIAL |
+| 2 | Product Creative / Product Truth | YES | NO — awaiting | 02 | NO |
+| 3 | INA/SIS Character & Story | YES | NO — awaiting | 03 | YES |
+| 4 | Story Engine + Social Intelligence | YES | NO — awaiting | 03, 04 | YES |
+| 5 | Workstation Operating Model | YES | NO — awaiting | 05 | NO |
+| 6 | Approval / Automation | YES | NO — awaiting | 06 | NO |
+| 7 | Super Brain Memory | YES | NO — awaiting | 07 | YES |
+| 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
 
-Eight domains, eight locked decisions, **zero** detailed canonical contracts.
-That gap is the Phase 1 work that follows.
+Eight domains, eight sets of locked structural decisions preserved above, **zero**
+detailed canonical contracts. Closing that gap is the Phase 1 work that follows —
+and it starts from these decisions, not from a blank page.
