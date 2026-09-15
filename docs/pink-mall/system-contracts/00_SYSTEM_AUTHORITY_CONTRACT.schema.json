@@ -47,7 +47,9 @@
         "conditions",
         "fileExistenceImpliesCanonicality",
         "candidateBranchIsReviewMaterial",
-        "statusFieldSemantics"
+        "statusFieldSemantics",
+        "statusIsInformationalOnly",
+        "statusRule"
       ],
       "properties": {
         "ruleId": {
@@ -75,6 +77,13 @@
         },
         "promotionNote": {
           "type": "string"
+        },
+        "statusIsInformationalOnly": {
+          "const": true
+        },
+        "statusRule": {
+          "type": "string",
+          "minLength": 1
         }
       }
     },
@@ -382,7 +391,280 @@
         },
         "additionalProperties": false
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "SYSTEM_GOVERNANCE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CANONICAL_REPOSITORY_STATE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "PRODUCT_IDENTITY"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "PRODUCT_PRICE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "PRODUCT_AVAILABILITY_AND_SIZES"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CANONICAL_PRODUCT_MEDIA"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "HUMAN_IDENTITY"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "AVATAR_CONSENT_STATUS"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CAMPAIGN_OPERATIONAL_STATE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "STORY_STATE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "SOCIAL_RAW_METRICS"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "SOCIAL_INTERPRETATION"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "SEMANTIC_CREATIVE_MEMORY"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "GENERATED_CAMPAIGN_MEDIA"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CAMPAIGN_APPROVAL"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "PAID_GENERATION_AUTHORITY"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "COMMERCIAL_PUBLICATION"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "PRIVATE_STRATEGIC_DATA"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ],
+      "description": "Every required authority domain must appear exactly once. minItems and uniqueItems are insufficient on their own: uniqueItems compares whole objects, so two records could share a domainId while differing in another field, satisfying the array constraints while a required domain is absent. The allOf below carries one contains rule per domain id with minContains/maxContains of 1, which is what actually enforces exactly-once coverage."
     },
     "ownerOverrideTypes": {
       "type": "array",
@@ -772,6 +1054,34 @@
         "additionalProperties": false
       },
       "uniqueItems": true
+    },
+    "spendAuthorityOwner": {
+      "type": "object",
+      "required": [
+        "targetContract",
+        "targetContractId",
+        "covers",
+        "note"
+      ],
+      "properties": {
+        "targetContract": {
+          "const": "06"
+        },
+        "targetContractId": {
+          "const": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT"
+        },
+        "covers": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
@@ -801,7 +1111,8 @@
     "creativeFreedomPrinciple",
     "plannedContracts",
     "earnedAutonomy",
-    "nonAuthoritativeAssertions"
+    "nonAuthoritativeAssertions",
+    "spendAuthorityOwner"
   ],
   "x-requiredAuthorityDomains": [
     "SYSTEM_GOVERNANCE",
@@ -823,5 +1134,5 @@
     "COMMERCIAL_PUBLICATION",
     "PRIVATE_STRATEGIC_DATA"
   ],
-  "x-note": "minItems on authorityDomains equals the number of required domain ids and the enum is closed, so a missing domain cannot validate. x-requiredAuthorityDomains is the explicit list the companion validator enforces by name."
+  "x-note": "authorityDomains enforces exactly-once coverage of every required domain id via allOf/contains with minContains=maxContains=1. The closed domainId enum bars unknown domains. x-requiredAuthorityDomains is the canonical list, which the companion validator cross-checks against both the contract and these rules."
 }
