@@ -301,14 +301,132 @@ def main():
           REQUIRED_DOMAINS <= set(props.get("authorityDomains", {})
                                   .get("items", {}).get("properties", {})
                                   .get("domainId", {}).get("enum", [])))
-    check("    schema requires every authority domain to be present",
-          props.get("authorityDomains", {}).get("minItems") == len(REQUIRED_DOMAINS),
-          str(props.get("authorityDomains", {}).get("minItems")))
+    # minItems + uniqueItems does NOT prove completeness: uniqueItems compares
+    # whole objects, so two records could share a domainId while differing in
+    # another field, satisfying the array constraints while a required domain is
+    # absent. Exactly-once coverage has to be asserted per domain id.
+    ad = props.get("authorityDomains", {})
+    check("    schema declares minItems matching the required domain count",
+          ad.get("minItems") == len(REQUIRED_DOMAINS), str(ad.get("minItems")))
+    allof = ad.get("allOf", [])
+    covered, malformed = set(), []
+    for rule in allof:
+        con = rule.get("contains", {})
+        const = con.get("properties", {}).get("domainId", {}).get("const")
+        if const is None:
+            malformed.append(rule)
+            continue
+        covered.add(const)
+        if rule.get("minContains") != 1 or rule.get("maxContains") != 1:
+            malformed.append(const)
+    check("    schema requires EACH domain exactly once via allOf/contains",
+          covered == REQUIRED_DOMAINS and not malformed,
+          f"covered={len(covered)}/{len(REQUIRED_DOMAINS)} "
+          f"missing={sorted(REQUIRED_DOMAINS - covered)} malformed={malformed}")
+    check("    every contains rule is minContains=maxContains=1",
+          all(r.get("minContains") == 1 and r.get("maxContains") == 1 for r in allof),
+          f"{len(allof)} rules")
+    check("    schema does not rely on uniqueItems alone for completeness",
+          bool(allof), "allOf/contains rules absent" if not allof else "")
     check("    schema rejects unknown top-level properties",
           schema.get("additionalProperties") is False)
     check("    schema's required list covers every property it defines",
           set(schema.get("required", [])) >= set(props) - {"supersedes"},
           str(sorted(set(props) - {"supersedes"} - set(schema.get("required", [])))))
+
+    # ── status semantics must not act as a second canonicality test ────────
+    print("  -- status is provenance, not the canonicality test --")
+    check("21. contract declares status informational only",
+          cr.get("statusIsInformationalOnly") is True)
+    check("    contract carries an explicit status rule", bool(cr.get("statusRule")))
+    sr = (cr.get("statusRule") or "").lower()
+    check("    status alone neither grants nor denies canonicality",
+          "neither grants nor denies" in sr or
+          ("alone" in sr and "not" in sr and "canonicality" in sr))
+    # normalise both key and value case so the check cannot depend on spelling
+    sem = {str(k).upper(): str(v).lower()
+           for k, v in (cr.get("statusFieldSemantics") or {}).items()}
+    check("    CANDIDATE is not described as unreliable by status alone",
+          "CANDIDATE" in sem and "must not be relied upon" not in sem["CANDIDATE"],
+          str(sem.get("CANDIDATE", "<absent>"))[:70])
+    check("    SUPERSEDED remains independently disqualifying",
+          "must not be relied upon" in sem.get("SUPERSEDED", ""))
+    check("22. canonicality still requires review, canonical branch and validator",
+          len(cr.get("conditions", [])) >= 3 and
+          any("review" in x.lower() for x in cr.get("conditions", [])) and
+          any("claude/pink-mall-development" in x for x in cr.get("conditions", [])) and
+          any("validator" in x.lower() for x in cr.get("conditions", [])))
+    for label, text in (("markdown", md), ("index", idx)):
+        low = text.lower()
+        bad = ("candidate" in low and "must not be relied upon" in low and
+               "superseded" not in low.split("must not be relied upon")[0][-260:])
+        check(f"    {label} does not call a CANDIDATE unreliable by status alone", not bad)
+    check("    markdown states status is location-neutral",
+          "location-neutral" in md.lower())
+    check("    index states status is location-neutral",
+          "location-neutral" in idx.lower())
+
+    # ── no orphan contract outside the 00-08 sequence ─────────────────────
+    print("  -- spend authority routes to a real contract --")
+    blob = json.dumps(c, ensure_ascii=False) + md + idx + matrix
+    check("23. no reference to an undefined 'Campaign Execution contract' remains",
+          "campaign execution contract" not in blob.lower())
+    spend = c.get("spendAuthorityOwner", {})
+    check("    spend authority is owned by contract 06",
+          spend.get("targetContract") == "06" and
+          spend.get("targetContractId") == "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+          str(spend.get("targetContract")))
+    check("    contract 06 exists in the planned sequence",
+          any(p.get("contractNumber") == "06" and
+              p.get("contractId") == "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT"
+              for p in pc))
+    paid = next((d for d in domains if d["domainId"] == "PAID_GENERATION_AUTHORITY"), {})
+    check("    the paid-generation domain points at contract 06",
+          "06" in paid.get("note", "") and "Automation" in paid.get("note", ""))
+
+    # ── locked interview decisions must survive in the matrix ─────────────
+    # Wording-tolerant: each anchor is a set of alternative phrasings, and the
+    # check passes if any one of them appears. The point is that the decision
+    # was preserved, not that a particular sentence was.
+    print("  -- locked decisions preserved in the coverage matrix --")
+    mlow = matrix.lower()
+    ANCHORS = [
+        ("three competing ideas",      ["three competing", "3 competing", "next 3 ideas"]),
+        ("idea-first campaign context",["idea-first", "idea first", "not product-first"]),
+        ("TEAM INA / TEAM SIS",        ["team ina", "team sis"]),
+        ("arc lifecycle verbs",        ["continue / evolve / pause / close / revive",
+                                        "continue/evolve/pause/close/revive"]),
+        ("master station / campaign station", ["master station", "campaign station",
+                                               "station per campaign"]),
+        ("checkpoint sequence",        ["concept → images", "concept -> images",
+                                        "concept / images / video / final"]),
+        ("capability-specific autonomy",["capability-specific", "capability specific"]),
+        ("campaign memory",            ["campaign memory"]),
+        ("durable learning",           ["durable learning"]),
+        ("next 3 ideas",               ["next 3 ideas", "next three ideas"]),
+        ("experiment lab",             ["experiment lab"]),
+        ("world / story map",          ["world / story map", "world/story map", "story map"]),
+        ("creative fatigue tracking",  ["fatigue"]),
+        ("structured story continuity",["story state", "narrative continuity"]),
+        ("budget modes",               ["economy", "standard", "premium"]),
+    ]
+    missing_anchors = [name for name, alts in ANCHORS if not any(a in mlow for a in alts)]
+    check("24. matrix preserves the locked structural decisions",
+          not missing_anchors, f"absent={missing_anchors}")
+    check("    matrix distinguishes locked-but-uncanonicalized from genuinely open",
+          "awaiting canonical contract" in mlow and "genuinely open" in mlow)
+    check("    matrix never writes 'undefined' over a locked decision",
+          mlow.count("undefined") <= 2 and "never \"undefined\"" in mlow,
+          f"{mlow.count('undefined')} occurrences, all in the rule that forbids it")
+    check("    matrix defers private detail with the locked phrasing",
+          "private detail deferred to private ops layer" in mlow)
+    check("    matrix still records zero detailed contracts created",
+          "zero" in mlow and "detailed canonical contract" in mlow)
+
+    # ── the contract itself must contain each domain exactly once ─────────
+    once = [d for d in REQUIRED_DOMAINS if ids.count(d) != 1]
+    check("25. every required domain appears exactly once in the contract",
+          not once, f"wrong-count={sorted(once)}")
 
     print(f"\n{len(domains)} authority domains, {len(c.get('sourceTypes', []))} source types, "
           f"{len(c.get('hardStops', []))} hard stops")
