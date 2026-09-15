@@ -1,0 +1,922 @@
+{
+  "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "version": "1.0.0",
+  "title": "PINK MALL System Authority Contract",
+  "status": "CANDIDATE",
+  "supersedes": null,
+  "appliesTo": "All PINK MALL / Pierciina systems, current and future, including campaign, story, social-intelligence, semantic-memory, execution and publication systems.",
+  "purpose": "Define which system is authoritative for which domain of truth, how sources are classified, what happens when they disagree, and which data may exist in a public repository. This is the constitutional layer beneath every later domain contract.",
+  "canonicalityRule": {
+    "ruleId": "CANONICALITY_V1",
+    "statement": "A contract is canonical only when all three conditions hold simultaneously.",
+    "conditions": [
+      "It has passed owner or independent review.",
+      "It is committed to the canonical project branch claude/pink-mall-development.",
+      "Its machine-readable form passes its own validator."
+    ],
+    "fileExistenceImpliesCanonicality": false,
+    "candidateBranchIsReviewMaterial": true,
+    "statusFieldSemantics": {
+      "CANDIDATE": "Under review. MUST NOT be relied upon as project policy.",
+      "CANONICAL": "All three conditions met. May be relied upon.",
+      "SUPERSEDED": "Replaced by a later version. Retained for history only."
+    },
+    "promotionNote": "The status field is evaluated against the branch the file is read from. A file marked CANDIDATE on the canonical branch after review is canonical by the three conditions; the flag records review lifecycle, not location, so the exact reviewed bytes can be promoted without rewriting them."
+  },
+  "implementationStates": {
+    "ACTIVE": "Implemented, validated and in use on the canonical branch.",
+    "PARTIAL": "Implemented in part, or implemented but not yet cleared for its full intended use.",
+    "PLANNED": "Designed or reserved only. Does not exist. MUST NOT be described as capability.",
+    "BLOCKED": "Cannot proceed until a named precondition is resolved.",
+    "HISTORICAL": "Superseded. Preserved for provenance, not for use."
+  },
+  "truthClasses": [
+    {
+      "classId": "FACT",
+      "definition": "Direct canonical or verified state, held by the authority for its domain.",
+      "mutableBy": "The domain's primary authority only.",
+      "example": "PM-038 exists with price EUR 40 in PINK_MALL_PRODUCTS."
+    },
+    {
+      "classId": "DERIVED_FACT",
+      "definition": "Deterministic result computed from FACTs by a specified rule. Reproducible.",
+      "mutableBy": "Only by changing an input FACT or the published derivation rule.",
+      "example": "newIn membership computed from newUntil by the canonical freshness rule."
+    },
+    {
+      "classId": "INTERPRETATION",
+      "definition": "Semantic conclusion, hypothesis or learning. Not verifiable by inspection of canonical state.",
+      "mutableBy": "Semantic systems; never promotes itself to FACT.",
+      "example": "This concept resonates with the audience."
+    },
+    {
+      "classId": "PROPOSAL",
+      "definition": "A suggested future action or creative direction. Carries no authority until approved.",
+      "mutableBy": "Any system may propose.",
+      "example": "Run a candle campaign in week 40."
+    },
+    {
+      "classId": "GENERATED_OUTPUT",
+      "definition": "Model-created candidate asset or text. A candidate until it passes required QA and approval.",
+      "mutableBy": "Execution systems.",
+      "example": "A generated campaign image of a product."
+    },
+    {
+      "classId": "APPROVAL",
+      "definition": "Explicit authorized acceptance by the owner or a delegated authority, scoped and recorded.",
+      "mutableBy": "Owner, or a delegate named by a canonical contract.",
+      "example": "APPROVE for PM-046 publication."
+    }
+  ],
+  "truthClassRules": [
+    "These classes MUST NOT be collapsed into one another.",
+    "A GENERATED_OUTPUT MUST NOT be recorded as a FACT by virtue of having been produced.",
+    "An INTERPRETATION MUST NOT overwrite a FACT.",
+    "A PROPOSAL MUST NOT be executed as though it were an APPROVAL.",
+    "Silence is never an APPROVAL."
+  ],
+  "mediaClasses": [
+    {
+      "classId": "CANONICAL_COMMERCE_MEDIA",
+      "definition": "Exact approved product photography used for product and storefront truth.",
+      "generativeAlterationAllowed": false,
+      "authority": "PRODUCT_ONBOARDING_SYSTEM",
+      "rule": "MUST NOT be generatively altered. MUST NOT be replaced by campaign or derivative media."
+    },
+    {
+      "classId": "CAMPAIGN_MEDIA",
+      "definition": "Generated or campaign-directed creative media that may place real products and INA/SIS inside a campaign world.",
+      "generativeAlterationAllowed": true,
+      "authority": "CAMPAIGN_APPROVAL",
+      "rule": "MUST remain product-locked and identity-locked. MUST NOT enter the canonical commerce media path."
+    },
+    {
+      "classId": "DERIVATIVE_MEDIA",
+      "definition": "Crops, story adaptations, reels, overlays, captions and other derivative campaign formats.",
+      "generativeAlterationAllowed": true,
+      "authority": "CAMPAIGN_APPROVAL",
+      "rule": "Inherits the constraints of its source. MUST NOT silently replace canonical commerce media."
+    }
+  ],
+  "mediaClassRules": [
+    "Campaign media and derivative media MUST NEVER silently replace canonical commerce media.",
+    "A media asset MUST carry its class. An asset of unknown class MUST be treated as GENERATED_OUTPUT and MUST NOT be published."
+  ],
+  "sourceTypes": [
+    {
+      "sourceId": "OWNER",
+      "role": "Ultimate business-policy approver.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": true,
+      "note": "Authorises policy and approvals. Does not replace domain authorities for derived or measured facts."
+    },
+    {
+      "sourceId": "CANONICAL_REPOSITORY",
+      "role": "Durable project state — the canonical branch of PIERCIINA-PROJECT.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": true,
+      "note": "Persists policy and state. GitHub is the project state; model memory is not."
+    },
+    {
+      "sourceId": "PRODUCT_ONBOARDING_SYSTEM",
+      "role": "Product publication workflow and product truth.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": true,
+      "note": ".claude/skills/pink-mall-product-onboarding/"
+    },
+    {
+      "sourceId": "AVATAR_SKILL",
+      "role": "Human identity constraints and reference selection for INA/SIS/DUO.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": true,
+      "note": "docs/pink-mall/avatar-skill/v1.3/"
+    },
+    {
+      "sourceId": "FASHION_CONTEXT_BUILDER",
+      "role": "Deterministic derivation of wardrobe authority from the canonical catalogue.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": false,
+      "note": "Produces DERIVED_FACT only. Snapshots are never committed."
+    },
+    {
+      "sourceId": "CAMPAIGN_REGISTRY",
+      "role": "Campaign operational state.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": true,
+      "note": "Does not exist. Authority reserved."
+    },
+    {
+      "sourceId": "STORY_STATE_ENGINE",
+      "role": "Narrative continuity state for INA/SIS.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": true,
+      "note": "Does not exist. Authority reserved."
+    },
+    {
+      "sourceId": "SOCIAL_PLATFORM_API",
+      "role": "Raw social metrics as measured by the platform.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": true,
+      "note": "Evidence for metrics only; never for product or identity truth."
+    },
+    {
+      "sourceId": "SOCIAL_INTELLIGENCE_ENGINE",
+      "role": "Interpretation of social evidence.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": false,
+      "note": "Produces INTERPRETATION only."
+    },
+    {
+      "sourceId": "SUPER_BRAIN",
+      "role": "Semantic and creative memory: interpretation, learning, campaign memory, preference drift.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": false,
+      "note": "Explicitly non-authoritative for product, catalogue, approval and repository facts."
+    },
+    {
+      "sourceId": "CYBERNINJAS_STUDIO",
+      "role": "Generation and execution provider.",
+      "implementationStatus": "PARTIAL",
+      "mayAssertFacts": false,
+      "note": "Connected and capable of generation. Produces GENERATED_OUTPUT only."
+    },
+    {
+      "sourceId": "WORKSTATION",
+      "role": "Persistent visual workflow graph for campaign production.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": false,
+      "note": "Does not exist."
+    },
+    {
+      "sourceId": "CLAUDE_ORCHESTRATOR",
+      "role": "Architect, orchestrator and QA operator.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": false,
+      "note": "Executes, validates and reports. Does not become an authority by acting."
+    },
+    {
+      "sourceId": "MODEL_MEMORY",
+      "role": "Ephemeral model context.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": false,
+      "note": "Never canonical. Uncommitted work is not project state."
+    },
+    {
+      "sourceId": "CHAT_HISTORY",
+      "role": "Conversation record.",
+      "implementationStatus": "ACTIVE",
+      "mayAssertFacts": false,
+      "note": "Never sufficient evidence of durable policy on its own."
+    },
+    {
+      "sourceId": "PRIVATE_OPS_STORE",
+      "role": "Intended private operational store for material unsafe for a public repository.",
+      "implementationStatus": "PLANNED",
+      "mayAssertFacts": true,
+      "note": "Intended name PINK-MALL-OPS. Does not exist. MUST NOT be described as existing."
+    }
+  ],
+  "authorityDomains": [
+    {
+      "domainId": "SYSTEM_GOVERNANCE",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "CHAT_HISTORY",
+        "MODEL_MEMORY",
+        "WORKSTATION"
+      ],
+      "conflictAction": "STOP",
+      "note": "The owner authorises policy. The canonical repository persists it. A durable rule is not in force until it is committed to a canonical contract."
+    },
+    {
+      "domainId": "CANONICAL_REPOSITORY_STATE",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "secondaryEvidence": [],
+      "nonAuthoritative": [
+        "MODEL_MEMORY",
+        "CHAT_HISTORY",
+        "SUPER_BRAIN",
+        "WORKSTATION",
+        "CYBERNINJAS_STUDIO"
+      ],
+      "conflictAction": "STOP",
+      "note": "Branch, commit, hash and file state are read from the repository, never recalled. Verify by hash, not by filename."
+    },
+    {
+      "domainId": "PRODUCT_IDENTITY",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "PRODUCT_ONBOARDING_SYSTEM",
+        "CANONICAL_REPOSITORY"
+      ],
+      "secondaryEvidence": [
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION",
+        "SOCIAL_INTELLIGENCE_ENGINE"
+      ],
+      "conflictAction": "STOP",
+      "note": "Manufacturer identity, PM ID, taxonomy and approved factual enrichment. Product facts are never invented."
+    },
+    {
+      "domainId": "PRODUCT_PRICE",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "SOCIAL_INTELLIGENCE_ENGINE",
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION"
+      ],
+      "conflictAction": "STOP",
+      "note": "Owner-supplied PINK MALL price is the only price source of truth, persisted in the canonical catalogue."
+    },
+    {
+      "domainId": "PRODUCT_AVAILABILITY_AND_SIZES",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "SOCIAL_INTELLIGENCE_ENGINE",
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION"
+      ],
+      "conflictAction": "STOP",
+      "note": "Owner-supplied available sizes are the only availability source of truth."
+    },
+    {
+      "domainId": "CANONICAL_PRODUCT_MEDIA",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "PRODUCT_ONBOARDING_SYSTEM"
+      ],
+      "secondaryEvidence": [
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION",
+        "SUPER_BRAIN"
+      ],
+      "conflictAction": "STOP",
+      "note": "Class CANONICAL_COMMERCE_MEDIA. Never generatively altered; generated campaign media never becomes canonical commerce media."
+    },
+    {
+      "domainId": "HUMAN_IDENTITY",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "AVATAR_SKILL"
+      ],
+      "secondaryEvidence": [
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION",
+        "SUPER_BRAIN",
+        "STORY_STATE_ENGINE"
+      ],
+      "conflictAction": "STOP",
+      "note": "INA/SIS/DUO identity truth. Identity MUST NOT be inferred from generated output. One sister MUST NEVER be substituted for the other. Reference wardrobe is not identity truth."
+    },
+    {
+      "domainId": "AVATAR_CONSENT_STATUS",
+      "implementationStatus": "BLOCKED",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "AVATAR_SKILL"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "CYBERNINJAS_STUDIO",
+        "WORKSTATION",
+        "CHAT_HISTORY"
+      ],
+      "conflictAction": "STOP",
+      "note": "CONSENT_AND_PROVENANCE.json records status OWNER_CONFIRMATION_REQUIRED for every subject and every allowed use. Commercial generated-likeness publication remains gated. This contract does not and must not assert that commercial consent has been completed."
+    },
+    {
+      "domainId": "CAMPAIGN_OPERATIONAL_STATE",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "CAMPAIGN_REGISTRY"
+      ],
+      "secondaryEvidence": [
+        "CANONICAL_REPOSITORY",
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "STORY_STATE_ENGINE",
+        "WORKSTATION",
+        "CHAT_HISTORY"
+      ],
+      "conflictAction": "STOP",
+      "note": "Campaign status, execution plan and approval state. The registry does not exist; authority is reserved. Operational state MUST NOT be fabricated."
+    },
+    {
+      "domainId": "STORY_STATE",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "STORY_STATE_ENGINE"
+      ],
+      "secondaryEvidence": [
+        "CAMPAIGN_REGISTRY",
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "SOCIAL_INTELLIGENCE_ENGINE"
+      ],
+      "conflictAction": "STOP",
+      "note": "Narrative continuity. Where story memory and campaign operational fact disagree, the operational authority wins and semantic memory is corrected."
+    },
+    {
+      "domainId": "SOCIAL_RAW_METRICS",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "SOCIAL_PLATFORM_API"
+      ],
+      "secondaryEvidence": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "SOCIAL_INTELLIGENCE_ENGINE",
+        "CHAT_HISTORY"
+      ],
+      "conflictAction": "STOP",
+      "note": "Measured platform metrics are evidence. They are not interpretation and carry no creative conclusion."
+    },
+    {
+      "domainId": "SOCIAL_INTERPRETATION",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "SOCIAL_INTELLIGENCE_ENGINE"
+      ],
+      "secondaryEvidence": [
+        "SUPER_BRAIN"
+      ],
+      "nonAuthoritative": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "conflictAction": "FLAG_STALE",
+      "note": "Conclusions such as resonance or fatigue are INTERPRETATION. Weighting and scoring belong to the future Social Intelligence contract."
+    },
+    {
+      "domainId": "SEMANTIC_CREATIVE_MEMORY",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "SUPER_BRAIN"
+      ],
+      "secondaryEvidence": [
+        "SOCIAL_INTELLIGENCE_ENGINE",
+        "STORY_STATE_ENGINE"
+      ],
+      "nonAuthoritative": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "conflictAction": "FLAG_STALE",
+      "note": "Super Brain may govern interpretation. It is explicitly NON-AUTHORITATIVE for PM IDs, prices, sizes, availability, canonical product identity, approval state, branch or hash, campaign spend and publication state."
+    },
+    {
+      "domainId": "GENERATED_CAMPAIGN_MEDIA",
+      "implementationStatus": "PARTIAL",
+      "primaryAuthority": [
+        "CYBERNINJAS_STUDIO"
+      ],
+      "secondaryEvidence": [
+        "WORKSTATION",
+        "CLAUDE_ORCHESTRATOR"
+      ],
+      "nonAuthoritative": [
+        "PRODUCT_ONBOARDING_SYSTEM"
+      ],
+      "conflictAction": "REJECT_CANDIDATE",
+      "note": "Class CAMPAIGN_MEDIA or DERIVATIVE_MEDIA. Output is a candidate until it passes QA and approval. It never redefines product truth or human identity."
+    },
+    {
+      "domainId": "CAMPAIGN_APPROVAL",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "CAMPAIGN_REGISTRY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "WORKSTATION",
+        "CYBERNINJAS_STUDIO",
+        "CLAUDE_ORCHESTRATOR"
+      ],
+      "conflictAction": "STOP",
+      "note": "Approval is an explicit recorded act. Silence is never approval."
+    },
+    {
+      "domainId": "PAID_GENERATION_AUTHORITY",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "CAMPAIGN_REGISTRY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "WORKSTATION",
+        "CYBERNINJAS_STUDIO"
+      ],
+      "conflictAction": "STOP",
+      "note": "Authority implication only: once the owner approves a campaign idea and selects a budget mode, planned paid generation may proceed within that approved ceiling; if the first batch fails QA, additional correction spend requires owner review. Budget modes, ceilings and credit limits are NOT defined here and belong to the future Campaign Execution contract."
+    },
+    {
+      "domainId": "COMMERCIAL_PUBLICATION",
+      "implementationStatus": "ACTIVE",
+      "primaryAuthority": [
+        "OWNER"
+      ],
+      "secondaryEvidence": [
+        "PRODUCT_ONBOARDING_SYSTEM",
+        "CANONICAL_REPOSITORY"
+      ],
+      "nonAuthoritative": [
+        "SUPER_BRAIN",
+        "WORKSTATION",
+        "CYBERNINJAS_STUDIO",
+        "CLAUDE_ORCHESTRATOR"
+      ],
+      "conflictAction": "STOP",
+      "note": "Human approval is the current default for commercial publication. No system currently holds autonomous publishing authority."
+    },
+    {
+      "domainId": "PRIVATE_STRATEGIC_DATA",
+      "implementationStatus": "PLANNED",
+      "primaryAuthority": [
+        "PRIVATE_OPS_STORE"
+      ],
+      "secondaryEvidence": [
+        "OWNER"
+      ],
+      "nonAuthoritative": [
+        "CANONICAL_REPOSITORY"
+      ],
+      "conflictAction": "STOP",
+      "note": "Private strategy, private performance history and private likeness provenance. The private store does not exist; until it does, this material is held outside the repository and MUST NOT be committed to the public one."
+    }
+  ],
+  "ownerOverrideTypes": [
+    {
+      "typeId": "ONE_TIME_EXCEPTION",
+      "scope": "A named product, campaign or action.",
+      "mutatesPolicy": false,
+      "rule": "Affects only the named scope. MUST NOT silently mutate permanent policy. MUST be recorded with its scope.",
+      "example": "PM-041 was published with one image by owner-approved exception; the three-image media contract was unchanged for every other product."
+    },
+    {
+      "typeId": "DURABLE_POLICY_CHANGE",
+      "scope": "How the system operates from now on.",
+      "mutatesPolicy": true,
+      "rule": "MUST be reflected in the relevant canonical contract before any later system treats it as permanent policy. Until then it is a PROPOSED_DURABLE_CHANGE."
+    }
+  ],
+  "ownerAuthorityRules": [
+    "The owner is the ultimate business-policy approver.",
+    "Silence is never approval.",
+    "Chat history is never sufficient evidence of a durable rule when a canonical contract says otherwise.",
+    "A new owner instruction that conflicts with a durable contract MUST be classified as ONE_TIME_EXCEPTION or PROPOSED_DURABLE_CHANGE. It MUST NOT silently rewrite policy."
+  ],
+  "conflictRules": [
+    {
+      "ruleId": "SAME_DOMAIN_CANONICAL_CONFLICT",
+      "condition": "Two canonical sources within the same authority domain disagree.",
+      "action": "STOP",
+      "mayAutoResolve": false,
+      "detail": "Return a conflict requiring reconciliation. MUST NOT silently choose the more convenient source."
+    },
+    {
+      "ruleId": "SEMANTIC_VS_CANONICAL",
+      "condition": "Semantic, generated or interpreted state disagrees with canonical truth.",
+      "action": "CANONICAL_WINS",
+      "mayAutoResolve": true,
+      "detail": "Canonical truth wins. The stale semantic or generated state MUST be logged or flagged for correction."
+    },
+    {
+      "ruleId": "GENERATED_VS_PRODUCT_TRUTH",
+      "condition": "Generated output contradicts product truth or human identity.",
+      "action": "REJECT_CANDIDATE",
+      "mayAutoResolve": true,
+      "detail": "The output is rejected or sent to exception review. It never redefines the domain."
+    },
+    {
+      "ruleId": "OWNER_VS_DURABLE_CONTRACT",
+      "condition": "A new owner instruction conflicts with a durable contract.",
+      "action": "CLASSIFY_OVERRIDE",
+      "mayAutoResolve": false,
+      "detail": "Classify as ONE_TIME_EXCEPTION or PROPOSED_DURABLE_CHANGE before acting."
+    },
+    {
+      "ruleId": "CROSS_DOMAIN_PRECEDENCE",
+      "condition": "Sources in different domains appear to disagree.",
+      "action": "ROUTE_TO_DOMAIN_AUTHORITY",
+      "mayAutoResolve": true,
+      "detail": "There is no global ranking. Each question is answered by the authority for its own domain."
+    },
+    {
+      "ruleId": "UNKNOWN_DOMAIN",
+      "condition": "A question does not map to any defined authority domain.",
+      "action": "STOP",
+      "mayAutoResolve": false,
+      "detail": "An undefined domain is a gap in this contract, not a licence to improvise."
+    }
+  ],
+  "privacyClasses": [
+    {
+      "classId": "PUBLIC_SAFE",
+      "repository": "PIERCIINA-PROJECT (public)",
+      "includes": [
+        "software",
+        "schemas",
+        "public-safe contracts",
+        "validation rules",
+        "generic campaign architecture",
+        "non-private manifests",
+        "public product truth",
+        "storefront assets already approved for publication"
+      ]
+    },
+    {
+      "classId": "PRIVATE_OPS_REQUIRED",
+      "repository": "PINK-MALL-OPS (PLANNED — does not exist)",
+      "includes": [
+        "private INA/SIS/DUO source photographs",
+        "SAFE20 source photographs",
+        "private contact sheets",
+        "private generated likeness tests",
+        "raw private customer data",
+        "detailed Creative Director personal profile",
+        "private performance history not intentionally public",
+        "Super Brain exports containing private strategy or history",
+        "unpublished confidential campaign strategy",
+        "sensitive internal commercial analysis",
+        "private likeness provenance where required"
+      ]
+    },
+    {
+      "classId": "NEVER_PERSIST_IN_ANY_REPOSITORY",
+      "repository": null,
+      "includes": [
+        "credentials",
+        "API tokens",
+        "social account credentials",
+        "private keys"
+      ]
+    }
+  ],
+  "privacyRules": [
+    "PIERCIINA-PROJECT is a PUBLIC repository.",
+    "Material classified PRIVATE_OPS_REQUIRED MUST NOT be committed to the public repository.",
+    "Git LFS does not make public material private.",
+    "PINK-MALL-OPS is PLANNED. It MUST NOT be described as existing, and MUST NOT be created without an explicit separate authorisation.",
+    "Until the private store exists, PRIVATE_OPS_REQUIRED material is held outside version control."
+  ],
+  "writeAuthorities": [
+    {
+      "target": "canonical branch claude/pink-mall-development",
+      "mayWrite": [
+        "OWNER",
+        "CLAUDE_ORCHESTRATOR"
+      ],
+      "precondition": "Validated checkpoint or reviewed candidate promotion. Never a force push."
+    },
+    {
+      "target": "main",
+      "mayWrite": [
+        "OWNER"
+      ],
+      "precondition": "Explicit release instruction. Release only."
+    },
+    {
+      "target": "canonical product catalogue",
+      "mayWrite": [
+        "PRODUCT_ONBOARDING_SYSTEM"
+      ],
+      "precondition": "Explicit owner APPROVE per product."
+    },
+    {
+      "target": "canonical commerce media",
+      "mayWrite": [
+        "PRODUCT_ONBOARDING_SYSTEM"
+      ],
+      "precondition": "Approved exact product media only. Never generative."
+    },
+    {
+      "target": "avatar identity masters and manifest",
+      "mayWrite": [
+        "AVATAR_SKILL"
+      ],
+      "precondition": "Only under an explicit avatar-skill task. Never from generated output."
+    },
+    {
+      "target": "system contracts",
+      "mayWrite": [
+        "OWNER",
+        "CLAUDE_ORCHESTRATOR"
+      ],
+      "precondition": "Change-control protocol, then review, then promotion."
+    }
+  ],
+  "changeControlProtocol": {
+    "steps": [
+      "NEW_OWNER_DECISION",
+      "CLASSIFY_ONE_TIME_OR_DURABLE",
+      "IF_DURABLE_UPDATE_CONTRACT_CANDIDATE",
+      "VALIDATE",
+      "INDEPENDENT_REVIEW",
+      "PROMOTE_TO_CANONICAL_DEVELOPMENT",
+      "LATER_SYSTEMS_MAY_RELY"
+    ],
+    "rule": "Chat memory alone MUST NOT become permanent policy.",
+    "appliesTo": "Every durable change to this or any later system contract."
+  },
+  "hardStops": [
+    {
+      "stopId": "SAME_DOMAIN_CANONICAL_CONFLICT",
+      "statement": "Two canonical sources in one domain disagree."
+    },
+    {
+      "stopId": "UNDEFINED_AUTHORITY_DOMAIN",
+      "statement": "A question maps to no defined domain."
+    },
+    {
+      "stopId": "CONSENT_GATE_UNRESOLVED",
+      "statement": "Commercial generated-likeness publication is attempted while AVATAR_CONSENT_STATUS is unresolved."
+    },
+    {
+      "stopId": "PRIVATE_MATERIAL_IN_PUBLIC_DIFF",
+      "statement": "Material classified PRIVATE_OPS_REQUIRED or NEVER_PERSIST appears in a public-repository change."
+    },
+    {
+      "stopId": "GENERATED_OUTPUT_AS_CANONICAL",
+      "statement": "Generated media or text is about to be written into a canonical factual path."
+    },
+    {
+      "stopId": "UNAPPROVED_PUBLICATION",
+      "statement": "Commercial publication is attempted without an explicit recorded APPROVAL."
+    },
+    {
+      "stopId": "UNCOMMITTED_STATE_TREATED_AS_CANONICAL",
+      "statement": "Work existing only in an ephemeral environment is about to be treated as project truth."
+    },
+    {
+      "stopId": "POLICY_MUTATION_WITHOUT_CHANGE_CONTROL",
+      "statement": "A durable rule is about to change without passing the change-control protocol."
+    }
+  ],
+  "currentSystemStatus": {
+    "ACTIVE": [
+      "canonical GitHub project state",
+      "PINKMALL storefront",
+      "product onboarding",
+      "media acquisition",
+      "publication regression",
+      "viewport smoke",
+      "fashion-context contract",
+      "Avatar Skill architecture (v1.2 and v1.3)",
+      "Studio Jewelry canonical mapping (documentation)",
+      "Avatar Masterclass (instructional)"
+    ],
+    "PARTIAL": [
+      "Avatar generation capability via CyberNinjas Studio — connected and exercised, not cleared for commercial likeness publication"
+    ],
+    "BLOCKED": [
+      "commercial generated-likeness publication — consent gate unresolved"
+    ],
+    "PLANNED": [
+      "Campaign Context Builder",
+      "Campaign Registry",
+      "Story State engine",
+      "Social Intelligence engine",
+      "Creative Fatigue engine",
+      "PINK MALL HQ",
+      "campaign Workstation automation",
+      "Super Brain data bridge",
+      "automated social publishing",
+      "analytics feedback loop",
+      "PINK-MALL-OPS private store"
+    ],
+    "HISTORICAL": [
+      "claude/pink-mall-hero-carousel-jvhdb8 — preserved, superseded, not merged"
+    ]
+  },
+  "creativeFreedomPrinciple": {
+    "statement": "World physics may break. Product truth may not. Human identity may not.",
+    "mayTransform": [
+      "environment",
+      "scale",
+      "story",
+      "absurdity",
+      "atmosphere",
+      "composition",
+      "narrative",
+      "visual genre"
+    ],
+    "mustNotTransform": [
+      "intrinsic product truth",
+      "human identity"
+    ]
+  },
+  "plannedContracts": [
+    {
+      "contractNumber": "00",
+      "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+      "title": "System Authority",
+      "status": "CANDIDATE",
+      "created": true
+    },
+    {
+      "contractNumber": "01",
+      "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+      "title": "Campaign Context",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "02",
+      "contractId": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+      "title": "Product Creative",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "03",
+      "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+      "title": "Character and Story",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "04",
+      "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+      "title": "Social Intelligence",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "05",
+      "contractId": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+      "title": "Workstation Operating",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "06",
+      "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+      "title": "Automation and Approval",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "07",
+      "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+      "title": "Super Brain Memory",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    },
+    {
+      "contractNumber": "08",
+      "contractId": "PINK_MALL_HQ_CONTRACT",
+      "title": "PINK MALL HQ",
+      "status": "NOT_YET_CREATED",
+      "created": false
+    }
+  ],
+  "earnedAutonomy": {
+    "principle": "Autonomy is capability-specific, not a single global flag.",
+    "capabilityDomains": [
+      "concept selection",
+      "image generation",
+      "identity QA",
+      "product QA",
+      "video",
+      "copy",
+      "publication"
+    ],
+    "currentGrants": [],
+    "rule": "A system MAY earn autonomy in one domain while remaining manual in another. Any grant MUST be made explicitly by a later contract change based on proven history. No confidence thresholds are defined by this contract.",
+    "currentPosture": "No autonomous authority is granted by this contract."
+  },
+  "nonAuthoritativeAssertions": [
+    {
+      "sourceId": "SUPER_BRAIN",
+      "mustNotBeAuthoritativeFor": [
+        "PM IDs",
+        "prices",
+        "sizes",
+        "stock and availability",
+        "canonical product identity",
+        "approval state",
+        "exact current branch or hash",
+        "exact campaign spend",
+        "exact publication state"
+      ]
+    },
+    {
+      "sourceId": "CYBERNINJAS_STUDIO",
+      "mustNotBeAuthoritativeFor": [
+        "canonical commerce media",
+        "product truth",
+        "human identity",
+        "approval state"
+      ]
+    },
+    {
+      "sourceId": "WORKSTATION",
+      "mustNotBeAuthoritativeFor": [
+        "canonical commerce media",
+        "product truth",
+        "human identity",
+        "approval state",
+        "campaign operational fact"
+      ]
+    },
+    {
+      "sourceId": "MODEL_MEMORY",
+      "mustNotBeAuthoritativeFor": [
+        "any canonical fact"
+      ]
+    },
+    {
+      "sourceId": "CHAT_HISTORY",
+      "mustNotBeAuthoritativeFor": [
+        "durable policy",
+        "approval state"
+      ]
+    }
+  ]
+}

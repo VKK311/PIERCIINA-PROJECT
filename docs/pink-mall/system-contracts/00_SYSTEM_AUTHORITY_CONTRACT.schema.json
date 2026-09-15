@@ -1,0 +1,827 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/00_SYSTEM_AUTHORITY_CONTRACT.schema.json",
+  "title": "PINK MALL System Authority Contract",
+  "description": "Schema for the constitutional authority contract. Deliberately strict: every authority domain is required by name so a domain cannot be dropped silently, vocabularies are closed enums, and additional top-level properties are rejected.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "appliesTo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonicalityRule": {
+      "type": "object",
+      "required": [
+        "ruleId",
+        "statement",
+        "conditions",
+        "fileExistenceImpliesCanonicality",
+        "candidateBranchIsReviewMaterial",
+        "statusFieldSemantics"
+      ],
+      "properties": {
+        "ruleId": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "fileExistenceImpliesCanonicality": {
+          "const": false
+        },
+        "candidateBranchIsReviewMaterial": {
+          "const": true
+        },
+        "statusFieldSemantics": {
+          "type": "object"
+        },
+        "promotionNote": {
+          "type": "string"
+        }
+      }
+    },
+    "implementationStates": {
+      "type": "object",
+      "required": [
+        "ACTIVE",
+        "PARTIAL",
+        "PLANNED",
+        "BLOCKED",
+        "HISTORICAL"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "truthClasses": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "required": [
+          "classId",
+          "definition",
+          "mutableBy"
+        ],
+        "properties": {
+          "classId": {
+            "type": "string",
+            "enum": [
+              "FACT",
+              "DERIVED_FACT",
+              "INTERPRETATION",
+              "PROPOSAL",
+              "GENERATED_OUTPUT",
+              "APPROVAL"
+            ]
+          },
+          "definition": {
+            "type": "string"
+          },
+          "mutableBy": {
+            "type": "string"
+          },
+          "example": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "truthClassRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "mediaClasses": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "classId",
+          "definition",
+          "generativeAlterationAllowed",
+          "authority",
+          "rule"
+        ],
+        "properties": {
+          "classId": {
+            "type": "string",
+            "enum": [
+              "CANONICAL_COMMERCE_MEDIA",
+              "CAMPAIGN_MEDIA",
+              "DERIVATIVE_MEDIA"
+            ]
+          },
+          "definition": {
+            "type": "string"
+          },
+          "generativeAlterationAllowed": {
+            "type": "boolean"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "mediaClassRules": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "sourceTypes": {
+      "type": "array",
+      "minItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceId",
+          "role",
+          "implementationStatus",
+          "mayAssertFacts"
+        ],
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "enum": [
+              "OWNER",
+              "CANONICAL_REPOSITORY",
+              "PRODUCT_ONBOARDING_SYSTEM",
+              "AVATAR_SKILL",
+              "FASHION_CONTEXT_BUILDER",
+              "CAMPAIGN_REGISTRY",
+              "STORY_STATE_ENGINE",
+              "SOCIAL_PLATFORM_API",
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SUPER_BRAIN",
+              "CYBERNINJAS_STUDIO",
+              "WORKSTATION",
+              "CLAUDE_ORCHESTRATOR",
+              "MODEL_MEMORY",
+              "CHAT_HISTORY",
+              "PRIVATE_OPS_STORE"
+            ]
+          },
+          "role": {
+            "type": "string"
+          },
+          "implementationStatus": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "PARTIAL",
+              "PLANNED",
+              "BLOCKED",
+              "HISTORICAL"
+            ]
+          },
+          "mayAssertFacts": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "authorityDomains": {
+      "type": "array",
+      "minItems": 18,
+      "items": {
+        "type": "object",
+        "required": [
+          "domainId",
+          "implementationStatus",
+          "primaryAuthority",
+          "secondaryEvidence",
+          "nonAuthoritative",
+          "conflictAction",
+          "note"
+        ],
+        "properties": {
+          "domainId": {
+            "type": "string",
+            "enum": [
+              "SYSTEM_GOVERNANCE",
+              "CANONICAL_REPOSITORY_STATE",
+              "PRODUCT_IDENTITY",
+              "PRODUCT_PRICE",
+              "PRODUCT_AVAILABILITY_AND_SIZES",
+              "CANONICAL_PRODUCT_MEDIA",
+              "HUMAN_IDENTITY",
+              "AVATAR_CONSENT_STATUS",
+              "CAMPAIGN_OPERATIONAL_STATE",
+              "STORY_STATE",
+              "SOCIAL_RAW_METRICS",
+              "SOCIAL_INTERPRETATION",
+              "SEMANTIC_CREATIVE_MEMORY",
+              "GENERATED_CAMPAIGN_MEDIA",
+              "CAMPAIGN_APPROVAL",
+              "PAID_GENERATION_AUTHORITY",
+              "COMMERCIAL_PUBLICATION",
+              "PRIVATE_STRATEGIC_DATA"
+            ]
+          },
+          "implementationStatus": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "PARTIAL",
+              "PLANNED",
+              "BLOCKED",
+              "HISTORICAL"
+            ]
+          },
+          "primaryAuthority": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "OWNER",
+                "CANONICAL_REPOSITORY",
+                "PRODUCT_ONBOARDING_SYSTEM",
+                "AVATAR_SKILL",
+                "FASHION_CONTEXT_BUILDER",
+                "CAMPAIGN_REGISTRY",
+                "STORY_STATE_ENGINE",
+                "SOCIAL_PLATFORM_API",
+                "SOCIAL_INTELLIGENCE_ENGINE",
+                "SUPER_BRAIN",
+                "CYBERNINJAS_STUDIO",
+                "WORKSTATION",
+                "CLAUDE_ORCHESTRATOR",
+                "MODEL_MEMORY",
+                "CHAT_HISTORY",
+                "PRIVATE_OPS_STORE"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "secondaryEvidence": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "enum": [
+                "OWNER",
+                "CANONICAL_REPOSITORY",
+                "PRODUCT_ONBOARDING_SYSTEM",
+                "AVATAR_SKILL",
+                "FASHION_CONTEXT_BUILDER",
+                "CAMPAIGN_REGISTRY",
+                "STORY_STATE_ENGINE",
+                "SOCIAL_PLATFORM_API",
+                "SOCIAL_INTELLIGENCE_ENGINE",
+                "SUPER_BRAIN",
+                "CYBERNINJAS_STUDIO",
+                "WORKSTATION",
+                "CLAUDE_ORCHESTRATOR",
+                "MODEL_MEMORY",
+                "CHAT_HISTORY",
+                "PRIVATE_OPS_STORE"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "nonAuthoritative": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "enum": [
+                "OWNER",
+                "CANONICAL_REPOSITORY",
+                "PRODUCT_ONBOARDING_SYSTEM",
+                "AVATAR_SKILL",
+                "FASHION_CONTEXT_BUILDER",
+                "CAMPAIGN_REGISTRY",
+                "STORY_STATE_ENGINE",
+                "SOCIAL_PLATFORM_API",
+                "SOCIAL_INTELLIGENCE_ENGINE",
+                "SUPER_BRAIN",
+                "CYBERNINJAS_STUDIO",
+                "WORKSTATION",
+                "CLAUDE_ORCHESTRATOR",
+                "MODEL_MEMORY",
+                "CHAT_HISTORY",
+                "PRIVATE_OPS_STORE"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "conflictAction": {
+            "type": "string",
+            "enum": [
+              "STOP",
+              "CANONICAL_WINS",
+              "REJECT_CANDIDATE",
+              "CLASSIFY_OVERRIDE",
+              "ROUTE_TO_DOMAIN_AUTHORITY",
+              "FLAG_STALE"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "ownerOverrideTypes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "typeId",
+          "scope",
+          "mutatesPolicy",
+          "rule"
+        ],
+        "properties": {
+          "typeId": {
+            "type": "string",
+            "enum": [
+              "ONE_TIME_EXCEPTION",
+              "DURABLE_POLICY_CHANGE"
+            ]
+          },
+          "scope": {
+            "type": "string"
+          },
+          "mutatesPolicy": {
+            "type": "boolean"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "example": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "ownerAuthorityRules": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "conflictRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "ruleId",
+          "condition",
+          "action",
+          "mayAutoResolve",
+          "detail"
+        ],
+        "properties": {
+          "ruleId": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "STOP",
+              "CANONICAL_WINS",
+              "REJECT_CANDIDATE",
+              "CLASSIFY_OVERRIDE",
+              "ROUTE_TO_DOMAIN_AUTHORITY",
+              "FLAG_STALE"
+            ]
+          },
+          "mayAutoResolve": {
+            "type": "boolean"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "privacyClasses": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "classId",
+          "repository",
+          "includes"
+        ],
+        "properties": {
+          "classId": {
+            "type": "string",
+            "enum": [
+              "PUBLIC_SAFE",
+              "PRIVATE_OPS_REQUIRED",
+              "NEVER_PERSIST_IN_ANY_REPOSITORY"
+            ]
+          },
+          "repository": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "includes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "writeAuthorities": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "target",
+          "mayWrite",
+          "precondition"
+        ],
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "mayWrite": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "OWNER",
+                "CANONICAL_REPOSITORY",
+                "PRODUCT_ONBOARDING_SYSTEM",
+                "AVATAR_SKILL",
+                "FASHION_CONTEXT_BUILDER",
+                "CAMPAIGN_REGISTRY",
+                "STORY_STATE_ENGINE",
+                "SOCIAL_PLATFORM_API",
+                "SOCIAL_INTELLIGENCE_ENGINE",
+                "SUPER_BRAIN",
+                "CYBERNINJAS_STUDIO",
+                "WORKSTATION",
+                "CLAUDE_ORCHESTRATOR",
+                "MODEL_MEMORY",
+                "CHAT_HISTORY",
+                "PRIVATE_OPS_STORE"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "precondition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "changeControlProtocol": {
+      "type": "object",
+      "required": [
+        "steps",
+        "rule",
+        "appliesTo"
+      ],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rule": {
+          "type": "string"
+        },
+        "appliesTo": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hardStops": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "stopId",
+          "statement"
+        ],
+        "properties": {
+          "stopId": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "currentSystemStatus": {
+      "type": "object",
+      "required": [
+        "ACTIVE",
+        "PARTIAL",
+        "BLOCKED",
+        "PLANNED",
+        "HISTORICAL"
+      ],
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "creativeFreedomPrinciple": {
+      "type": "object",
+      "required": [
+        "statement",
+        "mayTransform",
+        "mustNotTransform"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "mayTransform": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "mustNotTransform": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "plannedContracts": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractNumber",
+          "contractId",
+          "title",
+          "status",
+          "created"
+        ],
+        "properties": {
+          "contractNumber": {
+            "type": "string",
+            "pattern": "^\\d{2}$"
+          },
+          "contractId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CANDIDATE",
+              "CANONICAL",
+              "SUPERSEDED",
+              "NOT_YET_CREATED"
+            ]
+          },
+          "created": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "earnedAutonomy": {
+      "type": "object",
+      "required": [
+        "principle",
+        "capabilityDomains",
+        "currentGrants",
+        "rule",
+        "currentPosture"
+      ],
+      "properties": {
+        "principle": {
+          "type": "string"
+        },
+        "capabilityDomains": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "currentGrants": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "rule": {
+          "type": "string"
+        },
+        "currentPosture": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "nonAuthoritativeAssertions": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceId",
+          "mustNotBeAuthoritativeFor"
+        ],
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "enum": [
+              "OWNER",
+              "CANONICAL_REPOSITORY",
+              "PRODUCT_ONBOARDING_SYSTEM",
+              "AVATAR_SKILL",
+              "FASHION_CONTEXT_BUILDER",
+              "CAMPAIGN_REGISTRY",
+              "STORY_STATE_ENGINE",
+              "SOCIAL_PLATFORM_API",
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SUPER_BRAIN",
+              "CYBERNINJAS_STUDIO",
+              "WORKSTATION",
+              "CLAUDE_ORCHESTRATOR",
+              "MODEL_MEMORY",
+              "CHAT_HISTORY",
+              "PRIVATE_OPS_STORE"
+            ]
+          },
+          "mustNotBeAuthoritativeFor": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "appliesTo",
+    "purpose",
+    "canonicalityRule",
+    "implementationStates",
+    "truthClasses",
+    "truthClassRules",
+    "mediaClasses",
+    "mediaClassRules",
+    "sourceTypes",
+    "authorityDomains",
+    "ownerOverrideTypes",
+    "ownerAuthorityRules",
+    "conflictRules",
+    "privacyClasses",
+    "privacyRules",
+    "writeAuthorities",
+    "changeControlProtocol",
+    "hardStops",
+    "currentSystemStatus",
+    "creativeFreedomPrinciple",
+    "plannedContracts",
+    "earnedAutonomy",
+    "nonAuthoritativeAssertions"
+  ],
+  "x-requiredAuthorityDomains": [
+    "SYSTEM_GOVERNANCE",
+    "CANONICAL_REPOSITORY_STATE",
+    "PRODUCT_IDENTITY",
+    "PRODUCT_PRICE",
+    "PRODUCT_AVAILABILITY_AND_SIZES",
+    "CANONICAL_PRODUCT_MEDIA",
+    "HUMAN_IDENTITY",
+    "AVATAR_CONSENT_STATUS",
+    "CAMPAIGN_OPERATIONAL_STATE",
+    "STORY_STATE",
+    "SOCIAL_RAW_METRICS",
+    "SOCIAL_INTERPRETATION",
+    "SEMANTIC_CREATIVE_MEMORY",
+    "GENERATED_CAMPAIGN_MEDIA",
+    "CAMPAIGN_APPROVAL",
+    "PAID_GENERATION_AUTHORITY",
+    "COMMERCIAL_PUBLICATION",
+    "PRIVATE_STRATEGIC_DATA"
+  ],
+  "x-note": "minItems on authorityDomains equals the number of required domain ids and the enum is closed, so a missing domain cannot validate. x-requiredAuthorityDomains is the explicit list the companion validator enforces by name."
+}
