@@ -73,26 +73,24 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
       const native = `${exp.nativeWidth}x${exp.nativeHeight}`;
       await page.evaluate(c => window.PinkMallStore.setFilters({ category: c, query: '' }), exp.category);
       await page.waitForTimeout(300);
-      // Scope to the filtered shop grid. A product also renders in #pmsNewRail
-      // while it is NEW, and that rail sits earlier in the document, so an
-      // unscoped querySelector silently changes which node it measures the day
-      // a product stops being NEW. Scoping keeps this assertion about the
-      // category grid regardless of freshness.
+      // The shop grid, and only the shop grid. A product also renders in
+      // #pmsNewRail while it is NEW, and that rail sits earlier in the
+      // document, so a fallback to an unscoped selector would let a NEW-rail
+      // card stand in for a missing grid card — masking a broken category
+      // grid for exactly as long as the product stayed fresh. Rail membership
+      // has its own assertion below; this one is about the grid.
       await page.evaluate(i => {
-        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`)
-                || document.querySelector(`[data-pms-id="${i}"]`);
+        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`);
         if (el) el.scrollIntoView({ block: 'center', inline: 'center' });
       }, id);
       await page.waitForFunction(i => {
-        const im = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"] img`)
-                || document.querySelector(`[data-pms-id="${i}"] img`);
+        const im = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"] img`);
         return im && im.complete && im.naturalWidth > 0;
       }, id, { timeout: 20000 }).catch(() => {});
       await page.waitForTimeout(250);
 
       const card = await page.evaluate(i => {
-        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`)
-                || document.querySelector(`[data-pms-id="${i}"]`);
+        const el = document.querySelector(`#pmsShopGrid [data-pms-id="${i}"]`);
         if (!el) return null;
         const root = el.closest('article.pms-card') || el;
         const r = root.getBoundingClientRect();
@@ -109,12 +107,27 @@ const ok = (c, m, d) => { if (!c) fail++; console.log((c ? '  PASS  ' : '  FAIL 
         return { natural: im ? im.naturalWidth + 'x' + im.naturalHeight : null,
                  fit: im && getComputedStyle(im).objectFit,
                  x: r.x, w: r.width,
+                 // A grid-scoped lookup must never land inside the NEW rail.
+                 insideNewRail: !!root.closest('#pmsNewRail'),
+                 insideShopGrid: !!root.closest('#pmsShopGrid'),
+                 // Independent proof that the two lookups address different
+                 // nodes: resolve the rail card separately and compare.
+                 railCardIsDistinct: (() => {
+                   const railEl = document.querySelector(`#pmsNewRail [data-pms-id="${i}"]`);
+                   return railEl === null ? 'no-rail-card' : (railEl !== el);
+                 })(),
                  container: rail ? 'rail' : (grid ? 'grid' : 'none'),
                  inContainer: rr ? (r.left >= rr.left - 1 && r.right <= rr.right + 1) : null,
                  containerInPage: rr ? (rr.left >= -1 && rr.right <= innerWidth + 1) : null };
       }, id);
-      ok(!!card, `${id}: card in ${exp.category}`);
+      ok(!!card, `${id}: card present in the ${exp.category} shop grid`);
       if (card) {
+        ok(card.insideShopGrid === true && card.insideNewRail === false,
+           `${id}: the measured card is the shop-grid card, not a NEW-rail card`,
+           `grid=${card.insideShopGrid} newRail=${card.insideNewRail}`);
+        ok(card.railCardIsDistinct !== false,
+           `${id}: any NEW-rail card is a different node from the grid card`,
+           `railCardIsDistinct=${card.railCardIsDistinct}`);
         ok(card.container !== 'none', `${id}: card sits in a known layout container`,
            `container=${card.container}`);
         ok(card.inContainer === true,

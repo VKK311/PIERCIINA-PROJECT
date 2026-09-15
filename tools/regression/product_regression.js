@@ -194,17 +194,22 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
   console.log('\n== card in grid ==');
   await page.evaluate(c => window.PinkMallStore.setFilters({ category: c, query: '' }), EXPECT.category);
   await page.waitForTimeout(400);
+  // Target the shop grid and ONLY the shop grid. The same product also renders
+  // in #pmsNewRail while it is NEW, and that rail sits earlier in the document,
+  // so an unscoped querySelector would let a NEW-rail card satisfy a section
+  // whose whole purpose is to prove the category grid. No fallback: if the
+  // product is not in the grid, that is the finding.
   await page.evaluate(id => {
-    const el = document.querySelector(`[data-pms-id="${id}"]`);
+    const el = document.querySelector(`#pmsShopGrid [data-pms-id="${id}"]`);
     if (el) el.scrollIntoView({ block: 'center' });          // loading="lazy"
   }, ID);
   // Wait on the decode itself; a fixed sleep made this flake under load.
   await page.waitForFunction(id => {
-    const img = document.querySelector(`[data-pms-id="${id}"] img`);
+    const img = document.querySelector(`#pmsShopGrid [data-pms-id="${id}"] img`);
     return img && img.complete && img.naturalWidth > 0;
   }, ID, { timeout: 20000 }).catch(() => {});
   const card = await page.evaluate(id => {
-    const el = document.querySelector(`[data-pms-id="${id}"]`);
+    const el = document.querySelector(`#pmsShopGrid [data-pms-id="${id}"]`);
     if (!el) return null;
     const root = el.closest('article.pms-card');
     const img = el.querySelector('img');
@@ -214,9 +219,13 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
              // Read the badge as an element, not by matching 'NEW' in the card
              // text, so that absence is asserted as reliably as presence.
              newBadge: !!(root && root.querySelector('.pms-badge--new')),
+             // Proves the lookup is grid-scoped: a node inside the NEW rail
+             // must never be what this section measured.
+             insideNewRail: !!(root && root.closest('#pmsNewRail')),
+             insideShopGrid: !!(root && root.closest('#pmsShopGrid')),
              text: root ? root.innerText.replace(/\s+/g, ' ').trim() : '' };
   }, ID);
-  is(!!card, `${ID} card rendered in ${EXPECT.category}`);
+  is(!!card, `${ID} card rendered in the ${EXPECT.category} shop grid`);
   if (card) {
     is(await nameOf(card.src) === NAMES[0], 'card shows MAIN', await nameOf(card.src));
     const md = dimsFor(NAMES[0]);
@@ -228,6 +237,9 @@ const is  = (c, n, x) => c ? ok(n, x) : bad(n, x);
     // Time-safe: a product past its newUntil MUST NOT show the badge, and one
     // still inside its window MUST. Asserting both directions keeps this
     // proving the freshness rule long after these fixtures expire.
+    is(card.insideShopGrid === true && card.insideNewRail === false,
+       'the measured card is the shop-grid card, not a NEW-rail card',
+       `grid=${card.insideShopGrid} newRail=${card.insideNewRail}`);
     const wantNew = expectedNew(p);
     is(card.newBadge === wantNew,
        `NEW badge ${wantNew ? 'shown' : 'absent'} (newUntil ${p.newUntil || 'none'}, isNew ${!!p.isNew})`,
