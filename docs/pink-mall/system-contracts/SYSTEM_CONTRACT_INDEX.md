@@ -16,22 +16,25 @@ what happens on conflict; the implementation is separate work.
 
 ## Canonicality
 
-A contract is canonical only when **all three** hold:
+A contract is canonical only when **all four** hold:
 
-1. it has passed owner or independent review;
+1. it has passed current owner or independent review;
 2. it is committed to `claude/pink-mall-development`;
-3. its machine-readable form passes its validator.
+3. its machine-readable form passes its validator;
+4. its status is not `SUPERSEDED`.
 
 **A file's existence does not make it canonical.** These files also exist on
 review candidate branches, and a candidate branch is review material rather than
 project truth.
 
-The `status` field is **lifecycle provenance and is location-neutral**. It is not
-a second source of canonicality truth: a contract whose status still reads
-`CANDIDATE` because it was promoted unchanged *is* canonical once the three
-conditions hold. That is what lets the exact reviewed bytes be promoted without
-rewriting them. `SUPERSEDED` is the one status that independently disqualifies
-reliance, because it fails condition 1 wherever it sits.
+`CANDIDATE` and `CANONICAL` are **lifecycle provenance and location-neutral**.
+Neither is a canonicality test: a contract whose status still reads `CANDIDATE`
+because it was promoted unchanged *is* canonical once conditions 1–3 hold. That
+is what lets the exact reviewed bytes be promoted without rewriting them.
+
+`SUPERSEDED` is a different kind of value — a **terminal tombstone** that
+disqualifies reliance by condition 4, wherever the file sits. It is disqualified
+because it was replaced, not because its historical review stopped counting.
 
 ## Reading order
 
@@ -52,8 +55,15 @@ Validator: `tools/regression/system_authority_contract.py` (standard library onl
 
 ## Planned contracts — NOT YET CREATED
 
-None of the following exist. They **MUST NOT** be cited as authority, and their
-subject matter **MUST NOT** be assumed decided.
+The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
+canonical domain contracts.
+
+Their *domains*, however, may already contain **locked owner decisions**,
+recorded in `DECISION_COVERAGE_MATRIX.md`. Those locked decisions are valid
+owner-authorised input and **MUST be preserved**. Only questions the matrix does
+**not** record as locked remain open.
+
+No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
@@ -66,12 +76,14 @@ subject matter **MUST NOT** be assumed decided.
 | 07 | Super Brain Memory | memory schema, write rules, staleness handling | NOT YET CREATED |
 | 08 | PINK MALL HQ | HQ blueprint and operating surface | NOT YET CREATED |
 
-Where a decision on one of these has already been locked by the owner, it is
-recorded in `DECISION_COVERAGE_MATRIX.md` — so that a decision already taken is
-not lost merely because its contract has not been written.
+`DECISION_COVERAGE_MATRIX.md` is the register of what has already been decided
+in each of those domains, so that a decision already taken is not lost merely
+because its contract has not been written. Read it before treating any of the
+subject matter above as an open question.
 
-**A locked decision is not a canonical contract.** Those are different states
-and the matrix keeps them apart.
+**A locked decision is not a canonical contract — and it is not an open question
+either.** The matrix keeps all three states apart: locked and awaiting a
+contract, carried by a canonical contract, or genuinely open.
 
 ## Public / private boundary
 

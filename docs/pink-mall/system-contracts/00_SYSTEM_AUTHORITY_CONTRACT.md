@@ -35,37 +35,45 @@ implication** and names the future contract that will carry the detail.
 
 ## 3. Canonicality
 
-A contract is canonical only when **all three** conditions hold:
+A contract is canonical only when **all four** conditions hold:
 
-1. it has passed owner or independent review;
+1. it has passed current owner or independent review;
 2. it is committed to the canonical project branch `claude/pink-mall-development`;
-3. its machine-readable form passes its validator.
+3. its machine-readable form passes its validator;
+4. **its status is not `SUPERSEDED`.**
 
 **A file's existence MUST NOT be read as canonicality.** These same files exist
 on a review candidate branch. A candidate branch is review material, not project
 truth — but it is the *branch* that makes the difference, not a string inside
 the file.
 
-### `status` is provenance, not the test
+### Two kinds of status label
 
-The `status` field records **lifecycle provenance** and is **location-neutral**.
-It is **not** a second source of canonicality truth, and it **MUST NOT** be used
-as one.
+`status` carries two different kinds of value, and conflating them is what made
+an earlier draft of this section incoherent.
 
-| Value | Meaning |
-|---|---|
-| `CANDIDATE` | Originated as a review candidate. **This value alone neither grants nor denies canonicality.** |
-| `CANONICAL` | Originated as, or was re-issued as, a canonical edition. Also provenance only. |
-| `SUPERSEDED` | Replaced by a later version. **MUST NOT** be relied upon wherever it sits, because it fails condition 1. |
+| Value | Kind | Effect |
+|---|---|---|
+| `CANDIDATE` | lifecycle provenance | **Does not by itself deny canonicality.** |
+| `CANONICAL` | lifecycle provenance | **Does not by itself grant canonicality.** |
+| `SUPERSEDED` | **terminal tombstone** | **Disqualifies reliance**, by condition 4. |
 
-Canonicality is decided **only** by the three conditions above. A contract whose
-status still reads `CANDIDATE` because it was promoted unchanged **is canonical**
-once those conditions hold. No text may describe such a file as "under review"
-or "not to be relied upon" on the strength of the status string alone.
+`CANDIDATE` and `CANONICAL` are **location-neutral provenance**. Neither is a
+canonicality test: conditions 1–3 decide, and a contract whose status still
+reads `CANDIDATE` because it was promoted unchanged **is canonical** once they
+hold. No text may call such a file "under review" or "not to be relied upon" on
+the strength of the label alone.
 
-This is what makes exact-byte promotion possible: the reviewed bytes move to the
-canonical branch unchanged, status string included. Rewriting a flag at
-promotion time would mean the promoted artefact is not the reviewed artefact.
+`SUPERSEDED` is different in kind. It is a tombstone, and it disqualifies
+reliance even while the file is still physically present on the canonical
+branch — **because the contract was replaced, not because its historical review
+somehow stopped having happened.** That is why retirement is condition 4 and not
+a re-reading of condition 1.
+
+**Exact-byte promotion remains the policy.** The reviewed bytes move to the
+canonical branch unchanged, status string included. Rewriting a label at
+promotion time would mean the promoted artefact is not the reviewed artefact, so
+it is never required.
 
 Underlying rule, inherited from `CLAUDE.md` and unchanged here: **GitHub is the
 project state; model memory is not.** Work that exists only in an ephemeral
