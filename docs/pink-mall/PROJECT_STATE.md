@@ -106,8 +106,8 @@ nowhere in the build — verified with base64 payloads excluded.
 | | |
 |---|---|
 | FILE | `PINKMALL_REVIEW_STANDALONE.html` (generated — never canonical) |
-| SHA-256 | `287fe7d710d20bc7284382b631ddaee01248ff362ce814a15107178157b1d4df` |
-| BYTES | 10582972 |
+| SHA-256 | `094c98f72d4dc7b62054adc92478d842c28d6fca3b0fadd725086ad1628bf111` |
+| BYTES | 11407740 |
 | LAST PUBLICATION VALIDATION | PASS — PM-041 production + standalone + viewport smoke |
 | DEVELOPMENT REBUILD | PASS — GitHub Actions run `33246626108` |
 | BUILDER | `python tools/build_standalone_review.py` |
