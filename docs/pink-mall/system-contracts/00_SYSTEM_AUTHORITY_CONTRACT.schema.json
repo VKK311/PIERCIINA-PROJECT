@@ -1453,8 +1453,171 @@
               },
               "minContains": 1,
               "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "00"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "01"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "02"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "03"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "04"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "05"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "06"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "07"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "contractNumber",
+                  "contractId"
+                ],
+                "properties": {
+                  "contractNumber": {
+                    "const": "08"
+                  },
+                  "contractId": {
+                    "const": "PINK_MALL_HQ_CONTRACT"
+                  }
+                }
+              },
+              "minContains": 1
             }
-          ]
+          ],
+          "description": "The reserved sequence is STATIC. Rules 1-9 require each contract number exactly once; rules 10-18 bind each number to its reserved contract id. Number-uniqueness alone would let two slots swap identities while every count stayed correct, which would silently re-assign a reserved slot."
         }
       },
       "additionalProperties": false
@@ -1709,5 +1872,16 @@
     "06",
     "07",
     "08"
-  ]
+  ],
+  "x-contractSequenceIdentity": {
+    "00": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+    "01": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+    "02": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+    "03": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+    "04": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+    "05": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+    "06": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+    "07": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+    "08": "PINK_MALL_HQ_CONTRACT"
+  }
 }
