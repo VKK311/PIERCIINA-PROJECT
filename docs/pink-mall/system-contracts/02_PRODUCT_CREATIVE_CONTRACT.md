@@ -362,6 +362,19 @@ not apply to that depiction at all, and it asserts nothing about quality.
 
 These gates evaluate a **generated depiction, after generation**.
 
+### Registering a gate is an obligation, not an applicability decision
+
+Every one of the ten gates is **registered for evaluation** in the
+pre-generation package, via `mustEvaluateIfApplicable: true`.
+
+That is an **obligation**: *evaluate this gate if it applies.* It is **not** an
+applicability result, and **a pre-generation package MUST NOT waive a gate**. An
+input cannot decide that a gate does not apply — it has no depiction to judge.
+
+Whether a gate legitimately does not apply is decided **after** generation, using
+`mayBeNotApplicable` and the `NOT_APPLICABLE` marker above. `NOT_APPLICABLE`
+never appears in the Product Reference Package.
+
 **No numeric pass percentage, tolerance or similarity threshold is defined by
 this contract.** Avatar Skill v1.3 carries its own test-phase gate
 (`productFidelity >= 8`, F04). That number belongs to that skill's test rubric —
@@ -433,7 +446,7 @@ The structure a future Product Creative system assembles **before** generation:
 product identity reference · `productGeometrySource` references · optional
 `productWearReference` · Product Locks · campaign product role · creative
 freedoms · known uncertainties · product confidence · risk classification · QA
-requirements · `clothingFitEvidence` when body-worn
+gate obligations · `clothingFitEvidence` **only** when body-worn
 
 **The package is a GENERATION INPUT. It is not a new Product Truth record.**
 
@@ -441,6 +454,11 @@ Because it is assembled **before** generation, it carries only what can
 truthfully exist at that moment. It therefore has **no `outputStatus`** and **no
 `fitStatus`** — both describe an output that does not exist yet. The schema is
 closed (`additionalProperties: false`), which is what keeps them out.
+
+`clothingFitEvidence` is required when `clothingWornOnBody` is true and
+**forbidden when it is false**: evidence readiness for a garment that is not
+being worn asserts a readiness with no subject. The schema encodes **both**
+directions.
 
 Its builder is **not implemented** in this phase. Instances are snapshots and
 **MUST NOT** be committed to this public repository.

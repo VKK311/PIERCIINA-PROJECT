@@ -527,7 +527,8 @@
         "type": "object",
         "required": [
           "gateId",
-          "required"
+          "mustEvaluateIfApplicable",
+          "numericThreshold"
         ],
         "properties": {
           "gateId": {
@@ -545,8 +546,9 @@
               "HUMAN_TRUTH_INTEGRITY"
             ]
           },
-          "required": {
-            "type": "boolean"
+          "mustEvaluateIfApplicable": {
+            "const": true,
+            "description": "An OBLIGATION, not an applicability result. Every registered gate must be evaluated if it applies. A pre-generation package cannot decide that a gate does not apply and cannot waive one: applicability is determined after generation, using the contract's qaGates[].mayBeNotApplicable and qaSemantics."
           },
           "numericThreshold": {
             "type": "null",
@@ -711,6 +713,186 @@
             "type": "object",
             "required": [
               "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_IDENTITY"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_VARIANT"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "SILHOUETTE"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "GEOMETRY_CONSTRUCTION"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "RELATIVE_PROPORTIONS"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HARDWARE_CLOSURES"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "CLOTHING_FIT_INTEGRITY"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "mustEvaluateIfApplicable"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HUMAN_TRUTH_INTEGRITY"
+              },
+              "mustEvaluateIfApplicable": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
               "numericThreshold"
             ],
             "properties": {
@@ -886,7 +1068,8 @@
           },
           "minContains": 1
         }
-      ]
+      ],
+      "description": "Every gate registered for evaluation, exactly once, each pinned to mustEvaluateIfApplicable true and numericThreshold null. No package can opt out of a gate. Applicability is NOT decided here: NOT_APPLICABLE belongs to the post-generation QA layer and never appears in this package."
     },
     "humanSubjects": {
       "type": "array",
@@ -1037,7 +1220,15 @@
           }
         }
       },
-      "$comment": "A generation-ready package for body-worn clothing must be HIGH risk, must carry clothing-fit evidence, must actually have garment-geometry evidence, and must not have used avatar wardrobe as garment authority. Missing optional wear/fit evidence is declared in knownUncertainties, never invented."
+      "$comment": "A generation-ready package for body-worn clothing must be HIGH risk, must carry clothing-fit evidence, must actually have garment-geometry evidence, and must not have used avatar wardrobe as garment authority. Missing optional wear/fit evidence is declared in knownUncertainties, never invented. The else branch forbids the evidence object entirely when the depiction is not body-worn clothing, so both directions of the rule are structurally present rather than only the required-when-true half.",
+      "else": {
+        "not": {
+          "required": [
+            "clothingFitEvidence"
+          ]
+        },
+        "$comment": "Clothing-fit evidence is meaningful only for a body-worn clothing depiction. Carrying it otherwise asserts a readiness that has no subject, so the checker rejects it and the schema must too — otherwise the validator's parity claim is false."
+      }
     }
   ],
   "x-notPermittedStates": [
@@ -1055,6 +1246,8 @@
   "x-notPermittedInPackage": {
     "outputStatus": "post-generation state; an input package cannot describe an output that does not exist",
     "fitStatus": "a post-generation QA outcome; the pre-generation package carries evidence readiness only",
-    "PASS/FAIL/UNRESOLVED": "QA results about a depiction, not properties of its inputs"
+    "PASS/FAIL/UNRESOLVED": "QA results about a depiction, not properties of its inputs",
+    "required": "a boolean that would let a package waive a mandatory QA gate; replaced by the mustEvaluateIfApplicable obligation",
+    "NOT_APPLICABLE": "a post-generation applicability determination; the pre-generation package registers obligations, it does not resolve applicability"
   }
 }

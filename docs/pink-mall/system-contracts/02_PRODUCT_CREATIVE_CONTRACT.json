@@ -747,7 +747,12 @@
     "notApplicableIsEvaluationResult": false,
     "appliesTo": "a generated depiction, after generation",
     "rule": "Applicability and result are two dimensions, not one vocabulary. A gate that APPLIES returns PASS, FAIL or UNRESOLVED. NOT_APPLICABLE marks a gate that does not apply to the depiction at all; it is NOT a fourth evaluation result and asserts nothing about quality.",
-    "mustNotBypass": "A gate that applies MUST NOT be marked NOT_APPLICABLE to bypass it. Marking an applicable gate NOT_APPLICABLE is a governance defect, not a result."
+    "mustNotBypass": "A gate that applies MUST NOT be marked NOT_APPLICABLE to bypass it. Marking an applicable gate NOT_APPLICABLE is a governance defect, not a result.",
+    "everyGateIsRegisteredForEvaluation": true,
+    "packageMayWaiveAGate": false,
+    "evaluationObligationField": "mustEvaluateIfApplicable",
+    "obligationIsNotAnApplicabilityResult": true,
+    "obligationRule": "Every gate is registered for evaluation in the pre-generation package via mustEvaluateIfApplicable = true. That is an OBLIGATION, not an applicability result: it says the gate must be evaluated if it applies. A pre-generation package MUST NOT waive a gate, and MUST NOT resolve applicability — whether a gate legitimately does not apply is decided after generation, using qaGates[].mayBeNotApplicable and the notApplicableMarker."
   },
   "generationReadiness": {
     "states": [

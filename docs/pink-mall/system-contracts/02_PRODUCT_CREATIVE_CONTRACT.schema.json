@@ -2641,7 +2641,12 @@
         "notApplicableIsEvaluationResult",
         "appliesTo",
         "rule",
-        "mustNotBypass"
+        "mustNotBypass",
+        "everyGateIsRegisteredForEvaluation",
+        "packageMayWaiveAGate",
+        "evaluationObligationField",
+        "obligationIsNotAnApplicabilityResult",
+        "obligationRule"
       ],
       "properties": {
         "resultVocabulary": {
@@ -2667,6 +2672,22 @@
           "minLength": 1
         },
         "mustNotBypass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "everyGateIsRegisteredForEvaluation": {
+          "const": true
+        },
+        "packageMayWaiveAGate": {
+          "const": false
+        },
+        "evaluationObligationField": {
+          "const": "mustEvaluateIfApplicable"
+        },
+        "obligationIsNotAnApplicabilityResult": {
+          "const": true
+        },
+        "obligationRule": {
           "type": "string",
           "minLength": 1
         }

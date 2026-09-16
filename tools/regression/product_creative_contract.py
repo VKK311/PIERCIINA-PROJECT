@@ -22,11 +22,17 @@ Three kinds of claim are checked, and they are not the same kind:
 HONEST LIMIT ON THE RUNTIME FIXTURES: the Python standard library ships no JSON
 Schema engine and this foundation must not grow a dependency to check its own
 constitution. `check_package` below is a TARGETED SEMANTIC CHECKER covering the
-subset of 02_PRODUCT_CREATIVE_OBJECT.schema.json that carries governance weight
-(exact SKU and variant, exact-product geometry evidence, all nine locks engaged,
-clothing-fit status when body-worn, untransformable product and human truth,
-non-authoritative execution layer, non-canonical output). It is NOT a JSON
+governance-bearing PRE-GENERATION subset of 02_PRODUCT_CREATIVE_OBJECT.schema.json:
+exact identity and variant, exact-product geometry evidence, all nine Product
+Locks engaged, clothing evidence READINESS for body-worn cases, the QA gate
+obligations, the product and human truth constraints, the non-authoritative
+execution layer, and the absence of any post-generation state. It is NOT a JSON
 Schema engine and a fixture passing it is NOT proof of full schema conformance.
+
+It does NOT check a post-generation result schema. No such schema exists: the
+package describes inputs assembled before generation, so it carries no output
+status and no QA result, only the obligation that each gate be evaluated if it
+applies.
 That is why every rule it enforces is ALSO proved present in the schema document
 by the structural checks in section E: the fixtures show the rule behaves, the
 structural checks show the rule is written where a real validator would read it.
@@ -238,9 +244,30 @@ def check_package(pkg):
         for extra in set(seen) - set(GATES):
             e.append(f"unknown QA gate {extra}")
         for q in qa:
-            if isinstance(q, dict) and q.get("numericThreshold") is not None:
-                e.append(f"QA gate {q.get('gateId')} carries an invented numeric threshold "
+            if not isinstance(q, dict):
+                e.append("qaRequirements entry is not an object")
+                continue
+            gid = q.get("gateId")
+            # An obligation, not an applicability result. A package that can set
+            # this false can waive a constitutionally mandatory gate.
+            if "mustEvaluateIfApplicable" not in q:
+                e.append(f"QA gate {gid} does not register the obligation "
+                         f"mustEvaluateIfApplicable")
+            elif q.get("mustEvaluateIfApplicable") is not True:
+                e.append(f"QA gate {gid} sets mustEvaluateIfApplicable "
+                         f"{q.get('mustEvaluateIfApplicable')!r}; a package may not waive a gate")
+            if "required" in q:
+                e.append(f"QA gate {gid} carries the removed `required` field; a package may not "
+                         f"decide that a gate does not apply")
+            if q.get("numericThreshold") is not None:
+                e.append(f"QA gate {gid} carries an invented numeric threshold "
                          f"{q.get('numericThreshold')!r}; contract 02 defines none")
+            if NOT_APPLICABLE in str(q.values()):
+                e.append(f"QA gate {gid} resolves applicability; NOT_APPLICABLE is decided after "
+                         f"generation, not in the input package")
+            for k in q:
+                if k not in ("gateId", "mustEvaluateIfApplicable", "numericThreshold"):
+                    e.append(f"QA gate {gid}: unknown key {k}")
 
     # ── truth constraints ────────────────────────────────────────────────────
     tc = pkg.get("truthConstraints")
@@ -308,8 +335,8 @@ def valid_package():
         "riskClassification": {"clothingWornOnBody": False, "riskLevel": "LOW"},
         "productConfidence": "HIGH",
         "knownUncertainties": [],
-        "qaRequirements": [{"gateId": g, "required": True, "numericThreshold": None}
-                           for g in GATES],
+        "qaRequirements": [{"gateId": g, "mustEvaluateIfApplicable": True,
+                            "numericThreshold": None} for g in GATES],
         "humanSubjects": [],
         "truthConstraints": {"productTruthMayBeTransformed": False,
                              "humanIdentityMayBeTransformed": False,
@@ -651,6 +678,16 @@ def main():
           "depiction" in qs.get("appliesTo", "") and "after generation" in qs.get("appliesTo", ""))
     check("    every gate declares whether it can be NOT_APPLICABLE",
           all(isinstance(g.get("mayBeNotApplicable"), bool) for g in c.get("qaGates", [])))
+    check("    every gate is registered for evaluation",
+          qs.get("everyGateIsRegisteredForEvaluation") is True)
+    check("    a pre-generation package may not waive a gate",
+          qs.get("packageMayWaiveAGate") is False)
+    check("    the obligation field is named and is not an applicability result",
+          qs.get("evaluationObligationField") == "mustEvaluateIfApplicable"
+          and qs.get("obligationIsNotAnApplicabilityResult") is True)
+    check("    the obligation rule defers applicability to after generation",
+          "after generation" in qs.get("obligationRule", "")
+          and "MUST NOT waive" in qs.get("obligationRule", ""))
     check("    the conditional gates are the ones marked not-always-applicable",
           {g["gateId"] for g in c.get("qaGates", []) if g.get("mayBeNotApplicable")}
           >= {"CLOTHING_FIT_INTEGRITY", "HUMAN_TRUTH_INTEGRITY"})
@@ -840,6 +877,9 @@ def main():
                            ("consent", "stateOwnedHere", False),
                            ("consent", "readCurrentStateFromAuthority", True),
                            ("qaSemantics", "notApplicableIsEvaluationResult", False),
+                           ("qaSemantics", "everyGateIsRegisteredForEvaluation", True),
+                           ("qaSemantics", "packageMayWaiveAGate", False),
+                           ("qaSemantics", "obligationIsNotAnApplicabilityResult", True),
                            ("generationReadiness", "distinctFromConfidence", True),
                            ("generationReadiness", "packageMayBeEmittedWhenBlocked", False),
                            ("productConfidence", "confidenceIsNotPermissionToGenerate", True),
@@ -887,6 +927,46 @@ def main():
     ok, d = binds(op.get("qaRequirements", {}), "gateId", "numericThreshold",
                   {g: None for g in GATES})
     check("    object schema pins every QA threshold to null", ok, d)
+    # A free boolean here would let a package waive a mandatory gate while every
+    # other rule still passed.
+    ok, d = binds(op.get("qaRequirements", {}), "gateId", "mustEvaluateIfApplicable",
+                  {g: True for g in GATES})
+    check("    object schema pins the evaluation obligation on every gate", ok, d)
+    qa_item = op.get("qaRequirements", {}).get("items", {})
+    qa_props = qa_item.get("properties", {})
+    check("    object schema states the obligation as a const, not a free boolean",
+          qa_props.get("mustEvaluateIfApplicable", {}).get("const") is True
+          and "type" not in qa_props.get("mustEvaluateIfApplicable", {}))
+    check("    object schema requires the obligation on every QA record",
+          {"gateId", "mustEvaluateIfApplicable", "numericThreshold"}
+          == set(qa_item.get("required", [])), str(qa_item.get("required")))
+    check("    object schema no longer carries the waivable `required` field",
+          "required" not in qa_props, str(sorted(qa_props)))
+    check("    object schema closes the QA record",
+          qa_item.get("additionalProperties") is False)
+    # Test what the schema ADMITS, not what its prose mentions: a description
+    # explaining that NOT_APPLICABLE belongs elsewhere must not trip this.
+    def _admits(node, token):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k in ("description", "$comment", "title"):
+                    continue
+                if k in ("const", "enum", "required", "default") and token in json.dumps(v):
+                    return True
+                if _admits(v, token):
+                    return True
+        elif isinstance(node, list):
+            return any(_admits(x, token) for x in node)
+        return False
+
+    check("    the package schema admits no NOT_APPLICABLE value",
+          not _admits(op, NOT_APPLICABLE),
+          "applicability is resolved after generation, not in the input package")
+    check("    the package schema admits no QA result value",
+          not any(_admits(op, v) for v in FIT_OUTCOMES),
+          "PASS/FAIL/UNRESOLVED are outcomes about a depiction, not properties of its inputs")
+    check("    the contract still owns applicability via mayBeNotApplicable",
+          all("mayBeNotApplicable" in g for g in c.get("qaGates", [])))
     gsrc = op.get("productGeometrySources", {})
     gprops = gsrc.get("items", {}).get("properties", {})
     check("112. object schema requires at least one geometry source",
@@ -929,6 +1009,15 @@ def main():
     check("    object schema forbids avatar wardrobe becoming garment authority",
           then_props.get("clothingFitEvidence", {}).get("properties", {})
           .get("avatarWardrobeUsedAsGarmentAuthority", {}).get("const") is False)
+    # Both directions, or the parity claim is false. The checker rejects fit
+    # evidence on a non-clothing package, so the schema must forbid it too.
+    els = bw[0].get("else", {}) if bw else {}
+    check("    object schema FORBIDS fit evidence when clothing is not body-worn",
+          "clothingFitEvidence" in els.get("not", {}).get("required", []),
+          str(els))
+    check("    the body-worn rule encodes both branches, not only the true half",
+          bool(bw) and "then" in bw[0] and "else" in bw[0],
+          str([k for k in (bw[0] if bw else {}) if k in ("if", "then", "else")]))
     cfe = op.get("clothingFitEvidence", {})
     cfo = cfe.get("properties", {})
     check("    object schema pins avatar wardrobe false on the evidence object itself",
@@ -1065,7 +1154,7 @@ def main():
             lambda p: p["clothingFitEvidence"]
             .__setitem__("avatarWardrobeUsedAsGarmentAuthority", True),
             "avatar wardrobe is never", base=clothing_package())
-    rejects("    fit evidence on a non-clothing package is REJECTED",
+    rejects("    fit evidence on a NON-body-worn package is REJECTED",
             lambda p: p.__setitem__("clothingFitEvidence",
                                     {"garmentGeometryEvidencePresent": True,
                                      "wearFitEvidencePresent": True,
@@ -1074,6 +1163,31 @@ def main():
     rejects("142. an unsupported numeric QA threshold is REJECTED",
             lambda p: p["qaRequirements"][3].__setitem__("numericThreshold", 8),
             "invented numeric threshold")
+    gi = {g: i for i, g in enumerate(GATES)}
+    rejects("    waiving PRODUCT_IDENTITY evaluation is REJECTED",
+            lambda p: p["qaRequirements"][gi["PRODUCT_IDENTITY"]]
+            .__setitem__("mustEvaluateIfApplicable", False), "may not waive a gate")
+    rejects("    waiving CLOTHING_FIT_INTEGRITY evaluation is REJECTED",
+            lambda p: p["qaRequirements"][gi["CLOTHING_FIT_INTEGRITY"]]
+            .__setitem__("mustEvaluateIfApplicable", False), "may not waive a gate")
+    rejects("    waiving GEOMETRY_CONSTRUCTION evaluation is REJECTED",
+            lambda p: p["qaRequirements"][gi["GEOMETRY_CONSTRUCTION"]]
+            .__setitem__("mustEvaluateIfApplicable", False), "may not waive a gate")
+    rejects("    an omitted evaluation obligation is REJECTED",
+            lambda p: p["qaRequirements"][0].pop("mustEvaluateIfApplicable"),
+            "does not register the obligation")
+    rejects("    the removed `required` field reintroduced is REJECTED",
+            lambda p: p["qaRequirements"][2].__setitem__("required", False),
+            "removed `required` field")
+    rejects("    NOT_APPLICABLE resolved inside the package is REJECTED",
+            lambda p: p["qaRequirements"][5].__setitem__("numericThreshold", "NOT_APPLICABLE"),
+            "resolves applicability")
+    rejects("    a duplicated QA gate is REJECTED",
+            lambda p: p["qaRequirements"].append(
+                json.loads(json.dumps(p["qaRequirements"][0]))), "must be exactly once")
+    rejects("    an unknown QA record key is REJECTED",
+            lambda p: p["qaRequirements"][1].__setitem__("skipBecauseSlow", True),
+            "unknown key skipBecauseSlow")
     rejects("143. a PUBLISHED state in the package is REJECTED",
             lambda p: p.__setitem__("outputStatus", {"state": "PUBLISHED"}),
             "post-generation state")
@@ -1215,6 +1329,11 @@ def main():
     check("168. the markdown separates fit evidence from a fit result",
           "clothingFitEvidence" in md and "never" in md_plain.lower()
           and "fitStatus" in md)
+    check("    the markdown states a package may not waive a gate",
+          "must not waive a gate" in md_plain.lower())
+    check("    the markdown states the fit-evidence rule runs both ways",
+          "forbidden when it is false" in md_plain.lower()
+          and "both directions" in md_plain.lower())
     check("169. the markdown states the package carries no outputStatus",
           "no outputStatus" in md_plain or "no `outputStatus`" in md)
     check("170. the markdown states consent state is not recorded here",
