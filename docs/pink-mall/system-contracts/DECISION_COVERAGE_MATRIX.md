@@ -39,9 +39,12 @@ used to mean "undecided".
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
+| **Detailed contract authored** | YES — `01_CAMPAIGN_CONTEXT_CONTRACT` files **EXIST in this lineage**. Canonicality is decided solely by the four conditions in contract 00, not by this row and not by file existence. |
 | **Target contract** | 01 — Campaign Context |
 | **Private detail required** | PARTIAL |
+
+Contract 01 is **authoring only**: it defines the rules and the package shape. No
+Campaign Context Builder exists, and this row records no implementation.
 
 **Locked, public-safe structure**
 
@@ -56,9 +59,17 @@ used to mean "undecided".
 
 **Genuinely open**
 
-- the exact serialized Campaign Context schema;
-- external trend/social ingestion implementation;
-- later autonomous idea-selection policy.
+- external trend/social ingestion implementation — exact providers, API work,
+  signal freshness windows and numeric weighting;
+- later autonomous idea-selection policy, including any selection threshold or
+  scoring formula;
+- persistent Campaign Context ID format;
+- private campaign-strategy storage implementation.
+
+The serialized package **shape** is no longer open — it is defined by
+`01_CAMPAIGN_CONTEXT_OBJECT.schema.json`. What a persistent campaign identifier
+looks like across contexts remains open, and belongs to a future operational
+system rather than to contract 01.
 
 ### 2. Product Creative / Product Truth
 
@@ -275,7 +286,7 @@ used to mean "undecided".
 
 | # | Domain | Locked | Contract created | Target | Private detail |
 |---|---|---|---|---|---|
-| 1 | Campaign Context / Purpose | YES | NO — awaiting | 01 | PARTIAL |
+| 1 | Campaign Context / Purpose | YES | AUTHORED — files exist in this lineage | 01 | PARTIAL |
 | 2 | Product Creative / Product Truth | YES | NO — awaiting | 02 | NO |
 | 3 | INA/SIS Character & Story | YES | NO — awaiting | 03 | YES |
 | 4 | Story Engine + Social Intelligence | YES | NO — awaiting | 03, 04 | YES |
@@ -284,6 +295,13 @@ used to mean "undecided".
 | 7 | Super Brain Memory | YES | NO — awaiting | 07 | YES |
 | 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
 
-Eight domains, eight sets of locked structural decisions preserved above, **zero**
-detailed canonical contracts. Closing that gap is the Phase 1 work that follows —
-and it starts from these decisions, not from a blank page.
+Eight domains, eight sets of locked structural decisions preserved above. Domain
+contract **01** has been authored; domains 02–08 still await theirs. Closing that
+gap is the Phase 1 work that continues — and it starts from these decisions, not
+from a blank page.
+
+"Authored" in the table above means the files exist in this lineage. Whether any
+of them is **canonical** is decided only by the four conditions in
+`00_SYSTEM_AUTHORITY_CONTRACT` — current review, presence on
+`claude/pink-mall-development`, a passing validator, and a status that is not
+`SUPERSEDED`. This matrix is bookkeeping; it is not a canonicality test.

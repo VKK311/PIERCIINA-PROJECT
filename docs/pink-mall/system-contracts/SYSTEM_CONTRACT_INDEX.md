@@ -43,15 +43,29 @@ because it was replaced, not because its historical review stopped counting.
 2. `00_SYSTEM_AUTHORITY_CONTRACT.json` — the same model, machine-readable.
 3. `DECISION_COVERAGE_MATRIX.md` — which owner decisions are locked, and which
    still lack a detailed contract.
-4. The domain contract for the work in hand, once it exists.
+4. `01_CAMPAIGN_CONTEXT_CONTRACT.md` — how a campaign context is assembled,
+   what may influence it and what may not.
+5. The domain contract for the work in hand, once it exists.
 
 ## Current contract set
 
 | # | Contract | Files | Status |
 |---|---|---|---|
 | 00 | **System Authority** | `00_SYSTEM_AUTHORITY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
+| 01 | **Campaign Context** | `01_CAMPAIGN_CONTEXT_CONTRACT.md` / `.json` / `.schema.json`, plus `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 
-Validator: `tools/regression/system_authority_contract.py` (standard library only).
+Validators, standard library only:
+
+- `tools/regression/system_authority_contract.py`
+- `tools/regression/campaign_context_contract.py`
+
+This table records that the files **exist in this lineage**. It does not assert
+canonicality, which is decided only by the four conditions above.
+
+Contract 01 is **authoring only**. The Campaign Context Builder it describes
+**does not exist**, and `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` describes the
+shape a future builder must emit. Context instances are snapshots and **MUST
+NOT** be committed to this public repository.
 
 ## Planned contracts — NOT YET CREATED
 
@@ -67,7 +81,6 @@ No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
-| 01 | Campaign Context | campaign purpose, context assembly, campaign taxonomy | NOT YET CREATED |
 | 02 | Product Creative | product-led creative rules, product-lock enforcement | NOT YET CREATED |
 | 03 | Character & Story | INA/SIS character canon, story continuity | NOT YET CREATED |
 | 04 | Social Intelligence | metric weighting, scoring, creative fatigue | NOT YET CREATED |
