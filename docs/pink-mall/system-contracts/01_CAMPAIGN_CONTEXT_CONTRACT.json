@@ -1,0 +1,381 @@
+{
+  "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+  "version": "1.0.0",
+  "title": "PINK MALL Campaign Context Contract",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "01",
+  "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. Status is provenance only; canonicality is decided by the parent's four conditions. Where this contract and the parent disagree, the parent governs and the disagreement is a defect in this one.",
+  "purpose": "Define how a campaign context is assembled, what may influence it, what may not, and what a Campaign Context package contains — so that ideation starts from a creative premise rather than a SKU, and so no later system can quietly promote a trend signal into a fact.",
+  "scope": {
+    "covers": [
+      "idea-first context assembly",
+      "input domains and their provenance",
+      "authority of cultural and social signals",
+      "product and character role vocabularies",
+      "creative freedom and brand specificity",
+      "the three-idea proposal rule",
+      "the Campaign Context package shape",
+      "behaviour when an optional input does not exist"
+    ],
+    "doesNotCover": [
+      "product-lock enforcement mechanics (contract 02)",
+      "character canon and story continuity (contract 03)",
+      "metric weighting, scoring and fatigue thresholds (contract 04)",
+      "workflow graph and run model (contract 05)",
+      "approval flow, budget modes and spend ceilings (contract 06)",
+      "semantic memory schema (contract 07)",
+      "HQ surface (contract 08)"
+    ],
+    "implementationStatus": "PLANNED",
+    "note": "No Campaign Context Builder exists. This contract defines the shape and the rules a future builder must satisfy; it does not create one."
+  },
+  "ideaFirstPrinciple": {
+    "statement": "Campaign Context is IDEA-FIRST, not product-first by default.",
+    "startsFrom": "What world, story, cultural moment or creative premise should PINK MALL enter?",
+    "doesNotStartFrom": "Which SKU should we advertise?",
+    "productMayBe": [
+      "central",
+      "supporting",
+      "a detail",
+      "absent"
+    ],
+    "rule": "A campaign MUST NOT be required to originate from a product. When a real product is used, every factual attribute MUST come from Product Truth without exception."
+  },
+  "ideaMode": {
+    "modeId": "INITIAL",
+    "proposalsPerCycle": 3,
+    "exactly": true,
+    "rule": "An ideation cycle in INITIAL mode MUST produce exactly three competing campaign/story ideas. Fewer or more is a STOP condition.",
+    "selectionAuthority": "OWNER",
+    "autonomousSelection": false,
+    "rankingThresholdDefined": false,
+    "note": "The three ideas are PROPOSALs. No ranking threshold, scoring formula or autonomous winner exists. A later contract change may grant earned autonomy; this one does not."
+  },
+  "inputDomains": [
+    {
+      "domainId": "WORLD_STORY_STATE",
+      "requirement": "OPTIONAL_CONTEXT_INPUT",
+      "defaultInputClass": "OPERATIONAL_STATE",
+      "providerImplementationStatus": "PLANNED",
+      "note": "Current narrative context, when a Story State engine exists. It does not. Current story state MUST NOT be fabricated; the input is recorded UNAVAILABLE."
+    },
+    {
+      "domainId": "CULTURAL_SOCIAL_SIGNALS",
+      "requirement": "OPTIONAL_CONTEXT_INPUT",
+      "defaultInputClass": "SOCIAL_OR_CULTURAL_SIGNAL",
+      "providerImplementationStatus": "PLANNED",
+      "note": "Cultural, social or trend evidence. Evidence only. It may inspire a proposal and MUST NOT override Product Truth, Human Truth, PINK MALL heritage or any approval."
+    },
+    {
+      "domainId": "BRAND_DNA_HERITAGE",
+      "requirement": "REQUIRED_TRUTH_INPUT",
+      "defaultInputClass": "CANONICAL_FACT",
+      "providerImplementationStatus": "ACTIVE",
+      "note": "PINK MALL / Pierciina heritage, from the existing canonical Avatar Skill v1.3 brand and heritage documents. This contract MUST NOT define a competing brand identity."
+    },
+    {
+      "domainId": "CHARACTER_CONTEXT",
+      "requirement": "OPTIONAL_CONTEXT_INPUT",
+      "defaultInputClass": "CANONICAL_FACT",
+      "providerImplementationStatus": "ACTIVE",
+      "note": "Which sister or pairing may participate. Identity remains governed by the Avatar Skill. This contract assigns a narrative role only."
+    },
+    {
+      "domainId": "CURRENT_PRODUCTS",
+      "requirement": "REQUIRED_TRUTH_INPUT",
+      "defaultInputClass": "CANONICAL_FACT",
+      "providerImplementationStatus": "ACTIVE",
+      "note": "The canonical catalogue. Required as a truth input whenever a product is named, so a named product can never carry invented attributes. A campaign need not name one."
+    },
+    {
+      "domainId": "TARGET_FORMAT",
+      "requirement": "REQUIRED_TRUTH_INPUT",
+      "defaultInputClass": "LOCKED_OWNER_DECISION",
+      "providerImplementationStatus": "ACTIVE",
+      "note": "The intended communication surface or output family. Concept-level and deliberately open: no exhaustive creative-format enum is locked."
+    }
+  ],
+  "inputRequirementClasses": {
+    "REQUIRED_TRUTH_INPUT": "Absence is a STOP condition. Ideation MUST NOT proceed without it.",
+    "OPTIONAL_CONTEXT_INPUT": "Absence is recorded and ideation MAY proceed from the available canonical inputs. Absence MUST NOT be filled with invention."
+  },
+  "inputClasses": [
+    {
+      "classId": "CANONICAL_FACT",
+      "authoritative": true,
+      "mayOverrideTruth": false,
+      "definition": "Direct canonical state from the domain's authority under contract 00."
+    },
+    {
+      "classId": "DERIVED_FACT",
+      "authoritative": true,
+      "mayOverrideTruth": false,
+      "definition": "Deterministic result computed from canonical facts by a published rule."
+    },
+    {
+      "classId": "LOCKED_OWNER_DECISION",
+      "authoritative": true,
+      "mayOverrideTruth": false,
+      "definition": "A decision the owner has made, recorded in a canonical contract or the decision coverage matrix."
+    },
+    {
+      "classId": "OPERATIONAL_STATE",
+      "authoritative": true,
+      "mayOverrideTruth": false,
+      "definition": "State owned by an operational system such as a campaign registry or story engine."
+    },
+    {
+      "classId": "SOCIAL_OR_CULTURAL_SIGNAL",
+      "authoritative": false,
+      "mayOverrideTruth": false,
+      "definition": "Measured or observed cultural evidence. Evidence, never conclusion, never authority."
+    },
+    {
+      "classId": "SEMANTIC_INTERPRETATION",
+      "authoritative": false,
+      "mayOverrideTruth": false,
+      "definition": "A semantic conclusion or learning. MUST NOT be converted into a fact."
+    },
+    {
+      "classId": "PRIVATE_OPS_REFERENCE",
+      "authoritative": true,
+      "mayOverrideTruth": false,
+      "definition": "A reference to material held outside the public repository. The reference may appear; the content MUST NOT."
+    },
+    {
+      "classId": "UNAVAILABLE_INPUT",
+      "authoritative": false,
+      "mayOverrideTruth": false,
+      "definition": "The input could not be obtained. Recorded as absent. MUST NOT be replaced by model knowledge, recollection or plausible invention."
+    }
+  ],
+  "signalRules": [
+    "Cultural and social signals are EVIDENCE and MUST NOT be treated as authority.",
+    "Signals MUST NOT override Product Truth.",
+    "Signals MUST NOT override Human Truth.",
+    "Signals MUST NOT override PINK MALL heritage.",
+    "Signals MUST NOT override or substitute for an approval.",
+    "Model knowledge MUST NOT be presented as current social evidence.",
+    "A signal whose feed does not exist is recorded UNAVAILABLE, never reconstructed from memory.",
+    "An interpretation MUST NOT be recorded as a fact."
+  ],
+  "productRoles": [
+    {
+      "roleId": "NONE",
+      "required": false,
+      "definition": "No specific product is required in the concept."
+    },
+    {
+      "roleId": "DETAIL",
+      "required": false,
+      "definition": "A product appears as a meaningful detail."
+    },
+    {
+      "roleId": "SUPPORTING",
+      "required": false,
+      "definition": "A product contributes materially but is not the whole idea."
+    },
+    {
+      "roleId": "HERO",
+      "required": false,
+      "definition": "A specific product is deliberately central."
+    }
+  ],
+  "productRoleRules": [
+    "HERO MUST NOT be required. NONE is always permitted.",
+    "Whenever a real product is named at any role, every factual attribute MUST come from Product Truth.",
+    "Additional constraints on product-led contexts belong to contract 02 and MUST NOT be duplicated here."
+  ],
+  "characterRoles": [
+    {
+      "roleId": "INA",
+      "definition": "INA participates."
+    },
+    {
+      "roleId": "SIS",
+      "definition": "SIS participates."
+    },
+    {
+      "roleId": "DUO",
+      "definition": "Both participate."
+    },
+    {
+      "roleId": "NONE",
+      "definition": "No sister participates."
+    }
+  ],
+  "characterRoleRules": [
+    "This is a campaign role selector, NOT identity truth.",
+    "Human identity remains governed by the Avatar Skill and MUST NOT be redefined here.",
+    "Personality and relationship roles are DYNAMIC. No fixed permanent archetype may be encoded.",
+    "Character canon and story continuity belong to contract 03.",
+    "Commercial generated-likeness publication remains gated by the parent's consent stop."
+  ],
+  "creativeFreedom": {
+    "statement": "World-building is primary. The world may break; truth may not.",
+    "illustrativeGenres": [
+      "surreal",
+      "absurd",
+      "cinematic",
+      "funny",
+      "glamorous",
+      "ugly-on-purpose",
+      "nostalgic",
+      "editorial",
+      "chaotic",
+      "quiet",
+      "dramatic",
+      "documentary-like",
+      "fantastical"
+    ],
+    "genreListIsClosed": false,
+    "rule": "The genre list is ILLUSTRATIVE. PINK MALL MUST NOT be narrowed into one permanent visual genre, and a campaign MAY take any idea-serving direction.",
+    "inviolable": [
+      "PRODUCT_TRUTH",
+      "HUMAN_IDENTITY"
+    ]
+  },
+  "heritageRules": [
+    "Campaign context MUST remain recognisably from the PINK MALL / Pierciina world.",
+    "Heritage comes from the existing canonical Avatar Skill v1.3 brand and heritage documents.",
+    "This contract MUST NOT define a second brand-DNA authority."
+  ],
+  "hardFailures": [
+    {
+      "failureId": "GENERIC_AI_AESTHETIC",
+      "severity": "HARD_FAIL",
+      "definition": "An idea that could belong to any generic AI fashion, pink or luxury brand, with no PINK MALL specificity.",
+      "examples": [
+        "generic futuristic pink mall",
+        "generic luxury campaign",
+        "generic Barbie-like pink world",
+        "generic chrome AI aesthetic",
+        "generic anonymous fashion editorial"
+      ]
+    },
+    {
+      "failureId": "PRODUCT_TRUTH_CONTRADICTED",
+      "severity": "HARD_FAIL",
+      "definition": "The concept contradicts canonical product truth.",
+      "examples": []
+    },
+    {
+      "failureId": "HUMAN_IDENTITY_CONTRADICTED",
+      "severity": "HARD_FAIL",
+      "definition": "The concept contradicts canonical human identity, including substituting one sister for the other.",
+      "examples": []
+    },
+    {
+      "failureId": "REQUIRED_TRUTH_INPUT_MISSING",
+      "severity": "STOP",
+      "definition": "A REQUIRED_TRUTH_INPUT could not be obtained.",
+      "examples": []
+    },
+    {
+      "failureId": "FABRICATED_CURRENT_SIGNAL",
+      "severity": "STOP",
+      "definition": "A supposedly current signal was invented, or model knowledge was presented as current evidence.",
+      "examples": []
+    },
+    {
+      "failureId": "SIGNAL_TREATED_AS_AUTHORITY",
+      "severity": "STOP",
+      "definition": "A signal or interpretation was used as canonical authority.",
+      "examples": []
+    },
+    {
+      "failureId": "WRONG_PROPOSAL_COUNT",
+      "severity": "STOP",
+      "definition": "INITIAL mode produced other than exactly three proposals.",
+      "examples": []
+    },
+    {
+      "failureId": "UNAPPROVED_IDEA_TREATED_AS_SELECTED",
+      "severity": "STOP",
+      "definition": "An idea was treated as approved without explicit owner selection.",
+      "examples": []
+    },
+    {
+      "failureId": "PRIVATE_MATERIAL_IN_PUBLIC_CONTEXT",
+      "severity": "STOP",
+      "definition": "Private strategy or private content would be written into the public repository.",
+      "examples": []
+    }
+  ],
+  "proposalRules": {
+    "defaultState": "PROPOSAL",
+    "allowedStates": [
+      "PROPOSAL",
+      "OWNER_SELECTED"
+    ],
+    "transition": {
+      "from": "PROPOSAL",
+      "to": "OWNER_SELECTED",
+      "authority": "OWNER"
+    },
+    "selectionGrants": [],
+    "selectionDoesNotGrant": [
+      "paid generation",
+      "publication",
+      "auto-publishing",
+      "additional spend",
+      "autonomous execution"
+    ],
+    "rule": "Owner selection moves an idea from PROPOSAL to OWNER_SELECTED and grants nothing else. Spend and publication authority belong to contract 06 and to the parent's COMMERCIAL_PUBLICATION and PAID_GENERATION_AUTHORITY domains."
+  },
+  "missingInputRules": [
+    "An input that cannot be obtained MUST be recorded UNAVAILABLE.",
+    "UNAVAILABLE MUST NOT be replaced with fabricated state.",
+    "Absence of an OPTIONAL_CONTEXT_INPUT MUST NOT stop ideation.",
+    "Absence of a REQUIRED_TRUTH_INPUT is a STOP condition.",
+    "Story State, the social bridge and semantic memory are PLANNED; their inputs are expected to be UNAVAILABLE today, and that is a correct result rather than a failure."
+  ],
+  "contextObject": {
+    "schema": "01_CAMPAIGN_CONTEXT_OBJECT.schema.json",
+    "committed": false,
+    "note": "The runtime package is a snapshot. Instances MUST NOT be committed to the public repository, for the same reason fashion-context instances are not: a stale snapshot silently becomes wrong, and a real campaign context is unpublished strategy."
+  },
+  "privacyRules": [
+    "This repository is PUBLIC.",
+    "Contract, schemas, vocabularies, validation rules and synthetic fixtures are public-safe.",
+    "Unpublished real campaign concepts MUST NOT be committed here.",
+    "Owner private creative strategy, sensitive audience interpretation, private competitor analysis, private character material, Creative Director preference history, private semantic memory and private social-account data are PRIVATE_OPS_REQUIRED.",
+    "A PRIVATE_OPS_REFERENCE may name that private material exists. The content MUST NOT appear."
+  ],
+  "futureDependencies": [
+    {
+      "contractNumber": "02",
+      "dependency": "Product-led creative constraints and product-lock enforcement."
+    },
+    {
+      "contractNumber": "03",
+      "dependency": "Character canon, story continuity and narrative state."
+    },
+    {
+      "contractNumber": "04",
+      "dependency": "Signal weighting, scoring and creative fatigue."
+    },
+    {
+      "contractNumber": "06",
+      "dependency": "Approval flow, budget modes, spend ceilings and any earned autonomy over idea selection."
+    },
+    {
+      "contractNumber": "07",
+      "dependency": "Semantic memory that may inform, but never authorise, an idea."
+    }
+  ],
+  "openItems": [
+    "exact external trend and social providers",
+    "ingestion and API implementation",
+    "signal freshness windows",
+    "numeric signal weighting",
+    "autonomous idea-selection threshold",
+    "autonomous idea-selection policy",
+    "persistent Campaign Context ID format",
+    "exact scoring formula",
+    "private campaign-strategy storage implementation"
+  ],
+  "openItemsRule": "These are genuinely undecided. They MUST NOT be answered by invention, and a later system MUST NOT assume a default for any of them.",
+  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, promote. Chat memory alone MUST NOT become permanent policy."
+}

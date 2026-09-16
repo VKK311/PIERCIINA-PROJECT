@@ -1,0 +1,1010 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/01_CAMPAIGN_CONTEXT_CONTRACT.schema.json",
+  "title": "PINK MALL Campaign Context Contract",
+  "description": "Strict schema for domain contract 01. Membership of every closed vocabulary is enforced with allOf/contains and minContains=maxContains=1, not with uniqueItems, which compares whole objects and would let a duplicated id hide a missing one.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "01"
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "covers",
+        "doesNotCover",
+        "implementationStatus",
+        "note"
+      ],
+      "properties": {
+        "covers": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "doesNotCover": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "implementationStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "PARTIAL",
+            "PLANNED",
+            "BLOCKED",
+            "HISTORICAL"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ideaFirstPrinciple": {
+      "type": "object",
+      "required": [
+        "statement",
+        "startsFrom",
+        "doesNotStartFrom",
+        "productMayBe",
+        "rule"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "startsFrom": {
+          "type": "string"
+        },
+        "doesNotStartFrom": {
+          "type": "string"
+        },
+        "productMayBe": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rule": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ideaMode": {
+      "type": "object",
+      "required": [
+        "modeId",
+        "proposalsPerCycle",
+        "exactly",
+        "rule",
+        "selectionAuthority",
+        "autonomousSelection",
+        "rankingThresholdDefined",
+        "note"
+      ],
+      "properties": {
+        "modeId": {
+          "const": "INITIAL"
+        },
+        "proposalsPerCycle": {
+          "const": 3
+        },
+        "exactly": {
+          "const": true
+        },
+        "rule": {
+          "type": "string"
+        },
+        "selectionAuthority": {
+          "const": "OWNER"
+        },
+        "autonomousSelection": {
+          "const": false
+        },
+        "rankingThresholdDefined": {
+          "const": false
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "inputDomains": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "required": [
+          "domainId",
+          "requirement",
+          "defaultInputClass",
+          "providerImplementationStatus",
+          "note"
+        ],
+        "properties": {
+          "domainId": {
+            "type": "string",
+            "enum": [
+              "WORLD_STORY_STATE",
+              "CULTURAL_SOCIAL_SIGNALS",
+              "BRAND_DNA_HERITAGE",
+              "CHARACTER_CONTEXT",
+              "CURRENT_PRODUCTS",
+              "TARGET_FORMAT"
+            ]
+          },
+          "requirement": {
+            "type": "string",
+            "enum": [
+              "REQUIRED_TRUTH_INPUT",
+              "OPTIONAL_CONTEXT_INPUT"
+            ]
+          },
+          "defaultInputClass": {
+            "type": "string",
+            "enum": [
+              "CANONICAL_FACT",
+              "DERIVED_FACT",
+              "LOCKED_OWNER_DECISION",
+              "OPERATIONAL_STATE",
+              "SOCIAL_OR_CULTURAL_SIGNAL",
+              "SEMANTIC_INTERPRETATION",
+              "PRIVATE_OPS_REFERENCE",
+              "UNAVAILABLE_INPUT"
+            ]
+          },
+          "providerImplementationStatus": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "PARTIAL",
+              "PLANNED",
+              "BLOCKED",
+              "HISTORICAL"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "WORLD_STORY_STATE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CULTURAL_SOCIAL_SIGNALS"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "BRAND_DNA_HERITAGE"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CHARACTER_CONTEXT"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "CURRENT_PRODUCTS"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "domainId": {
+                "const": "TARGET_FORMAT"
+              }
+            },
+            "required": [
+              "domainId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "inputRequirementClasses": {
+      "type": "object",
+      "required": [
+        "REQUIRED_TRUTH_INPUT",
+        "OPTIONAL_CONTEXT_INPUT"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "inputClasses": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "classId",
+          "authoritative",
+          "mayOverrideTruth",
+          "definition"
+        ],
+        "properties": {
+          "classId": {
+            "type": "string",
+            "enum": [
+              "CANONICAL_FACT",
+              "DERIVED_FACT",
+              "LOCKED_OWNER_DECISION",
+              "OPERATIONAL_STATE",
+              "SOCIAL_OR_CULTURAL_SIGNAL",
+              "SEMANTIC_INTERPRETATION",
+              "PRIVATE_OPS_REFERENCE",
+              "UNAVAILABLE_INPUT"
+            ]
+          },
+          "authoritative": {
+            "type": "boolean"
+          },
+          "mayOverrideTruth": {
+            "const": false
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "CANONICAL_FACT"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "DERIVED_FACT"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "LOCKED_OWNER_DECISION"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "OPERATIONAL_STATE"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "SOCIAL_OR_CULTURAL_SIGNAL"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "SEMANTIC_INTERPRETATION"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "PRIVATE_OPS_REFERENCE"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "classId": {
+                "const": "UNAVAILABLE_INPUT"
+              }
+            },
+            "required": [
+              "classId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "signalRules": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string"
+      }
+    },
+    "productRoles": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "roleId",
+          "required",
+          "definition"
+        ],
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "DETAIL",
+              "SUPPORTING",
+              "HERO"
+            ]
+          },
+          "required": {
+            "const": false
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "NONE"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "DETAIL"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "SUPPORTING"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "HERO"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "productRoleRules": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "characterRoles": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "roleId",
+          "definition"
+        ],
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "enum": [
+              "INA",
+              "SIS",
+              "DUO",
+              "NONE"
+            ]
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "INA"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "SIS"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "DUO"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "roleId": {
+                "const": "NONE"
+              }
+            },
+            "required": [
+              "roleId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "characterRoleRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "creativeFreedom": {
+      "type": "object",
+      "required": [
+        "statement",
+        "illustrativeGenres",
+        "genreListIsClosed",
+        "rule",
+        "inviolable"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "illustrativeGenres": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "type": "string"
+          }
+        },
+        "genreListIsClosed": {
+          "const": false
+        },
+        "rule": {
+          "type": "string"
+        },
+        "inviolable": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string",
+            "enum": [
+              "PRODUCT_TRUTH",
+              "HUMAN_IDENTITY"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "heritageRules": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "failureId",
+          "severity",
+          "definition",
+          "examples"
+        ],
+        "properties": {
+          "failureId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "HARD_FAIL",
+              "STOP"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "failureId": {
+                "const": "GENERIC_AI_AESTHETIC"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_TRUTH_CONTRADICTED"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "failureId": {
+                "const": "HUMAN_IDENTITY_CONTRADICTED"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "proposalRules": {
+      "type": "object",
+      "required": [
+        "defaultState",
+        "allowedStates",
+        "transition",
+        "selectionGrants",
+        "selectionDoesNotGrant",
+        "rule"
+      ],
+      "properties": {
+        "defaultState": {
+          "const": "PROPOSAL"
+        },
+        "allowedStates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "enum": [
+              "PROPOSAL",
+              "OWNER_SELECTED"
+            ]
+          }
+        },
+        "transition": {
+          "type": "object",
+          "required": [
+            "from",
+            "to",
+            "authority"
+          ],
+          "properties": {
+            "from": {
+              "const": "PROPOSAL"
+            },
+            "to": {
+              "const": "OWNER_SELECTED"
+            },
+            "authority": {
+              "const": "OWNER"
+            }
+          },
+          "additionalProperties": false
+        },
+        "selectionGrants": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "selectionDoesNotGrant": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rule": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "missingInputRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "contextObject": {
+      "type": "object",
+      "required": [
+        "schema",
+        "committed",
+        "note"
+      ],
+      "properties": {
+        "schema": {
+          "const": "01_CAMPAIGN_CONTEXT_OBJECT.schema.json"
+        },
+        "committed": {
+          "const": false
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "futureDependencies": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractNumber",
+          "dependency"
+        ],
+        "properties": {
+          "contractNumber": {
+            "type": "string",
+            "pattern": "^\\d{2}$"
+          },
+          "dependency": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "openItems": {
+      "type": "array",
+      "minItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "openItemsRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeControl": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "inheritance",
+    "purpose",
+    "scope",
+    "ideaFirstPrinciple",
+    "ideaMode",
+    "inputDomains",
+    "inputRequirementClasses",
+    "inputClasses",
+    "signalRules",
+    "productRoles",
+    "productRoleRules",
+    "characterRoles",
+    "characterRoleRules",
+    "creativeFreedom",
+    "heritageRules",
+    "hardFailures",
+    "proposalRules",
+    "missingInputRules",
+    "contextObject",
+    "privacyRules",
+    "futureDependencies",
+    "openItems",
+    "openItemsRule",
+    "changeControl"
+  ],
+  "x-requiredInputDomains": [
+    "WORLD_STORY_STATE",
+    "CULTURAL_SOCIAL_SIGNALS",
+    "BRAND_DNA_HERITAGE",
+    "CHARACTER_CONTEXT",
+    "CURRENT_PRODUCTS",
+    "TARGET_FORMAT"
+  ],
+  "x-requiredInputClasses": [
+    "CANONICAL_FACT",
+    "DERIVED_FACT",
+    "LOCKED_OWNER_DECISION",
+    "OPERATIONAL_STATE",
+    "SOCIAL_OR_CULTURAL_SIGNAL",
+    "SEMANTIC_INTERPRETATION",
+    "PRIVATE_OPS_REFERENCE",
+    "UNAVAILABLE_INPUT"
+  ],
+  "x-productRoles": [
+    "NONE",
+    "DETAIL",
+    "SUPPORTING",
+    "HERO"
+  ],
+  "x-characterRoles": [
+    "INA",
+    "SIS",
+    "DUO",
+    "NONE"
+  ]
+}
