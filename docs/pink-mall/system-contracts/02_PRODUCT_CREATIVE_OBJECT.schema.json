@@ -1,0 +1,1068 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/02_PRODUCT_CREATIVE_OBJECT.schema.json",
+  "title": "PINK MALL Product Reference Package",
+  "description": "Shape of the handoff a future Product Creative system assembles BEFORE generation. No such system exists. The package is a GENERATION INPUT, never a Product Truth record. Instances are snapshots and MUST NOT be committed to this public repository.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packageRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque reference, unique within this package only. Persistent ids belong to a future operational system and are NOT defined here."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "isProductTruthRecord": {
+      "const": false
+    },
+    "productIdentity": {
+      "type": "object",
+      "required": [
+        "pmId",
+        "manufacturerItemNumber",
+        "variant",
+        "truthSource",
+        "mayBeWrittenByCreativeSystem"
+      ],
+      "properties": {
+        "pmId": {
+          "type": "string",
+          "pattern": "^PM-\\d{3}$"
+        },
+        "manufacturerItemNumber": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "truthSource": {
+          "type": "string",
+          "enum": [
+            "PRODUCT_ONBOARDING_SYSTEM",
+            "CANONICAL_REPOSITORY"
+          ]
+        },
+        "mayBeWrittenByCreativeSystem": {
+          "const": false
+        },
+        "similarSkuSubstituted": {
+          "const": false
+        }
+      },
+      "additionalProperties": false,
+      "description": "Read from Product Truth. The exact SKU and exact variant are both required: a package that cannot name them cannot lock them."
+    },
+    "productRole": {
+      "type": "string",
+      "enum": [
+        "DETAIL",
+        "SUPPORTING",
+        "HERO"
+      ],
+      "description": "Set by contract 01. Role NONE means no real product is present, so no package is assembled at all — that is why NONE is absent from this enum rather than forbidden by contract 02."
+    },
+    "productGeometrySources": {
+      "type": "array",
+      "minItems": 1,
+      "description": "At least one exact-product geometry source is required. A package for a product-led task cannot be assembled without one.",
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceRef",
+          "derivesFromExactProduct",
+          "isAvatarFrame",
+          "isGenericCategoryImagery",
+          "isDifferentColourway"
+        ],
+        "properties": {
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derivesFromExactProduct": {
+            "const": true
+          },
+          "isAvatarFrame": {
+            "const": false
+          },
+          "isGenericCategoryImagery": {
+            "const": false
+          },
+          "isDifferentColourway": {
+            "const": false
+          },
+          "coversLockCategories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "IDENTITY",
+                "VARIANT",
+                "SILHOUETTE",
+                "GEOMETRY",
+                "CONSTRUCTION",
+                "PROPORTIONS",
+                "COLOUR",
+                "BRANDING_MARKINGS",
+                "DISTINCTIVE_DETAILS"
+              ]
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "productWearReference": {
+      "type": "object",
+      "required": [
+        "referenceRef",
+        "authoritativeForGeometry"
+      ],
+      "properties": {
+        "referenceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authoritativeForGeometry": {
+          "const": false
+        },
+        "informsPlacementOnly": {
+          "const": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Never geometry authority."
+    },
+    "productLocks": {
+      "type": "array",
+      "minItems": 9,
+      "description": "Every core lock must be present and engaged. Omitting one is how a product gets quietly redesigned.",
+      "items": {
+        "type": "object",
+        "required": [
+          "lockId",
+          "engaged"
+        ],
+        "properties": {
+          "lockId": {
+            "type": "string",
+            "enum": [
+              "IDENTITY",
+              "VARIANT",
+              "SILHOUETTE",
+              "GEOMETRY",
+              "CONSTRUCTION",
+              "PROPORTIONS",
+              "COLOUR",
+              "BRANDING_MARKINGS",
+              "DISTINCTIVE_DETAILS"
+            ]
+          },
+          "engaged": {
+            "const": true
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "IDENTITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "VARIANT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "SILHOUETTE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "GEOMETRY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "CONSTRUCTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "PROPORTIONS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "COLOUR"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "BRANDING_MARKINGS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "DISTINCTIVE_DETAILS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "IDENTITY"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "VARIANT"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "SILHOUETTE"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "GEOMETRY"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "CONSTRUCTION"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "PROPORTIONS"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "COLOUR"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "engaged"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "engaged": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "creativeFreedoms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "What the world around the product may become. Constrained by other contracts, not by this list."
+    },
+    "riskClassification": {
+      "type": "object",
+      "required": [
+        "clothingWornOnBody",
+        "riskLevel"
+      ],
+      "properties": {
+        "clothingWornOnBody": {
+          "type": "boolean"
+        },
+        "riskLevel": {
+          "type": "string",
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "clothingFit": {
+      "type": "object",
+      "required": [
+        "garmentGeometryEvidencePresent",
+        "wearFitEvidencePresent",
+        "fitStatus"
+      ],
+      "properties": {
+        "garmentGeometryEvidencePresent": {
+          "type": "boolean"
+        },
+        "wearFitEvidencePresent": {
+          "type": "boolean"
+        },
+        "fitStatus": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "avatarWardrobeUsedAsGarmentAuthority": {
+          "const": false
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Required whenever riskClassification.clothingWornOnBody is true. UNRESOLVED is a real, blocking outcome."
+    },
+    "productConfidence": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "knownUncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Declared, never invented away. An empty array asserts there are none."
+    },
+    "qaRequirements": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "gateId",
+          "required"
+        ],
+        "properties": {
+          "gateId": {
+            "type": "string",
+            "enum": [
+              "PRODUCT_IDENTITY",
+              "PRODUCT_VARIANT",
+              "SILHOUETTE",
+              "GEOMETRY_CONSTRUCTION",
+              "RELATIVE_PROPORTIONS",
+              "DISTINCTIVE_DETAILS",
+              "BRANDING_MARKINGS",
+              "HARDWARE_CLOSURES",
+              "CLOTHING_FIT_INTEGRITY",
+              "HUMAN_TRUTH_INTEGRITY"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "numericThreshold": {
+            "type": "null",
+            "description": "Always null. No numeric threshold is defined by contract 02."
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_IDENTITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_VARIANT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "SILHOUETTE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "GEOMETRY_CONSTRUCTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "RELATIVE_PROPORTIONS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "DISTINCTIVE_DETAILS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "BRANDING_MARKINGS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HARDWARE_CLOSURES"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "CLOTHING_FIT_INTEGRITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HUMAN_TRUTH_INTEGRITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_IDENTITY"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_VARIANT"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "SILHOUETTE"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "GEOMETRY_CONSTRUCTION"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "RELATIVE_PROPORTIONS"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HARDWARE_CLOSURES"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "CLOTHING_FIT_INTEGRITY"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "numericThreshold"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HUMAN_TRUTH_INTEGRITY"
+              },
+              "numericThreshold": {
+                "const": null
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "humanSubjects": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "INA",
+          "SIS",
+          "DUO"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Empty when no person is present. When non-empty, the human identity lock operates alongside the product lock."
+    },
+    "truthConstraints": {
+      "type": "object",
+      "required": [
+        "productTruthMayBeTransformed",
+        "humanIdentityMayBeTransformed",
+        "worldPhysicsMayBreak"
+      ],
+      "properties": {
+        "productTruthMayBeTransformed": {
+          "const": false
+        },
+        "humanIdentityMayBeTransformed": {
+          "const": false
+        },
+        "worldPhysicsMayBreak": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "executionLayer": {
+      "type": "object",
+      "required": [
+        "provider",
+        "isAuthoritative"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "isAuthoritative": {
+          "const": false
+        },
+        "mayProduce": {
+          "type": "array",
+          "const": [
+            "GENERATED_OUTPUT"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputStatus": {
+      "type": "object",
+      "required": [
+        "truthClass",
+        "state",
+        "mediaClass"
+      ],
+      "properties": {
+        "truthClass": {
+          "const": "GENERATED_OUTPUT"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "CANDIDATE",
+            "QA_PASSED",
+            "QA_FAILED",
+            "QA_UNRESOLVED"
+          ]
+        },
+        "mediaClass": {
+          "type": "string",
+          "enum": [
+            "CAMPAIGN_MEDIA",
+            "DERIVATIVE_MEDIA"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "CANONICAL_COMMERCE_MEDIA is deliberately absent from mediaClass: a generated depiction may never enter the canonical commerce media path."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "packageRef",
+    "generatedAt",
+    "isProductTruthRecord",
+    "productIdentity",
+    "productRole",
+    "productGeometrySources",
+    "productLocks",
+    "creativeFreedoms",
+    "riskClassification",
+    "productConfidence",
+    "knownUncertainties",
+    "qaRequirements",
+    "humanSubjects",
+    "truthConstraints",
+    "executionLayer",
+    "outputStatus"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "riskClassification"
+        ],
+        "properties": {
+          "riskClassification": {
+            "required": [
+              "clothingWornOnBody"
+            ],
+            "properties": {
+              "clothingWornOnBody": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "clothingFit"
+        ]
+      }
+    }
+  ],
+  "x-notPermittedStates": [
+    "APPROVED",
+    "APPROVED_SPEND",
+    "PUBLISHED",
+    "SCHEDULED",
+    "EXECUTING"
+  ],
+  "x-notPermittedMediaClass": [
+    "CANONICAL_COMMERCE_MEDIA"
+  ],
+  "x-numericThresholdsDefined": false,
+  "x-note": "The package is a generation input. It grants no approval, spend or publication authority, and it cannot express an approved or published state — those belong to contract 06."
+}
