@@ -515,8 +515,16 @@ def main():
           f"{mlow.count('undefined')} occurrences, all in the rule that forbids it")
     check("    matrix defers private detail with the locked phrasing",
           "private detail deferred to private ops layer" in mlow)
-    check("    matrix still records zero detailed contracts created",
-          "zero" in mlow and "detailed canonical contract" in mlow)
+    # This once read "still records zero detailed contracts created". That was a
+    # point-in-time fact, not an invariant: it had to fail the moment the first
+    # domain contract was authored. What the matrix must actually never do is
+    # let authoring a contract pass for canonicality, so that is what is checked.
+    check("    matrix keeps the detailed-contract column honest",
+          "detailed canonical contract" in mlow or "detailed contract authored" in mlow)
+    check("    matrix never lets authoring a contract pass for canonicality",
+          ("authored" not in mlow)
+          or ("four conditions" in mlow and "not a canonicality test" in mlow),
+          "matrix claims contracts are authored without deferring to the four conditions")
 
     # ── source registry: complete, exactly-once, and referentially sound ──
     # Authority domains address sources by id, so a missing or duplicated
