@@ -33,7 +33,7 @@ where a real validator would read it.
 
 Standard library only, by design.
 """
-import json, os, sys
+import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -55,9 +55,30 @@ INPUT_DOMAINS = ["WORLD_STORY_STATE", "CULTURAL_SOCIAL_SIGNALS", "BRAND_DNA_HERI
                  "CHARACTER_CONTEXT", "CURRENT_PRODUCTS", "TARGET_FORMAT"]
 REQUIRED_TRUTH_DOMAINS = {"BRAND_DNA_HERITAGE", "CURRENT_PRODUCTS", "TARGET_FORMAT"}
 OPTIONAL_DOMAINS = set(INPUT_DOMAINS) - REQUIRED_TRUTH_DOMAINS
+# Authority is pinned per class, not left to a free boolean. A reference to
+# private material is a pointer, not a fact: the future PRIVATE_OPS_STORE may
+# hold authority in domains contract 00 assigns it, but the pointer carried by a
+# campaign context does not acquire that authority by pointing there.
+INPUT_CLASS_AUTHORITY = {
+    "CANONICAL_FACT": True, "DERIVED_FACT": True, "LOCKED_OWNER_DECISION": True,
+    "OPERATIONAL_STATE": True, "SOCIAL_OR_CULTURAL_SIGNAL": False,
+    "SEMANTIC_INTERPRETATION": False, "PRIVATE_OPS_REFERENCE": False,
+    "UNAVAILABLE_INPUT": False,
+}
 INPUT_CLASSES = ["CANONICAL_FACT", "DERIVED_FACT", "LOCKED_OWNER_DECISION", "OPERATIONAL_STATE",
                  "SOCIAL_OR_CULTURAL_SIGNAL", "SEMANTIC_INTERPRETATION", "PRIVATE_OPS_REFERENCE",
                  "UNAVAILABLE_INPUT"]
+# The single source of truth for domain requirement, shared by the semantic
+# checker and by the structural proof that the schema encodes the same map.
+DOMAIN_REQUIREMENT = {
+    "WORLD_STORY_STATE": "OPTIONAL_CONTEXT_INPUT",
+    "CULTURAL_SOCIAL_SIGNALS": "OPTIONAL_CONTEXT_INPUT",
+    "BRAND_DNA_HERITAGE": "REQUIRED_TRUTH_INPUT",
+    "CHARACTER_CONTEXT": "OPTIONAL_CONTEXT_INPUT",
+    "CURRENT_PRODUCTS": "REQUIRED_TRUTH_INPUT",
+    "TARGET_FORMAT": "REQUIRED_TRUTH_INPUT",
+}
+SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 PRODUCT_ROLES   = ["NONE", "DETAIL", "SUPPORTING", "HERO"]
 CHARACTER_ROLES = ["INA", "SIS", "DUO", "NONE"]
 AVAILABILITY    = ["AVAILABLE", "UNAVAILABLE", "NOT_APPLICABLE"]
@@ -138,13 +159,22 @@ def check_package(pkg):
             if r.get("requirement") not in REQUIREMENTS:
                 e.append(f"{dom}: requirement {r.get('requirement')!r} not in vocabulary")
             # The requirement is contract-fixed; a package may not downgrade it.
-            if dom in REQUIRED_TRUTH_DOMAINS and r.get("requirement") != "REQUIRED_TRUTH_INPUT":
-                e.append(f"{dom} is a REQUIRED_TRUTH_INPUT and may not be relabelled")
-            if dom in OPTIONAL_DOMAINS and r.get("requirement") != "OPTIONAL_CONTEXT_INPUT":
-                e.append(f"{dom} is an OPTIONAL_CONTEXT_INPUT and may not be relabelled")
+            fixed = DOMAIN_REQUIREMENT.get(dom)
+            if fixed and r.get("requirement") != fixed:
+                e.append(f"{dom} is a {fixed} and may not be relabelled")
             # A required truth input that is missing is a STOP, not a package.
             if dom in REQUIRED_TRUTH_DOMAINS and r.get("availability") != "AVAILABLE":
                 e.append(f"{dom} is a REQUIRED_TRUTH_INPUT and is not AVAILABLE: STOP condition")
+            # UNAVAILABLE and UNAVAILABLE_INPUT are two views of one fact: the
+            # input could not be obtained. Neither may be stated without the
+            # other, or a later system reads a provenance class as evidence
+            # that something was actually supplied.
+            if (r.get("availability") == "UNAVAILABLE"
+                    and r.get("inputClass") != "UNAVAILABLE_INPUT"):
+                e.append(f"{dom}: availability UNAVAILABLE requires inputClass UNAVAILABLE_INPUT")
+            if (r.get("inputClass") == "UNAVAILABLE_INPUT"
+                    and r.get("availability") != "UNAVAILABLE"):
+                e.append(f"{dom}: inputClass UNAVAILABLE_INPUT requires availability UNAVAILABLE")
             for k in r:
                 if k not in ("domainId", "availability", "inputClass", "requirement", "note"):
                     e.append(f"{dom}: unknown inputSummary key {k}")
@@ -220,7 +250,7 @@ def valid_package():
                     "OPTIONAL_CONTEXT_INPUT"),
             summary("CULTURAL_SOCIAL_SIGNALS", "UNAVAILABLE", "UNAVAILABLE_INPUT",
                     "OPTIONAL_CONTEXT_INPUT"),
-            summary("BRAND_DNA_HERITAGE", "AVAILABLE", "LOCKED_OWNER_DECISION",
+            summary("BRAND_DNA_HERITAGE", "AVAILABLE", "CANONICAL_FACT",
                     "REQUIRED_TRUTH_INPUT"),
             summary("CHARACTER_CONTEXT", "UNAVAILABLE", "UNAVAILABLE_INPUT",
                     "OPTIONAL_CONTEXT_INPUT"),
@@ -287,8 +317,19 @@ def main():
           c.get("status") in ("CANDIDATE", "CANONICAL", "SUPERSEDED"), str(c.get("status")))
     check("7. human-readable contract states the same id and version",
           c["contractId"] in md and c["version"] in md)
-    check("8. version is semantic", len(str(c.get("version", "")).split(".")) == 3,
+    # Counting dots called "foo.bar.baz" a semantic version. Because no JSON
+    # Schema engine runs here, this validator must itself enforce the claim it
+    # prints, so it applies the same pattern the schema specifies.
+    check("8. version is a semantic version", bool(SEMVER.fullmatch(str(c.get("version", "")))),
           str(c.get("version")))
+    check("    the contract schema expresses the same version rule",
+          schema.get("properties", {}).get("version", {}).get("pattern")
+          in (r"^\d+\.\d+\.\d+$", SEMVER.pattern),
+          str(schema.get("properties", {}).get("version", {}).get("pattern")))
+    check("    that pattern and this validator agree on what they accept",
+          all(bool(re.fullmatch(schema["properties"]["version"]["pattern"], v))
+              == bool(SEMVER.fullmatch(v))
+              for v in ("1.0.0", "foo.bar.baz", "1.0", "1.0.0.0", "v1.0.0", "1.0.x")))
 
     # ── B. inheritance and non-contradiction of the parent ───────────────────
     print("\nB. inheritance from contract 00")
@@ -338,9 +379,20 @@ def main():
           all(x.get("mayOverrideTruth") is False for x in c.get("inputClasses", [])),
           str([x["classId"] for x in c.get("inputClasses", [])
                if x.get("mayOverrideTruth") is not False]))
-    check("23. signal classes are not authoritative",
-          all(x.get("authoritative") is False for x in c.get("inputClasses", [])
-              if x["classId"] in ("SOCIAL_OR_CULTURAL_SIGNAL", "SEMANTIC_INTERPRETATION")))
+    got = {x.get("classId"): x.get("authoritative") for x in c.get("inputClasses", [])}
+    check("23. every input class carries its pinned authority value",
+          got == INPUT_CLASS_AUTHORITY,
+          str({k: v for k, v in got.items() if INPUT_CLASS_AUTHORITY.get(k) is not v}))
+    check("    a reference to private material is not itself authority",
+          got.get("PRIVATE_OPS_REFERENCE") is False, str(got.get("PRIVATE_OPS_REFERENCE")))
+    check("    an unobtainable input is not authority",
+          got.get("UNAVAILABLE_INPUT") is False)
+    check("    signals and interpretations are not authority",
+          got.get("SOCIAL_OR_CULTURAL_SIGNAL") is False
+          and got.get("SEMANTIC_INTERPRETATION") is False)
+    check("    the four canonical-origin classes remain authoritative",
+          all(got.get(k) is True for k in ("CANONICAL_FACT", "DERIVED_FACT",
+                                           "LOCKED_OWNER_DECISION", "OPERATIONAL_STATE")))
 
     im = c.get("ideaMode", {})
     check("24. INITIAL mode requires exactly three proposals per cycle",
@@ -407,23 +459,66 @@ def main():
     print("\nE. schema structure (read from the schema documents, not their prose)")
     sp = schema.get("properties", {})
 
+    def _rules(node, key):
+        """allOf entries whose `contains` pins `key` to a const, split by shape.
+
+        An identity rule constrains the key alone and carries min=max=1, so it
+        proves the id appears exactly once. A binding rule additionally pins a
+        second field and carries minContains only: paired with the identity rule
+        it proves THE one record with that id carries that value. maxContains on
+        a binding rule would be weaker, not stronger — a non-matching duplicate
+        would satisfy it.
+        """
+        ident, bound = {}, {}
+        for rule in node.get("allOf", []):
+            props = rule.get("contains", {}).get("properties", {})
+            const = props.get(key, {}).get("const")
+            if const is None:
+                continue
+            (ident if set(props) == {key} else bound).setdefault(const, []).append(rule)
+        return ident, bound
+
     def exactly_once(node, key, expected):
         """Prove a schema array requires each id exactly once via allOf/contains."""
-        cov, bad = set(), []
-        for rule in node.get("allOf", []):
-            const = rule.get("contains", {}).get("properties", {}).get(key, {}).get("const")
-            if const is None:
-                bad.append("malformed rule")
-                continue
-            cov.add(const)
-            if rule.get("minContains") != 1 or rule.get("maxContains") != 1:
-                bad.append(const)
+        ident, _ = _rules(node, key)
+        bad = [k for k, rs in ident.items()
+               if not any(r.get("minContains") == 1 and r.get("maxContains") == 1 for r in rs)]
+        cov = set(ident)
         return cov == set(expected) and not bad, f"covered={sorted(cov)} bad={bad}"
+
+    def binds(node, key, field, mapping):
+        """Prove each id is bound to its expected value for `field`.
+
+        Relies on exactly_once holding for the same key: exactly one record
+        carries the id, and at least one record carries id AND value, so that
+        one record carries the value.
+        """
+        _, bound = _rules(node, key)
+        missing, wrong = [], []
+        for ident, expected in mapping.items():
+            rules = bound.get(ident, [])
+            hit = [r for r in rules
+                   if r.get("contains", {}).get("properties", {}).get(field, {})
+                   .get("const", "\0MISSING") == expected
+                   and r.get("minContains", 0) >= 1
+                   and field in r.get("contains", {}).get("required", [])]
+            if not rules:
+                missing.append(ident)
+            elif not hit:
+                wrong.append(f"{ident}->{expected!r}")
+        return not missing and not wrong, f"unbound={missing} wrong={wrong}"
 
     ok, d = exactly_once(sp.get("inputDomains", {}), "domainId", INPUT_DOMAINS)
     check("47. contract schema requires each input domain exactly once", ok, d)
     ok, d = exactly_once(sp.get("inputClasses", {}), "classId", INPUT_CLASSES)
     check("48. contract schema requires each input class exactly once", ok, d)
+    ok, d = binds(sp.get("inputClasses", {}), "classId", "authoritative", INPUT_CLASS_AUTHORITY)
+    check("    contract schema pins each class's authority value", ok, d)
+    check("    contract schema leaves no class authority as a free boolean",
+          sp.get("inputClasses", {}).get("items", {}).get("properties", {})
+          .get("mayOverrideTruth", {}).get("const") is False and ok)
+    check("    contract schema records the authority map for readers",
+          schema.get("x-inputClassAuthority") == INPUT_CLASS_AUTHORITY)
     ok, d = exactly_once(sp.get("productRoles", {}), "roleId", PRODUCT_ROLES)
     check("49. contract schema requires each product role exactly once", ok, d)
     ok, d = exactly_once(sp.get("characterRoles", {}), "roleId", CHARACTER_ROLES)
@@ -465,6 +560,38 @@ def main():
           str(sorted(set(IDEA_REQUIRED) - set(ideas_node.get("items", {}).get("required", [])))))
     ok, d = exactly_once(op.get("inputSummary", {}), "domainId", INPUT_DOMAINS)
     check("64. object schema requires provenance for each input domain exactly once", ok, d)
+    # The semantic checker enforces these two rules, so the schema must encode
+    # them too: otherwise the validator's own claim that every rule it enforces
+    # is mirrored in the schema would be false.
+    ok, d = binds(op.get("inputSummary", {}), "domainId", "requirement", DOMAIN_REQUIREMENT)
+    check("    object schema binds each domain to its contract-fixed requirement", ok, d)
+    ok, d = binds(op.get("inputSummary", {}), "domainId", "availability",
+                  {k: "AVAILABLE" for k in REQUIRED_TRUTH_DOMAINS})
+    check("    object schema pins every REQUIRED_TRUTH_INPUT to AVAILABLE", ok, d)
+    _, obound = _rules(op.get("inputSummary", {}), "domainId")
+    pinned_avail = {k for k, rs in obound.items()
+                    if any("availability" in r.get("contains", {}).get("properties", {})
+                           for r in rs)}
+    check("    object schema leaves optional domains free to be unavailable",
+          not (pinned_avail & OPTIONAL_DOMAINS), str(sorted(pinned_avail & OPTIONAL_DOMAINS)))
+    check("    object schema and semantic checker share one requirement map",
+          op.get("inputSummary", {}) is not None
+          and obj.get("x-domainRequirement") == DOMAIN_REQUIREMENT,
+          str(obj.get("x-domainRequirement")))
+    # UNAVAILABLE <-> UNAVAILABLE_INPUT, encoded as a pair of if/then rules.
+    conds = op.get("inputSummary", {}).get("items", {}).get("allOf", [])
+
+    def _implies(if_field, if_val, then_field, then_val):
+        return any(r.get("if", {}).get("properties", {}).get(if_field, {}).get("const") == if_val
+                   and r.get("then", {}).get("properties", {}).get(then_field, {})
+                   .get("const") == then_val for r in conds)
+
+    check("    object schema requires UNAVAILABLE to carry UNAVAILABLE_INPUT",
+          _implies("availability", "UNAVAILABLE", "inputClass", "UNAVAILABLE_INPUT"))
+    check("    object schema requires UNAVAILABLE_INPUT to be UNAVAILABLE",
+          _implies("inputClass", "UNAVAILABLE_INPUT", "availability", "UNAVAILABLE"))
+    check("    object schema documents what UNAVAILABLE means for provenance",
+          "NOT_APPLICABLE" in str(obj.get("x-unavailableSemantics", "")))
     isum_props = op.get("inputSummary", {}).get("items", {}).get("properties", {})
     check("65. object schema requires availability to be declared, not implied",
           isum_props.get("availability", {}).get("enum") == AVAILABILITY
@@ -510,9 +637,47 @@ def main():
             lambda p: p["inputSummary"][0].__setitem__("availability", "MAYBE"), "availability")
     rejects("80. a missing REQUIRED_TRUTH_INPUT is REJECTED as a STOP condition",
             lambda p: p["inputSummary"][4].__setitem__("availability", "UNAVAILABLE"), "STOP")
-    rejects("81. relabelling a required truth input as optional is REJECTED",
-            lambda p: p["inputSummary"][4].__setitem__("requirement", "OPTIONAL_CONTEXT_INPUT"),
-            "may not be relabelled")
+    idx = {d: i for i, d in enumerate(INPUT_DOMAINS)}
+    rejects("81. relabelling CURRENT_PRODUCTS as optional is REJECTED",
+            lambda p: p["inputSummary"][idx["CURRENT_PRODUCTS"]]
+            .__setitem__("requirement", "OPTIONAL_CONTEXT_INPUT"), "may not be relabelled")
+    rejects("    relabelling TARGET_FORMAT as optional is REJECTED",
+            lambda p: p["inputSummary"][idx["TARGET_FORMAT"]]
+            .__setitem__("requirement", "OPTIONAL_CONTEXT_INPUT"), "may not be relabelled")
+    rejects("    relabelling BRAND_DNA_HERITAGE as optional is REJECTED",
+            lambda p: p["inputSummary"][idx["BRAND_DNA_HERITAGE"]]
+            .__setitem__("requirement", "OPTIONAL_CONTEXT_INPUT"), "may not be relabelled")
+    rejects("    promoting an optional domain to required truth is REJECTED",
+            lambda p: p["inputSummary"][idx["WORLD_STORY_STATE"]]
+            .__setitem__("requirement", "REQUIRED_TRUTH_INPUT"), "may not be relabelled")
+
+    def _unavailable(dom):
+        def fn(p):
+            r = p["inputSummary"][idx[dom]]
+            r["availability"] = "UNAVAILABLE"
+            r["inputClass"] = "UNAVAILABLE_INPUT"
+        return fn
+
+    rejects("    an unavailable CURRENT_PRODUCTS is REJECTED as a STOP condition",
+            _unavailable("CURRENT_PRODUCTS"), "STOP")
+    rejects("    an unavailable BRAND_DNA_HERITAGE is REJECTED as a STOP condition",
+            _unavailable("BRAND_DNA_HERITAGE"), "STOP")
+    rejects("    an unavailable TARGET_FORMAT is REJECTED as a STOP condition",
+            _unavailable("TARGET_FORMAT"), "STOP")
+    rejects("    UNAVAILABLE carrying a provenance class is REJECTED",
+            lambda p: p["inputSummary"][idx["WORLD_STORY_STATE"]]
+            .__setitem__("inputClass", "OPERATIONAL_STATE"), "requires inputClass")
+    rejects("    UNAVAILABLE_INPUT claimed AVAILABLE is REJECTED",
+            lambda p: p["inputSummary"][idx["CHARACTER_CONTEXT"]]
+            .__setitem__("availability", "AVAILABLE"), "requires availability UNAVAILABLE")
+
+    def _optional_unavailable(p):
+        r = p["inputSummary"][idx["CULTURAL_SOCIAL_SIGNALS"]]
+        r["availability"], r["inputClass"] = "UNAVAILABLE", "UNAVAILABLE_INPUT"
+
+    check("    an unavailable OPTIONAL domain is still ACCEPTED",
+          not check_package(mutate(_optional_unavailable)),
+          str(check_package(mutate(_optional_unavailable))[:3]))
     rejects("82. a PUBLISHED idea state is REJECTED",
             lambda p: p["ideas"][0].__setitem__("state", "PUBLISHED"), "state")
     rejects("83. an APPROVED_SPEND idea state is REJECTED",
@@ -617,6 +782,18 @@ def main():
           "Open items" in md and "MUST NOT" in md)
     check("108. the markdown does not claim a Campaign Context Builder exists",
           "no builder exists" in md_plain.lower() or "does not exist" in md_plain.lower())
+    # The human-readable authority column and the JSON must not disagree again.
+    for cid, auth in sorted(INPUT_CLASS_AUTHORITY.items()):
+        row = next((ln for ln in md.splitlines()
+                    if ln.strip().startswith(f"| `{cid}`")), None)
+        cells = [x.strip().lower() for x in row.split("|")] if row else []
+        word = "yes" if auth else "no"
+        check(f"    markdown authority column agrees for {cid}",
+              row is not None and word in cells, str(row)[:90])
+    check("109. the markdown states the UNAVAILABLE / UNAVAILABLE_INPUT equivalence",
+          "UNAVAILABLE_INPUT" in md and "each implies the other" in md_plain.lower())
+    check("110. the markdown keeps NOT_APPLICABLE distinct from UNAVAILABLE",
+          "NOT_APPLICABLE" in md and "not sought" in md_plain.lower())
 
     print(f"\n{len(c.get('inputDomains', []))} input domains, "
           f"{len(c.get('inputClasses', []))} input classes, "

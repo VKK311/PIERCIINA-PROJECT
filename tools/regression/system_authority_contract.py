@@ -58,6 +58,21 @@ PLANNED_SOURCES = {"CAMPAIGN_REGISTRY", "STORY_STATE_ENGINE", "SOCIAL_PLATFORM_A
 # Facts Super Brain must never own, phrased as the contract phrases them.
 SEMANTIC_FORBIDDEN = ["PM IDs", "prices", "sizes", "canonical product identity",
                       "approval state", "exact publication state"]
+# The reserved sequence is a STATIC identity registry. Counting nine slots with
+# nine unique numbers and nine unique ids would still admit two slots swapping
+# identities, which silently re-assigns a reserved slot. The mapping itself is
+# therefore the thing under test.
+RESERVED_SEQUENCE = {
+    "00": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+    "01": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+    "02": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+    "03": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+    "04": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+    "05": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+    "06": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+    "07": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+    "08": "PINK_MALL_HQ_CONTRACT",
+}
 EIGHT_INTERVIEWS = [
     "Campaign Context", "Product Creative", "Character & Story",
     "Social Intelligence", "Workstation Operating", "Automation & Approval",
@@ -299,6 +314,18 @@ def main():
     check("    reserved contract numbers are unique and cover 00-08",
           len(pcnums) == len(set(pcnums)) and {f"{i:02d}" for i in range(9)} <= set(pcnums),
           str(sorted(pcnums)))
+    mapping = {p.get("contractNumber"): p.get("contractId") for p in pc}
+    wrong = {n: mapping.get(n) for n, cid in RESERVED_SEQUENCE.items() if mapping.get(n) != cid}
+    check("    every reserved slot carries its expected contract id",
+          mapping == RESERVED_SEQUENCE, f"wrong={wrong}")
+    check("    every expected slot appears exactly once",
+          all(pcnums.count(n) == 1 for n in RESERVED_SEQUENCE),
+          str([n for n in RESERVED_SEQUENCE if pcnums.count(n) != 1]))
+    check("    no unknown slot number or contract id appears",
+          not (set(pcnums) - set(RESERVED_SEQUENCE))
+          and not (set(pcids) - set(RESERVED_SEQUENCE.values())),
+          f"numbers={sorted(set(pcnums) - set(RESERVED_SEQUENCE))} "
+          f"ids={sorted(set(pcids) - set(RESERVED_SEQUENCE.values()))}")
     check("    every reserved slot names a scope",
           all(p.get("scope") for p in pc),
           str([p.get("contractNumber") for p in pc if not p.get("scope")]))
@@ -525,6 +552,18 @@ def main():
           ("authored" not in mlow)
           or ("four conditions" in mlow and "not a canonicality test" in mlow),
           "matrix claims contracts are authored without deferring to the four conditions")
+    # The matrix must not say "no contracts are being authored" in one place while
+    # recording contract 01 as authored in another. Matching the claim, not one
+    # sentence: any phrasing that denies authoring is caught.
+    DENIES = ["not being authored", "are not being written", "not yet being authored",
+              "none are being authored", "no detailed contracts", "zero detailed",
+              "not being created", "aren't being authored", "are not authored"]
+    denials = [d for d in DENIES if d in mlow]
+    records_authored = ("authored" in mlow or "files exist in this lineage" in mlow)
+    check("    matrix does not deny authoring while recording a contract as authored",
+          not (denials and records_authored), f"denials={denials}")
+    check("    matrix names contract 01 as authored in this lineage",
+          "01" in mlow and "lineage" in mlow)
 
     # ── source registry: complete, exactly-once, and referentially sound ──
     # Authority domains address sources by id, so a missing or duplicated
@@ -585,6 +624,29 @@ def main():
     check("    schema rejects unknown status values",
           props.get("canonicalityRule", {}).get("properties", {})
           .get("statusFieldSemantics", {}).get("additionalProperties") is False)
+    slots_node = (props.get("contractSequence", {}).get("properties", {})
+                  .get("slots", {}))
+    ident, bound = {}, {}
+    for rule in slots_node.get("allOf", []):
+        cprops = rule.get("contains", {}).get("properties", {})
+        num = cprops.get("contractNumber", {}).get("const")
+        if num is None:
+            continue
+        (ident if set(cprops) == {"contractNumber"} else bound)[num] = rule
+    check("    schema requires each reserved slot number exactly once",
+          set(ident) == set(RESERVED_SEQUENCE)
+          and all(r.get("minContains") == 1 and r.get("maxContains") == 1
+                  for r in ident.values()),
+          f"covered={sorted(ident)}")
+    badbind = {n: bound.get(n, {}).get("contains", {}).get("properties", {})
+               .get("contractId", {}).get("const")
+               for n, cid in RESERVED_SEQUENCE.items()
+               if bound.get(n, {}).get("contains", {}).get("properties", {})
+               .get("contractId", {}).get("const") != cid}
+    check("    schema binds each slot number to its reserved contract id, not the "
+          "number alone", not badbind, f"wrong={badbind}")
+    check("    schema records the reserved identity map for readers",
+          schema.get("x-contractSequenceIdentity") == RESERVED_SEQUENCE)
     check("    schema requires at least four canonicality conditions",
           props.get("canonicalityRule", {}).get("properties", {})
           .get("conditions", {}).get("minItems") == 4)
