@@ -39,7 +39,7 @@ structural checks show the rule is written where a real validator would read it.
 
 Standard library only, by design.
 """
-import json, os, re, sys
+import glob, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -1278,6 +1278,68 @@ def main():
               str([i for i in range(1, 9) if f"### {i}." not in matrix]))
         check("    the matrix still keeps the three states apart",
               "awaiting canonical contract" in mlow and "genuinely open" in mlow)
+
+        # A global "still awaiting" statement that contradicts a per-domain row
+        # is how a reader who scrolls least far gets the wrong answer. The
+        # expectation is derived from which contract files actually exist, so
+        # this guard never becomes the stale thing it exists to catch.
+        matrix_plain = " ".join(matrix.replace("*", "").replace("`", "")
+                                .replace("\u2013", "-").replace("\u2014", "-").split()).lower()
+        authored = sorted(n for n in (f"{i:02d}" for i in range(9))
+                          if glob.glob(os.path.join(CDIR, f"{n}_*_CONTRACT.json")))
+        awaiting = [n for n in (f"{i:02d}" for i in range(9)) if n not in authored]
+        records_02 = ("product creative" in matrix_plain
+                      and ("authored" in matrix_plain or "exist in this lineage" in matrix_plain))
+        # Any global range that would sweep an authored contract into "awaiting",
+        # in either the domain or contract phrasing, with an en-dash or a hyphen.
+        stale = [f"{lead} {n}-08 {tail}"
+                 for n in authored if n != "00"
+                 for lead in ("domains", "contracts", "domain", "contract")
+                 for tail in ("are still awaiting", "still awaiting", "are awaiting",
+                              "still await", "await")
+                 if f"{lead} {n}-08 {tail}" in matrix_plain]
+        check("155. the matrix makes no global claim that an authored contract is still awaiting",
+              not (records_02 and stale), f"stale={stale[:3]}")
+        first_awaiting = awaiting[0] if awaiting else None
+        check("    the matrix names every authored contract as authored",
+              all(f"contract {n}" in matrix_plain or f" {n} -" in matrix_plain
+                  for n in authored if n != "00"),
+              f"authored={authored}")
+        check("    only the genuinely unwritten contracts are described as awaiting",
+              first_awaiting is None or f"{first_awaiting}-08" in matrix_plain,
+              f"expected the awaiting range to start at {first_awaiting}")
+        # Prose claims only: a markdown table legitimately holds "authored" cells
+        # and "03-08" target cells in the same block, so scanning it as one
+        # sentence is a false positive. The table gets its own row-wise check.
+        prose = " ".join(ln for ln in matrix.splitlines() if not ln.strip().startswith("|"))
+        prose_plain = " ".join(prose.replace("*", "").replace("`", "")
+                               .replace("\u2013", "-").replace("\u2014", "-").split()).lower()
+        claim_sentences = [seg for seg in re.split(r"(?<=[.;:])\s+", prose_plain)
+                           if "authored" in seg and "contract" in seg
+                           and "await" not in seg and "incrementally" not in seg]
+        wrongly_claimed = sorted({n for seg in claim_sentences for n in awaiting
+                                  if re.search(rf"(?<!\d){n}(?!\d)", seg)})
+        check("    the matrix prose does not name an unwritten contract as authored",
+              not wrongly_claimed,
+              f"claimed-but-absent={wrongly_claimed} awaiting={awaiting}")
+        # The summary table, row by row: the created column must agree with disk.
+        rows, bad_rows = [], []
+        for ln in matrix.splitlines():
+            cells = [c.strip() for c in ln.strip().strip("|").split("|")]
+            if len(cells) >= 5 and cells[0].isdigit():
+                # A row may target more than one contract, e.g. "03, 04".
+                targets = re.findall(r"\d{2}", cells[4])
+                if targets:
+                    rows.append((cells[0], targets, cells[3].lower()))
+        for row_no, targets, created in rows:
+            says_authored = "authored" in created
+            # Authored only if every contract the row points at exists.
+            exists = all(t in authored for t in targets)
+            if says_authored != exists:
+                bad_rows.append(f"row {row_no} -> {targets}: table says {created!r}, "
+                                f"all files exist={exists}")
+        check("    every summary row agrees with which contract files exist",
+              len(rows) == 8 and not bad_rows, f"rows={len(rows)}/8 bad={bad_rows}")
     else:
         check("153. the decision-coverage matrix exists", False, MATRIX_PATH)
 
