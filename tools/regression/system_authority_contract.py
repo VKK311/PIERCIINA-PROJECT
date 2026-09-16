@@ -64,6 +64,20 @@ EIGHT_INTERVIEWS = [
     "Super Brain Memory", "PINK MALL HQ",
 ]
 
+# Spelled-out and numeric forms of a count, for prose that states how many
+# canonicality conditions there are. Checking meaning rather than punctuation.
+NUMBER_WORDS = {1: ("one", "1"), 2: ("two", "2"), 3: ("three", "3"),
+                4: ("four", "4"), 5: ("five", "5"), 6: ("six", "6")}
+
+
+def _states_count(text, n):
+    """True if text asserts n conditions, in words or digits."""
+    low = text.lower()
+    return any(f"{w} condition" in low or f"{w}** condition" in low or
+               f"all {w}" in low or f"all **{w}**" in low
+               for w in NUMBER_WORDS[n])
+
+
 passed, failed = 0, 0
 
 
@@ -128,6 +142,16 @@ def main():
                           ("validator", "validator"),
                           ("not superseded", "superseded")):
         check(f"   condition present: {label}", needle in joined)
+    # The prose statement and the conditions array are two representations of
+    # one fact, and they drifted apart once: conditions grew to four while the
+    # statement still said three. Agreement is asserted by meaning rather than
+    # by exact sentence, so rewording stays allowed and miscounting does not.
+    stmt = cr.get("statement", "")
+    n = len(conds)
+    check("   canonicalityRule.statement agrees with the conditions array",
+          _states_count(stmt, n), f"{n} conditions, statement says: {stmt!r}")
+    check("   statement does not claim three conditions",
+          not _states_count(stmt, 3) or n == 3, f"statement={stmt!r}")
     check("   file existence alone is NOT canonicality",
           cr.get("fileExistenceImpliesCanonicality") is False)
     check("   candidate branch is declared review material",
@@ -291,6 +315,19 @@ def main():
           "00_SYSTEM_AUTHORITY_CONTRACT" in idx)
     check("    index states the canonicality rule",
           "canonical" in idx.lower() and "candidate branch" in idx.lower())
+    # Condition-count agreement across all three representations. Scoped to the
+    # canonicality passage, because 'all three states' elsewhere in the index
+    # describes decision states and is not a condition count.
+    for label, text in (("markdown", md), ("index", idx)):
+        low = text.lower()
+        at = low.find("canonical only when")
+        window = low[at:at + 240] if at >= 0 else ""
+        check(f"    {label} states the canonicality condition count as {len(conds)}",
+              bool(window) and _states_count(window, len(conds)),
+              f"window={window[:70]!r}")
+        check(f"    {label} canonicality passage does not say three",
+              not (window and len(conds) != 3 and _states_count(window, 3)))
+
     check("    index marks the eight future contracts as not yet created",
           idx.upper().count("NOT YET CREATED") >= 8,
           f"{idx.upper().count('NOT YET CREATED')} occurrences")
