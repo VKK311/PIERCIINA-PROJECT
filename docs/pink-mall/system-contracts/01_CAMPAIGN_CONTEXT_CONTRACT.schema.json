@@ -472,8 +472,153 @@
           },
           "minContains": 1,
           "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "CANONICAL_FACT"
+              },
+              "authoritative": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "DERIVED_FACT"
+              },
+              "authoritative": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "LOCKED_OWNER_DECISION"
+              },
+              "authoritative": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "OPERATIONAL_STATE"
+              },
+              "authoritative": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "SOCIAL_OR_CULTURAL_SIGNAL"
+              },
+              "authoritative": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "SEMANTIC_INTERPRETATION"
+              },
+              "authoritative": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "PRIVATE_OPS_REFERENCE"
+              },
+              "authoritative": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "authoritative"
+            ],
+            "properties": {
+              "classId": {
+                "const": "UNAVAILABLE_INPUT"
+              },
+              "authoritative": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
         }
-      ]
+      ],
+      "description": "Each class appears exactly once (rules 1-8) and carries its pinned authority value (rules 9-16). authoritative is not a free boolean: a class that may not be treated as factual authority must not become one by a silent edit. mayOverrideTruth is const false for every class."
     },
     "signalRules": {
       "type": "array",
@@ -1006,5 +1151,15 @@
     "SIS",
     "DUO",
     "NONE"
-  ]
+  ],
+  "x-inputClassAuthority": {
+    "CANONICAL_FACT": true,
+    "DERIVED_FACT": true,
+    "LOCKED_OWNER_DECISION": true,
+    "OPERATIONAL_STATE": true,
+    "PRIVATE_OPS_REFERENCE": false,
+    "SEMANTIC_INTERPRETATION": false,
+    "SOCIAL_OR_CULTURAL_SIGNAL": false,
+    "UNAVAILABLE_INPUT": false
+  }
 }

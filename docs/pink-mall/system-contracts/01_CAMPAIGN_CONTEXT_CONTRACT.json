@@ -139,9 +139,9 @@
     },
     {
       "classId": "PRIVATE_OPS_REFERENCE",
-      "authoritative": true,
+      "authoritative": false,
       "mayOverrideTruth": false,
-      "definition": "A reference to material held outside the public repository. The reference may appear; the content MUST NOT."
+      "definition": "A pointer to private material held outside this repository. The reference itself is NOT factual authority: a future PRIVATE_OPS_STORE may hold authority in domains contract 00 assigns it, but a pointer does not acquire that authority by pointing there. The content MUST NOT appear in this repository."
     },
     {
       "classId": "UNAVAILABLE_INPUT",
