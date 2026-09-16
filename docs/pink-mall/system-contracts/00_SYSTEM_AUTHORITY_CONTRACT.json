@@ -8,7 +8,7 @@
   "purpose": "Define which system is authoritative for which domain of truth, how sources are classified, what happens when they disagree, and which data may exist in a public repository. This is the constitutional layer beneath every later domain contract.",
   "canonicalityRule": {
     "ruleId": "CANONICALITY_V1",
-    "statement": "A contract is canonical only when all three conditions hold simultaneously.",
+    "statement": "A contract is canonical only when all four conditions hold simultaneously.",
     "conditions": [
       "It has passed current owner or independent review.",
       "It is committed to the canonical project branch claude/pink-mall-development.",
