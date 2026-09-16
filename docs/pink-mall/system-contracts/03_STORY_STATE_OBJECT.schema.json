@@ -1,0 +1,502 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/03_STORY_STATE_OBJECT.schema.json",
+  "title": "PINK MALL Story State snapshot",
+  "description": "Structured snapshot a future Story State Engine would own. No engine exists and no real Story State exists. This is NOT a Human Identity record: identity is authoritative elsewhere and is only referenced here. Instances are snapshots and MUST NOT be committed to this public repository.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "storyStateRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque reference, unique within this snapshot only. A persistent global ID format is NOT defined by contract 03."
+    },
+    "previousStoryStateRef": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Lineage. null means this is an initial state, stated explicitly rather than by omission — the key is required so absence is never ambiguous."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "isHumanIdentityRecord": {
+      "const": false
+    },
+    "humanIdentityAuthority": {
+      "const": "AVATAR_SKILL",
+      "description": "Referenced, never duplicated. STORY_STATE_ENGINE is deliberately not an accepted value."
+    },
+    "storyStateAuthority": {
+      "const": "STORY_STATE_ENGINE",
+      "description": "Closed to a single value: model memory, chat history, Super Brain and social sources can never be declared the authority here."
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "characterId",
+          "identityAuthority",
+          "identityPersistent",
+          "identityMutableByStory",
+          "narrativeRoleIsDynamic",
+          "narrativeRole"
+        ],
+        "properties": {
+          "characterId": {
+            "type": "string",
+            "enum": [
+              "INA",
+              "SIS"
+            ],
+            "description": "DUO is deliberately absent: it is a participation configuration and staging evidence, never a person."
+          },
+          "identityAuthority": {
+            "const": "AVATAR_SKILL"
+          },
+          "identityPersistent": {
+            "const": true
+          },
+          "identityMutableByStory": {
+            "const": false
+          },
+          "narrativeRoleIsDynamic": {
+            "const": true
+          },
+          "narrativeRole": {
+            "type": "object",
+            "required": [
+              "summary"
+            ],
+            "properties": {
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "tones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Open-ended by design. A closed archetype enum here would hard-code a permanent personality, which the locked owner decision forbids."
+          },
+          "privateDetailRef": {
+            "type": "string",
+            "description": "A REFERENCE only. Private biography and personal history live in the future private ops layer and MUST NOT appear in this repository."
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "INA"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "SIS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityAuthority"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "INA"
+              },
+              "identityAuthority": {
+                "const": "AVATAR_SKILL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityAuthority"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "SIS"
+              },
+              "identityAuthority": {
+                "const": "AVATAR_SKILL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityMutableByStory"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "INA"
+              },
+              "identityMutableByStory": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityMutableByStory"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "SIS"
+              },
+              "identityMutableByStory": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityPersistent"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "INA"
+              },
+              "identityPersistent": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "identityPersistent"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "SIS"
+              },
+              "identityPersistent": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "narrativeRoleIsDynamic"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "INA"
+              },
+              "narrativeRoleIsDynamic": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "characterId",
+              "narrativeRoleIsDynamic"
+            ],
+            "properties": {
+              "characterId": {
+                "const": "SIS"
+              },
+              "narrativeRoleIsDynamic": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ],
+      "description": "Exactly INA and SIS, each exactly once, each pinned to Avatar Skill authority with persistent, story-immutable identity."
+    },
+    "relationshipState": {
+      "type": "object",
+      "required": [
+        "isDynamic",
+        "isIdentityDefining",
+        "current"
+      ],
+      "properties": {
+        "isDynamic": {
+          "const": true
+        },
+        "isIdentityDefining": {
+          "const": false
+        },
+        "current": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Structured or opaque narrative value. No permanent relationship taxonomy is locked, so no enum is imposed."
+        },
+        "changedSincePrevious": {
+          "type": "boolean"
+        },
+        "privateDetailRef": {
+          "type": "string",
+          "description": "Reference only. Real relationship content belongs to the private ops layer."
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "storyArcs": {
+      "type": "array",
+      "description": "May be empty: not every Story State has an active arc.",
+      "items": {
+        "type": "object",
+        "required": [
+          "arcRef",
+          "continuity",
+          "lastAction",
+          "provenance"
+        ],
+        "properties": {
+          "arcRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "continuity": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lastAction": {
+            "type": "string",
+            "enum": [
+              "CONTINUE",
+              "EVOLVE",
+              "PAUSE",
+              "CLOSE",
+              "REVIVE"
+            ]
+          },
+          "proposedAction": {
+            "type": "string",
+            "enum": [
+              "CONTINUE",
+              "EVOLVE",
+              "PAUSE",
+              "CLOSE",
+              "REVIVE"
+            ]
+          },
+          "provenance": {
+            "type": "string",
+            "enum": [
+              "RECORDED_STORY_STATE",
+              "PROPOSAL"
+            ],
+            "description": "What distinguishes continuity that happened from continuity that is merely proposed."
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "teamMechanic": {
+      "type": "object",
+      "required": [
+        "isHumanIdentityTruth",
+        "isStoryStateAuthority"
+      ],
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "isHumanIdentityTruth": {
+          "const": false
+        },
+        "isStoryStateAuthority": {
+          "const": false
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "TEAM INA / TEAM SIS state when relevant. Structurally barred from claiming identity truth or story authority."
+    },
+    "pendingProposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "proposalRef",
+          "state",
+          "summary"
+        ],
+        "properties": {
+          "proposalRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "const": "PROPOSAL",
+            "description": "Closed to PROPOSAL. FACT, APPROVAL, CANON and OPERATIONAL_FACT are not expressible here, which is what stops a proposal silently becoming recorded state."
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "influenceRef": {
+            "type": "string",
+            "description": "A pointer to what influenced this proposal. A pointer is not authority."
+          },
+          "influenceIsAuthority": {
+            "const": false
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "continuityUncertainty": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Declared, never invented away. An empty array asserts there is none."
+    },
+    "changedSincePrevious": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What moved since previousStoryStateRef, so a fresh session can answer it from state alone."
+    },
+    "sourcesNotAuthoritative": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "MODEL_MEMORY",
+          "CHAT_HISTORY",
+          "SUPER_BRAIN",
+          "SOCIAL_INTELLIGENCE_ENGINE",
+          "CYBERNINJAS_STUDIO",
+          "GENERATED_OUTPUT"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "An explicit acknowledgement list. These may inform; none may be storyStateAuthority."
+    },
+    "operationalFactsAsserted": {
+      "type": "array",
+      "maxItems": 0,
+      "description": "Always empty. Story State may not assert execution, publication, approval, spend or completion; those belong to the campaign operational authority."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "storyStateRef",
+    "previousStoryStateRef",
+    "generatedAt",
+    "isHumanIdentityRecord",
+    "humanIdentityAuthority",
+    "storyStateAuthority",
+    "characters",
+    "relationshipState",
+    "storyArcs",
+    "pendingProposals",
+    "continuityUncertainty",
+    "operationalFactsAsserted"
+  ],
+  "x-notPermitted": {
+    "DUO as a character record": "DUO is a participation configuration and staging evidence, never a human identity",
+    "facial or biometric descriptors": "identity detail belongs to the Avatar Skill, not to Story State",
+    "private biography content": "only a reference may appear; content belongs to the private ops layer",
+    "canon/FACT/APPROVAL as a proposal state": "a proposal may not silently become recorded state",
+    "model memory or social source as storyStateAuthority": "storyStateAuthority is closed to STORY_STATE_ENGINE"
+  },
+  "x-storyArcActions": [
+    "CONTINUE",
+    "EVOLVE",
+    "PAUSE",
+    "CLOSE",
+    "REVIVE"
+  ],
+  "x-note": "A schema is not an engine. This shape grants no story-transition, publication, spend or approval authority, and no instance of it is committed to this repository."
+}

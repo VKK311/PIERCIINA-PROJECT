@@ -1,0 +1,482 @@
+{
+  "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+  "version": "1.0.0",
+  "title": "Character and Story",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "03",
+  "dependsOn": [
+    {
+      "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+      "contractNumber": "01",
+      "dependency": "Contract 01 owns campaign-context idea generation, the exactly-three initial proposals, the campaign character participation role and owner selection. This contract governs narrative continuity and MUST NOT change any of that."
+    }
+  ],
+  "futureDependencies": [
+    {
+      "contractNumber": "04",
+      "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+      "exists": false,
+      "dependency": "Metric weighting, scoring, social interpretation, creative fatigue and evidence-driven story recommendations. This contract MUST NOT pre-empt any of it."
+    },
+    {
+      "contractNumber": "06",
+      "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+      "exists": false,
+      "dependency": "Approval, spend and publication authority, including any future autonomous story-transition authority."
+    },
+    {
+      "contractNumber": "07",
+      "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+      "exists": false,
+      "dependency": "Semantic creative memory that may inform, but never authorise, a story change."
+    }
+  ],
+  "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. Status is provenance only; canonicality is decided by the parent's canonicalityRule, not by this field and not by file existence.",
+  "purpose": "Define the constitutional boundary between human identity, narrative role, relationship state, story canon, audience influence and generated output — before any runtime story system is built.",
+  "scope": {
+    "covers": [
+      "the separation of human identity from narrative role, relationship state and story canon",
+      "narrative continuity requirements a future Story State must satisfy",
+      "the story-arc action vocabulary and its narrative meaning",
+      "the TEAM INA / TEAM SIS mechanic boundary",
+      "what audience evidence may and may not do to canon",
+      "why generated output and model memory are never story authority",
+      "the shape of a future Story State snapshot"
+    ],
+    "doesNotCover": [
+      "human identity evidence, which belongs to the Avatar Skill",
+      "campaign idea generation and owner selection, which belong to contract 01",
+      "product truth and product locks, which belong to contract 02",
+      "metric weighting, scoring, social interpretation and creative fatigue, which belong to contract 04",
+      "approval, spend and publication authority, which belong to contract 06",
+      "any implementation of a Story State Engine, Campaign Registry, Social Intelligence Engine or Super Brain"
+    ],
+    "implementationStatus": "PLANNED",
+    "note": "No Story State Engine exists. No Story State instance exists. This contract is authoring only."
+  },
+  "coreSeparation": {
+    "statement": "HUMAN IDENTITY != NARRATIVE ROLE != RELATIONSHIP STATE != STORY CANON",
+    "layers": [
+      {
+        "layerId": "HUMAN_IDENTITY",
+        "persistent": true,
+        "mutableByStory": false,
+        "authority": "AVATAR_SKILL",
+        "definition": "Who a person actually is. Externally authoritative and outside this contract."
+      },
+      {
+        "layerId": "NARRATIVE_ROLE",
+        "persistent": false,
+        "mutableByStory": true,
+        "authority": "STORY_STATE_ENGINE",
+        "definition": "How a character behaves in a given campaign or arc. Dynamic by design."
+      },
+      {
+        "layerId": "RELATIONSHIP_STATE",
+        "persistent": false,
+        "mutableByStory": true,
+        "authority": "STORY_STATE_ENGINE",
+        "definition": "The evolving relationship between INA and SIS. Dynamic, and never identity-defining."
+      },
+      {
+        "layerId": "STORY_CANON",
+        "persistent": false,
+        "mutableByStory": true,
+        "authority": "STORY_STATE_ENGINE",
+        "definition": "Narrative operational state: what has actually become part of continuity."
+      }
+    ],
+    "rules": [
+      "A change in narrative role MUST NOT mutate Human Identity.",
+      "A change in relationship state MUST NOT mutate Human Identity.",
+      "A generated depiction or generated text MUST NOT become identity truth.",
+      "A generated depiction or generated text MUST NOT become story canon merely because it was generated.",
+      "Narrative intent that conflicts with Human Identity or Product Truth loses; the narrative intent is what changes."
+    ]
+  },
+  "humanIdentityAuthority": {
+    "domain": "HUMAN_IDENTITY",
+    "primaryAuthority": "AVATAR_SKILL",
+    "secondaryEvidence": [
+      "OWNER"
+    ],
+    "storyStateEngineIsIdentityAuthority": false,
+    "identityRecordDuplicatedHere": false,
+    "biometricOrLikenessDetailHeldHere": false,
+    "rules": [
+      "INA remains INA.",
+      "SIS remains SIS.",
+      "One sister may NEVER substitute for the other.",
+      "DUO is NOT a third human identity.",
+      "Generated output is NEVER identity evidence.",
+      "Narrative events CANNOT rewrite identity.",
+      "Narrative role CANNOT override Avatar Skill truth.",
+      "This contract REFERENCES human identity; it does not create a second identity record.",
+      "Facial, biometric and likeness detail MUST NOT be placed in Story State."
+    ],
+    "precedent": "docs/pink-mall/avatar-skill/v1.3/IDENTITY_COLLISION_PROTOCOL.json — INA references are authoritative only for INA, SIS references only for SIS, and DUO references are staging evidence that is NEVER identity authority for either sister."
+  },
+  "narrativeRoleModel": {
+    "isDynamic": true,
+    "fixedArchetypeTaxonomyDefined": false,
+    "closedArchetypeEnumPermitted": false,
+    "contract01RoleIsParticipationSelector": true,
+    "contract01RoleIsNot": [
+      "personality truth",
+      "identity truth",
+      "a permanent archetype",
+      "Story State itself"
+    ],
+    "mayVaryBy": [
+      "campaign",
+      "arc",
+      "narrative moment",
+      "format"
+    ],
+    "illustrativeTones": [
+      "comedy",
+      "seriousness",
+      "sensuality",
+      "absurdity",
+      "rivalry",
+      "tenderness"
+    ],
+    "toneListIsClosed": false,
+    "rule": "Character personality and narrative role are DYNAMIC. No permanent archetype may be encoded: no rule of the form 'INA always behaves as X' or 'SIS always behaves as Y' may be invented here, and none may be introduced unless separately established by an authorised source. Human Identity stays fixed while narrative behaviour may change. Creative variation may be broad."
+  },
+  "relationshipStateModel": {
+    "isDynamic": true,
+    "isIdentityDefining": false,
+    "permanentTaxonomyDefined": false,
+    "representation": "structured extensible state or opaque narrative value",
+    "mayEvolve": true,
+    "mayAffectFutureStory": true,
+    "mayRedefineIdentity": false,
+    "modelMemoryIsSufficientStorage": false,
+    "rule": "Relationship state between INA and SIS is dynamic and structurally distinct from Human Identity. No permanent relationship taxonomy is locked, so an extensible structured state or an opaque narrative value is used rather than pretending a fixed list is canonical. It may evolve and may shape future story; it may never redefine either sister's identity, and it MUST NOT rely on model memory."
+  },
+  "narrativeContinuity": {
+    "required": true,
+    "modelMemoryIsSufficient": false,
+    "chatHistoryIsCanonical": false,
+    "freshSessionMustBeAbleToDetermine": [
+      "what narrative situation currently exists",
+      "what arcs exist",
+      "what relevant prior narrative events matter",
+      "which character roles are currently in play",
+      "the current relationship state",
+      "what changed since the previous Story State",
+      "whether a proposed future development contradicts established continuity"
+    ],
+    "rule": "Narrative continuity is REQUIRED and MUST be carried by structured state. Model memory is NEVER sufficient continuity storage and chat history is NEVER canonical Story State: a fresh session must be able to answer every question above from the recorded state alone."
+  },
+  "storyStateAuthority": {
+    "domain": "STORY_STATE",
+    "primaryAuthority": "STORY_STATE_ENGINE",
+    "secondaryEvidence": [
+      "CAMPAIGN_REGISTRY",
+      "OWNER"
+    ],
+    "nonAuthoritative": [
+      "SUPER_BRAIN",
+      "SOCIAL_INTELLIGENCE_ENGINE",
+      "MODEL_MEMORY",
+      "CHAT_HISTORY"
+    ],
+    "engineImplementationStatus": "PLANNED",
+    "engineExists": false,
+    "inheritedFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.STORY_STATE",
+    "rule": "Inherited verbatim from contract 00 and not redefined. The STORY_STATE_ENGINE remains PLANNED: authoring this contract MUST NOT change its implementation status to ACTIVE. This contract defines the engine's future rules and object shape only."
+  },
+  "operationalStateConflict": {
+    "campaignOperationalFactAuthority": "CAMPAIGN_REGISTRY",
+    "narrativeContinuityAuthority": "STORY_STATE_ENGINE",
+    "onConflict": "OPERATIONAL_FACT_WINS",
+    "staleStoryMemoryMustBeCorrected": true,
+    "storyStateMayNotFabricate": [
+      "that a campaign executed",
+      "that a campaign published",
+      "that a campaign was approved",
+      "that money was spent",
+      "that a campaign completed"
+    ],
+    "rule": "Campaign operational fact belongs to CAMPAIGN_REGISTRY; narrative continuity belongs to STORY_STATE. Where story or semantic memory contradicts an authoritative operational fact, the operational fact wins and the story memory is corrected. Story State MUST NOT assert that a campaign executed, published, was approved, spent money or completed unless the relevant operational authority records it.",
+    "inheritedRule": "SEMANTIC_VS_CANONICAL"
+  },
+  "intentVersusEvent": {
+    "distinctStates": [
+      "PROPOSAL",
+      "APPROVAL",
+      "OPERATIONAL_FACT",
+      "STORY_CANON"
+    ],
+    "mayBeCollapsed": false,
+    "selectedIdeaProvesNarrativeEventOccurred": false,
+    "truthClassSource": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.truthClasses",
+    "rule": "Planned narrative intent and an event that actually entered continuity are different things. A PROPOSAL, or a Campaign Context idea the owner selected, does NOT by itself prove the narrative event occurred. PROPOSAL, APPROVAL, OPERATIONAL_FACT and STORY_CANON MUST NOT be collapsed into one state; the parent's truth-class semantics govern."
+  },
+  "storyArcActions": [
+    {
+      "actionId": "CONTINUE",
+      "definition": "The arc proceeds as established. Continuity is unchanged in kind."
+    },
+    {
+      "actionId": "EVOLVE",
+      "definition": "The arc develops into a materially new narrative direction while remaining the same arc."
+    },
+    {
+      "actionId": "PAUSE",
+      "definition": "The arc stops advancing without being concluded. It remains available to resume."
+    },
+    {
+      "actionId": "CLOSE",
+      "definition": "The arc is concluded. Continuity records it as ended."
+    },
+    {
+      "actionId": "REVIVE",
+      "definition": "A previously paused or closed arc resumes, with its prior continuity acknowledged."
+    }
+  ],
+  "storyArcRules": [
+    "This vocabulary is CLOSED. No further arc action may be introduced here.",
+    "This contract owns the narrative meaning and continuity side of these actions.",
+    "Contract 04 will own social-intelligence evidence, weighting, fatigue and recommendation logic for choosing between them.",
+    "No numeric rule for selecting an arc action is defined here.",
+    "No complete transition graph is defined, because repository evidence does not lock one.",
+    "Not every Story State must contain an active arc."
+  ],
+  "audienceInfluence": {
+    "mayAffectLaterCanon": true,
+    "isDirectStoryStateAuthority": false,
+    "rawMetricsAre": "evidence",
+    "socialInterpretationIs": "interpretation",
+    "mayCreateOrSupportProposal": true,
+    "maySilentlyMutateCanon": false,
+    "autonomousAudienceToCanonAuthorityDefined": false,
+    "thresholdsDefined": false,
+    "votingPercentagesDefined": false,
+    "engagementScoresDefined": false,
+    "automaticCanonSelectionFormulaDefined": false,
+    "rule": "Audience evidence is eligible INPUT to a possible future story change. It is NOT Story State authority. Raw social metrics remain evidence and social interpretation remains interpretation; neither may rewrite Story State merely because engagement was high. Until a later canonical rule explicitly defines autonomous audience-to-canon transition authority, audience influence may create or support a PROPOSAL and MUST NOT silently mutate canonical Story State.",
+    "deferredTo": "04"
+  },
+  "teamMechanic": {
+    "mechanicId": "TEAM_INA_VS_TEAM_SIS",
+    "exists": true,
+    "isEngagementAndStoryMechanic": true,
+    "isHumanIdentityTruth": false,
+    "isPermanentPersonalityLabel": false,
+    "isStoryStateAuthority": false,
+    "mayBeUsedByCampaignsAndArcs": true,
+    "mayInfluenceFutureProposals": true,
+    "audienceTeamPreferenceMayRewriteIdentity": false,
+    "participationEqualsCommercialApproval": false,
+    "numericWinnerLogicDefined": false,
+    "rule": "TEAM INA vs TEAM SIS is an engagement and story mechanic. It may be used by campaigns and narrative arcs and may influence future story proposals. It is not identity truth, not a permanent personality label and not Story State authority; audience team preference cannot rewrite identity, and participating in a team is not commercial approval. No numeric winner logic is defined here."
+  },
+  "nonAuthoritativeSources": [
+    {
+      "sourceId": "MODEL_MEMORY",
+      "mayBeStoryStateAuthority": false,
+      "reason": "Model memory is not inspectable, not reproducible and does not survive a fresh session."
+    },
+    {
+      "sourceId": "CHAT_HISTORY",
+      "mayBeStoryStateAuthority": false,
+      "reason": "Chat history is a record of conversation, not a record of narrative state."
+    },
+    {
+      "sourceId": "SUPER_BRAIN",
+      "mayBeStoryStateAuthority": false,
+      "reason": "Super Brain may later hold semantic interpretation, campaign memory, creative learning and preference drift. Where it disagrees with canonical Story State, Story State wins and Super Brain is marked stale and corrected per contract 00."
+    },
+    {
+      "sourceId": "SOCIAL_INTELLIGENCE_ENGINE",
+      "mayBeStoryStateAuthority": false,
+      "reason": "Social interpretation is interpretation. It informs; it does not record continuity."
+    },
+    {
+      "sourceId": "CYBERNINJAS_STUDIO",
+      "mayBeStoryStateAuthority": false,
+      "reason": "An execution layer produces GENERATED_OUTPUT and does not become an authority by producing it."
+    }
+  ],
+  "generatedOutputBoundary": {
+    "mayDepict": [
+      "a current story state",
+      "a proposed story development",
+      "a narrative experiment"
+    ],
+    "becomesCanonOnGenerationSuccess": false,
+    "isEvidenceThat": [],
+    "isNotEvidenceThat": [
+      "an event occurred",
+      "a relationship changed",
+      "a campaign published",
+      "audience accepted a development",
+      "identity changed"
+    ],
+    "remainsUntilRecorded": "PROPOSAL",
+    "rule": "A generated image, video or text may depict a current story state, a proposed development or a narrative experiment. It does not become canon because generation succeeded. A generated narrative concept remains a PROPOSAL until the appropriate future authority records the real Story State transition."
+  },
+  "consent": {
+    "authority": "docs/pink-mall/avatar-skill/v1.3/CONSENT_AND_PROVENANCE.json",
+    "stateOwnedHere": false,
+    "readCurrentStateFromAuthority": true,
+    "resolvedHere": false,
+    "claimedComplete": false,
+    "internalPlanningAndPublicationAreDifferent": true,
+    "rule": "Commercial publication of a generated likeness remains governed by the Consent Gate. This contract REFERENCES that authority and MUST NOT resolve it. Current consent state is NOT cached here: it MUST be read from the authority when it matters, so resolving consent there never leaves this contract stale. Internal narrative planning and Story State design are distinct from permission to publish a generated likeness commercially, and this contract makes no claim that consent is complete."
+  },
+  "characterRecordRules": {
+    "requiredCharacters": [
+      "INA",
+      "SIS"
+    ],
+    "eachExactlyOnce": true,
+    "duoIsIdentityRecord": false,
+    "perRecord": {
+      "identityAuthority": "AVATAR_SKILL",
+      "identityPersistent": true,
+      "identityMutableByStory": false,
+      "narrativeRoleIsDynamic": true
+    },
+    "narrativeRoleContentIsClosedEnum": false,
+    "biometricDescriptorsPermitted": false,
+    "rule": "The Story State represents exactly INA and SIS as human character identities, each exactly once. DUO MUST NOT become a third identity record — it is a participation configuration in contract 01 and staging evidence in the Avatar Skill, never a person. Narrative-role content stays flexible rather than a closed archetype enum. Facial and biometric descriptors MUST NOT appear in Story State."
+  },
+  "storyStateObject": {
+    "schema": "03_STORY_STATE_OBJECT.schema.json",
+    "isHumanIdentityRecord": false,
+    "isSnapshot": true,
+    "committed": false,
+    "engineImplemented": false,
+    "instanceExists": false,
+    "persistentIdFormatDefined": false,
+    "referencesAreOpaque": true,
+    "lineageMechanism": "previousStoryStateRef",
+    "initialStateMayHaveNullLineage": true,
+    "contents": [
+      "schemaVersion",
+      "opaque Story State reference",
+      "optional previous Story State reference",
+      "explicit statement that this is not a Human Identity truth record",
+      "Human Identity authority reference",
+      "INA and SIS character-state records",
+      "dynamic narrative role",
+      "structured relationship state",
+      "narrative continuity and story arcs",
+      "story-arc action vocabulary",
+      "TEAM INA / TEAM SIS mechanic state when relevant",
+      "pending narrative proposals when relevant",
+      "provenance distinguishing proposal from recorded continuity",
+      "known continuity uncertainty"
+    ],
+    "note": "The object schema describes the structured snapshot a future Story State Engine would own. It does not create an engine and it does not create a real Story State. Instances are snapshots and MUST NOT be committed to this public repository."
+  },
+  "pendingProposalRules": [
+    "A Story State may carry pending story or canon proposals.",
+    "Such records remain explicitly PROPOSAL and MUST NOT silently become recorded Story State.",
+    "Audience-influenced change lives here until a valid future transition rule promotes it through the proper authority.",
+    "A proposal may cite a source or influence reference; a pointer is not authority merely because it points somewhere."
+  ],
+  "existenceDisclaimers": [
+    "A Story State schema existing is NOT a Story State Engine existing.",
+    "Contract 03 existing is NOT a live Story State existing.",
+    "A synthetic fixture existing is NOT real narrative state existing.",
+    "No current story continuity may be fabricated merely to populate the schema."
+  ],
+  "hardFailures": [
+    {
+      "failureId": "WRONG_CHARACTER_IDENTITY",
+      "definition": "A character record names an identity that is not INA or SIS.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "SISTER_SUBSTITUTION",
+      "definition": "One sister is used in place of the other, or DUO is treated as an identity.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "IDENTITY_MUTATED_BY_STORY",
+      "definition": "A narrative event or role change is recorded as altering human identity.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "GENERATED_OUTPUT_TREATED_AS_CANON",
+      "definition": "Generated media or text is recorded as story canon without an authoritative transition.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "MODEL_MEMORY_TREATED_AS_STORY_AUTHORITY",
+      "definition": "Model memory or chat history is cited as the authority for continuity.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "AUDIENCE_SIGNAL_TREATED_AS_DIRECT_CANON_AUTHORITY",
+      "definition": "An audience or social signal is recorded as directly authorising a canon change.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "OPERATIONAL_FACT_CONTRADICTION",
+      "definition": "Story State asserts an execution, publication, approval, spend or completion the operational authority does not record.",
+      "severity": "STOP"
+    },
+    {
+      "failureId": "PRIVATE_CHARACTER_DETAIL_IN_PUBLIC_STATE",
+      "definition": "Private biography, personal history or likeness detail appears in a public-repository artefact.",
+      "severity": "STOP"
+    },
+    {
+      "failureId": "UNDEFINED_STORY_TRANSITION_AUTHORITY",
+      "definition": "A canon transition is attempted with no defined authority for it.",
+      "severity": "STOP"
+    }
+  ],
+  "authorityGrants": {
+    "storyTransitionAuthorityGranted": false,
+    "publicationAuthorityGranted": false,
+    "spendAuthorityGranted": false,
+    "approvalAuthorityGranted": false,
+    "humanIdentityWriteAuthorityGranted": false,
+    "note": "Contract 03 grants no story-transition, publication, spend, approval or identity-write authority."
+  },
+  "privacyRules": [
+    "This repository is PUBLIC.",
+    "Contract, schemas, stable vocabularies, validation rules and synthetic fixtures are public-safe.",
+    "Private biographies, personal history and private interpersonal detail MUST NOT be committed here.",
+    "Private Creative Director detail MUST NOT be committed here.",
+    "Source likeness material and generated likeness output MUST NOT be committed here.",
+    "Unpublished real story plans and private campaign strategy MUST NOT be committed here.",
+    "Customer data and private audience history MUST NOT be committed here.",
+    "Where a private field is structurally required, only the schema or reference shape is defined here; the content belongs to the future private ops layer.",
+    "PINK-MALL-OPS remains PLANNED and MUST NOT be created."
+  ],
+  "implementationStatus": {
+    "storyStateEngine": "PLANNED",
+    "campaignRegistry": "PLANNED",
+    "socialIntelligenceEngine": "PLANNED",
+    "superBrain": "PLANNED",
+    "privateOpsStore": "PLANNED",
+    "anyImplementedHere": false
+  },
+  "openItems": [
+    "exact audience-to-canon decision rules",
+    "exact Story State implementation",
+    "exact private storage implementation",
+    "persistent Story State ID format",
+    "exact audience thresholds",
+    "exact metric weights",
+    "exact social scoring",
+    "fatigue thresholds",
+    "cooldown periods",
+    "exploration/exploitation ratio",
+    "Social Intelligence API and data ingestion",
+    "automatic narrative-selection thresholds",
+    "exact Workstation integration",
+    "exact Super Brain bridge"
+  ],
+  "openItemsRule": "These are genuinely undecided. They MUST NOT be answered by invention, and a later system MUST NOT assume a default for any of them. The Story State OBJECT SHAPE is deliberately NOT among them: this contract formalises it.",
+  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, then promote to canonical development."
+}

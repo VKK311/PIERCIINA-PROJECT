@@ -1,0 +1,1856 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/03_CHARACTER_STORY_CONTRACT.schema.json",
+  "title": "PINK MALL Character and Story Contract",
+  "description": "Structure of contract 03. Closed vocabularies are genuinely closed; required membership is proved by allOf/contains with minContains and maxContains, never by uniqueItems alone.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "03"
+    },
+    "dependsOn": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractId",
+          "contractNumber",
+          "dependency"
+        ],
+        "properties": {
+          "contractId": {
+            "type": "string"
+          },
+          "contractNumber": {
+            "type": "string"
+          },
+          "dependency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractId"
+            ],
+            "properties": {
+              "contractId": {
+                "const": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "futureDependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractNumber",
+          "contractId",
+          "exists",
+          "dependency"
+        ],
+        "properties": {
+          "contractNumber": {
+            "type": "string"
+          },
+          "contractId": {
+            "type": "string"
+          },
+          "exists": {
+            "const": false
+          },
+          "dependency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractNumber"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "04"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractNumber",
+              "exists"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "04"
+              },
+              "exists": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ],
+      "description": "Every future dependency is pinned exists:false. Contract 04 in particular may never be described as existing."
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "covers",
+        "doesNotCover",
+        "implementationStatus",
+        "note"
+      ],
+      "properties": {
+        "covers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "doesNotCover": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "implementationStatus": {
+          "const": "PLANNED"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "coreSeparation": {
+      "type": "object",
+      "required": [
+        "statement",
+        "layers",
+        "rules"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "layerId",
+              "persistent",
+              "mutableByStory",
+              "authority",
+              "definition"
+            ],
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "enum": [
+                  "HUMAN_IDENTITY",
+                  "NARRATIVE_ROLE",
+                  "RELATIONSHIP_STATE",
+                  "STORY_CANON"
+                ]
+              },
+              "persistent": {
+                "type": "boolean"
+              },
+              "mutableByStory": {
+                "type": "boolean"
+              },
+              "authority": {
+                "type": "string"
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "HUMAN_IDENTITY"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "NARRATIVE_ROLE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "RELATIONSHIP_STATE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "STORY_CANON"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId",
+                  "persistent"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "HUMAN_IDENTITY"
+                  },
+                  "persistent": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId",
+                  "mutableByStory"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "HUMAN_IDENTITY"
+                  },
+                  "mutableByStory": {
+                    "const": false
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId",
+                  "authority"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "HUMAN_IDENTITY"
+                  },
+                  "authority": {
+                    "const": "AVATAR_SKILL"
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId",
+                  "mutableByStory"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "NARRATIVE_ROLE"
+                  },
+                  "mutableByStory": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "layerId",
+                  "mutableByStory"
+                ],
+                "properties": {
+                  "layerId": {
+                    "const": "RELATIONSHIP_STATE"
+                  },
+                  "mutableByStory": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            }
+          ]
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "humanIdentityAuthority": {
+      "type": "object",
+      "required": [
+        "domain",
+        "primaryAuthority",
+        "secondaryEvidence",
+        "storyStateEngineIsIdentityAuthority",
+        "identityRecordDuplicatedHere",
+        "biometricOrLikenessDetailHeldHere",
+        "rules",
+        "precedent"
+      ],
+      "properties": {
+        "domain": {
+          "const": "HUMAN_IDENTITY"
+        },
+        "primaryAuthority": {
+          "const": "AVATAR_SKILL"
+        },
+        "secondaryEvidence": {
+          "type": "array",
+          "const": [
+            "OWNER"
+          ]
+        },
+        "storyStateEngineIsIdentityAuthority": {
+          "const": false
+        },
+        "identityRecordDuplicatedHere": {
+          "const": false
+        },
+        "biometricOrLikenessDetailHeldHere": {
+          "const": false
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 9,
+          "items": {
+            "type": "string"
+          }
+        },
+        "precedent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "narrativeRoleModel": {
+      "type": "object",
+      "required": [
+        "isDynamic",
+        "fixedArchetypeTaxonomyDefined",
+        "closedArchetypeEnumPermitted",
+        "contract01RoleIsParticipationSelector",
+        "contract01RoleIsNot",
+        "mayVaryBy",
+        "illustrativeTones",
+        "toneListIsClosed",
+        "rule"
+      ],
+      "properties": {
+        "isDynamic": {
+          "const": true
+        },
+        "fixedArchetypeTaxonomyDefined": {
+          "const": false
+        },
+        "closedArchetypeEnumPermitted": {
+          "const": false
+        },
+        "contract01RoleIsParticipationSelector": {
+          "const": true
+        },
+        "contract01RoleIsNot": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "mayVaryBy": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "illustrativeTones": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "toneListIsClosed": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationshipStateModel": {
+      "type": "object",
+      "required": [
+        "isDynamic",
+        "isIdentityDefining",
+        "permanentTaxonomyDefined",
+        "representation",
+        "mayEvolve",
+        "mayAffectFutureStory",
+        "mayRedefineIdentity",
+        "modelMemoryIsSufficientStorage",
+        "rule"
+      ],
+      "properties": {
+        "isDynamic": {
+          "const": true
+        },
+        "isIdentityDefining": {
+          "const": false
+        },
+        "permanentTaxonomyDefined": {
+          "const": false
+        },
+        "representation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mayEvolve": {
+          "const": true
+        },
+        "mayAffectFutureStory": {
+          "const": true
+        },
+        "mayRedefineIdentity": {
+          "const": false
+        },
+        "modelMemoryIsSufficientStorage": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "narrativeContinuity": {
+      "type": "object",
+      "required": [
+        "required",
+        "modelMemoryIsSufficient",
+        "chatHistoryIsCanonical",
+        "freshSessionMustBeAbleToDetermine",
+        "rule"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "modelMemoryIsSufficient": {
+          "const": false
+        },
+        "chatHistoryIsCanonical": {
+          "const": false
+        },
+        "freshSessionMustBeAbleToDetermine": {
+          "type": "array",
+          "minItems": 7,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "storyStateAuthority": {
+      "type": "object",
+      "required": [
+        "domain",
+        "primaryAuthority",
+        "secondaryEvidence",
+        "nonAuthoritative",
+        "engineImplementationStatus",
+        "engineExists",
+        "inheritedFrom",
+        "rule"
+      ],
+      "properties": {
+        "domain": {
+          "const": "STORY_STATE"
+        },
+        "primaryAuthority": {
+          "const": "STORY_STATE_ENGINE"
+        },
+        "secondaryEvidence": {
+          "type": "array",
+          "const": [
+            "CAMPAIGN_REGISTRY",
+            "OWNER"
+          ]
+        },
+        "nonAuthoritative": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "engineImplementationStatus": {
+          "const": "PLANNED"
+        },
+        "engineExists": {
+          "const": false
+        },
+        "inheritedFrom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "operationalStateConflict": {
+      "type": "object",
+      "required": [
+        "campaignOperationalFactAuthority",
+        "narrativeContinuityAuthority",
+        "onConflict",
+        "staleStoryMemoryMustBeCorrected",
+        "storyStateMayNotFabricate",
+        "rule",
+        "inheritedRule"
+      ],
+      "properties": {
+        "campaignOperationalFactAuthority": {
+          "const": "CAMPAIGN_REGISTRY"
+        },
+        "narrativeContinuityAuthority": {
+          "const": "STORY_STATE_ENGINE"
+        },
+        "onConflict": {
+          "const": "OPERATIONAL_FACT_WINS"
+        },
+        "staleStoryMemoryMustBeCorrected": {
+          "const": true
+        },
+        "storyStateMayNotFabricate": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inheritedRule": {
+          "const": "SEMANTIC_VS_CANONICAL"
+        }
+      },
+      "additionalProperties": false
+    },
+    "intentVersusEvent": {
+      "type": "object",
+      "required": [
+        "distinctStates",
+        "mayBeCollapsed",
+        "selectedIdeaProvesNarrativeEventOccurred",
+        "truthClassSource",
+        "rule"
+      ],
+      "properties": {
+        "distinctStates": {
+          "type": "array",
+          "const": [
+            "PROPOSAL",
+            "APPROVAL",
+            "OPERATIONAL_FACT",
+            "STORY_CANON"
+          ]
+        },
+        "mayBeCollapsed": {
+          "const": false
+        },
+        "selectedIdeaProvesNarrativeEventOccurred": {
+          "const": false
+        },
+        "truthClassSource": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "storyArcActions": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "actionId",
+          "definition"
+        ],
+        "properties": {
+          "actionId": {
+            "type": "string",
+            "enum": [
+              "CONTINUE",
+              "EVOLVE",
+              "PAUSE",
+              "CLOSE",
+              "REVIVE"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "actionId"
+            ],
+            "properties": {
+              "actionId": {
+                "const": "CONTINUE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "actionId"
+            ],
+            "properties": {
+              "actionId": {
+                "const": "EVOLVE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "actionId"
+            ],
+            "properties": {
+              "actionId": {
+                "const": "PAUSE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "actionId"
+            ],
+            "properties": {
+              "actionId": {
+                "const": "CLOSE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "actionId"
+            ],
+            "properties": {
+              "actionId": {
+                "const": "REVIVE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ],
+      "description": "CLOSED vocabulary, each action exactly once. maxItems 5 plus exactly-once membership is what makes it closed rather than merely populated."
+    },
+    "storyArcRules": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string"
+      }
+    },
+    "audienceInfluence": {
+      "type": "object",
+      "required": [
+        "mayAffectLaterCanon",
+        "isDirectStoryStateAuthority",
+        "rawMetricsAre",
+        "socialInterpretationIs",
+        "mayCreateOrSupportProposal",
+        "maySilentlyMutateCanon",
+        "autonomousAudienceToCanonAuthorityDefined",
+        "thresholdsDefined",
+        "votingPercentagesDefined",
+        "engagementScoresDefined",
+        "automaticCanonSelectionFormulaDefined",
+        "rule",
+        "deferredTo"
+      ],
+      "properties": {
+        "mayAffectLaterCanon": {
+          "const": true
+        },
+        "isDirectStoryStateAuthority": {
+          "const": false
+        },
+        "rawMetricsAre": {
+          "const": "evidence"
+        },
+        "socialInterpretationIs": {
+          "const": "interpretation"
+        },
+        "mayCreateOrSupportProposal": {
+          "const": true
+        },
+        "maySilentlyMutateCanon": {
+          "const": false
+        },
+        "autonomousAudienceToCanonAuthorityDefined": {
+          "const": false
+        },
+        "thresholdsDefined": {
+          "const": false
+        },
+        "votingPercentagesDefined": {
+          "const": false
+        },
+        "engagementScoresDefined": {
+          "const": false
+        },
+        "automaticCanonSelectionFormulaDefined": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deferredTo": {
+          "const": "04"
+        }
+      },
+      "additionalProperties": false
+    },
+    "teamMechanic": {
+      "type": "object",
+      "required": [
+        "mechanicId",
+        "exists",
+        "isEngagementAndStoryMechanic",
+        "isHumanIdentityTruth",
+        "isPermanentPersonalityLabel",
+        "isStoryStateAuthority",
+        "mayBeUsedByCampaignsAndArcs",
+        "mayInfluenceFutureProposals",
+        "audienceTeamPreferenceMayRewriteIdentity",
+        "participationEqualsCommercialApproval",
+        "numericWinnerLogicDefined",
+        "rule"
+      ],
+      "properties": {
+        "mechanicId": {
+          "const": "TEAM_INA_VS_TEAM_SIS"
+        },
+        "exists": {
+          "const": true
+        },
+        "isEngagementAndStoryMechanic": {
+          "const": true
+        },
+        "isHumanIdentityTruth": {
+          "const": false
+        },
+        "isPermanentPersonalityLabel": {
+          "const": false
+        },
+        "isStoryStateAuthority": {
+          "const": false
+        },
+        "mayBeUsedByCampaignsAndArcs": {
+          "const": true
+        },
+        "mayInfluenceFutureProposals": {
+          "const": true
+        },
+        "audienceTeamPreferenceMayRewriteIdentity": {
+          "const": false
+        },
+        "participationEqualsCommercialApproval": {
+          "const": false
+        },
+        "numericWinnerLogicDefined": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "nonAuthoritativeSources": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceId",
+          "mayBeStoryStateAuthority",
+          "reason"
+        ],
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "enum": [
+              "MODEL_MEMORY",
+              "CHAT_HISTORY",
+              "SUPER_BRAIN",
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "CYBERNINJAS_STUDIO"
+            ]
+          },
+          "mayBeStoryStateAuthority": {
+            "const": false
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "MODEL_MEMORY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "CHAT_HISTORY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "SUPER_BRAIN"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "CYBERNINJAS_STUDIO"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "mayBeStoryStateAuthority"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "MODEL_MEMORY"
+              },
+              "mayBeStoryStateAuthority": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "mayBeStoryStateAuthority"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "CHAT_HISTORY"
+              },
+              "mayBeStoryStateAuthority": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "mayBeStoryStateAuthority"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "SUPER_BRAIN"
+              },
+              "mayBeStoryStateAuthority": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "mayBeStoryStateAuthority"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              },
+              "mayBeStoryStateAuthority": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "mayBeStoryStateAuthority"
+            ],
+            "properties": {
+              "sourceId": {
+                "const": "CYBERNINJAS_STUDIO"
+              },
+              "mayBeStoryStateAuthority": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "generatedOutputBoundary": {
+      "type": "object",
+      "required": [
+        "mayDepict",
+        "becomesCanonOnGenerationSuccess",
+        "isEvidenceThat",
+        "isNotEvidenceThat",
+        "remainsUntilRecorded",
+        "rule"
+      ],
+      "properties": {
+        "mayDepict": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "becomesCanonOnGenerationSuccess": {
+          "const": false
+        },
+        "isEvidenceThat": {
+          "type": "array",
+          "maxItems": 0,
+          "description": "Always empty. Generated output is evidence of nothing beyond its own existence."
+        },
+        "isNotEvidenceThat": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "remainsUntilRecorded": {
+          "const": "PROPOSAL"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "consent": {
+      "type": "object",
+      "required": [
+        "authority",
+        "stateOwnedHere",
+        "readCurrentStateFromAuthority",
+        "resolvedHere",
+        "claimedComplete",
+        "internalPlanningAndPublicationAreDifferent",
+        "rule"
+      ],
+      "properties": {
+        "authority": {
+          "const": "docs/pink-mall/avatar-skill/v1.3/CONSENT_AND_PROVENANCE.json"
+        },
+        "stateOwnedHere": {
+          "const": false
+        },
+        "readCurrentStateFromAuthority": {
+          "const": true
+        },
+        "resolvedHere": {
+          "const": false
+        },
+        "claimedComplete": {
+          "const": false
+        },
+        "internalPlanningAndPublicationAreDifferent": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "Current consent state is deliberately absent; additionalProperties:false is what keeps a cached copy out."
+    },
+    "characterRecordRules": {
+      "type": "object",
+      "required": [
+        "requiredCharacters",
+        "eachExactlyOnce",
+        "duoIsIdentityRecord",
+        "perRecord",
+        "narrativeRoleContentIsClosedEnum",
+        "biometricDescriptorsPermitted",
+        "rule"
+      ],
+      "properties": {
+        "requiredCharacters": {
+          "type": "array",
+          "const": [
+            "INA",
+            "SIS"
+          ]
+        },
+        "eachExactlyOnce": {
+          "const": true
+        },
+        "duoIsIdentityRecord": {
+          "const": false
+        },
+        "perRecord": {
+          "type": "object",
+          "required": [
+            "identityAuthority",
+            "identityPersistent",
+            "identityMutableByStory",
+            "narrativeRoleIsDynamic"
+          ],
+          "properties": {
+            "identityAuthority": {
+              "const": "AVATAR_SKILL"
+            },
+            "identityPersistent": {
+              "const": true
+            },
+            "identityMutableByStory": {
+              "const": false
+            },
+            "narrativeRoleIsDynamic": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "narrativeRoleContentIsClosedEnum": {
+          "const": false
+        },
+        "biometricDescriptorsPermitted": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "storyStateObject": {
+      "type": "object",
+      "required": [
+        "schema",
+        "isHumanIdentityRecord",
+        "isSnapshot",
+        "committed",
+        "engineImplemented",
+        "instanceExists",
+        "persistentIdFormatDefined",
+        "referencesAreOpaque",
+        "lineageMechanism",
+        "initialStateMayHaveNullLineage",
+        "contents",
+        "note"
+      ],
+      "properties": {
+        "schema": {
+          "const": "03_STORY_STATE_OBJECT.schema.json"
+        },
+        "isHumanIdentityRecord": {
+          "const": false
+        },
+        "isSnapshot": {
+          "const": true
+        },
+        "committed": {
+          "const": false
+        },
+        "engineImplemented": {
+          "const": false
+        },
+        "instanceExists": {
+          "const": false
+        },
+        "persistentIdFormatDefined": {
+          "const": false
+        },
+        "referencesAreOpaque": {
+          "const": true
+        },
+        "lineageMechanism": {
+          "type": "string",
+          "minLength": 1
+        },
+        "initialStateMayHaveNullLineage": {
+          "const": true
+        },
+        "contents": {
+          "type": "array",
+          "minItems": 14,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "pendingProposalRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "existenceDisclaimers": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "failureId",
+          "definition",
+          "severity"
+        ],
+        "properties": {
+          "failureId": {
+            "type": "string",
+            "enum": [
+              "WRONG_CHARACTER_IDENTITY",
+              "SISTER_SUBSTITUTION",
+              "IDENTITY_MUTATED_BY_STORY",
+              "GENERATED_OUTPUT_TREATED_AS_CANON",
+              "MODEL_MEMORY_TREATED_AS_STORY_AUTHORITY",
+              "AUDIENCE_SIGNAL_TREATED_AS_DIRECT_CANON_AUTHORITY",
+              "OPERATIONAL_FACT_CONTRADICTION",
+              "PRIVATE_CHARACTER_DETAIL_IN_PUBLIC_STATE",
+              "UNDEFINED_STORY_TRANSITION_AUTHORITY"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "HARD_FAIL",
+              "STOP"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_CHARACTER_IDENTITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "SISTER_SUBSTITUTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "IDENTITY_MUTATED_BY_STORY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "GENERATED_OUTPUT_TREATED_AS_CANON"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "MODEL_MEMORY_TREATED_AS_STORY_AUTHORITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "AUDIENCE_SIGNAL_TREATED_AS_DIRECT_CANON_AUTHORITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "OPERATIONAL_FACT_CONTRADICTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRIVATE_CHARACTER_DETAIL_IN_PUBLIC_STATE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "UNDEFINED_STORY_TRANSITION_AUTHORITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_CHARACTER_IDENTITY"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "SISTER_SUBSTITUTION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "IDENTITY_MUTATED_BY_STORY"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "GENERATED_OUTPUT_TREATED_AS_CANON"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "MODEL_MEMORY_TREATED_AS_STORY_AUTHORITY"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "AUDIENCE_SIGNAL_TREATED_AS_DIRECT_CANON_AUTHORITY"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "OPERATIONAL_FACT_CONTRADICTION"
+              },
+              "severity": {
+                "const": "STOP"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRIVATE_CHARACTER_DETAIL_IN_PUBLIC_STATE"
+              },
+              "severity": {
+                "const": "STOP"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "UNDEFINED_STORY_TRANSITION_AUTHORITY"
+              },
+              "severity": {
+                "const": "STOP"
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "authorityGrants": {
+      "type": "object",
+      "required": [
+        "storyTransitionAuthorityGranted",
+        "publicationAuthorityGranted",
+        "spendAuthorityGranted",
+        "approvalAuthorityGranted",
+        "humanIdentityWriteAuthorityGranted",
+        "note"
+      ],
+      "properties": {
+        "storyTransitionAuthorityGranted": {
+          "const": false
+        },
+        "publicationAuthorityGranted": {
+          "const": false
+        },
+        "spendAuthorityGranted": {
+          "const": false
+        },
+        "approvalAuthorityGranted": {
+          "const": false
+        },
+        "humanIdentityWriteAuthorityGranted": {
+          "const": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "string"
+      }
+    },
+    "implementationStatus": {
+      "type": "object",
+      "required": [
+        "storyStateEngine",
+        "campaignRegistry",
+        "socialIntelligenceEngine",
+        "superBrain",
+        "privateOpsStore",
+        "anyImplementedHere"
+      ],
+      "properties": {
+        "storyStateEngine": {
+          "const": "PLANNED"
+        },
+        "campaignRegistry": {
+          "const": "PLANNED"
+        },
+        "socialIntelligenceEngine": {
+          "const": "PLANNED"
+        },
+        "superBrain": {
+          "const": "PLANNED"
+        },
+        "privateOpsStore": {
+          "const": "PLANNED"
+        },
+        "anyImplementedHere": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "openItems": {
+      "type": "array",
+      "minItems": 14,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "openItemsRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeControl": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "dependsOn",
+    "futureDependencies",
+    "inheritance",
+    "purpose",
+    "scope",
+    "coreSeparation",
+    "humanIdentityAuthority",
+    "narrativeRoleModel",
+    "relationshipStateModel",
+    "narrativeContinuity",
+    "storyStateAuthority",
+    "operationalStateConflict",
+    "intentVersusEvent",
+    "storyArcActions",
+    "storyArcRules",
+    "audienceInfluence",
+    "teamMechanic",
+    "nonAuthoritativeSources",
+    "generatedOutputBoundary",
+    "consent",
+    "characterRecordRules",
+    "storyStateObject",
+    "pendingProposalRules",
+    "existenceDisclaimers",
+    "hardFailures",
+    "authorityGrants",
+    "privacyRules",
+    "implementationStatus",
+    "openItems",
+    "openItemsRule",
+    "changeControl"
+  ],
+  "x-storyArcActions": [
+    "CONTINUE",
+    "EVOLVE",
+    "PAUSE",
+    "CLOSE",
+    "REVIVE"
+  ],
+  "x-hardFailures": [
+    "WRONG_CHARACTER_IDENTITY",
+    "SISTER_SUBSTITUTION",
+    "IDENTITY_MUTATED_BY_STORY",
+    "GENERATED_OUTPUT_TREATED_AS_CANON",
+    "MODEL_MEMORY_TREATED_AS_STORY_AUTHORITY",
+    "AUDIENCE_SIGNAL_TREATED_AS_DIRECT_CANON_AUTHORITY",
+    "OPERATIONAL_FACT_CONTRADICTION",
+    "PRIVATE_CHARACTER_DETAIL_IN_PUBLIC_STATE",
+    "UNDEFINED_STORY_TRANSITION_AUTHORITY"
+  ],
+  "x-separationLayers": [
+    "HUMAN_IDENTITY",
+    "NARRATIVE_ROLE",
+    "RELATIONSHIP_STATE",
+    "STORY_CANON"
+  ]
+}

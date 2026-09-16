@@ -47,7 +47,9 @@ because it was replaced, not because its historical review stopped counting.
    what may influence it and what may not.
 5. `02_PRODUCT_CREATIVE_CONTRACT.md` — what a generator may and may not change
    when depicting a real product, and what evidence is authoritative for its shape.
-6. The domain contract for the work in hand, once it exists.
+6. `03_CHARACTER_STORY_CONTRACT.md` — the boundary between human identity,
+   narrative role, relationship state and story canon.
+7. The domain contract for the work in hand, once it exists.
 
 ## Current contract set
 
@@ -56,12 +58,14 @@ because it was replaced, not because its historical review stopped counting.
 | 00 | **System Authority** | `00_SYSTEM_AUTHORITY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 01 | **Campaign Context** | `01_CAMPAIGN_CONTEXT_CONTRACT.md` / `.json` / `.schema.json`, plus `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 02 | **Product Creative** | `02_PRODUCT_CREATIVE_CONTRACT.md` / `.json` / `.schema.json`, plus `02_PRODUCT_CREATIVE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
+| 03 | **Character & Story** | `03_CHARACTER_STORY_CONTRACT.md` / `.json` / `.schema.json`, plus `03_STORY_STATE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
 - `tools/regression/system_authority_contract.py`
 - `tools/regression/campaign_context_contract.py`
 - `tools/regression/product_creative_contract.py`
+- `tools/regression/character_story_contract.py`
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -83,6 +87,17 @@ identity, price, sizes, variant and canonical commerce media remain owned by the
 authorities in contract 00 and the Product Onboarding system. A creative system
 may read Product Truth; it may never write it.
 
+Contract 03 is **authoring only** in the same way. The **Story State Engine** it
+describes **does not exist**, and `03_STORY_STATE_OBJECT.schema.json` describes
+future runtime structure only — the snapshot a Story State Engine would own.
+**No real Story State instance is committed** to this public repository, and
+none may be.
+
+Contract 03 **does not own Human Identity**. Identity remains authoritative with
+the **Avatar Skill** under contract 00; contract 03 references it and never
+creates a second identity record. Narrative role, relationship state and story
+canon are dynamic; human identity is not.
+
 ## Planned contracts — NOT YET CREATED
 
 The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
@@ -97,7 +112,6 @@ No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
-| 03 | Character & Story | INA/SIS character canon, story continuity | NOT YET CREATED |
 | 04 | Social Intelligence | metric weighting, scoring, creative fatigue | NOT YET CREATED |
 | 05 | Workstation Operating | node architecture, workflow graph, run model | NOT YET CREATED |
 | 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | NOT YET CREATED |
