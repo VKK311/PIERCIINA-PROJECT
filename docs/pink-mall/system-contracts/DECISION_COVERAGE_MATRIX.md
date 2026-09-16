@@ -2,7 +2,13 @@
 
 Eight owner interviews produced locked decisions across the campaign, creative,
 story, social, operating, approval, memory and HQ domains. Their detailed
-contracts are **not** being authored yet.
+contracts are being authored **incrementally**, one domain at a time, rather
+than all at once.
+
+Contract **01 — Campaign Context** has been authored: its files exist in this
+lineage. Domains **02–08** are still awaiting their detailed contracts. File
+existence does **not** by itself establish canonicality — that is decided only
+by the four conditions in `00_SYSTEM_AUTHORITY_CONTRACT`.
 
 This matrix exists so that a decision already taken is not lost merely because
 its contract has not been written. It records **that** a decision exists, its
