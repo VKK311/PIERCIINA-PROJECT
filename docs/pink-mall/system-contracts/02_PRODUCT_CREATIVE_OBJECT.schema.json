@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/02_PRODUCT_CREATIVE_OBJECT.schema.json",
   "title": "PINK MALL Product Reference Package",
-  "description": "Shape of the handoff a future Product Creative system assembles BEFORE generation. No such system exists. The package is a GENERATION INPUT, never a Product Truth record. Instances are snapshots and MUST NOT be committed to this public repository.",
+  "description": "Shape of the handoff a future Product Creative system assembles BEFORE generation. No such system exists. The package is a GENERATION INPUT, never a Product Truth record, and it carries only what can truthfully exist before an output does: no generated-output status and no clothing-fit RESULT, only evidence readiness. Instances are snapshots and MUST NOT be committed to this public repository.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -505,38 +505,6 @@
       },
       "additionalProperties": false
     },
-    "clothingFit": {
-      "type": "object",
-      "required": [
-        "garmentGeometryEvidencePresent",
-        "wearFitEvidencePresent",
-        "fitStatus"
-      ],
-      "properties": {
-        "garmentGeometryEvidencePresent": {
-          "type": "boolean"
-        },
-        "wearFitEvidencePresent": {
-          "type": "boolean"
-        },
-        "fitStatus": {
-          "type": "string",
-          "enum": [
-            "PASS",
-            "FAIL",
-            "UNRESOLVED"
-          ]
-        },
-        "avatarWardrobeUsedAsGarmentAuthority": {
-          "const": false
-        },
-        "note": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Required whenever riskClassification.clothingWornOnBody is true. UNRESOLVED is a real, blocking outcome."
-    },
     "productConfidence": {
       "type": "string",
       "enum": [
@@ -976,36 +944,29 @@
       },
       "additionalProperties": false
     },
-    "outputStatus": {
+    "clothingFitEvidence": {
       "type": "object",
       "required": [
-        "truthClass",
-        "state",
-        "mediaClass"
+        "garmentGeometryEvidencePresent",
+        "wearFitEvidencePresent",
+        "avatarWardrobeUsedAsGarmentAuthority"
       ],
       "properties": {
-        "truthClass": {
-          "const": "GENERATED_OUTPUT"
+        "garmentGeometryEvidencePresent": {
+          "type": "boolean"
         },
-        "state": {
-          "type": "string",
-          "enum": [
-            "CANDIDATE",
-            "QA_PASSED",
-            "QA_FAILED",
-            "QA_UNRESOLVED"
-          ]
+        "wearFitEvidencePresent": {
+          "type": "boolean"
         },
-        "mediaClass": {
-          "type": "string",
-          "enum": [
-            "CAMPAIGN_MEDIA",
-            "DERIVATIVE_MEDIA"
-          ]
+        "avatarWardrobeUsedAsGarmentAuthority": {
+          "const": false
+        },
+        "note": {
+          "type": "string"
         }
       },
       "additionalProperties": false,
-      "description": "CANONICAL_COMMERCE_MEDIA is deliberately absent from mediaClass: a generated depiction may never enter the canonical commerce media path."
+      "description": "EVIDENCE READINESS before generation — deliberately NOT a fit result. PASS, FAIL and UNRESOLVED are outcomes about a depiction that does not exist yet, so they cannot appear here. They remain in the normative Clothing Fit Protocol for evaluating an actual generated depiction. additionalProperties:false is what keeps fitStatus out."
     }
   },
   "required": [
@@ -1024,8 +985,7 @@
     "qaRequirements",
     "humanSubjects",
     "truthConstraints",
-    "executionLayer",
-    "outputStatus"
+    "executionLayer"
   ],
   "allOf": [
     {
@@ -1048,9 +1008,36 @@
       },
       "then": {
         "required": [
-          "clothingFit"
-        ]
-      }
+          "clothingFitEvidence"
+        ],
+        "properties": {
+          "riskClassification": {
+            "required": [
+              "riskLevel"
+            ],
+            "properties": {
+              "riskLevel": {
+                "const": "HIGH"
+              }
+            }
+          },
+          "clothingFitEvidence": {
+            "required": [
+              "garmentGeometryEvidencePresent",
+              "avatarWardrobeUsedAsGarmentAuthority"
+            ],
+            "properties": {
+              "garmentGeometryEvidencePresent": {
+                "const": true
+              },
+              "avatarWardrobeUsedAsGarmentAuthority": {
+                "const": false
+              }
+            }
+          }
+        }
+      },
+      "$comment": "A generation-ready package for body-worn clothing must be HIGH risk, must carry clothing-fit evidence, must actually have garment-geometry evidence, and must not have used avatar wardrobe as garment authority. Missing optional wear/fit evidence is declared in knownUncertainties, never invented."
     }
   ],
   "x-notPermittedStates": [
@@ -1064,5 +1051,10 @@
     "CANONICAL_COMMERCE_MEDIA"
   ],
   "x-numericThresholdsDefined": false,
-  "x-note": "The package is a generation input. It grants no approval, spend or publication authority, and it cannot express an approved or published state — those belong to contract 06."
+  "x-note": "The package is a generation input. It grants no approval, spend or publication authority, carries no generated-output state, and cannot express an approved or published state — those belong to contract 06.",
+  "x-notPermittedInPackage": {
+    "outputStatus": "post-generation state; an input package cannot describe an output that does not exist",
+    "fitStatus": "a post-generation QA outcome; the pre-generation package carries evidence readiness only",
+    "PASS/FAIL/UNRESOLVED": "QA results about a depiction, not properties of its inputs"
+  }
 }

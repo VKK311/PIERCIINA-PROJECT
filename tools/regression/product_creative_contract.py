@@ -69,12 +69,18 @@ FIT_OUTCOMES = ["PASS", "FAIL", "UNRESOLVED"]
 OUTPUT_STATES = ["CANDIDATE", "QA_PASSED", "QA_FAILED", "QA_UNRESOLVED"]
 FORBIDDEN_STATES = ["APPROVED", "APPROVED_SPEND", "PUBLISHED", "SCHEDULED", "EXECUTING"]
 SUBJECTS = ["INA", "SIS", "DUO"]
+# The package is assembled BEFORE generation, so it carries only what can
+# truthfully exist before an output does: no generated-output status, and
+# clothing-fit EVIDENCE rather than a clothing-fit RESULT.
 PKG_REQUIRED = ["schemaVersion", "packageRef", "generatedAt", "isProductTruthRecord",
                 "productIdentity", "productRole", "productGeometrySources", "productLocks",
                 "creativeFreedoms", "riskClassification", "productConfidence",
                 "knownUncertainties", "qaRequirements", "humanSubjects", "truthConstraints",
-                "executionLayer", "outputStatus"]
-PKG_OPTIONAL = ["productWearReference", "clothingFit"]
+                "executionLayer"]
+PKG_OPTIONAL = ["productWearReference", "clothingFitEvidence"]
+# Post-generation vocabulary that must never appear in a pre-generation package.
+POST_GENERATION_KEYS = ["outputStatus", "clothingFit", "fitStatus", "qaResults"]
+NOT_APPLICABLE = "NOT_APPLICABLE"
 PM_ID = re.compile(r"^PM-\d{3}$")
 
 passed = failed = 0
@@ -192,19 +198,27 @@ def check_package(pkg):
             e.append(f"riskLevel {risk.get('riskLevel')!r} not in vocabulary")
         if body_worn and risk.get("riskLevel") != "HIGH":
             e.append("clothing worn on a body is a HIGH-risk product-fidelity case")
-    fit = pkg.get("clothingFit")
+    fit = pkg.get("clothingFitEvidence")
     if body_worn:
         if not isinstance(fit, dict):
-            e.append("body-worn clothing requires a clothingFit status")
+            e.append("body-worn clothing requires clothingFitEvidence")
         else:
-            if fit.get("fitStatus") not in FIT_OUTCOMES:
-                e.append(f"fitStatus {fit.get('fitStatus')!r} not in vocabulary")
-            if fit.get("fitStatus") == "UNRESOLVED":
-                e.append("CLOTHING_FIT_UNRESOLVED: insufficient evidence is a STOP, not a PASS")
-            if fit.get("fitStatus") == "PASS" and not fit.get("garmentGeometryEvidencePresent"):
-                e.append("clothing fit cannot PASS without garment geometry evidence")
-            if fit.get("avatarWardrobeUsedAsGarmentAuthority") is True:
+            # Readiness, not a verdict: a depiction that does not exist yet
+            # cannot have passed or failed anything.
+            if fit.get("garmentGeometryEvidencePresent") is not True:
+                e.append("body-worn clothing requires garment geometry evidence; "
+                         "generation readiness is BLOCKED without it")
+            if fit.get("avatarWardrobeUsedAsGarmentAuthority") is not False:
                 e.append("avatar wardrobe is never garment-geometry authority")
+            if not isinstance(fit.get("wearFitEvidencePresent"), bool):
+                e.append("wearFitEvidencePresent must be stated as a boolean, "
+                         "and absent fit evidence declared in knownUncertainties")
+            for k in fit:
+                if k not in ("garmentGeometryEvidencePresent", "wearFitEvidencePresent",
+                             "avatarWardrobeUsedAsGarmentAuthority", "note"):
+                    e.append(f"clothingFitEvidence: unknown key {k}")
+    elif isinstance(fit, dict):
+        e.append("clothingFitEvidence is only meaningful for body-worn clothing")
 
     # ── product confidence honesty ───────────────────────────────────────────
     if pkg.get("productConfidence") not in ("HIGH", "MEDIUM", "LOW"):
@@ -258,21 +272,13 @@ def check_package(pkg):
         if "mayProduce" in ex and ex["mayProduce"] != ["GENERATED_OUTPUT"]:
             e.append("the execution layer may produce GENERATED_OUTPUT and nothing else")
 
-    # ── output starts non-canonical ──────────────────────────────────────────
-    out = pkg.get("outputStatus")
-    if not isinstance(out, dict):
-        e.append("outputStatus must be an object")
-    else:
-        if out.get("truthClass") != "GENERATED_OUTPUT":
-            e.append(f"truthClass {out.get('truthClass')!r} must be GENERATED_OUTPUT")
-        if out.get("state") in FORBIDDEN_STATES:
-            e.append(f"state {out.get('state')!r} belongs to contract 06, not contract 02")
-        elif out.get("state") not in OUTPUT_STATES:
-            e.append(f"state {out.get('state')!r} not in vocabulary")
-        if out.get("mediaClass") == "CANONICAL_COMMERCE_MEDIA":
-            e.append("generated media may never be canonical commerce media")
-        elif out.get("mediaClass") not in ("CAMPAIGN_MEDIA", "DERIVATIVE_MEDIA"):
-            e.append(f"mediaClass {out.get('mediaClass')!r} not in vocabulary")
+    # ── nothing post-generation may appear in a pre-generation package ───────
+    # The unknown-key sweep above already rejects these; naming them gives the
+    # failure a reason rather than a shrug.
+    for k in POST_GENERATION_KEYS:
+        if k in pkg:
+            e.append(f"{k} is post-generation state and cannot appear in a package assembled "
+                     f"before generation")
     return e
 
 
@@ -310,8 +316,6 @@ def valid_package():
                              "worldPhysicsMayBreak": True},
         "executionLayer": {"provider": "SYNTHETIC_EXECUTION_LAYER", "isAuthoritative": False,
                            "mayProduce": ["GENERATED_OUTPUT"]},
-        "outputStatus": {"truthClass": "GENERATED_OUTPUT", "state": "CANDIDATE",
-                         "mediaClass": "CAMPAIGN_MEDIA"},
     }
 
 
@@ -319,8 +323,9 @@ def clothing_package():
     """A body-worn clothing package the contract must accept."""
     p = json.loads(json.dumps(valid_package()))
     p["riskClassification"] = {"clothingWornOnBody": True, "riskLevel": "HIGH"}
-    p["clothingFit"] = {"garmentGeometryEvidencePresent": True, "wearFitEvidencePresent": True,
-                        "fitStatus": "PASS", "avatarWardrobeUsedAsGarmentAuthority": False}
+    p["clothingFitEvidence"] = {"garmentGeometryEvidencePresent": True,
+                                "wearFitEvidencePresent": True,
+                                "avatarWardrobeUsedAsGarmentAuthority": False}
     return p
 
 
@@ -507,6 +512,21 @@ def main():
           str(downs))
     check("45. an uncertain product is not reported as grounded",
           "MUST NOT be reported as fully grounded" in pc.get("honesty", ""))
+    # LOW confidence describes grounding. It is not a licence to generate.
+    gr = c.get("generationReadiness", {})
+    check("    confidence is explicitly not permission to generate",
+          pc.get("confidenceIsNotPermissionToGenerate") is True
+          and "NOT permission to generate" in pc.get("rule", ""))
+    check("    generation readiness is a separate judgement from confidence",
+          gr.get("states") == ["READY", "BLOCKED"] and gr.get("distinctFromConfidence") is True)
+    check("    no package may be emitted while readiness is BLOCKED",
+          gr.get("packageMayBeEmittedWhenBlocked") is False)
+    blocked = " ".join(gr.get("blockedWhen", [])).lower()
+    for term in ("exact-product", "similar sku", "different colourway", "garment-geometry"):
+        check(f"    readiness is BLOCKED when evidence is {term}", term in blocked)
+    check("    Avatar v1.3's LOW-confidence mapping is preserved, not replaced",
+          "productConfidence LOW" in gr.get("avatarCompatibility", "")
+          and "preserved verbatim" in gr.get("avatarCompatibility", ""))
 
     hr = c.get("highRiskProductClasses", [])
     clothing = next((h for h in hr if h.get("classId") == "CLOTHING_WORN_ON_BODY"), None)
@@ -564,10 +584,22 @@ def main():
 
     cons = c.get("consent", {})
     check("64. consent references the existing gate and does not resolve it",
-          cons.get("resolvedHere") is False
-          and cons.get("currentState") == "OWNER_CONFIRMATION_REQUIRED")
+          cons.get("resolvedHere") is False and "CONSENT_AND_PROVENANCE" in cons.get("authority", ""))
     check("65. internal validation and commercial publication are different",
           cons.get("internalValidationAndPublicationAreDifferent") is True)
+    # Caching mutable authority state here is how a contract goes stale the
+    # moment the owner resolves consent at its real authority.
+    check("    consent state is NOT owned or cached by this contract",
+          cons.get("stateOwnedHere") is False
+          and cons.get("readCurrentStateFromAuthority") is True)
+    check("    no consent state value is frozen into the contract",
+          not any(isinstance(v, str) and "OWNER_CONFIRMATION_REQUIRED" in v
+                  for v in cons.values()),
+          str({k: v for k, v in cons.items()
+               if isinstance(v, str) and "OWNER_CONFIRMATION_REQUIRED" in v}))
+    check("    the consent authority file exists in this lineage",
+          os.path.exists(os.path.join(ROOT, cons.get("authority", ""))),
+          cons.get("authority"))
 
     gos = c.get("generatedOutputStatus", {})
     check("66. generated output starts as GENERATED_OUTPUT / CANDIDATE",
@@ -605,6 +637,23 @@ def main():
               and g.get("numericThreshold") is None for g in c.get("qaGates", [])))
     check("76. UNRESOLVED must not be recorded as PASS",
           any("MUST NOT be recorded as PASS" in r for r in c.get("qaRules", [])))
+    qs = c.get("qaSemantics", {})
+    check("    applicability and result are separate dimensions",
+          qs.get("resultVocabulary") == ["PASS", "FAIL", "UNRESOLVED"]
+          and qs.get("notApplicableMarker") == NOT_APPLICABLE)
+    check("    NOT_APPLICABLE is not a fourth evaluation result",
+          qs.get("notApplicableIsEvaluationResult") is False)
+    check("    NOT_APPLICABLE is not in the result vocabulary",
+          NOT_APPLICABLE not in qs.get("resultVocabulary", []))
+    check("    an applicable gate may not be marked NOT_APPLICABLE to bypass it",
+          "MUST NOT be marked NOT_APPLICABLE" in qs.get("mustNotBypass", ""))
+    check("    the result vocabulary applies to a generated depiction",
+          "depiction" in qs.get("appliesTo", "") and "after generation" in qs.get("appliesTo", ""))
+    check("    every gate declares whether it can be NOT_APPLICABLE",
+          all(isinstance(g.get("mayBeNotApplicable"), bool) for g in c.get("qaGates", [])))
+    check("    the conditional gates are the ones marked not-always-applicable",
+          {g["gateId"] for g in c.get("qaGates", []) if g.get("mayBeNotApplicable")}
+          >= {"CLOTHING_FIT_INTEGRITY", "HUMAN_TRUTH_INTEGRITY"})
     check("77. the contract defines no numeric threshold and says so",
           c.get("numericThresholdsDefinedHere") is False
           and "NOT promoted into this contract" in c.get("numericThresholdNote", ""))
@@ -642,9 +691,20 @@ def main():
     for term in ("product identity", "product geometry", "product truth", "human truth",
                  "approvals", "publication"):
         check(f"    it is not authority for {term}", term in notauth)
-    check("88. no CyberNinjas service was called, assumed or charged in this phase",
-          el.get("calledInThisPhase") is False and el.get("subscriptionAssumed") is False
-          and el.get("apiAssumed") is False and el.get("creditsSpent") is False)
+    # Whether a provider was called in one authoring session is an operational
+    # fact about that session, not durable policy, and belongs in its report.
+    check("88. the contract carries no phase-execution audit facts",
+          not any(k in el for k in ("calledInThisPhase", "creditsSpent",
+                                    "subscriptionAssumed", "apiAssumed")),
+          str([k for k in ("calledInThisPhase", "creditsSpent", "subscriptionAssumed",
+                           "apiAssumed") if k in el]))
+    check("    the contract's validity assumes no subscription",
+          el.get("contractAssumesSubscription") is False)
+    check("    the contract's validity assumes no specific API",
+          el.get("contractAssumesSpecificApi") is False)
+    check("    the authority boundary holds whether or not a provider is connected",
+          el.get("contractValidityDependsOnProvider") is False
+          and "whether or not a provider is connected" in el.get("rule", ""))
     check("    contract 00 agrees the studio may not assert facts",
           next((s for s in parent.get("sourceTypes", [])
                 if s.get("sourceId") == "CYBERNINJAS_STUDIO"), {}).get("mayAssertFacts") is False)
@@ -774,7 +834,15 @@ def main():
                            ("mediaClassBoundary", "canonicalCommerceMediaGenerativeAlterationAllowed", False),
                            ("mediaClassBoundary", "campaignMediaMayBecomeCanonicalCommerceMedia", False),
                            ("executionLayer", "mayAssertFacts", False),
-                           ("executionLayer", "creditsSpent", False),
+                           ("executionLayer", "contractAssumesSubscription", False),
+                           ("executionLayer", "contractAssumesSpecificApi", False),
+                           ("executionLayer", "contractValidityDependsOnProvider", False),
+                           ("consent", "stateOwnedHere", False),
+                           ("consent", "readCurrentStateFromAuthority", True),
+                           ("qaSemantics", "notApplicableIsEvaluationResult", False),
+                           ("generationReadiness", "distinctFromConfidence", True),
+                           ("generationReadiness", "packageMayBeEmittedWhenBlocked", False),
+                           ("productConfidence", "confidenceIsNotPermissionToGenerate", True),
                            ("authorityGrants", "publicationAuthorityGranted", False),
                            ("authorityGrants", "spendAuthorityGranted", False),
                            ("productConfidence", "numericScoringDefined", False),
@@ -782,6 +850,20 @@ def main():
                            ("productRoleInteraction", "noneRemainsValid", True)):
         check(f"    contract schema pins {key}.{sub} = {want}",
               sp.get(key, {}).get("properties", {}).get(sub, {}).get("const") is want)
+    # Closing consent is the mechanism that keeps a cached consent state out;
+    # an open object would let one back in with every const still satisfied.
+    check("    contract schema closes the consent object",
+          sp.get("consent", {}).get("additionalProperties") is False)
+    check("    contract schema declares no consent-state property",
+          not any("state" in k.lower() and k not in
+                  ("stateOwnedHere", "readCurrentStateFromAuthority")
+                  for k in sp.get("consent", {}).get("properties", {})),
+          str(sorted(sp.get("consent", {}).get("properties", {}))))
+    # Every governed sub-object must be closed for the same reason.
+    open_objs = [k for k, v in sp.items()
+                 if isinstance(v, dict) and v.get("type") == "object"
+                 and v.get("additionalProperties") is not False]
+    check("    every governed contract sub-object is closed", not open_objs, str(open_objs))
     check("108. contract schema pins the contract-02 number and parent",
           sp.get("contractNumber", {}).get("const") == "02"
           and sp.get("parentContract", {}).get("const") == EXPECTED_PARENT_ID)
@@ -791,6 +873,11 @@ def main():
     op = obj.get("properties", {})
     check("109. object schema is closed to unknown top-level keys",
           obj.get("additionalProperties") is False)
+    open_items = [k for k, v in op.items()
+                  if isinstance(v, dict) and v.get("type") == "object"
+                  and v.get("additionalProperties") is not False]
+    check("    every governed package sub-object is closed", not open_items, str(open_items))
+
     ok, d = exactly_once(op.get("productLocks", {}), "lockId", LOCKS)
     check("110. object schema requires each product lock exactly once", ok, d)
     ok, d = binds(op.get("productLocks", {}), "lockId", "engaged", {l: True for l in LOCKS})
@@ -822,16 +909,56 @@ def main():
           pid_props.get("mayBeWrittenByCreativeSystem", {}).get("const") is False)
     check("114. object schema excludes role NONE from a package",
           op.get("productRole", {}).get("enum") == PRODUCT_ROLES_HERE)
-    check("115. object schema requires clothingFit when clothing is body-worn",
-          any(r.get("if", {}).get("properties", {}).get("riskClassification", {})
-              .get("properties", {}).get("clothingWornOnBody", {}).get("const") is True
-              and "clothingFit" in r.get("then", {}).get("required", [])
-              for r in obj.get("allOf", [])))
-    cfo = op.get("clothingFit", {}).get("properties", {})
-    check("    object schema closes the fit vocabulary",
-          cfo.get("fitStatus", {}).get("enum") == FIT_OUTCOMES)
-    check("    object schema forbids avatar wardrobe as garment authority",
+    # ── body-worn clothing: every rule the checker enforces, proved present ──
+    bw = [r for r in obj.get("allOf", [])
+          if r.get("if", {}).get("properties", {}).get("riskClassification", {})
+          .get("properties", {}).get("clothingWornOnBody", {}).get("const") is True]
+    then = bw[0].get("then", {}) if bw else {}
+    then_props = then.get("properties", {})
+    check("115. object schema conditions on body-worn clothing at all", bool(bw))
+    check("    object schema binds body-worn clothing to riskLevel HIGH",
+          then_props.get("riskClassification", {}).get("properties", {})
+          .get("riskLevel", {}).get("const") == "HIGH")
+    check("    object schema requires the pre-generation fit-evidence object",
+          "clothingFitEvidence" in then.get("required", []))
+    check("    object schema requires garment geometry evidence",
+          then_props.get("clothingFitEvidence", {}).get("properties", {})
+          .get("garmentGeometryEvidencePresent", {}).get("const") is True
+          and "garmentGeometryEvidencePresent"
+          in then_props.get("clothingFitEvidence", {}).get("required", []))
+    check("    object schema forbids avatar wardrobe becoming garment authority",
+          then_props.get("clothingFitEvidence", {}).get("properties", {})
+          .get("avatarWardrobeUsedAsGarmentAuthority", {}).get("const") is False)
+    cfe = op.get("clothingFitEvidence", {})
+    cfo = cfe.get("properties", {})
+    check("    object schema pins avatar wardrobe false on the evidence object itself",
           cfo.get("avatarWardrobeUsedAsGarmentAuthority", {}).get("const") is False)
+    check("    object schema states wear/fit evidence as a boolean, not a verdict",
+          cfo.get("wearFitEvidencePresent", {}).get("type") == "boolean")
+    # ── no post-generation vocabulary may enter a pre-generation package ─────
+    check("116. object schema carries no clothing-fit RESULT in the input package",
+          "fitStatus" not in cfo and not any("fitStatus" in str(v) for v in cfo.values()),
+          str(sorted(cfo)))
+    check("    the fit-evidence object is closed, which is what keeps fitStatus out",
+          cfe.get("additionalProperties") is False)
+    check("117. object schema carries no generated-output status",
+          "outputStatus" not in op and "outputStatus" not in obj.get("required", []))
+    check("    the package is closed, which is what keeps outputStatus out",
+          obj.get("additionalProperties") is False)
+    check("    the schema names what may not appear in a pre-generation package",
+          set(obj.get("x-notPermittedInPackage", {})) >= {"outputStatus", "fitStatus"})
+    check("    PASS/FAIL/UNRESOLVED appear nowhere in the package schema properties",
+          not any(v in json.dumps(op) for v in ("\"PASS\"", "\"FAIL\"", "\"UNRESOLVED\"")))
+    # The normative contract must still own the post-generation vocabulary.
+    check("118. the normative contract still defines the generated-output states",
+          c.get("generatedOutputStatus", {}).get("initialTruthClass") == "GENERATED_OUTPUT"
+          and c.get("generatedOutputStatus", {}).get("allowedStates") == OUTPUT_STATES)
+    check("119. the normative Clothing Fit Protocol still owns PASS/FAIL/UNRESOLVED",
+          [o.get("outcomeId") for o in c.get("clothingFitProtocol", {}).get("outcomes", [])]
+          == FIT_OUTCOMES)
+    check("    approval and publication states remain outside contract 02",
+          not (set(c.get("generatedOutputStatus", {}).get("allowedStates", []))
+               & set(FORBIDDEN_STATES)))
     tco = op.get("truthConstraints", {}).get("properties", {})
     check("116. object schema pins product truth untransformable",
           tco.get("productTruthMayBeTransformed", {}).get("const") is False)
@@ -839,15 +966,8 @@ def main():
           tco.get("humanIdentityMayBeTransformed", {}).get("const") is False)
     check("    object schema permits world physics to break",
           tco.get("worldPhysicsMayBreak", {}).get("const") is True)
-    outp = op.get("outputStatus", {}).get("properties", {})
-    check("118. object schema pins output as GENERATED_OUTPUT",
-          outp.get("truthClass", {}).get("const") == "GENERATED_OUTPUT")
-    check("119. object schema admits no approved or published state",
-          not (set(FORBIDDEN_STATES) & set(outp.get("state", {}).get("enum", [])))
-          and outp.get("state", {}).get("enum") == OUTPUT_STATES)
-    check("120. object schema forbids canonical commerce media as an output class",
-          "CANONICAL_COMMERCE_MEDIA" not in outp.get("mediaClass", {}).get("enum", [])
-          and obj.get("x-notPermittedMediaClass") == ["CANONICAL_COMMERCE_MEDIA"])
+    check("120. object schema records the states contract 02 may not express",
+          obj.get("x-notPermittedStates") == FORBIDDEN_STATES)
     check("121. object schema pins the execution layer non-authoritative",
           op.get("executionLayer", {}).get("properties", {})
           .get("isAuthoritative", {}).get("const") is False)
@@ -908,9 +1028,16 @@ def main():
             "VARIANT is omitted")
     rejects("    a disengaged lock is REJECTED",
             lambda p: p["productLocks"][4].__setitem__("engaged", False), "not engaged")
-    rejects("136. generated media marked canonical commerce media is REJECTED",
-            lambda p: p["outputStatus"].__setitem__("mediaClass", "CANONICAL_COMMERCE_MEDIA"),
-            "never be canonical commerce media")
+    rejects("136. an outputStatus field in a PRE-GENERATION package is REJECTED",
+            lambda p: p.__setitem__("outputStatus",
+                                    {"truthClass": "GENERATED_OUTPUT", "state": "CANDIDATE",
+                                     "mediaClass": "CAMPAIGN_MEDIA"}),
+            "post-generation state")
+    rejects("    generated media marked canonical commerce media is REJECTED, as an "
+            "outputStatus field that cannot be here at all",
+            lambda p: p.__setitem__("outputStatus",
+                                    {"mediaClass": "CANONICAL_COMMERCE_MEDIA"}),
+            "post-generation state")
     rejects("137. an execution layer marked authoritative is REJECTED",
             lambda p: p["executionLayer"].__setitem__("isAuthoritative", True),
             "never authoritative")
@@ -924,30 +1051,43 @@ def main():
             lambda p: p["truthConstraints"]
             .__setitem__("humanIdentityMayBeTransformed", True),
             "humanIdentityMayBeTransformed")
-    rejects("140. clothing on body without a fit status is REJECTED",
-            lambda p: p.pop("clothingFit"), "requires a clothingFit",
+    rejects("140. body-worn clothing without fit evidence is REJECTED",
+            lambda p: p.pop("clothingFitEvidence"), "requires clothingFitEvidence",
             base=clothing_package())
-    rejects("    clothing on body with UNRESOLVED fit is REJECTED",
-            lambda p: p["clothingFit"].__setitem__("fitStatus", "UNRESOLVED"),
-            "CLOTHING_FIT_UNRESOLVED", base=clothing_package())
-    rejects("    clothing fit PASSing without garment geometry evidence is REJECTED",
-            lambda p: p["clothingFit"]
+    rejects("    body-worn clothing without garment geometry evidence is REJECTED",
+            lambda p: p["clothingFitEvidence"]
             .__setitem__("garmentGeometryEvidencePresent", False),
-            "without garment geometry evidence", base=clothing_package())
+            "requires garment geometry evidence", base=clothing_package())
     rejects("    body-worn clothing not classified HIGH risk is REJECTED",
             lambda p: p["riskClassification"].__setitem__("riskLevel", "LOW"),
             "HIGH-risk", base=clothing_package())
     rejects("141. avatar wardrobe used as garment geometry authority is REJECTED",
-            lambda p: p["clothingFit"]
+            lambda p: p["clothingFitEvidence"]
             .__setitem__("avatarWardrobeUsedAsGarmentAuthority", True),
             "avatar wardrobe is never", base=clothing_package())
+    rejects("    fit evidence on a non-clothing package is REJECTED",
+            lambda p: p.__setitem__("clothingFitEvidence",
+                                    {"garmentGeometryEvidencePresent": True,
+                                     "wearFitEvidencePresent": True,
+                                     "avatarWardrobeUsedAsGarmentAuthority": False}),
+            "only meaningful for body-worn")
     rejects("142. an unsupported numeric QA threshold is REJECTED",
             lambda p: p["qaRequirements"][3].__setitem__("numericThreshold", 8),
             "invented numeric threshold")
-    rejects("143. a PUBLISHED state expressed by contract 02 is REJECTED",
-            lambda p: p["outputStatus"].__setitem__("state", "PUBLISHED"), "contract 06")
+    rejects("143. a PUBLISHED state in the package is REJECTED",
+            lambda p: p.__setitem__("outputStatus", {"state": "PUBLISHED"}),
+            "post-generation state")
     rejects("    an APPROVED_SPEND state is REJECTED",
-            lambda p: p["outputStatus"].__setitem__("state", "APPROVED_SPEND"), "contract 06")
+            lambda p: p.__setitem__("outputStatus", {"state": "APPROVED_SPEND"}),
+            "post-generation state")
+    rejects("    a clothingFit RESULT object in the package is REJECTED",
+            lambda p: p.__setitem__("clothingFit", {"fitStatus": "PASS"}),
+            "post-generation state")
+    rejects("    a bare fitStatus in the package is REJECTED",
+            lambda p: p.__setitem__("fitStatus", "PASS"), "post-generation state")
+    rejects("    a fitStatus smuggled into the evidence object is REJECTED",
+            lambda p: p["clothingFitEvidence"].__setitem__("fitStatus", "PASS"),
+            "unknown key fitStatus", base=clothing_package())
     rejects("144. a package claiming to be a Product Truth record is REJECTED",
             lambda p: p.__setitem__("isProductTruthRecord", True), "generation input")
     rejects("    a creative system claiming truth-write authority is REJECTED",
@@ -972,6 +1112,9 @@ def main():
           set(valid_package()) <= set(op), str(set(valid_package()) - set(op)))
     check("    the clothing fixture uses only keys the object schema declares",
           set(clothing_package()) <= set(op))
+    check("    a generation-ready package with no geometry source is REJECTED",
+          bool(check_package(mutate(lambda p: p.__setitem__("productGeometrySources", [])))),
+          "readiness must be BLOCKED without exact-product geometry evidence")
 
     # ── G. registry bookkeeping ──────────────────────────────────────────────
     print("\nG. registry bookkeeping")
@@ -1047,9 +1190,39 @@ def main():
           "generation success is not validation success" in md_plain.lower())
     check("164. the markdown does not claim a Product Creative Engine exists",
           "no product creative engine exists" in md_plain.lower())
-    check("165. the markdown states no CyberNinjas service was called",
-          "no cyberninjas service was called" in md_plain.lower())
-    check("166. the markdown declares open items rather than inventing answers",
+    # This once asserted "no CyberNinjas service was called in this phase" — a
+    # fact about one authoring session, which has no place in a normative
+    # contract. The durable claim is that the contract does not depend on a
+    # provider at all, so that is what the markdown must say.
+    check("165. the markdown states the contract does not depend on a provider",
+          "does not depend on a provider" in md_plain.lower()
+          and "whether or not a provider is connected" in md_plain.lower())
+    # Test for the ASSERTIVE forms only. The contract's own sentence explaining
+    # why such facts are excluded necessarily names them, and must not trip this.
+    check("    the markdown asserts no phase-execution audit fact",
+          not any(claim in md_plain.lower() for claim in
+                  ("no credits were spent", "no cyberninjas service was called",
+                   "no service was called in this phase", "no subscription is assumed")),
+          str([claim for claim in ("no credits were spent",
+                                   "no cyberninjas service was called",
+                                   "no service was called in this phase",
+                                   "no subscription is assumed")
+               if claim in md_plain.lower()]))
+    check("166. the markdown separates applicability from result",
+          "not a fourth evaluation result" in md_plain.lower())
+    check("167. the markdown states confidence is not permission to generate",
+          "not permission to generate" in md_plain.lower())
+    check("168. the markdown separates fit evidence from a fit result",
+          "clothingFitEvidence" in md and "never" in md_plain.lower()
+          and "fitStatus" in md)
+    check("169. the markdown states the package carries no outputStatus",
+          "no outputStatus" in md_plain or "no `outputStatus`" in md)
+    check("170. the markdown states consent state is not recorded here",
+          "not recorded here" in md_plain.lower()
+          and "read from the authority" in md_plain.lower())
+    check("    the markdown caches no consent state value",
+          "OWNER_CONFIRMATION_REQUIRED" not in md)
+    check("171. the markdown declares open items rather than inventing answers",
           "Open items" in md and "MUST NOT" in md)
 
     print(f"\n{len(c.get('productLockCategories', []))} product locks, "

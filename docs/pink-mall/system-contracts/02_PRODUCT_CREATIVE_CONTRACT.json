@@ -291,7 +291,7 @@
     ],
     "numericScoringDefined": false,
     "compatibleWith": "docs/pink-mall/avatar-skill/v1.3 productConfidence",
-    "rule": "A product-led task without an adequate productGeometrySource cannot claim high product confidence.",
+    "rule": "A product-led task without an adequate productGeometrySource cannot claim high product confidence. Confidence describes how well grounded the task is; it is NOT permission to generate.",
     "mandatoryDowngrades": [
       {
         "condition": "no productGeometrySource for a product-led task",
@@ -315,7 +315,8 @@
         "result": "STOP"
       }
     ],
-    "honesty": "An uncertain product MUST NOT be reported as fully grounded. Declare the uncertainty instead."
+    "honesty": "An uncertain product MUST NOT be reported as fully grounded. Declare the uncertainty instead.",
+    "confidenceIsNotPermissionToGenerate": true
   },
   "productRoleInteraction": {
     "rolesOwnedBy": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
@@ -423,10 +424,11 @@
   },
   "consent": {
     "authority": "docs/pink-mall/avatar-skill/v1.3/CONSENT_AND_PROVENANCE.json",
-    "currentState": "OWNER_CONFIRMATION_REQUIRED",
+    "stateOwnedHere": false,
+    "readCurrentStateFromAuthority": true,
     "resolvedHere": false,
     "internalValidationAndPublicationAreDifferent": true,
-    "rule": "Commercial publication of a generated likeness remains governed by the existing Consent Gate. This contract REFERENCES that authority and MUST NOT resolve it. Controlled internal validation and commercial publication are different operations and are not interchangeable."
+    "rule": "Commercial publication of a generated likeness is governed by the Consent Gate. This contract REFERENCES that authority and MUST NOT resolve it. Current consent state is NOT cached here: it MUST be read from the authority at the time it matters, so that resolving consent there never leaves this contract stale or contradicting it. Controlled internal validation and commercial publication are different operations and are not interchangeable."
   },
   "generatedOutputStatus": {
     "initialTruthClass": "GENERATED_OUTPUT",
@@ -477,7 +479,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "PRODUCT_VARIANT",
@@ -487,7 +490,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "SILHOUETTE",
@@ -497,7 +501,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "GEOMETRY_CONSTRUCTION",
@@ -507,7 +512,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "RELATIVE_PROPORTIONS",
@@ -517,7 +523,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "DISTINCTIVE_DETAILS",
@@ -527,7 +534,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": false
     },
     {
       "gateId": "BRANDING_MARKINGS",
@@ -537,7 +545,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": true
     },
     {
       "gateId": "HARDWARE_CLOSURES",
@@ -547,7 +556,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": true
     },
     {
       "gateId": "CLOTHING_FIT_INTEGRITY",
@@ -557,7 +567,8 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": true
     },
     {
       "gateId": "HUMAN_TRUTH_INTEGRITY",
@@ -567,13 +578,15 @@
         "FAIL",
         "UNRESOLVED"
       ],
-      "numericThreshold": null
+      "numericThreshold": null,
+      "mayBeNotApplicable": true
     }
   ],
   "qaRules": [
-    "Every gate returns PASS, FAIL or UNRESOLVED. UNRESOLVED is a real outcome and MUST NOT be recorded as PASS.",
+    "Applicability is decided first. A gate that does not apply is marked NOT_APPLICABLE and returns no result.",
+    "A gate that applies returns PASS, FAIL or UNRESOLVED. UNRESOLVED is a real outcome and MUST NOT be recorded as PASS.",
+    "A gate that applies MUST NOT be marked NOT_APPLICABLE in order to bypass it.",
     "No numeric pass percentage, tolerance or similarity threshold is defined by this contract.",
-    "A conditional gate that does not apply to a depiction is NOT_APPLICABLE rather than PASS.",
     "QA evaluates the depiction. It never revises Product Truth."
   ],
   "numericThresholdsDefinedHere": false,
@@ -666,11 +679,10 @@
       "publication"
     ],
     "generationSuccessIsValidationSuccess": false,
-    "calledInThisPhase": false,
-    "subscriptionAssumed": false,
-    "apiAssumed": false,
-    "creditsSpent": false,
-    "rule": "An execution layer executes. It does not become an authority by producing output."
+    "rule": "An execution layer executes. It does not become an authority by producing output. This contract's validity does not depend on an activated subscription or on any specific API implementation: the authority boundary holds whether or not a provider is connected.",
+    "contractAssumesSubscription": false,
+    "contractAssumesSpecificApi": false,
+    "contractValidityDependsOnProvider": false
   },
   "authorityGrants": {
     "publicationAuthorityGranted": false,
@@ -724,5 +736,33 @@
     "execution-provider API and node mechanics"
   ],
   "openItemsRule": "These are genuinely undecided. They MUST NOT be answered by invention, and a later system MUST NOT assume a default for any of them.",
-  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, then promote to canonical development."
+  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, then promote to canonical development.",
+  "qaSemantics": {
+    "resultVocabulary": [
+      "PASS",
+      "FAIL",
+      "UNRESOLVED"
+    ],
+    "notApplicableMarker": "NOT_APPLICABLE",
+    "notApplicableIsEvaluationResult": false,
+    "appliesTo": "a generated depiction, after generation",
+    "rule": "Applicability and result are two dimensions, not one vocabulary. A gate that APPLIES returns PASS, FAIL or UNRESOLVED. NOT_APPLICABLE marks a gate that does not apply to the depiction at all; it is NOT a fourth evaluation result and asserts nothing about quality.",
+    "mustNotBypass": "A gate that applies MUST NOT be marked NOT_APPLICABLE to bypass it. Marking an applicable gate NOT_APPLICABLE is a governance defect, not a result."
+  },
+  "generationReadiness": {
+    "states": [
+      "READY",
+      "BLOCKED"
+    ],
+    "distinctFromConfidence": true,
+    "blockedWhen": [
+      "no adequate exact-product productGeometrySource exists",
+      "the only geometry evidence is a similar SKU",
+      "the only geometry evidence is a different colourway",
+      "a body-worn clothing depiction lacks garment-geometry evidence"
+    ],
+    "packageMayBeEmittedWhenBlocked": false,
+    "rule": "Product confidence and generation readiness are different judgements. LOW product confidence is a confidence STATEMENT, not permission to generate. No Product Reference Package may be emitted for generation while readiness is BLOCKED, which is why the package schema requires at least one exact-product geometry source: a package that cannot name the product's geometry evidence cannot be assembled at all.",
+    "avatarCompatibility": "Avatar Skill v1.3 sets productConfidence LOW for a product-led task with no productGeometrySource. That mapping is preserved verbatim. This contract adds the readiness gate alongside it rather than replacing it."
+  }
 }

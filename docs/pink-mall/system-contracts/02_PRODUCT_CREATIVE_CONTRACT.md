@@ -198,6 +198,32 @@ high product confidence.**
 An uncertain product **MUST NOT** be reported as fully grounded. Declare the
 uncertainty instead.
 
+### Confidence is not permission to generate
+
+Product confidence and **generation readiness** are different judgements, and
+collapsing them is how an ungrounded task gets generated anyway.
+
+| | |
+|---|---|
+| `productConfidence` | **a statement** about how well grounded the task is |
+| generation readiness | **a gate**: `READY` or `BLOCKED` |
+
+`LOW` confidence is a confidence statement. **It is not permission to generate.**
+
+Readiness is `BLOCKED` when there is no adequate exact-product
+`productGeometrySource`, when the only geometry evidence is a similar SKU or a
+different colourway, or when a body-worn clothing depiction lacks
+garment-geometry evidence.
+
+**No Product Reference Package may be emitted for generation while readiness is
+`BLOCKED`** — which is why the package schema requires at least one exact-product
+geometry source. A package that cannot name the product's geometry evidence
+cannot be assembled at all.
+
+Avatar Skill v1.3's mapping — no `productGeometrySource` on a product-led task
+sets `productConfidence: LOW` — is **preserved verbatim**. The readiness gate is
+added alongside it, not in place of it.
+
 ## 11. Clothing worn on a body is a high-risk class
 
 Garment geometry and human-body geometry interact. A generator can preserve the
@@ -239,6 +265,23 @@ Outcomes: `PASS` · `FAIL` · `UNRESOLVED`.
 **`UNRESOLVED` is a real, blocking outcome** — never a silent `PASS`. No numeric
 computer-vision thresholds are defined.
 
+### Evidence readiness before generation is not a fit result after it
+
+These outcomes describe an **actual generated depiction**. A depiction that does
+not exist yet cannot have passed or failed anything.
+
+So the pre-generation Product Reference Package carries `clothingFitEvidence` —
+`garmentGeometryEvidencePresent`, `wearFitEvidencePresent`,
+`avatarWardrobeUsedAsGarmentAuthority` — and **never** a `fitStatus`. The
+`PASS` / `FAIL` / `UNRESOLVED` vocabulary stays here, in the normative protocol,
+for evaluating a real depiction later.
+
+For a **generation-ready** package where `clothingWornOnBody` is true, the schema
+structurally requires `riskLevel: HIGH`, the presence of `clothingFitEvidence`,
+`garmentGeometryEvidencePresent: true`, and
+`avatarWardrobeUsedAsGarmentAuthority: false`. Missing optional wear/fit evidence
+is **declared in `knownUncertainties`**, never invented.
+
 ## 13. Human + product: two locks at once
 
 When a campaign contains INA, SIS or DUO **together with** a product, two
@@ -257,17 +300,27 @@ distinctive product feature.
 ## 14. Consent
 
 Commercial publication of a generated likeness remains governed by the existing
-**Consent Gate** (`CONSENT_AND_PROVENANCE.json`, currently
-`OWNER_CONFIRMATION_REQUIRED`).
+**Consent Gate** (`CONSENT_AND_PROVENANCE.json`).
 
 This contract **references** that authority. It **does not resolve** it.
+
+**Current consent state is deliberately not recorded here.** Consent state is
+mutable authority state owned by the Consent Gate; caching a copy in this
+contract would make it stale — and contradict its own authority — the moment the
+owner resolves consent. It **MUST be read from the authority** at the time it
+matters.
 
 **Controlled internal validation and commercial publication are different
 operations** and are not interchangeable.
 
 ## 15. Generated output status
 
-A generated product image begins as **`GENERATED_OUTPUT` / `CANDIDATE`**.
+Once a generated depiction **exists**, it begins as **`GENERATED_OUTPUT` /
+`CANDIDATE`**.
+
+This is a statement about an **output**, not about the input package. The
+pre-generation Product Reference Package carries **no** `outputStatus` at all:
+there is no output yet to have a status.
 
 It is **not** `FACT`, `CANONICAL_PRODUCT_MEDIA`, `APPROVAL` or `PUBLISHED`
 simply because generation succeeded.
@@ -293,8 +346,21 @@ Ten structural gates. Each returns `PASS`, `FAIL` or `UNRESOLVED`.
 9. clothing fit integrity when applicable
 10. Human Truth integrity when a person is present
 
-`UNRESOLVED` **MUST NOT** be recorded as `PASS`. A gate that does not apply is
-`NOT_APPLICABLE`, not `PASS`.
+### Applicability and result are two dimensions, not one vocabulary
+
+| Dimension | Values |
+|---|---|
+| **Result**, when a gate *applies* | `PASS` · `FAIL` · `UNRESOLVED` |
+| **Applicability marker** | `NOT_APPLICABLE` |
+
+`NOT_APPLICABLE` is **not a fourth evaluation result**. It means the gate does
+not apply to that depiction at all, and it asserts nothing about quality.
+
+- `UNRESOLVED` **MUST NOT** be recorded as `PASS`.
+- A gate that **applies MUST NOT** be marked `NOT_APPLICABLE` in order to bypass
+  it. Doing so is a governance defect, not a result.
+
+These gates evaluate a **generated depiction, after generation**.
 
 **No numeric pass percentage, tolerance or similarity threshold is defined by
 this contract.** Avatar Skill v1.3 carries its own test-phase gate
@@ -351,8 +417,14 @@ Truth, Human Truth, approvals or publication.
 **An execution layer executes. It does not become an authority by producing
 output.**
 
-No CyberNinjas service was called in this phase. No subscription is assumed, no
-API is assumed, no credits were spent.
+This contract's validity **does not depend on a provider**: it assumes no
+activated subscription and no specific API implementation, and the authority
+boundary holds whether or not a provider is connected.
+
+Facts about what happened during one authoring session — whether a provider was
+called, whether credits were spent — describe an **operation**, not policy. They
+belong in that phase's report, not in a normative contract, and are deliberately
+absent here.
 
 ## 20. The Product Reference Package
 
@@ -361,9 +433,14 @@ The structure a future Product Creative system assembles **before** generation:
 product identity reference · `productGeometrySource` references · optional
 `productWearReference` · Product Locks · campaign product role · creative
 freedoms · known uncertainties · product confidence · risk classification · QA
-requirements
+requirements · `clothingFitEvidence` when body-worn
 
 **The package is a GENERATION INPUT. It is not a new Product Truth record.**
+
+Because it is assembled **before** generation, it carries only what can
+truthfully exist at that moment. It therefore has **no `outputStatus`** and **no
+`fitStatus`** — both describe an output that does not exist yet. The schema is
+closed (`additionalProperties: false`), which is what keeps them out.
 
 Its builder is **not implemented** in this phase. Instances are snapshots and
 **MUST NOT** be committed to this public repository.

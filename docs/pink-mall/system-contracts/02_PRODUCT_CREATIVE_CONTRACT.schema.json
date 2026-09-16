@@ -999,7 +999,8 @@
         "compatibleWith",
         "rule",
         "mandatoryDowngrades",
-        "honesty"
+        "honesty",
+        "confidenceIsNotPermissionToGenerate"
       ],
       "properties": {
         "states": {
@@ -1054,6 +1055,9 @@
         "honesty": {
           "type": "string",
           "minLength": 1
+        },
+        "confidenceIsNotPermissionToGenerate": {
+          "const": true
         }
       },
       "additionalProperties": false
@@ -1483,7 +1487,8 @@
       "type": "object",
       "required": [
         "authority",
-        "currentState",
+        "stateOwnedHere",
+        "readCurrentStateFromAuthority",
         "resolvedHere",
         "internalValidationAndPublicationAreDifferent",
         "rule"
@@ -1493,8 +1498,11 @@
           "type": "string",
           "minLength": 1
         },
-        "currentState": {
-          "const": "OWNER_CONFIRMATION_REQUIRED"
+        "stateOwnedHere": {
+          "const": false
+        },
+        "readCurrentStateFromAuthority": {
+          "const": true
         },
         "resolvedHere": {
           "const": false
@@ -1507,7 +1515,8 @@
           "minLength": 1
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Current consent state is deliberately absent. additionalProperties:false is what keeps a cached copy out, so resolving consent at its authority can never leave this contract stale."
     },
     "generatedOutputStatus": {
       "type": "object",
@@ -1615,7 +1624,8 @@
           "gateId",
           "evaluates",
           "resultVocabulary",
-          "numericThreshold"
+          "numericThreshold",
+          "mayBeNotApplicable"
         ],
         "properties": {
           "gateId": {
@@ -1647,6 +1657,9 @@
           },
           "numericThreshold": {
             "type": "null"
+          },
+          "mayBeNotApplicable": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2026,7 +2039,7 @@
     },
     "qaRules": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 5,
       "items": {
         "type": "string"
       }
@@ -2470,11 +2483,10 @@
         "mayAssertFacts",
         "mustNotBeAuthoritativeFor",
         "generationSuccessIsValidationSuccess",
-        "calledInThisPhase",
-        "subscriptionAssumed",
-        "apiAssumed",
-        "creditsSpent",
-        "rule"
+        "rule",
+        "contractAssumesSubscription",
+        "contractAssumesSpecificApi",
+        "contractValidityDependsOnProvider"
       ],
       "properties": {
         "sourceId": {
@@ -2510,24 +2522,22 @@
         "generationSuccessIsValidationSuccess": {
           "const": false
         },
-        "calledInThisPhase": {
-          "const": false
-        },
-        "subscriptionAssumed": {
-          "const": false
-        },
-        "apiAssumed": {
-          "const": false
-        },
-        "creditsSpent": {
-          "const": false
-        },
         "rule": {
           "type": "string",
           "minLength": 1
+        },
+        "contractAssumesSubscription": {
+          "const": false
+        },
+        "contractAssumesSpecificApi": {
+          "const": false
+        },
+        "contractValidityDependsOnProvider": {
+          "const": false
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Durable authority semantics only. Facts about a particular authoring session — whether a provider was called, whether credits were spent — describe an operation, not policy, and belong in that phase's report rather than in a normative contract."
     },
     "authorityGrants": {
       "type": "object",
@@ -2622,6 +2632,90 @@
     "changeControl": {
       "type": "string",
       "minLength": 1
+    },
+    "qaSemantics": {
+      "type": "object",
+      "required": [
+        "resultVocabulary",
+        "notApplicableMarker",
+        "notApplicableIsEvaluationResult",
+        "appliesTo",
+        "rule",
+        "mustNotBypass"
+      ],
+      "properties": {
+        "resultVocabulary": {
+          "type": "array",
+          "const": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "notApplicableMarker": {
+          "const": "NOT_APPLICABLE"
+        },
+        "notApplicableIsEvaluationResult": {
+          "const": false
+        },
+        "appliesTo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mustNotBypass": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "Applicability and result are separate dimensions. NOT_APPLICABLE is a marker, never a fourth result."
+    },
+    "generationReadiness": {
+      "type": "object",
+      "required": [
+        "states",
+        "distinctFromConfidence",
+        "blockedWhen",
+        "packageMayBeEmittedWhenBlocked",
+        "rule",
+        "avatarCompatibility"
+      ],
+      "properties": {
+        "states": {
+          "type": "array",
+          "const": [
+            "READY",
+            "BLOCKED"
+          ]
+        },
+        "distinctFromConfidence": {
+          "const": true
+        },
+        "blockedWhen": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "packageMayBeEmittedWhenBlocked": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "avatarCompatibility": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
@@ -2666,7 +2760,9 @@
     "privacyRules",
     "openItems",
     "openItemsRule",
-    "changeControl"
+    "changeControl",
+    "qaSemantics",
+    "generationReadiness"
   ],
   "x-productLockCategories": [
     "IDENTITY",
