@@ -1,0 +1,2710 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/02_PRODUCT_CREATIVE_CONTRACT.schema.json",
+  "title": "PINK MALL Product Creative Contract",
+  "description": "Structure of contract 02. Closed vocabularies are genuinely closed; required membership is proved by allOf/contains with minContains and maxContains, never by uniqueItems alone.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "dependsOn": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractId",
+          "contractNumber",
+          "dependency"
+        ],
+        "properties": {
+          "contractId": {
+            "type": "string"
+          },
+          "contractNumber": {
+            "type": "string"
+          },
+          "dependency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractId"
+            ],
+            "properties": {
+              "contractId": {
+                "const": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "contractNumber": {
+      "const": "02"
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "covers",
+        "doesNotCover",
+        "implementationStatus",
+        "note"
+      ],
+      "properties": {
+        "covers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "doesNotCover": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "implementationStatus": {
+          "const": "PLANNED"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "corePrinciple": {
+      "type": "object",
+      "required": [
+        "statement",
+        "inheritedFrom",
+        "productTruthMayBeTransformed",
+        "humanIdentityMayBeTransformed",
+        "worldPhysicsMayBreak",
+        "rule"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inheritedFrom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "productTruthMayBeTransformed": {
+          "const": false
+        },
+        "humanIdentityMayBeTransformed": {
+          "const": false
+        },
+        "worldPhysicsMayBreak": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "productFidelity": {
+      "type": "object",
+      "required": [
+        "targetId",
+        "isNotPixelIdentity",
+        "honestDefinition",
+        "mustRemainTheSame",
+        "mustNotInvent",
+        "repositoryPrecedent"
+      ],
+      "properties": {
+        "targetId": {
+          "const": "ONE_TO_ONE_PRODUCT_FIDELITY"
+        },
+        "isNotPixelIdentity": {
+          "const": true
+        },
+        "honestDefinition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mustRemainTheSame": {
+          "type": "array",
+          "minItems": 11,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "mustNotInvent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repositoryPrecedent": {
+          "type": "object",
+          "required": [
+            "source",
+            "section",
+            "note"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "section": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "productTruthAuthority": {
+      "type": "object",
+      "required": [
+        "rule",
+        "ownedElsewhere",
+        "creativeSystemMayRead",
+        "creativeSystemMayWrite",
+        "generatedImageIsEvidenceOfTruthChange",
+        "rules"
+      ],
+      "properties": {
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownedElsewhere": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "fact",
+              "authorityDomain",
+              "authority"
+            ],
+            "properties": {
+              "fact": {
+                "type": "string"
+              },
+              "authorityDomain": {
+                "type": "string"
+              },
+              "authority": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "creativeSystemMayRead": {
+          "const": true
+        },
+        "creativeSystemMayWrite": {
+          "const": false
+        },
+        "generatedImageIsEvidenceOfTruthChange": {
+          "const": false
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceRoles": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "roleId",
+          "authoritativeForGeometry",
+          "authoritativeFor",
+          "mustDeriveFromExactProduct",
+          "definition",
+          "inheritedFrom"
+        ],
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "enum": [
+              "productGeometrySource",
+              "productWearReference"
+            ]
+          },
+          "authoritativeForGeometry": {
+            "type": "boolean"
+          },
+          "authoritativeFor": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "mustDeriveFromExactProduct": {
+            "type": "boolean"
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "inheritedFrom": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productGeometrySource"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productWearReference"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId",
+              "authoritativeForGeometry"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productGeometrySource"
+              },
+              "authoritativeForGeometry": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId",
+              "mustDeriveFromExactProduct"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productGeometrySource"
+              },
+              "mustDeriveFromExactProduct": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId",
+              "authoritativeForGeometry"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productWearReference"
+              },
+              "authoritativeForGeometry": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "roleId",
+              "mustDeriveFromExactProduct"
+            ],
+            "properties": {
+              "roleId": {
+                "const": "productWearReference"
+              },
+              "mustDeriveFromExactProduct": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "neverGeometryAuthority": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidenceRules": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string"
+      }
+    },
+    "productLockCategories": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "lockId",
+          "core",
+          "mayBeWeakenedByLaterContract",
+          "definition",
+          "exampleViolations"
+        ],
+        "properties": {
+          "lockId": {
+            "type": "string",
+            "enum": [
+              "IDENTITY",
+              "VARIANT",
+              "SILHOUETTE",
+              "GEOMETRY",
+              "CONSTRUCTION",
+              "PROPORTIONS",
+              "COLOUR",
+              "BRANDING_MARKINGS",
+              "DISTINCTIVE_DETAILS"
+            ]
+          },
+          "core": {
+            "const": true
+          },
+          "mayBeWeakenedByLaterContract": {
+            "const": false
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exampleViolations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "IDENTITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "VARIANT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "SILHOUETTE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "GEOMETRY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "CONSTRUCTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "PROPORTIONS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "COLOUR"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "BRANDING_MARKINGS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "DISTINCTIVE_DETAILS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "IDENTITY"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "VARIANT"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "SILHOUETTE"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "GEOMETRY"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "CONSTRUCTION"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "PROPORTIONS"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "COLOUR"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "core"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "core": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "IDENTITY"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "VARIANT"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "SILHOUETTE"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "GEOMETRY"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "CONSTRUCTION"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "PROPORTIONS"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "COLOUR"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "lockId",
+              "mayBeWeakenedByLaterContract"
+            ],
+            "properties": {
+              "lockId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "mayBeWeakenedByLaterContract": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "productLockRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "creativeEnvelope": {
+      "type": "object",
+      "required": [
+        "principle",
+        "mayTransform",
+        "mustNotTransform",
+        "transformationSubjectToOtherContracts",
+        "styleIsNotNarrowed",
+        "rule"
+      ],
+      "properties": {
+        "principle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mayTransform": {
+          "type": "array",
+          "minItems": 10,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "mustNotTransform": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "transformationSubjectToOtherContracts": {
+          "const": true
+        },
+        "styleIsNotNarrowed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "productConfidence": {
+      "type": "object",
+      "required": [
+        "states",
+        "numericScoringDefined",
+        "compatibleWith",
+        "rule",
+        "mandatoryDowngrades",
+        "honesty"
+      ],
+      "properties": {
+        "states": {
+          "type": "array",
+          "const": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "numericScoringDefined": {
+          "const": false
+        },
+        "compatibleWith": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandatoryDowngrades": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "condition",
+              "result"
+            ],
+            "properties": {
+              "condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "result": {
+                "type": "string",
+                "enum": [
+                  "HIGH",
+                  "MEDIUM",
+                  "LOW",
+                  "STOP"
+                ]
+              },
+              "precedent": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "honesty": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "productRoleInteraction": {
+      "type": "object",
+      "required": [
+        "rolesOwnedBy",
+        "heroRequiredGlobally",
+        "appliesWhenRoleIsAnyOf",
+        "noneRemainsValid",
+        "rule"
+      ],
+      "properties": {
+        "rolesOwnedBy": {
+          "const": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT"
+        },
+        "heroRequiredGlobally": {
+          "const": false
+        },
+        "appliesWhenRoleIsAnyOf": {
+          "type": "array",
+          "const": [
+            "DETAIL",
+            "SUPPORTING",
+            "HERO"
+          ]
+        },
+        "noneRemainsValid": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "highRiskProductClasses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "classId",
+          "riskLevel",
+          "reason",
+          "silentlyChangeableAttributes",
+          "colourPreservationIsNotFidelity"
+        ],
+        "properties": {
+          "classId": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "silentlyChangeableAttributes": {
+            "type": "array",
+            "minItems": 10,
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "colourPreservationIsNotFidelity": {
+            "const": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId"
+            ],
+            "properties": {
+              "classId": {
+                "const": "CLOTHING_WORN_ON_BODY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "riskLevel"
+            ],
+            "properties": {
+              "classId": {
+                "const": "CLOTHING_WORN_ON_BODY"
+              },
+              "riskLevel": {
+                "const": "HIGH"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "classId",
+              "colourPreservationIsNotFidelity"
+            ],
+            "properties": {
+              "classId": {
+                "const": "CLOTHING_WORN_ON_BODY"
+              },
+              "colourPreservationIsNotFidelity": {
+                "const": true
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "highRiskRules": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "clothingFitProtocol": {
+      "type": "object",
+      "required": [
+        "protocolId",
+        "implementationStatus",
+        "evidenceKinds",
+        "rules",
+        "outcomes",
+        "unresolvedIsNotPass",
+        "numericThresholdsDefined",
+        "wardrobePrecedent"
+      ],
+      "properties": {
+        "protocolId": {
+          "const": "CLOTHING_FIT_PROTOCOL"
+        },
+        "implementationStatus": {
+          "const": "PLANNED"
+        },
+        "evidenceKinds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "kindId",
+              "authoritativeForGarment",
+              "mustDeriveFromExactProduct",
+              "definition"
+            ],
+            "properties": {
+              "kindId": {
+                "type": "string",
+                "enum": [
+                  "GARMENT_GEOMETRY_EVIDENCE",
+                  "WEAR_FIT_EVIDENCE"
+                ]
+              },
+              "authoritativeForGarment": {
+                "type": "boolean"
+              },
+              "mustDeriveFromExactProduct": {
+                "type": "boolean"
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "kindId"
+                ],
+                "properties": {
+                  "kindId": {
+                    "const": "GARMENT_GEOMETRY_EVIDENCE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "kindId"
+                ],
+                "properties": {
+                  "kindId": {
+                    "const": "WEAR_FIT_EVIDENCE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "kindId",
+                  "authoritativeForGarment"
+                ],
+                "properties": {
+                  "kindId": {
+                    "const": "GARMENT_GEOMETRY_EVIDENCE"
+                  },
+                  "authoritativeForGarment": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "kindId",
+                  "mustDeriveFromExactProduct"
+                ],
+                "properties": {
+                  "kindId": {
+                    "const": "GARMENT_GEOMETRY_EVIDENCE"
+                  },
+                  "mustDeriveFromExactProduct": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "kindId",
+                  "authoritativeForGarment"
+                ],
+                "properties": {
+                  "kindId": {
+                    "const": "WEAR_FIT_EVIDENCE"
+                  },
+                  "authoritativeForGarment": {
+                    "const": false
+                  }
+                }
+              },
+              "minContains": 1
+            }
+          ]
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 7,
+          "items": {
+            "type": "string"
+          }
+        },
+        "outcomes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "outcomeId",
+              "meaning"
+            ],
+            "properties": {
+              "outcomeId": {
+                "type": "string",
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "outcomeId"
+                ],
+                "properties": {
+                  "outcomeId": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "outcomeId"
+                ],
+                "properties": {
+                  "outcomeId": {
+                    "const": "FAIL"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "outcomeId"
+                ],
+                "properties": {
+                  "outcomeId": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "unresolvedIsNotPass": {
+          "const": true
+        },
+        "numericThresholdsDefined": {
+          "const": false
+        },
+        "wardrobePrecedent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "dualLock": {
+      "type": "object",
+      "required": [
+        "locks",
+        "operateSimultaneously",
+        "eitherMayBeSacrificed",
+        "appliesWhenSubjectPresent",
+        "onConflict",
+        "forbiddenResolutions",
+        "rule"
+      ],
+      "properties": {
+        "locks": {
+          "type": "array",
+          "const": [
+            "HUMAN_IDENTITY_LOCK",
+            "PRODUCT_LOCK"
+          ]
+        },
+        "operateSimultaneously": {
+          "const": true
+        },
+        "eitherMayBeSacrificed": {
+          "const": false
+        },
+        "appliesWhenSubjectPresent": {
+          "type": "array",
+          "const": [
+            "INA",
+            "SIS",
+            "DUO"
+          ]
+        },
+        "onConflict": {
+          "const": "REJECT_CANDIDATE"
+        },
+        "forbiddenResolutions": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "consent": {
+      "type": "object",
+      "required": [
+        "authority",
+        "currentState",
+        "resolvedHere",
+        "internalValidationAndPublicationAreDifferent",
+        "rule"
+      ],
+      "properties": {
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "currentState": {
+          "const": "OWNER_CONFIRMATION_REQUIRED"
+        },
+        "resolvedHere": {
+          "const": false
+        },
+        "internalValidationAndPublicationAreDifferent": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "generatedOutputStatus": {
+      "type": "object",
+      "required": [
+        "initialTruthClass",
+        "initialState",
+        "isNotOnGeneration",
+        "generationSuccessIsValidationSuccess",
+        "allowedStates",
+        "statesOutsideThisContract",
+        "statesOutsideThisContractBelongTo",
+        "rule"
+      ],
+      "properties": {
+        "initialTruthClass": {
+          "const": "GENERATED_OUTPUT"
+        },
+        "initialState": {
+          "const": "CANDIDATE"
+        },
+        "isNotOnGeneration": {
+          "type": "array",
+          "const": [
+            "FACT",
+            "CANONICAL_PRODUCT_MEDIA",
+            "APPROVAL",
+            "PUBLISHED"
+          ]
+        },
+        "generationSuccessIsValidationSuccess": {
+          "const": false
+        },
+        "allowedStates": {
+          "type": "array",
+          "const": [
+            "CANDIDATE",
+            "QA_PASSED",
+            "QA_FAILED",
+            "QA_UNRESOLVED"
+          ]
+        },
+        "statesOutsideThisContract": {
+          "type": "array",
+          "const": [
+            "APPROVED",
+            "APPROVED_SPEND",
+            "PUBLISHED",
+            "SCHEDULED",
+            "EXECUTING"
+          ]
+        },
+        "statesOutsideThisContractBelongTo": {
+          "const": "06"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "mediaClassBoundary": {
+      "type": "object",
+      "required": [
+        "taxonomyOwnedBy",
+        "redefinedHere",
+        "canonicalCommerceMediaGenerativeAlterationAllowed",
+        "campaignMediaMayBecomeCanonicalCommerceMedia",
+        "promotionOnConvincingAppearance",
+        "rules"
+      ],
+      "properties": {
+        "taxonomyOwnedBy": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+        },
+        "redefinedHere": {
+          "const": false
+        },
+        "canonicalCommerceMediaGenerativeAlterationAllowed": {
+          "const": false
+        },
+        "campaignMediaMayBecomeCanonicalCommerceMedia": {
+          "const": false
+        },
+        "promotionOnConvincingAppearance": {
+          "const": false
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "qaGates": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "gateId",
+          "evaluates",
+          "resultVocabulary",
+          "numericThreshold"
+        ],
+        "properties": {
+          "gateId": {
+            "type": "string",
+            "enum": [
+              "PRODUCT_IDENTITY",
+              "PRODUCT_VARIANT",
+              "SILHOUETTE",
+              "GEOMETRY_CONSTRUCTION",
+              "RELATIVE_PROPORTIONS",
+              "DISTINCTIVE_DETAILS",
+              "BRANDING_MARKINGS",
+              "HARDWARE_CLOSURES",
+              "CLOTHING_FIT_INTEGRITY",
+              "HUMAN_TRUTH_INTEGRITY"
+            ]
+          },
+          "evaluates": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resultVocabulary": {
+            "type": "array",
+            "const": [
+              "PASS",
+              "FAIL",
+              "UNRESOLVED"
+            ]
+          },
+          "numericThreshold": {
+            "type": "null"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_IDENTITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_VARIANT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "SILHOUETTE"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "GEOMETRY_CONSTRUCTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "RELATIVE_PROPORTIONS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "DISTINCTIVE_DETAILS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "BRANDING_MARKINGS"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HARDWARE_CLOSURES"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "CLOTHING_FIT_INTEGRITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HUMAN_TRUTH_INTEGRITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_IDENTITY"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "PRODUCT_VARIANT"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "SILHOUETTE"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "GEOMETRY_CONSTRUCTION"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "RELATIVE_PROPORTIONS"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "DISTINCTIVE_DETAILS"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "BRANDING_MARKINGS"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HARDWARE_CLOSURES"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "CLOTHING_FIT_INTEGRITY"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "gateId",
+              "resultVocabulary"
+            ],
+            "properties": {
+              "gateId": {
+                "const": "HUMAN_TRUTH_INTEGRITY"
+              },
+              "resultVocabulary": {
+                "const": [
+                  "PASS",
+                  "FAIL",
+                  "UNRESOLVED"
+                ]
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "qaRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "numericThresholdsDefinedHere": {
+      "const": false
+    },
+    "numericThresholdNote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "failureId",
+          "definition",
+          "severity"
+        ],
+        "properties": {
+          "failureId": {
+            "type": "string",
+            "enum": [
+              "WRONG_PRODUCT",
+              "WRONG_VARIANT",
+              "PRODUCT_GEOMETRY_DRIFT",
+              "PRODUCT_CONSTRUCTION_DRIFT",
+              "DISTINCTIVE_DETAIL_DRIFT",
+              "PRODUCT_TRUTH_CONTRADICTION",
+              "HUMAN_IDENTITY_CONTRADICTION",
+              "CLOTHING_FIT_UNRESOLVED",
+              "UNSUPPORTED_EVIDENCE_TREATED_AS_EXACT",
+              "GENERATOR_CLAIMED_AUTHORITY"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "HARD_FAIL",
+              "STOP"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_PRODUCT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_VARIANT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_GEOMETRY_DRIFT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_CONSTRUCTION_DRIFT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "DISTINCTIVE_DETAIL_DRIFT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_TRUTH_CONTRADICTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "HUMAN_IDENTITY_CONTRADICTION"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "CLOTHING_FIT_UNRESOLVED"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "UNSUPPORTED_EVIDENCE_TREATED_AS_EXACT"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "GENERATOR_CLAIMED_AUTHORITY"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_PRODUCT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "WRONG_VARIANT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_GEOMETRY_DRIFT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_CONSTRUCTION_DRIFT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "DISTINCTIVE_DETAIL_DRIFT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_TRUTH_CONTRADICTION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "HUMAN_IDENTITY_CONTRADICTION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "CLOTHING_FIT_UNRESOLVED"
+              },
+              "severity": {
+                "const": "STOP"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "UNSUPPORTED_EVIDENCE_TREATED_AS_EXACT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "failureId",
+              "severity"
+            ],
+            "properties": {
+              "failureId": {
+                "const": "GENERATOR_CLAIMED_AUTHORITY"
+              },
+              "severity": {
+                "const": "STOP"
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "failureRelatedPrecedent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retrySemantics": {
+      "type": "object",
+      "required": [
+        "failedGenerationIs",
+        "failedGenerationIsNot",
+        "retryPreservesProductTruth",
+        "creditCeilingsDefinedHere",
+        "spendAuthority",
+        "rule",
+        "precedent"
+      ],
+      "properties": {
+        "failedGenerationIs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failedGenerationIsNot": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "retryPreservesProductTruth": {
+          "const": true
+        },
+        "creditCeilingsDefinedHere": {
+          "const": false
+        },
+        "spendAuthority": {
+          "const": "06"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precedent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "executionLayer": {
+      "type": "object",
+      "required": [
+        "sourceId",
+        "role",
+        "mayReceive",
+        "mayProduce",
+        "mayAssertFacts",
+        "mustNotBeAuthoritativeFor",
+        "generationSuccessIsValidationSuccess",
+        "calledInThisPhase",
+        "subscriptionAssumed",
+        "apiAssumed",
+        "creditsSpent",
+        "rule"
+      ],
+      "properties": {
+        "sourceId": {
+          "const": "CYBERNINJAS_STUDIO"
+        },
+        "role": {
+          "const": "EXECUTION_AND_GENERATION"
+        },
+        "mayReceive": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string"
+          }
+        },
+        "mayProduce": {
+          "type": "array",
+          "const": [
+            "GENERATED_OUTPUT"
+          ]
+        },
+        "mayAssertFacts": {
+          "const": false
+        },
+        "mustNotBeAuthoritativeFor": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "generationSuccessIsValidationSuccess": {
+          "const": false
+        },
+        "calledInThisPhase": {
+          "const": false
+        },
+        "subscriptionAssumed": {
+          "const": false
+        },
+        "apiAssumed": {
+          "const": false
+        },
+        "creditsSpent": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "authorityGrants": {
+      "type": "object",
+      "required": [
+        "publicationAuthorityGranted",
+        "spendAuthorityGranted",
+        "approvalAuthorityGranted",
+        "productTruthWriteAuthorityGranted",
+        "note"
+      ],
+      "properties": {
+        "publicationAuthorityGranted": {
+          "const": false
+        },
+        "spendAuthorityGranted": {
+          "const": false
+        },
+        "approvalAuthorityGranted": {
+          "const": false
+        },
+        "productTruthWriteAuthorityGranted": {
+          "const": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "productReferencePackage": {
+      "type": "object",
+      "required": [
+        "schema",
+        "isGenerationInput",
+        "isProductTruthRecord",
+        "committed",
+        "builderImplemented",
+        "contents",
+        "note"
+      ],
+      "properties": {
+        "schema": {
+          "const": "02_PRODUCT_CREATIVE_OBJECT.schema.json"
+        },
+        "isGenerationInput": {
+          "const": true
+        },
+        "isProductTruthRecord": {
+          "const": false
+        },
+        "committed": {
+          "const": false
+        },
+        "builderImplemented": {
+          "const": false
+        },
+        "contents": {
+          "type": "array",
+          "minItems": 10,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "string"
+      }
+    },
+    "openItems": {
+      "type": "array",
+      "minItems": 13,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "openItemsRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeControl": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "dependsOn",
+    "contractNumber",
+    "inheritance",
+    "purpose",
+    "scope",
+    "corePrinciple",
+    "productFidelity",
+    "productTruthAuthority",
+    "evidenceRoles",
+    "neverGeometryAuthority",
+    "evidenceRules",
+    "productLockCategories",
+    "productLockRules",
+    "creativeEnvelope",
+    "productConfidence",
+    "productRoleInteraction",
+    "highRiskProductClasses",
+    "highRiskRules",
+    "clothingFitProtocol",
+    "dualLock",
+    "consent",
+    "generatedOutputStatus",
+    "mediaClassBoundary",
+    "qaGates",
+    "qaRules",
+    "numericThresholdsDefinedHere",
+    "numericThresholdNote",
+    "hardFailures",
+    "failureRelatedPrecedent",
+    "retrySemantics",
+    "executionLayer",
+    "authorityGrants",
+    "productReferencePackage",
+    "privacyRules",
+    "openItems",
+    "openItemsRule",
+    "changeControl"
+  ],
+  "x-productLockCategories": [
+    "IDENTITY",
+    "VARIANT",
+    "SILHOUETTE",
+    "GEOMETRY",
+    "CONSTRUCTION",
+    "PROPORTIONS",
+    "COLOUR",
+    "BRANDING_MARKINGS",
+    "DISTINCTIVE_DETAILS"
+  ],
+  "x-qaGates": [
+    "PRODUCT_IDENTITY",
+    "PRODUCT_VARIANT",
+    "SILHOUETTE",
+    "GEOMETRY_CONSTRUCTION",
+    "RELATIVE_PROPORTIONS",
+    "DISTINCTIVE_DETAILS",
+    "BRANDING_MARKINGS",
+    "HARDWARE_CLOSURES",
+    "CLOTHING_FIT_INTEGRITY",
+    "HUMAN_TRUTH_INTEGRITY"
+  ],
+  "x-hardFailures": [
+    "WRONG_PRODUCT",
+    "WRONG_VARIANT",
+    "PRODUCT_GEOMETRY_DRIFT",
+    "PRODUCT_CONSTRUCTION_DRIFT",
+    "DISTINCTIVE_DETAIL_DRIFT",
+    "PRODUCT_TRUTH_CONTRADICTION",
+    "HUMAN_IDENTITY_CONTRADICTION",
+    "CLOTHING_FIT_UNRESOLVED",
+    "UNSUPPORTED_EVIDENCE_TREATED_AS_EXACT",
+    "GENERATOR_CLAIMED_AUTHORITY"
+  ],
+  "x-evidenceRoles": [
+    "productGeometrySource",
+    "productWearReference"
+  ]
+}

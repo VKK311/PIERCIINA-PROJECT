@@ -1,0 +1,728 @@
+{
+  "contractId": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+  "version": "1.0.0",
+  "title": "PINK MALL Product Creative Contract",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "dependsOn": [
+    {
+      "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+      "contractNumber": "01",
+      "dependency": "Contract 01 decides whether a product appears at role NONE, DETAIL, SUPPORTING or HERO. This contract governs what must hold once a real product is present at any role other than NONE. It MUST NOT duplicate contract 01."
+    }
+  ],
+  "contractNumber": "02",
+  "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. Status is provenance only; canonicality is decided by the parent's canonicalityRule, not by this field and not by file existence.",
+  "purpose": "Define the product-fidelity constitution that governs creative work depicting a real PINK MALL product, before any paid generation infrastructure is activated. It says what a generator may transform, what it may never transform, what evidence is authoritative for product shape, and what must be true before a generated depiction may be treated as anything other than a candidate.",
+  "scope": {
+    "covers": [
+      "product-fidelity rules for creative depiction of a real SKU",
+      "product geometry evidence versus wear/fit reference",
+      "the Product Lock model",
+      "the Product Reference Package handed to a future generator",
+      "product confidence and mandatory downgrade",
+      "clothing worn on a body as a high-risk product class",
+      "the Clothing Fit Protocol",
+      "simultaneous human and product locks",
+      "structural QA gates and failure vocabulary",
+      "the authority boundary around an execution/generation provider"
+    ],
+    "doesNotCover": [
+      "product identity, price, sizes, variant or canonical commerce media, which remain owned by the authorities in contract 00 and the Product Onboarding system",
+      "which campaign idea is selected, which belongs to contract 01",
+      "approval, publication, spend and retry-credit authority, which belong to contract 06",
+      "human identity evidence and consent, which belong to the Avatar authority and its consent gate",
+      "any implementation of a Product Creative Engine, Clothing Fit checker or QA method"
+    ],
+    "implementationStatus": "PLANNED",
+    "note": "No Product Creative Engine exists. Nothing here is implemented. This contract is authoring only."
+  },
+  "corePrinciple": {
+    "statement": "World physics may break. Product truth may not. Human identity may not.",
+    "inheritedFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.creativeFreedomPrinciple",
+    "productTruthMayBeTransformed": false,
+    "humanIdentityMayBeTransformed": false,
+    "worldPhysicsMayBreak": true,
+    "rule": "The creative world may transform around a real product. The product itself may not be redesigned."
+  },
+  "productFidelity": {
+    "targetId": "ONE_TO_ONE_PRODUCT_FIDELITY",
+    "isNotPixelIdentity": true,
+    "honestDefinition": "1:1 product fidelity does NOT mean a generated image is a pixel-identical copy of a catalogue photograph. It means the generator receives NO authority to redesign the product: the depiction must remain recognisable as the same exact product, in the same exact variant, with its intrinsic construction intact.",
+    "mustRemainTheSame": [
+      "product identity",
+      "manufacturer item number / SKU",
+      "variant / colourway",
+      "silhouette",
+      "intrinsic geometry",
+      "construction",
+      "proportions between product components",
+      "distinctive product features",
+      "logos, wordmarks and graphics where visible",
+      "hardware, closures, handles, straps, soles, lenses, frames, stitching and pattern placement where applicable and established"
+    ],
+    "mustNotInvent": "Factual attributes Product Truth has not established MUST NOT be invented to fill a gap in the depiction.",
+    "repositoryPrecedent": {
+      "source": ".claude/skills/pink-mall-product-onboarding/references/03-media-policy.md",
+      "section": "Product fidelity",
+      "note": "The onboarding policy already forbids recolour, reshape, logo change, print change, sole change, hardware addition or removal, stitching change, proportion change, hallucinated angles and feature addition or removal on canonical ecommerce images. This contract carries that same discipline into generated campaign media rather than inventing a second standard."
+    }
+  },
+  "productTruthAuthority": {
+    "rule": "This contract MUST NOT become a second product database.",
+    "ownedElsewhere": [
+      {
+        "fact": "exact SKU / product identity",
+        "authorityDomain": "PRODUCT_IDENTITY",
+        "authority": "PRODUCT_ONBOARDING_SYSTEM"
+      },
+      {
+        "fact": "price",
+        "authorityDomain": "PRODUCT_PRICE",
+        "authority": "OWNER"
+      },
+      {
+        "fact": "available sizes",
+        "authorityDomain": "PRODUCT_AVAILABILITY_AND_SIZES",
+        "authority": "OWNER"
+      },
+      {
+        "fact": "variant / colourway identity",
+        "authorityDomain": "PRODUCT_IDENTITY",
+        "authority": "PRODUCT_ONBOARDING_SYSTEM"
+      },
+      {
+        "fact": "canonical product media",
+        "authorityDomain": "CANONICAL_PRODUCT_MEDIA",
+        "authority": "PRODUCT_ONBOARDING_SYSTEM"
+      }
+    ],
+    "creativeSystemMayRead": true,
+    "creativeSystemMayWrite": false,
+    "generatedImageIsEvidenceOfTruthChange": false,
+    "rules": [
+      "A creative system MAY READ Product Truth.",
+      "A creative system MUST NOT WRITE Product Truth.",
+      "A generated image is NEVER evidence that Product Truth changed.",
+      "A depiction that disagrees with Product Truth is a defect in the depiction, never a correction to the product."
+    ]
+  },
+  "evidenceRoles": [
+    {
+      "roleId": "productGeometrySource",
+      "authoritativeForGeometry": true,
+      "authoritativeFor": [
+        "shape",
+        "colour",
+        "logo and markings",
+        "hardware",
+        "construction",
+        "product proportions"
+      ],
+      "mustDeriveFromExactProduct": true,
+      "definition": "Authoritative visual evidence for what the product actually is. For a real SKU it MUST derive from the actual verified product.",
+      "inheritedFrom": "docs/pink-mall/avatar-skill/v1.3/SKILL.md — 'Product geometry is not a wear reference'"
+    },
+    {
+      "roleId": "productWearReference",
+      "authoritativeForGeometry": false,
+      "authoritativeFor": [
+        "how an item sits",
+        "how it is worn",
+        "how it is held",
+        "approximate interaction with a human body"
+      ],
+      "mustDeriveFromExactProduct": false,
+      "definition": "Describes placement and human interaction only. It MAY inform placement and MUST NOT override product geometry.",
+      "inheritedFrom": "docs/pink-mall/avatar-skill/v1.3/SKILL.md — 'Product geometry is not a wear reference'"
+    }
+  ],
+  "neverGeometryAuthority": [
+    "avatar photographs and any avatar frame",
+    "generic category imagery",
+    "a visually similar SKU",
+    "a different colourway of the same model",
+    "avatar calibration-photograph wardrobe",
+    "a generated image, including one this system produced"
+  ],
+  "evidenceRules": [
+    "productGeometrySource and productWearReference are distinct and MUST NOT be merged.",
+    "An avatar reference MUST NOT be converted into Product Truth.",
+    "A wear reference MAY inform placement while remaining non-authoritative for exact product construction.",
+    "A visually similar SKU is NEVER acceptable as geometry evidence.",
+    "A different colourway is NEVER acceptable as geometry evidence."
+  ],
+  "productLockCategories": [
+    {
+      "lockId": "IDENTITY",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The depiction is of this exact product and no other.",
+      "exampleViolations": [
+        "wrong model",
+        "substituted similar SKU",
+        "generic category stand-in"
+      ]
+    },
+    {
+      "lockId": "VARIANT",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The depiction is of this exact variant and colourway.",
+      "exampleViolations": [
+        "different colourway",
+        "different print or pattern run",
+        "different material finish"
+      ]
+    },
+    {
+      "lockId": "SILHOUETTE",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The outer shape and overall form of the product.",
+      "exampleViolations": [
+        "reshaped body",
+        "altered outline",
+        "changed volume"
+      ]
+    },
+    {
+      "lockId": "GEOMETRY",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The intrinsic three-dimensional form and the relationship of its parts.",
+      "exampleViolations": [
+        "hallucinated angle",
+        "invented facet",
+        "reflowed form"
+      ]
+    },
+    {
+      "lockId": "CONSTRUCTION",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "How the product is physically built.",
+      "exampleViolations": [
+        "changed seams",
+        "changed stitching",
+        "changed sole construction",
+        "added or removed panel"
+      ]
+    },
+    {
+      "lockId": "PROPORTIONS",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The relative sizes of the product's components to one another.",
+      "exampleViolations": [
+        "resized heel",
+        "lengthened strap",
+        "rescaled hardware relative to body"
+      ]
+    },
+    {
+      "lockId": "COLOUR",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The established colours of the product and their placement.",
+      "exampleViolations": [
+        "recolour",
+        "moved colour block",
+        "invented gradient"
+      ]
+    },
+    {
+      "lockId": "BRANDING_MARKINGS",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "Logos, wordmarks, graphics and printed identifiers where visible.",
+      "exampleViolations": [
+        "altered logo",
+        "invented wordmark",
+        "moved or restyled brand mark"
+      ]
+    },
+    {
+      "lockId": "DISTINCTIVE_DETAILS",
+      "core": true,
+      "mayBeWeakenedByLaterContract": false,
+      "definition": "The features that make this product recognisable as itself.",
+      "exampleViolations": [
+        "removed signature detail",
+        "added hardware",
+        "simplified a distinctive feature"
+      ]
+    }
+  ],
+  "productLockRules": [
+    "Every core lock applies whenever a real product appears at role DETAIL, SUPPORTING or HERO.",
+    "A later contract MAY add category-specific locks. It MUST NOT silently weaken a core lock.",
+    "A lock is not a numeric tolerance. Exact computer-vision thresholds are OPEN and are not set here.",
+    "Locks constrain the product. They do not constrain the world around it."
+  ],
+  "creativeEnvelope": {
+    "principle": "CREATIVE FREEDOM applies to the WORLD. PRODUCT LOCK applies to the PRODUCT.",
+    "mayTransform": [
+      "environment",
+      "lighting",
+      "atmosphere",
+      "narrative situation",
+      "surrounding objects",
+      "visual genre",
+      "camera language",
+      "surrealism",
+      "world physics",
+      "composition"
+    ],
+    "mustNotTransform": [
+      "the product itself",
+      "intrinsic product truth",
+      "human identity"
+    ],
+    "transformationSubjectToOtherContracts": true,
+    "styleIsNotNarrowed": "PINK MALL MUST NOT be narrowed into a single visual style by this contract. Heritage and brand-fit constraints belong to the Avatar heritage authority and contract 01; this contract constrains product fidelity only.",
+    "rule": "A creative system MAY transform the world. It MUST NOT intentionally redesign the product."
+  },
+  "productConfidence": {
+    "states": [
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ],
+    "numericScoringDefined": false,
+    "compatibleWith": "docs/pink-mall/avatar-skill/v1.3 productConfidence",
+    "rule": "A product-led task without an adequate productGeometrySource cannot claim high product confidence.",
+    "mandatoryDowngrades": [
+      {
+        "condition": "no productGeometrySource for a product-led task",
+        "result": "LOW",
+        "precedent": "Avatar Skill v1.3: 'A product-led task without a productGeometrySource sets productConfidence: LOW and warns.'"
+      },
+      {
+        "condition": "geometry evidence is a similar SKU rather than the exact SKU",
+        "result": "STOP"
+      },
+      {
+        "condition": "geometry evidence is a different colourway",
+        "result": "STOP"
+      },
+      {
+        "condition": "geometry evidence exists but omits a lock category that is visible in the intended depiction",
+        "result": "MEDIUM"
+      },
+      {
+        "condition": "body-worn clothing without sufficient garment-geometry evidence",
+        "result": "STOP"
+      }
+    ],
+    "honesty": "An uncertain product MUST NOT be reported as fully grounded. Declare the uncertainty instead."
+  },
+  "productRoleInteraction": {
+    "rolesOwnedBy": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+    "heroRequiredGlobally": false,
+    "appliesWhenRoleIsAnyOf": [
+      "DETAIL",
+      "SUPPORTING",
+      "HERO"
+    ],
+    "noneRemainsValid": true,
+    "rule": "Contract 01 decides the role. When the role is NONE there is no real product to lock and this contract imposes nothing: not every campaign is product-led. When the role is DETAIL, SUPPORTING or HERO, every rule here applies in full — a product shown as a DETAIL is still the real product."
+  },
+  "highRiskProductClasses": [
+    {
+      "classId": "CLOTHING_WORN_ON_BODY",
+      "riskLevel": "HIGH",
+      "reason": "Garment geometry and human-body geometry interact, so a generator can preserve apparent colour while still changing the garment.",
+      "silentlyChangeableAttributes": [
+        "cut",
+        "length",
+        "neckline",
+        "sleeve geometry",
+        "waist position",
+        "drape",
+        "volume",
+        "seams",
+        "openings",
+        "closures",
+        "fit",
+        "distinctive construction"
+      ],
+      "colourPreservationIsNotFidelity": true
+    }
+  ],
+  "highRiskRules": [
+    "Clothing worn on a human body is a HIGH-RISK product-fidelity case and requires the Clothing Fit Protocol.",
+    "Preserved colour is NOT evidence of preserved garment geometry.",
+    "A complete per-category risk taxonomy is NOT defined here. Other categories remain OPEN unless repository evidence already locks them."
+  ],
+  "clothingFitProtocol": {
+    "protocolId": "CLOTHING_FIT_PROTOCOL",
+    "implementationStatus": "PLANNED",
+    "evidenceKinds": [
+      {
+        "kindId": "GARMENT_GEOMETRY_EVIDENCE",
+        "authoritativeForGarment": true,
+        "mustDeriveFromExactProduct": true,
+        "definition": "Evidence for what the garment itself is: cut, length, neckline, sleeves, waist, seams, closures and construction."
+      },
+      {
+        "kindId": "WEAR_FIT_EVIDENCE",
+        "authoritativeForGarment": false,
+        "mustDeriveFromExactProduct": false,
+        "definition": "Evidence for how the exact garment interacts with a body: drape, sit, movement and placement."
+      }
+    ],
+    "rules": [
+      "Garment geometry still comes from exact-product evidence.",
+      "Body and avatar references are NEVER garment-geometry authority.",
+      "Calibration-photograph wardrobe is NEVER styling authority and NEVER garment authority.",
+      "A similar garment is NOT evidence for the real SKU.",
+      "Fit evidence MAY inform how the exact garment interacts with a body.",
+      "Fit evidence MUST NOT redesign the garment.",
+      "If critical fit evidence is absent, the uncertainty MUST be declared rather than invented."
+    ],
+    "outcomes": [
+      {
+        "outcomeId": "PASS",
+        "meaning": "Garment geometry evidence covers the depiction and the depiction is consistent with it."
+      },
+      {
+        "outcomeId": "FAIL",
+        "meaning": "The depiction contradicts the garment geometry evidence."
+      },
+      {
+        "outcomeId": "UNRESOLVED",
+        "meaning": "Required garment-geometry or fit evidence is insufficient to decide. This is a BLOCKED state, never a silent PASS."
+      }
+    ],
+    "unresolvedIsNotPass": true,
+    "numericThresholdsDefined": false,
+    "wardrobePrecedent": "docs/pink-mall/avatar-skill/v1.3/WARDROBE_AUTHORITY.json — referencePhotoWardrobe = IGNORE_FOR_STYLING"
+  },
+  "dualLock": {
+    "locks": [
+      "HUMAN_IDENTITY_LOCK",
+      "PRODUCT_LOCK"
+    ],
+    "operateSimultaneously": true,
+    "eitherMayBeSacrificed": false,
+    "appliesWhenSubjectPresent": [
+      "INA",
+      "SIS",
+      "DUO"
+    ],
+    "onConflict": "REJECT_CANDIDATE",
+    "forbiddenResolutions": [
+      "changing the sister",
+      "changing the product",
+      "changing the SKU",
+      "changing the colourway",
+      "silently simplifying a distinctive product feature"
+    ],
+    "rule": "When a campaign contains INA, SIS or DUO together with a real product, two independent locks operate at once. Neither may be sacrificed to preserve the other. If the generator cannot satisfy both, the candidate is REJECTED — the conflict is not resolved by editing either side."
+  },
+  "consent": {
+    "authority": "docs/pink-mall/avatar-skill/v1.3/CONSENT_AND_PROVENANCE.json",
+    "currentState": "OWNER_CONFIRMATION_REQUIRED",
+    "resolvedHere": false,
+    "internalValidationAndPublicationAreDifferent": true,
+    "rule": "Commercial publication of a generated likeness remains governed by the existing Consent Gate. This contract REFERENCES that authority and MUST NOT resolve it. Controlled internal validation and commercial publication are different operations and are not interchangeable."
+  },
+  "generatedOutputStatus": {
+    "initialTruthClass": "GENERATED_OUTPUT",
+    "initialState": "CANDIDATE",
+    "isNotOnGeneration": [
+      "FACT",
+      "CANONICAL_PRODUCT_MEDIA",
+      "APPROVAL",
+      "PUBLISHED"
+    ],
+    "generationSuccessIsValidationSuccess": false,
+    "allowedStates": [
+      "CANDIDATE",
+      "QA_PASSED",
+      "QA_FAILED",
+      "QA_UNRESOLVED"
+    ],
+    "statesOutsideThisContract": [
+      "APPROVED",
+      "APPROVED_SPEND",
+      "PUBLISHED",
+      "SCHEDULED",
+      "EXECUTING"
+    ],
+    "statesOutsideThisContractBelongTo": "06",
+    "rule": "A generated product image begins as GENERATED_OUTPUT / CANDIDATE. It does not become fact, canonical product media, an approval or a publication merely because generation succeeded. A future QA layer must validate it before any further transition, and approval and publication authority remain with contract 06."
+  },
+  "mediaClassBoundary": {
+    "taxonomyOwnedBy": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+    "redefinedHere": false,
+    "canonicalCommerceMediaGenerativeAlterationAllowed": false,
+    "campaignMediaMayBecomeCanonicalCommerceMedia": false,
+    "promotionOnConvincingAppearance": false,
+    "rules": [
+      "CANONICAL_COMMERCE_MEDIA belongs to Product Truth, is acquired and approved through product onboarding, and MUST NOT be generatively altered.",
+      "CAMPAIGN_MEDIA may be generated, may place the real product inside an imaginative world and may use surreal composition.",
+      "CAMPAIGN_MEDIA is NOT canonical commerce photography and MUST NOT silently replace it.",
+      "CAMPAIGN_MEDIA MUST NOT be promoted into Product Truth merely because it looks convincing.",
+      "DERIVATIVE_MEDIA retains the parent contract's definition and authority boundaries."
+    ]
+  },
+  "qaGates": [
+    {
+      "gateId": "PRODUCT_IDENTITY",
+      "evaluates": "exact product identity",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "PRODUCT_VARIANT",
+      "evaluates": "exact variant / colourway",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "SILHOUETTE",
+      "evaluates": "silhouette",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "GEOMETRY_CONSTRUCTION",
+      "evaluates": "geometry and construction",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "RELATIVE_PROPORTIONS",
+      "evaluates": "relative proportions",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "DISTINCTIVE_DETAILS",
+      "evaluates": "distinctive details",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "BRANDING_MARKINGS",
+      "evaluates": "branding and markings when visible",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "HARDWARE_CLOSURES",
+      "evaluates": "hardware and closures where applicable",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "CLOTHING_FIT_INTEGRITY",
+      "evaluates": "clothing fit integrity when applicable",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    },
+    {
+      "gateId": "HUMAN_TRUTH_INTEGRITY",
+      "evaluates": "Human Truth integrity when a person is present",
+      "resultVocabulary": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ],
+      "numericThreshold": null
+    }
+  ],
+  "qaRules": [
+    "Every gate returns PASS, FAIL or UNRESOLVED. UNRESOLVED is a real outcome and MUST NOT be recorded as PASS.",
+    "No numeric pass percentage, tolerance or similarity threshold is defined by this contract.",
+    "A conditional gate that does not apply to a depiction is NOT_APPLICABLE rather than PASS.",
+    "QA evaluates the depiction. It never revises Product Truth."
+  ],
+  "numericThresholdsDefinedHere": false,
+  "numericThresholdNote": "Avatar Skill v1.3 carries its own test-phase gate (productFidelity >= 8) in FAILURE_TAXONOMY.json F04. That number belongs to that skill's test rubric, which its own SKILL.md calls a test default rather than immutable truth. It is cited here as existing precedent and is deliberately NOT promoted into this contract as a constitutional threshold.",
+  "hardFailures": [
+    {
+      "failureId": "WRONG_PRODUCT",
+      "definition": "The depiction is of a different product than the one named.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "WRONG_VARIANT",
+      "definition": "The depiction is of a different variant or colourway than the one named.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "PRODUCT_GEOMETRY_DRIFT",
+      "definition": "Shape, colour, logo, hardware or proportions deviate from the authoritative geometry evidence.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "PRODUCT_CONSTRUCTION_DRIFT",
+      "definition": "How the product is built has changed: seams, stitching, panels, sole or closure construction.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "DISTINCTIVE_DETAIL_DRIFT",
+      "definition": "A feature that makes the product recognisable has been removed, added or simplified.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "PRODUCT_TRUTH_CONTRADICTION",
+      "definition": "The depiction asserts a product fact that contradicts Product Truth.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "HUMAN_IDENTITY_CONTRADICTION",
+      "definition": "The depiction contradicts Human Truth for INA, SIS or DUO.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "CLOTHING_FIT_UNRESOLVED",
+      "definition": "Required evidence is insufficient to decide a body-worn clothing depiction.",
+      "severity": "STOP"
+    },
+    {
+      "failureId": "UNSUPPORTED_EVIDENCE_TREATED_AS_EXACT",
+      "definition": "Generic, similar-SKU, different-colourway or avatar evidence was treated as exact product authority.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "GENERATOR_CLAIMED_AUTHORITY",
+      "definition": "An execution or generation layer was treated as authoritative for product truth, human identity, approval or publication.",
+      "severity": "STOP"
+    }
+  ],
+  "failureRelatedPrecedent": "docs/pink-mall/avatar-skill/v1.3/FAILURE_TAXONOMY.json — F04_PRODUCT_GEOMETRY_DRIFT",
+  "retrySemantics": {
+    "failedGenerationIs": "evidence about the generation attempt",
+    "failedGenerationIsNot": [
+      "permission to rewrite Product Truth",
+      "permission to weaken a Product Lock",
+      "proof that the canonical product reference is wrong"
+    ],
+    "retryPreservesProductTruth": true,
+    "creditCeilingsDefinedHere": false,
+    "spendAuthority": "06",
+    "rule": "A failed generation is evidence about the attempt, not about the product. Any retry MUST preserve the same underlying Product Truth unless that truth is separately corrected through its own authority system. Spend and correction-credit approval belong to contract 06 and no credit ceiling is defined here.",
+    "precedent": "docs/pink-mall/avatar-skill/v1.3/SKILL.md — 'One failed generation is evidence about the pipeline, not permission to rewrite the identity system.'"
+  },
+  "executionLayer": {
+    "sourceId": "CYBERNINJAS_STUDIO",
+    "role": "EXECUTION_AND_GENERATION",
+    "mayReceive": [
+      "approved context",
+      "product references",
+      "Product Locks",
+      "creative directives"
+    ],
+    "mayProduce": [
+      "GENERATED_OUTPUT"
+    ],
+    "mayAssertFacts": false,
+    "mustNotBeAuthoritativeFor": [
+      "product identity",
+      "product geometry",
+      "product truth",
+      "human truth",
+      "approvals",
+      "publication"
+    ],
+    "generationSuccessIsValidationSuccess": false,
+    "calledInThisPhase": false,
+    "subscriptionAssumed": false,
+    "apiAssumed": false,
+    "creditsSpent": false,
+    "rule": "An execution layer executes. It does not become an authority by producing output."
+  },
+  "authorityGrants": {
+    "publicationAuthorityGranted": false,
+    "spendAuthorityGranted": false,
+    "approvalAuthorityGranted": false,
+    "productTruthWriteAuthorityGranted": false,
+    "note": "Contract 02 grants no publication, spend or approval authority. Those belong to contract 06 and to the parent's own domains."
+  },
+  "productReferencePackage": {
+    "schema": "02_PRODUCT_CREATIVE_OBJECT.schema.json",
+    "isGenerationInput": true,
+    "isProductTruthRecord": false,
+    "committed": false,
+    "builderImplemented": false,
+    "contents": [
+      "product identity reference",
+      "productGeometrySource references",
+      "optional productWearReference",
+      "Product Locks",
+      "campaign product role",
+      "creative freedoms",
+      "known uncertainties",
+      "product confidence",
+      "risk classification",
+      "QA requirements"
+    ],
+    "note": "The package is a GENERATION INPUT assembled before generation. It is not a new Product Truth record, and its builder is NOT implemented in this phase. Instances are snapshots and MUST NOT be committed to this public repository."
+  },
+  "privacyRules": [
+    "This repository is PUBLIC.",
+    "Contract, schemas, vocabularies, validation rules, generic QA logic and synthetic fixtures are public-safe.",
+    "Unpublished real campaign creative and private campaign strategy MUST NOT be committed here.",
+    "Private character material and private generated likeness output MUST NOT be committed here.",
+    "Credentials, API keys and execution-provider tokens MUST NOT be committed here.",
+    "Private customer and performance data MUST NOT be committed here.",
+    "PINK-MALL-OPS remains PLANNED and MUST NOT be created."
+  ],
+  "openItems": [
+    "exact product-lock enforcement implementation",
+    "exact computer-vision QA method",
+    "numeric geometry tolerances",
+    "numeric colour tolerances",
+    "numeric logo similarity thresholds",
+    "per-category creative rule set",
+    "per-category risk taxonomy beyond the locked clothing risk",
+    "exact Clothing Fit implementation",
+    "exact external fit-evidence source strategy",
+    "automatic retry policy",
+    "model-specific prompt syntax",
+    "model-specific reference limits",
+    "execution-provider API and node mechanics"
+  ],
+  "openItemsRule": "These are genuinely undecided. They MUST NOT be answered by invention, and a later system MUST NOT assume a default for any of them.",
+  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, then promote to canonical development."
+}
