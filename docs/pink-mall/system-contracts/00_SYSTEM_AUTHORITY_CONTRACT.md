@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Contract ID | `PINK_MALL_SYSTEM_AUTHORITY_CONTRACT` |
-| Version | `1.0.0` |
+| Version | `1.0.1` |
 | Status | `CANDIDATE` |
 | Machine-readable form | `00_SYSTEM_AUTHORITY_CONTRACT.json` |
 | Schema | `00_SYSTEM_AUTHORITY_CONTRACT.schema.json` |
@@ -412,17 +412,24 @@ This contract is constitutional. Domain contracts inherit from it and MUST NOT
 contradict it; where one needs to, that is a durable policy change and goes
 through §21.
 
-| # | Contract | Status |
+This contract owns the **reserved sequence and the identity of each slot**. It
+does **not** record which contracts currently exist — that is live state, and
+holding it here would force a constitutional amendment every time a child
+contract is authored. Live presence is recorded in `SYSTEM_CONTRACT_INDEX.md`
+and verified from the repository; whether an existing contract is canonical is
+decided by the four conditions in §3, never by appearing in this table.
+
+| # | Reserved contract | Scope |
 |---|---|---|
-| 00 | System Authority | **this document** — CANDIDATE |
-| 01 | Campaign Context | NOT YET CREATED |
-| 02 | Product Creative | NOT YET CREATED |
-| 03 | Character & Story | NOT YET CREATED |
-| 04 | Social Intelligence | NOT YET CREATED |
-| 05 | Workstation Operating | NOT YET CREATED |
-| 06 | Automation & Approval | NOT YET CREATED |
-| 07 | Super Brain Memory | NOT YET CREATED |
-| 08 | PINK MALL HQ | NOT YET CREATED |
+| 00 | System Authority | authority domains, truth and media classes, conflict rules, canonicality, privacy boundary |
+| 01 | Campaign Context | campaign context assembly, idea-first ideation, input provenance, product and character roles |
+| 02 | Product Creative | product-led creative rules, product-lock enforcement |
+| 03 | Character & Story | INA/SIS canon, story continuity, narrative state |
+| 04 | Social Intelligence | metric weighting, scoring, interpretation, creative fatigue |
+| 05 | Workstation Operating | node architecture, workflow graph, run model |
+| 06 | Automation & Approval | approval flow, budget modes, spend ceilings, correction spend, autonomy grants |
+| 07 | Super Brain Memory | memory schema, write rules, staleness handling |
+| 08 | PINK MALL HQ | HQ blueprint and operating surface |
 
 Locked decisions that belong to those contracts are recorded in
 `DECISION_COVERAGE_MATRIX.md` so that a decision already taken is not lost

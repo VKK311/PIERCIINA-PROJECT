@@ -1,6 +1,6 @@
 {
   "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "PINK MALL System Authority Contract",
   "status": "CANDIDATE",
   "supersedes": null,
@@ -808,71 +808,67 @@
       "human identity"
     ]
   },
-  "plannedContracts": [
-    {
-      "contractNumber": "00",
-      "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
-      "title": "System Authority",
-      "status": "CANDIDATE",
-      "created": true
-    },
-    {
-      "contractNumber": "01",
-      "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
-      "title": "Campaign Context",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "02",
-      "contractId": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
-      "title": "Product Creative",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "03",
-      "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
-      "title": "Character and Story",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "04",
-      "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
-      "title": "Social Intelligence",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "05",
-      "contractId": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
-      "title": "Workstation Operating",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "06",
-      "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
-      "title": "Automation and Approval",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "07",
-      "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
-      "title": "Super Brain Memory",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    },
-    {
-      "contractNumber": "08",
-      "contractId": "PINK_MALL_HQ_CONTRACT",
-      "title": "PINK MALL HQ",
-      "status": "NOT_YET_CREATED",
-      "created": false
-    }
-  ],
+  "contractSequence": {
+    "rule": "This contract owns the RESERVED sequence and the identity of each slot. It does NOT record which contracts currently exist: that is live state, and putting it here would require a constitutional amendment every time a child contract is authored. Live presence is recorded in SYSTEM_CONTRACT_INDEX.md and verified from the repository. Whether an existing contract is canonical is decided by this contract's four canonicality conditions, never by its appearance in this list.",
+    "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+    "canonicalityDecidedBy": "canonicalityRule",
+    "slots": [
+      {
+        "contractNumber": "00",
+        "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+        "title": "System Authority",
+        "scope": "Authority domains, truth classes, media classes, conflict rules, canonicality, privacy boundary."
+      },
+      {
+        "contractNumber": "01",
+        "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+        "title": "Campaign Context",
+        "scope": "Campaign context assembly, idea-first ideation, input provenance, product and character roles."
+      },
+      {
+        "contractNumber": "02",
+        "contractId": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+        "title": "Product Creative",
+        "scope": "Product-led creative rules and product-lock enforcement in generated media."
+      },
+      {
+        "contractNumber": "03",
+        "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+        "title": "Character and Story",
+        "scope": "INA/SIS character canon, story continuity and narrative state."
+      },
+      {
+        "contractNumber": "04",
+        "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+        "title": "Social Intelligence",
+        "scope": "Social metric weighting, scoring, interpretation and creative fatigue."
+      },
+      {
+        "contractNumber": "05",
+        "contractId": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+        "title": "Workstation Operating",
+        "scope": "Workstation node architecture, workflow graph and run model."
+      },
+      {
+        "contractNumber": "06",
+        "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+        "title": "Automation and Approval",
+        "scope": "Approval flow, budget modes, spend ceilings, correction spend and earned-autonomy grants."
+      },
+      {
+        "contractNumber": "07",
+        "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+        "title": "Super Brain Memory",
+        "scope": "Semantic memory schema, write rules and staleness handling."
+      },
+      {
+        "contractNumber": "08",
+        "contractId": "PINK_MALL_HQ_CONTRACT",
+        "title": "PINK MALL HQ",
+        "scope": "PINK MALL HQ blueprint and operating surface."
+      }
+    ]
+  },
   "earnedAutonomy": {
     "principle": "Autonomy is capability-specific, not a single global flag.",
     "capabilityDomains": [
@@ -968,5 +964,11 @@
       "PRIVATE_OPS_STORE"
     ],
     "rule": "Every id listed here MUST appear in sourceTypes exactly once, and every source referenced by an authority domain, a write authority or a non-authoritative assertion MUST be declared here. Authority domains address sources by id, so a missing or duplicated registry entry would leave a domain pointing at nothing or at two different descriptions of the same system."
-  }
+  },
+  "changeLog": [
+    {
+      "version": "1.0.1",
+      "change": "Replaced plannedContracts with contractSequence. The constitutional registry now reserves the 00-08 sequence and identities only; it no longer carries per-contract status or a created flag, which were live state and would have forced a constitutional edit whenever a child contract was authored. Live existence moves to SYSTEM_CONTRACT_INDEX.md. No authority domain, conflict rule, truth class, media class, privacy class, canonicality condition or status semantic changed."
+    }
+  ]
 }

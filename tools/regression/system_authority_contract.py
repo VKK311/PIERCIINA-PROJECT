@@ -285,18 +285,34 @@ def main():
     check("    commercial generated-likeness publication is a hard stop",
           any(h.get("stopId") == "CONSENT_GATE_UNRESOLVED" for h in c.get("hardStops", [])))
 
-    # 17 — planned contract ids unique
-    pc = c.get("plannedContracts", [])
+    # 17 — the reserved contract sequence is static
+    # It records which slots exist in the 00-08 sequence and what each is for.
+    # It deliberately does NOT record which contracts have been authored: that
+    # is live state, it belongs to SYSTEM_CONTRACT_INDEX, and holding it here
+    # would make authoring contract 01 a constitutional amendment.
+    seq = c.get("contractSequence", {})
+    pc = seq.get("slots", [])
     pcids = [p.get("contractId") for p in pc]
     pcnums = [p.get("contractNumber") for p in pc]
-    check("17. planned contract ids are unique",
+    check("17. reserved contract ids are unique",
           len(pcids) == len(set(pcids)), f"{len(pcids) - len(set(pcids))} duplicates")
-    check("    planned contract numbers are unique and cover 00-08",
+    check("    reserved contract numbers are unique and cover 00-08",
           len(pcnums) == len(set(pcnums)) and {f"{i:02d}" for i in range(9)} <= set(pcnums),
           str(sorted(pcnums)))
-    check("    only contract 00 is marked created",
-          [p["contractNumber"] for p in pc if p.get("created")] == ["00"],
-          str([p["contractNumber"] for p in pc if p.get("created")]))
+    check("    every reserved slot names a scope",
+          all(p.get("scope") for p in pc),
+          str([p.get("contractNumber") for p in pc if not p.get("scope")]))
+    check("    the sequence carries no per-contract existence state",
+          not any(k in p for p in pc for k in ("created", "status")),
+          "a slot still carries created/status — that is live state")
+    check("    live existence is delegated to the contract index",
+          "SYSTEM_CONTRACT_INDEX" in str(seq.get("existenceRecordedIn", "")),
+          str(seq.get("existenceRecordedIn")))
+    check("    canonicality is still decided by the canonicality rule",
+          seq.get("canonicalityDecidedBy") == "canonicalityRule")
+    check("    a change note records the registry migration",
+          any(e.get("version") == c.get("version") for e in c.get("changeLog", [])),
+          f"version={c.get('version')}")
 
     # 18 — human-readable and JSON agree
     md = read(MD_PATH)
@@ -328,9 +344,11 @@ def main():
         check(f"    {label} canonicality passage does not say three",
               not (window and len(conds) != 3 and _states_count(window, 3)))
 
-    check("    index marks the eight future contracts as not yet created",
-          idx.upper().count("NOT YET CREATED") >= 8,
-          f"{idx.upper().count('NOT YET CREATED')} occurrences")
+    # Future-safe: the index must mark the slots that genuinely have no contract
+    # yet, not a fixed count of eight. Authoring contract 01 must not fail this.
+    uncreated = idx.upper().count("NOT YET CREATED")
+    check("    index still marks remaining future contracts as not yet created",
+          uncreated >= 1, f"{uncreated} occurrences")
 
     # 20 — decision coverage matrix
     matrix = read(MATRIX_PATH)
@@ -453,7 +471,7 @@ def main():
           spend.get("targetContract") == "06" and
           spend.get("targetContractId") == "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
           str(spend.get("targetContract")))
-    check("    contract 06 exists in the planned sequence",
+    check("    contract 06 is a reserved slot in the sequence",
           any(p.get("contractNumber") == "06" and
               p.get("contractId") == "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT"
               for p in pc))
