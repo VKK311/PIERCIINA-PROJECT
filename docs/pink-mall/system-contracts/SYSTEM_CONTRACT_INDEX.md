@@ -45,7 +45,9 @@ because it was replaced, not because its historical review stopped counting.
    still lack a detailed contract.
 4. `01_CAMPAIGN_CONTEXT_CONTRACT.md` — how a campaign context is assembled,
    what may influence it and what may not.
-5. The domain contract for the work in hand, once it exists.
+5. `02_PRODUCT_CREATIVE_CONTRACT.md` — what a generator may and may not change
+   when depicting a real product, and what evidence is authoritative for its shape.
+6. The domain contract for the work in hand, once it exists.
 
 ## Current contract set
 
@@ -53,11 +55,13 @@ because it was replaced, not because its historical review stopped counting.
 |---|---|---|---|
 | 00 | **System Authority** | `00_SYSTEM_AUTHORITY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 01 | **Campaign Context** | `01_CAMPAIGN_CONTEXT_CONTRACT.md` / `.json` / `.schema.json`, plus `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
+| 02 | **Product Creative** | `02_PRODUCT_CREATIVE_CONTRACT.md` / `.json` / `.schema.json`, plus `02_PRODUCT_CREATIVE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
 - `tools/regression/system_authority_contract.py`
 - `tools/regression/campaign_context_contract.py`
+- `tools/regression/product_creative_contract.py`
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -66,6 +70,18 @@ Contract 01 is **authoring only**. The Campaign Context Builder it describes
 **does not exist**, and `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` describes the
 shape a future builder must emit. Context instances are snapshots and **MUST
 NOT** be committed to this public repository.
+
+Contract 02 is **authoring only** in the same way. The **Product Creative
+Engine** it describes **does not exist**, and
+`02_PRODUCT_CREATIVE_OBJECT.schema.json` describes the Product Reference Package
+a future engine must assemble before generation. That package is a generation
+input, never a Product Truth record, and instances are snapshots that **MUST
+NOT** be committed to this public repository.
+
+Contract 02 changes **nothing** about product onboarding authority. Product
+identity, price, sizes, variant and canonical commerce media remain owned by the
+authorities in contract 00 and the Product Onboarding system. A creative system
+may read Product Truth; it may never write it.
 
 ## Planned contracts — NOT YET CREATED
 
@@ -81,7 +97,6 @@ No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
-| 02 | Product Creative | product-led creative rules, product-lock enforcement | NOT YET CREATED |
 | 03 | Character & Story | INA/SIS character canon, story continuity | NOT YET CREATED |
 | 04 | Social Intelligence | metric weighting, scoring, creative fatigue | NOT YET CREATED |
 | 05 | Workstation Operating | node architecture, workflow graph, run model | NOT YET CREATED |

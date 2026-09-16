@@ -33,7 +33,7 @@ where a real validator would read it.
 
 Standard library only, by design.
 """
-import json, os, re, sys
+import glob, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -730,8 +730,25 @@ def main():
         check("    the contract index does not treat file existence as canonicality",
               "existence does not make it canonical" in index.lower()
               or "does not assert" in index.lower())
-        check("    the contract index still lists 02-08 as NOT YET CREATED",
-              all(f"| 0{i} " in tail for i in range(2, 9)))
+        # This once read "still lists 02-08 as NOT YET CREATED". That was a
+        # point-in-time fact, not an invariant: it had to fail the moment the
+        # next domain contract was authored. The durable rule is that the two
+        # sections agree with what is actually on disk, so that is what is
+        # checked — derived from the filesystem, never from a hardcoded range.
+        misfiled = []
+        for i in range(2, 9):
+            num = f"0{i}"
+            listed_planned = any(ln.strip().startswith(f"| {num} ")
+                                 for ln in tail.splitlines())
+            listed_current = any(ln.strip().startswith(f"| {num} ")
+                                 for ln in head.splitlines())
+            exists = bool(glob.glob(os.path.join(CDIR, f"{num}_*_CONTRACT.json")))
+            if exists and (listed_planned or not listed_current):
+                misfiled.append(f"{num}: files exist but index says NOT YET CREATED")
+            if not exists and (listed_current or not listed_planned):
+                misfiled.append(f"{num}: no files but index lists it as created")
+        check("    the index's created/not-created split matches what is on disk",
+              not misfiled, str(misfiled))
     else:
         check("94. the contract index exists", False, INDEX_PATH)
     if os.path.exists(MATRIX_PATH):

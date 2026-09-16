@@ -82,9 +82,13 @@ system rather than to contract 01.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — but the governing authority rule **is already canonical** via the product-onboarding system |
+| **Detailed contract authored** | YES — `02_PRODUCT_CREATIVE_CONTRACT` files **EXIST in this lineage**. Canonicality is decided solely by the four conditions in contract 00, not by this row and not by file existence. The governing authority rule was **already canonical** via the product-onboarding system and is unchanged. |
 | **Target contract** | 02 — Product Creative |
 | **Private detail required** | NO |
+
+Contract 02 is **authoring only**: it defines product-fidelity rules, the Product
+Lock model and the package shape. **No Product Creative Engine exists**, and this
+row records no implementation. Product onboarding authority is untouched.
 
 **Locked, public-safe structure**
 
@@ -95,12 +99,37 @@ system rather than to contract 01.
 - Product geometry and intrinsic construction **must not drift**.
 - Product identity, price, availability and canonical media authority are ACTIVE
   and unchanged by this contract.
+- A generator receives **no authority to redesign** a product: 1:1 product
+  fidelity means the same exact SKU, variant, silhouette, geometry, construction,
+  proportions, branding and distinctive details, not a pixel-identical copy.
+- `productGeometrySource` and `productWearReference` are distinct; an avatar
+  frame, generic imagery, a similar SKU or a different colourway is **never**
+  product-geometry authority.
+- **Clothing worn on a body is a HIGH-RISK** product-fidelity case, because
+  colour can be preserved while cut, length, drape and construction change.
+- Human identity lock and product lock operate **simultaneously**; if both cannot
+  be satisfied the candidate is rejected rather than either being edited.
+- Generated output starts as `GENERATED_OUTPUT` / `CANDIDATE` and never becomes
+  canonical commerce media, an approval or a publication by succeeding.
+- A failed generation is evidence about the attempt, **never** permission to
+  rewrite Product Truth or weaken a lock.
 
 **Genuinely open**
 
-- product-lock enforcement mechanics;
-- per-category creative rules;
-- QA criteria for product geometry in generated media.
+- product-lock **enforcement mechanics** — the lock vocabulary is now defined by
+  contract 02, but nothing enforces it;
+- exact computer-vision QA method, and every numeric geometry, colour and logo
+  similarity tolerance;
+- per-category creative rules and per-category risk taxonomy beyond the locked
+  clothing risk;
+- exact Clothing Fit implementation and external fit-evidence source strategy;
+- automatic retry policy;
+- execution-provider API and node mechanics.
+
+The **QA criteria** are no longer wholly open: contract 02 defines ten structural
+gates with a `PASS` / `FAIL` / `UNRESOLVED` vocabulary. What remains open is how
+any of them is measured — deliberately, since inventing a tolerance would be
+inventing a fact.
 
 ### 3. INA / SIS Character & Story
 
@@ -293,7 +322,7 @@ system rather than to contract 01.
 | # | Domain | Locked | Contract created | Target | Private detail |
 |---|---|---|---|---|---|
 | 1 | Campaign Context / Purpose | YES | AUTHORED — files exist in this lineage | 01 | PARTIAL |
-| 2 | Product Creative / Product Truth | YES | NO — awaiting | 02 | NO |
+| 2 | Product Creative / Product Truth | YES | AUTHORED — files exist in this lineage | 02 | NO |
 | 3 | INA/SIS Character & Story | YES | NO — awaiting | 03 | YES |
 | 4 | Story Engine + Social Intelligence | YES | NO — awaiting | 03, 04 | YES |
 | 5 | Workstation Operating Model | YES | NO — awaiting | 05 | NO |
@@ -302,7 +331,7 @@ system rather than to contract 01.
 | 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
 
 Eight domains, eight sets of locked structural decisions preserved above. Domain
-contract **01** has been authored; domains 02–08 still await theirs. Closing that
+contracts **01** and **02** have been authored; domains 03–08 still await theirs. Closing that
 gap is the Phase 1 work that continues — and it starts from these decisions, not
 from a blank page.
 
