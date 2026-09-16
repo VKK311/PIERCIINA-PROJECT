@@ -21,7 +21,7 @@
     "inputSummary": {
       "type": "array",
       "minItems": 6,
-      "description": "Provenance and availability for every input domain. Absence must be declared, never implied.",
+      "description": "Provenance and availability for every input domain. Absence must be declared, never implied. Rules 1-6 require each domain exactly once; rules 7-12 bind each domain to its contract-fixed requirement, and bind the three REQUIRED_TRUTH_INPUT domains to availability AVAILABLE. Because a domain appears exactly once, binding one matching record binds that record: a package cannot relabel CURRENT_PRODUCTS as optional, nor emit a required truth input as UNAVAILABLE.",
       "items": {
         "type": "object",
         "required": [
@@ -74,7 +74,47 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "availability"
+              ],
+              "properties": {
+                "availability": {
+                  "const": "UNAVAILABLE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "inputClass": {
+                  "const": "UNAVAILABLE_INPUT"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "inputClass"
+              ],
+              "properties": {
+                "inputClass": {
+                  "const": "UNAVAILABLE_INPUT"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "availability": {
+                  "const": "UNAVAILABLE"
+                }
+              }
+            }
+          }
+        ]
       },
       "allOf": [
         {
@@ -166,6 +206,126 @@
           },
           "minContains": 1,
           "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "WORLD_STORY_STATE"
+              },
+              "requirement": {
+                "const": "OPTIONAL_CONTEXT_INPUT"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "CULTURAL_SOCIAL_SIGNALS"
+              },
+              "requirement": {
+                "const": "OPTIONAL_CONTEXT_INPUT"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement",
+              "availability"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "BRAND_DNA_HERITAGE"
+              },
+              "requirement": {
+                "const": "REQUIRED_TRUTH_INPUT"
+              },
+              "availability": {
+                "const": "AVAILABLE"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "CHARACTER_CONTEXT"
+              },
+              "requirement": {
+                "const": "OPTIONAL_CONTEXT_INPUT"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement",
+              "availability"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "CURRENT_PRODUCTS"
+              },
+              "requirement": {
+                "const": "REQUIRED_TRUTH_INPUT"
+              },
+              "availability": {
+                "const": "AVAILABLE"
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "domainId",
+              "requirement",
+              "availability"
+            ],
+            "properties": {
+              "domainId": {
+                "const": "TARGET_FORMAT"
+              },
+              "requirement": {
+                "const": "REQUIRED_TRUTH_INPUT"
+              },
+              "availability": {
+                "const": "AVAILABLE"
+              }
+            }
+          },
+          "minContains": 1
         }
       ]
     },
@@ -335,5 +495,14 @@
     "APPROVED",
     "SCHEDULED"
   ],
-  "x-note": "Idea state is limited to PROPOSAL and OWNER_SELECTED. Execution, spend and publication states are outside contract 01's authority and belong to contract 06."
+  "x-note": "Idea state is limited to PROPOSAL and OWNER_SELECTED. Execution, spend and publication states are outside contract 01's authority and belong to contract 06.",
+  "x-domainRequirement": {
+    "WORLD_STORY_STATE": "OPTIONAL_CONTEXT_INPUT",
+    "CULTURAL_SOCIAL_SIGNALS": "OPTIONAL_CONTEXT_INPUT",
+    "BRAND_DNA_HERITAGE": "REQUIRED_TRUTH_INPUT",
+    "CHARACTER_CONTEXT": "OPTIONAL_CONTEXT_INPUT",
+    "CURRENT_PRODUCTS": "REQUIRED_TRUTH_INPUT",
+    "TARGET_FORMAT": "REQUIRED_TRUTH_INPUT"
+  },
+  "x-unavailableSemantics": "availability UNAVAILABLE and inputClass UNAVAILABLE_INPUT are equivalent and each implies the other. UNAVAILABLE_INPUT is defined as 'the input could not be obtained', which is exactly what UNAVAILABLE records, so an unavailable input does NOT retain an underlying provenance class. NOT_APPLICABLE is a different state: the input was not sought rather than not obtained, so it keeps the domain's provenance class and MUST NOT be UNAVAILABLE_INPUT."
 }

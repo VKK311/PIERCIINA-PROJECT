@@ -92,12 +92,30 @@ Every input also carries an explicit provenance class. The vocabulary is closed:
 | `OPERATIONAL_STATE` | yes | Recorded state of a running system. |
 | `SOCIAL_OR_CULTURAL_SIGNAL` | no | External evidence. Inspiration only. |
 | `SEMANTIC_INTERPRETATION` | no | A reading, not a fact. |
-| `PRIVATE_OPS_REFERENCE` | no | A pointer to private material held outside this repository. |
+| `PRIVATE_OPS_REFERENCE` | no | A pointer to private material held outside this repository. The pointer is **not** factual authority — a future `PRIVATE_OPS_STORE` may hold authority in domains contract 00 assigns it, but a reference does not acquire that authority by pointing there. |
 | `UNAVAILABLE_INPUT` | no | The input could not be obtained. |
 
 **No input class may override truth.** Authority to *inform* is not authority to
 *overwrite*: even a `CANONICAL_FACT` enters the context as an input, and the
 domain authorities in contract 00 remain the only source that may change it.
+
+### `UNAVAILABLE` and `UNAVAILABLE_INPUT` are one fact, not two
+
+`UNAVAILABLE_INPUT` is defined as *the input could not be obtained*, which is
+exactly what availability `UNAVAILABLE` records. The two are therefore
+**equivalent, and each implies the other**:
+
+- availability `UNAVAILABLE` → input class **MUST** be `UNAVAILABLE_INPUT`;
+- input class `UNAVAILABLE_INPUT` → availability **MUST** be `UNAVAILABLE`.
+
+An unavailable input does **not** retain an underlying provenance class. There
+is no content to have a provenance, and keeping the class it *would* have had
+invites a later system to read a class as evidence that something was actually
+supplied.
+
+`NOT_APPLICABLE` is a different state and is treated differently: that input was
+**not sought**, rather than sought and not obtained. It keeps the domain's
+provenance class and **MUST NOT** be recorded as `UNAVAILABLE_INPUT`.
 
 Story State, the social bridge and semantic memory are `PLANNED`. Their inputs
 are expected to read `UNAVAILABLE` today, and that is a **correct result**, not
