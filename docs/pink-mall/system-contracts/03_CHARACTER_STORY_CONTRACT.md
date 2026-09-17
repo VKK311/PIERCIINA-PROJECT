@@ -23,8 +23,9 @@ every argument about whether a narrative event "really happened" becomes an
 argument about a specific record someone is already relying on. This settles it
 while nothing is at stake.
 
-**No Story State Engine exists. No Story State exists.** Nothing here is
-implemented.
+**This contract implements nothing.** It defines no engine, builds no storage
+and activates no runtime. Whether a Story State Engine has been built is read
+from contract 00's source registry, never from this document.
 
 ## 2. The core separation
 
@@ -135,9 +136,6 @@ source registry and must be read from there; caching it here would make this
 contract stale the day the engine is built. Contract 03 neither implements nor
 activates the engine, and provides no implementation at all.
 
-*(Current repository state, reported rather than frozen into this contract:
-contract 00 records `STORY_STATE_ENGINE` as `PLANNED`.)*
-
 ## 8. Story State versus campaign operational state
 
 | Kind of fact | Authority |
@@ -199,7 +197,9 @@ transition authority, audience influence **may create or support a `PROPOSAL`**
 and **MUST NOT silently mutate canonical Story State.**
 
 **Not invented here:** thresholds · voting percentages · engagement scores ·
-automatic canon-selection formulas. **Contract 04 remains NOT YET CREATED.**
+automatic canon-selection formulas. **These belong to contract 04, and this
+contract does not pre-empt them.** Whether contract 04 has been authored is read
+from `SYSTEM_CONTRACT_INDEX.md`, not asserted here.
 
 ## 12. TEAM INA vs TEAM SIS
 
@@ -282,8 +282,9 @@ initial state, `previousStoryStateRef` is `null` and `changedSincePrevious` is
 `[]`.
 
 An initial state may have `null` lineage, but the key is **required** so absence
-is explicit rather than ambiguous. **No persistent ID format is defined**, and no
-version-control infrastructure is built.
+is explicit rather than ambiguous. **This contract defines no persistent ID
+format and builds no version-control infrastructure**; references stay opaque so
+a later phase can choose both without editing this contract.
 
 ## 19. Hard failures
 
@@ -329,9 +330,6 @@ receiving contract exists.** Live existence is read from
 require editing this contract** — the boundary does not change when the other
 side of it comes into being.
 
-*(Current repository state, reported rather than frozen into this contract: no
-contract 04 file exists.)*
-
 ## 22. Authority this contract does not grant
 
 **No** story-transition authority · **no** publication authority · **no** spend
@@ -347,8 +345,10 @@ material · unpublished real story plans · private campaign strategy · custome
 data · private audience history · any real Story State instance.
 
 Where a private field is structurally required, only the **schema or reference
-shape** is defined; the content belongs to the future private ops layer.
-**PINK-MALL-OPS remains PLANNED and MUST NOT be created.**
+shape** is defined; the content belongs to the private ops layer, which lives
+outside this public repository. **This contract does not create that layer and
+does not record its lifecycle state** — contract 00's source registry owns it,
+and building the layer later does not make this contract stale.
 
 ## 24. Open items
 

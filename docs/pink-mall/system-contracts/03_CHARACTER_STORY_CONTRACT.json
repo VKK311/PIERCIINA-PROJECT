@@ -359,8 +359,7 @@
     "schema": "03_STORY_STATE_OBJECT.schema.json",
     "isHumanIdentityRecord": false,
     "isSnapshot": true,
-    "committed": false,
-    "engineImplemented": false,
+    "publicRepositoryInstancePersistenceAllowed": false,
     "persistentIdFormatDefined": false,
     "referencesAreOpaque": true,
     "lineageMechanism": "previousStoryStateRef",
@@ -381,8 +380,7 @@
       "provenance distinguishing proposal from recorded continuity",
       "known continuity uncertainty"
     ],
-    "note": "The object schema describes the structured snapshot a future Story State Engine would own. It does not create an engine. Instances are snapshots and MUST NOT be committed to this public repository.",
-    "instanceCommittedHere": false
+    "note": "The object schema describes the structured snapshot a future Story State Engine would own. It does not create an engine. A real Story State instance is runtime data and MUST NOT be persisted in this public repository, whether or not an engine has been built. Synthetic fixtures written only to exercise the schema are not runtime instances and are not covered by that prohibition. This is a standing policy, not a statement about what the repository happens to contain today."
   },
   "pendingProposalRules": [
     "A Story State may carry pending story or canon proposals.",
@@ -460,8 +458,8 @@
     "Source likeness material and generated likeness output MUST NOT be committed here.",
     "Unpublished real story plans and private campaign strategy MUST NOT be committed here.",
     "Customer data and private audience history MUST NOT be committed here.",
-    "Where a private field is structurally required, only the schema or reference shape is defined here; the content belongs to the future private ops layer.",
-    "PINK-MALL-OPS remains PLANNED and MUST NOT be created."
+    "Where a private field is structurally required, only the schema or reference shape is defined here; the content belongs to the private ops layer, which lives outside this public repository.",
+    "This contract does not create the private ops layer and does not record its lifecycle state; that state is owned by contract 00's source registry. Wherever the private ops layer is built, it is built outside this public repository, and building it does not make this contract stale."
   ],
   "implementationStatus": {
     "statesOwnedHere": false,

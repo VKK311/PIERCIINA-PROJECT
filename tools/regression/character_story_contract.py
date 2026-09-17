@@ -3,8 +3,8 @@
 
     python tools/regression/character_story_contract.py
 
-No Story State Engine exists and no Story State exists. This contract is what a
-future engine will be held to, so the failure it guards against is specific: a
+This contract implements no engine and no storage; it is what an engine will be
+held to whenever one is built, so the failure it guards against is specific: a
 later system reading the machine-readable contract and quietly claiming an
 authority nobody granted — letting a narrative event rewrite who someone is,
 letting a generated image become canon because it rendered, letting high
@@ -501,11 +501,14 @@ def main():
     check("43. contract 03 neither implements nor activates the engine",
           ss.get("contract03ActivatesEngine") is False
           and ss.get("contract03ImplementsEngine") is False)
-    # External repository evidence, reported rather than cached.
-    check("    external repository evidence: contract 00 records the engine PLANNED today",
-          next((x for x in parent.get("sourceTypes", [])
-                if x.get("sourceId") == "STORY_STATE_ENGINE"), {}).get("implementationStatus")
-          == "PLANNED", "reported as current state, not cached in contract 03")
+    # Contract 00 owns the engine's lifecycle value. This validator deliberately
+    # asserts nothing about WHICH value it currently holds: requiring PLANNED here
+    # would turn building the engine into a contract-03 failure. All that must hold
+    # is that contract 00 is the place the value lives.
+    check("    contract 00 is the registry that owns the engine's lifecycle value",
+          any(x.get("sourceId") == "STORY_STATE_ENGINE"
+              for x in parent.get("sourceTypes", [])),
+          "value intentionally unconstrained")
     check("43. Super Brain and Social Intelligence are non-authoritative for Story State",
           {"SUPER_BRAIN", "SOCIAL_INTELLIGENCE_ENGINE"} <= set(ss.get("nonAuthoritative", [])))
     check("    model memory and chat history are named non-authoritative too",
@@ -637,11 +640,19 @@ def main():
     so = c.get("storyStateObject", {})
     check("82. the Story State object is a snapshot, not an identity record",
           so.get("isSnapshot") is True and so.get("isHumanIdentityRecord") is False)
-    check("83. no engine is implemented and no instance is committed here",
-          so.get("engineImplemented") is False and so.get("instanceCommittedHere") is False
-          and so.get("committed") is False)
-    check("    the object block caches no instance-existence claim",
-          "instanceExists" not in so)
+    # A standing policy, not a census. "No instance is committed yet" would be a
+    # fact about today; "instances are never persisted here" survives the engine
+    # being built and real Story State starting to flow.
+    check("83. runtime instances are barred from this public repository as policy",
+          so.get("publicRepositoryInstancePersistenceAllowed") is False)
+    check("    that policy is stated as standing, and exempts synthetic fixtures",
+          "standing policy" in so.get("note", "")
+          and "Synthetic fixtures" in so.get("note", ""))
+    check("    the object block caches no existence or implementation claim",
+          not any(k in so for k in ("instanceExists", "engineImplemented", "committed",
+                                    "instanceCommittedHere", "engineExists")),
+          str([k for k in ("instanceExists", "engineImplemented", "committed",
+                           "instanceCommittedHere", "engineExists") if k in so]))
     check("84. no persistent ID format is defined; references are opaque",
           so.get("persistentIdFormatDefined") is False and so.get("referencesAreOpaque") is True)
     check("85. lineage exists and an initial state may be explicitly null",
@@ -696,16 +707,15 @@ def main():
     check("    the scope provides no implementation and does not expire",
           c.get("scope", {}).get("implementationProvidedByThisContract") is False
           and "implementationStatus" not in c.get("scope", {}))
-    check("    no Story State Engine or Campaign Registry implementation exists on disk",
-          not glob.glob(os.path.join(ROOT, "**", "*story_state_engine*"), recursive=True)
-          and not glob.glob(os.path.join(ROOT, "**", "*campaign_registry*"), recursive=True))
-    check("    PINK-MALL-OPS was not created", not os.path.isdir(os.path.join(ROOT, "PINK-MALL-OPS")))
+    # Deliberately absent: any check that these systems are missing from disk.
+    # Contract 03 is not a census of the repository, and implementing any of them
+    # is a normal later phase, not a regression in this contract.
 
     priv = " ".join(c.get("privacyRules", []))
     check("97. the contract states this repository is PUBLIC", "PUBLIC" in priv)
     for term, label in (("biographies", "private biographies"), ("likeness", "likeness material"),
                         ("Customer data", "customer data"), ("audience history", "private audience history"),
-                        ("PINK-MALL-OPS", "PINK-MALL-OPS remains planned")):
+                        ("private ops layer", "private-ops content kept out of this repo")):
         check(f"    barred: {label}", term in priv)
     check("98. open items are declared undecided and may not be invented",
           len(c.get("openItems", [])) >= 14
@@ -849,8 +859,8 @@ def main():
                            ("consent", "resolvedHere", False),
                            ("consent", "claimedComplete", False),
                            ("characterRecordRules", "duoIsIdentityRecord", False),
-                           ("storyStateObject", "engineImplemented", False),
-                           ("storyStateObject", "instanceCommittedHere", False),
+                           ("storyStateObject",
+                            "publicRepositoryInstancePersistenceAllowed", False),
                            ("authorityGrants", "storyTransitionAuthorityGranted", False),
                            ("implementationStatus", "statesOwnedHere", False),
                            ("implementationStatus", "anyImplementedHere", False),
@@ -1139,8 +1149,13 @@ def main():
         check("    the index does not treat file existence as canonicality",
               "existence does not make it canonical" in index_plain
               or "does not assert" in index_plain)
-        check("152. the index records that no Story State Engine exists",
-              "story state engine" in index_plain and "does not exist" in index_plain)
+        # Deliberately not asserted: that the index says the engine "does not exist".
+        # That is a lifecycle fact the index owns and may correct the day the engine is
+        # built; requiring it here would make contract 03 fail for someone else's change.
+        # What must hold is the durable boundary: contract 03 authors, it does not build.
+        check("152. the index records contract 03 as authoring only, not an implementation",
+              "story state engine" in index_plain and "authoring only" in index_plain
+              and "future runtime structure" in index_plain)
         check("    the index records the object schema as future runtime structure",
               "story state" in index_plain and "must not" in index_plain)
         check("    the index states contract 03 does not own Human Identity",
@@ -1203,10 +1218,121 @@ def main():
           "must not silently mutate canonical story state" in low)
     check("165. the markdown states a schema is not an engine",
           "a schema is not an engine" in low)
-    check("166. the markdown states contract 04 is not yet created",
-          "not yet created" in low)
+    check("166. the markdown defers the metric decisions to contract 04 without dating it",
+          "belong to contract 04" in low and "does not pre-empt them" in low
+          and "whether contract 04 has been authored is read from" in low)
     check("167. the markdown declares open items rather than inventing answers",
           "open items" in low and "MUST NOT" in md)
+
+    print("\nJ. lifecycle-state purity (this contract is not a census of the repository)")
+    # The rule this section enforces:
+    #   Contract 03 MAY say  "this contract does not implement X".
+    #   Contract 03 MAY NOT say "X does not exist today".
+    # The first is durable. The second is a cached fact that a later phase falsifies,
+    # which is precisely how a contract silently rots into a liar.
+
+    # Keys that cache another system's lifecycle or existence. Banned outright,
+    # at any depth, in the contract AND in the schema that would legitimise them.
+    BANNED_KEYS = ("engineImplemented", "engineExists", "engineImplementationStatus",
+                   "currentImplementationStatus", "contract04Exists", "privateOpsExists",
+                   "instanceCommittedHere", "instanceExists")
+    # Self-scoped keys: they describe what THIS contract does, so they never expire.
+    SELF_SCOPED = ("implementationProvidedByThisContract", "contract03ImplementsEngine",
+                   "contract03ActivatesEngine")
+
+    def key_paths(node, path="$"):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                yield k, f"{path}.{k}"
+                yield from key_paths(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                yield from key_paths(v, f"{path}[{i}]")
+
+    contract_keys = list(key_paths(c))
+    schema_keys = [(k, pth) for k, pth in key_paths(schema) if ".properties." in pth]
+
+    hits = [pth for k, pth in contract_keys if k in BANNED_KEYS]
+    check("168. the contract caches no lifecycle or existence key at any depth",
+          not hits, str(hits))
+    shits = [pth for k, pth in schema_keys if k in BANNED_KEYS]
+    check("    the contract schema does not re-admit one either", not shits, str(shits))
+
+    # Same shape, wider net: anything that reads as an existence or implementation
+    # claim must be self-scoped. The allowlist is explicit so that a NEW key of this
+    # shape fails here and has to be argued for, rather than slipping in unreviewed.
+    SHAPE = re.compile(r"(?i)(exists|implemented|implementationstatus|iscreated|wascreated|isbuilt)")
+    SHAPE_OK = {
+        "$.teamMechanic.exists",                       # the mechanic this contract defines
+        "$.scope.implementationProvidedByThisContract",
+        "$.storyStateAuthority.contract03ImplementsEngine",
+        "$.storyStateAuthority.contract03ActivatesEngine",
+        "$.storyStateAuthority.implementationStateOwnedHere",
+        "$.implementationStatus",                       # the block that DISCLAIMS ownership
+        "$.implementationStatus.anyImplementedHere",
+        "$.implementationStatus.statesOwnedHere",
+        "$.implementationStatus.systemsThisContractDoesNotImplement",
+        "$.deferredBoundaries[0].existenceOwnedHere",
+        "$.deferredBoundaries[1].existenceOwnedHere",
+        "$.deferredBoundaries[2].existenceOwnedHere",
+        "$.deferredBoundaries[0].existenceRecordedIn",
+        "$.deferredBoundaries[1].existenceRecordedIn",
+        "$.deferredBoundaries[2].existenceRecordedIn",
+    }
+    shaped = sorted({pth for k, pth in contract_keys if SHAPE.search(k)} - SHAPE_OK)
+    check("    every existence-shaped key is self-scoped and accounted for",
+          not shaped, str(shaped))
+    check("    the three self-scoped implementation facts are still present",
+          all(any(k == s for k, _ in contract_keys) for s in SELF_SCOPED))
+
+    # No lifecycle enum value may be frozen anywhere in the contract as a value.
+    LIFECYCLE = ("PLANNED", "ACTIVE", "PARTIAL", "DEPRECATED", "NOT YET CREATED")
+    def str_paths(node, path="$"):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                yield from str_paths(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                yield from str_paths(v, f"{path}[{i}]")
+        elif isinstance(node, str):
+            yield node, path
+    frozen = sorted({pth for s, pth in str_paths(c)
+                     if any(re.search(rf"\b{re.escape(w)}\b", s) for w in LIFECYCLE)})
+    check("169. no lifecycle value is frozen into any contract string", not frozen, str(frozen))
+
+    # FIX 7 — the same purity rule for the human-readable contract. These patterns
+    # match ASSERTIONS of current absence. They deliberately do not match the
+    # legitimate disclaiming forms the contract needs to keep, such as
+    # "not WHETHER it currently exists" or "never whether the receiving contract exists".
+    FORBIDDEN_PROSE = (
+        (r"no story state engine exists",            "asserts the engine is absent today"),
+        (r"no story state exists",                   "asserts no story state exists today"),
+        (r"remains planned",                         "caches a PLANNED lifecycle value"),
+        (r"not yet created",                         "caches a not-created state"),
+        (r"current repository state",                "reports a snapshot of the repo"),
+        (r"must not be created",                     "freezes a phase instruction as a permanent bar"),
+        (r"\bno (?:contract 0\d|campaign registry|super brain|social intelligence engine|"
+         r"private ops layer|story state engine|pink-mall-ops)\b[^.]{0,30}\bexists\b",
+                                                     "asserts a named system is absent today"),
+        (r"\bcontract 0\d does not exist",           "asserts a sibling contract is absent"),
+        (r"\bis (?:still )?(?:planned|unbuilt|not built)\b", "asserts an unbuilt lifecycle state"),
+        (r"\bnothing (?:here )?is implemented\b",    "asserts global non-implementation"),
+        (r"\bhas not (?:yet )?been (?:created|built|authored|implemented)\b",
+                                                     "asserts a system has not been built yet"),
+        (r"infrastructure is built",                 "asserts what infrastructure exists today"),
+    )
+    prose_hits = [why for rx, why in FORBIDDEN_PROSE if re.search(rx, low)]
+    check("170. the markdown asserts no system's current lifecycle state",
+          not prose_hits, str(prose_hits))
+    check("    it states its own non-implementation instead",
+          "this contract implements nothing" in low)
+    check("    and delegates lifecycle questions to contract 00's source registry",
+          "contract 00's source registry" in low)
+    check("    and delegates sibling existence to the contract index",
+          # md_plain maps "_" to " ", so the filename is matched in its normalised form
+          "system contract index.md" in low)
+    check("    the private ops boundary is durable, not a creation ban",
+          "does not create that layer and does not record its lifecycle state" in low)
 
     print(f"\n{len(c.get('storyArcActions', []))} arc actions, "
           f"{len(c.get('hardFailures', []))} hard failures, "

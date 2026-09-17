@@ -1382,15 +1382,13 @@
         "schema",
         "isHumanIdentityRecord",
         "isSnapshot",
-        "committed",
-        "engineImplemented",
+        "publicRepositoryInstancePersistenceAllowed",
         "persistentIdFormatDefined",
         "referencesAreOpaque",
         "lineageMechanism",
         "initialStateMayHaveNullLineage",
         "contents",
-        "note",
-        "instanceCommittedHere"
+        "note"
       ],
       "properties": {
         "schema": {
@@ -1402,11 +1400,9 @@
         "isSnapshot": {
           "const": true
         },
-        "committed": {
-          "const": false
-        },
-        "engineImplemented": {
-          "const": false
+        "publicRepositoryInstancePersistenceAllowed": {
+          "const": false,
+          "description": "Standing policy: a real runtime Story State instance is never persisted in this public repository. This is not a record of what the repository contains at any moment, and synthetic schema fixtures are not runtime instances."
         },
         "persistentIdFormatDefined": {
           "const": false
@@ -1432,9 +1428,6 @@
         "note": {
           "type": "string",
           "minLength": 1
-        },
-        "instanceCommittedHere": {
-          "const": false
         }
       },
       "additionalProperties": false
