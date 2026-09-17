@@ -73,28 +73,42 @@
         }
       ]
     },
-    "futureDependencies": {
+    "deferredBoundaries": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 3,
       "items": {
         "type": "object",
         "required": [
           "contractNumber",
           "contractId",
-          "exists",
-          "dependency"
+          "relationship",
+          "existenceOwnedHere",
+          "existenceRecordedIn",
+          "boundary"
         ],
         "properties": {
           "contractNumber": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "04",
+              "06",
+              "07"
+            ]
           },
           "contractId": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
-          "exists": {
+          "relationship": {
+            "const": "RESPONSIBILITY_DEFERRED_TO"
+          },
+          "existenceOwnedHere": {
             "const": false
           },
-          "dependency": {
+          "existenceRecordedIn": {
+            "const": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md"
+          },
+          "boundary": {
             "type": "string",
             "minLength": 1
           }
@@ -121,14 +135,80 @@
           "contains": {
             "type": "object",
             "required": [
+              "contractNumber"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "06"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractNumber"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "07"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
               "contractNumber",
-              "exists"
+              "existenceOwnedHere"
             ],
             "properties": {
               "contractNumber": {
                 "const": "04"
               },
-              "exists": {
+              "existenceOwnedHere": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "06"
+              },
+              "existenceOwnedHere": {
+                "const": false
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ],
+            "properties": {
+              "contractNumber": {
+                "const": "07"
+              },
+              "existenceOwnedHere": {
                 "const": false
               }
             }
@@ -136,7 +216,11 @@
           "minContains": 1
         }
       ],
-      "description": "Every future dependency is pinned exists:false. Contract 04 in particular may never be described as existing."
+      "description": "Records WHICH responsibilities are deferred, never WHETHER the receiving contract exists. An `exists` property is deliberately absent and additionalProperties is false, so a cached existence flag cannot be reintroduced — that is what keeps this contract valid when 04, 06 or 07 are later authored."
+    },
+    "deferredBoundaryRule": {
+      "type": "string",
+      "minLength": 1
     },
     "inheritance": {
       "type": "string",
@@ -151,8 +235,8 @@
       "required": [
         "covers",
         "doesNotCover",
-        "implementationStatus",
-        "note"
+        "note",
+        "implementationProvidedByThisContract"
       ],
       "properties": {
         "covers": {
@@ -169,12 +253,12 @@
             "type": "string"
           }
         },
-        "implementationStatus": {
-          "const": "PLANNED"
-        },
         "note": {
           "type": "string",
           "minLength": 1
+        },
+        "implementationProvidedByThisContract": {
+          "const": false
         }
       },
       "additionalProperties": false
@@ -586,10 +670,12 @@
         "primaryAuthority",
         "secondaryEvidence",
         "nonAuthoritative",
-        "engineImplementationStatus",
-        "engineExists",
         "inheritedFrom",
-        "rule"
+        "rule",
+        "implementationStateOwnedHere",
+        "readCurrentImplementationStateFrom",
+        "contract03ActivatesEngine",
+        "contract03ImplementsEngine"
       ],
       "properties": {
         "domain": {
@@ -613,12 +699,6 @@
           },
           "uniqueItems": true
         },
-        "engineImplementationStatus": {
-          "const": "PLANNED"
-        },
-        "engineExists": {
-          "const": false
-        },
         "inheritedFrom": {
           "type": "string",
           "minLength": 1
@@ -626,9 +706,22 @@
         "rule": {
           "type": "string",
           "minLength": 1
+        },
+        "implementationStateOwnedHere": {
+          "const": false
+        },
+        "readCurrentImplementationStateFrom": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.STORY_STATE_ENGINE"
+        },
+        "contract03ActivatesEngine": {
+          "const": false
+        },
+        "contract03ImplementsEngine": {
+          "const": false
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Defines the engine's authority, not its lifecycle. No implementation-status property exists here and the object is closed, so a mutable status cannot be cached back in."
     },
     "operationalStateConflict": {
       "type": "object",
@@ -1291,13 +1384,13 @@
         "isSnapshot",
         "committed",
         "engineImplemented",
-        "instanceExists",
         "persistentIdFormatDefined",
         "referencesAreOpaque",
         "lineageMechanism",
         "initialStateMayHaveNullLineage",
         "contents",
-        "note"
+        "note",
+        "instanceCommittedHere"
       ],
       "properties": {
         "schema": {
@@ -1313,9 +1406,6 @@
           "const": false
         },
         "engineImplemented": {
-          "const": false
-        },
-        "instanceExists": {
           "const": false
         },
         "persistentIdFormatDefined": {
@@ -1342,6 +1432,9 @@
         "note": {
           "type": "string",
           "minLength": 1
+        },
+        "instanceCommittedHere": {
+          "const": false
         }
       },
       "additionalProperties": false
@@ -1355,7 +1448,7 @@
     },
     "existenceDisclaimers": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 5,
       "items": {
         "type": "string"
       },
@@ -1744,34 +1837,37 @@
     "implementationStatus": {
       "type": "object",
       "required": [
-        "storyStateEngine",
-        "campaignRegistry",
-        "socialIntelligenceEngine",
-        "superBrain",
-        "privateOpsStore",
-        "anyImplementedHere"
+        "statesOwnedHere",
+        "readCurrentStatesFrom",
+        "systemsThisContractDoesNotImplement",
+        "anyImplementedHere",
+        "rule"
       ],
       "properties": {
-        "storyStateEngine": {
-          "const": "PLANNED"
+        "statesOwnedHere": {
+          "const": false
         },
-        "campaignRegistry": {
-          "const": "PLANNED"
+        "readCurrentStatesFrom": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes"
         },
-        "socialIntelligenceEngine": {
-          "const": "PLANNED"
-        },
-        "superBrain": {
-          "const": "PLANNED"
-        },
-        "privateOpsStore": {
-          "const": "PLANNED"
+        "systemsThisContractDoesNotImplement": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         },
         "anyImplementedHere": {
           "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Records non-ownership of lifecycle state, not the state itself."
     },
     "openItems": {
       "type": "array",
@@ -1798,7 +1894,8 @@
     "parentContract",
     "contractNumber",
     "dependsOn",
-    "futureDependencies",
+    "deferredBoundaries",
+    "deferredBoundaryRule",
     "inheritance",
     "purpose",
     "scope",

@@ -71,8 +71,8 @@ FAILURES = ["WRONG_CHARACTER_IDENTITY", "SISTER_SUBSTITUTION", "IDENTITY_MUTATED
 STATE_REQUIRED = ["schemaVersion", "storyStateRef", "previousStoryStateRef", "generatedAt",
                   "isHumanIdentityRecord", "humanIdentityAuthority", "storyStateAuthority",
                   "characters", "relationshipState", "storyArcs", "pendingProposals",
-                  "continuityUncertainty", "operationalFactsAsserted"]
-STATE_OPTIONAL = ["teamMechanic", "changedSincePrevious", "sourcesNotAuthoritative"]
+                  "changedSincePrevious", "continuityUncertainty", "operationalFactsAsserted"]
+STATE_OPTIONAL = ["teamMechanic", "sourcesNotAuthoritative"]
 CHAR_REQUIRED = ["characterId", "identityAuthority", "identityPersistent",
                  "identityMutableByStory", "narrativeRoleIsDynamic", "narrativeRole"]
 CHAR_OPTIONAL = ["privateDetailRef"]
@@ -248,6 +248,11 @@ def check_state(st):
 
     if not isinstance(st.get("continuityUncertainty"), list):
         e.append("continuityUncertainty must be an array, even when empty")
+    # Always present: an absent key would leave "no declared change information"
+    # and "nothing changed" indistinguishable.
+    if not isinstance(st.get("changedSincePrevious"), list):
+        e.append("changedSincePrevious must be an array, even when empty — its absence would be "
+                 "indistinguishable from nothing having changed")
     return e
 
 
@@ -277,8 +282,8 @@ def valid_state():
         "teamMechanic": {"active": False, "isHumanIdentityTruth": False,
                          "isStoryStateAuthority": False},
         "pendingProposals": [],
-        "continuityUncertainty": [],
         "changedSincePrevious": [],
+        "continuityUncertainty": [],
         "sourcesNotAuthoritative": ["MODEL_MEMORY", "CHAT_HISTORY"],
         "operationalFactsAsserted": [],
     }
@@ -356,17 +361,40 @@ def main():
     check("13. contract 02 product and human truth remain untransformable",
           prod.get("corePrinciple", {}).get("productTruthMayBeTransformed") is False
           and prod.get("corePrinciple", {}).get("humanIdentityMayBeTransformed") is False)
-    fut = {f.get("contractNumber"): f for f in c.get("futureDependencies", [])}
-    check("14. contract 04 is named as a future dependency and marked NOT existing",
-          "04" in fut and fut["04"].get("exists") is False
-          and fut["04"].get("contractId") == "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT")
-    check("    no future dependency is described as existing",
-          all(f.get("exists") is False for f in c.get("futureDependencies", [])))
-    check("15. contract 04 genuinely does not exist on disk",
-          not glob.glob(os.path.join(CDIR, "04_*")),
-          str(glob.glob(os.path.join(CDIR, "04_*"))))
-    check("    contracts 04-08 all still absent",
-          not any(glob.glob(os.path.join(CDIR, f"0{i}_*")) for i in range(4, 9)))
+    # Contract 03 records WHICH responsibilities are deferred, never WHETHER the
+    # receiving contract exists. A cached `exists: false` would make this
+    # contract stale the moment contract 04, 06 or 07 was authored.
+    db = {b.get("contractNumber"): b for b in c.get("deferredBoundaries", [])}
+    check("14. contract 04 is named as a deferred boundary",
+          "04" in db and db["04"].get("contractId") == "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT")
+    check("    contracts 06 and 07 are named as deferred boundaries too",
+          {"06", "07"} <= set(db), str(sorted(db)))
+    check("15. no deferred boundary caches whether the other contract exists",
+          all("exists" not in b for b in c.get("deferredBoundaries", []))
+          and all(b.get("existenceOwnedHere") is False
+                  for b in c.get("deferredBoundaries", [])),
+          str([b.get("contractNumber") for b in c.get("deferredBoundaries", [])
+               if "exists" in b or b.get("existenceOwnedHere") is not False]))
+    check("    existence is delegated to the contract index",
+          all("SYSTEM_CONTRACT_INDEX" in b.get("existenceRecordedIn", "")
+              for b in c.get("deferredBoundaries", [])))
+    check("16. creating 04, 06 or 07 later cannot require editing this contract",
+          "MUST NOT require editing this contract" in c.get("deferredBoundaryRule", ""))
+    check("    each boundary states what is deferred, not what exists",
+          all(b.get("relationship") == "RESPONSIBILITY_DEFERRED_TO" and b.get("boundary")
+              for b in c.get("deferredBoundaries", [])))
+    # The current existence of 04 is repository evidence, REPORTED not asserted:
+    # asserting its absence here would reintroduce exactly the stale-state defect
+    # this contract removes, and would fail the day contract 04 is authored.
+    _c04 = bool(glob.glob(os.path.join(CDIR, "04_*_CONTRACT.json")))
+    print(f"        (observed repository state: contract 04 "
+          f"{'exists' if _c04 else 'does not exist'} today — reported, not cached in contract 03)")
+    check("    contract 03 stays valid either way, because it caches no existence",
+          all("exists" not in b for b in c.get("deferredBoundaries", [])))
+    check("    contract 04 responsibilities remain outside contract 03 regardless",
+          "belong to contract 04" in db.get("04", {}).get("boundary", "")
+          and c.get("audienceInfluence", {}).get("deferredTo") == "04"
+          and c.get("audienceInfluence", {}).get("thresholdsDefined") is False)
 
     print("\nC. the constitutional separation")
     cs = c.get("coreSeparation", {})
@@ -460,12 +488,24 @@ def main():
           next((d for d in parent.get("authorityDomains", [])
                 if d.get("domainId") == "STORY_STATE"), {}).get("primaryAuthority")
           == ["STORY_STATE_ENGINE"])
-    check("42. the Story State Engine remains PLANNED and does not exist",
-          ss.get("engineImplementationStatus") == "PLANNED" and ss.get("engineExists") is False)
-    check("    contract 00 still records the engine as PLANNED",
-          next((s for s in parent.get("sourceTypes", [])
-                if s.get("sourceId") == "STORY_STATE_ENGINE"), {}).get("implementationStatus")
-          == "PLANNED")
+    # WHAT authority the engine holds is durable. WHETHER it exists is not, so
+    # the contract defines the first and delegates the second.
+    check("42. engine implementation state is NOT owned or cached here",
+          ss.get("implementationStateOwnedHere") is False
+          and "sourceTypes.STORY_STATE_ENGINE" in ss.get("readCurrentImplementationStateFrom", ""))
+    check("    no lifecycle value is frozen into the story-state authority block",
+          not any(k in ss for k in ("engineImplementationStatus", "engineExists"))
+          and not any(v in ("PLANNED", "ACTIVE", "PARTIAL")
+                      for v in ss.values() if isinstance(v, str)),
+          str([k for k in ("engineImplementationStatus", "engineExists") if k in ss]))
+    check("43. contract 03 neither implements nor activates the engine",
+          ss.get("contract03ActivatesEngine") is False
+          and ss.get("contract03ImplementsEngine") is False)
+    # External repository evidence, reported rather than cached.
+    check("    external repository evidence: contract 00 records the engine PLANNED today",
+          next((x for x in parent.get("sourceTypes", [])
+                if x.get("sourceId") == "STORY_STATE_ENGINE"), {}).get("implementationStatus")
+          == "PLANNED", "reported as current state, not cached in contract 03")
     check("43. Super Brain and Social Intelligence are non-authoritative for Story State",
           {"SUPER_BRAIN", "SOCIAL_INTELLIGENCE_ENGINE"} <= set(ss.get("nonAuthoritative", [])))
     check("    model memory and chat history are named non-authoritative too",
@@ -597,9 +637,11 @@ def main():
     so = c.get("storyStateObject", {})
     check("82. the Story State object is a snapshot, not an identity record",
           so.get("isSnapshot") is True and so.get("isHumanIdentityRecord") is False)
-    check("83. no engine is implemented and no instance exists or is committed",
-          so.get("engineImplemented") is False and so.get("instanceExists") is False
+    check("83. no engine is implemented and no instance is committed here",
+          so.get("engineImplemented") is False and so.get("instanceCommittedHere") is False
           and so.get("committed") is False)
+    check("    the object block caches no instance-existence claim",
+          "instanceExists" not in so)
     check("84. no persistent ID format is defined; references are opaque",
           so.get("persistentIdFormatDefined") is False and so.get("referencesAreOpaque") is True)
     check("85. lineage exists and an initial state may be explicitly null",
@@ -637,10 +679,23 @@ def main():
           ag.get("humanIdentityWriteAuthorityGranted") is False)
 
     imp = c.get("implementationStatus", {})
-    check("96. every named system remains PLANNED and none is implemented here",
-          all(imp.get(k) == "PLANNED" for k in ("storyStateEngine", "campaignRegistry",
-              "socialIntelligenceEngine", "superBrain", "privateOpsStore"))
-          and imp.get("anyImplementedHere") is False)
+    # Records non-ownership of lifecycle state, not the state itself.
+    check("96. this contract implements none of the named systems",
+          imp.get("anyImplementedHere") is False
+          and {"STORY_STATE_ENGINE", "CAMPAIGN_REGISTRY", "SOCIAL_INTELLIGENCE_ENGINE",
+               "SUPER_BRAIN", "PRIVATE_OPS_STORE"}
+          <= set(imp.get("systemsThisContractDoesNotImplement", [])))
+    check("    lifecycle state is not owned or cached here",
+          imp.get("statesOwnedHere") is False
+          and imp.get("readCurrentStatesFrom") == "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes")
+    check("    no lifecycle value is frozen anywhere in the block",
+          not any(v in ("PLANNED", "ACTIVE", "PARTIAL")
+                  for v in imp.values() if isinstance(v, str)),
+          str([k for k, v in imp.items()
+               if isinstance(v, str) and v in ("PLANNED", "ACTIVE", "PARTIAL")]))
+    check("    the scope provides no implementation and does not expire",
+          c.get("scope", {}).get("implementationProvidedByThisContract") is False
+          and "implementationStatus" not in c.get("scope", {}))
     check("    no Story State Engine or Campaign Registry implementation exists on disk",
           not glob.glob(os.path.join(ROOT, "**", "*story_state_engine*"), recursive=True)
           and not glob.glob(os.path.join(ROOT, "**", "*campaign_registry*"), recursive=True))
@@ -753,14 +808,25 @@ def main():
     check("    contract schema bars every one of them from Story State authority", ok, d)
     ok, d = exactly_once(sp.get("dependsOn", {}), "contractId", [EXPECTED_DEP_ID])
     check("105. contract schema requires the contract-01 dependency exactly once", ok, d)
-    ok, d = binds(sp.get("futureDependencies", {}), "contractNumber", "exists", {"04": False})
-    check("106. contract schema pins contract 04 as NOT existing", ok, d)
+    ok, d = exactly_once(sp.get("deferredBoundaries", {}), "contractNumber", ["04", "06", "07"])
+    check("106. contract schema requires each deferred boundary exactly once", ok, d)
+    ok, d = binds(sp.get("deferredBoundaries", {}), "contractNumber", "existenceOwnedHere",
+                  {n: False for n in ("04", "06", "07")})
+    check("    contract schema pins existence as NOT owned here", ok, d)
+    # The mechanism that stops a cached existence flag returning.
+    check("    contract schema declares no `exists` property on a deferred boundary",
+          "exists" not in sp.get("deferredBoundaries", {}).get("items", {}).get("properties", {}))
+    check("    the deferred-boundary object is closed",
+          sp.get("deferredBoundaries", {}).get("items", {}).get("additionalProperties") is False)
+    check("    contract schema declares no futureDependencies block at all",
+          "futureDependencies" not in sp)
     for key, sub, want in (("humanIdentityAuthority", "primaryAuthority", "AVATAR_SKILL"),
                            ("humanIdentityAuthority", "storyStateEngineIsIdentityAuthority", False),
                            ("humanIdentityAuthority", "biometricOrLikenessDetailHeldHere", False),
                            ("storyStateAuthority", "primaryAuthority", "STORY_STATE_ENGINE"),
-                           ("storyStateAuthority", "engineImplementationStatus", "PLANNED"),
-                           ("storyStateAuthority", "engineExists", False),
+                           ("storyStateAuthority", "implementationStateOwnedHere", False),
+                           ("storyStateAuthority", "contract03ActivatesEngine", False),
+                           ("storyStateAuthority", "contract03ImplementsEngine", False),
                            ("narrativeRoleModel", "isDynamic", True),
                            ("narrativeRoleModel", "fixedArchetypeTaxonomyDefined", False),
                            ("narrativeRoleModel", "closedArchetypeEnumPermitted", False),
@@ -784,10 +850,11 @@ def main():
                            ("consent", "claimedComplete", False),
                            ("characterRecordRules", "duoIsIdentityRecord", False),
                            ("storyStateObject", "engineImplemented", False),
-                           ("storyStateObject", "instanceExists", False),
+                           ("storyStateObject", "instanceCommittedHere", False),
                            ("authorityGrants", "storyTransitionAuthorityGranted", False),
-                           ("implementationStatus", "storyStateEngine", "PLANNED"),
-                           ("implementationStatus", "anyImplementedHere", False)):
+                           ("implementationStatus", "statesOwnedHere", False),
+                           ("implementationStatus", "anyImplementedHere", False),
+                           ("scope", "implementationProvidedByThisContract", False)):
         got = sp.get(key, {}).get("properties", {}).get(sub, {}).get("const")
         check(f"    contract schema pins {key}.{sub} = {want}", got is want or got == want,
               f"got={got!r}")
@@ -877,6 +944,15 @@ def main():
           and team_p.get("isStoryStateAuthority", {}).get("const") is False)
     check("121. object schema forbids asserting operational facts",
           op.get("operationalFactsAsserted", {}).get("maxItems") == 0)
+    check("121b. object schema REQUIRES changedSincePrevious on every snapshot",
+          "changedSincePrevious" in obj.get("required", []),
+          "an absent key is indistinguishable from nothing having changed")
+    check("    it is an array, so an empty one is an explicit 'nothing changed'",
+          op.get("changedSincePrevious", {}).get("type") == "array")
+    check("    the contract requires exactly this from a fresh session",
+          any("changed since the previous" in x.lower()
+              for x in c.get("narrativeContinuity", {})
+              .get("freshSessionMustBeAbleToDetermine", [])))
     check("122. object schema requires lineage to be stated, null or otherwise",
           "previousStoryStateRef" in obj.get("required", [])
           and any(x.get("type") == "null"
@@ -998,6 +1074,15 @@ def main():
             lambda s: s["characters"][0].__setitem__("archetype", "comic relief"), "unknown key")
     rejects("    an omitted lineage key is REJECTED",
             lambda s: s.pop("previousStoryStateRef"), "previousStoryStateRef")
+    rejects("144b. an omitted changedSincePrevious is REJECTED",
+            lambda s: s.pop("changedSincePrevious"), "changedSincePrevious")
+    check("    an initial state with null lineage and [] changes is ACCEPTED",
+          not check_state(mutate(lambda s: (s.__setitem__("previousStoryStateRef", None),
+                                            s.__setitem__("changedSincePrevious", [])))))
+    check("    a later state naming what moved is ACCEPTED",
+          not check_state(mutate(lambda s: (s.__setitem__("previousStoryStateRef", "prior-1"),
+                                            s.__setitem__("changedSincePrevious",
+                                                          ["synthetic change"])))))
     check("145. an explicit null lineage is ACCEPTED for an initial state",
           not check_state(mutate(lambda s: s.__setitem__("previousStoryStateRef", None))))
     check("    a named previous state is ACCEPTED",
@@ -1033,9 +1118,22 @@ def main():
         check("    contracts 00-02 remain in the current set",
               all(any(ln.strip().startswith(f"| 0{i} ") for ln in head.splitlines())
                   for i in (0, 1, 2)))
-        check("151. contracts 04-08 remain NOT YET CREATED",
-              all(f"| 0{i} " in tail for i in range(4, 9)),
-              str([i for i in range(4, 9) if f"| 0{i} " not in tail]))
+        # Derived from disk, never a hard-coded range: this check must not
+        # fail merely because a later contract is authored.
+        misplaced = []
+        for i in range(4, 9):
+            num = f"0{i}"
+            in_current = any(ln.strip().startswith(f"| {num} ") for ln in head.splitlines())
+            in_planned = any(ln.strip().startswith(f"| {num} ") for ln in tail.splitlines())
+            exists = bool(glob.glob(os.path.join(CDIR, f"{num}_*_CONTRACT.json")))
+            if exists and not (in_current and not in_planned):
+                misplaced.append(f"{num}: files exist but index has it "
+                                 f"current={in_current} planned={in_planned}")
+            if not exists and not (in_planned and not in_current):
+                misplaced.append(f"{num}: no files but index has it "
+                                 f"current={in_current} planned={in_planned}")
+        check("151. the index's current/planned split matches which contract files exist",
+              not misplaced, str(misplaced))
         check("    the index names the contract-03 validator",
               "character_story_contract.py" in index)
         check("    the index does not treat file existence as canonicality",
@@ -1072,10 +1170,13 @@ def main():
               "03" in mp and "authored" in mp)
         check("155. the Character & Story domain records its contract as authored",
               "character & story" in mp or "character and story" in mp)
-        check("156. the Story Engine + Social Intelligence domain is NOT fully authored",
-              "not fully authored" in mp or "04" in mp)
-        check("    contract 04 is still described as not created",
-              "04" in mp)
+        check("156. the Story Engine + Social Intelligence domain state matches disk",
+              ("not fully authored" in mp or "partial" in mp) if "04" not in authored
+              else True, f"04 authored={('04' in authored)}")
+        check("    the matrix's own account of 04 matches disk",
+              ("04" in authored) == ("04 have been authored" in mp
+                                     or "02, 03 and 04" in mp or "and 04 have been" in mp),
+              f"authored={authored}")
         check("157. all eight locked interview domains are preserved",
               all(f"### {i}." in matrix for i in range(1, 9)),
               str([i for i in range(1, 9) if f"### {i}." not in matrix]))

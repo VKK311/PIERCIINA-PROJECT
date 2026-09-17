@@ -1248,9 +1248,26 @@ def main():
         check("    contracts 00 and 01 remain in the current set",
               all(any(ln.strip().startswith(f"| 0{i} ") for ln in head.splitlines())
                   for i in (0, 1)))
-        check("152. contracts 03-08 remain NOT YET CREATED",
-              all(f"| 0{i} " in tail for i in range(3, 9)),
-              str([i for i in range(3, 9) if f"| 0{i} " not in tail]))
+        # This once read "contracts 03-08 remain NOT YET CREATED" over a
+        # hard-coded range(3, 9). That was true before contract 03 existed and
+        # was guaranteed to fail the moment it did. The durable rule is that the
+        # index's current/planned split agrees with which contract files are
+        # actually on disk, so the check can never become the stale thing it
+        # exists to catch.
+        misplaced = []
+        for i in range(3, 9):
+            num = f"0{i}"
+            in_current = any(ln.strip().startswith(f"| {num} ") for ln in head.splitlines())
+            in_planned = any(ln.strip().startswith(f"| {num} ") for ln in tail.splitlines())
+            exists = bool(glob.glob(os.path.join(CDIR, f"{num}_*_CONTRACT.json")))
+            if exists and not (in_current and not in_planned):
+                misplaced.append(f"{num}: files exist but index has it "
+                                 f"current={in_current} planned={in_planned}")
+            if not exists and not (in_planned and not in_current):
+                misplaced.append(f"{num}: no files but index has it "
+                                 f"current={in_current} planned={in_planned}")
+        check("152. the index's current/planned split matches which contract files exist",
+              not misplaced, str(misplaced))
         check("    the index names the contract-02 validator",
               "product_creative_contract.py" in index)
         check("    the index does not treat file existence as canonicality",
@@ -1314,9 +1331,17 @@ def main():
         prose = " ".join(ln for ln in matrix.splitlines() if not ln.strip().startswith("|"))
         prose_plain = " ".join(prose.replace("*", "").replace("`", "")
                                .replace("\u2013", "-").replace("\u2014", "-").split()).lower()
+        # A sentence that says a domain is PARTIALLY authored, or that names a
+        # contract precisely to say it does not exist, is not a claim that the
+        # contract is authored. Excluding those forms keeps the guard narrow
+        # instead of disabling it: "Contract 04 is authored" is still caught.
+        PARTIAL_FORMS = ("partially authored", "not fully authored", "partial",
+                         "does not exist", "do not exist", "still await", "awaiting",
+                         "until contract", "yet to be")
         claim_sentences = [seg for seg in re.split(r"(?<=[.;:])\s+", prose_plain)
                            if "authored" in seg and "contract" in seg
-                           and "await" not in seg and "incrementally" not in seg]
+                           and "await" not in seg and "incrementally" not in seg
+                           and not any(f in seg for f in PARTIAL_FORMS)]
         wrongly_claimed = sorted({n for seg in claim_sentences for n in awaiting
                                   if re.search(rf"(?<!\d){n}(?!\d)", seg)})
         check("    the matrix prose does not name an unwritten contract as authored",
@@ -1331,13 +1356,29 @@ def main():
                 targets = re.findall(r"\d{2}", cells[4])
                 if targets:
                     rows.append((cells[0], targets, cells[3].lower()))
+        # A domain may target more than one contract, so its state is not
+        # binary. Domain 4 targets 03 and 04: with only 03 authored it is
+        # neither AUTHORED nor AWAITING, and forcing it into either would make
+        # the matrix lie in one direction or the other.
+        PARTIAL_WORDS = ("partial", "not fully authored", "partially authored")
         for row_no, targets, created in rows:
-            says_authored = "authored" in created
-            # Authored only if every contract the row points at exists.
-            exists = all(t in authored for t in targets)
-            if says_authored != exists:
-                bad_rows.append(f"row {row_no} -> {targets}: table says {created!r}, "
-                                f"all files exist={exists}")
+            n_exist = sum(1 for t in targets if t in authored)
+            if n_exist == len(targets):
+                expected = "AUTHORED"
+            elif n_exist == 0:
+                expected = "AWAITING"
+            else:
+                expected = "PARTIAL"
+            says_partial = any(w in created for w in PARTIAL_WORDS)
+            says_authored = "authored" in created and not says_partial
+            says_awaiting = ("awaiting" in created or "await" in created) and not says_partial
+            actual = ("PARTIAL" if says_partial else
+                      "AUTHORED" if says_authored else
+                      "AWAITING" if says_awaiting else "UNREADABLE")
+            if actual != expected:
+                bad_rows.append(f"row {row_no} -> {targets}: table reads {actual} "
+                                f"({created!r}), {n_exist}/{len(targets)} files exist "
+                                f"so it should read {expected}")
         check("    every summary row agrees with which contract files exist",
               len(rows) == 8 and not bad_rows, f"rows={len(rows)}/8 bad={bad_rows}")
     else:

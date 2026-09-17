@@ -445,7 +445,7 @@
       "items": {
         "type": "string"
       },
-      "description": "What moved since previousStoryStateRef, so a fresh session can answer it from state alone."
+      "description": "ALWAYS present. An empty array asserts nothing changed; an absent key would leave 'no declared change information' and 'nothing changed' indistinguishable, which is exactly the ambiguity the continuity requirement forbids. For an initial state with previousStoryStateRef null, [] is the correct value."
     },
     "sourcesNotAuthoritative": {
       "type": "array",
@@ -481,6 +481,7 @@
     "relationshipState",
     "storyArcs",
     "pendingProposals",
+    "changedSincePrevious",
     "continuityUncertainty",
     "operationalFactsAsserted"
   ],

@@ -12,26 +12,33 @@
       "dependency": "Contract 01 owns campaign-context idea generation, the exactly-three initial proposals, the campaign character participation role and owner selection. This contract governs narrative continuity and MUST NOT change any of that."
     }
   ],
-  "futureDependencies": [
+  "deferredBoundaries": [
     {
       "contractNumber": "04",
       "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
-      "exists": false,
-      "dependency": "Metric weighting, scoring, social interpretation, creative fatigue and evidence-driven story recommendations. This contract MUST NOT pre-empt any of it."
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Metric weighting, scoring, social interpretation, creative fatigue and evidence-driven story recommendations belong to contract 04. This contract defines none of them and does not absorb them if contract 04 is later authored."
     },
     {
       "contractNumber": "06",
       "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
-      "exists": false,
-      "dependency": "Approval, spend and publication authority, including any future autonomous story-transition authority."
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Approval, spend and publication authority, including any future autonomous story-transition authority, belong to contract 06."
     },
     {
       "contractNumber": "07",
       "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
-      "exists": false,
-      "dependency": "Semantic creative memory that may inform, but never authorise, a story change."
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Semantic creative memory that may inform, but never authorise, a story change belongs to contract 07."
     }
   ],
+  "deferredBoundaryRule": "This contract records WHICH responsibilities are deferred, not WHETHER the receiving contract yet exists. Live existence is read from the contract index and repository state. Creating contract 04, 06 or 07 later MUST NOT require editing this contract: the boundary is unchanged by the other side of it coming into being.",
   "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. Status is provenance only; canonicality is decided by the parent's canonicalityRule, not by this field and not by file existence.",
   "purpose": "Define the constitutional boundary between human identity, narrative role, relationship state, story canon, audience influence and generated output — before any runtime story system is built.",
   "scope": {
@@ -52,8 +59,8 @@
       "approval, spend and publication authority, which belong to contract 06",
       "any implementation of a Story State Engine, Campaign Registry, Social Intelligence Engine or Super Brain"
     ],
-    "implementationStatus": "PLANNED",
-    "note": "No Story State Engine exists. No Story State instance exists. This contract is authoring only."
+    "note": "This is a rules and schema contract. It provides no implementation, and its validity does not expire when a later phase implements a Story State Engine.",
+    "implementationProvidedByThisContract": false
   },
   "coreSeparation": {
     "statement": "HUMAN IDENTITY != NARRATIVE ROLE != RELATIONSHIP STATE != STORY CANON",
@@ -184,10 +191,12 @@
       "MODEL_MEMORY",
       "CHAT_HISTORY"
     ],
-    "engineImplementationStatus": "PLANNED",
-    "engineExists": false,
     "inheritedFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.STORY_STATE",
-    "rule": "Inherited verbatim from contract 00 and not redefined. The STORY_STATE_ENGINE remains PLANNED: authoring this contract MUST NOT change its implementation status to ACTIVE. This contract defines the engine's future rules and object shape only."
+    "rule": "Inherited verbatim from contract 00 and not redefined. This contract defines WHAT authority the Story State Engine holds, not WHETHER it currently exists: implementation state is owned by contract 00's source registry and read from there. This contract neither implements nor activates the engine, and stays valid when the engine is later built.",
+    "implementationStateOwnedHere": false,
+    "readCurrentImplementationStateFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.STORY_STATE_ENGINE",
+    "contract03ActivatesEngine": false,
+    "contract03ImplementsEngine": false
   },
   "operationalStateConflict": {
     "campaignOperationalFactAuthority": "CAMPAIGN_REGISTRY",
@@ -352,7 +361,6 @@
     "isSnapshot": true,
     "committed": false,
     "engineImplemented": false,
-    "instanceExists": false,
     "persistentIdFormatDefined": false,
     "referencesAreOpaque": true,
     "lineageMechanism": "previousStoryStateRef",
@@ -373,7 +381,8 @@
       "provenance distinguishing proposal from recorded continuity",
       "known continuity uncertainty"
     ],
-    "note": "The object schema describes the structured snapshot a future Story State Engine would own. It does not create an engine and it does not create a real Story State. Instances are snapshots and MUST NOT be committed to this public repository."
+    "note": "The object schema describes the structured snapshot a future Story State Engine would own. It does not create an engine. Instances are snapshots and MUST NOT be committed to this public repository.",
+    "instanceCommittedHere": false
   },
   "pendingProposalRules": [
     "A Story State may carry pending story or canon proposals.",
@@ -385,7 +394,8 @@
     "A Story State schema existing is NOT a Story State Engine existing.",
     "Contract 03 existing is NOT a live Story State existing.",
     "A synthetic fixture existing is NOT real narrative state existing.",
-    "No current story continuity may be fabricated merely to populate the schema."
+    "No current story continuity may be fabricated merely to populate the schema.",
+    "This contract records no system's current lifecycle state; contract 00's source registry does."
   ],
   "hardFailures": [
     {
@@ -454,12 +464,17 @@
     "PINK-MALL-OPS remains PLANNED and MUST NOT be created."
   ],
   "implementationStatus": {
-    "storyStateEngine": "PLANNED",
-    "campaignRegistry": "PLANNED",
-    "socialIntelligenceEngine": "PLANNED",
-    "superBrain": "PLANNED",
-    "privateOpsStore": "PLANNED",
-    "anyImplementedHere": false
+    "statesOwnedHere": false,
+    "readCurrentStatesFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes",
+    "systemsThisContractDoesNotImplement": [
+      "STORY_STATE_ENGINE",
+      "CAMPAIGN_REGISTRY",
+      "SOCIAL_INTELLIGENCE_ENGINE",
+      "SUPER_BRAIN",
+      "PRIVATE_OPS_STORE"
+    ],
+    "anyImplementedHere": false,
+    "rule": "This contract implements none of these systems and does not record their current lifecycle state. Their status is owned by contract 00's source registry, so building any of them later does not make this contract stale."
   },
   "openItems": [
     "exact audience-to-canon decision rules",

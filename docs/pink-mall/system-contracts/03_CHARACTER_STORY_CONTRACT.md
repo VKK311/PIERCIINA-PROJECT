@@ -129,9 +129,14 @@ Inherited from contract 00, unchanged:
 | Secondary evidence | `CAMPAIGN_REGISTRY`, `OWNER` |
 | Non-authoritative | `SUPER_BRAIN`, `SOCIAL_INTELLIGENCE_ENGINE`, model memory, chat history |
 
-The `STORY_STATE_ENGINE` remains **`PLANNED`**. Authoring this contract does
-**not** change that status. This contract defines its future rules and object
-shape only.
+This contract defines **what authority** the Story State Engine holds — not
+**whether it currently exists**. Implementation state is owned by contract 00's
+source registry and must be read from there; caching it here would make this
+contract stale the day the engine is built. Contract 03 neither implements nor
+activates the engine, and provides no implementation at all.
+
+*(Current repository state, reported rather than frozen into this contract:
+contract 00 records `STORY_STATE_ENGINE` as `PLANNED`.)*
 
 ## 8. Story State versus campaign operational state
 
@@ -267,7 +272,14 @@ reference — **a pointer is not authority merely because it points somewhere.**
 ## 18. Lineage
 
 Continuity must not depend on replacing the current state without trace, so the
-snapshot carries `previousStoryStateRef`.
+snapshot carries `previousStoryStateRef` **and** `changedSincePrevious`.
+
+Both are **required on every snapshot**. `changedSincePrevious` may be empty —
+an empty array asserts nothing changed — but the key must be present, because an
+absent key leaves *"no declared change information"* and *"nothing changed"*
+indistinguishable, and §6 requires a fresh session to tell them apart. For an
+initial state, `previousStoryStateRef` is `null` and `changedSincePrevious` is
+`[]`.
 
 An initial state may have `null` lineage, but the key is **required** so absence
 is explicit rather than ambiguous. **No persistent ID format is defined**, and no
@@ -305,11 +317,20 @@ owner selection. This contract changes **none** of it.
 Human + Product dual lock. This contract weakens **neither** Human Truth nor
 Product Truth.
 
-**Contract 04** (`PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT`) is **reserved but NOT
-YET CREATED**. It is identified here as a future dependency for metric
-weighting, scoring, social interpretation, creative fatigue and evidence-driven
-story recommendations. This contract does **not** pretend it exists and does
-**not** absorb its logic.
+**Contract 04** (`PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT`) is a **deferred
+boundary**: metric weighting, scoring, social interpretation, creative fatigue
+and evidence-driven story recommendations belong to it, and this contract
+defines none of them. Contracts **06** (approval, spend, publication) and **07**
+(semantic memory) are deferred the same way.
+
+This contract records **which responsibilities are deferred, never whether the
+receiving contract exists.** Live existence is read from
+`SYSTEM_CONTRACT_INDEX.md`. **Authoring contract 04, 06 or 07 later must not
+require editing this contract** — the boundary does not change when the other
+side of it comes into being.
+
+*(Current repository state, reported rather than frozen into this contract: no
+contract 04 file exists.)*
 
 ## 22. Authority this contract does not grant
 
