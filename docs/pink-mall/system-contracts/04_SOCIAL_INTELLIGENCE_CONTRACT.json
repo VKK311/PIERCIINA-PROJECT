@@ -1,0 +1,665 @@
+{
+  "contractId": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT",
+  "version": "1.0.0",
+  "title": "Social Intelligence",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "04",
+  "dependsOn": [
+    {
+      "contractId": "PINK_MALL_CAMPAIGN_CONTEXT_CONTRACT",
+      "contractNumber": "01",
+      "dependency": "Contract 01 owns idea-first campaign context assembly and already classes cultural and social signals as EVIDENCE rather than authority. This contract produces structured social evidence and interpretation suitable for that consumption and MUST NOT change contract 01's rules or upgrade a signal into authority."
+    },
+    {
+      "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+      "contractNumber": "03",
+      "dependency": "Contract 03 owns the narrative meaning of CONTINUE, EVOLVE, PAUSE, CLOSE and REVIVE, and owns Story State. This contract may RECOMMEND one of those actions from evidence. It MUST NOT redefine their meaning and MUST NOT perform a transition."
+    }
+  ],
+  "deferredBoundaries": [
+    {
+      "contractNumber": "05",
+      "contractId": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Node architecture, the workflow graph, the run model and how an ingestion or interpretation job is scheduled belong to contract 05. This contract defines none of them."
+    },
+    {
+      "contractNumber": "06",
+      "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Approval flow, budget modes, spend ceilings, publication authority and any earned-autonomy grant belong to contract 06. A recommendation made here never becomes an approval, a publication or a spend."
+    },
+    {
+      "contractNumber": "07",
+      "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Semantic memory schema, durable-learning write policy, memory-graph structure, staleness handling and preference drift belong to contract 07. This contract neither defines Super Brain storage nor writes to it."
+    },
+    {
+      "contractNumber": "08",
+      "contractId": "PINK_MALL_HQ_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "How Social Intelligence is reported, surfaced or made visible to an operator belongs to contract 08. This contract defines the evidence and interpretation, never the operating surface that displays them."
+    }
+  ],
+  "deferredBoundaryRule": "Each boundary records WHICH responsibilities belong elsewhere. None records WHETHER the receiving contract currently exists: live contract existence is owned by SYSTEM_CONTRACT_INDEX.md and read from there. Authoring contract 05, 06, 07 or 08 later MUST NOT require editing this contract.",
+  "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. The SOCIAL_RAW_METRICS and SOCIAL_INTERPRETATION authority domains are inherited verbatim and are not redefined here. Status is provenance only; canonicality is decided by the parent's canonicalityRule, not by this field and not by file existence.",
+  "purpose": "Define how social evidence becomes interpretation and recommendation without ever becoming Product Truth, Human Identity truth, Story State authority, approval, publication authority or autonomous action. The failure this guards against is specific: a measured number quietly promoting itself into a conclusion, and a conclusion quietly promoting itself into an action nobody authorised.",
+  "scope": {
+    "covers": [
+      "the separation of raw social metric, derived metric, interpretation, recommendation, approval, story canon and publication",
+      "which authority owns measured platform metrics and which owns interpretation",
+      "the locked qualitative response-priority hierarchy and its deliberate lack of numeric weight",
+      "how a winning creative mechanism may be exploited temporarily without becoming permanent truth",
+      "the requirement that creative fatigue is considered before repetitive continuation",
+      "how evidence may RECOMMEND a contract 03 story action without transitioning Story State",
+      "missingness, provenance and the shape of a future Social Intelligence Snapshot"
+    ],
+    "doesNotCover": [
+      "the narrative meaning of the story-arc actions, which belongs to contract 03",
+      "Story State itself, which belongs to contract 03",
+      "product truth and product locks, which belong to contract 02",
+      "campaign idea generation and owner selection, which belong to contract 01",
+      "workflow graph and run model, which belong to contract 05",
+      "approval, spend and publication authority, which belong to contract 06",
+      "semantic memory schema and durable-learning write policy, which belong to contract 07",
+      "any implementation of a Social Intelligence Engine, social platform connector or private performance store"
+    ],
+    "note": "This is a rules and schema contract. It provides no implementation, and its validity does not expire when a later phase builds a Social Intelligence Engine.",
+    "implementationProvidedByThisContract": false
+  },
+  "coreSeparation": {
+    "rule": "RAW SOCIAL METRIC != DERIVED METRIC != SOCIAL INTERPRETATION != RECOMMENDATION != APPROVAL != STORY CANON != PUBLICATION. Each arrow is a decision someone must make, not a step that happens automatically.",
+    "layers": [
+      {
+        "layerId": "RAW_SOCIAL_METRIC",
+        "truthClass": "FACT",
+        "authority": "SOCIAL_PLATFORM_API",
+        "ownedHere": false,
+        "definition": "A measurement reported by the platform that produced it. Evidence, carrying no creative conclusion."
+      },
+      {
+        "layerId": "DERIVED_METRIC",
+        "truthClass": "DERIVED_FACT",
+        "authority": "SOCIAL_PLATFORM_API",
+        "ownedHere": false,
+        "definition": "A deterministic, reproducible computation over raw metrics under a published rule. Without such a published rule the result is interpretation, not a derived fact."
+      },
+      {
+        "layerId": "SOCIAL_INTERPRETATION",
+        "truthClass": "INTERPRETATION",
+        "authority": "SOCIAL_INTELLIGENCE_ENGINE",
+        "ownedHere": false,
+        "definition": "A semantic conclusion such as resonance, fatigue or a winner reading. Never verifiable by inspecting canonical state, and never self-promoting to FACT."
+      },
+      {
+        "layerId": "RECOMMENDATION",
+        "truthClass": "PROPOSAL",
+        "authority": "SOCIAL_INTELLIGENCE_ENGINE",
+        "ownedHere": false,
+        "definition": "A suggested action supported by interpretation. Carries no authority until an authorised party accepts it."
+      },
+      {
+        "layerId": "APPROVAL",
+        "truthClass": "APPROVAL",
+        "authority": "OWNER",
+        "ownedHere": false,
+        "definition": "Explicit authorised acceptance. Deferred to contract 06 and the owner; never produced by this domain."
+      },
+      {
+        "layerId": "STORY_CANON",
+        "truthClass": "FACT",
+        "authority": "STORY_STATE_ENGINE",
+        "ownedHere": false,
+        "definition": "Recorded narrative continuity. Owned by contract 03; a recommendation never writes it."
+      },
+      {
+        "layerId": "PUBLICATION",
+        "truthClass": "APPROVAL",
+        "authority": "OWNER",
+        "ownedHere": false,
+        "definition": "Permission for something to be published. Deferred to contract 06; audience response is not publication authority."
+      }
+    ],
+    "collapsePermitted": false,
+    "note": "No layer in this list is owned by this contract. Contract 04 defines the boundaries between them and implements none of them."
+  },
+  "rawMetricsAuthority": {
+    "domain": "SOCIAL_RAW_METRICS",
+    "primaryAuthority": "SOCIAL_PLATFORM_API",
+    "secondaryEvidence": [
+      "CANONICAL_REPOSITORY"
+    ],
+    "nonAuthoritative": [
+      "SOCIAL_INTELLIGENCE_ENGINE",
+      "SUPER_BRAIN",
+      "CHAT_HISTORY",
+      "MODEL_MEMORY"
+    ],
+    "inheritedFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.SOCIAL_RAW_METRICS",
+    "socialIntelligenceEngineIsRawMetricAuthority": false,
+    "superBrainIsRawMetricAuthority": false,
+    "superBrainMayOverwriteRawMetric": false,
+    "implementationStateOwnedHere": false,
+    "readCurrentImplementationStateFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.SOCIAL_PLATFORM_API",
+    "rule": "Measured platform metrics are evidence produced by the platform that measured them. The Social Intelligence Engine reads them and never becomes their measurement authority; Super Brain and chat history never become it either, and neither may overwrite a raw metric fact. This contract defines WHAT that authority is, not WHETHER any connector currently exists."
+  },
+  "interpretationAuthority": {
+    "domain": "SOCIAL_INTERPRETATION",
+    "primaryAuthority": "SOCIAL_INTELLIGENCE_ENGINE",
+    "secondaryEvidence": [
+      "SUPER_BRAIN"
+    ],
+    "nonAuthoritative": [
+      "CANONICAL_REPOSITORY"
+    ],
+    "inheritedFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.SOCIAL_INTERPRETATION",
+    "authorityOverProductTruth": false,
+    "authorityOverHumanIdentity": false,
+    "authorityOverStoryState": false,
+    "authorityOverApproval": false,
+    "authorityOverPublication": false,
+    "authorityOverSpend": false,
+    "authorityOverCanonicalRepositoryState": false,
+    "implementationStateOwnedHere": false,
+    "readCurrentImplementationStateFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.SOCIAL_INTELLIGENCE_ENGINE",
+    "contract04ImplementsEngine": false,
+    "contract04ActivatesEngine": false,
+    "rule": "Resonance, fatigue, winner readings and recommendations are INTERPRETATION. Being the authority for interpretation grants nothing outside that domain: not product truth, not human identity, not story state, not approval, not publication, not spend, not canonical repository state."
+  },
+  "rawVersusInterpretation": {
+    "rule": "Evidence, conclusion and suggested action are three different kinds of statement and MUST NOT be stored in one field.",
+    "examples": [
+      {
+        "statement": "shares increased",
+        "kind": "RAW_SOCIAL_METRIC",
+        "truthClass": "FACT",
+        "why": "A platform measured it. It says what happened, not what it meant."
+      },
+      {
+        "statement": "this mechanism resonates",
+        "kind": "SOCIAL_INTERPRETATION",
+        "truthClass": "INTERPRETATION",
+        "why": "A conclusion drawn from evidence. Another reading of the same numbers remains possible."
+      },
+      {
+        "statement": "continue this arc",
+        "kind": "RECOMMENDATION",
+        "truthClass": "PROPOSAL",
+        "why": "A suggested action. It becomes real only when an authority outside this domain accepts it."
+      }
+    ],
+    "separateStructuresRequired": [
+      "rawEvidence",
+      "interpretations",
+      "recommendations"
+    ],
+    "mayBeCollapsed": false
+  },
+  "responsePriority": {
+    "status": "LOCKED",
+    "kind": "QUALITATIVE_PRIORITY",
+    "numericWeightsDefined": false,
+    "scoresDefined": false,
+    "ratiosDefined": false,
+    "orderExpressedBy": "TIER_SEQUENCE",
+    "tiers": [
+      {
+        "tierId": "TIER_PRIMARY",
+        "priorityClass": "PRIMARY",
+        "rankedAbove": [
+          "TIER_NEXT",
+          "TIER_CONTEXTUAL"
+        ],
+        "signals": [
+          "SHARES",
+          "DM_SENDS"
+        ],
+        "meaning": "An act of passing something on. The strongest available qualitative evidence of response."
+      },
+      {
+        "tierId": "TIER_NEXT",
+        "priorityClass": "NEXT",
+        "rankedAbove": [
+          "TIER_CONTEXTUAL"
+        ],
+        "signals": [
+          "COMMENTS",
+          "DMS",
+          "FOLLOWER_GROWTH",
+          "SAVES",
+          "PROFILE_INTEREST"
+        ],
+        "meaning": "Deliberate engagement that costs the audience something, short of passing it on."
+      },
+      {
+        "tierId": "TIER_CONTEXTUAL",
+        "priorityClass": "LOWER_SIGNAL_CONTEXTUAL",
+        "rankedAbove": [],
+        "signals": [
+          "LIKES",
+          "VIEWS"
+        ],
+        "meaning": "Cheap or passive signals. Read as context, never as the basis of a conclusion on their own."
+      }
+    ],
+    "rule": "The tier order is a QUALITATIVE priority owned by the owner. It is deliberately expressed without any number: no weight, no score, no ratio and no points. Turning this hierarchy into arithmetic such as share=10 and like=1 is a numeric weighting decision, and no numeric weighting is authorised by this contract.",
+    "qualitativePriorityIsLocked": true,
+    "numericWeightingIsOpen": true
+  },
+  "numericWeighting": {
+    "definedHere": false,
+    "weightsDefined": false,
+    "winnerScoreDefined": false,
+    "fatigueThresholdDefined": false,
+    "cooldownDurationDefined": false,
+    "explorationExploitationRatioDefined": false,
+    "observationWindowDefined": false,
+    "autonomousSelectionThresholdDefined": false,
+    "autonomousStoryTransitionThresholdDefined": false,
+    "rule": "Every quantity above is genuinely undecided. Inventing one here would convert an open owner question into a rule nobody agreed to, and a downstream system would then read it as settled."
+  },
+  "metricVocabulary": {
+    "prioritySignalIdIsClosed": true,
+    "prioritySignalIds": [
+      "SHARES",
+      "DM_SENDS",
+      "COMMENTS",
+      "DMS",
+      "FOLLOWER_GROWTH",
+      "SAVES",
+      "PROFILE_INTEREST",
+      "LIKES",
+      "VIEWS"
+    ],
+    "sourceNativeMetricIdIsClosed": false,
+    "unknownSourceMetricMayBeTieredSilently": false,
+    "rule": "Two vocabularies, deliberately. prioritySignalId is the closed set the owner ranked, so a tier claim is checkable. sourceNativeMetricId is open, because a provider may report anything and refusing to record it would lose evidence. An open metric MUST NOT be assigned a priority tier without a published mapping rule; until one exists it is recorded with its native name and no tier.",
+    "note": "Closing the provider universe would be the larger mistake: an unrecorded metric is invisible, whereas an untiered one is merely unranked."
+  },
+  "creativeMechanismModel": {
+    "assessmentIsInterpretation": true,
+    "assessmentTruthClass": "INTERPRETATION",
+    "winnerMayBeExploitedTemporarily": true,
+    "exploitationIsTemporary": true,
+    "oneResultEstablishesPermanentRule": false,
+    "winnerBecomesPermanentCreativeTruth": false,
+    "winnerIsProductTruth": false,
+    "winnerIsHumanIdentityTruth": false,
+    "winnerAltersStoryStateAutomatically": false,
+    "numericWinnerScoreRequired": false,
+    "numericWinnerScoreDefined": false,
+    "rule": "A winning creative mechanism MAY be exploited temporarily: that is a locked owner decision and this contract preserves it. What a strong result MUST NOT do is become permanent. A winner is a reading of evidence, so it is INTERPRETATION; it is not a brand rule, not Product Truth, not Human Identity truth, and it does not alter Story State by itself."
+  },
+  "fatigueModel": {
+    "trackingRequiredBeforeRepetitiveContinuation": true,
+    "fatigueIsInterpretation": true,
+    "fatigueTruthClass": "INTERPRETATION",
+    "fatigueIsRawMetric": false,
+    "numericThresholdDefined": false,
+    "cooldownDurationDefined": false,
+    "closedStatusTaxonomyDefined": false,
+    "rule": "Creative fatigue MUST be considered before a repetitive continuation is recommended. That requirement is locked; its measurement is not. No post count, no day count and no percentage drop is defined here, and no closed fatigue taxonomy is invented for schema convenience, because the only locked decision is that fatigue is tracked.",
+    "structuralRequirement": "A snapshot must be able to show that fatigue was considered, which evidence was used and what was concluded, including the uncertainty. It must not be able to show a threshold that nobody authorised."
+  },
+  "storyActionRecommendation": {
+    "actionVocabularyOwnedBy": "03",
+    "actionVocabularyOwnerContract": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+    "actions": [
+      "CONTINUE",
+      "EVOLVE",
+      "PAUSE",
+      "CLOSE",
+      "REVIVE"
+    ],
+    "vocabularyRedefinedHere": false,
+    "narrativeMeaningDefinedHere": false,
+    "mayRecommendAction": true,
+    "mayPerformTransition": false,
+    "recommendationIsTransition": false,
+    "storyTransitionAuthorityGranted": false,
+    "truthClassOfRecommendation": "PROPOSAL",
+    "rule": "Contract 04 may read evidence and recommend one of contract 03's five story actions. It uses that vocabulary exactly as contract 03 defines it and redefines none of it. A recommendation is a PROPOSAL: until a later canonical contract defines autonomous transition authority, recommendation does not equal transition, and no transition is performed here."
+  },
+  "audienceToCanonBoundary": {
+    "audienceEvidenceMayAffectLaterCanon": true,
+    "mayCollectEvidence": true,
+    "mayInterpretEvidence": true,
+    "mayIdentifySupportForDevelopment": true,
+    "mayRecommendStoryAction": true,
+    "maySupportProposal": true,
+    "mayDirectlyRewriteStoryState": false,
+    "audienceVotingIsAutomaticallyBinding": false,
+    "thresholdBasedCanonPromotionDefined": false,
+    "engagementIsApproval": false,
+    "transitionRulesOpen": true,
+    "inheritedFrom": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT.audienceInfluence",
+    "rule": "Contract 03 already settled that audience input may sometimes affect later canon while the exact transition rule stays open. Contract 04 works inside that settlement: it may collect, interpret, identify support and recommend, and it may support a PROPOSAL. It may not rewrite Story State, declare a vote binding, invent a threshold that promotes a proposal to canon, or treat engagement as approval."
+  },
+  "campaignContextInterface": {
+    "producesForContract01": true,
+    "outputClass": "SOCIAL_OR_CULTURAL_SIGNAL",
+    "outputTruthClasses": [
+      "INTERPRETATION",
+      "PROPOSAL"
+    ],
+    "becomesProductTruth": false,
+    "becomesHumanIdentityTruth": false,
+    "becomesApproval": false,
+    "becomesPublicationAuthority": false,
+    "modifiesContract01": false,
+    "rule": "Contract 04 may produce structured social intelligence that a future Campaign Context Builder consumes. Contract 01 already classes such signals as evidence that MUST NOT override Product Truth, Human Truth, heritage or an approval, and that handoff inherits those rules unchanged. Nothing here modifies contract 01."
+  },
+  "superBrainInterface": {
+    "superBrainIsSecondaryEvidenceForInterpretation": true,
+    "superBrainIsRawMetricAuthority": false,
+    "superBrainMayOverwriteRawMetricFact": false,
+    "memorySchemaDefinedHere": false,
+    "memoryGraphDefinedHere": false,
+    "durableLearningWritePolicyDefinedHere": false,
+    "preferenceDriftImplementationDefinedHere": false,
+    "deferredTo": "07",
+    "rule": "Contract 00 already allows Super Brain to provide secondary evidence to social interpretation, and social intelligence may later feed semantic learning. How that memory is stored, written, aged or drifted belongs to contract 07 and is not defined here. Super Brain must never overwrite a raw metric fact: a measurement is owned by the platform that produced it."
+  },
+  "automationBoundary": {
+    "priorityImpliesAutomation": false,
+    "automaticStoryChangeAuthorised": false,
+    "automaticCampaignSelectionAuthorised": false,
+    "automaticPublicationAuthorised": false,
+    "automaticSpendAuthorised": false,
+    "automaticRetryAuthorised": false,
+    "automaticBudgetEscalationAuthorised": false,
+    "autonomyOwnedBy": "06",
+    "rule": "The qualitative priority hierarchy informs how evidence is read. It authorises no action. Contract 06 owns approval, spend, publication and every earned-autonomy grant, and nothing in this contract creates one."
+  },
+  "missingnessModel": {
+    "availabilityStates": [
+      "AVAILABLE",
+      "UNKNOWN",
+      "UNAVAILABLE",
+      "NOT_APPLICABLE",
+      "NOT_MEASURED"
+    ],
+    "missingMayBecomeZero": false,
+    "zeroMeansMeasuredZero": true,
+    "valuePermittedOnlyWhenAvailable": true,
+    "fabricationPermitted": false,
+    "stateDefinitions": [
+      {
+        "state": "AVAILABLE",
+        "meaning": "The source reported a value, and that value is recorded. Only this state may carry an observed value."
+      },
+      {
+        "state": "UNKNOWN",
+        "meaning": "The value may exist but was not obtained. Nothing is asserted about its magnitude."
+      },
+      {
+        "state": "UNAVAILABLE",
+        "meaning": "The source does not provide this metric, or could not be reached for it."
+      },
+      {
+        "state": "NOT_APPLICABLE",
+        "meaning": "The metric has no meaning for this subject or surface."
+      },
+      {
+        "state": "NOT_MEASURED",
+        "meaning": "The metric applies and could have been collected, but no observation was taken for this window."
+      }
+    ],
+    "rule": "Zero is a measurement. Unknown, unavailable, not applicable and not measured are not measurements, and converting any of them to zero invents evidence. An observed value is therefore permitted only when availability is AVAILABLE and is structurally forbidden otherwise, so a missing metric cannot be laundered into a number that a later interpretation would treat as real."
+  },
+  "normalisationModel": {
+    "crossPlatformNormalisationDefined": false,
+    "shareOnOnePlatformEqualsSendOnAnother": false,
+    "sourceNativeMetricsPreserved": true,
+    "provenanceRetained": true,
+    "derivedFactRequiresPublishedDeterministicRule": true,
+    "derivedWithoutPublishedRuleIs": "INTERPRETATION",
+    "rule": "Exact cross-platform normalisation is open. A share on one platform is not declared equal to a send on another, because no rule says so. Source-native metrics are recorded with their provenance. A normalised or otherwise derived figure may be classed DERIVED_FACT only where a published deterministic rule produces it reproducibly; otherwise it is interpretation wearing a number's clothes."
+  },
+  "provenanceRules": [
+    "Every raw metric MUST retain which authority produced it.",
+    "Every raw metric MUST retain which subject it refers to.",
+    "Every raw metric MUST retain which metric it represents.",
+    "Every raw metric MUST retain which observation or window it belongs to.",
+    "Every interpretation MUST reference the evidence it was drawn from.",
+    "Every recommendation MUST reference the interpretations or evidence supporting it.",
+    "A recommendation with no supporting reference MUST NOT be recorded.",
+    "A reference is a pointer, not a grant of authority."
+  ],
+  "socialIntelligenceObject": {
+    "schema": "04_SOCIAL_INTELLIGENCE_OBJECT.schema.json",
+    "isSnapshot": true,
+    "isProductTruthRecord": false,
+    "isHumanIdentityRecord": false,
+    "isStoryStateRecord": false,
+    "publicRepositoryInstancePersistenceAllowed": false,
+    "persistentIdFormatDefined": false,
+    "referencesAreOpaque": true,
+    "contents": [
+      "schemaVersion",
+      "opaque snapshot reference",
+      "opaque subject reference and subject type",
+      "opaque observation window reference",
+      "raw evidence records with availability and provenance",
+      "interpretation records referencing their evidence",
+      "creative mechanism assessments",
+      "a fatigue assessment that shows fatigue was considered",
+      "recommendation records carrying PROPOSAL only",
+      "known limitations",
+      "provenance"
+    ],
+    "note": "The object schema describes the structured snapshot a future Social Intelligence Engine would emit. It does not create an engine and ingests no data. A real Social Intelligence Snapshot is runtime operational data and MUST NOT be persisted in this public repository, whether or not an engine has been built. Synthetic fixtures written only to exercise the schema are not runtime instances and are not covered by that prohibition. This is a standing policy, not a statement about what the repository happens to contain today."
+  },
+  "rawEvidenceRecordRules": [
+    "A raw evidence record MUST identify its metric, by closed prioritySignalId or open sourceNativeMetricId.",
+    "A raw evidence record MUST state its availability before any value is read.",
+    "An observed value is permitted only when availability is AVAILABLE.",
+    "A raw evidence record MUST name the source authority that produced it.",
+    "SOCIAL_INTELLIGENCE_ENGINE MUST NOT be recorded as the source authority of a raw metric.",
+    "A raw evidence record MUST reference its subject and its observation window.",
+    "A raw evidence record is FACT and MUST NOT be recorded as INTERPRETATION."
+  ],
+  "interpretationRecordRules": [
+    "An interpretation record MUST carry truthClass INTERPRETATION.",
+    "An interpretation MUST NOT be recorded as FACT, DERIVED_FACT, APPROVAL or STORY_CANON.",
+    "An interpretation MUST reference the evidence it used.",
+    "An interpretation MAY record uncertainty and limitations, and its confidence representation is deliberately extensible rather than a closed taxonomy nobody locked.",
+    "No numeric confidence threshold is defined."
+  ],
+  "recommendationRecordRules": [
+    "A recommendation record MUST carry truthClass PROPOSAL.",
+    "A recommendation MUST NOT be recorded as APPROVAL, FACT, DERIVED_FACT, STORY_CANON or PUBLICATION.",
+    "A recommendation MUST reference the interpretations or evidence supporting it.",
+    "A story-action recommendation MUST use contract 03's vocabulary exactly and MUST NOT redefine it.",
+    "A recommendation MUST NOT assert that a story transition, approval, publication or spend occurred."
+  ],
+  "fatigueRecordRules": [
+    "A snapshot MUST be able to show whether fatigue was considered.",
+    "Where a winning mechanism is recommended for continued exploitation, the fatigue assessment MUST reference evidence.",
+    "A fatigue assessment is INTERPRETATION and MUST NOT be recorded as a raw metric.",
+    "No numeric fatigue threshold and no cooldown duration may be recorded, because none is authorised."
+  ],
+  "nonAuthoritativeSources": [
+    {
+      "sourceId": "SOCIAL_INTELLIGENCE_ENGINE",
+      "mayBeRawMetricAuthority": false,
+      "reason": "It reads measurements; it does not take them. Letting the interpreter also own the measurement removes the only independent check on its own conclusions."
+    },
+    {
+      "sourceId": "SUPER_BRAIN",
+      "mayBeRawMetricAuthority": false,
+      "reason": "Semantic memory is interpretation by construction and is explicitly non-authoritative for measured state under contract 00."
+    },
+    {
+      "sourceId": "CHAT_HISTORY",
+      "mayBeRawMetricAuthority": false,
+      "reason": "A number that appeared in a conversation is a recollection of evidence, not evidence."
+    },
+    {
+      "sourceId": "MODEL_MEMORY",
+      "mayBeRawMetricAuthority": false,
+      "reason": "Not inspectable, not reproducible and does not survive a fresh session."
+    },
+    {
+      "sourceId": "CANONICAL_REPOSITORY",
+      "mayBeInterpretationAuthority": false,
+      "reason": "The repository holds product and site truth. It has no view on what an audience meant."
+    }
+  ],
+  "authorityGrants": {
+    "productTruthWriteAuthorityGranted": false,
+    "humanIdentityWriteAuthorityGranted": false,
+    "storyTransitionAuthorityGranted": false,
+    "storyCanonWriteAuthorityGranted": false,
+    "approvalAuthorityGranted": false,
+    "publicationAuthorityGranted": false,
+    "spendAuthorityGranted": false,
+    "autonomousActionAuthorityGranted": false,
+    "canonicalRepositoryWriteAuthorityGranted": false,
+    "note": "Contract 04 grants no product-truth, human-identity, story-transition, story-canon, approval, publication, spend, autonomous-action or canonical-repository write authority."
+  },
+  "hardFailures": [
+    {
+      "failureId": "RAW_METRIC_AUTHORITY_CLAIMED_BY_INTERPRETER",
+      "definition": "A raw metric record names SOCIAL_INTELLIGENCE_ENGINE, SUPER_BRAIN or CHAT_HISTORY as the authority that produced it.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "INTERPRETATION_RECORDED_AS_FACT",
+      "definition": "A semantic conclusion is stored with a truth class reserved for measured or deterministically derived state.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "RECOMMENDATION_RECORDED_AS_APPROVAL",
+      "definition": "A proposal is stored as an approval, a publication or recorded story canon.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "MISSING_METRIC_RECORDED_AS_ZERO",
+      "definition": "A metric that was not measured, not available, unknown or not applicable carries a numeric value.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "UNSUPPORTED_RECOMMENDATION",
+      "definition": "A recommendation carries no reference to any interpretation or evidence.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "NUMERIC_WEIGHT_ATTACHED_TO_PRIORITY_SIGNAL",
+      "definition": "A weight, score, ratio or point value is attached to a response-priority signal or tier.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "UNKNOWN_METRIC_SILENTLY_TIERED",
+      "definition": "A source-native metric is placed in a response-priority tier without a published mapping rule.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "STORY_STATE_MUTATED_BY_SOCIAL_EVIDENCE",
+      "definition": "Social evidence or interpretation performs or asserts a Story State transition.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "UNKNOWN_STORY_ACTION_RECOMMENDED",
+      "definition": "A story-action recommendation uses an action outside contract 03's vocabulary.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "FATIGUE_BYPASSED_ON_REPETITIVE_EXPLOITATION",
+      "definition": "Continued exploitation of a winning mechanism is recommended with no fatigue evidence considered.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "INVENTED_NUMERIC_THRESHOLD",
+      "definition": "A fatigue threshold, cooldown duration, winner score or selection threshold is recorded although none is authorised.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "PRODUCT_TRUTH_OVERRIDDEN_BY_SOCIAL_INTERPRETATION",
+      "definition": "A social conclusion asserts or changes product identity, price, sizes, availability or canonical commerce media.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "HUMAN_IDENTITY_CHANGED_BY_SOCIAL_EVIDENCE",
+      "definition": "A social conclusion asserts or changes who someone is.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "WINNER_TREATED_AS_PERMANENT_RULE",
+      "definition": "A single strong result is recorded as a permanent creative rule or brand truth.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE",
+      "definition": "Real account metrics, real campaign performance history, private audience history, message contents, customer identities or credentials appear in this public repository.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "ENGAGEMENT_TREATED_AS_APPROVAL",
+      "definition": "A level of audience response is treated as authorisation to act, publish or spend.",
+      "severity": "HARD_FAIL"
+    }
+  ],
+  "existenceDisclaimers": [
+    "A Social Intelligence schema existing is NOT a Social Intelligence Engine existing.",
+    "Contract 04 existing is NOT a social platform connector existing.",
+    "A synthetic fixture existing is NOT real audience data existing.",
+    "No social measurement may be fabricated merely to populate the schema.",
+    "This contract records no system's current lifecycle state; contract 00's source registry does."
+  ],
+  "privacyRules": [
+    "This repository is PUBLIC.",
+    "Contract, schemas, stable vocabularies, validation rules and synthetic fixtures are public-safe.",
+    "Real social account metrics MUST NOT be committed here.",
+    "Real campaign performance history and private audience history MUST NOT be committed here.",
+    "Direct message contents and any customer or user identity MUST NOT be committed here.",
+    "Private strategy and private competitor analysis MUST NOT be committed here.",
+    "Social account credentials, provider credentials, API tokens and secrets MUST NOT be committed to any repository.",
+    "A real Social Intelligence Snapshot is runtime operational data and MUST NOT be persisted in this public repository.",
+    "Where a private field is structurally required, only the schema or reference shape is defined here; the content belongs to the private ops layer, which lives outside this public repository.",
+    "This contract does not create the private ops layer and does not record its lifecycle state; that state is owned by contract 00's source registry. Wherever the private ops layer is built, it is built outside this public repository, and building it does not make this contract stale."
+  ],
+  "implementationStatus": {
+    "statesOwnedHere": false,
+    "readCurrentStatesFrom": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes",
+    "systemsThisContractDoesNotImplement": [
+      "SOCIAL_INTELLIGENCE_ENGINE",
+      "SOCIAL_PLATFORM_API",
+      "SUPER_BRAIN",
+      "STORY_STATE_ENGINE",
+      "CAMPAIGN_REGISTRY",
+      "PRIVATE_OPS_STORE"
+    ],
+    "anyImplementedHere": false,
+    "rule": "This contract implements none of these systems and does not record their current lifecycle state. Their status is owned by contract 00's source registry, so building any of them later does not make this contract stale."
+  },
+  "openItems": [
+    "exact numeric metric weights",
+    "exact winner score or winner formula",
+    "exact fatigue threshold",
+    "exact cooldown duration",
+    "exact exploration/exploitation ratio",
+    "exact observation windows and freshness rules",
+    "exact API, provider and data-ingestion implementation",
+    "exact account and platform connectors",
+    "exact cross-platform metric normalisation",
+    "exact autonomous campaign-selection threshold",
+    "exact autonomous story-transition threshold",
+    "exact publication rule",
+    "persistent Social Intelligence snapshot ID format",
+    "private performance-history storage implementation",
+    "qualitative confidence vocabulary, which no owner decision has yet locked"
+  ],
+  "openItemsRule": "These are genuinely undecided and MUST NOT be answered by invention. The RESPONSE-PRIORITY HIERARCHY is deliberately NOT among them: it is locked as a qualitative order, and only its conversion into numbers remains open. Recording a plausible number here would erase the distinction between a decision the owner made and a default a system chose.",
+  "changeControl": "Durable change follows the parent's change-control protocol: classify, update the candidate, validate, independent review, then promote to canonical development."
+}

@@ -7,7 +7,7 @@ than all at once.
 
 Contracts **01 — Campaign Context**, **02 — Product Creative** and
 **03 — Character & Story** have been authored: their files exist in this
-lineage. Domains **04–08** are still awaiting their detailed contracts. File existence does **not** by itself
+lineage. Domains **05–08** are still awaiting their detailed contracts. File existence does **not** by itself
 establish canonicality — that is decided only by the four conditions in
 `00_SYSTEM_AUTHORITY_CONTRACT`.
 
@@ -180,15 +180,17 @@ Engine implements it, and how audience evidence may ever become canon.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed contract authored** | **NOT FULLY AUTHORED** — this domain targets **two** contracts. `03_CHARACTER_STORY_CONTRACT` files exist in this lineage; **contract 04 does not exist**. |
+| **Detailed contract authored** | **AUTHORED** — this domain targets **two** contracts, and `03_CHARACTER_STORY_CONTRACT` and `04_SOCIAL_INTELLIGENCE_CONTRACT` files both exist in this lineage. Authored is a bookkeeping state, not canonicality. |
 | **Target contract** | 03 — Character & Story, and 04 — Social Intelligence |
 | **Private detail required** | YES |
 
 The split is deliberate. Contract 03 carries the **story and narrative lifecycle
 structure** — what `CONTINUE` / `EVOLVE` / `PAUSE` / `CLOSE` / `REVIVE` *mean* for
-continuity. Contract 04 will carry **Social Intelligence weighting, scoring and
-fatigue** — the evidence for *choosing* between them. Contract 03 deliberately
-defines no metric weight, threshold, cooldown or ratio.
+continuity. Contract 04 carries the **Social Intelligence** half — the evidence for
+*choosing* between them. Contract 03 deliberately defines no metric weight,
+threshold, cooldown or ratio, and contract 04 deliberately defines none either:
+it preserves the hierarchy as a **qualitative** order and leaves every number
+open.
 
 **Locked, public-safe structure**
 
@@ -341,16 +343,17 @@ defines no metric weight, threshold, cooldown or ratio.
 | 1 | Campaign Context / Purpose | YES | AUTHORED — files exist in this lineage | 01 | PARTIAL |
 | 2 | Product Creative / Product Truth | YES | AUTHORED — files exist in this lineage | 02 | NO |
 | 3 | INA/SIS Character & Story | YES | AUTHORED — files exist in this lineage | 03 | YES |
-| 4 | Story Engine + Social Intelligence | YES | PARTIAL — 03 authored, 04 awaiting | 03, 04 | YES |
+| 4 | Story Engine + Social Intelligence | YES | AUTHORED — files exist in this lineage | 03, 04 | YES |
 | 5 | Workstation Operating Model | YES | NO — awaiting | 05 | NO |
 | 6 | Approval / Automation | YES | NO — awaiting | 06 | NO |
 | 7 | Super Brain Memory | YES | NO — awaiting | 07 | YES |
 | 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
 
 Eight domains, eight sets of locked structural decisions preserved above. Domain
-contracts **01**, **02** and **03** have been authored; domains 04–08 still await
-theirs. Domain 4 targets both 03 and 04, so it is **partially** authored until
-contract 04 exists. Closing that
+contracts **01**, **02**, **03** and **04** have been authored; domains 05–08
+still await theirs. Domain 4 targets both 03 and 04, and both now exist, so it is
+fully authored in the bookkeeping sense — which is not the same as canonical.
+Closing that
 gap is the Phase 1 work that continues — and it starts from these decisions, not
 from a blank page.
 

@@ -1,0 +1,3559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pierciina.example/pink-mall/04_SOCIAL_INTELLIGENCE_CONTRACT.schema.json",
+  "title": "PINK MALL Social Intelligence Contract",
+  "description": "Governs the machine-readable contract 04 document. Exact membership is proved with contains rules rather than uniqueItems, which forbids duplicates but says nothing about which members are present.",
+  "type": "object",
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "dependsOn",
+    "deferredBoundaries",
+    "deferredBoundaryRule",
+    "inheritance",
+    "purpose",
+    "scope",
+    "coreSeparation",
+    "rawMetricsAuthority",
+    "interpretationAuthority",
+    "rawVersusInterpretation",
+    "responsePriority",
+    "numericWeighting",
+    "metricVocabulary",
+    "creativeMechanismModel",
+    "fatigueModel",
+    "storyActionRecommendation",
+    "audienceToCanonBoundary",
+    "campaignContextInterface",
+    "superBrainInterface",
+    "automationBoundary",
+    "missingnessModel",
+    "normalisationModel",
+    "provenanceRules",
+    "socialIntelligenceObject",
+    "rawEvidenceRecordRules",
+    "interpretationRecordRules",
+    "recommendationRecordRules",
+    "fatigueRecordRules",
+    "nonAuthoritativeSources",
+    "authorityGrants",
+    "hardFailures",
+    "existenceDisclaimers",
+    "privacyRules",
+    "implementationStatus",
+    "openItems",
+    "openItemsRule",
+    "changeControl"
+  ],
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_SOCIAL_INTELLIGENCE_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "const": "Social Intelligence"
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ],
+      "description": "Lifecycle provenance and location-neutral. Never a canonicality test."
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "04"
+    },
+    "dependsOn": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractId",
+          "contractNumber",
+          "dependency"
+        ],
+        "properties": {
+          "contractId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contractNumber": {
+            "enum": [
+              "01",
+              "03"
+            ]
+          },
+          "dependency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "01"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "03"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "deferredBoundaries": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "contractNumber",
+          "contractId",
+          "relationship",
+          "existenceOwnedHere",
+          "existenceRecordedIn",
+          "boundary"
+        ],
+        "properties": {
+          "contractNumber": {
+            "enum": [
+              "05",
+              "06",
+              "07",
+              "08"
+            ]
+          },
+          "contractId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationship": {
+            "const": "RESPONSIBILITY_DEFERRED_TO"
+          },
+          "existenceOwnedHere": {
+            "const": false
+          },
+          "existenceRecordedIn": {
+            "const": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md"
+          },
+          "boundary": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "05"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "05"
+              },
+              "existenceOwnedHere": {
+                "const": false
+              }
+            },
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "06"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "06"
+              },
+              "existenceOwnedHere": {
+                "const": false
+              }
+            },
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "07"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "07"
+              },
+              "existenceOwnedHere": {
+                "const": false
+              }
+            },
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "08"
+              }
+            },
+            "required": [
+              "contractNumber"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "contractNumber": {
+                "const": "08"
+              },
+              "existenceOwnedHere": {
+                "const": false
+              }
+            },
+            "required": [
+              "contractNumber",
+              "existenceOwnedHere"
+            ]
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "deferredBoundaryRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "covers",
+        "doesNotCover",
+        "note",
+        "implementationProvidedByThisContract"
+      ],
+      "properties": {
+        "covers": {
+          "type": "array",
+          "minItems": 7,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "doesNotCover": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "implementationProvidedByThisContract": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "coreSeparation": {
+      "type": "object",
+      "required": [
+        "rule",
+        "layers",
+        "collapsePermitted",
+        "note"
+      ],
+      "properties": {
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": [
+              "layerId",
+              "truthClass",
+              "authority",
+              "ownedHere",
+              "definition"
+            ],
+            "properties": {
+              "layerId": {
+                "enum": [
+                  "RAW_SOCIAL_METRIC",
+                  "DERIVED_METRIC",
+                  "SOCIAL_INTERPRETATION",
+                  "RECOMMENDATION",
+                  "APPROVAL",
+                  "STORY_CANON",
+                  "PUBLICATION"
+                ]
+              },
+              "truthClass": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authority": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ownedHere": {
+                "const": false
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  },
+                  "truthClass": {
+                    "const": "FACT"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  },
+                  "authority": {
+                    "const": "SOCIAL_PLATFORM_API"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "DERIVED_METRIC"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "DERIVED_METRIC"
+                  },
+                  "truthClass": {
+                    "const": "DERIVED_FACT"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "DERIVED_METRIC"
+                  },
+                  "authority": {
+                    "const": "SOCIAL_PLATFORM_API"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "DERIVED_METRIC"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  },
+                  "truthClass": {
+                    "const": "INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  },
+                  "authority": {
+                    "const": "SOCIAL_INTELLIGENCE_ENGINE"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RECOMMENDATION"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "truthClass": {
+                    "const": "PROPOSAL"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "authority": {
+                    "const": "SOCIAL_INTELLIGENCE_ENGINE"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "APPROVAL"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "APPROVAL"
+                  },
+                  "truthClass": {
+                    "const": "APPROVAL"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "APPROVAL"
+                  },
+                  "authority": {
+                    "const": "OWNER"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "APPROVAL"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "STORY_CANON"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "STORY_CANON"
+                  },
+                  "truthClass": {
+                    "const": "FACT"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "STORY_CANON"
+                  },
+                  "authority": {
+                    "const": "STORY_STATE_ENGINE"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "STORY_CANON"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "PUBLICATION"
+                  }
+                },
+                "required": [
+                  "layerId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "PUBLICATION"
+                  },
+                  "truthClass": {
+                    "const": "APPROVAL"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "PUBLICATION"
+                  },
+                  "authority": {
+                    "const": "OWNER"
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "authority"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "layerId": {
+                    "const": "PUBLICATION"
+                  },
+                  "ownedHere": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "layerId",
+                  "ownedHere"
+                ]
+              },
+              "minContains": 1
+            }
+          ]
+        },
+        "collapsePermitted": {
+          "const": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "rawMetricsAuthority": {
+      "type": "object",
+      "required": [
+        "domain",
+        "primaryAuthority",
+        "secondaryEvidence",
+        "nonAuthoritative",
+        "inheritedFrom",
+        "socialIntelligenceEngineIsRawMetricAuthority",
+        "superBrainIsRawMetricAuthority",
+        "superBrainMayOverwriteRawMetric",
+        "implementationStateOwnedHere",
+        "readCurrentImplementationStateFrom",
+        "rule"
+      ],
+      "properties": {
+        "domain": {
+          "const": "SOCIAL_RAW_METRICS"
+        },
+        "primaryAuthority": {
+          "const": "SOCIAL_PLATFORM_API"
+        },
+        "secondaryEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CANONICAL_REPOSITORY"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "CANONICAL_REPOSITORY"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "nonAuthoritative": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SUPER_BRAIN",
+              "CHAT_HISTORY",
+              "MODEL_MEMORY"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "SUPER_BRAIN"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "CHAT_HISTORY"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "MODEL_MEMORY"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "inheritedFrom": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.SOCIAL_RAW_METRICS"
+        },
+        "socialIntelligenceEngineIsRawMetricAuthority": {
+          "const": false
+        },
+        "superBrainIsRawMetricAuthority": {
+          "const": false
+        },
+        "superBrainMayOverwriteRawMetric": {
+          "const": false
+        },
+        "implementationStateOwnedHere": {
+          "const": false
+        },
+        "readCurrentImplementationStateFrom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "interpretationAuthority": {
+      "type": "object",
+      "required": [
+        "domain",
+        "primaryAuthority",
+        "secondaryEvidence",
+        "nonAuthoritative",
+        "inheritedFrom",
+        "authorityOverProductTruth",
+        "authorityOverHumanIdentity",
+        "authorityOverStoryState",
+        "authorityOverApproval",
+        "authorityOverPublication",
+        "authorityOverSpend",
+        "authorityOverCanonicalRepositoryState",
+        "implementationStateOwnedHere",
+        "readCurrentImplementationStateFrom",
+        "contract04ImplementsEngine",
+        "contract04ActivatesEngine",
+        "rule"
+      ],
+      "properties": {
+        "domain": {
+          "const": "SOCIAL_INTERPRETATION"
+        },
+        "primaryAuthority": {
+          "const": "SOCIAL_INTELLIGENCE_ENGINE"
+        },
+        "secondaryEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "SUPER_BRAIN"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "SUPER_BRAIN"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "nonAuthoritative": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CANONICAL_REPOSITORY"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "CANONICAL_REPOSITORY"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "inheritedFrom": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.authorityDomains.SOCIAL_INTERPRETATION"
+        },
+        "authorityOverProductTruth": {
+          "const": false
+        },
+        "authorityOverHumanIdentity": {
+          "const": false
+        },
+        "authorityOverStoryState": {
+          "const": false
+        },
+        "authorityOverApproval": {
+          "const": false
+        },
+        "authorityOverPublication": {
+          "const": false
+        },
+        "authorityOverSpend": {
+          "const": false
+        },
+        "authorityOverCanonicalRepositoryState": {
+          "const": false
+        },
+        "implementationStateOwnedHere": {
+          "const": false
+        },
+        "readCurrentImplementationStateFrom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract04ImplementsEngine": {
+          "const": false
+        },
+        "contract04ActivatesEngine": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "rawVersusInterpretation": {
+      "type": "object",
+      "required": [
+        "rule",
+        "examples",
+        "separateStructuresRequired",
+        "mayBeCollapsed"
+      ],
+      "properties": {
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "examples": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "statement",
+              "kind",
+              "truthClass",
+              "why"
+            ],
+            "properties": {
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "RAW_SOCIAL_METRIC",
+                  "SOCIAL_INTERPRETATION",
+                  "RECOMMENDATION"
+                ]
+              },
+              "truthClass": {
+                "enum": [
+                  "FACT",
+                  "INTERPRETATION",
+                  "PROPOSAL"
+                ]
+              },
+              "why": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "RAW_SOCIAL_METRIC"
+                  },
+                  "truthClass": {
+                    "const": "FACT"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "SOCIAL_INTERPRETATION"
+                  },
+                  "truthClass": {
+                    "const": "INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "RECOMMENDATION"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "kind": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "truthClass": {
+                    "const": "PROPOSAL"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "truthClass"
+                ]
+              },
+              "minContains": 1
+            }
+          ]
+        },
+        "separateStructuresRequired": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "rawEvidence",
+              "interpretations",
+              "recommendations"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "rawEvidence"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "interpretations"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "recommendations"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "mayBeCollapsed": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "responsePriority": {
+      "type": "object",
+      "required": [
+        "status",
+        "kind",
+        "numericWeightsDefined",
+        "scoresDefined",
+        "ratiosDefined",
+        "orderExpressedBy",
+        "tiers",
+        "rule",
+        "qualitativePriorityIsLocked",
+        "numericWeightingIsOpen"
+      ],
+      "properties": {
+        "status": {
+          "const": "LOCKED"
+        },
+        "kind": {
+          "const": "QUALITATIVE_PRIORITY"
+        },
+        "numericWeightsDefined": {
+          "const": false
+        },
+        "scoresDefined": {
+          "const": false
+        },
+        "ratiosDefined": {
+          "const": false
+        },
+        "orderExpressedBy": {
+          "const": "TIER_SEQUENCE"
+        },
+        "tiers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "tierId",
+              "priorityClass",
+              "rankedAbove",
+              "signals",
+              "meaning"
+            ],
+            "properties": {
+              "tierId": {
+                "enum": [
+                  "TIER_PRIMARY",
+                  "TIER_NEXT",
+                  "TIER_CONTEXTUAL"
+                ]
+              },
+              "priorityClass": {
+                "enum": [
+                  "PRIMARY",
+                  "NEXT",
+                  "LOWER_SIGNAL_CONTEXTUAL"
+                ]
+              },
+              "rankedAbove": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "TIER_PRIMARY",
+                    "TIER_NEXT",
+                    "TIER_CONTEXTUAL"
+                  ]
+                }
+              },
+              "signals": {
+                "type": "array",
+                "minItems": 2,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "SHARES",
+                    "DM_SENDS",
+                    "COMMENTS",
+                    "DMS",
+                    "FOLLOWER_GROWTH",
+                    "SAVES",
+                    "PROFILE_INTEREST",
+                    "LIKES",
+                    "VIEWS"
+                  ]
+                }
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_PRIMARY"
+                  }
+                },
+                "required": [
+                  "tierId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_PRIMARY"
+                  },
+                  "priorityClass": {
+                    "const": "PRIMARY"
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "priorityClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_PRIMARY"
+                  },
+                  "signals": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "SHARES",
+                        "DM_SENDS"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "SHARES"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "DM_SENDS"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "signals"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_PRIMARY"
+                  },
+                  "rankedAbove": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "TIER_NEXT",
+                        "TIER_CONTEXTUAL"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "TIER_NEXT"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "TIER_CONTEXTUAL"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "rankedAbove"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_NEXT"
+                  }
+                },
+                "required": [
+                  "tierId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_NEXT"
+                  },
+                  "priorityClass": {
+                    "const": "NEXT"
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "priorityClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_NEXT"
+                  },
+                  "signals": {
+                    "type": "array",
+                    "minItems": 5,
+                    "maxItems": 5,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "COMMENTS",
+                        "DMS",
+                        "FOLLOWER_GROWTH",
+                        "SAVES",
+                        "PROFILE_INTEREST"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "COMMENTS"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "DMS"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "FOLLOWER_GROWTH"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "SAVES"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "PROFILE_INTEREST"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "signals"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_NEXT"
+                  },
+                  "rankedAbove": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "TIER_CONTEXTUAL"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "TIER_CONTEXTUAL"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "rankedAbove"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_CONTEXTUAL"
+                  }
+                },
+                "required": [
+                  "tierId"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_CONTEXTUAL"
+                  },
+                  "priorityClass": {
+                    "const": "LOWER_SIGNAL_CONTEXTUAL"
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "priorityClass"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_CONTEXTUAL"
+                  },
+                  "signals": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "LIKES",
+                        "VIEWS"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "LIKES"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "VIEWS"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "signals"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "tierId": {
+                    "const": "TIER_CONTEXTUAL"
+                  },
+                  "rankedAbove": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "tierId",
+                  "rankedAbove"
+                ]
+              },
+              "minContains": 1
+            }
+          ],
+          "description": "Tier order is carried by priorityClass and rankedAbove. No number appears anywhere in this block, by design: a rank expressed as arithmetic is a weight, and no numeric weighting is authorised."
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "qualitativePriorityIsLocked": {
+          "const": true
+        },
+        "numericWeightingIsOpen": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "numericWeighting": {
+      "type": "object",
+      "required": [
+        "definedHere",
+        "weightsDefined",
+        "winnerScoreDefined",
+        "fatigueThresholdDefined",
+        "cooldownDurationDefined",
+        "explorationExploitationRatioDefined",
+        "observationWindowDefined",
+        "autonomousSelectionThresholdDefined",
+        "autonomousStoryTransitionThresholdDefined",
+        "rule"
+      ],
+      "properties": {
+        "definedHere": {
+          "const": false
+        },
+        "weightsDefined": {
+          "const": false
+        },
+        "winnerScoreDefined": {
+          "const": false
+        },
+        "fatigueThresholdDefined": {
+          "const": false
+        },
+        "cooldownDurationDefined": {
+          "const": false
+        },
+        "explorationExploitationRatioDefined": {
+          "const": false
+        },
+        "observationWindowDefined": {
+          "const": false
+        },
+        "autonomousSelectionThresholdDefined": {
+          "const": false
+        },
+        "autonomousStoryTransitionThresholdDefined": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "metricVocabulary": {
+      "type": "object",
+      "required": [
+        "prioritySignalIdIsClosed",
+        "prioritySignalIds",
+        "sourceNativeMetricIdIsClosed",
+        "unknownSourceMetricMayBeTieredSilently",
+        "rule",
+        "note"
+      ],
+      "properties": {
+        "prioritySignalIdIsClosed": {
+          "const": true
+        },
+        "prioritySignalIds": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "SHARES",
+              "DM_SENDS",
+              "COMMENTS",
+              "DMS",
+              "FOLLOWER_GROWTH",
+              "SAVES",
+              "PROFILE_INTEREST",
+              "LIKES",
+              "VIEWS"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "SHARES"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "DM_SENDS"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "COMMENTS"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "DMS"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "FOLLOWER_GROWTH"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "SAVES"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "PROFILE_INTEREST"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "LIKES"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "VIEWS"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "sourceNativeMetricIdIsClosed": {
+          "const": false
+        },
+        "unknownSourceMetricMayBeTieredSilently": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "creativeMechanismModel": {
+      "type": "object",
+      "required": [
+        "assessmentIsInterpretation",
+        "assessmentTruthClass",
+        "winnerMayBeExploitedTemporarily",
+        "exploitationIsTemporary",
+        "oneResultEstablishesPermanentRule",
+        "winnerBecomesPermanentCreativeTruth",
+        "winnerIsProductTruth",
+        "winnerIsHumanIdentityTruth",
+        "winnerAltersStoryStateAutomatically",
+        "numericWinnerScoreRequired",
+        "numericWinnerScoreDefined",
+        "rule"
+      ],
+      "properties": {
+        "assessmentIsInterpretation": {
+          "const": true
+        },
+        "assessmentTruthClass": {
+          "const": "INTERPRETATION"
+        },
+        "winnerMayBeExploitedTemporarily": {
+          "const": true
+        },
+        "exploitationIsTemporary": {
+          "const": true
+        },
+        "oneResultEstablishesPermanentRule": {
+          "const": false
+        },
+        "winnerBecomesPermanentCreativeTruth": {
+          "const": false
+        },
+        "winnerIsProductTruth": {
+          "const": false
+        },
+        "winnerIsHumanIdentityTruth": {
+          "const": false
+        },
+        "winnerAltersStoryStateAutomatically": {
+          "const": false
+        },
+        "numericWinnerScoreRequired": {
+          "const": false
+        },
+        "numericWinnerScoreDefined": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fatigueModel": {
+      "type": "object",
+      "required": [
+        "trackingRequiredBeforeRepetitiveContinuation",
+        "fatigueIsInterpretation",
+        "fatigueTruthClass",
+        "fatigueIsRawMetric",
+        "numericThresholdDefined",
+        "cooldownDurationDefined",
+        "closedStatusTaxonomyDefined",
+        "rule",
+        "structuralRequirement"
+      ],
+      "properties": {
+        "trackingRequiredBeforeRepetitiveContinuation": {
+          "const": true
+        },
+        "fatigueIsInterpretation": {
+          "const": true
+        },
+        "fatigueTruthClass": {
+          "const": "INTERPRETATION"
+        },
+        "fatigueIsRawMetric": {
+          "const": false
+        },
+        "numericThresholdDefined": {
+          "const": false
+        },
+        "cooldownDurationDefined": {
+          "const": false
+        },
+        "closedStatusTaxonomyDefined": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "structuralRequirement": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "storyActionRecommendation": {
+      "type": "object",
+      "required": [
+        "actionVocabularyOwnedBy",
+        "actionVocabularyOwnerContract",
+        "actions",
+        "vocabularyRedefinedHere",
+        "narrativeMeaningDefinedHere",
+        "mayRecommendAction",
+        "mayPerformTransition",
+        "recommendationIsTransition",
+        "storyTransitionAuthorityGranted",
+        "truthClassOfRecommendation",
+        "rule"
+      ],
+      "properties": {
+        "actionVocabularyOwnedBy": {
+          "const": "03"
+        },
+        "actionVocabularyOwnerContract": {
+          "const": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT"
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CONTINUE",
+              "EVOLVE",
+              "PAUSE",
+              "CLOSE",
+              "REVIVE"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "CONTINUE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "EVOLVE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "PAUSE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "CLOSE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "REVIVE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ],
+          "description": "Owned by contract 03. Exact membership is proved here so contract 04 cannot quietly add, drop or rename an action."
+        },
+        "vocabularyRedefinedHere": {
+          "const": false
+        },
+        "narrativeMeaningDefinedHere": {
+          "const": false
+        },
+        "mayRecommendAction": {
+          "const": true
+        },
+        "mayPerformTransition": {
+          "const": false
+        },
+        "recommendationIsTransition": {
+          "const": false
+        },
+        "storyTransitionAuthorityGranted": {
+          "const": false
+        },
+        "truthClassOfRecommendation": {
+          "const": "PROPOSAL"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "audienceToCanonBoundary": {
+      "type": "object",
+      "required": [
+        "audienceEvidenceMayAffectLaterCanon",
+        "mayCollectEvidence",
+        "mayInterpretEvidence",
+        "mayIdentifySupportForDevelopment",
+        "mayRecommendStoryAction",
+        "maySupportProposal",
+        "mayDirectlyRewriteStoryState",
+        "audienceVotingIsAutomaticallyBinding",
+        "thresholdBasedCanonPromotionDefined",
+        "engagementIsApproval",
+        "transitionRulesOpen",
+        "inheritedFrom",
+        "rule"
+      ],
+      "properties": {
+        "audienceEvidenceMayAffectLaterCanon": {
+          "const": true
+        },
+        "mayCollectEvidence": {
+          "const": true
+        },
+        "mayInterpretEvidence": {
+          "const": true
+        },
+        "mayIdentifySupportForDevelopment": {
+          "const": true
+        },
+        "mayRecommendStoryAction": {
+          "const": true
+        },
+        "maySupportProposal": {
+          "const": true
+        },
+        "transitionRulesOpen": {
+          "const": true
+        },
+        "mayDirectlyRewriteStoryState": {
+          "const": false
+        },
+        "audienceVotingIsAutomaticallyBinding": {
+          "const": false
+        },
+        "thresholdBasedCanonPromotionDefined": {
+          "const": false
+        },
+        "engagementIsApproval": {
+          "const": false
+        },
+        "inheritedFrom": {
+          "const": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT.audienceInfluence"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "campaignContextInterface": {
+      "type": "object",
+      "required": [
+        "producesForContract01",
+        "outputClass",
+        "outputTruthClasses",
+        "becomesProductTruth",
+        "becomesHumanIdentityTruth",
+        "becomesApproval",
+        "becomesPublicationAuthority",
+        "modifiesContract01",
+        "rule"
+      ],
+      "properties": {
+        "producesForContract01": {
+          "const": true
+        },
+        "outputClass": {
+          "const": "SOCIAL_OR_CULTURAL_SIGNAL"
+        },
+        "outputTruthClasses": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "INTERPRETATION",
+              "PROPOSAL"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "INTERPRETATION"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "PROPOSAL"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "becomesProductTruth": {
+          "const": false
+        },
+        "becomesHumanIdentityTruth": {
+          "const": false
+        },
+        "becomesApproval": {
+          "const": false
+        },
+        "becomesPublicationAuthority": {
+          "const": false
+        },
+        "modifiesContract01": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "superBrainInterface": {
+      "type": "object",
+      "required": [
+        "superBrainIsSecondaryEvidenceForInterpretation",
+        "superBrainIsRawMetricAuthority",
+        "superBrainMayOverwriteRawMetricFact",
+        "memorySchemaDefinedHere",
+        "memoryGraphDefinedHere",
+        "durableLearningWritePolicyDefinedHere",
+        "preferenceDriftImplementationDefinedHere",
+        "deferredTo",
+        "rule"
+      ],
+      "properties": {
+        "superBrainIsSecondaryEvidenceForInterpretation": {
+          "const": true
+        },
+        "superBrainIsRawMetricAuthority": {
+          "const": false
+        },
+        "superBrainMayOverwriteRawMetricFact": {
+          "const": false
+        },
+        "memorySchemaDefinedHere": {
+          "const": false
+        },
+        "memoryGraphDefinedHere": {
+          "const": false
+        },
+        "durableLearningWritePolicyDefinedHere": {
+          "const": false
+        },
+        "preferenceDriftImplementationDefinedHere": {
+          "const": false
+        },
+        "deferredTo": {
+          "const": "07"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "automationBoundary": {
+      "type": "object",
+      "required": [
+        "priorityImpliesAutomation",
+        "automaticStoryChangeAuthorised",
+        "automaticCampaignSelectionAuthorised",
+        "automaticPublicationAuthorised",
+        "automaticSpendAuthorised",
+        "automaticRetryAuthorised",
+        "automaticBudgetEscalationAuthorised",
+        "autonomyOwnedBy",
+        "rule"
+      ],
+      "properties": {
+        "priorityImpliesAutomation": {
+          "const": false
+        },
+        "automaticStoryChangeAuthorised": {
+          "const": false
+        },
+        "automaticCampaignSelectionAuthorised": {
+          "const": false
+        },
+        "automaticPublicationAuthorised": {
+          "const": false
+        },
+        "automaticSpendAuthorised": {
+          "const": false
+        },
+        "automaticRetryAuthorised": {
+          "const": false
+        },
+        "automaticBudgetEscalationAuthorised": {
+          "const": false
+        },
+        "autonomyOwnedBy": {
+          "const": "06"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "missingnessModel": {
+      "type": "object",
+      "required": [
+        "availabilityStates",
+        "missingMayBecomeZero",
+        "zeroMeansMeasuredZero",
+        "valuePermittedOnlyWhenAvailable",
+        "fabricationPermitted",
+        "stateDefinitions",
+        "rule"
+      ],
+      "properties": {
+        "availabilityStates": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "AVAILABLE",
+              "UNKNOWN",
+              "UNAVAILABLE",
+              "NOT_APPLICABLE",
+              "NOT_MEASURED"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "AVAILABLE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "UNKNOWN"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "UNAVAILABLE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "NOT_APPLICABLE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "NOT_MEASURED"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "missingMayBecomeZero": {
+          "const": false
+        },
+        "zeroMeansMeasuredZero": {
+          "const": true
+        },
+        "valuePermittedOnlyWhenAvailable": {
+          "const": true
+        },
+        "fabricationPermitted": {
+          "const": false
+        },
+        "stateDefinitions": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "state",
+              "meaning"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "AVAILABLE",
+                  "UNKNOWN",
+                  "UNAVAILABLE",
+                  "NOT_APPLICABLE",
+                  "NOT_MEASURED"
+                ]
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "state": {
+                    "const": "AVAILABLE"
+                  }
+                },
+                "required": [
+                  "state"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "state": {
+                    "const": "UNKNOWN"
+                  }
+                },
+                "required": [
+                  "state"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "state": {
+                    "const": "UNAVAILABLE"
+                  }
+                },
+                "required": [
+                  "state"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "state": {
+                    "const": "NOT_APPLICABLE"
+                  }
+                },
+                "required": [
+                  "state"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "state": {
+                    "const": "NOT_MEASURED"
+                  }
+                },
+                "required": [
+                  "state"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "normalisationModel": {
+      "type": "object",
+      "required": [
+        "crossPlatformNormalisationDefined",
+        "shareOnOnePlatformEqualsSendOnAnother",
+        "sourceNativeMetricsPreserved",
+        "provenanceRetained",
+        "derivedFactRequiresPublishedDeterministicRule",
+        "derivedWithoutPublishedRuleIs",
+        "rule"
+      ],
+      "properties": {
+        "crossPlatformNormalisationDefined": {
+          "const": false
+        },
+        "shareOnOnePlatformEqualsSendOnAnother": {
+          "const": false
+        },
+        "sourceNativeMetricsPreserved": {
+          "const": true
+        },
+        "provenanceRetained": {
+          "const": true
+        },
+        "derivedFactRequiresPublishedDeterministicRule": {
+          "const": true
+        },
+        "derivedWithoutPublishedRuleIs": {
+          "const": "INTERPRETATION"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenanceRules": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "socialIntelligenceObject": {
+      "type": "object",
+      "required": [
+        "schema",
+        "isSnapshot",
+        "isProductTruthRecord",
+        "isHumanIdentityRecord",
+        "isStoryStateRecord",
+        "publicRepositoryInstancePersistenceAllowed",
+        "persistentIdFormatDefined",
+        "referencesAreOpaque",
+        "contents",
+        "note"
+      ],
+      "properties": {
+        "schema": {
+          "const": "04_SOCIAL_INTELLIGENCE_OBJECT.schema.json"
+        },
+        "isSnapshot": {
+          "const": true
+        },
+        "isProductTruthRecord": {
+          "const": false
+        },
+        "isHumanIdentityRecord": {
+          "const": false
+        },
+        "isStoryStateRecord": {
+          "const": false
+        },
+        "publicRepositoryInstancePersistenceAllowed": {
+          "const": false,
+          "description": "Standing policy: a real runtime snapshot is never persisted in this public repository. Not a record of what the repository contains at any moment, and synthetic fixtures are not runtime instances."
+        },
+        "persistentIdFormatDefined": {
+          "const": false
+        },
+        "referencesAreOpaque": {
+          "const": true
+        },
+        "contents": {
+          "type": "array",
+          "minItems": 11,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "rawEvidenceRecordRules": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "interpretationRecordRules": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "recommendationRecordRules": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "fatigueRecordRules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "nonAuthoritativeSources": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceId",
+          "reason"
+        ],
+        "properties": {
+          "sourceId": {
+            "enum": [
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SUPER_BRAIN",
+              "CHAT_HISTORY",
+              "MODEL_MEMORY",
+              "CANONICAL_REPOSITORY"
+            ]
+          },
+          "mayBeRawMetricAuthority": {
+            "const": false
+          },
+          "mayBeInterpretationAuthority": {
+            "const": false
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              },
+              "mayBeRawMetricAuthority": {
+                "const": false
+              }
+            },
+            "required": [
+              "sourceId",
+              "mayBeRawMetricAuthority"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "SUPER_BRAIN"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "SUPER_BRAIN"
+              },
+              "mayBeRawMetricAuthority": {
+                "const": false
+              }
+            },
+            "required": [
+              "sourceId",
+              "mayBeRawMetricAuthority"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "CHAT_HISTORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "CHAT_HISTORY"
+              },
+              "mayBeRawMetricAuthority": {
+                "const": false
+              }
+            },
+            "required": [
+              "sourceId",
+              "mayBeRawMetricAuthority"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "MODEL_MEMORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "MODEL_MEMORY"
+              },
+              "mayBeRawMetricAuthority": {
+                "const": false
+              }
+            },
+            "required": [
+              "sourceId",
+              "mayBeRawMetricAuthority"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "CANONICAL_REPOSITORY"
+              }
+            },
+            "required": [
+              "sourceId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "sourceId": {
+                "const": "CANONICAL_REPOSITORY"
+              },
+              "mayBeInterpretationAuthority": {
+                "const": false
+              }
+            },
+            "required": [
+              "sourceId",
+              "mayBeInterpretationAuthority"
+            ]
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "authorityGrants": {
+      "type": "object",
+      "required": [
+        "productTruthWriteAuthorityGranted",
+        "humanIdentityWriteAuthorityGranted",
+        "storyTransitionAuthorityGranted",
+        "storyCanonWriteAuthorityGranted",
+        "approvalAuthorityGranted",
+        "publicationAuthorityGranted",
+        "spendAuthorityGranted",
+        "autonomousActionAuthorityGranted",
+        "canonicalRepositoryWriteAuthorityGranted",
+        "note"
+      ],
+      "properties": {
+        "productTruthWriteAuthorityGranted": {
+          "const": false
+        },
+        "humanIdentityWriteAuthorityGranted": {
+          "const": false
+        },
+        "storyTransitionAuthorityGranted": {
+          "const": false
+        },
+        "storyCanonWriteAuthorityGranted": {
+          "const": false
+        },
+        "approvalAuthorityGranted": {
+          "const": false
+        },
+        "publicationAuthorityGranted": {
+          "const": false
+        },
+        "spendAuthorityGranted": {
+          "const": false
+        },
+        "autonomousActionAuthorityGranted": {
+          "const": false
+        },
+        "canonicalRepositoryWriteAuthorityGranted": {
+          "const": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "failureId",
+          "definition",
+          "severity"
+        ],
+        "properties": {
+          "failureId": {
+            "enum": [
+              "RAW_METRIC_AUTHORITY_CLAIMED_BY_INTERPRETER",
+              "INTERPRETATION_RECORDED_AS_FACT",
+              "RECOMMENDATION_RECORDED_AS_APPROVAL",
+              "MISSING_METRIC_RECORDED_AS_ZERO",
+              "UNSUPPORTED_RECOMMENDATION",
+              "NUMERIC_WEIGHT_ATTACHED_TO_PRIORITY_SIGNAL",
+              "UNKNOWN_METRIC_SILENTLY_TIERED",
+              "STORY_STATE_MUTATED_BY_SOCIAL_EVIDENCE",
+              "UNKNOWN_STORY_ACTION_RECOMMENDED",
+              "FATIGUE_BYPASSED_ON_REPETITIVE_EXPLOITATION",
+              "INVENTED_NUMERIC_THRESHOLD",
+              "PRODUCT_TRUTH_OVERRIDDEN_BY_SOCIAL_INTERPRETATION",
+              "HUMAN_IDENTITY_CHANGED_BY_SOCIAL_EVIDENCE",
+              "WINNER_TREATED_AS_PERMANENT_RULE",
+              "PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE",
+              "ENGAGEMENT_TREATED_AS_APPROVAL"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "const": "HARD_FAIL"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "RAW_METRIC_AUTHORITY_CLAIMED_BY_INTERPRETER"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "RAW_METRIC_AUTHORITY_CLAIMED_BY_INTERPRETER"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "INTERPRETATION_RECORDED_AS_FACT"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "INTERPRETATION_RECORDED_AS_FACT"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "RECOMMENDATION_RECORDED_AS_APPROVAL"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "RECOMMENDATION_RECORDED_AS_APPROVAL"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "MISSING_METRIC_RECORDED_AS_ZERO"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "MISSING_METRIC_RECORDED_AS_ZERO"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNSUPPORTED_RECOMMENDATION"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNSUPPORTED_RECOMMENDATION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "NUMERIC_WEIGHT_ATTACHED_TO_PRIORITY_SIGNAL"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "NUMERIC_WEIGHT_ATTACHED_TO_PRIORITY_SIGNAL"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNKNOWN_METRIC_SILENTLY_TIERED"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNKNOWN_METRIC_SILENTLY_TIERED"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "STORY_STATE_MUTATED_BY_SOCIAL_EVIDENCE"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "STORY_STATE_MUTATED_BY_SOCIAL_EVIDENCE"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNKNOWN_STORY_ACTION_RECOMMENDED"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNKNOWN_STORY_ACTION_RECOMMENDED"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "FATIGUE_BYPASSED_ON_REPETITIVE_EXPLOITATION"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "FATIGUE_BYPASSED_ON_REPETITIVE_EXPLOITATION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "INVENTED_NUMERIC_THRESHOLD"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "INVENTED_NUMERIC_THRESHOLD"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_TRUTH_OVERRIDDEN_BY_SOCIAL_INTERPRETATION"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "PRODUCT_TRUTH_OVERRIDDEN_BY_SOCIAL_INTERPRETATION"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "HUMAN_IDENTITY_CHANGED_BY_SOCIAL_EVIDENCE"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "HUMAN_IDENTITY_CHANGED_BY_SOCIAL_EVIDENCE"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "WINNER_TREATED_AS_PERMANENT_RULE"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "WINNER_TREATED_AS_PERMANENT_RULE"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "ENGAGEMENT_TREATED_AS_APPROVAL"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "ENGAGEMENT_TREATED_AS_APPROVAL"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "existenceDisclaimers": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "implementationStatus": {
+      "type": "object",
+      "required": [
+        "statesOwnedHere",
+        "readCurrentStatesFrom",
+        "systemsThisContractDoesNotImplement",
+        "anyImplementedHere",
+        "rule"
+      ],
+      "properties": {
+        "statesOwnedHere": {
+          "const": false
+        },
+        "readCurrentStatesFrom": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes"
+        },
+        "systemsThisContractDoesNotImplement": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "SOCIAL_INTELLIGENCE_ENGINE",
+              "SOCIAL_PLATFORM_API",
+              "SUPER_BRAIN",
+              "STORY_STATE_ENGINE",
+              "CAMPAIGN_REGISTRY",
+              "PRIVATE_OPS_STORE"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "SOCIAL_INTELLIGENCE_ENGINE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "SOCIAL_PLATFORM_API"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "SUPER_BRAIN"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "STORY_STATE_ENGINE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "CAMPAIGN_REGISTRY"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "PRIVATE_OPS_STORE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "anyImplementedHere": {
+          "const": false
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "openItems": {
+      "type": "array",
+      "minItems": 15,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "openItemsRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeControl": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

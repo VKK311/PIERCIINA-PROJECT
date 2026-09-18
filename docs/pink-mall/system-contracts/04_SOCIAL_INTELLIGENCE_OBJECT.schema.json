@@ -1,0 +1,685 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pierciina.example/pink-mall/04_SOCIAL_INTELLIGENCE_OBJECT.schema.json",
+  "title": "PINK MALL Social Intelligence Snapshot",
+  "description": "Future runtime structure only. This schema describes the snapshot a Social Intelligence Engine would emit; it does not create an engine and ingests no data. A real snapshot is runtime operational data and MUST NOT be persisted in this public repository. Synthetic fixtures that exercise the schema are not runtime instances.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "snapshotRef",
+    "subjectRef",
+    "subjectType",
+    "observationWindowRef",
+    "rawEvidence",
+    "interpretations",
+    "creativeMechanismAssessments",
+    "fatigueAssessment",
+    "recommendations",
+    "knownLimitations",
+    "provenance",
+    "assertionsOutsideAuthority"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "snapshotRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque. No persistent global ID format is defined by this contract."
+    },
+    "subjectRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subjectType": {
+      "enum": [
+        "CAMPAIGN",
+        "CREATIVE_ASSET",
+        "STORY_MECHANISM",
+        "CONTENT_UNIT",
+        "CREATIVE_MECHANISM",
+        "CHARACTER_TEAM_MECHANIC"
+      ]
+    },
+    "observationWindowRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque reference to a window. No duration and no freshness rule is defined here."
+    },
+    "rawEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidenceRef",
+          "metricIdentity",
+          "availability",
+          "sourceAuthority",
+          "truthClass",
+          "subjectRef",
+          "observationWindowRef"
+        ],
+        "properties": {
+          "evidenceRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metricIdentity": {
+            "type": "object",
+            "oneOf": [
+              {
+                "required": [
+                  "prioritySignalId"
+                ],
+                "not": {
+                  "required": [
+                    "sourceNativeMetricId"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "sourceNativeMetricId"
+                ],
+                "not": {
+                  "required": [
+                    "prioritySignalId"
+                  ]
+                }
+              }
+            ],
+            "properties": {
+              "prioritySignalId": {
+                "enum": [
+                  "SHARES",
+                  "DM_SENDS",
+                  "COMMENTS",
+                  "DMS",
+                  "FOLLOWER_GROWTH",
+                  "SAVES",
+                  "PROFILE_INTEREST",
+                  "LIKES",
+                  "VIEWS"
+                ],
+                "description": "One of the nine signals the owner ranked. Closed, so a tier claim about it is checkable."
+              },
+              "sourceNativeMetricId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "A provider's own metric name. Open on purpose: refusing to record an unrecognised metric would lose evidence."
+              },
+              "priorityTierRef": {
+                "enum": [
+                  "TIER_PRIMARY",
+                  "TIER_NEXT",
+                  "TIER_CONTEXTUAL"
+                ],
+                "description": "The response-priority tier this signal belongs to. Permitted only for a closed prioritySignalId, and only the tier the contract assigns it."
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "required": [
+                    "sourceNativeMetricId"
+                  ]
+                },
+                "then": {
+                  "not": {
+                    "required": [
+                      "priorityTierRef"
+                    ]
+                  },
+                  "description": "An open provider metric MUST NOT be placed in a response-priority tier without a published mapping rule, so the field is forbidden here rather than merely discouraged."
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "prioritySignalId": {
+                      "enum": [
+                        "SHARES",
+                        "DM_SENDS"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "prioritySignalId"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "priorityTierRef": {
+                      "const": "TIER_PRIMARY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "prioritySignalId": {
+                      "enum": [
+                        "COMMENTS",
+                        "DMS",
+                        "FOLLOWER_GROWTH",
+                        "SAVES",
+                        "PROFILE_INTEREST"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "prioritySignalId"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "priorityTierRef": {
+                      "const": "TIER_NEXT"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "prioritySignalId": {
+                      "enum": [
+                        "LIKES",
+                        "VIEWS"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "prioritySignalId"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "priorityTierRef": {
+                      "const": "TIER_CONTEXTUAL"
+                    }
+                  }
+                }
+              }
+            ],
+            "additionalProperties": false
+          },
+          "availability": {
+            "enum": [
+              "AVAILABLE",
+              "UNKNOWN",
+              "UNAVAILABLE",
+              "NOT_APPLICABLE",
+              "NOT_MEASURED"
+            ],
+            "description": "Read before any value. Zero is a measurement; unknown, unavailable, not applicable and not measured are not."
+          },
+          "observedValue": {
+            "type": "number",
+            "description": "Permitted only when availability is AVAILABLE. This is what stops a missing metric becoming a zero that a later interpretation treats as real."
+          },
+          "sourceAuthority": {
+            "enum": [
+              "SOCIAL_PLATFORM_API",
+              "CANONICAL_REPOSITORY"
+            ],
+            "description": "Inherited from contract 00. SOCIAL_INTELLIGENCE_ENGINE, SUPER_BRAIN and CHAT_HISTORY are deliberately not expressible: the interpreter must not also own the measurement."
+          },
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque reference to the platform or surface that reported it."
+          },
+          "truthClass": {
+            "enum": [
+              "FACT",
+              "DERIVED_FACT"
+            ],
+            "description": "Measured evidence, or a reproducible derivation under a published rule. INTERPRETATION is not expressible here."
+          },
+          "derivationRuleRef": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Required for DERIVED_FACT: the published deterministic rule that produces it. Without one the figure is interpretation, not a derived fact."
+          },
+          "subjectRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observationWindowRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "availability": {
+                  "const": "AVAILABLE"
+                }
+              },
+              "required": [
+                "availability"
+              ]
+            },
+            "then": {
+              "required": [
+                "observedValue"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "observedValue"
+                ]
+              },
+              "description": "Both directions are bound. Available requires a value; every other state forbids one outright."
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "truthClass": {
+                  "const": "DERIVED_FACT"
+                }
+              },
+              "required": [
+                "truthClass"
+              ]
+            },
+            "then": {
+              "required": [
+                "derivationRuleRef"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      },
+      "description": "Evidence only. Kept structurally apart from interpretations so the two can never share a field."
+    },
+    "interpretations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "interpretationRef",
+          "kind",
+          "statement",
+          "truthClass",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "interpretationRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What sort of reading this is, for example resonance or fatigue. Open, because no owner decision closed this vocabulary."
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "truthClass": {
+            "const": "INTERPRETATION",
+            "description": "Closed to INTERPRETATION. FACT, DERIVED_FACT, APPROVAL and STORY_CANON are not expressible, which is what stops a conclusion promoting itself."
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Mandatory provenance: an interpretation with no evidence behind it is an assertion."
+          },
+          "confidence": {
+            "type": "object",
+            "properties": {
+              "qualitative": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Deliberately a free qualitative string rather than a closed taxonomy or a number: no owner decision has locked either, and inventing one would read as settled."
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "creativeMechanismAssessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assessmentRef",
+          "mechanismRef",
+          "truthClass",
+          "assessment",
+          "evidenceRefs",
+          "exploitationRecommended",
+          "exploitationIsTemporary",
+          "establishesPermanentCreativeRule",
+          "establishesProductTruth",
+          "establishesHumanIdentityTruth",
+          "altersStoryState"
+        ],
+        "properties": {
+          "assessmentRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mechanismRef": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque reference to the creative mechanism being assessed. No global ID system is defined."
+          },
+          "truthClass": {
+            "const": "INTERPRETATION",
+            "description": "A winner reading is a reading. Closed to INTERPRETATION."
+          },
+          "assessment": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "exploitationRecommended": {
+            "type": "boolean",
+            "description": "Whether continued exploitation is being recommended. When true the snapshot must show fatigue evidence."
+          },
+          "exploitationIsTemporary": {
+            "const": true,
+            "description": "The locked owner decision: a winner may be exploited temporarily."
+          },
+          "establishesPermanentCreativeRule": {
+            "const": false,
+            "description": "The other half of that decision: one strong result MUST NOT become permanent creative truth."
+          },
+          "establishesProductTruth": {
+            "const": false
+          },
+          "establishesHumanIdentityTruth": {
+            "const": false
+          },
+          "altersStoryState": {
+            "const": false
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "fatigueAssessment": {
+      "type": "object",
+      "required": [
+        "considered",
+        "truthClass",
+        "assessment",
+        "evidenceRefs",
+        "uncertainty"
+      ],
+      "properties": {
+        "considered": {
+          "const": true,
+          "description": "Fatigue MUST be considered before repetitive continuation. Closed to true, so a snapshot cannot record that it was skipped."
+        },
+        "truthClass": {
+          "const": "INTERPRETATION"
+        },
+        "assessment": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Qualitative and open. No closed fatigue taxonomy is invented, because the only locked decision is that fatigue is tracked."
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "uncertainty": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "recommendationRef",
+          "targetRef",
+          "recommendedAction",
+          "truthClass",
+          "authorityClaimed",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "recommendationRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "targetRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recommendedAction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "truthClass": {
+            "const": "PROPOSAL",
+            "description": "Closed to PROPOSAL. APPROVAL, FACT, DERIVED_FACT, STORY_CANON and PUBLICATION are not expressible."
+          },
+          "authorityClaimed": {
+            "const": "NONE",
+            "description": "A recommendation claims no authority. Stated explicitly so that silence is never read as a claim."
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Mandatory: a recommendation with no supporting interpretation or evidence MUST NOT be recorded."
+          },
+          "storyAction": {
+            "type": "object",
+            "required": [
+              "action",
+              "redefinesNarrativeMeaning",
+              "isStoryStateTransition",
+              "transitionAuthorityGranted"
+            ],
+            "properties": {
+              "action": {
+                "enum": [
+                  "CONTINUE",
+                  "EVOLVE",
+                  "PAUSE",
+                  "CLOSE",
+                  "REVIVE"
+                ],
+                "description": "Contract 03 owns this closed vocabulary and its narrative meaning. Contract 04 may only name one of these."
+              },
+              "redefinesNarrativeMeaning": {
+                "const": false
+              },
+              "isStoryStateTransition": {
+                "const": false,
+                "description": "Recommendation does not equal transition until a later canonical contract defines autonomous transition authority."
+              },
+              "transitionAuthorityGranted": {
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "knownLimitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "generatedBy",
+        "generatedByIsRawMetricAuthority",
+        "rawMetricAuthority"
+      ],
+      "properties": {
+        "generatedBy": {
+          "const": "SOCIAL_INTELLIGENCE_ENGINE"
+        },
+        "generatedByIsRawMetricAuthority": {
+          "const": false,
+          "description": "The emitter of the snapshot is not the authority for the measurements inside it."
+        },
+        "rawMetricAuthority": {
+          "const": "SOCIAL_PLATFORM_API"
+        }
+      },
+      "additionalProperties": false
+    },
+    "assertionsOutsideAuthority": {
+      "type": "array",
+      "maxItems": 0,
+      "items": {
+        "type": "string"
+      },
+      "description": "Structurally empty. A Social Intelligence snapshot asserts no product truth, no human identity, no approval, no publication and no Story State transition, and this array exists so that emptiness is explicit rather than merely absent."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "creativeMechanismAssessments": {
+            "contains": {
+              "properties": {
+                "exploitationRecommended": {
+                  "const": true
+                }
+              },
+              "required": [
+                "exploitationRecommended"
+              ]
+            }
+          }
+        },
+        "required": [
+          "creativeMechanismAssessments"
+        ]
+      },
+      "then": {
+        "properties": {
+          "fatigueAssessment": {
+            "properties": {
+              "evidenceRefs": {
+                "minItems": 1
+              }
+            },
+            "required": [
+              "evidenceRefs"
+            ]
+          }
+        }
+      },
+      "description": "Recommending continued exploitation of a winning mechanism requires fatigue evidence. This is the structural form of the locked rule that fatigue is tracked before repetitive continuation."
+    },
+    {
+      "if": {
+        "properties": {
+          "recommendations": {
+            "contains": {
+              "properties": {
+                "storyAction": {
+                  "properties": {
+                    "action": {
+                      "const": "CONTINUE"
+                    }
+                  },
+                  "required": [
+                    "action"
+                  ]
+                }
+              },
+              "required": [
+                "storyAction"
+              ]
+            }
+          }
+        },
+        "required": [
+          "recommendations"
+        ]
+      },
+      "then": {
+        "properties": {
+          "fatigueAssessment": {
+            "properties": {
+              "evidenceRefs": {
+                "minItems": 1
+              }
+            },
+            "required": [
+              "evidenceRefs"
+            ]
+          }
+        }
+      },
+      "description": "A CONTINUE recommendation is repetitive continuation, so the same fatigue evidence requirement applies."
+    }
+  ],
+  "additionalProperties": false
+}

@@ -49,7 +49,9 @@ because it was replaced, not because its historical review stopped counting.
    when depicting a real product, and what evidence is authoritative for its shape.
 6. `03_CHARACTER_STORY_CONTRACT.md` — the boundary between human identity,
    narrative role, relationship state and story canon.
-7. The domain contract for the work in hand, once it exists.
+7. `04_SOCIAL_INTELLIGENCE_CONTRACT.md` — how social evidence becomes
+   interpretation and recommendation, and where that chain must stop.
+8. The domain contract for the work in hand, once it exists.
 
 ## Current contract set
 
@@ -59,6 +61,7 @@ because it was replaced, not because its historical review stopped counting.
 | 01 | **Campaign Context** | `01_CAMPAIGN_CONTEXT_CONTRACT.md` / `.json` / `.schema.json`, plus `01_CAMPAIGN_CONTEXT_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 02 | **Product Creative** | `02_PRODUCT_CREATIVE_CONTRACT.md` / `.json` / `.schema.json`, plus `02_PRODUCT_CREATIVE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 03 | **Character & Story** | `03_CHARACTER_STORY_CONTRACT.md` / `.json` / `.schema.json`, plus `03_STORY_STATE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
+| 04 | **Social Intelligence** | `04_SOCIAL_INTELLIGENCE_CONTRACT.md` / `.json` / `.schema.json`, plus `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
@@ -66,6 +69,7 @@ Validators, standard library only:
 - `tools/regression/campaign_context_contract.py`
 - `tools/regression/product_creative_contract.py`
 - `tools/regression/character_story_contract.py`
+- `tools/regression/social_intelligence_contract.py`
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -98,6 +102,20 @@ the **Avatar Skill** under contract 00; contract 03 references it and never
 creates a second identity record. Narrative role, relationship state and story
 canon are dynamic; human identity is not.
 
+Contract 04 is **authoring only** in the same way. It defines how social evidence
+becomes interpretation and recommendation, and `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json`
+describes future runtime structure only — the snapshot a Social Intelligence Engine
+would emit. **No real Social Intelligence Snapshot is committed** to this public
+repository, and none may be: real account metrics, campaign performance history and
+private audience history are operational data that belongs outside it.
+
+Contract 04 grants **no** authority outside social interpretation. A raw metric stays
+owned by the platform that measured it; a conclusion never becomes Product Truth or
+Human Identity truth; a recommendation never becomes an approval, a publication or a
+Story State transition. The owner's **response-priority hierarchy** is preserved as a
+**qualitative** order — no weight, score or ratio is defined, and numeric weighting
+remains an open question.
+
 ## Planned contracts — NOT YET CREATED
 
 The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
@@ -112,7 +130,6 @@ No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
-| 04 | Social Intelligence | metric weighting, scoring, creative fatigue | NOT YET CREATED |
 | 05 | Workstation Operating | node architecture, workflow graph, run model | NOT YET CREATED |
 | 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | NOT YET CREATED |
 | 07 | Super Brain Memory | memory schema, write rules, staleness handling | NOT YET CREATED |
