@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pierciina.example/pink-mall/04_SOCIAL_INTELLIGENCE_OBJECT.schema.json",
   "title": "PINK MALL Social Intelligence Snapshot",
-  "description": "Future runtime structure only. This schema describes the snapshot a Social Intelligence Engine would emit; it does not create an engine and ingests no data. A real snapshot is runtime operational data and MUST NOT be persisted in this public repository. Synthetic fixtures that exercise the schema are not runtime instances.",
+  "description": "Future runtime structure only. This schema describes the snapshot a Social Intelligence Engine would emit; it does not create an engine and ingests no data. A real snapshot is runtime operational data and MUST NOT be persisted in this public repository. Synthetic fixtures that exercise the schema are not runtime instances. VALIDATION SCOPE: conformance to this schema is NECESSARY BUT NOT SUFFICIENT. This document governs the shape of each record — required fields, closed vocabularies, closed objects, and the availability-to-value binding that keeps a missing metric from becoming a zero. It CANNOT express that an evidenceRefs entry resolves to a record elsewhere in the same snapshot, nor that evidenceRef, interpretationRef, assessmentRef and recommendationRef are unique across those collections: Draft 2020-12 has no keyword for cross-record resolution or for uniqueness by an arbitrary identifier property. Those rules are enforced by semantic reference-integrity validation, and a snapshot is accepted only when both layers pass.",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -64,7 +64,8 @@
         "properties": {
           "evidenceRef": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Opaque identifier for this record. MUST be unique across every record in the snapshot, not merely within rawEvidence — a duplicate makes every reference to it ambiguous. This schema cannot enforce that."
           },
           "metricIdentity": {
             "type": "object",
@@ -322,7 +323,8 @@
         "properties": {
           "interpretationRef": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Opaque identifier for this record. MUST be unique across every record in the snapshot, not merely within interpretations — a duplicate makes every reference to it ambiguous. This schema cannot enforce that."
           },
           "kind": {
             "type": "string",
@@ -344,7 +346,7 @@
               "type": "string",
               "minLength": 1
             },
-            "description": "Mandatory provenance: an interpretation with no evidence behind it is an assertion."
+            "description": "Mandatory provenance: an interpretation with no evidence behind it is an assertion. Each entry MUST resolve to exactly one rawEvidence record in this snapshot. An interpretation is drawn FROM measurement, so it may NOT cite another interpretation, a creative mechanism assessment or a recommendation — that would let a reading rest on a reading with no evidence underneath. minItems here proves only that a reference was supplied; that it resolves is checked semantically. Identifiers are opaque and unique across the whole snapshot. Resolution, permitted target kind and uniqueness are checked by semantic reference-integrity validation; this schema cannot express any of them."
           },
           "confidence": {
             "type": "object",
@@ -390,7 +392,8 @@
         "properties": {
           "assessmentRef": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Opaque identifier for this record. MUST be unique across every record in the snapshot, not merely within creativeMechanismAssessments — a duplicate makes every reference to it ambiguous. This schema cannot enforce that."
           },
           "mechanismRef": {
             "type": "string",
@@ -411,7 +414,8 @@
             "items": {
               "type": "string",
               "minLength": 1
-            }
+            },
+            "description": "Each entry MUST resolve to exactly one rawEvidence record OR one interpretation record in this snapshot. A creative mechanism assessment is an interpretation-class record: it may rest on measurement directly, or on a recorded interpretation. A cited interpretation must itself rest on at least one resolvable rawEvidence record. Nothing may cite a creative mechanism assessment or a recommendation: a proposal is not support. Identifiers are opaque and unique across the whole snapshot. Resolution, permitted target kind and uniqueness are checked by semantic reference-integrity validation; this schema cannot express any of them."
           },
           "exploitationRecommended": {
             "type": "boolean",
@@ -471,7 +475,8 @@
           "items": {
             "type": "string",
             "minLength": 1
-          }
+          },
+          "description": "Each entry MUST resolve to exactly one rawEvidence record OR one interpretation record in this snapshot. A fatigue assessment is an interpretation-class record: it may rest on measurement directly, or on a recorded interpretation. A cited interpretation must itself rest on at least one resolvable rawEvidence record. Nothing may cite a creative mechanism assessment or a recommendation: a proposal is not support. Identifiers are opaque and unique across the whole snapshot. Resolution, permitted target kind and uniqueness are checked by semantic reference-integrity validation; this schema cannot express any of them."
         },
         "uncertainty": {
           "type": "string",
@@ -495,7 +500,8 @@
         "properties": {
           "recommendationRef": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Opaque identifier for this record. MUST be unique across every record in the snapshot, not merely within recommendations — a duplicate makes every reference to it ambiguous. This schema cannot enforce that."
           },
           "targetRef": {
             "type": "string",
@@ -520,7 +526,7 @@
               "type": "string",
               "minLength": 1
             },
-            "description": "Mandatory: a recommendation with no supporting interpretation or evidence MUST NOT be recorded."
+            "description": "Mandatory: a recommendation with no supporting interpretation or evidence MUST NOT be recorded. Each entry MUST resolve to exactly one rawEvidence record OR one interpretation record in this snapshot. A cited interpretation must itself rest on at least one resolvable rawEvidence record. Nothing may cite a creative mechanism assessment or a recommendation: a proposal is not support. minItems here proves only that a reference was supplied; that it resolves to a permitted kind is checked semantically. Identifiers are opaque and unique across the whole snapshot. Resolution, permitted target kind and uniqueness are checked by semantic reference-integrity validation; this schema cannot express any of them."
           },
           "storyAction": {
             "type": "object",

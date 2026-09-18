@@ -221,6 +221,60 @@ with no supporting reference MUST NOT be recorded.**
 
 A reference is a pointer. A pointer is not a grant of authority.
 
+### 15.1 References must resolve, and identifiers must be unambiguous
+
+**A non-empty string is not evidence.** Every reference MUST resolve to exactly
+one record present in the same snapshot; an unresolved reference is no
+provenance at all.
+
+That requires unambiguous identifiers, so `evidenceRef`, `interpretationRef`,
+`assessmentRef` and `recommendationRef` share **one identifier space per
+snapshot**. Uniqueness is enforced across the whole snapshot rather than per
+collection: an interpretation named after a piece of evidence makes every
+reference to that name ambiguous, and the ambiguity is silent because both
+readings look valid.
+
+Identifiers stay **opaque**. No format is defined and none is needed —
+uniqueness is a property of one snapshot, not a global ID scheme.
+
+Each kind may rest only on what sits beneath it:
+
+| Referring record | May reference |
+|---|---|
+| interpretation | raw evidence |
+| creative mechanism assessment | raw evidence · interpretation |
+| fatigue assessment | raw evidence · interpretation |
+| recommendation | raw evidence · interpretation |
+
+An interpretation is drawn **from** measurement, so it may not cite another
+conclusion — that would let a reading rest on a reading with no evidence
+underneath. **Nothing may cite a recommendation:** a proposal is not support.
+Nothing may cite a creative mechanism assessment either.
+
+Where a conclusion *is* cited, it must itself be grounded: **a cited
+interpretation MUST rest on at least one resolvable raw evidence record.**
+Otherwise an unsupported reading launders into support for something else one
+hop away.
+
+These target sets are **unchanged from the reviewed base.** This correction adds
+the requirement that a reference *resolves*; it does not widen what may be
+cited.
+
+### 15.2 What each validation layer actually proves
+
+A snapshot is accepted only when **both** layers pass.
+
+| Layer | Proves |
+|---|---|
+| JSON Schema (Draft 2020-12) | the shape of each record — required fields, closed vocabularies, closed objects, and the availability-to-value binding that keeps a missing metric from becoming a zero |
+| semantic reference-integrity validation | that every reference resolves to exactly one present record of a permitted kind, and that no two records share an identifier |
+
+**JSON Schema alone does not enforce cross-record resolution or uniqueness by an
+arbitrary identifier property.** Draft 2020-12 has no keyword for either;
+`uniqueItems` compares whole items, so two records differing in any other field
+satisfy it while sharing an id. Claiming schema conformance alone would misstate
+what has been checked.
+
 ## 16. The Social Intelligence Snapshot
 
 `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json` describes future runtime structure
@@ -233,7 +287,8 @@ It carries `schemaVersion`, an opaque `snapshotRef`, an opaque `subjectRef` and
 `recommendations`, `knownLimitations` and `provenance`.
 
 References are opaque. **No persistent ID format is defined**, and no ingestion
-infrastructure is described.
+infrastructure is described — but within a single snapshot every identifier is
+unique and every reference resolves, per §15.1.
 
 `assertionsOutsideAuthority` is structurally empty: a snapshot asserts no
 product truth, no human identity, no approval, no publication and no Story State
@@ -260,6 +315,10 @@ merely absent.
 | `WINNER_TREATED_AS_PERMANENT_RULE` | HARD_FAIL |
 | `PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE` | HARD_FAIL |
 | `ENGAGEMENT_TREATED_AS_APPROVAL` | HARD_FAIL |
+| `UNRESOLVED_EVIDENCE_REFERENCE` | HARD_FAIL |
+| `AMBIGUOUS_RECORD_IDENTIFIER` | HARD_FAIL |
+| `REFERENCE_TO_INAPPROPRIATE_RECORD_KIND` | HARD_FAIL |
+| `UNGROUNDED_INTERPRETATION_CITED_AS_SUPPORT` | HARD_FAIL |
 
 ## 18. Authority this contract does not grant
 

@@ -434,8 +434,100 @@
     "Every interpretation MUST reference the evidence it was drawn from.",
     "Every recommendation MUST reference the interpretations or evidence supporting it.",
     "A recommendation with no supporting reference MUST NOT be recorded.",
+    "Every reference MUST resolve to exactly one record present in the same snapshot.",
+    "A cited interpretation MUST itself be grounded in resolvable raw evidence.",
+    "A non-empty string is not evidence: an unresolved reference is no provenance at all.",
     "A reference is a pointer, not a grant of authority."
   ],
+  "referenceIntegrity": {
+    "identifierSpace": "SNAPSHOT_GLOBAL",
+    "identifiersUniqueWithinSnapshot": true,
+    "identifierFormatDefined": false,
+    "referencesAreOpaque": true,
+    "recordKinds": [
+      "RAW_EVIDENCE",
+      "INTERPRETATION",
+      "CREATIVE_MECHANISM_ASSESSMENT",
+      "RECOMMENDATION"
+    ],
+    "identifierFields": [
+      {
+        "recordKind": "RAW_EVIDENCE",
+        "collection": "rawEvidence",
+        "identifierField": "evidenceRef"
+      },
+      {
+        "recordKind": "INTERPRETATION",
+        "collection": "interpretations",
+        "identifierField": "interpretationRef"
+      },
+      {
+        "recordKind": "CREATIVE_MECHANISM_ASSESSMENT",
+        "collection": "creativeMechanismAssessments",
+        "identifierField": "assessmentRef"
+      },
+      {
+        "recordKind": "RECOMMENDATION",
+        "collection": "recommendations",
+        "identifierField": "recommendationRef"
+      }
+    ],
+    "permittedTargets": [
+      {
+        "referringRecordKind": "INTERPRETATION",
+        "field": "evidenceRefs",
+        "mayReference": [
+          "RAW_EVIDENCE"
+        ],
+        "why": "An interpretation is drawn FROM measurement. Citing another conclusion would let a reading rest on a reading with no evidence underneath."
+      },
+      {
+        "referringRecordKind": "CREATIVE_MECHANISM_ASSESSMENT",
+        "field": "evidenceRefs",
+        "mayReference": [
+          "RAW_EVIDENCE",
+          "INTERPRETATION"
+        ],
+        "why": "A winner reading may rest on measurement or on a recorded interpretation, provided that interpretation is itself grounded in raw evidence."
+      },
+      {
+        "referringRecordKind": "FATIGUE_ASSESSMENT",
+        "field": "evidenceRefs",
+        "mayReference": [
+          "RAW_EVIDENCE",
+          "INTERPRETATION"
+        ],
+        "why": "Fatigue may rest on measurement or on a recorded interpretation, under the same grounding requirement."
+      },
+      {
+        "referringRecordKind": "RECOMMENDATION",
+        "field": "evidenceRefs",
+        "mayReference": [
+          "RAW_EVIDENCE",
+          "INTERPRETATION"
+        ],
+        "why": "A proposal is supported by a recorded interpretation or directly by measurement. It may never cite another recommendation: a proposal is not support."
+      }
+    ],
+    "unresolvedReferencePermitted": false,
+    "nonEmptyStringIsSufficientEvidence": false,
+    "citedInterpretationMustBeGrounded": true,
+    "referenceToRecommendationPermitted": false,
+    "referenceToMechanismAssessmentPermitted": false,
+    "enforceableByJsonSchemaAlone": false,
+    "rule": "A reference is only meaningful if exactly one record answers to it. Identifiers are therefore unique across the WHOLE snapshot rather than per collection: an interpretation named after a piece of evidence makes every reference to that name ambiguous, and the ambiguity is silent because both readings look valid. Every reference must resolve to exactly one present record of a permitted kind, and a cited interpretation must itself be grounded in resolvable raw evidence, so an unsupported reading cannot launder into support one hop away. Identifiers stay opaque and no format is defined; uniqueness is a property of one snapshot, not a global ID scheme."
+  },
+  "validationModel": {
+    "snapshotAcceptanceRequires": [
+      "JSON_SCHEMA_VALIDATION",
+      "SEMANTIC_REFERENCE_INTEGRITY_VALIDATION"
+    ],
+    "schemaValidationAloneIsSufficient": false,
+    "jsonSchemaEnforcesCrossRecordResolution": false,
+    "jsonSchemaEnforcesIdentifierUniqueness": false,
+    "committedValidatorUsesStandardLibraryOnly": true,
+    "rule": "A snapshot is accepted only when BOTH layers pass. JSON Schema governs the shape of each record: required fields, closed vocabularies, closed objects, and the availability-to-value binding that keeps a missing metric from becoming a zero. It cannot express that a reference resolves to a record elsewhere in the same document, nor that an arbitrary identifier property is unique across collections, because Draft 2020-12 has no keyword for either. Those are enforced by semantic reference-integrity validation. Claiming schema conformance alone would misstate what has been checked."
+  },
   "socialIntelligenceObject": {
     "schema": "04_SOCIAL_INTELLIGENCE_OBJECT.schema.json",
     "isSnapshot": true,
@@ -607,6 +699,26 @@
     {
       "failureId": "ENGAGEMENT_TREATED_AS_APPROVAL",
       "definition": "A level of audience response is treated as authorisation to act, publish or spend.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "UNRESOLVED_EVIDENCE_REFERENCE",
+      "definition": "A record references an identifier that resolves to no record in the same snapshot.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "AMBIGUOUS_RECORD_IDENTIFIER",
+      "definition": "Two records in the same snapshot answer to the same identifier, making every reference to it ambiguous.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "REFERENCE_TO_INAPPROPRIATE_RECORD_KIND",
+      "definition": "A record cites a kind it may not rest on, such as an interpretation citing another interpretation or a recommendation citing a recommendation.",
+      "severity": "HARD_FAIL"
+    },
+    {
+      "failureId": "UNGROUNDED_INTERPRETATION_CITED_AS_SUPPORT",
+      "definition": "A record cites an interpretation that rests on no resolvable raw evidence of its own.",
       "severity": "HARD_FAIL"
     }
   ],

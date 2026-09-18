@@ -34,6 +34,8 @@
     "missingnessModel",
     "normalisationModel",
     "provenanceRules",
+    "referenceIntegrity",
+    "validationModel",
     "socialIntelligenceObject",
     "rawEvidenceRecordRules",
     "interpretationRecordRules",
@@ -2553,12 +2555,661 @@
     },
     "provenanceRules": {
       "type": "array",
-      "minItems": 8,
+      "minItems": 11,
       "items": {
         "type": "string",
         "minLength": 1
       },
       "uniqueItems": true
+    },
+    "referenceIntegrity": {
+      "type": "object",
+      "required": [
+        "identifierSpace",
+        "identifiersUniqueWithinSnapshot",
+        "identifierFormatDefined",
+        "referencesAreOpaque",
+        "recordKinds",
+        "identifierFields",
+        "permittedTargets",
+        "unresolvedReferencePermitted",
+        "nonEmptyStringIsSufficientEvidence",
+        "citedInterpretationMustBeGrounded",
+        "referenceToRecommendationPermitted",
+        "referenceToMechanismAssessmentPermitted",
+        "enforceableByJsonSchemaAlone",
+        "rule"
+      ],
+      "properties": {
+        "identifierSpace": {
+          "const": "SNAPSHOT_GLOBAL"
+        },
+        "identifiersUniqueWithinSnapshot": {
+          "const": true
+        },
+        "identifierFormatDefined": {
+          "const": false
+        },
+        "referencesAreOpaque": {
+          "const": true
+        },
+        "recordKinds": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "RAW_EVIDENCE",
+              "INTERPRETATION",
+              "CREATIVE_MECHANISM_ASSESSMENT",
+              "RECOMMENDATION"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "RAW_EVIDENCE"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "INTERPRETATION"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "CREATIVE_MECHANISM_ASSESSMENT"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "RECOMMENDATION"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "identifierFields": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "recordKind",
+              "collection",
+              "identifierField"
+            ],
+            "properties": {
+              "recordKind": {
+                "enum": [
+                  "RAW_EVIDENCE",
+                  "INTERPRETATION",
+                  "CREATIVE_MECHANISM_ASSESSMENT",
+                  "RECOMMENDATION"
+                ]
+              },
+              "collection": {
+                "type": "string",
+                "minLength": 1
+              },
+              "identifierField": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RAW_EVIDENCE"
+                  }
+                },
+                "required": [
+                  "recordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RAW_EVIDENCE"
+                  },
+                  "collection": {
+                    "const": "rawEvidence"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "collection"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RAW_EVIDENCE"
+                  },
+                  "identifierField": {
+                    "const": "evidenceRef"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "identifierField"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "recordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "INTERPRETATION"
+                  },
+                  "collection": {
+                    "const": "interpretations"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "collection"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "INTERPRETATION"
+                  },
+                  "identifierField": {
+                    "const": "interpretationRef"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "identifierField"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "CREATIVE_MECHANISM_ASSESSMENT"
+                  }
+                },
+                "required": [
+                  "recordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "CREATIVE_MECHANISM_ASSESSMENT"
+                  },
+                  "collection": {
+                    "const": "creativeMechanismAssessments"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "collection"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "CREATIVE_MECHANISM_ASSESSMENT"
+                  },
+                  "identifierField": {
+                    "const": "assessmentRef"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "identifierField"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RECOMMENDATION"
+                  }
+                },
+                "required": [
+                  "recordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "collection": {
+                    "const": "recommendations"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "collection"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "recordKind": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "identifierField": {
+                    "const": "recommendationRef"
+                  }
+                },
+                "required": [
+                  "recordKind",
+                  "identifierField"
+                ]
+              },
+              "minContains": 1
+            }
+          ]
+        },
+        "permittedTargets": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "referringRecordKind",
+              "field",
+              "mayReference",
+              "why"
+            ],
+            "properties": {
+              "referringRecordKind": {
+                "enum": [
+                  "INTERPRETATION",
+                  "CREATIVE_MECHANISM_ASSESSMENT",
+                  "FATIGUE_ASSESSMENT",
+                  "RECOMMENDATION"
+                ]
+              },
+              "field": {
+                "const": "evidenceRefs"
+              },
+              "mayReference": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "RAW_EVIDENCE",
+                    "INTERPRETATION",
+                    "CREATIVE_MECHANISM_ASSESSMENT",
+                    "RECOMMENDATION"
+                  ]
+                }
+              },
+              "why": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "INTERPRETATION"
+                  }
+                },
+                "required": [
+                  "referringRecordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "INTERPRETATION"
+                  },
+                  "mayReference": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "RAW_EVIDENCE"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "RAW_EVIDENCE"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "referringRecordKind",
+                  "mayReference"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "CREATIVE_MECHANISM_ASSESSMENT"
+                  }
+                },
+                "required": [
+                  "referringRecordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "CREATIVE_MECHANISM_ASSESSMENT"
+                  },
+                  "mayReference": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "RAW_EVIDENCE",
+                        "INTERPRETATION"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "RAW_EVIDENCE"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "INTERPRETATION"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "referringRecordKind",
+                  "mayReference"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "FATIGUE_ASSESSMENT"
+                  }
+                },
+                "required": [
+                  "referringRecordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "FATIGUE_ASSESSMENT"
+                  },
+                  "mayReference": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "RAW_EVIDENCE",
+                        "INTERPRETATION"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "RAW_EVIDENCE"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "INTERPRETATION"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "referringRecordKind",
+                  "mayReference"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "RECOMMENDATION"
+                  }
+                },
+                "required": [
+                  "referringRecordKind"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "referringRecordKind": {
+                    "const": "RECOMMENDATION"
+                  },
+                  "mayReference": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "RAW_EVIDENCE",
+                        "INTERPRETATION"
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "const": "RAW_EVIDENCE"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "const": "INTERPRETATION"
+                        },
+                        "minContains": 1,
+                        "maxContains": 1
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "referringRecordKind",
+                  "mayReference"
+                ]
+              },
+              "minContains": 1
+            }
+          ],
+          "description": "Exact membership per referring kind, unchanged from the reviewed base. RECOMMENDATION and CREATIVE_MECHANISM_ASSESSMENT appear in no mayReference list: nothing may rest on a proposal, and widening the target set is not part of a resolution repair."
+        },
+        "unresolvedReferencePermitted": {
+          "const": false
+        },
+        "nonEmptyStringIsSufficientEvidence": {
+          "const": false
+        },
+        "citedInterpretationMustBeGrounded": {
+          "const": true
+        },
+        "referenceToRecommendationPermitted": {
+          "const": false
+        },
+        "referenceToMechanismAssessmentPermitted": {
+          "const": false
+        },
+        "enforceableByJsonSchemaAlone": {
+          "const": false,
+          "description": "Draft 2020-12 has no keyword for cross-record resolution or for uniqueness by an arbitrary identifier property. Stating that here keeps the contract from implying a guarantee the schema cannot give."
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "validationModel": {
+      "type": "object",
+      "required": [
+        "snapshotAcceptanceRequires",
+        "schemaValidationAloneIsSufficient",
+        "jsonSchemaEnforcesCrossRecordResolution",
+        "jsonSchemaEnforcesIdentifierUniqueness",
+        "committedValidatorUsesStandardLibraryOnly",
+        "rule"
+      ],
+      "properties": {
+        "snapshotAcceptanceRequires": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "JSON_SCHEMA_VALIDATION",
+              "SEMANTIC_REFERENCE_INTEGRITY_VALIDATION"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "JSON_SCHEMA_VALIDATION"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "const": "SEMANTIC_REFERENCE_INTEGRITY_VALIDATION"
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "schemaValidationAloneIsSufficient": {
+          "const": false
+        },
+        "jsonSchemaEnforcesCrossRecordResolution": {
+          "const": false
+        },
+        "jsonSchemaEnforcesIdentifierUniqueness": {
+          "const": false
+        },
+        "committedValidatorUsesStandardLibraryOnly": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     },
     "socialIntelligenceObject": {
       "type": "object",
@@ -2894,8 +3545,8 @@
     },
     "hardFailures": {
       "type": "array",
-      "minItems": 16,
-      "maxItems": 16,
+      "minItems": 20,
+      "maxItems": 20,
       "items": {
         "type": "object",
         "required": [
@@ -2921,7 +3572,11 @@
               "HUMAN_IDENTITY_CHANGED_BY_SOCIAL_EVIDENCE",
               "WINNER_TREATED_AS_PERMANENT_RULE",
               "PRIVATE_PERFORMANCE_DATA_IN_PUBLIC_STATE",
-              "ENGAGEMENT_TREATED_AS_APPROVAL"
+              "ENGAGEMENT_TREATED_AS_APPROVAL",
+              "UNRESOLVED_EVIDENCE_REFERENCE",
+              "AMBIGUOUS_RECORD_IDENTIFIER",
+              "REFERENCE_TO_INAPPROPRIATE_RECORD_KIND",
+              "UNGROUNDED_INTERPRETATION_CITED_AS_SUPPORT"
             ]
           },
           "definition": {
@@ -3419,6 +4074,130 @@
             "properties": {
               "failureId": {
                 "const": "ENGAGEMENT_TREATED_AS_APPROVAL"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNRESOLVED_EVIDENCE_REFERENCE"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNRESOLVED_EVIDENCE_REFERENCE"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "AMBIGUOUS_RECORD_IDENTIFIER"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "AMBIGUOUS_RECORD_IDENTIFIER"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "REFERENCE_TO_INAPPROPRIATE_RECORD_KIND"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "REFERENCE_TO_INAPPROPRIATE_RECORD_KIND"
+              },
+              "severity": {
+                "const": "HARD_FAIL"
+              }
+            },
+            "required": [
+              "failureId",
+              "severity"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNGROUNDED_INTERPRETATION_CITED_AS_SUPPORT"
+              }
+            },
+            "required": [
+              "failureId"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "failureId": {
+                "const": "UNGROUNDED_INTERPRETATION_CITED_AS_SUPPORT"
               },
               "severity": {
                 "const": "HARD_FAIL"

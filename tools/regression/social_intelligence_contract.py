@@ -10,12 +10,22 @@ quietly promoting itself into an action nobody authorised — a missing metric
 becoming a zero, a winner becoming a permanent rule, engagement becoming
 approval, a recommendation becoming a story transition.
 
-HONEST LIMIT: the runtime section below is a TARGETED SEMANTIC CHECKER, not a
-JSON Schema engine. It enforces the governance-bearing subset of the snapshot
-rules directly in Python, because this repository takes no dependency and the
-standard library ships no validator. It is therefore not proof of full schema
-conformance. That is why every rule it enforces is ALSO proved present in the
-schema documents by the structural checks in section H.
+HONEST LIMIT, two directions. The runtime section below is a TARGETED SEMANTIC
+CHECKER, not a JSON Schema engine: it enforces the governance-bearing subset of
+the snapshot rules directly in Python, because this repository takes no
+dependency and the standard library ships no validator. It is therefore not
+proof of full schema conformance, which is why every shape rule it enforces is
+ALSO proved present in the schema documents by the structural checks in
+section H.
+
+The converse also holds, and matters more. SCHEMA CONFORMANCE IS NOT SUFFICIENT
+EITHER. Draft 2020-12 has no keyword for cross-record resolution or for
+uniqueness by an arbitrary identifier property — `uniqueItems` compares whole
+items, so two records differing in any other field satisfy it while sharing an
+id. So a snapshot is accepted only when BOTH layers pass: the schema for the
+shape of each record, and semantic reference-integrity validation for the fact
+that every reference resolves to exactly one present record of a permitted kind
+and that no two records answer to the same identifier.
 
 Every fixture here is SYNTHETIC. No real account metric, no real campaign
 performance, no private audience history and no credential appears in this file
@@ -74,6 +84,29 @@ MECH_OPTIONAL = ["limitations"]
 REC_REQUIRED = ["recommendationRef", "targetRef", "recommendedAction", "truthClass",
                 "authorityClaimed", "evidenceRefs"]
 REC_OPTIONAL = ["storyAction", "limitations"]
+
+# Which record kinds a reference may point at. These sets preserve the reviewed
+# base exactly: this correction adds RESOLUTION of references, not a change to
+# which kinds may be cited. An interpretation is drawn FROM measurement, so it
+# cites raw evidence. An assessment and a recommendation may also rest on a
+# recorded interpretation. Nothing may cite a recommendation — a proposal is not
+# support — and nothing may cite a mechanism assessment, because the reviewed
+# base did not permit it and widening that set is not needed to repair a
+# resolution defect.
+RAW, INTERP, MECH, REC = ("RAW_EVIDENCE", "INTERPRETATION",
+                          "CREATIVE_MECHANISM_ASSESSMENT", "RECOMMENDATION")
+REF_TARGETS = {
+    "interpretations":               (RAW,),
+    "creativeMechanismAssessments":  (RAW, INTERP),
+    "fatigueAssessment":             (RAW, INTERP),
+    "recommendations":               (RAW, INTERP),
+}
+# The identifier field each record kind carries. All four share ONE identifier
+# space inside a snapshot, so a reference can never resolve to two records.
+ID_FIELDS = {"rawEvidence": ("evidenceRef", RAW),
+             "interpretations": ("interpretationRef", INTERP),
+             "creativeMechanismAssessments": ("assessmentRef", MECH),
+             "recommendations": ("recommendationRef", REC)}
 
 # Keys whose presence would carry private operational data into a public artefact.
 PRIVATE_KEYS = {"accountHandle", "accountId", "messageBody", "dmContent", "customerId",
@@ -146,6 +179,71 @@ def check_snapshot(sn):
     for k in ("snapshotRef", "subjectRef", "observationWindowRef"):
         if not isinstance(sn.get(k), str) or not sn.get(k):
             e.append(f"{k} must be a non-empty opaque reference")
+
+    # ---- identifier index, built before anything is resolved ----
+    # A reference is only meaningful if exactly one record answers to it. Two
+    # records sharing an id make every reference to that id ambiguous, and the
+    # ambiguity is silent: both readings look valid. So uniqueness is checked
+    # across the WHOLE snapshot, not per array — an interpretation named after a
+    # piece of evidence is the same defect as two pieces of evidence sharing a name.
+    # `x or []` passes a non-list straight through, so a collection that is not a
+    # list reaches enumerate() and raises. The per-collection loops below already
+    # report that as a violation; this pre-pass must not crash before they run,
+    # because a checker that raises tells a caller nothing about what is wrong.
+    def records(key):
+        value = sn.get(key)
+        return value if isinstance(value, list) else []
+
+    id_index = {}
+    for arr, (field, kind) in ID_FIELDS.items():
+        for i, rec in enumerate(records(arr)):
+            if not isinstance(rec, dict):
+                continue
+            rid = rec.get(field)
+            if not isinstance(rid, str) or not rid:
+                e.append(f"{arr}[{i}] has no usable {field}")
+                continue
+            if rid in id_index:
+                prev_arr, prev_i, prev_kind = id_index[rid]
+                e.append(f"ambiguous record identifier {rid!r}: {prev_arr}[{prev_i}] "
+                         f"({prev_kind}) and {arr}[{i}] ({kind}) both answer to it")
+            else:
+                id_index[rid] = (arr, i, kind)
+
+    def resolve(refs, where, arr_key):
+        """Every reference must resolve to exactly one record of a permitted kind."""
+        permitted = REF_TARGETS[arr_key]
+        if not isinstance(refs, list) or not refs:
+            e.append(f"{where} is unsupported — no supporting reference at all")
+            return
+        for ref in refs:
+            if not isinstance(ref, str) or not ref:
+                e.append(f"{where} carries a reference that is not a usable identifier")
+                continue
+            target = id_index.get(ref)
+            if target is None:
+                e.append(f"{where} references {ref!r}, which resolves to no record in "
+                         f"this snapshot — a non-empty string is not evidence")
+                continue
+            if target[2] not in permitted:
+                e.append(f"{where} references {ref!r}, which is a {target[2]}; this record "
+                         f"may only cite {', '.join(permitted)}")
+                continue
+            # Citing a conclusion is only support if that conclusion is itself
+            # grounded. Under the target rules above this is REDUNDANT — an
+            # interpretation that rests on nothing is already rejected on its own
+            # account, so this branch never fires alone. It is kept deliberately:
+            # it makes the guarantee local rather than emergent, so relaxing the
+            # interpretation target set later cannot silently lose it.
+            if target[2] == INTERP:
+                cited_all = records("interpretations")
+                cited = cited_all[target[1]] if target[1] < len(cited_all) else {}
+                cited_refs = cited.get("evidenceRefs") if isinstance(cited, dict) else None
+                grounded = [r for r in (cited_refs if isinstance(cited_refs, list) else [])
+                            if isinstance(r, str) and id_index.get(r, (None, None, None))[2] == RAW]
+                if not grounded:
+                    e.append(f"{where} references interpretation {ref!r}, which is not itself "
+                             f"grounded in any resolvable raw evidence")
 
     # ---- raw evidence: measurement, kept apart from conclusion ----
     ev_ids = set()
@@ -228,13 +326,7 @@ def check_snapshot(sn):
         if it.get("truthClass") != "INTERPRETATION":
             e.append(f"interpretations[{i}] truthClass {it.get('truthClass')!r} — a conclusion "
                      f"MUST NOT be recorded as fact or approval")
-        refs = it.get("evidenceRefs")
-        if not isinstance(refs, list) or not refs:
-            e.append(f"interpretations[{i}] has no evidence reference")
-        else:
-            for ref in refs:
-                if ref not in ev_ids:
-                    e.append(f"interpretations[{i}] references unknown evidence {ref!r}")
+        resolve(it.get("evidenceRefs"), f"interpretations[{i}]", "interpretations")
 
     # ---- creative mechanism assessments: a winner is a reading, never a rule ----
     exploiting = False
@@ -259,9 +351,8 @@ def check_snapshot(sn):
             if m.get(k) is not False:
                 e.append(f"creativeMechanismAssessments[{i}] {k} must be false — one strong "
                          f"result MUST NOT become permanent truth")
-        refs = m.get("evidenceRefs")
-        if not isinstance(refs, list) or not refs:
-            e.append(f"creativeMechanismAssessments[{i}] has no evidence reference")
+        resolve(m.get("evidenceRefs"), f"creativeMechanismAssessments[{i}]",
+                "creativeMechanismAssessments")
         if m.get("exploitationRecommended") is True:
             exploiting = True
 
@@ -283,14 +374,7 @@ def check_snapshot(sn):
                      f"recommendation is a PROPOSAL and never an approval, a fact or canon")
         if rc.get("authorityClaimed") != "NONE":
             e.append(f"recommendations[{i}] claims authority {rc.get('authorityClaimed')!r}")
-        refs = rc.get("evidenceRefs")
-        if not isinstance(refs, list) or not refs:
-            e.append(f"recommendations[{i}] is unsupported — no evidence or interpretation "
-                     f"reference")
-        else:
-            for ref in refs:
-                if ref not in ev_ids and ref not in int_ids:
-                    e.append(f"recommendations[{i}] references unknown support {ref!r}")
+        resolve(rc.get("evidenceRefs"), f"recommendations[{i}]", "recommendations")
         sa = rc.get("storyAction")
         if sa is not None:
             if not isinstance(sa, dict):
@@ -328,9 +412,8 @@ def check_snapshot(sn):
             e.append("fatigueAssessment is an interpretation, not a raw metric")
         if exploiting and not fa.get("evidenceRefs"):
             e.append("repetitive continuation is recommended with no fatigue evidence considered")
-        for ref in fa.get("evidenceRefs") or []:
-            if ref not in ev_ids and ref not in int_ids:
-                e.append(f"fatigueAssessment references unknown support {ref!r}")
+        if fa.get("evidenceRefs"):
+            resolve(fa.get("evidenceRefs"), "fatigueAssessment", "fatigueAssessment")
 
     # ---- the snapshot asserts nothing outside its authority ----
     aoa = sn.get("assertionsOutsideAuthority")
@@ -774,6 +857,63 @@ def main():
           "no supporting reference MUST NOT be recorded" in prov)
     check("    a reference is explicitly not a grant of authority",
           "not a grant of authority" in prov)
+    check("    every reference must resolve to exactly one record in the same snapshot",
+          "MUST resolve to exactly one record present in the same snapshot" in prov)
+    check("    and a non-empty string is explicitly not evidence",
+          "non-empty string is not evidence" in prov)
+
+    ri = c.get("referenceIntegrity", {})
+    check("39a. identifiers share one space per snapshot and are unique across it",
+          ri.get("identifierSpace") == "SNAPSHOT_GLOBAL"
+          and ri.get("identifiersUniqueWithinSnapshot") is True)
+    check("    identifiers stay opaque and no global format is defined",
+          ri.get("referencesAreOpaque") is True and ri.get("identifierFormatDefined") is False)
+    idf = {x.get("recordKind"): x for x in ri.get("identifierFields", [])}
+    check("    all four record kinds declare their collection and identifier field",
+          {k: (v.get("collection"), v.get("identifierField")) for k, v in idf.items()}
+          == {kind: (arr, field) for arr, (field, kind) in ID_FIELDS.items()},
+          str(sorted(idf)))
+    pt = {x.get("referringRecordKind"): x.get("mayReference") for x in ri.get("permittedTargets", [])}
+    check("39b. the permitted reference targets match what the checker enforces",
+          pt == {"INTERPRETATION": [RAW], "CREATIVE_MECHANISM_ASSESSMENT": [RAW, INTERP],
+                 "FATIGUE_ASSESSMENT": [RAW, INTERP],
+                 "RECOMMENDATION": [RAW, INTERP]}, str(pt))
+    check("    and they are unchanged from the reviewed base: this correction adds "
+          "resolution, not a wider target set",
+          all(tuple(pt[k]) == REF_TARGETS[a] for a, k in
+              (("interpretations", "INTERPRETATION"),
+               ("creativeMechanismAssessments", "CREATIVE_MECHANISM_ASSESSMENT"),
+               ("fatigueAssessment", "FATIGUE_ASSESSMENT"),
+               ("recommendations", "RECOMMENDATION"))), str(pt))
+    check("    nothing may rest on a recommendation or on a mechanism assessment",
+          ri.get("referenceToRecommendationPermitted") is False
+          and ri.get("referenceToMechanismAssessmentPermitted") is False
+          and all(REC not in v and MECH not in v for v in pt.values()))
+    check("    a cited interpretation must itself be grounded in raw evidence",
+          ri.get("citedInterpretationMustBeGrounded") is True)
+    check("    an unresolved reference is not permitted",
+          ri.get("unresolvedReferencePermitted") is False
+          and ri.get("nonEmptyStringIsSufficientEvidence") is False)
+
+    vm = c.get("validationModel", {})
+    check("39c. snapshot acceptance requires BOTH validation layers",
+          vm.get("snapshotAcceptanceRequires")
+          == ["JSON_SCHEMA_VALIDATION", "SEMANTIC_REFERENCE_INTEGRITY_VALIDATION"]
+          and vm.get("schemaValidationAloneIsSufficient") is False)
+    # The contract must not overclaim what a schema engine can do for it.
+    check("    and the contract does NOT claim JSON Schema enforces resolution or uniqueness",
+          vm.get("jsonSchemaEnforcesCrossRecordResolution") is False
+          and vm.get("jsonSchemaEnforcesIdentifierUniqueness") is False
+          and ri.get("enforceableByJsonSchemaAlone") is False)
+    check("    the committed validator stays standard-library only",
+          vm.get("committedValidatorUsesStandardLibraryOnly") is True)
+    check("    the object schema states its own scope rather than implying completeness",
+          "NECESSARY BUT NOT SUFFICIENT" in obj.get("description", "")
+          and "cross-record resolution" in obj.get("description", ""))
+    for f in ("UNRESOLVED_EVIDENCE_REFERENCE", "AMBIGUOUS_RECORD_IDENTIFIER",
+              "REFERENCE_TO_INAPPROPRIATE_RECORD_KIND"):
+        check(f"    named as a hard failure: {f}",
+              f in {x.get("failureId") for x in c.get("hardFailures", [])})
 
     priv = " ".join(c.get("privacyRules", []))
     check("40. the contract states this repository is PUBLIC", "PUBLIC" in priv)
@@ -1044,6 +1184,37 @@ def main():
           any("exploitationRecommended" in json.dumps(b.get("if", {})) for b in exploit_branch))
     check("    and a CONTINUE story recommendation requires it too",
           any('"CONTINUE"' in json.dumps(b.get("if", {})) for b in exploit_branch))
+    # These descriptions drifted out of agreement with REF_TARGETS once already,
+    # silently, because nothing compared them. Check them against the one source
+    # of truth rather than re-reading them by eye.
+    _DESC_SITES = {
+        "interpretations": op.get("interpretations", {}).get("items", {})
+                             .get("properties", {}).get("evidenceRefs", {}),
+        "creativeMechanismAssessments": op.get("creativeMechanismAssessments", {}).get("items", {})
+                             .get("properties", {}).get("evidenceRefs", {}),
+        "fatigueAssessment": op.get("fatigueAssessment", {})
+                             .get("properties", {}).get("evidenceRefs", {}),
+        "recommendations": op.get("recommendations", {}).get("items", {})
+                             .get("properties", {}).get("evidenceRefs", {}),
+    }
+    _drift = []
+    for _arr, _node in _DESC_SITES.items():
+        _d = _node.get("description", "")
+        _permits_interp = "OR one interpretation record" in _d
+        if _permits_interp != (INTERP in REF_TARGETS[_arr]):
+            _drift.append(f"{_arr}: description permits interpretation={_permits_interp}, "
+                          f"REF_TARGETS says {INTERP in REF_TARGETS[_arr]}")
+        if "creative mechanism assessment or a recommendation" not in _d and \
+           "may NOT cite another interpretation, a creative mechanism assessment" not in _d:
+            _drift.append(f"{_arr}: description does not bar citing an assessment or a recommendation")
+    check("60a. the object schema's reference descriptions agree with REF_TARGETS",
+          not _drift, str(_drift))
+    check("    and every one of them states that resolution is semantic-only",
+          all("checked by semantic reference-integrity validation" in n.get("description", "")
+              for n in _DESC_SITES.values()),
+          str([a for a, n in _DESC_SITES.items()
+               if "checked by semantic reference-integrity validation" not in n.get("description", "")]))
+
     check("61. the snapshot asserts nothing outside its authority",
           op.get("assertionsOutsideAuthority", {}).get("maxItems") == 0
           and "assertionsOutsideAuthority" in obj.get("required", []))
@@ -1136,6 +1307,134 @@ def main():
             "outside its authority")
     rejects("    the emitter claiming to be the measurement authority", emitter_auth,
             "not the authority for its measurements")
+    # ---- reference integrity: the review found all of these accepted ----
+    import copy as _copy
+
+    def dup_evidence(sn):
+        d = _copy.deepcopy(sn["rawEvidence"][0]); d["observedValue"] = 0
+        sn["rawEvidence"].append(d)
+
+    def dup_interpretation(sn):
+        d = _copy.deepcopy(sn["interpretations"][0]); d["statement"] = "the opposite conclusion"
+        sn["interpretations"].append(d)
+
+    def collide_namespaces(sn):
+        sn["interpretations"][0]["interpretationRef"] = "ev-shares"
+        sn["recommendations"][0]["evidenceRefs"] = ["ev-shares"]
+
+    rejects("84. a mechanism assessment citing a reference that resolves to nothing",
+            lambda sn: sn["creativeMechanismAssessments"][0].__setitem__(
+                "evidenceRefs", ["missing-evidence"]), "resolves to no record")
+    rejects("    an interpretation citing a reference that resolves to nothing",
+            lambda sn: sn["interpretations"][0].__setitem__(
+                "evidenceRefs", ["missing-evidence"]), "resolves to no record")
+    rejects("    a recommendation citing a reference that resolves to nothing",
+            lambda sn: sn["recommendations"][0].__setitem__(
+                "evidenceRefs", ["missing-evidence"]), "resolves to no record")
+    rejects("    fatigue citing a reference that resolves to nothing",
+            lambda sn: sn["fatigueAssessment"].__setitem__(
+                "evidenceRefs", ["missing-evidence"]), "resolves to no record")
+    rejects("85. two raw evidence records answering to one identifier",
+            dup_evidence, "ambiguous record identifier")
+    rejects("    two interpretations answering to one identifier",
+            dup_interpretation, "ambiguous record identifier")
+    rejects("86. an interpretation named after a piece of evidence",
+            collide_namespaces, "ambiguous record identifier")
+    rejects("87. an interpretation resting on another interpretation",
+            lambda sn: sn["interpretations"][0].__setitem__(
+                "evidenceRefs", ["int-resonance"]), "may only cite RAW_EVIDENCE")
+    rejects("88. a recommendation resting on another recommendation",
+            lambda sn: sn["recommendations"][0].__setitem__(
+                "evidenceRefs", ["rec-a"]), "is a RECOMMENDATION")
+    # The reviewed base rejected this. Permitting it would widen the target set,
+    # which no normative rule in that base supports and no reported defect needs.
+    rejects("    a recommendation resting on a mechanism assessment",
+            lambda sn: sn["recommendations"][0].__setitem__(
+                "evidenceRefs", ["mech-a"]), "is a CREATIVE_MECHANISM_ASSESSMENT")
+    # Grounding: asserted as a PROPERTY, not as a unique counterexample. Every
+    # shape of un-grounded interpretation is already rejected by the rule above,
+    # so no fixture isolates this branch; what matters is that the guarantee holds.
+    for _shape, _refs in (("empty", []), ("unresolved", ["nope"]),
+                          ("cites an interpretation", ["int-resonance"]),
+                          ("cites a recommendation", ["rec-a"])):
+        _sn = mutate(lambda sn, r=_refs: (
+            sn["interpretations"].append(
+                {"interpretationRef": "int-ungrounded", "kind": "resonance",
+                 "statement": "ungrounded reading", "truthClass": "INTERPRETATION",
+                 "evidenceRefs": r}),
+            sn["fatigueAssessment"].__setitem__("evidenceRefs", ["int-ungrounded"]))[0] and None)
+        _e = check_snapshot(_sn)
+        check(f"    an interpretation grounded in nothing ({_shape}) cannot be cited as support",
+              bool(_e) and any("not itself grounded" in x for x in _e), str(_e[:1]))
+    check("    every interpretation cited as support rests on resolvable raw evidence",
+          all(any(r in {x["evidenceRef"] for x in valid_snapshot()["rawEvidence"]}
+                  for r in it["evidenceRefs"])
+              for it in valid_snapshot()["interpretations"]))
+    rejects("    a reference that is not a usable identifier",
+            lambda sn: sn["interpretations"][0].__setitem__("evidenceRefs", [""]),
+            "not a usable identifier")
+    rejects("    a record with no usable identifier of its own",
+            lambda sn: sn["rawEvidence"][0].__setitem__("evidenceRef", ""),
+            "no usable evidenceRef")
+
+    # ---- positive controls: the rules must not over-reject ----
+    def accepts(label, fn):
+        e = check_snapshot(mutate(fn))
+        check(label, not e, str(e[:2]))
+
+    accepts("89. distinct identifiers across all four collections are accepted",
+            lambda sn: None)
+    accepts("    several records citing the SAME valid evidence are accepted",
+            lambda sn: [sn["interpretations"][0].__setitem__("evidenceRefs",
+                        ["ev-shares", "ev-shares", "ev-saves"]),
+                        sn["creativeMechanismAssessments"][0].__setitem__(
+                            "evidenceRefs", ["ev-shares"])] and None)
+    accepts("    a legitimate missing-data record is still accepted",
+            lambda sn: sn["rawEvidence"][2].__setitem__("availability", "UNAVAILABLE"))
+    accepts("    an untiered source-native metric may be cited as evidence",
+            lambda sn: sn["interpretations"][0].__setitem__("evidenceRefs", ["ev-native"]))
+    # The exact case the reviewed base accepted and an earlier draft of this
+    # correction wrongly rejected. It stays accepted, and the cited interpretation
+    # is required to be grounded in real evidence.
+    accepts("    fatigue may rest on a recorded interpretation (reviewed-base case)",
+            lambda sn: sn["fatigueAssessment"].__setitem__("evidenceRefs", ["int-resonance"]))
+    accepts("    a mechanism assessment may rest on a recorded interpretation",
+            lambda sn: sn["creativeMechanismAssessments"][0].__setitem__(
+                "evidenceRefs", ["int-resonance"]))
+    accepts("    a recommendation may rest on an interpretation (reviewed-base case)",
+            lambda sn: sn["recommendations"][0].__setitem__("evidenceRefs", ["int-resonance"]))
+    accepts("    a recommendation may rest on evidence directly",
+            lambda sn: sn["recommendations"][0].__setitem__("evidenceRefs", ["ev-shares"]))
+    # A checker that raises tells a caller nothing about what is wrong. The
+    # identifier pre-pass and the grounding walk both iterate collections, so a
+    # collection that is not a list must still come back as a violation list.
+    def returns_violations(label, fn):
+        try:
+            e = check_snapshot(mutate(fn))
+        except Exception as exc:
+            check(label, False, f"raised {type(exc).__name__}: {exc}")
+            return
+        check(label, bool(e), "accepted a malformed snapshot")
+
+    for _coll in ("rawEvidence", "interpretations", "creativeMechanismAssessments",
+                  "recommendations"):
+        returns_violations(f"    {_coll} is not a list -> violations, not an exception",
+                           lambda sn, c=_coll: sn.__setitem__(c, 1))
+    returns_violations("    interpretations[0].evidenceRefs is not a list -> violations, "
+                       "not an exception",
+                       lambda sn: sn["interpretations"][0].__setitem__("evidenceRefs", 1))
+    returns_violations("    fatigueAssessment.evidenceRefs is not a list -> violations, "
+                       "not an exception",
+                       lambda sn: sn["fatigueAssessment"].__setitem__("evidenceRefs", 1))
+    returns_violations("    a cited interpretation with a non-list evidenceRefs -> violations",
+                       lambda sn: (sn["interpretations"][0].__setitem__("evidenceRefs", 1),
+                                   sn["fatigueAssessment"].__setitem__(
+                                       "evidenceRefs", ["int-resonance"]))[0] and None)
+
+    check("90. the identifier space is exactly the four record kinds the contract declares",
+          sorted(k for _, (_, k) in ID_FIELDS.items()) == sorted(["RAW_EVIDENCE", "INTERPRETATION",
+          "CREATIVE_MECHANISM_ASSESSMENT", "RECOMMENDATION"]))
+
     check("83. the positive control still passes after every negative", not check_snapshot(valid_snapshot()))
 
     print("\nJ. registry bookkeeping")
@@ -1348,13 +1647,33 @@ def main():
           "open items" in low and "MUST NOT" in md)
     check("    and keeps the response-priority hierarchy out of the open list",
           "response-priority hierarchy is deliberately not among them" in low)
+    check("109. the markdown states a non-empty string is not evidence",
+          "a non-empty string is not evidence" in low)
+    check("    and that every reference must resolve to exactly one record",
+          "must resolve to exactly one record present in the same snapshot" in low)
+    check("    and that identifiers share one space per snapshot",
+          "one identifier space per snapshot" in low)
+    check("    and that nothing may cite a recommendation",
+          "nothing may cite a recommendation" in low)
+    check("110. the markdown states both validation layers are required",
+          "accepted only when both layers pass" in low)
+    check("    and does NOT claim JSON Schema alone enforces resolution or uniqueness",
+          "json schema alone does not enforce cross-record resolution or uniqueness" in low)
+    check("    and explains why uniqueItems does not provide it",
+          "uniqueitems compares whole items" in low)
 
     print(f"\n{len(PRIORITY)} locked priority signals in {len(TIERS)} tiers, "
           f"{len(c.get('hardFailures', []))} hard failures, "
           f"{len(c.get('nonAuthoritativeSources', []))} non-authoritative sources, "
           f"{len(c.get('openItems', []))} open items")
-    print("Runtime fixtures were checked by a targeted semantic checker, not a JSON Schema "
-          "engine; section H proves the same rules are encoded in the schema documents.")
+    print("Runtime fixtures were checked by a targeted semantic checker, not a JSON Schema engine.")
+    print("Section H proves the SHAPE rules are encoded in the schema documents: required fields, "
+          "closed vocabularies,")
+    print("closed objects and the availability-to-value binding. Reference RESOLUTION, permitted "
+          "target kind and")
+    print("identifier UNIQUENESS are semantic-only — Draft 2020-12 has no keyword for them, so "
+          "schema conformance")
+    print("alone does not establish them and a snapshot is accepted only when both layers pass.")
     print(f"SOCIAL INTELLIGENCE CONTRACT: {'PASS' if not failed else 'FAIL'} "
           f"({passed} passed, {failed} failed)")
     sys.exit(1 if failed else 0)
