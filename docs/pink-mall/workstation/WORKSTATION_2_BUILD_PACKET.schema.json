@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/workstation/WORKSTATION_2_BUILD_PACKET.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packetId",
+    "version",
+    "status",
+    "runtimeCreated",
+    "masterStation",
+    "campaignStation",
+    "logicalFlow",
+    "checkpoints",
+    "initialImageVariants",
+    "outputStates",
+    "qaDispositions",
+    "budgetModes",
+    "numericBudgetDefined",
+    "modelSelectionOwner",
+    "authorityGrants",
+    "requiredProvenance",
+    "cyberninjaPreBuildChecks",
+    "runtimeEvidenceRequired",
+    "privateDataAllowed"
+  ],
+  "properties": {
+    "packetId": {
+      "const": "PINK_MALL_WORKSTATION_2_BUILD_PACKET"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "const": "PRE_BUILD_SPECIFICATION"
+    },
+    "runtimeCreated": {
+      "const": false
+    },
+    "masterStation": {
+      "const": "PINK_MALL_HQ_MASTER_STATION"
+    },
+    "campaignStation": {
+      "const": "ONE_SEPARATE_STATION_PER_CAMPAIGN"
+    },
+    "logicalFlow": {
+      "const": [
+        "INPUT",
+        "CONTEXT",
+        "PHOTO_ARCHITECT",
+        "IMAGE",
+        "QA",
+        "VIDEO_OPTIONAL",
+        "COPY_ADAPTATIONS",
+        "FINAL",
+        "APPROVAL"
+      ]
+    },
+    "checkpoints": {
+      "const": [
+        "CONCEPT",
+        "IMAGES",
+        "VIDEO_OPTIONAL",
+        "FINAL"
+      ]
+    },
+    "initialImageVariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max",
+        "meaningfullyDifferent"
+      ],
+      "properties": {
+        "min": {
+          "const": 2
+        },
+        "max": {
+          "const": 3
+        },
+        "meaningfullyDifferent": {
+          "const": true
+        }
+      }
+    },
+    "outputStates": {
+      "const": [
+        "PROPOSAL",
+        "GENERATED_OUTPUT",
+        "CANDIDATE",
+        "REJECTED",
+        "APPROVED",
+        "PUBLISHED"
+      ]
+    },
+    "qaDispositions": {
+      "const": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ]
+    },
+    "budgetModes": {
+      "const": [
+        "ECONOMY",
+        "STANDARD",
+        "PREMIUM"
+      ]
+    },
+    "numericBudgetDefined": {
+      "const": false
+    },
+    "modelSelectionOwner": {
+      "const": "CLAUDE"
+    },
+    "authorityGrants": {
+      "const": []
+    },
+    "requiredProvenance": {
+      "const": [
+        "stationRef",
+        "campaignRef",
+        "checkpoint",
+        "outputRef",
+        "parentOutputRefWhenApplicable",
+        "executionProvider",
+        "executionModel",
+        "outputClass",
+        "qaDisposition"
+      ]
+    },
+    "cyberninjaPreBuildChecks": {
+      "const": [
+        "authenticated account",
+        "Workstation 2.0 accessible",
+        "graph/node editing",
+        "required node types",
+        "reliable node configuration",
+        "image generation/model routing",
+        "output provenance metadata",
+        "QA representation",
+        "station duplication/template",
+        "independent inspection"
+      ]
+    },
+    "runtimeEvidenceRequired": {
+      "const": true
+    },
+    "privateDataAllowed": {
+      "const": false
+    }
+  }
+}
