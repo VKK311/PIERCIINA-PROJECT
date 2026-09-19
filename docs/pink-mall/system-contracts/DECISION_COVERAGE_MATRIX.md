@@ -275,7 +275,7 @@ open.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
+| **Detailed canonical contract created** | YES — authored candidate; validator-checked |
 | **Target contract** | 07 — Super Brain Memory |
 | **Private detail required** | YES |
 
