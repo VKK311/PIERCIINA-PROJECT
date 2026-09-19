@@ -55,6 +55,7 @@ conditions are.
 | 04 | Social Intelligence | 1.0.0 | `tools/regression/social_intelligence_contract.py` |
 | 05 | Workstation Operating | 1.0.0 | `tools/regression/workstation_operating_contract.py` |
 | 06 | Automation & Approval | 1.0.0 | `tools/regression/automation_approval_contract.py` |
+| 07 | Super Brain Memory | 1.0.0 | `tools/regression/super_brain_memory_contract.py` |
 
 Contracts **05–07** now exist as authored candidates and have dedicated validators; Contract **08** does not yet exist.
 
