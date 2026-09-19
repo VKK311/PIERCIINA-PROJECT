@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/08_HQ_BLUEPRINT_CONTRACT.schema.json",
+  "title": "PINK MALL HQ Blueprint Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "contractNumber",
+    "parentContract",
+    "purpose",
+    "lockedSurface",
+    "role",
+    "runtimeExists",
+    "authorityGrants",
+    "noIndependentAuthority",
+    "authorityMap",
+    "hybridSurface",
+    "workstationRelationship",
+    "publicPrivate",
+    "openImplementationDecisions",
+    "hardFailures",
+    "scope"
+  ],
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_HQ_BLUEPRINT_CONTRACT"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "title": {
+      "const": "PINK MALL HQ Blueprint"
+    },
+    "status": {
+      "const": "CANDIDATE"
+    },
+    "contractNumber": {
+      "const": "08"
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "purpose": {
+      "const": "Public-safe blueprint and authority boundary for the planned PINK MALL HQ / Master Station."
+    },
+    "lockedSurface": {
+      "type": "array",
+      "minItems": 11,
+      "items": {
+        "type": "string"
+      }
+    },
+    "role": {
+      "const": "READ_COORDINATE_VISIBILITY"
+    },
+    "runtimeExists": {
+      "const": false
+    },
+    "authorityGrants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "noIndependentAuthority": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorityMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CURRENT_STORY",
+        "ACTIVE_CAMPAIGNS",
+        "WAITING_FOR_APPROVAL",
+        "RECENT_WINNER_SOCIAL_SIGNALS",
+        "CREATIVE_FATIGUE_VISIBILITY",
+        "NEXT_3_IDEAS",
+        "CREDIT_AND_COST_VISIBILITY",
+        "EXPERIMENT_LAB",
+        "WORLD_STORY_MAP",
+        "REJECTS_AND_LEARNINGS"
+      ],
+      "properties": {
+        "CURRENT_STORY": {
+          "const": "STORY_STATE_ENGINE"
+        },
+        "ACTIVE_CAMPAIGNS": {
+          "const": "CAMPAIGN_REGISTRY"
+        },
+        "WAITING_FOR_APPROVAL": {
+          "const": "CAMPAIGN_APPROVAL_OR_CAMPAIGN_REGISTRY"
+        },
+        "RECENT_WINNER_SOCIAL_SIGNALS": {
+          "const": "SOCIAL_PLATFORM_API_AND_SOCIAL_INTELLIGENCE_ENGINE"
+        },
+        "CREATIVE_FATIGUE_VISIBILITY": {
+          "const": "SOCIAL_INTELLIGENCE_ENGINE"
+        },
+        "NEXT_3_IDEAS": {
+          "const": "CAMPAIGN_CONTEXT_AND_OWNER_SELECTION"
+        },
+        "CREDIT_AND_COST_VISIBILITY": {
+          "const": "AUTHORITATIVE_BUDGET_OPERATIONAL_LAYER"
+        },
+        "EXPERIMENT_LAB": {
+          "const": "WORKSTATION_AND_CAMPAIGN_WORKFLOW"
+        },
+        "WORLD_STORY_MAP": {
+          "const": "STORY_STATE_ENGINE_AND_SUPER_BRAIN_SEMANTIC_CONTEXT"
+        },
+        "REJECTS_AND_LEARNINGS": {
+          "const": "WORKSTATION_AND_SUPER_BRAIN"
+        }
+      }
+    },
+    "hybridSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "simpleCreativeOverview",
+        "expandableTechnicalAuditDetail"
+      ],
+      "properties": {
+        "simpleCreativeOverview": {
+          "const": true
+        },
+        "expandableTechnicalAuditDetail": {
+          "const": true
+        }
+      }
+    },
+    "workstationRelationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hqMasterStation",
+        "separateStationPerCampaign",
+        "checkpoints",
+        "initialImageExploration",
+        "cyberninjASurfaceOpen"
+      ],
+      "properties": {
+        "hqMasterStation": {
+          "const": true
+        },
+        "separateStationPerCampaign": {
+          "const": true
+        },
+        "checkpoints": {
+          "const": [
+            "CONCEPT",
+            "IMAGES",
+            "VIDEO_IF_APPLICABLE",
+            "FINAL"
+          ]
+        },
+        "initialImageExploration": {
+          "const": "2-3 meaningfully different variants"
+        },
+        "cyberninjASurfaceOpen": {
+          "const": true
+        }
+      }
+    },
+    "publicPrivate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repositoryPublic",
+        "privateOperationalDataPublic",
+        "privateStrategyPublic",
+        "realSpendPublic",
+        "realCreditBalancesPublic",
+        "credentialsPublic",
+        "secretsPublic"
+      ],
+      "properties": {
+        "repositoryPublic": {
+          "const": true
+        },
+        "privateOperationalDataPublic": {
+          "const": false
+        },
+        "privateStrategyPublic": {
+          "const": false
+        },
+        "realSpendPublic": {
+          "const": false
+        },
+        "realCreditBalancesPublic": {
+          "const": false
+        },
+        "credentialsPublic": {
+          "const": false
+        },
+        "secretsPublic": {
+          "const": false
+        }
+      }
+    },
+    "openImplementationDecisions": {
+      "type": "array",
+      "minItems": 15,
+      "items": {
+        "type": "string"
+      }
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementationProvidedByThisContract",
+        "createsHQRuntime",
+        "createsCampaignRegistry",
+        "createsApprovalService",
+        "createsBudgetLedger",
+        "createsWorkstationRuntime",
+        "createsSuperBrainRuntime",
+        "createsStoryStateEngine",
+        "createsSocialIntelligenceEngine",
+        "createsPrivateOpsStore"
+      ],
+      "properties": {
+        "implementationProvidedByThisContract": {
+          "const": false
+        },
+        "createsHQRuntime": {
+          "const": false
+        },
+        "createsCampaignRegistry": {
+          "const": false
+        },
+        "createsApprovalService": {
+          "const": false
+        },
+        "createsBudgetLedger": {
+          "const": false
+        },
+        "createsWorkstationRuntime": {
+          "const": false
+        },
+        "createsSuperBrainRuntime": {
+          "const": false
+        },
+        "createsStoryStateEngine": {
+          "const": false
+        },
+        "createsSocialIntelligenceEngine": {
+          "const": false
+        },
+        "createsPrivateOpsStore": {
+          "const": false
+        }
+      }
+    }
+  }
+}
