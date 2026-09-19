@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | Canonical branch | `claude/pink-mall-development` |
 | Storefront | `PINKMALL.html` — PM-001…PM-046, next unallocated ID **PM-047** |
-| Contracts | **00–04 canonical**; **05–07 authored candidates**; 08 not yet authored |
-| Next contract | **07 — Super Brain Memory** (`PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT`) |
+| Contracts | **00–04 canonical**; **05–08 authored candidates** |
+| Next contract | **Contract layer complete — next phase is runtime/build preparation** |
 | Active hold | **953FLR1358** — identity not established, not published |
 | Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
 | Open follow-ups | two, recorded under **Tracked follow-ups** below |
@@ -57,7 +57,7 @@ conditions are.
 | 06 | Automation & Approval | 1.0.0 | `tools/regression/automation_approval_contract.py` |
 | 07 | Super Brain Memory | 1.0.0 | `tools/regression/super_brain_memory_contract.py` |
 
-Contracts **05–07** now exist as authored candidates and have dedicated validators; Contract **08** does not yet exist.
+Contracts **05–08** now exist as authored candidates and have dedicated validators.
 
 The normative rules are **not duplicated here**. Read them at the source:
 
@@ -1301,3 +1301,14 @@ Contract 07 was authored on claude/pink-mall-development as four public-safe art
 The contract preserves the locked memory model: structured clusters plus free graph relationships; Campaign Memory after campaigns; durable learning only with repeated evidence, sufficient signal or explicit owner confirmation; no automatic permanence from one viral result; stable/emerging/declining/retired preference drift; periodic maintenance; GitHub as factual authority; and no authority for Product Truth, approval, operational state, raw metrics or publication.
 
 Contract 07 remains CANDIDATE in lifecycle provenance. The exact private storage schema, API bridge, private memory content and other open implementation decisions remain intentionally undefined. This is a contract check, not evidence that a Super Brain runtime exists. The next domain is Contract 08.
+
+
+## Contract 08 checkpoint
+
+Contract 08 was authored on claude/pink-mall-development as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side independent structural execution against the branch files returned **15/15 PASS**.
+
+The contract preserves the locked HQ blueprint: CURRENT STORY, ACTIVE CAMPAIGNS, WAITING FOR APPROVAL, recent winner/social signals, creative-fatigue visibility, NEXT 3 IDEAS, credit/cost visibility, EXPERIMENT LAB, WORLD/STORY MAP, REJECTS & LEARNINGS, and the hybrid simple-overview/expandable-audit surface.
+
+Contract 08 remains CANDIDATE in lifecycle provenance. It grants no Product Truth, Human Identity, Story State, approval, spend, publication, raw-metric or autonomous execution authority. HQ remains PLANNED; the contract is not evidence that an HQ runtime or any dependent campaign system exists.
+
+**Contract layer 00–08 is now authored.** The next work is runtime/build preparation, with CyberNinjas Studio remaining only PARTIAL in the current Contract 00 source registry. No Workstation runtime has been claimed.
