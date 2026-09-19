@@ -7,7 +7,7 @@ than all at once.
 
 Contracts **01 — Campaign Context**, **02 — Product Creative** and
 **03 — Character & Story** have been authored: their files exist in this
-lineage. Domains **05–08** are still awaiting their detailed contracts. File existence does **not** by itself
+lineage. Domain **08** is still awaiting its detailed contract. File existence does **not** by itself
 establish canonicality — that is decided only by the four conditions in
 `00_SYSTEM_AUTHORITY_CONTRACT`.
 
@@ -345,8 +345,8 @@ open.
 | 3 | INA/SIS Character & Story | YES | AUTHORED — files exist in this lineage | 03 | YES |
 | 4 | Story Engine + Social Intelligence | YES | AUTHORED — files exist in this lineage | 03, 04 | YES |
 | 5 | Workstation Operating Model | YES | YES — authored candidate; validator-checked | 05 | NO |
-| 6 | Approval / Automation | YES | NO — awaiting | 06 | NO |
-| 7 | Super Brain Memory | YES | NO — awaiting | 07 | YES |
+| 6 | Approval / Automation | YES | YES — authored candidate; validator-checked | 06 | NO |
+| 7 | Super Brain Memory | YES | YES — authored candidate; validator-checked | 07 | YES |
 | 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
 
 Eight domains, eight sets of locked structural decisions preserved above. Domain
