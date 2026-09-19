@@ -16,7 +16,7 @@ canonical build by hash before treating it as canonical.
 | Contracts | **00–04 canonical**; 05–08 not yet authored |
 | Next contract | **05 — Workstation Operating** (`PINK_MALL_WORKSTATION_OPERATING_CONTRACT`) |
 | Active hold | **953FLR1358** — identity not established, not published |
-| Approved but unpublished media | `docs/pink-mall/approval-media/PM-025/` (see the note under **Catalog**) |
+| Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
 | Open follow-ups | two, recorded under **Tracked follow-ups** below |
 
 **Two independent tracks, and conflating them is the main risk this file
