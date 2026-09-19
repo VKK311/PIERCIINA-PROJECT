@@ -12,7 +12,7 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | Canonical branch | `claude/pink-mall-development` |
 | Storefront | `PINKMALL.html` — PM-001…PM-046, next unallocated ID **PM-047** |
-| Contracts | **00–04 canonical**; **05–06 authored candidates**; 07–08 not yet authored |
+| Contracts | **00–04 canonical**; **05–07 authored candidates**; 08 not yet authored |
 | Next contract | **07 — Super Brain Memory** (`PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT`) |
 | Active hold | **953FLR1358** — identity not established, not published |
 | Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
@@ -78,7 +78,7 @@ validators before relying on them at any later commit.
 
 Contract 05 was authored on `claude/pink-mall-development` as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side structural execution of the validator logic returned **21/21 PASS** against the branch files. This is a validator check, not evidence that a Workstation runtime exists.
 
-The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval, publication, spend, Product Truth, Human Identity or autonomous authority. The next domain is Contract 07.
+The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval, publication, spend, Product Truth, Human Identity or autonomous authority. The next domain at that historical checkpoint was Contract 06.
 
 ## Tracked follow-ups
 
