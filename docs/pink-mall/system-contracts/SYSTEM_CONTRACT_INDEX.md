@@ -51,7 +51,8 @@ because it was replaced, not because its historical review stopped counting.
    narrative role, relationship state and story canon.
 7. `04_SOCIAL_INTELLIGENCE_CONTRACT.md` — how social evidence becomes
    interpretation and recommendation, and where that chain must stop.
-8. The domain contract for the work in hand, once it exists.
+8. `05_WORKSTATION_OPERATING_CONTRACT.md` — how approved campaign work is organised into stations, checkpoints, candidates and QA boundaries.
+9. The domain contract for the work in hand, once it exists.
 
 ## Current contract set
 
@@ -62,6 +63,7 @@ because it was replaced, not because its historical review stopped counting.
 | 02 | **Product Creative** | `02_PRODUCT_CREATIVE_CONTRACT.md` / `.json` / `.schema.json`, plus `02_PRODUCT_CREATIVE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 03 | **Character & Story** | `03_CHARACTER_STORY_CONTRACT.md` / `.json` / `.schema.json`, plus `03_STORY_STATE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 04 | **Social Intelligence** | `04_SOCIAL_INTELLIGENCE_CONTRACT.md` / `.json` / `.schema.json`, plus `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
+| 05 | **Workstation Operating** | `05_WORKSTATION_OPERATING_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
@@ -116,10 +118,19 @@ Story State transition. The owner's **response-priority hierarchy** is preserved
 **qualitative** order — no weight, score or ratio is defined, and numeric weighting
 remains an open question.
 
+Contract 05 is **authoring only** in the same way. It defines the planned Workstation
+operating boundary and `05_WORKSTATION_OPERATING_CONTRACT.schema.json` defines the
+public-safe machine-readable structure. **No Workstation runtime, campaign station
+instance, reusable station template or automated paid-generation runner exists by
+virtue of these files.** Current lifecycle values remain owned by Contract 00's
+source registry.
+
 ## Planned contracts — NOT YET CREATED
 
 The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
-canonical domain contracts.
+canonical domain contracts. Contract 05 has moved out of this planned list into
+the current authored set above; it is still a candidate contract and is not being
+called canonical merely because it exists.
 
 Their *domains*, however, may already contain **locked owner decisions**,
 recorded in `DECISION_COVERAGE_MATRIX.md`. Those locked decisions are valid
@@ -130,7 +141,7 @@ No later phase starts from a blank page.
 
 | # | Contract | Covers | Status |
 |---|---|---|---|
-| 05 | Workstation Operating | node architecture, workflow graph, run model | NOT YET CREATED |
+| 05 | Workstation Operating | node architecture, workflow graph, run model | AUTHORED — candidate, validator-checked |
 | 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | NOT YET CREATED |
 | 07 | Super Brain Memory | memory schema, write rules, staleness handling | NOT YET CREATED |
 | 08 | PINK MALL HQ | HQ blueprint and operating surface | NOT YET CREATED |
