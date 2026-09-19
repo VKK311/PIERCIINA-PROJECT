@@ -66,7 +66,20 @@ Approved JQ4556 media, restored byte-exact and hash-verified:
 | 03 | 10 290 | `7109e8007d878498c7935f33b19464d3e20fded2d70d618719e03cd113dae6a1` |
 | 04 | 10 242 | `36c7c06e99cebbe8b58ef675b14417fa8b04edd4c25b75b21a656b029a11e13e` |
 
-## Current checkpoint state
+## Current state lives in PROJECT_STATE.md
+
+**This policy does not record current state.** Catalogue extent, next Mall ID,
+holds, contract status and open items are all in
+[`PROJECT_STATE.md`](PROJECT_STATE.md), which is the single place they are
+maintained. Duplicating them here produced a table that went stale and
+contradicted the real state for weeks.
+
+### Superseded current-state table — 2026-08-25
+
+> **Historical, retained only to show what this section used to assert.** Every
+> row is false now: the public catalogue is PM-001…PM-046, the next Mall ID is
+> PM-047, and PM-025 was published on 2026-08-25 with JQ4556 in
+> `PINK_MALL_PRODUCTS`. Do not read any row as current.
 
 | | |
 |---|---|
@@ -78,7 +91,8 @@ Approved JQ4556 media, restored byte-exact and hash-verified:
 
 ## Known open items
 
-None. See `PROJECT_STATE.md` for live status.
+See `PROJECT_STATE.md` for live status and for the tracked follow-ups. This
+policy tracks none of its own.
 
 Resolved since this policy was written: the per-image alt gap (the engine now
 renders authored `media.imageAlt` / `media.galleryAlt[]`), the calibration

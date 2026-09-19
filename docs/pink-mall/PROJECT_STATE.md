@@ -1,10 +1,97 @@
 # PINK MALL — project state
 
-Updated: PM-045 and PM-046 publication; 953FLR1358 held.
-Status: **PM-001…PM-046 PUBLISHED.**
+Updated: **2026-09-19** — Contract 04 promoted to canonical development
+(`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
+Storefront status: **PM-001…PM-046 PUBLISHED**, unchanged since 2026-08-31.
 
 This file records the real state. Trust it over any summary, and verify the
 canonical build by hash before treating it as canonical.
+
+## Current state at a glance
+
+| | |
+|---|---|
+| Canonical branch | `claude/pink-mall-development` |
+| Storefront | `PINKMALL.html` — PM-001…PM-046, next unallocated ID **PM-047** |
+| Contracts | **00–04 canonical**; 05–08 not yet authored |
+| Next contract | **05 — Workstation Operating** (`PINK_MALL_WORKSTATION_OPERATING_CONTRACT`) |
+| Active hold | **953FLR1358** — identity not established, not published |
+| Approved but unpublished media | `docs/pink-mall/approval-media/PM-025/` (see the note under **Catalog**) |
+| Open follow-ups | two, recorded under **Tracked follow-ups** below |
+
+**Two independent tracks, and conflating them is the main risk this file
+guards against.** The storefront is built and live. The campaign systems are
+specified and not built.
+
+| Track | State |
+|---|---|
+| Product / storefront engine | **BUILT** — real product engine, media presentation, publication regression, media acquisition |
+| Campaign systems (Campaign Context Builder, Story State Engine, Social Intelligence Engine, Super Brain, Workstation) | **SPECIFIED ONLY — no runtime exists** |
+
+**A canonical contract is not a running system.** Contracts 00–04 define who is
+authoritative for what, and none of them implements anything. Which systems
+actually exist is recorded in contract 00's source registry, not here and not
+inferred from a contract's existence. As of this checkpoint that registry lists
+`OWNER`, `CANONICAL_REPOSITORY`, `PRODUCT_ONBOARDING_SYSTEM`, `AVATAR_SKILL`,
+`FASHION_CONTEXT_BUILDER`, `CLAUDE_ORCHESTRATOR`, `MODEL_MEMORY` and
+`CHAT_HISTORY` as `ACTIVE`; `CYBERNINJAS_STUDIO` as `PARTIAL`; and
+`CAMPAIGN_REGISTRY`, `STORY_STATE_ENGINE`, `SOCIAL_PLATFORM_API`,
+`SOCIAL_INTELLIGENCE_ENGINE`, `SUPER_BRAIN`, `WORKSTATION` and
+`PRIVATE_OPS_STORE` as `PLANNED`. Read the registry for the live values rather
+than trusting this paragraph.
+
+## System contracts
+
+Contracts **00, 01, 02, 03 and 04** each satisfy all four canonicality
+conditions at this checkpoint. Their statuses read `CANDIDATE`, which is
+location-neutral provenance and **not** a canonicality test — the four
+conditions are.
+
+| # | Contract | Version | Validator |
+|---|---|---|---|
+| 00 | System Authority | 1.0.1 | `tools/regression/system_authority_contract.py` |
+| 01 | Campaign Context | 1.0.0 | `tools/regression/campaign_context_contract.py` |
+| 02 | Product Creative | 1.0.0 | `tools/regression/product_creative_contract.py` |
+| 03 | Character & Story | 1.0.0 | `tools/regression/character_story_contract.py` |
+| 04 | Social Intelligence | 1.0.0 | `tools/regression/social_intelligence_contract.py` |
+
+Contracts **05–08 do not exist**. No `05_*`…`08_*` files are present.
+
+The normative rules are **not duplicated here**. Read them at the source:
+
+- [`system-contracts/SYSTEM_CONTRACT_INDEX.md`](system-contracts/SYSTEM_CONTRACT_INDEX.md)
+  — the four canonicality conditions, the current and planned contract sets,
+  and the public/private boundary.
+- [`system-contracts/DECISION_COVERAGE_MATRIX.md`](system-contracts/DECISION_COVERAGE_MATRIX.md)
+  — which owner decisions are locked, which are carried by a canonical
+  contract, and which are genuinely open.
+
+**Validation attribution.** The counts recorded for this checkpoint — 131 / 147
+/ 354 / 318 / 292, totalling 1242 passing checks across the five contract
+validators — were produced during the Contract 04 promotion at
+`7c331bc` and reproduced independently by the reviewer. They are a record of
+that checkpoint, not a test run performed while writing this file. Re-run the
+validators before relying on them at any later commit.
+
+## Tracked follow-ups
+
+Two open items, deliberately kept separate because they have different
+triggers. Neither blocks contract authoring.
+
+1. **Contract 04 — three pre-existing malformed-input crash cases.**
+   `check_snapshot()` raises `TypeError` instead of returning violations when an
+   identifier is an unhashable value: `subjectType={}`,
+   `rawEvidence[0].evidenceRef={}`, `interpretations[0].interpretationRef={}`.
+   These predate the reviewed correction and sit on lines it does not touch.
+   Non-blocking; a checker should report rather than crash.
+2. **Contract 00 — lifecycle-transition validator debt.**
+   `tools/regression/system_authority_contract.py` hard-codes `PLANNED_SOURCES`
+   (check 14) and requires `PRIVATE_OPS_STORE` to remain `PLANNED` (check 16).
+   Current repository state satisfies both, so this is **non-blocking for
+   contract authoring**. It becomes **blocking before any governed system
+   actually moves from `PLANNED` to `ACTIVE`/`PARTIAL`, or before a private ops
+   store is created** — at that point contract 00's own validator would fail on
+   a legitimate change.
 
 ## Canonical
 
@@ -53,6 +140,41 @@ canonical build by hash before treating it as canonical.
 | A2245 | **PUBLISHED as PM-045** on 2026-08-31 — Minions Spread Happiness Strawberry candle; first real product in CANDLES; media `USER_SUPPLIED` |
 | LW12954 | **PUBLISHED as PM-046** on 2026-08-31 — Liewood Cornelius Snack Box, Cat, Dark Rose; first real product in HOME; media `USER_SUPPLIED` |
 | 953FLR1358 | **HELD** since 2026-08-31 — cat bed submitted as "Paws & Whiskers"; SKU indexes nowhere and the sewn tag in the owner photographs carries a different wordmark. Media preserved; see `docs/pink-mall/media-acquisition/953FLR1358/HOLD.md` |
+
+### Holds — current
+
+| Article | State | Evidence |
+|---|---|---|
+| `953FLR1358` | **HELD** since 2026-08-31 — identity not established; no `PM-###` allocated | [`media-acquisition/953FLR1358/HOLD.md`](media-acquisition/953FLR1358/HOLD.md) |
+
+This is the only hold verified as **currently active** at this checkpoint, by
+the presence of its `HOLD.md` record on disk.
+
+### Holds and blocks — historical, resolved
+
+Kept as provenance. None of these is a current constraint.
+
+| Article | Was | Now |
+|---|---|---|
+| `134-200-409` | BLOCKED — PHOTO SET INCOMPLETE | **PUBLISHED as PM-037**, unblocked by owner-supplied photographs |
+| `SPARKS/G/S 8CQ` | PHOTO SET INCOMPLETE, not staged | **PUBLISHED as PM-040** |
+| `TU0A28Z0699` | `DISCOVERY_TRANSPORT_BLOCKED` | **PUBLISHED as PM-033**; the earlier blocked conclusion was itself found wrong |
+| `JR5952`, `A08745C` | BLOCKED / UNRESOLVED | **PUBLISHED as PM-028 / PM-027**; superseded records under `checkpoints/SUPERSEDED_*.md` |
+
+**Sections further down this file that describe these as blocked or unstaged
+are historical records of how each was resolved.** Each is labelled at its
+heading. Read the table above for current state.
+
+### Approved media not under `assets/`
+
+`docs/pink-mall/approval-media/PM-025/` holds the approved JQ4556 source set.
+Its `README.md` still describes PM-025 as *"NOT PUBLISHED"*, which is **stale**:
+PM-025 is published, its media are live under
+`assets/pink-mall/products/PM-025/`, and it appears in the canonical build. The
+directory is retained as a byte-exact provenance archive of the approved
+originals. Correcting that README is outside the scope of this documentation
+checkpoint and is **not** tracked as a follow-up above because it carries no
+operational risk — but do not read it as an open approval.
 
 ## Media acquisition automation
 
@@ -737,11 +859,16 @@ mix aspect ratios.
 Files were copied rather than re-encoded — they were already WebP, and a second
 pass would only have cost quality — so the live hashes equal the originals'.
 
-## SPARKS/G/S 8CQ — PHOTO SET INCOMPLETE (identity established)
+## SPARKS/G/S 8CQ — SUPERSEDED (record of the incomplete-photo-set stage)
+
+> **Historical.** This article was subsequently **published as PM-040** on
+> 2026-08-29. The `not staged, not published` state below is the position
+> before that publication and is retained to record how identity was
+> established from the frame's own temple print.
 
 | | |
 |---|---|
-| STATE | **not staged, not published** |
+| STATE | **not staged, not published** — superseded; see PM-040 in the catalogue |
 | BRAND / MODEL | Jimmy Choo / Sparks (Safilo licence) |
 | ITEM | `SPARKS/G/S`, colourway **8CQ** (sold as 8CQ/U1), 55-17-140 |
 | CATEGORY | ACCESSORIES, `subcategory: null` |
@@ -1002,10 +1129,14 @@ a **child-series article**, so the classification stays internal and the honest
 size signal for a buyer is dimensions — publishable only once a document
 states them.
 
-## Next step
+## Next step — SUPERSEDED (records the position as of 2026-08-27)
 
-Next Mall ID is **PM-033**, unallocated until a product is actually published.
-Nothing is awaiting approval: the approval queue is empty.
+> **Historical.** The claims below were true when written and are false now:
+> the next Mall ID is **PM-047**, not PM-033 — PM-033 through PM-046 were
+> published between 2026-08-27 and 2026-08-31. The statement that the approval
+> queue was empty describes that date only; this checkpoint makes **no claim**
+> about the current queue, because absence of a record is not evidence of an
+> empty queue. See **Current state at a glance** at the top of this file.
 
 Eight real supplier products now exist — PM-025 through PM-032. Four have
 manufacturer-official media (PM-026, PM-029, PM-030, PM-031); PM-025, PM-027
