@@ -1,0 +1,288 @@
+{
+  "contractId": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT",
+  "version": "1.0.0",
+  "title": "Workstation Operating",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "05",
+  "dependsOn": [
+    {
+      "contractId": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+      "contractNumber": "00",
+      "dependency": "Constitutional authority, truth classes, public/private boundary and canonicality rules."
+    },
+    {
+      "contractId": "PINK_MALL_PRODUCT_CREATIVE_CONTRACT",
+      "contractNumber": "02",
+      "dependency": "Product Lock and separation of campaign media from canonical commerce media."
+    },
+    {
+      "contractId": "PINK_MALL_CHARACTER_AND_STORY_CONTRACT",
+      "contractNumber": "03",
+      "dependency": "Human Identity, narrative continuity and Story State boundaries."
+    }
+  ],
+  "deferredBoundaries": [
+    {
+      "contractNumber": "06",
+      "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Approval flow, budget ceilings, credit limits, correction-spend rules, publication authority and earned autonomy."
+    },
+    {
+      "contractNumber": "07",
+      "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "Semantic memory schema, durable-learning write policy, memory graph and staleness handling."
+    },
+    {
+      "contractNumber": "08",
+      "contractId": "PINK_MALL_HQ_CONTRACT",
+      "relationship": "RESPONSIBILITY_DEFERRED_TO",
+      "existenceOwnedHere": false,
+      "existenceRecordedIn": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md",
+      "boundary": "HQ operating surface, visibility, connectors and presentation of workstation state."
+    }
+  ],
+  "deferredBoundaryRule": "This contract records which responsibilities belong elsewhere, never whether the receiving contract currently exists. Runtime existence remains owned by Contract 00's source registry.",
+  "inheritance": "Inherits every rule of PINK_MALL_SYSTEM_AUTHORITY_CONTRACT and MUST NOT contradict it. Status is provenance only; canonicality follows Contract 00.",
+  "purpose": "Define the public-safe operating boundary for the planned PINK MALL Workstation without inventing unresolved implementation details.",
+  "scope": {
+    "covers": [
+      "HQ/Master Station and per-campaign station structure",
+      "checkpoint lifecycle",
+      "candidate and output states",
+      "provenance and lineage",
+      "initial image exploration",
+      "conceptual budget modes",
+      "QA and approval boundary",
+      "rejection and rework"
+    ],
+    "doesNotCover": [
+      "CyberNinjas node implementation",
+      "provider-specific routing",
+      "budget ceilings",
+      "approval authority",
+      "publication authority",
+      "Super Brain storage",
+      "HQ UI implementation"
+    ],
+    "note": "Rules and schema only; no runtime is created by this contract.",
+    "implementationProvidedByThisContract": false
+  },
+  "operatingModel": {
+    "masterStation": "PINK_MALL_HQ_MASTER_STATION",
+    "campaignStation": "ONE_SEPARATE_STATION_PER_CAMPAIGN",
+    "approvedIdeaAllowsStationConstructionWithoutSecondArchitectureApproval": true,
+    "constructionDoesNotGrantPublicationAuthority": true,
+    "constructionDoesNotGrantSpendAuthority": true,
+    "constructionDoesNotAlterProductTruth": true,
+    "constructionDoesNotAlterHumanIdentity": true
+  },
+  "checkpoints": [
+    {
+      "checkpointId": "CONCEPT",
+      "required": true,
+      "meaning": "Approved campaign idea represented as an executable creative brief.",
+      "requiresPriorOwnerIdeaApproval": true
+    },
+    {
+      "checkpointId": "IMAGES",
+      "required": true,
+      "meaning": "Candidate image directions generated and evaluated.",
+      "requiresInitialExploration": true
+    },
+    {
+      "checkpointId": "VIDEO",
+      "required": false,
+      "meaning": "Optional video work when the campaign requires video.",
+      "requiresInitialExploration": false
+    },
+    {
+      "checkpointId": "FINAL",
+      "required": true,
+      "meaning": "Candidate package assembled for final QA and approval.",
+      "isPublicationAuthority": false
+    }
+  ],
+  "checkpointOrder": [
+    "CONCEPT",
+    "IMAGES",
+    "VIDEO",
+    "FINAL"
+  ],
+  "initialImageExploration": {
+    "status": "LOCKED",
+    "normalVariantCountMin": 2,
+    "normalVariantCountMax": 3,
+    "meaningfullyDifferentRequired": true,
+    "quantityIsUniversalFixedQuota": false,
+    "productDriftAllowed": false,
+    "identitySubstitutionAllowed": false
+  },
+  "modelSelection": {
+    "decisionOwner": "CLAUDE",
+    "isFactualAuthority": false,
+    "providerFrozen": false,
+    "modelFrozen": false,
+    "promptTemplateFrozen": false
+  },
+  "budgetModes": {
+    "locked": true,
+    "modes": [
+      "ECONOMY",
+      "STANDARD",
+      "PREMIUM"
+    ],
+    "numericCeilingsDefined": false,
+    "creditsDefined": false,
+    "correctionSpendDefined": false,
+    "providerPricesDefined": false,
+    "modeNameIsNumericAuthority": false,
+    "authorityContractNumber": "06"
+  },
+  "states": {
+    "vocabulary": [
+      "PROPOSAL",
+      "GENERATED_OUTPUT",
+      "CANDIDATE",
+      "REJECTED",
+      "APPROVED",
+      "PUBLISHED"
+    ],
+    "generationStartsAs": "GENERATED_OUTPUT",
+    "generatedOutputMayAutoBecomeApproved": false,
+    "generatedOutputMayAutoBecomePublished": false,
+    "checkpointCompletionMayAutoBecomePublished": false,
+    "silenceIsApproval": false
+  },
+  "provenance": {
+    "required": true,
+    "minimumFields": [
+      "stationRef",
+      "campaignRef",
+      "checkpoint",
+      "outputRef",
+      "parentOutputRefWhenApplicable",
+      "executionProvider",
+      "executionModel",
+      "outputClass",
+      "qaDisposition"
+    ],
+    "opaqueRuntimeIdentifiersPreferred": true,
+    "privateDataInPublicRepo": false
+  },
+  "truthBoundaries": {
+    "productTruthAuthority": "PRODUCT_ONBOARDING_SYSTEM",
+    "canonicalCommerceMediaMayBeReplacedByCampaignMedia": false,
+    "humanIdentityAuthority": "AVATAR_SKILL",
+    "sisterSubstitutionAllowed": false,
+    "generatedLikenessIsIdentityEvidence": false
+  },
+  "qaBoundary": {
+    "candidateRequiresDisposition": true,
+    "dispositions": [
+      "PASS",
+      "FAIL",
+      "UNRESOLVED"
+    ],
+    "failedCandidateMayBeSilentlyPromoted": false,
+    "reworkPreservesLineage": true,
+    "numericSimilarityToleranceDefined": false,
+    "approvalThresholdDefined": false,
+    "publicationRuleDefined": false
+  },
+  "rework": {
+    "allowed": true,
+    "failedAttemptMustRemainTraceable": true,
+    "additionalPaidCorrectionSpendRequiresOwnerReview": true,
+    "spendRuleAuthorityContractNumber": "06"
+  },
+  "runtimeBoundary": {
+    "runtimeExistsClaimed": false,
+    "stationTemplateExistsClaimed": false,
+    "cyberninjasGraphExistsClaimed": false,
+    "automatedPaidRunnerExistsClaimed": false,
+    "campaignInstanceExistsClaimed": false,
+    "implementationStateOwnedBy": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.WORKSTATION"
+  },
+  "openDecisions": [
+    "exact CyberNinjas node implementation",
+    "programmatic control coverage",
+    "station-template serialization",
+    "runtime persistence technology",
+    "provider/model routing mechanics",
+    "observability and retry implementation"
+  ],
+  "authorityGrants": {
+    "productTruth": false,
+    "humanIdentity": false,
+    "storyStateTransition": false,
+    "approval": false,
+    "publication": false,
+    "spend": false,
+    "autonomy": false
+  },
+  "hardFailures": [
+    [
+      "UNAUTHORISED_STATION_CONSTRUCTION",
+      "Campaign station treated as approved without owner idea approval",
+      "STOP"
+    ],
+    [
+      "CHECKPOINT_ORDER_BYPASS",
+      "Required checkpoint skipped or falsely completed",
+      "HARD_FAIL"
+    ],
+    [
+      "GENERATED_AS_APPROVED",
+      "Generation success treated as owner approval",
+      "HARD_FAIL"
+    ],
+    [
+      "GENERATED_AS_PUBLISHED",
+      "Generation or FINAL treated as publication",
+      "STOP"
+    ],
+    [
+      "PRODUCT_TRUTH_MUTATION",
+      "Workstation output rewrites Product Truth",
+      "STOP"
+    ],
+    [
+      "HUMAN_TRUTH_MUTATION",
+      "Workstation output rewrites Human Identity",
+      "STOP"
+    ],
+    [
+      "NUMERIC_BUDGET_INVENTION",
+      "Budget mode given an unauthorised ceiling",
+      "HARD_FAIL"
+    ],
+    [
+      "PRIVATE_DATA_IN_PUBLIC_PROVENANCE",
+      "Private operational/likeness data stored publicly",
+      "STOP"
+    ],
+    [
+      "FAILED_CANDIDATE_PROMOTED",
+      "FAIL/UNRESOLVED candidate advances without required gate",
+      "HARD_FAIL"
+    ],
+    [
+      "RUNTIME_EXISTENCE_FABRICATION",
+      "Contract/schema cited as proof runtime exists",
+      "STOP"
+    ]
+  ],
+  "privacyRules": [
+    "Repository is PUBLIC.",
+    "Contract, schema, validator and synthetic fixtures are public-safe.",
+    "Private source photographs, likeness tests, campaign strategy, raw performance history, credentials and customer data stay outside the public repo."
+  ],
+  "summaryRule": "The Workstation executes approved creative work through explicit checkpoints; it produces candidates, preserves provenance, and stops at QA/approval boundaries."
+}
