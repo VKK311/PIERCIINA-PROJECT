@@ -1,0 +1,200 @@
+{
+  "contractId": "PINK_MALL_HQ_BLUEPRINT_CONTRACT",
+  "version": "1.0.0",
+  "title": "PINK MALL HQ Blueprint",
+  "status": "CANDIDATE",
+  "contractNumber": "08",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "purpose": "Public-safe blueprint and authority boundary for the planned PINK MALL HQ / Master Station.",
+  "lockedSurface": [
+    "CURRENT_STORY",
+    "ACTIVE_CAMPAIGNS",
+    "WAITING_FOR_APPROVAL",
+    "RECENT_WINNER_SOCIAL_SIGNALS",
+    "CREATIVE_FATIGUE_VISIBILITY",
+    "NEXT_3_IDEAS",
+    "CREDIT_AND_COST_VISIBILITY",
+    "EXPERIMENT_LAB",
+    "WORLD_STORY_MAP",
+    "REJECTS_AND_LEARNINGS",
+    "HYBRID_OVERVIEW_AND_AUDIT"
+  ],
+  "role": "READ_COORDINATE_VISIBILITY",
+  "runtimeExists": false,
+  "authorityGrants": [
+    "PRESENT_AUTHORITATIVE_STATE",
+    "CROSS_SYSTEM_NAVIGATION",
+    "OWNER_FACING_VISIBILITY",
+    "AUTHORISED_TECHNICAL_AUDIT",
+    "CAMPAIGN_WORKSTATION_ORGANISATION"
+  ],
+  "noIndependentAuthority": [
+    "PRODUCT_TRUTH",
+    "HUMAN_IDENTITY",
+    "STORY_STATE",
+    "CAMPAIGN_OPERATIONAL_STATE",
+    "APPROVAL",
+    "PAID_GENERATION_SPEND",
+    "PUBLICATION",
+    "RAW_SOCIAL_METRICS",
+    "SUPER_BRAIN_DURABLE_LEARNING"
+  ],
+  "authorityMap": {
+    "CURRENT_STORY": "STORY_STATE_ENGINE",
+    "ACTIVE_CAMPAIGNS": "CAMPAIGN_REGISTRY",
+    "WAITING_FOR_APPROVAL": "CAMPAIGN_APPROVAL_OR_CAMPAIGN_REGISTRY",
+    "RECENT_WINNER_SOCIAL_SIGNALS": "SOCIAL_PLATFORM_API_AND_SOCIAL_INTELLIGENCE_ENGINE",
+    "CREATIVE_FATIGUE_VISIBILITY": "SOCIAL_INTELLIGENCE_ENGINE",
+    "NEXT_3_IDEAS": "CAMPAIGN_CONTEXT_AND_OWNER_SELECTION",
+    "CREDIT_AND_COST_VISIBILITY": "AUTHORITATIVE_BUDGET_OPERATIONAL_LAYER",
+    "EXPERIMENT_LAB": "WORKSTATION_AND_CAMPAIGN_WORKFLOW",
+    "WORLD_STORY_MAP": "STORY_STATE_ENGINE_AND_SUPER_BRAIN_SEMANTIC_CONTEXT",
+    "REJECTS_AND_LEARNINGS": "WORKSTATION_AND_SUPER_BRAIN"
+  },
+  "hybridSurface": {
+    "simpleCreativeOverview": true,
+    "expandableTechnicalAuditDetail": true
+  },
+  "workstationRelationship": {
+    "hqMasterStation": true,
+    "separateStationPerCampaign": true,
+    "checkpoints": [
+      "CONCEPT",
+      "IMAGES",
+      "VIDEO_IF_APPLICABLE",
+      "FINAL"
+    ],
+    "initialImageExploration": "2-3 meaningfully different variants",
+    "cyberninjASurfaceOpen": true
+  },
+  "publicPrivate": {
+    "repositoryPublic": true,
+    "privateOperationalDataPublic": false,
+    "privateStrategyPublic": false,
+    "realSpendPublic": false,
+    "realCreditBalancesPublic": false,
+    "credentialsPublic": false,
+    "secretsPublic": false
+  },
+  "openImplementationDecisions": [
+    "exact HQ UI implementation",
+    "exact node layout",
+    "exact data connectors",
+    "exact production visualization technology",
+    "exact private operational storage",
+    "exact live Campaign Registry integration",
+    "exact approval-service integration",
+    "exact budget/credit data integration",
+    "exact Social Intelligence integration",
+    "exact Super Brain integration",
+    "exact Story State integration",
+    "exact Workstation station-navigation mechanics",
+    "exact CyberNinjas programmatic control coverage",
+    "exact interaction/permission model",
+    "exact audit-log implementation"
+  ],
+  "hardFailures": [
+    [
+      "HQ_AS_SOURCE_OF_TRUTH",
+      "HQ is treated as the authority for a domain owned elsewhere.",
+      "STOP"
+    ],
+    [
+      "FABRICATED_OPERATIONAL_STATE",
+      "HQ displays invented campaign, approval, spend or publication state.",
+      "STOP"
+    ],
+    [
+      "SILENCE_AS_APPROVAL",
+      "Absence of approval is displayed or interpreted as approval.",
+      "STOP"
+    ],
+    [
+      "RECOMMENDATION_AS_APPROVAL",
+      "Recommendation is shown or acted on as approval.",
+      "HARD_FAIL"
+    ],
+    [
+      "QA_AS_APPROVAL",
+      "QA PASS is treated as commercial approval.",
+      "HARD_FAIL"
+    ],
+    [
+      "GENERATION_AS_APPROVAL",
+      "Generation completion is treated as approval.",
+      "HARD_FAIL"
+    ],
+    [
+      "PRIVATE_DATA_PUBLIC",
+      "Private operational data is persisted to the public repository.",
+      "STOP"
+    ],
+    [
+      "RAW_METRIC_OVERWRITE",
+      "HQ changes or replaces raw social evidence.",
+      "STOP"
+    ],
+    [
+      "STORY_STATE_MUTATION",
+      "HQ directly mutates Story State without the owning authority.",
+      "STOP"
+    ],
+    [
+      "PRODUCT_TRUTH_MUTATION",
+      "HQ changes Product Truth.",
+      "STOP"
+    ],
+    [
+      "HUMAN_IDENTITY_MUTATION",
+      "HQ changes Human Identity.",
+      "STOP"
+    ],
+    [
+      "MEMORY_AS_CURRENT_FACT",
+      "Semantic memory is presented as current operational truth without authority refresh.",
+      "HARD_FAIL"
+    ],
+    [
+      "VIRAL_RESULT_AS_PERMANENT_TRUTH",
+      "A single strong result is automatically made durable learning.",
+      "HARD_FAIL"
+    ],
+    [
+      "COST_INVENTION",
+      "HQ invents a balance, ceiling, spend or provider cost.",
+      "STOP"
+    ],
+    [
+      "RUNTIME_EXISTENCE_FABRICATION",
+      "Blueprint files are cited as proof that HQ or its dependencies exist.",
+      "STOP"
+    ],
+    [
+      "CONFLICT_HIDDEN",
+      "HQ silently selects one conflicting authority instead of exposing the conflict.",
+      "HARD_FAIL"
+    ],
+    [
+      "REJECT_PROMOTION",
+      "Rejected candidate is silently promoted to approved/published state.",
+      "HARD_FAIL"
+    ],
+    [
+      "GLOBAL_EXECUTION_AUTHORITY",
+      "HQ gains a blanket right to execute unrelated capabilities.",
+      "STOP"
+    ]
+  ],
+  "scope": {
+    "implementationProvidedByThisContract": false,
+    "createsHQRuntime": false,
+    "createsCampaignRegistry": false,
+    "createsApprovalService": false,
+    "createsBudgetLedger": false,
+    "createsWorkstationRuntime": false,
+    "createsSuperBrainRuntime": false,
+    "createsStoryStateEngine": false,
+    "createsSocialIntelligenceEngine": false,
+    "createsPrivateOpsStore": false
+  }
+}
