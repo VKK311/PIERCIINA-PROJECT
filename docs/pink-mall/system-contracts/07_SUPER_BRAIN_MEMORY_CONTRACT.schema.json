@@ -1,0 +1,512 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/07_SUPER_BRAIN_MEMORY_CONTRACT.schema.json",
+  "title": "PINK MALL Super Brain Memory Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "inheritance",
+    "purpose",
+    "architecture",
+    "memoryClasses",
+    "campaignMemory",
+    "durableLearning",
+    "preferenceDrift",
+    "maintenance",
+    "staleness",
+    "authorityBoundaries",
+    "socialBoundary",
+    "storyBoundary",
+    "provenance",
+    "realTimeKnowledge",
+    "publicPrivate",
+    "openDecisions",
+    "authorityGrants",
+    "hardFailures",
+    "scope"
+  ],
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "title": {
+      "const": "Super Brain Memory"
+    },
+    "status": {
+      "const": "CANDIDATE"
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "07"
+    },
+    "inheritance": {
+      "const": "Inherits Contract 00 in full."
+    },
+    "purpose": {
+      "const": "Public-safe specification for semantic memory, campaign memory, durable learning, preference drift and memory maintenance."
+    },
+    "architecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "structuredClusters",
+        "freeGraphRelationships",
+        "privateClusterTaxonomyDefined",
+        "graphEdgeVocabularyDefined",
+        "storageImplementationDefined",
+        "apiDefined"
+      ],
+      "properties": {
+        "structuredClusters": {
+          "const": true
+        },
+        "freeGraphRelationships": {
+          "const": true
+        },
+        "privateClusterTaxonomyDefined": {
+          "const": false
+        },
+        "graphEdgeVocabularyDefined": {
+          "const": false
+        },
+        "storageImplementationDefined": {
+          "const": false
+        },
+        "apiDefined": {
+          "const": false
+        }
+      }
+    },
+    "memoryClasses": {
+      "const": [
+        "CAMPAIGN_MEMORY",
+        "LEARNING_CANDIDATE",
+        "DURABLE_LEARNING",
+        "PREFERENCE_DRIFT",
+        "MEMORY_MAINTENANCE_RECORD"
+      ]
+    },
+    "campaignMemory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "writtenAfterCampaigns",
+        "runtimeExistsClaimed",
+        "requiresProvenance"
+      ],
+      "properties": {
+        "writtenAfterCampaigns": {
+          "const": true
+        },
+        "runtimeExistsClaimed": {
+          "const": false
+        },
+        "requiresProvenance": {
+          "const": true
+        }
+      }
+    },
+    "durableLearning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed",
+        "requiresAtLeastOneBasis",
+        "bases",
+        "sufficientSignalThresholdDefined",
+        "repeatedEvidenceRuleDefined",
+        "basisMustBeRetained",
+        "oneViralResultAutomaticallyDurable"
+      ],
+      "properties": {
+        "allowed": {
+          "const": true
+        },
+        "requiresAtLeastOneBasis": {
+          "const": true
+        },
+        "bases": {
+          "const": [
+            "REPEATED_EVIDENCE",
+            "SUFFICIENT_SIGNAL",
+            "OWNER_CONFIRMATION"
+          ]
+        },
+        "sufficientSignalThresholdDefined": {
+          "const": false
+        },
+        "repeatedEvidenceRuleDefined": {
+          "const": false
+        },
+        "basisMustBeRetained": {
+          "const": true
+        },
+        "oneViralResultAutomaticallyDurable": {
+          "const": false
+        }
+      }
+    },
+    "preferenceDrift": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "states",
+        "numericThresholdsDefined",
+        "observationWindowDefined",
+        "requiresSupportingLineage"
+      ],
+      "properties": {
+        "states": {
+          "const": [
+            "STABLE",
+            "EMERGING",
+            "DECLINING",
+            "RETIRED"
+          ]
+        },
+        "numericThresholdsDefined": {
+          "const": false
+        },
+        "observationWindowDefined": {
+          "const": false
+        },
+        "requiresSupportingLineage": {
+          "const": true
+        }
+      }
+    },
+    "maintenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "periodic",
+        "handles",
+        "cadenceDefined",
+        "retentionPolicyDefined",
+        "conflictResolutionDefined"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "periodic": {
+          "const": true
+        },
+        "handles": {
+          "const": [
+            "STALE",
+            "CONTRADICTORY",
+            "SUPERSEDED",
+            "RETIRED",
+            "UNSUPPORTED_CANDIDATE",
+            "DUPLICATE_OR_REDUNDANT"
+          ]
+        },
+        "cadenceDefined": {
+          "const": false
+        },
+        "retentionPolicyDefined": {
+          "const": false
+        },
+        "conflictResolutionDefined": {
+          "const": false
+        }
+      }
+    },
+    "staleness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "memoryIsCurrentOperationalAuthority",
+        "authorityRefreshRequired",
+        "historicalContextPermitted"
+      ],
+      "properties": {
+        "memoryIsCurrentOperationalAuthority": {
+          "const": false
+        },
+        "authorityRefreshRequired": {
+          "const": true
+        },
+        "historicalContextPermitted": {
+          "const": true
+        }
+      }
+    },
+    "authorityBoundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "factualAuthority",
+        "nonAuthoritativeFor",
+        "noWriteAuthority"
+      ],
+      "properties": {
+        "factualAuthority": {
+          "const": "CANONICAL_REPOSITORY"
+        },
+        "nonAuthoritativeFor": {
+          "const": [
+            "PM_IDS",
+            "PRICES",
+            "SIZES",
+            "AVAILABILITY",
+            "CANONICAL_PRODUCT_IDENTITY",
+            "APPROVAL_STATE",
+            "BRANCH_OR_COMMIT_HASH",
+            "CAMPAIGN_SPEND",
+            "PUBLICATION_STATE"
+          ]
+        },
+        "noWriteAuthority": {
+          "const": [
+            "PRODUCT_TRUTH",
+            "HUMAN_IDENTITY",
+            "STORY_STATE",
+            "RAW_SOCIAL_METRICS",
+            "CAMPAIGN_REGISTRY_OPERATIONAL_STATE"
+          ]
+        }
+      }
+    },
+    "socialBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rawMetricAuthority",
+        "superBrainRawMetricAuthority",
+        "superBrainSecondaryEvidenceForInterpretation"
+      ],
+      "properties": {
+        "rawMetricAuthority": {
+          "const": "SOCIAL_PLATFORM_API"
+        },
+        "superBrainRawMetricAuthority": {
+          "const": false
+        },
+        "superBrainSecondaryEvidenceForInterpretation": {
+          "const": true
+        }
+      }
+    },
+    "storyBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storyStateAuthority",
+        "memoryMayMutateStoryState"
+      ],
+      "properties": {
+        "storyStateAuthority": {
+          "const": "STORY_STATE_ENGINE"
+        },
+        "memoryMayMutateStoryState": {
+          "const": false
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "minimumFields",
+        "persistentIdFormatDefined"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "minimumFields": {
+          "const": [
+            "subject/context",
+            "time_or_campaign_context",
+            "supporting_evidence_or_prior_memory",
+            "semantic_class",
+            "durability_basis_when_applicable",
+            "maintenance_disposition"
+          ]
+        },
+        "persistentIdFormatDefined": {
+          "const": false
+        }
+      }
+    },
+    "realTimeKnowledge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "currentCapability",
+        "providerDefined",
+        "refreshMechanicsDefined"
+      ],
+      "properties": {
+        "target": {
+          "const": true
+        },
+        "currentCapability": {
+          "const": false
+        },
+        "providerDefined": {
+          "const": false
+        },
+        "refreshMechanicsDefined": {
+          "const": false
+        }
+      }
+    },
+    "publicPrivate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repositoryPublic",
+        "privateMemoryContentPublic",
+        "privateStrategyPublic",
+        "realSocialPerformanceHistoryPublic",
+        "directMessagesPublic",
+        "customerIdentitiesPublic",
+        "credentialsPublic",
+        "secretsPublic"
+      ],
+      "properties": {
+        "repositoryPublic": {
+          "const": true
+        },
+        "privateMemoryContentPublic": {
+          "const": false
+        },
+        "privateStrategyPublic": {
+          "const": false
+        },
+        "realSocialPerformanceHistoryPublic": {
+          "const": false
+        },
+        "directMessagesPublic": {
+          "const": false
+        },
+        "customerIdentitiesPublic": {
+          "const": false
+        },
+        "credentialsPublic": {
+          "const": false
+        },
+        "secretsPublic": {
+          "const": false
+        }
+      }
+    },
+    "openDecisions": {
+      "type": "array",
+      "minItems": 15,
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorityGrants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semanticMemoryOwnership",
+        "productTruth",
+        "humanIdentity",
+        "storyStateTransition",
+        "approval",
+        "publication",
+        "spend",
+        "rawSocialMetric",
+        "campaignOperationalState",
+        "canonicalRepositoryWrite"
+      ],
+      "properties": {
+        "semanticMemoryOwnership": {
+          "const": "SUPER_BRAIN"
+        },
+        "productTruth": {
+          "const": false
+        },
+        "humanIdentity": {
+          "const": false
+        },
+        "storyStateTransition": {
+          "const": false
+        },
+        "approval": {
+          "const": false
+        },
+        "publication": {
+          "const": false
+        },
+        "spend": {
+          "const": false
+        },
+        "rawSocialMetric": {
+          "const": false
+        },
+        "campaignOperationalState": {
+          "const": false
+        },
+        "canonicalRepositoryWrite": {
+          "const": false
+        }
+      }
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementationProvidedByThisContract",
+        "createsSuperBrainRuntime",
+        "createsMemoryDatabase",
+        "createsPrivateOpsStore",
+        "createsApiBridge",
+        "createsRealtimeKnowledgeService"
+      ],
+      "properties": {
+        "implementationProvidedByThisContract": {
+          "const": false
+        },
+        "createsSuperBrainRuntime": {
+          "const": false
+        },
+        "createsMemoryDatabase": {
+          "const": false
+        },
+        "createsPrivateOpsStore": {
+          "const": false
+        },
+        "createsApiBridge": {
+          "const": false
+        },
+        "createsRealtimeKnowledgeService": {
+          "const": false
+        }
+      }
+    }
+  }
+}
