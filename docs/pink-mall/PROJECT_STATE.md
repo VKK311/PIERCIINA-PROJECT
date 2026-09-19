@@ -13,8 +13,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | Canonical branch | `claude/pink-mall-development` |
 | Storefront | `PINKMALL.html` — PM-001…PM-046, next unallocated ID **PM-047** |
-| Contracts | **00–04 canonical**; 05–08 not yet authored |
-| Next contract | **05 — Workstation Operating** (`PINK_MALL_WORKSTATION_OPERATING_CONTRACT`) |
+| Contracts | **00–04 canonical**; **05 authored candidate**; 06–08 not yet authored |
+| Next contract | **06 — Automation & Approval** (`PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT`) |
 | Active hold | **953FLR1358** — identity not established, not published |
 | Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
 | Open follow-ups | two, recorded under **Tracked follow-ups** below |
@@ -54,8 +54,9 @@ conditions are.
 | 02 | Product Creative | 1.0.0 | `tools/regression/product_creative_contract.py` |
 | 03 | Character & Story | 1.0.0 | `tools/regression/character_story_contract.py` |
 | 04 | Social Intelligence | 1.0.0 | `tools/regression/social_intelligence_contract.py` |
+| 05 | Workstation Operating | 1.0.0 | `tools/regression/workstation_operating_contract.py` |
 
-Contracts **05–08 do not exist**. No `05_*`…`08_*` files are present.
+Contract **05** now exists as an authored candidate and has a dedicated validator; contracts **06–08 do not yet exist**.
 
 The normative rules are **not duplicated here**. Read them at the source:
 
@@ -72,6 +73,12 @@ validators — were produced during the Contract 04 promotion at
 `7c331bc` and reproduced independently by the reviewer. They are a record of
 that checkpoint, not a test run performed while writing this file. Re-run the
 validators before relying on them at any later commit.
+
+## Contract 05 checkpoint
+
+Contract 05 was authored on `claude/pink-mall-development` as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side structural execution of the validator logic returned **21/21 PASS** against the branch files. This is a validator check, not evidence that a Workstation runtime exists.
+
+The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval, publication, spend, Product Truth, Human Identity or autonomous authority. The next domain is Contract 06.
 
 ## Tracked follow-ups
 
