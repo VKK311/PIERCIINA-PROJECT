@@ -67,6 +67,7 @@ because it was replaced, not because its historical review stopped counting.
 | 05 | **Workstation Operating** | `05_WORKSTATION_OPERATING_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 | 06 | **Automation & Approval** | `06_AUTOMATION_AND_APPROVAL_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 | 07 | **Super Brain Memory** | `07_SUPER_BRAIN_MEMORY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
+| 08 | **PINK MALL HQ Blueprint** | `08_HQ_BLUEPRINT_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
@@ -78,6 +79,7 @@ Validators, standard library only:
 - `tools/regression/workstation_operating_contract.py`
 - `tools/regression/automation_approval_contract.py`
 - `tools/regression/super_brain_memory_contract.py`
+- `tools/regression/hq_blueprint_contract.py`
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -161,7 +163,7 @@ No later phase starts from a blank page.
 | 05 | Workstation Operating | node architecture, workflow graph, run model | AUTHORED — candidate, validator-checked |
 | 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | AUTHORED — candidate, validator-checked |
 | 07 | Super Brain Memory | memory schema, write rules, staleness handling | AUTHORED — candidate, validator-checked |
-| 08 | PINK MALL HQ | HQ blueprint and operating surface | NOT YET CREATED |
+| 08 | PINK MALL HQ | HQ blueprint and operating surface | AUTHORED — candidate, validator-checked |
 
 `DECISION_COVERAGE_MATRIX.md` is the register of what has already been decided
 in each of those domains, so that a decision already taken is not lost merely
