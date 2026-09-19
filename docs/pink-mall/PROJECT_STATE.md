@@ -12,8 +12,8 @@ canonical build by hash before treating it as canonical.
 |---|---|
 | Canonical branch | `claude/pink-mall-development` |
 | Storefront | `PINKMALL.html` — PM-001…PM-046, next unallocated ID **PM-047** |
-| Contracts | **00–04 canonical**; **05 authored candidate**; 06–08 not yet authored |
-| Next contract | **06 — Automation & Approval** (`PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT`) |
+| Contracts | **00–04 canonical**; **05–06 authored candidates**; 07–08 not yet authored |
+| Next contract | **07 — Super Brain Memory** (`PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT`) |
 | Active hold | **953FLR1358** — identity not established, not published |
 | Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
 | Open follow-ups | two, recorded under **Tracked follow-ups** below |
@@ -54,6 +54,7 @@ conditions are.
 | 03 | Character & Story | 1.0.0 | `tools/regression/character_story_contract.py` |
 | 04 | Social Intelligence | 1.0.0 | `tools/regression/social_intelligence_contract.py` |
 | 05 | Workstation Operating | 1.0.0 | `tools/regression/workstation_operating_contract.py` |
+| 06 | Automation & Approval | 1.0.0 | `tools/regression/automation_approval_contract.py` |
 
 Contract **05** now exists as an authored candidate and has a dedicated validator; contracts **06–08 do not yet exist**.
 
@@ -1283,3 +1284,10 @@ regression verifies that no child/junior marker is rendered.
 | MEDIA TIER | TRUSTED_RETAILER — exact SKU present in asset URL |
 
 The normal Pink Mall media contract still requires at least three unique exact-product images. PM-041 is a product-specific exception explicitly approved by the owner on 2026-08-29; it does not change the default acquisition or approval gate for any other SKU.
+
+
+## Contract 06 checkpoint
+
+Contract 06 was authored as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side structural execution against the branch files returned **20/20 PASS**. This is a contract check, not evidence that a Campaign Registry, approval service, budget ledger, autonomous publisher or paid-generation runner exists.
+
+Contract 06 remains `CANDIDATE` in lifecycle provenance. Its open numeric and autonomy decisions are intentionally preserved as open. The next domain is Contract 07.
