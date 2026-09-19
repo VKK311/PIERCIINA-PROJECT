@@ -248,7 +248,7 @@ open.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
+| **Detailed contract authored** | YES — `06_AUTOMATION_AND_APPROVAL_CONTRACT` files now exist in this lineage; canonicality is still decided solely by the four conditions in contract 00 |
 | **Target contract** | 06 — Automation & Approval |
 | **Private detail required** | NO |
 
