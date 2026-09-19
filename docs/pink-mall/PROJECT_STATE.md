@@ -1,6 +1,6 @@
 # PINK MALL — project state
 
-Updated: **2026-09-19** — Contract 05 authored and validator-checked as a candidate; Contract 04 remains canonical development (`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
+Updated: **2026-09-19** — Contract 07 authored and validator-checked as a candidate; Contract 04 remains canonical development (`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
 Storefront status: **PM-001…PM-046 PUBLISHED**, unchanged since 2026-08-31.
 
 This file records the real state. Trust it over any summary, and verify the
@@ -56,7 +56,7 @@ conditions are.
 | 05 | Workstation Operating | 1.0.0 | `tools/regression/workstation_operating_contract.py` |
 | 06 | Automation & Approval | 1.0.0 | `tools/regression/automation_approval_contract.py` |
 
-Contract **05** now exists as an authored candidate and has a dedicated validator; contracts **06–08 do not yet exist**.
+Contracts **05–07** now exist as authored candidates and have dedicated validators; Contract **08** does not yet exist.
 
 The normative rules are **not duplicated here**. Read them at the source:
 
@@ -78,7 +78,7 @@ validators before relying on them at any later commit.
 
 Contract 05 was authored on `claude/pink-mall-development` as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side structural execution of the validator logic returned **21/21 PASS** against the branch files. This is a validator check, not evidence that a Workstation runtime exists.
 
-The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval, publication, spend, Product Truth, Human Identity or autonomous authority. The next domain is Contract 06.
+The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval, publication, spend, Product Truth, Human Identity or autonomous authority. The next domain is Contract 07.
 
 ## Tracked follow-ups
 
@@ -1291,3 +1291,12 @@ The normal Pink Mall media contract still requires at least three unique exact-p
 Contract 06 was authored as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side structural execution against the branch files returned **20/20 PASS**. This is a contract check, not evidence that a Campaign Registry, approval service, budget ledger, autonomous publisher or paid-generation runner exists.
 
 Contract 06 remains `CANDIDATE` in lifecycle provenance. Its open numeric and autonomy decisions are intentionally preserved as open. The next domain is Contract 07.
+
+
+## Contract 07 checkpoint
+
+Contract 07 was authored on claude/pink-mall-development as four public-safe artefacts: Markdown contract, machine-readable contract, schema and regression validator. A reviewer-side independent structural execution against the branch files returned **19/19 PASS**.
+
+The contract preserves the locked memory model: structured clusters plus free graph relationships; Campaign Memory after campaigns; durable learning only with repeated evidence, sufficient signal or explicit owner confirmation; no automatic permanence from one viral result; stable/emerging/declining/retired preference drift; periodic maintenance; GitHub as factual authority; and no authority for Product Truth, approval, operational state, raw metrics or publication.
+
+Contract 07 remains CANDIDATE in lifecycle provenance. The exact private storage schema, API bridge, private memory content and other open implementation decisions remain intentionally undefined. This is a contract check, not evidence that a Super Brain runtime exists. The next domain is Contract 08.
