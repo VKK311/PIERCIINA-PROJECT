@@ -52,7 +52,8 @@ because it was replaced, not because its historical review stopped counting.
 7. `04_SOCIAL_INTELLIGENCE_CONTRACT.md` — how social evidence becomes
    interpretation and recommendation, and where that chain must stop.
 8. `05_WORKSTATION_OPERATING_CONTRACT.md` — how approved campaign work is organised into stations, checkpoints, candidates and QA boundaries.
-9. The domain contract for the work in hand, once it exists.
+9. `06_AUTOMATION_AND_APPROVAL_CONTRACT.md` — approval, budget, correction-spend and earned-autonomy boundaries.
+10. `07_SUPER_BRAIN_MEMORY_CONTRACT.md` — semantic memory, durable learning, staleness and preference drift.
 
 ## Current contract set
 
@@ -65,6 +66,7 @@ because it was replaced, not because its historical review stopped counting.
 | 04 | **Social Intelligence** | `04_SOCIAL_INTELLIGENCE_CONTRACT.md` / `.json` / `.schema.json`, plus `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 05 | **Workstation Operating** | `05_WORKSTATION_OPERATING_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 | 06 | **Automation & Approval** | `06_AUTOMATION_AND_APPROVAL_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
+| 07 | **Super Brain Memory** | `07_SUPER_BRAIN_MEMORY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
@@ -73,6 +75,9 @@ Validators, standard library only:
 - `tools/regression/product_creative_contract.py`
 - `tools/regression/character_story_contract.py`
 - `tools/regression/social_intelligence_contract.py`
+- `tools/regression/workstation_operating_contract.py`
+- `tools/regression/automation_approval_contract.py`
+- `tools/regression/super_brain_memory_contract.py`
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -126,9 +131,18 @@ instance, reusable station template or automated paid-generation runner exists b
 virtue of these files.** Current lifecycle values remain owned by Contract 00's
 source registry.
 
+Contract 06 is **authoring only** in the same way. It defines approval, budget and
+autonomy boundaries. **No Campaign Registry, approval service, budget ledger,
+autonomous publisher or paid-generation runner exists by virtue of these files.**
+
+Contract 07 is **authoring only** in the same way. It defines semantic-memory
+boundaries, durable-learning rules, staleness and preference drift. **No Super Brain
+runtime, memory database, graph database, private ops store, API bridge or real-time
+knowledge service exists by virtue of these files.**
+
 ## Planned contracts — NOT YET CREATED
 
-Contracts 05 and 06 are now authored candidates and are therefore excluded from the genuinely unwritten planned-contract list below.
+Contracts 05, 06 and 07 are now authored candidates and are therefore excluded from the genuinely unwritten planned-contract list below.
 
 The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
 canonical domain contracts. Contract 05 has moved out of this planned list into
@@ -146,7 +160,7 @@ No later phase starts from a blank page.
 |---|---|---|---|
 | 05 | Workstation Operating | node architecture, workflow graph, run model | AUTHORED — candidate, validator-checked |
 | 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | AUTHORED — candidate, validator-checked |
-| 07 | Super Brain Memory | memory schema, write rules, staleness handling | NOT YET CREATED |
+| 07 | Super Brain Memory | memory schema, write rules, staleness handling | AUTHORED — candidate, validator-checked |
 | 08 | PINK MALL HQ | HQ blueprint and operating surface | NOT YET CREATED |
 
 `DECISION_COVERAGE_MATRIX.md` is the register of what has already been decided
