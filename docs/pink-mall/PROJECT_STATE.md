@@ -1,7 +1,6 @@
 # PINK MALL — project state
 
-Updated: **2026-09-19** — Contract 04 promoted to canonical development
-(`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
+Updated: **2026-09-19** — Contract 05 authored and validator-checked as a candidate; Contract 04 remains canonical development (`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
 Storefront status: **PM-001…PM-046 PUBLISHED**, unchanged since 2026-08-31.
 
 This file records the real state. Trust it over any summary, and verify the
