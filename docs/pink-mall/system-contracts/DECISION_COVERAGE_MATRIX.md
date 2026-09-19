@@ -7,7 +7,7 @@ than all at once.
 
 Contracts **01 — Campaign Context**, **02 — Product Creative** and
 **03 — Character & Story** have been authored: their files exist in this
-lineage. Domain **08** is still awaiting its detailed contract. File existence does **not** by itself
+lineage. All eight domains now have authored candidate contracts; canonicality remains governed by Contract 00. File existence does **not** by itself
 establish canonicality — that is decided only by the four conditions in
 `00_SYSTEM_AUTHORITY_CONTRACT`.
 
@@ -307,7 +307,7 @@ open.
 | | |
 |---|---|
 | **Locked decision exists** | YES — **a blueprint already exists** |
-| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
+| **Detailed canonical contract created** | YES — authored candidate; validator-checked |
 | **Target contract** | 08 — PINK MALL HQ |
 | **Private detail required** | PARTIAL |
 
@@ -347,7 +347,7 @@ open.
 | 5 | Workstation Operating Model | YES | YES — authored candidate; validator-checked | 05 | NO |
 | 6 | Approval / Automation | YES | YES — authored candidate; validator-checked | 06 | NO |
 | 7 | Super Brain Memory | YES | YES — authored candidate; validator-checked | 07 | YES |
-| 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
+| 8 | PINK MALL HQ Blueprint | YES | YES — authored candidate; validator-checked | 08 | PARTIAL |
 
 Eight domains, eight sets of locked structural decisions preserved above. Domain
 contracts **01**, **02**, **03** and **04** have been authored; domains 05–08
