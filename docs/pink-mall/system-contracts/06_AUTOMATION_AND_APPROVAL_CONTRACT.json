@@ -1,0 +1,242 @@
+{
+  "contractId": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT",
+  "version": "1.0.0",
+  "title": "Automation & Approval",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "06",
+  "inheritance": "Inherits every rule of the System Authority Contract and MUST NOT contradict it. Status is provenance only; canonicality follows Contract 00.",
+  "purpose": "Define the approval, spend and autonomy boundary for PINK MALL campaign execution without inventing unresolved numeric policy.",
+  "lockedOperatingModel": {
+    "ownerApprovesIdeaAndBudgetMode": true,
+    "approvalMayAuthorizeFirstBatchSpend": true,
+    "additionalCorrectionSpendAfterFailedQAFailsRequiresOwnerReview": true,
+    "humanApprovalCurrentCommercialPublicationDefault": true,
+    "autoPublishAuthorised": false,
+    "autonomyCapabilitySpecific": true,
+    "autonomyGlobalFlag": false
+  },
+  "approvalRecord": {
+    "required": true,
+    "fields": [
+      "approvalRef",
+      "campaignRef",
+      "scope",
+      "budgetMode",
+      "approvedBy",
+      "approvedAt",
+      "status",
+      "sourceEvidence"
+    ],
+    "scoped": true,
+    "silenceIsApproval": false,
+    "persistentStorageDefined": false
+  },
+  "approvalStates": [
+    "PENDING",
+    "APPROVED",
+    "REVOKED",
+    "EXPIRED"
+  ],
+  "budgetModes": {
+    "locked": true,
+    "modes": [
+      "ECONOMY",
+      "STANDARD",
+      "PREMIUM"
+    ],
+    "creditCeilingsDefined": false,
+    "currencyCeilingsDefined": false,
+    "perBatchLimitsDefined": false,
+    "providerPricesDefined": false,
+    "correctionSpendAmountsDefined": false,
+    "numericAutonomyThresholdsDefined": false
+  },
+  "firstBatchSpend": {
+    "approvalMayAuthorise": true,
+    "unbounded": false,
+    "requiresApplicableNumericCeiling": true,
+    "missingCeilingMayBeInvented": false
+  },
+  "correctionSpend": {
+    "additionalPaidCorrectionSpendRequiresOwnerReview": true,
+    "proposalDistinctFromApproval": true,
+    "executedSpendDistinctFromApproval": true,
+    "failedBatchCreatesUnlimitedRetryPermission": false
+  },
+  "commercialPublication": {
+    "humanApprovalCurrentDefault": true,
+    "autoPublishAuthorised": false,
+    "finalCheckpointIsPublicationAuthority": false,
+    "qaPassIsPublicationAuthority": false,
+    "socialRecommendationIsPublicationAuthority": false,
+    "authorityDomain": "COMMERCIAL_PUBLICATION"
+  },
+  "autonomy": {
+    "model": "CAPABILITY_SPECIFIC_AND_EARNED",
+    "globalFlagAllowed": false,
+    "defaultAuthorisedCapabilities": [],
+    "futureRecordFields": [
+      "grantRef",
+      "capability",
+      "scope",
+      "grantAuthority",
+      "grantedAt",
+      "status",
+      "conditions",
+      "evidenceRefs"
+    ],
+    "capabilityCatalogueDefined": false,
+    "numericThresholdsDefined": false,
+    "evaluationWindowDefined": false,
+    "revocationRulesDefined": false
+  },
+  "approvalVersusAutonomy": {
+    "distinct": true,
+    "approvalIsScopedAct": true,
+    "autonomyIsConditionalCapabilityPermission": true,
+    "approvalBecomesPermanentAutonomy": false,
+    "autonomyBecomesBlanketApproval": false
+  },
+  "campaignOperationalState": {
+    "authority": "CAMPAIGN_REGISTRY",
+    "implementationStatusOwnedBy": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.CAMPAIGN_REGISTRY",
+    "runtimeExistsClaimed": false,
+    "operationalFactsMayBeFabricated": false
+  },
+  "authorityBoundaries": {
+    "approvalAuthority": "OWNER",
+    "paidGenerationAuthority": "OWNER",
+    "publicationAuthority": "OWNER",
+    "autonomousAuthorityDefault": "NONE",
+    "systemsWithoutAuthority": [
+      "WORKSTATION",
+      "CYBERNINJAS_STUDIO",
+      "CLAUDE_ORCHESTRATOR",
+      "SUPER_BRAIN",
+      "SOCIAL_INTELLIGENCE_ENGINE"
+    ]
+  },
+  "delegation": {
+    "futureDelegationPossible": true,
+    "currentlyDelegated": false,
+    "inferredDelegationAllowed": false
+  },
+  "revocationExpiry": {
+    "revocationSupportedConceptually": true,
+    "expirySupportedConceptually": true,
+    "universalExpiryDurationDefined": false,
+    "silenceMayInferExpiry": false
+  },
+  "publicPrivate": {
+    "repositoryPublic": true,
+    "realSpendDataPublic": false,
+    "privateApprovalRecordsPublic": false,
+    "credentialsPublic": false,
+    "privateStrategyPublic": false,
+    "privatePerformanceHistoryPublic": false
+  },
+  "openDecisions": [
+    "exact credit ceilings",
+    "exact currency/spend ceilings by budget mode",
+    "exact numeric autonomy thresholds",
+    "future autonomous-publication criteria",
+    "exact capability catalogue for earned autonomy",
+    "evaluation windows and evidence requirements for earning autonomy",
+    "exact revocation/expiry implementation",
+    "persistent approval and autonomy record storage",
+    "exact delegation mechanism"
+  ],
+  "authorityGrants": {
+    "productTruth": false,
+    "humanIdentity": false,
+    "storyStateTransition": false,
+    "blanketPublicationAuthority": false,
+    "globalAutonomyAuthority": false
+  },
+  "hardFailures": [
+    [
+      "SILENCE_AS_APPROVAL",
+      "No explicit approval exists but execution treats silence as permission",
+      "STOP"
+    ],
+    [
+      "UNSCOPED_APPROVAL",
+      "Approval is reused outside its recorded scope",
+      "HARD_FAIL"
+    ],
+    [
+      "NUMERIC_BUDGET_INVENTION",
+      "Mode receives an unauthorised ceiling or spend amount",
+      "STOP"
+    ],
+    [
+      "UNBOUNDED_FIRST_BATCH",
+      "First-batch approval is treated as unlimited spend",
+      "STOP"
+    ],
+    [
+      "CORRECTION_SPEND_WITHOUT_REVIEW",
+      "Extra paid correction spend follows failed QA without owner review",
+      "STOP"
+    ],
+    [
+      "AUTO_PUBLISH",
+      "Commercial publication occurs without current human approval",
+      "STOP"
+    ],
+    [
+      "GENERATION_AS_APPROVAL",
+      "Generation success is treated as approval",
+      "HARD_FAIL"
+    ],
+    [
+      "QA_AS_APPROVAL",
+      "QA pass is treated as commercial approval",
+      "HARD_FAIL"
+    ],
+    [
+      "RECOMMENDATION_AS_APPROVAL",
+      "Social recommendation is treated as approval",
+      "HARD_FAIL"
+    ],
+    [
+      "GLOBAL_AUTONOMY_FLAG",
+      "One autonomy grant becomes permission for unrelated capabilities",
+      "HARD_FAIL"
+    ],
+    [
+      "AUTONOMY_OVERRIDES_AUTHORITY",
+      "Autonomy bypasses higher authority",
+      "STOP"
+    ],
+    [
+      "OPERATIONAL_STATE_FABRICATION",
+      "Operational facts asserted without authoritative record",
+      "STOP"
+    ],
+    [
+      "PRIVATE_APPROVAL_DATA_PUBLIC",
+      "Real private approval/spend data is stored in public repo",
+      "STOP"
+    ],
+    [
+      "REVOKED_GRANT_EXECUTED",
+      "Execution uses revoked approval or autonomy grant",
+      "STOP"
+    ],
+    [
+      "EXPIRED_GRANT_EXECUTED",
+      "Execution uses expired grant without valid authorisation",
+      "STOP"
+    ]
+  ],
+  "scope": {
+    "implementationProvidedByThisContract": false,
+    "createsCampaignRegistry": false,
+    "createsApprovalService": false,
+    "createsBudgetLedger": false,
+    "createsAutonomousPublisher": false,
+    "createsPaidGenerationRunner": false
+  }
+}
