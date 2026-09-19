@@ -1,0 +1,601 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/05_WORKSTATION_OPERATING_CONTRACT.schema.json",
+  "title": "PINK MALL Workstation Operating Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "dependsOn",
+    "deferredBoundaries",
+    "deferredBoundaryRule",
+    "inheritance",
+    "purpose",
+    "scope",
+    "operatingModel",
+    "checkpoints",
+    "checkpointOrder",
+    "initialImageExploration",
+    "modelSelection",
+    "budgetModes",
+    "states",
+    "provenance",
+    "truthBoundaries",
+    "qaBoundary",
+    "rework",
+    "runtimeBoundary",
+    "openDecisions",
+    "authorityGrants",
+    "hardFailures",
+    "privacyRules",
+    "summaryRule"
+  ],
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_WORKSTATION_OPERATING_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "const": "Workstation Operating"
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "05"
+    },
+    "dependsOn": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contractId",
+          "contractNumber",
+          "dependency"
+        ],
+        "properties": {
+          "contractId": {
+            "type": "string"
+          },
+          "contractNumber": {
+            "type": "string"
+          },
+          "dependency": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "deferredBoundaries": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contractNumber",
+          "contractId",
+          "relationship",
+          "existenceOwnedHere",
+          "existenceRecordedIn",
+          "boundary"
+        ],
+        "properties": {
+          "contractNumber": {
+            "enum": [
+              "06",
+              "07",
+              "08"
+            ]
+          },
+          "contractId": {
+            "type": "string"
+          },
+          "relationship": {
+            "const": "RESPONSIBILITY_DEFERRED_TO"
+          },
+          "existenceOwnedHere": {
+            "const": false
+          },
+          "existenceRecordedIn": {
+            "const": "docs/pink-mall/system-contracts/SYSTEM_CONTRACT_INDEX.md"
+          },
+          "boundary": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "deferredBoundaryRule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "covers",
+        "doesNotCover",
+        "note",
+        "implementationProvidedByThisContract"
+      ],
+      "properties": {
+        "covers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "doesNotCover": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "implementationProvidedByThisContract": {
+          "const": false
+        }
+      }
+    },
+    "operatingModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "masterStation",
+        "campaignStation",
+        "approvedIdeaAllowsStationConstructionWithoutSecondArchitectureApproval"
+      ],
+      "properties": {
+        "masterStation": {
+          "const": "PINK_MALL_HQ_MASTER_STATION"
+        },
+        "campaignStation": {
+          "const": "ONE_SEPARATE_STATION_PER_CAMPAIGN"
+        },
+        "approvedIdeaAllowsStationConstructionWithoutSecondArchitectureApproval": {
+          "const": true
+        },
+        "constructionDoesNotGrantPublicationAuthority": {
+          "const": true
+        },
+        "constructionDoesNotGrantSpendAuthority": {
+          "const": true
+        },
+        "constructionDoesNotAlterProductTruth": {
+          "const": true
+        },
+        "constructionDoesNotAlterHumanIdentity": {
+          "const": true
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "checkpointId",
+          "required",
+          "meaning"
+        ],
+        "properties": {
+          "checkpointId": {
+            "enum": [
+              "CONCEPT",
+              "IMAGES",
+              "VIDEO",
+              "FINAL"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "meaning": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checkpointOrder": {
+      "const": [
+        "CONCEPT",
+        "IMAGES",
+        "VIDEO",
+        "FINAL"
+      ]
+    },
+    "initialImageExploration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "normalVariantCountMin",
+        "normalVariantCountMax",
+        "meaningfullyDifferentRequired",
+        "quantityIsUniversalFixedQuota"
+      ],
+      "properties": {
+        "status": {
+          "const": "LOCKED"
+        },
+        "normalVariantCountMin": {
+          "const": 2
+        },
+        "normalVariantCountMax": {
+          "const": 3
+        },
+        "meaningfullyDifferentRequired": {
+          "const": true
+        },
+        "quantityIsUniversalFixedQuota": {
+          "const": false
+        },
+        "productDriftAllowed": {
+          "const": false
+        },
+        "identitySubstitutionAllowed": {
+          "const": false
+        }
+      }
+    },
+    "modelSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decisionOwner"
+      ],
+      "properties": {
+        "decisionOwner": {
+          "const": "CLAUDE"
+        },
+        "isFactualAuthority": {
+          "const": false
+        },
+        "providerFrozen": {
+          "const": false
+        },
+        "modelFrozen": {
+          "const": false
+        },
+        "promptTemplateFrozen": {
+          "const": false
+        }
+      }
+    },
+    "budgetModes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locked",
+        "modes",
+        "numericCeilingsDefined",
+        "creditsDefined",
+        "correctionSpendDefined",
+        "providerPricesDefined",
+        "modeNameIsNumericAuthority",
+        "authorityContractNumber"
+      ],
+      "properties": {
+        "locked": {
+          "const": true
+        },
+        "modes": {
+          "const": [
+            "ECONOMY",
+            "STANDARD",
+            "PREMIUM"
+          ]
+        },
+        "numericCeilingsDefined": {
+          "const": false
+        },
+        "creditsDefined": {
+          "const": false
+        },
+        "correctionSpendDefined": {
+          "const": false
+        },
+        "providerPricesDefined": {
+          "const": false
+        },
+        "modeNameIsNumericAuthority": {
+          "const": false
+        },
+        "authorityContractNumber": {
+          "const": "06"
+        }
+      }
+    },
+    "states": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vocabulary",
+        "generationStartsAs",
+        "generatedOutputMayAutoBecomeApproved",
+        "generatedOutputMayAutoBecomePublished",
+        "checkpointCompletionMayAutoBecomePublished",
+        "silenceIsApproval"
+      ],
+      "properties": {
+        "vocabulary": {
+          "const": [
+            "PROPOSAL",
+            "GENERATED_OUTPUT",
+            "CANDIDATE",
+            "REJECTED",
+            "APPROVED",
+            "PUBLISHED"
+          ]
+        },
+        "generationStartsAs": {
+          "const": "GENERATED_OUTPUT"
+        },
+        "generatedOutputMayAutoBecomeApproved": {
+          "const": false
+        },
+        "generatedOutputMayAutoBecomePublished": {
+          "const": false
+        },
+        "checkpointCompletionMayAutoBecomePublished": {
+          "const": false
+        },
+        "silenceIsApproval": {
+          "const": false
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "minimumFields",
+        "opaqueRuntimeIdentifiersPreferred",
+        "privateDataInPublicRepo"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "minimumFields": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "string"
+          }
+        },
+        "opaqueRuntimeIdentifiersPreferred": {
+          "const": true
+        },
+        "privateDataInPublicRepo": {
+          "const": false
+        }
+      }
+    },
+    "truthBoundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "productTruthAuthority",
+        "canonicalCommerceMediaMayBeReplacedByCampaignMedia",
+        "humanIdentityAuthority",
+        "sisterSubstitutionAllowed",
+        "generatedLikenessIsIdentityEvidence"
+      ],
+      "properties": {
+        "productTruthAuthority": {
+          "const": "PRODUCT_ONBOARDING_SYSTEM"
+        },
+        "canonicalCommerceMediaMayBeReplacedByCampaignMedia": {
+          "const": false
+        },
+        "humanIdentityAuthority": {
+          "const": "AVATAR_SKILL"
+        },
+        "sisterSubstitutionAllowed": {
+          "const": false
+        },
+        "generatedLikenessIsIdentityEvidence": {
+          "const": false
+        }
+      }
+    },
+    "qaBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateRequiresDisposition",
+        "dispositions",
+        "failedCandidateMayBeSilentlyPromoted",
+        "reworkPreservesLineage"
+      ],
+      "properties": {
+        "candidateRequiresDisposition": {
+          "const": true
+        },
+        "dispositions": {
+          "const": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "failedCandidateMayBeSilentlyPromoted": {
+          "const": false
+        },
+        "reworkPreservesLineage": {
+          "const": true
+        },
+        "numericSimilarityToleranceDefined": {
+          "const": false
+        },
+        "approvalThresholdDefined": {
+          "const": false
+        },
+        "publicationRuleDefined": {
+          "const": false
+        }
+      }
+    },
+    "rework": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed",
+        "failedAttemptMustRemainTraceable",
+        "additionalPaidCorrectionSpendRequiresOwnerReview",
+        "spendRuleAuthorityContractNumber"
+      ],
+      "properties": {
+        "allowed": {
+          "const": true
+        },
+        "failedAttemptMustRemainTraceable": {
+          "const": true
+        },
+        "additionalPaidCorrectionSpendRequiresOwnerReview": {
+          "const": true
+        },
+        "spendRuleAuthorityContractNumber": {
+          "const": "06"
+        }
+      }
+    },
+    "runtimeBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtimeExistsClaimed",
+        "stationTemplateExistsClaimed",
+        "cyberninjasGraphExistsClaimed",
+        "automatedPaidRunnerExistsClaimed",
+        "campaignInstanceExistsClaimed",
+        "implementationStateOwnedBy"
+      ],
+      "properties": {
+        "runtimeExistsClaimed": {
+          "const": false
+        },
+        "stationTemplateExistsClaimed": {
+          "const": false
+        },
+        "cyberninjasGraphExistsClaimed": {
+          "const": false
+        },
+        "automatedPaidRunnerExistsClaimed": {
+          "const": false
+        },
+        "campaignInstanceExistsClaimed": {
+          "const": false
+        },
+        "implementationStateOwnedBy": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.WORKSTATION"
+        }
+      }
+    },
+    "openDecisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorityGrants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "productTruth",
+        "humanIdentity",
+        "storyStateTransition",
+        "approval",
+        "publication",
+        "spend",
+        "autonomy"
+      ],
+      "properties": {
+        "productTruth": {
+          "const": false
+        },
+        "humanIdentity": {
+          "const": false
+        },
+        "storyStateTransition": {
+          "const": false
+        },
+        "approval": {
+          "const": false
+        },
+        "publication": {
+          "const": false
+        },
+        "spend": {
+          "const": false
+        },
+        "autonomy": {
+          "const": false
+        }
+      }
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "privacyRules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "summaryRule": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
