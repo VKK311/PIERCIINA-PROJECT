@@ -1,0 +1,246 @@
+{
+  "contractId": "PINK_MALL_SUPER_BRAIN_MEMORY_CONTRACT",
+  "version": "1.0.0",
+  "title": "Super Brain Memory",
+  "status": "CANDIDATE",
+  "parentContract": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT",
+  "contractNumber": "07",
+  "inheritance": "Inherits Contract 00 in full.",
+  "purpose": "Public-safe specification for semantic memory, campaign memory, durable learning, preference drift and memory maintenance.",
+  "architecture": {
+    "structuredClusters": true,
+    "freeGraphRelationships": true,
+    "privateClusterTaxonomyDefined": false,
+    "graphEdgeVocabularyDefined": false,
+    "storageImplementationDefined": false,
+    "apiDefined": false
+  },
+  "memoryClasses": [
+    "CAMPAIGN_MEMORY",
+    "LEARNING_CANDIDATE",
+    "DURABLE_LEARNING",
+    "PREFERENCE_DRIFT",
+    "MEMORY_MAINTENANCE_RECORD"
+  ],
+  "campaignMemory": {
+    "writtenAfterCampaigns": true,
+    "runtimeExistsClaimed": false,
+    "requiresProvenance": true
+  },
+  "durableLearning": {
+    "allowed": true,
+    "requiresAtLeastOneBasis": true,
+    "bases": [
+      "REPEATED_EVIDENCE",
+      "SUFFICIENT_SIGNAL",
+      "OWNER_CONFIRMATION"
+    ],
+    "sufficientSignalThresholdDefined": false,
+    "repeatedEvidenceRuleDefined": false,
+    "basisMustBeRetained": true,
+    "oneViralResultAutomaticallyDurable": false
+  },
+  "preferenceDrift": {
+    "states": [
+      "STABLE",
+      "EMERGING",
+      "DECLINING",
+      "RETIRED"
+    ],
+    "numericThresholdsDefined": false,
+    "observationWindowDefined": false,
+    "requiresSupportingLineage": true
+  },
+  "maintenance": {
+    "required": true,
+    "periodic": true,
+    "handles": [
+      "STALE",
+      "CONTRADICTORY",
+      "SUPERSEDED",
+      "RETIRED",
+      "UNSUPPORTED_CANDIDATE",
+      "DUPLICATE_OR_REDUNDANT"
+    ],
+    "cadenceDefined": false,
+    "retentionPolicyDefined": false,
+    "conflictResolutionDefined": false
+  },
+  "staleness": {
+    "memoryIsCurrentOperationalAuthority": false,
+    "authorityRefreshRequired": true,
+    "historicalContextPermitted": true
+  },
+  "authorityBoundaries": {
+    "factualAuthority": "CANONICAL_REPOSITORY",
+    "nonAuthoritativeFor": [
+      "PM_IDS",
+      "PRICES",
+      "SIZES",
+      "AVAILABILITY",
+      "CANONICAL_PRODUCT_IDENTITY",
+      "APPROVAL_STATE",
+      "BRANCH_OR_COMMIT_HASH",
+      "CAMPAIGN_SPEND",
+      "PUBLICATION_STATE"
+    ],
+    "noWriteAuthority": [
+      "PRODUCT_TRUTH",
+      "HUMAN_IDENTITY",
+      "STORY_STATE",
+      "RAW_SOCIAL_METRICS",
+      "CAMPAIGN_REGISTRY_OPERATIONAL_STATE"
+    ]
+  },
+  "socialBoundary": {
+    "rawMetricAuthority": "SOCIAL_PLATFORM_API",
+    "superBrainRawMetricAuthority": false,
+    "superBrainSecondaryEvidenceForInterpretation": true
+  },
+  "storyBoundary": {
+    "storyStateAuthority": "STORY_STATE_ENGINE",
+    "memoryMayMutateStoryState": false
+  },
+  "provenance": {
+    "required": true,
+    "minimumFields": [
+      "subject/context",
+      "time_or_campaign_context",
+      "supporting_evidence_or_prior_memory",
+      "semantic_class",
+      "durability_basis_when_applicable",
+      "maintenance_disposition"
+    ],
+    "persistentIdFormatDefined": false
+  },
+  "realTimeKnowledge": {
+    "target": true,
+    "currentCapability": false,
+    "providerDefined": false,
+    "refreshMechanicsDefined": false
+  },
+  "publicPrivate": {
+    "repositoryPublic": true,
+    "privateMemoryContentPublic": false,
+    "privateStrategyPublic": false,
+    "realSocialPerformanceHistoryPublic": false,
+    "directMessagesPublic": false,
+    "customerIdentitiesPublic": false,
+    "credentialsPublic": false,
+    "secretsPublic": false
+  },
+  "openDecisions": [
+    "exact private storage schema",
+    "exact graph/cluster implementation",
+    "exact API bridge",
+    "private memory content",
+    "exact cluster taxonomy",
+    "exact relationship/edge vocabulary",
+    "exact sufficient-signal threshold",
+    "exact repeated-evidence rule and counting window",
+    "exact preference-drift observation window",
+    "exact maintenance cadence",
+    "exact retention/decay policy",
+    "exact contradiction-resolution algorithm",
+    "exact real-time ingestion providers and refresh mechanics",
+    "exact confidence vocabulary",
+    "exact persistent memory ID format"
+  ],
+  "authorityGrants": {
+    "semanticMemoryOwnership": "SUPER_BRAIN",
+    "productTruth": false,
+    "humanIdentity": false,
+    "storyStateTransition": false,
+    "approval": false,
+    "publication": false,
+    "spend": false,
+    "rawSocialMetric": false,
+    "campaignOperationalState": false,
+    "canonicalRepositoryWrite": false
+  },
+  "hardFailures": [
+    [
+      "MEMORY_AS_PRODUCT_TRUTH",
+      "Semantic memory is treated as authority for product facts.",
+      "STOP"
+    ],
+    [
+      "MEMORY_AS_APPROVAL",
+      "Memory is treated as approval.",
+      "STOP"
+    ],
+    [
+      "MEMORY_AS_OPERATIONAL_STATE",
+      "Memory is treated as current campaign execution or operational state.",
+      "STOP"
+    ],
+    [
+      "VIRAL_RESULT_AS_PERMANENT_TRUTH",
+      "One strong result is automatically promoted to durable truth.",
+      "HARD_FAIL"
+    ],
+    [
+      "UNSUPPORTED_DURABLE_LEARNING",
+      "Durable learning is stored without an allowed durability basis.",
+      "HARD_FAIL"
+    ],
+    [
+      "RAW_METRIC_OVERWRITE",
+      "Memory overwrites or replaces raw social evidence.",
+      "STOP"
+    ],
+    [
+      "STORY_STATE_MUTATION",
+      "Memory directly mutates Story State or canon.",
+      "STOP"
+    ],
+    [
+      "DRIFT_STATE_AS_PRODUCT_FACT",
+      "Preference drift is represented as a product or identity fact.",
+      "HARD_FAIL"
+    ],
+    [
+      "STALE_MEMORY_USED_AS_CURRENT_FACT",
+      "Stale or conflicting memory is used as current operational truth without authority refresh.",
+      "HARD_FAIL"
+    ],
+    [
+      "UNRESOLVED_MEMORY_PROVENANCE",
+      "A durable memory has no supporting provenance.",
+      "HARD_FAIL"
+    ],
+    [
+      "PUBLIC_PRIVATE_MEMORY_LEAK",
+      "Private memory content or strategy is committed to the public repository.",
+      "STOP"
+    ],
+    [
+      "RUNTIME_EXISTENCE_FABRICATION",
+      "A contract or schema is cited as proof that a Super Brain runtime exists.",
+      "STOP"
+    ],
+    [
+      "UNKNOWN_DRIFT_STATE",
+      "A preference drift record uses a state outside the locked vocabulary.",
+      "HARD_FAIL"
+    ],
+    [
+      "MEMORY_SILENTLY_ERASES_HISTORY",
+      "Cleanup destroys historical meaning or provenance without an explicit maintenance record.",
+      "HARD_FAIL"
+    ],
+    [
+      "AUTHORITY_BYPASS",
+      "Memory is used to bypass a higher-authority source.",
+      "STOP"
+    ]
+  ],
+  "scope": {
+    "implementationProvidedByThisContract": false,
+    "createsSuperBrainRuntime": false,
+    "createsMemoryDatabase": false,
+    "createsPrivateOpsStore": false,
+    "createsApiBridge": false,
+    "createsRealtimeKnowledgeService": false
+  }
+}
