@@ -1,0 +1,560 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/VKK311/PIERCIINA-PROJECT/docs/pink-mall/system-contracts/06_AUTOMATION_AND_APPROVAL_CONTRACT.schema.json",
+  "title": "PINK MALL Automation & Approval Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractId",
+    "version",
+    "title",
+    "status",
+    "parentContract",
+    "contractNumber",
+    "inheritance",
+    "purpose",
+    "lockedOperatingModel",
+    "approvalRecord",
+    "approvalStates",
+    "budgetModes",
+    "firstBatchSpend",
+    "correctionSpend",
+    "commercialPublication",
+    "autonomy",
+    "approvalVersusAutonomy",
+    "campaignOperationalState",
+    "authorityBoundaries",
+    "delegation",
+    "revocationExpiry",
+    "publicPrivate",
+    "openDecisions",
+    "authorityGrants",
+    "hardFailures",
+    "scope"
+  ],
+  "properties": {
+    "contractId": {
+      "const": "PINK_MALL_AUTOMATION_AND_APPROVAL_CONTRACT"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "const": "Automation & Approval"
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "CANONICAL",
+        "SUPERSEDED"
+      ]
+    },
+    "parentContract": {
+      "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT"
+    },
+    "contractNumber": {
+      "const": "06"
+    },
+    "inheritance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lockedOperatingModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ownerApprovesIdeaAndBudgetMode",
+        "approvalMayAuthorizeFirstBatchSpend",
+        "additionalCorrectionSpendAfterFailedQAFailsRequiresOwnerReview",
+        "humanApprovalCurrentCommercialPublicationDefault",
+        "autoPublishAuthorised",
+        "autonomyCapabilitySpecific",
+        "autonomyGlobalFlag"
+      ],
+      "properties": {
+        "ownerApprovesIdeaAndBudgetMode": {
+          "const": true
+        },
+        "approvalMayAuthorizeFirstBatchSpend": {
+          "const": true
+        },
+        "additionalCorrectionSpendAfterFailedQAFailsRequiresOwnerReview": {
+          "const": true
+        },
+        "humanApprovalCurrentCommercialPublicationDefault": {
+          "const": true
+        },
+        "autoPublishAuthorised": {
+          "const": false
+        },
+        "autonomyCapabilitySpecific": {
+          "const": true
+        },
+        "autonomyGlobalFlag": {
+          "const": false
+        }
+      }
+    },
+    "approvalRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "fields",
+        "scoped",
+        "silenceIsApproval",
+        "persistentStorageDefined"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "fields": {
+          "const": [
+            "approvalRef",
+            "campaignRef",
+            "scope",
+            "budgetMode",
+            "approvedBy",
+            "approvedAt",
+            "status",
+            "sourceEvidence"
+          ]
+        },
+        "scoped": {
+          "const": true
+        },
+        "silenceIsApproval": {
+          "const": false
+        },
+        "persistentStorageDefined": {
+          "const": false
+        }
+      }
+    },
+    "approvalStates": {
+      "const": [
+        "PENDING",
+        "APPROVED",
+        "REVOKED",
+        "EXPIRED"
+      ]
+    },
+    "budgetModes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locked",
+        "modes",
+        "creditCeilingsDefined",
+        "currencyCeilingsDefined",
+        "perBatchLimitsDefined",
+        "providerPricesDefined",
+        "correctionSpendAmountsDefined",
+        "numericAutonomyThresholdsDefined"
+      ],
+      "properties": {
+        "locked": {
+          "const": true
+        },
+        "modes": {
+          "const": [
+            "ECONOMY",
+            "STANDARD",
+            "PREMIUM"
+          ]
+        },
+        "creditCeilingsDefined": {
+          "const": false
+        },
+        "currencyCeilingsDefined": {
+          "const": false
+        },
+        "perBatchLimitsDefined": {
+          "const": false
+        },
+        "providerPricesDefined": {
+          "const": false
+        },
+        "correctionSpendAmountsDefined": {
+          "const": false
+        },
+        "numericAutonomyThresholdsDefined": {
+          "const": false
+        }
+      }
+    },
+    "firstBatchSpend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approvalMayAuthorise",
+        "unbounded",
+        "requiresApplicableNumericCeiling",
+        "missingCeilingMayBeInvented"
+      ],
+      "properties": {
+        "approvalMayAuthorise": {
+          "const": true
+        },
+        "unbounded": {
+          "const": false
+        },
+        "requiresApplicableNumericCeiling": {
+          "const": true
+        },
+        "missingCeilingMayBeInvented": {
+          "const": false
+        }
+      }
+    },
+    "correctionSpend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "additionalPaidCorrectionSpendRequiresOwnerReview",
+        "proposalDistinctFromApproval",
+        "executedSpendDistinctFromApproval",
+        "failedBatchCreatesUnlimitedRetryPermission"
+      ],
+      "properties": {
+        "additionalPaidCorrectionSpendRequiresOwnerReview": {
+          "const": true
+        },
+        "proposalDistinctFromApproval": {
+          "const": true
+        },
+        "executedSpendDistinctFromApproval": {
+          "const": true
+        },
+        "failedBatchCreatesUnlimitedRetryPermission": {
+          "const": false
+        }
+      }
+    },
+    "commercialPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "humanApprovalCurrentDefault",
+        "autoPublishAuthorised",
+        "finalCheckpointIsPublicationAuthority",
+        "qaPassIsPublicationAuthority",
+        "socialRecommendationIsPublicationAuthority",
+        "authorityDomain"
+      ],
+      "properties": {
+        "humanApprovalCurrentDefault": {
+          "const": true
+        },
+        "autoPublishAuthorised": {
+          "const": false
+        },
+        "finalCheckpointIsPublicationAuthority": {
+          "const": false
+        },
+        "qaPassIsPublicationAuthority": {
+          "const": false
+        },
+        "socialRecommendationIsPublicationAuthority": {
+          "const": false
+        },
+        "authorityDomain": {
+          "const": "COMMERCIAL_PUBLICATION"
+        }
+      }
+    },
+    "autonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "globalFlagAllowed",
+        "defaultAuthorisedCapabilities",
+        "futureRecordFields",
+        "capabilityCatalogueDefined",
+        "numericThresholdsDefined",
+        "evaluationWindowDefined",
+        "revocationRulesDefined"
+      ],
+      "properties": {
+        "model": {
+          "const": "CAPABILITY_SPECIFIC_AND_EARNED"
+        },
+        "globalFlagAllowed": {
+          "const": false
+        },
+        "defaultAuthorisedCapabilities": {
+          "const": []
+        },
+        "futureRecordFields": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "string"
+          }
+        },
+        "capabilityCatalogueDefined": {
+          "const": false
+        },
+        "numericThresholdsDefined": {
+          "const": false
+        },
+        "evaluationWindowDefined": {
+          "const": false
+        },
+        "revocationRulesDefined": {
+          "const": false
+        }
+      }
+    },
+    "approvalVersusAutonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distinct",
+        "approvalIsScopedAct",
+        "autonomyIsConditionalCapabilityPermission",
+        "approvalBecomesPermanentAutonomy",
+        "autonomyBecomesBlanketApproval"
+      ],
+      "properties": {
+        "distinct": {
+          "const": true
+        },
+        "approvalIsScopedAct": {
+          "const": true
+        },
+        "autonomyIsConditionalCapabilityPermission": {
+          "const": true
+        },
+        "approvalBecomesPermanentAutonomy": {
+          "const": false
+        },
+        "autonomyBecomesBlanketApproval": {
+          "const": false
+        }
+      }
+    },
+    "campaignOperationalState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority",
+        "implementationStatusOwnedBy",
+        "runtimeExistsClaimed",
+        "operationalFactsMayBeFabricated"
+      ],
+      "properties": {
+        "authority": {
+          "const": "CAMPAIGN_REGISTRY"
+        },
+        "implementationStatusOwnedBy": {
+          "const": "PINK_MALL_SYSTEM_AUTHORITY_CONTRACT.sourceTypes.CAMPAIGN_REGISTRY"
+        },
+        "runtimeExistsClaimed": {
+          "const": false
+        },
+        "operationalFactsMayBeFabricated": {
+          "const": false
+        }
+      }
+    },
+    "authorityBoundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approvalAuthority",
+        "paidGenerationAuthority",
+        "publicationAuthority",
+        "autonomousAuthorityDefault",
+        "systemsWithoutAuthority"
+      ],
+      "properties": {
+        "approvalAuthority": {
+          "const": "OWNER"
+        },
+        "paidGenerationAuthority": {
+          "const": "OWNER"
+        },
+        "publicationAuthority": {
+          "const": "OWNER"
+        },
+        "autonomousAuthorityDefault": {
+          "const": "NONE"
+        },
+        "systemsWithoutAuthority": {
+          "type": "array",
+          "const": [
+            "WORKSTATION",
+            "CYBERNINJAS_STUDIO",
+            "CLAUDE_ORCHESTRATOR",
+            "SUPER_BRAIN",
+            "SOCIAL_INTELLIGENCE_ENGINE"
+          ]
+        }
+      }
+    },
+    "delegation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "futureDelegationPossible",
+        "currentlyDelegated",
+        "inferredDelegationAllowed"
+      ],
+      "properties": {
+        "futureDelegationPossible": {
+          "const": true
+        },
+        "currentlyDelegated": {
+          "const": false
+        },
+        "inferredDelegationAllowed": {
+          "const": false
+        }
+      }
+    },
+    "revocationExpiry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revocationSupportedConceptually",
+        "expirySupportedConceptually",
+        "universalExpiryDurationDefined",
+        "silenceMayInferExpiry"
+      ],
+      "properties": {
+        "revocationSupportedConceptually": {
+          "const": true
+        },
+        "expirySupportedConceptually": {
+          "const": true
+        },
+        "universalExpiryDurationDefined": {
+          "const": false
+        },
+        "silenceMayInferExpiry": {
+          "const": false
+        }
+      }
+    },
+    "publicPrivate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repositoryPublic",
+        "realSpendDataPublic",
+        "privateApprovalRecordsPublic",
+        "credentialsPublic",
+        "privateStrategyPublic",
+        "privatePerformanceHistoryPublic"
+      ],
+      "properties": {
+        "repositoryPublic": {
+          "const": true
+        },
+        "realSpendDataPublic": {
+          "const": false
+        },
+        "privateApprovalRecordsPublic": {
+          "const": false
+        },
+        "credentialsPublic": {
+          "const": false
+        },
+        "privateStrategyPublic": {
+          "const": false
+        },
+        "privatePerformanceHistoryPublic": {
+          "const": false
+        }
+      }
+    },
+    "openDecisions": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorityGrants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "productTruth",
+        "humanIdentity",
+        "storyStateTransition",
+        "blanketPublicationAuthority",
+        "globalAutonomyAuthority"
+      ],
+      "properties": {
+        "productTruth": {
+          "const": false
+        },
+        "humanIdentity": {
+          "const": false
+        },
+        "storyStateTransition": {
+          "const": false
+        },
+        "blanketPublicationAuthority": {
+          "const": false
+        },
+        "globalAutonomyAuthority": {
+          "const": false
+        }
+      }
+    },
+    "hardFailures": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementationProvidedByThisContract",
+        "createsCampaignRegistry",
+        "createsApprovalService",
+        "createsBudgetLedger",
+        "createsAutonomousPublisher",
+        "createsPaidGenerationRunner"
+      ],
+      "properties": {
+        "implementationProvidedByThisContract": {
+          "const": false
+        },
+        "createsCampaignRegistry": {
+          "const": false
+        },
+        "createsApprovalService": {
+          "const": false
+        },
+        "createsBudgetLedger": {
+          "const": false
+        },
+        "createsAutonomousPublisher": {
+          "const": false
+        },
+        "createsPaidGenerationRunner": {
+          "const": false
+        }
+      }
+    }
+  }
+}
