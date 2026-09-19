@@ -1,0 +1,76 @@
+{
+  "packetId": "PINK_MALL_WORKSTATION_2_BUILD_PACKET",
+  "version": "1.0.0",
+  "status": "PRE_BUILD_SPECIFICATION",
+  "runtimeCreated": false,
+  "masterStation": "PINK_MALL_HQ_MASTER_STATION",
+  "campaignStation": "ONE_SEPARATE_STATION_PER_CAMPAIGN",
+  "logicalFlow": [
+    "INPUT",
+    "CONTEXT",
+    "PHOTO_ARCHITECT",
+    "IMAGE",
+    "QA",
+    "VIDEO_OPTIONAL",
+    "COPY_ADAPTATIONS",
+    "FINAL",
+    "APPROVAL"
+  ],
+  "checkpoints": [
+    "CONCEPT",
+    "IMAGES",
+    "VIDEO_OPTIONAL",
+    "FINAL"
+  ],
+  "initialImageVariants": {
+    "min": 2,
+    "max": 3,
+    "meaningfullyDifferent": true
+  },
+  "outputStates": [
+    "PROPOSAL",
+    "GENERATED_OUTPUT",
+    "CANDIDATE",
+    "REJECTED",
+    "APPROVED",
+    "PUBLISHED"
+  ],
+  "qaDispositions": [
+    "PASS",
+    "FAIL",
+    "UNRESOLVED"
+  ],
+  "budgetModes": [
+    "ECONOMY",
+    "STANDARD",
+    "PREMIUM"
+  ],
+  "numericBudgetDefined": false,
+  "modelSelectionOwner": "CLAUDE",
+  "authorityGrants": [],
+  "requiredProvenance": [
+    "stationRef",
+    "campaignRef",
+    "checkpoint",
+    "outputRef",
+    "parentOutputRefWhenApplicable",
+    "executionProvider",
+    "executionModel",
+    "outputClass",
+    "qaDisposition"
+  ],
+  "cyberninjaPreBuildChecks": [
+    "authenticated account",
+    "Workstation 2.0 accessible",
+    "graph/node editing",
+    "required node types",
+    "reliable node configuration",
+    "image generation/model routing",
+    "output provenance metadata",
+    "QA representation",
+    "station duplication/template",
+    "independent inspection"
+  ],
+  "runtimeEvidenceRequired": true,
+  "privateDataAllowed": false
+}
