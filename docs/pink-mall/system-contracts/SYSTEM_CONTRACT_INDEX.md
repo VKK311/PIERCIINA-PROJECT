@@ -64,6 +64,7 @@ because it was replaced, not because its historical review stopped counting.
 | 03 | **Character & Story** | `03_CHARACTER_STORY_CONTRACT.md` / `.json` / `.schema.json`, plus `03_STORY_STATE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 04 | **Social Intelligence** | `04_SOCIAL_INTELLIGENCE_CONTRACT.md` / `.json` / `.schema.json`, plus `04_SOCIAL_INTELLIGENCE_OBJECT.schema.json` | status `CANDIDATE` — canonicality follows the rule above, not this string |
 | 05 | **Workstation Operating** | `05_WORKSTATION_OPERATING_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
+| 06 | **Automation & Approval** | `06_AUTOMATION_AND_APPROVAL_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 
 Validators, standard library only:
 
@@ -127,6 +128,8 @@ source registry.
 
 ## Planned contracts — NOT YET CREATED
 
+Contracts 05 and 06 are now authored candidates and are therefore excluded from the genuinely unwritten planned-contract list below.
+
 The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
 canonical domain contracts. Contract 05 has moved out of this planned list into
 the current authored set above; it is still a candidate contract and is not being
@@ -142,7 +145,7 @@ No later phase starts from a blank page.
 | # | Contract | Covers | Status |
 |---|---|---|---|
 | 05 | Workstation Operating | node architecture, workflow graph, run model | AUTHORED — candidate, validator-checked |
-| 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | NOT YET CREATED |
+| 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | AUTHORED — candidate, validator-checked |
 | 07 | Super Brain Memory | memory schema, write rules, staleness handling | NOT YET CREATED |
 | 08 | PINK MALL HQ | HQ blueprint and operating surface | NOT YET CREATED |
 
