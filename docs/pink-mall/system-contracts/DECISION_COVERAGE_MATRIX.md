@@ -217,7 +217,7 @@ open.
 | | |
 |---|---|
 | **Locked decision exists** | YES |
-| **Detailed canonical contract created** | NO — LOCKED, AWAITING CANONICAL CONTRACT |
+| **Detailed contract authored** | YES — `05_WORKSTATION_OPERATING_CONTRACT` files now exist in this lineage; canonicality is still decided solely by the four conditions in contract 00 |
 | **Target contract** | 05 — Workstation Operating |
 | **Private detail required** | NO |
 
@@ -344,7 +344,7 @@ open.
 | 2 | Product Creative / Product Truth | YES | AUTHORED — files exist in this lineage | 02 | NO |
 | 3 | INA/SIS Character & Story | YES | AUTHORED — files exist in this lineage | 03 | YES |
 | 4 | Story Engine + Social Intelligence | YES | AUTHORED — files exist in this lineage | 03, 04 | YES |
-| 5 | Workstation Operating Model | YES | NO — awaiting | 05 | NO |
+| 5 | Workstation Operating Model | YES | YES — authored candidate; validator-checked | 05 | NO |
 | 6 | Approval / Automation | YES | NO — awaiting | 06 | NO |
 | 7 | Super Brain Memory | YES | NO — awaiting | 07 | YES |
 | 8 | PINK MALL HQ Blueprint | YES | NO — awaiting | 08 | PARTIAL |
