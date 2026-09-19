@@ -76,10 +76,11 @@ contradicted the real state for weeks.
 
 ### Superseded current-state table — 2026-08-25
 
-> **Historical, retained only to show what this section used to assert.** Every
-> row is false now: the public catalogue is PM-001…PM-046, the next Mall ID is
-> PM-047, and PM-025 was published on 2026-08-25 with JQ4556 in
-> `PINK_MALL_PRODUCTS`. Do not read any row as current.
+> **Historical, retained only to show what this section used to assert.** The
+> catalogue, PM-025 publication state, JQ4556 membership and next-ID rows below
+> are superseded; the canonical website row remains structurally true. Do not
+> read the historical rows as current state. Current state lives only in
+> `PROJECT_STATE.md`.
 
 | | |
 |---|---|
