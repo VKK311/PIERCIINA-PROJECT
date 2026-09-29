@@ -61,10 +61,13 @@
       "const": false
     },
     "authorityGrants": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "const": [
+        "PRESENT_AUTHORITATIVE_STATE",
+        "CROSS_SYSTEM_NAVIGATION",
+        "OWNER_FACING_VISIBILITY",
+        "AUTHORISED_TECHNICAL_AUDIT",
+        "CAMPAIGN_WORKSTATION_ORGANISATION"
+      ]
     },
     "noIndependentAuthority": {
       "type": "array",

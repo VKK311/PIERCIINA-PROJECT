@@ -32,6 +32,7 @@ def main():
       check("approval != autonomy",c["approvalVersusAutonomy"]["distinct"] and not c["approvalVersusAutonomy"]["approvalBecomesPermanentAutonomy"] and not c["approvalVersusAutonomy"]["autonomyBecomesBlanketApproval"]),
       check("campaign registry not fabricated",c["campaignOperationalState"]["authority"]=="CAMPAIGN_REGISTRY" and not c["campaignOperationalState"]["runtimeExistsClaimed"] and not c["campaignOperationalState"]["operationalFactsMayBeFabricated"]),
       check("authority boundaries",c["authorityBoundaries"]["approvalAuthority"]=="OWNER" and c["authorityBoundaries"]["paidGenerationAuthority"]=="OWNER" and c["authorityBoundaries"]["publicationAuthority"]=="OWNER" and c["authorityBoundaries"]["autonomousAuthorityDefault"]=="NONE"),
+      check("no authority grants",c["authorityGrants"]=={"productTruth":False,"humanIdentity":False,"storyStateTransition":False,"blanketPublicationAuthority":False,"globalAutonomyAuthority":False}),
       check("no inferred delegation",c["delegation"]["currentlyDelegated"] is False and c["delegation"]["inferredDelegationAllowed"] is False),
       check("public/private boundary",all(v is False for k,v in c["publicPrivate"].items() if k!="repositoryPublic")),
       check("open decisions preserved",len(c["openDecisions"])==9),

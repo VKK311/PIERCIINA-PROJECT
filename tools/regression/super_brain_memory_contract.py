@@ -24,6 +24,7 @@ def main():
       ("real-time target only",c["realTimeKnowledge"]["target"] is True and c["realTimeKnowledge"]["currentCapability"] is False),
       ("private memory not public",c["publicPrivate"]["privateMemoryContentPublic"] is False),
       ("runtime not created",all(v is False for k,v in c["scope"].items() if k.startswith("creates"))),
+      ("specification only",c["scope"]["implementationProvidedByThisContract"] is False),
       ("hard failures",len(c["hardFailures"])==15),
       ("schema required keys",set(s["required"])==set(c.keys())),
       ("schema additionalProperties false",s["additionalProperties"] is False),

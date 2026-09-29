@@ -26,6 +26,8 @@ def main():
     checks.append(check("scope is specification-only",c["scope"]["implementationProvidedByThisContract"] is False))
     checks.append(check("master + per-campaign stations locked",c["operatingModel"]["masterStation"]=="PINK_MALL_HQ_MASTER_STATION" and c["operatingModel"]["campaignStation"]=="ONE_SEPARATE_STATION_PER_CAMPAIGN" and c["operatingModel"]["approvedIdeaAllowsStationConstructionWithoutSecondArchitectureApproval"] is True))
     checks.append(check("checkpoint order",c["checkpointOrder"]==["CONCEPT","IMAGES","VIDEO","FINAL"]))
+    cps=c["checkpoints"]
+    checks.append(check("checkpoint records preserve their gates",[x.get("checkpointId") for x in cps]==c["checkpointOrder"] and cps[0].get("requiresPriorOwnerIdeaApproval") is True and cps[1].get("requiresInitialExploration") is True and cps[2].get("required") is False and cps[3].get("isPublicationAuthority") is False))
     checks.append(check("image exploration 2–3",c["initialImageExploration"]["normalVariantCountMin"]==2 and c["initialImageExploration"]["normalVariantCountMax"]==3 and c["initialImageExploration"]["meaningfullyDifferentRequired"] is True))
     checks.append(check("Claude selects model",c["modelSelection"]["decisionOwner"]=="CLAUDE"))
     checks.append(check("budget modes",c["budgetModes"]["modes"]==["ECONOMY","STANDARD","PREMIUM"] and not any(c["budgetModes"][k] for k in ("numericCeilingsDefined","creditsDefined","correctionSpendDefined","providerPricesDefined"))))
@@ -34,6 +36,7 @@ def main():
     checks.append(check("rework preserves lineage",c["rework"]["allowed"] is True and c["rework"]["failedAttemptMustRemainTraceable"] is True))
     rb=c["runtimeBoundary"]; checks.append(check("runtime not fabricated",all(rb[k] is False for k in ("runtimeExistsClaimed","stationTemplateExistsClaimed","cyberninjasGraphExistsClaimed","automatedPaidRunnerExistsClaimed","campaignInstanceExistsClaimed"))))
     checks.append(check("no authority grants",all(v is False for v in c["authorityGrants"].values())))
+    checks.append(check("product and human truth remain locked",c["truthBoundaries"]=={"productTruthAuthority":"PRODUCT_ONBOARDING_SYSTEM","canonicalCommerceMediaMayBeReplacedByCampaignMedia":False,"humanIdentityAuthority":"AVATAR_SKILL","sisterSubstitutionAllowed":False,"generatedLikenessIsIdentityEvidence":False}))
     checks.append(check("deferred 06/07/08",sorted(x["contractNumber"] for x in c["deferredBoundaries"])==["06","07","08"]))
     checks.append(check("public/private boundary",c["provenance"]["privateDataInPublicRepo"] is False))
     checks.append(check("schema identity",s["properties"]["contractId"]["const"]==EXPECTED_ID and s["properties"]["contractNumber"]["const"]==EXPECTED_NUMBER))

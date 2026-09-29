@@ -9,7 +9,7 @@ def main():
  checks=[
  ("identity",c["packetId"]=="PINK_MALL_WORKSTATION_2_BUILD_PACKET" and c["status"]=="PRE_BUILD_SPECIFICATION"),
  ("runtime false",c["runtimeCreated"] is False),
- ("logical flow",len(c["logicalFlow"])==9),
+ ("logical flow",c["logicalFlow"]==["INPUT","CONTEXT","PHOTO_ARCHITECT","IMAGE","QA","VIDEO_OPTIONAL","COPY_ADAPTATIONS","FINAL","APPROVAL"]),
  ("checkpoints",c["checkpoints"]==["CONCEPT","IMAGES","VIDEO_OPTIONAL","FINAL"]),
  ("image range",c["initialImageVariants"]["min"]==2 and c["initialImageVariants"]["max"]==3),
  ("states",len(c["outputStates"])==6),

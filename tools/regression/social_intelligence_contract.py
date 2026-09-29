@@ -174,7 +174,7 @@ def check_snapshot(sn):
 
     if not SEMVER.fullmatch(str(sn.get("schemaVersion", ""))):
         e.append("schemaVersion is not a semantic version")
-    if sn.get("subjectType") not in SUBJECT_TYPES:
+    if not isinstance(sn.get("subjectType"), str) or sn["subjectType"] not in SUBJECT_TYPES:
         e.append(f"unknown subjectType {sn.get('subjectType')!r}")
     for k in ("snapshotRef", "subjectRef", "observationWindowRef"):
         if not isinstance(sn.get(k), str) or not sn.get(k):
@@ -246,7 +246,6 @@ def check_snapshot(sn):
                              f"grounded in any resolvable raw evidence")
 
     # ---- raw evidence: measurement, kept apart from conclusion ----
-    ev_ids = set()
     raw = sn.get("rawEvidence")
     if not isinstance(raw, list):
         e.append("rawEvidence must be an array")
@@ -260,7 +259,6 @@ def check_snapshot(sn):
         for k in r:
             if k not in RAW_REQUIRED + RAW_OPTIONAL:
                 e.append(f"rawEvidence[{i}] unknown field {k}")
-        ev_ids.add(r.get("evidenceRef"))
 
         mi = r.get("metricIdentity")
         if not isinstance(mi, dict):
@@ -309,7 +307,6 @@ def check_snapshot(sn):
             e.append(f"rawEvidence[{i}] derivationRuleRef on a non-derived record")
 
     # ---- interpretations: conclusions, referencing their evidence ----
-    int_ids = set()
     ints = sn.get("interpretations")
     if not isinstance(ints, list):
         e.append("interpretations must be an array"); ints = []
@@ -322,7 +319,6 @@ def check_snapshot(sn):
         for k in it:
             if k not in INT_REQUIRED + INT_OPTIONAL:
                 e.append(f"interpretations[{i}] unknown field {k}")
-        int_ids.add(it.get("interpretationRef"))
         if it.get("truthClass") != "INTERPRETATION":
             e.append(f"interpretations[{i}] truthClass {it.get('truthClass')!r} — a conclusion "
                      f"MUST NOT be recorded as fact or approval")
@@ -1376,6 +1372,14 @@ def main():
     rejects("    a record with no usable identifier of its own",
             lambda sn: sn["rawEvidence"][0].__setitem__("evidenceRef", ""),
             "no usable evidenceRef")
+    rejects("    an unhashable subjectType is rejected without crashing",
+            lambda sn: sn.__setitem__("subjectType", {}), "unknown subjectType")
+    rejects("    an unhashable evidenceRef is rejected without crashing",
+            lambda sn: sn["rawEvidence"][0].__setitem__("evidenceRef", {}),
+            "no usable evidenceRef")
+    rejects("    an unhashable interpretationRef is rejected without crashing",
+            lambda sn: sn["interpretations"][0].__setitem__("interpretationRef", {}),
+            "no usable interpretationRef")
 
     # ---- positive controls: the rules must not over-reject ----
     def accepts(label, fn):

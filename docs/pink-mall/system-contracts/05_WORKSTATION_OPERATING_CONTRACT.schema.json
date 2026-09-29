@@ -206,31 +206,109 @@
       "type": "array",
       "minItems": 4,
       "maxItems": 4,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "checkpointId",
-          "required",
-          "meaning"
-        ],
-        "properties": {
-          "checkpointId": {
-            "enum": [
-              "CONCEPT",
-              "IMAGES",
-              "VIDEO",
-              "FINAL"
-            ]
-          },
-          "required": {
-            "type": "boolean"
-          },
-          "meaning": {
-            "type": "string"
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "required",
+            "meaning",
+            "requiresPriorOwnerIdeaApproval"
+          ],
+          "properties": {
+            "checkpointId": {
+              "const": "CONCEPT"
+            },
+            "required": {
+              "const": true
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requiresPriorOwnerIdeaApproval": {
+              "const": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "required",
+            "meaning",
+            "requiresInitialExploration"
+          ],
+          "properties": {
+            "checkpointId": {
+              "const": "IMAGES"
+            },
+            "required": {
+              "const": true
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requiresInitialExploration": {
+              "const": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "required",
+            "meaning",
+            "requiresInitialExploration"
+          ],
+          "properties": {
+            "checkpointId": {
+              "const": "VIDEO"
+            },
+            "required": {
+              "const": false
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requiresInitialExploration": {
+              "const": false
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "required",
+            "meaning",
+            "isPublicationAuthority"
+          ],
+          "properties": {
+            "checkpointId": {
+              "const": "FINAL"
+            },
+            "required": {
+              "const": true
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "isPublicationAuthority": {
+              "const": false
+            }
           }
         }
-      }
+      ],
+      "items": false
     },
     "checkpointOrder": {
       "const": [

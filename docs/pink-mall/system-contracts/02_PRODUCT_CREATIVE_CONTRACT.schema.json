@@ -172,7 +172,7 @@
         },
         "mustRemainTheSame": {
           "type": "array",
-          "minItems": 11,
+          "minItems": 10,
           "items": {
             "type": "string"
           },

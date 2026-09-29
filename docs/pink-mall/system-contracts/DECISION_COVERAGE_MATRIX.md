@@ -350,12 +350,11 @@ open.
 | 8 | PINK MALL HQ Blueprint | YES | YES — authored candidate; validator-checked | 08 | PARTIAL |
 
 Eight domains, eight sets of locked structural decisions preserved above. Domain
-contracts **01**, **02**, **03** and **04** have been authored; domains 05–08
-still await theirs. Domain 4 targets both 03 and 04, and both now exist, so it is
-fully authored in the bookkeeping sense — which is not the same as canonical.
-Closing that
-gap is the Phase 1 work that continues — and it starts from these decisions, not
-from a blank page.
+contracts **01**, **02**, **03**, **04**, **05**, **06**, **07** and **08** have been authored.
+Contracts 03 and 04 have been authored and together cover Domain 4.
+All eight domains are authored in the bookkeeping sense — which is not
+the same as canonical or implemented. Runtime/build preparation starts from
+these locked decisions and the remaining open implementation questions.
 
 "Authored" in the table above means the files exist in this lineage. Whether any
 of them is **canonical** is decided only by the four conditions in

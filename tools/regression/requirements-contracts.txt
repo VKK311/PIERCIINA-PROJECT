@@ -1,0 +1,2 @@
+# Full JSON Schema audit only. Targeted semantic validators stay standard-library-only.
+jsonschema==4.26.0

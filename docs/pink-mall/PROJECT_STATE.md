@@ -1,6 +1,6 @@
 # PINK MALL — project state
 
-Updated: **2026-09-19** — Contract 07 authored and validator-checked as a candidate; Contract 04 remains canonical development (`7c331bc2896d30cb6eeae7e76fa02f06fa3a3075`).
+Updated: **2026-09-29** — governance audit and validator hardening. Contracts 00–04 retain their recorded canonical status; 05–08 remain authored candidates. This audit does not promote candidates or establish a runtime.
 Storefront status: **PM-001…PM-046 PUBLISHED**, unchanged since 2026-08-31.
 
 This file records the real state. Trust it over any summary, and verify the
@@ -16,7 +16,7 @@ canonical build by hash before treating it as canonical.
 | Next contract | **Contract layer complete — next phase is runtime/build preparation** |
 | Active hold | **953FLR1358** — identity not established, not published |
 | Approved source-media archive | `docs/pink-mall/approval-media/PM-025/` — provenance archive; PM-025 is already published |
-| Open follow-ups | two, recorded under **Tracked follow-ups** below |
+| Open follow-ups | one lifecycle-transition validator item, recorded under **Tracked follow-ups** below |
 
 **Two independent tracks, and conflating them is the main risk this file
 guards against.** The storefront is built and live. The campaign systems are
@@ -56,6 +56,7 @@ conditions are.
 | 05 | Workstation Operating | 1.0.0 | `tools/regression/workstation_operating_contract.py` |
 | 06 | Automation & Approval | 1.0.0 | `tools/regression/automation_approval_contract.py` |
 | 07 | Super Brain Memory | 1.0.0 | `tools/regression/super_brain_memory_contract.py` |
+| 08 | PINK MALL HQ Blueprint | 1.0.0 | `tools/regression/hq_blueprint_contract.py` |
 
 Contracts **05–08** now exist as authored candidates and have dedicated validators.
 
@@ -83,16 +84,10 @@ The contract remains `CANDIDATE` in lifecycle provenance. It grants no approval,
 
 ## Tracked follow-ups
 
-Two open items, deliberately kept separate because they have different
-triggers. Neither blocks contract authoring.
+One open item. It does not block contract authoring, but must be addressed
+before the lifecycle transition described below.
 
-1. **Contract 04 — three pre-existing malformed-input crash cases.**
-   `check_snapshot()` raises `TypeError` instead of returning violations when an
-   identifier is an unhashable value: `subjectType={}`,
-   `rawEvidence[0].evidenceRef={}`, `interpretations[0].interpretationRef={}`.
-   These predate the reviewed correction and sit on lines it does not touch.
-   Non-blocking; a checker should report rather than crash.
-2. **Contract 00 — lifecycle-transition validator debt.**
+1. **Contract 00 — lifecycle-transition validator debt.**
    `tools/regression/system_authority_contract.py` hard-codes `PLANNED_SOURCES`
    (check 14) and requires `PRIVATE_OPS_STORE` to remain `PLANNED` (check 16).
    Current repository state satisfies both, so this is **non-blocking for
@@ -100,6 +95,40 @@ triggers. Neither blocks contract authoring.
    actually moves from `PLANNED` to `ACTIVE`/`PARTIAL`, or before a private ops
    store is created** — at that point contract 00's own validator would fail on
    a legitimate change.
+
+**Resolved 2026-09-29 — Contract 04 malformed identifiers.** The three reproduced
+`TypeError` cases (`subjectType={}`, `rawEvidence[0].evidenceRef={}` and
+`interpretations[0].interpretationRef={}`) now return violations. Each has a
+negative regression fixture; the valid snapshot still passes.
+
+## Governance audit — 2026-09-29
+
+Input checkpoint: `d81c4e31120851cb820d03820da8a10b7aac96fe`.
+The ten targeted validators initially reported **1327 passing and 7 failing
+checks**. All seven failures were stale authored/planned bookkeeping in the
+index and matrix. Independent Draft 2020-12 validation additionally found:
+
+- Contract 02's fidelity array has ten preserved entries while its schema
+  incorrectly required eleven. The schema now matches those existing entries;
+  no Product Truth rule was removed or invented.
+- Contract 05's closed checkpoint schema omitted fields already present in the
+  contract. The schema now expresses each ordered checkpoint and its existing
+  approval/exploration/publication constraints.
+- Authority/flow mutations could pass the targeted 05–08/build-packet checks.
+  Those checks are now explicit. Contract 08's schema permits only its five
+  existing coordination capabilities, excluding commercial publication.
+
+The complete local gate now reports **1342/1342 targeted checks**, **14/14
+schema syntax checks**, **10/10 full contract/build-packet schema checks** and
+**6/6 adversarial controls**. Run `python tools/regression/system_contracts_suite.py`
+after installing `tools/regression/requirements-contracts.txt`. The dedicated
+`System contract gates` workflow runs this same command. Local results are not
+claims about a GitHub Actions run.
+
+These are specification and validator checks. They establish neither a
+CyberNinjas graph nor generation quality, avatar fidelity, publication
+approval, spend authority or a campaign runtime. Candidate 05–08 promotion
+still requires the current review condition in Contract 00.
 
 ## Canonical
 

@@ -54,6 +54,7 @@ because it was replaced, not because its historical review stopped counting.
 8. `05_WORKSTATION_OPERATING_CONTRACT.md` — how approved campaign work is organised into stations, checkpoints, candidates and QA boundaries.
 9. `06_AUTOMATION_AND_APPROVAL_CONTRACT.md` — approval, budget, correction-spend and earned-autonomy boundaries.
 10. `07_SUPER_BRAIN_MEMORY_CONTRACT.md` — semantic memory, durable learning, staleness and preference drift.
+11. `08_HQ_BLUEPRINT_CONTRACT.md` — the HQ coordination surface and its authority boundaries.
 
 ## Current contract set
 
@@ -69,7 +70,7 @@ because it was replaced, not because its historical review stopped counting.
 | 07 | **Super Brain Memory** | `07_SUPER_BRAIN_MEMORY_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 | 08 | **PINK MALL HQ Blueprint** | `08_HQ_BLUEPRINT_CONTRACT.md` / `.json` / `.schema.json` | status `CANDIDATE` — authored and validator-checked; canonicality follows the rule above, not this string |
 
-Validators, standard library only:
+Targeted semantic validators, standard library only:
 
 - `tools/regression/system_authority_contract.py`
 - `tools/regression/campaign_context_contract.py`
@@ -80,6 +81,14 @@ Validators, standard library only:
 - `tools/regression/automation_approval_contract.py`
 - `tools/regression/super_brain_memory_contract.py`
 - `tools/regression/hq_blueprint_contract.py`
+
+The complete integration gate is `python tools/regression/system_contracts_suite.py`.
+Install its separate schema-audit dependency with
+`python -m pip install -r tools/regression/requirements-contracts.txt`.
+It runs the targeted validators, validates all ten contract/build-packet JSON
+documents with a Draft 2020-12 engine, checks schema syntax, and exercises
+adversarial authority/flow mutations. A targeted validator alone is not proof
+of full JSON Schema conformance or of an implemented runtime.
 
 This table records that the files **exist in this lineage**. It does not assert
 canonicality, which is decided only by the four conditions above.
@@ -144,31 +153,15 @@ knowledge service exists by virtue of these files.**
 
 ## Planned contracts — NOT YET CREATED
 
-Contracts 05, 06 and 07 are now authored candidates and are therefore excluded from the genuinely unwritten planned-contract list below.
+None in the reserved 00–08 sequence. All nine contracts are authored and appear
+only in the current set above. File presence does not establish canonicality
+or runtime readiness.
 
-The detailed contracts below **do not yet exist** and **MUST NOT** be cited as
-canonical domain contracts. Contract 05 has moved out of this planned list into
-the current authored set above; it is still a candidate contract and is not being
-called canonical merely because it exists.
-
-Their *domains*, however, may already contain **locked owner decisions**,
-recorded in `DECISION_COVERAGE_MATRIX.md`. Those locked decisions are valid
-owner-authorised input and **MUST be preserved**. Only questions the matrix does
-**not** record as locked remain open.
-
-No later phase starts from a blank page.
-
-| # | Contract | Covers | Status |
-|---|---|---|---|
-| 05 | Workstation Operating | node architecture, workflow graph, run model | AUTHORED — candidate, validator-checked |
-| 06 | Automation & Approval | approval flow, budget modes, earned autonomy grants | AUTHORED — candidate, validator-checked |
-| 07 | Super Brain Memory | memory schema, write rules, staleness handling | AUTHORED — candidate, validator-checked |
-| 08 | PINK MALL HQ | HQ blueprint and operating surface | AUTHORED — candidate, validator-checked |
-
-`DECISION_COVERAGE_MATRIX.md` is the register of what has already been decided
-in each of those domains, so that a decision already taken is not lost merely
-because its contract has not been written. Read it before treating any of the
-subject matter above as an open question.
+`DECISION_COVERAGE_MATRIX.md` remains the register of locked owner decisions and
+genuinely open implementation questions. Those locked decisions must be
+preserved; unresolved implementation details do not make an authored contract
+unwritten.
+Only questions the matrix does **not** record as locked remain open.
 
 **A locked decision is not a canonical contract — and it is not an open question
 either.** The matrix keeps all three states apart: locked and awaiting a

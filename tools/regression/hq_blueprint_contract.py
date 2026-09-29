@@ -12,6 +12,7 @@ def main():
  ("role",c["role"]=="READ_COORDINATE_VISIBILITY"),
  ("runtime false",c["runtimeExists"] is False),
  ("no independent authority",len(c["noIndependentAuthority"])==9),
+ ("coordination-only grants",c["authorityGrants"]==["PRESENT_AUTHORITATIVE_STATE","CROSS_SYSTEM_NAVIGATION","OWNER_FACING_VISIBILITY","AUTHORISED_TECHNICAL_AUDIT","CAMPAIGN_WORKSTATION_ORGANISATION"]),
  ("authority map",len(c["authorityMap"])==10),
  ("hybrid surface",c["hybridSurface"]["simpleCreativeOverview"] and c["hybridSurface"]["expandableTechnicalAuditDetail"]),
  ("workstation checkpoints",c["workstationRelationship"]["checkpoints"]==["CONCEPT","IMAGES","VIDEO_IF_APPLICABLE","FINAL"]),
