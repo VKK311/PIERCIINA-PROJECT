@@ -393,7 +393,7 @@ def wood(name, light="#D2B08A", dark="#A27C58", axis="X", rough=0.42, per_plank=
     return m
 
 
-def tiles(name, w, h, c1, c2, grout, rough=0.12, offset=0.5, mortar=0.0025, wavy=0.0, var_scale=0.0, coat=0.6):
+def tiles(name, w, h, c1, c2, grout, rough=0.12, offset=0.5, mortar=0.0025, wavy=0.0, var_scale=0.0, coat=0.6, nscale=18):
     m, nt, out = newmat(name)
     vec, tc = uvmap(nt)
     br = node(nt, "ShaderNodeTexBrick", offset=offset, offset_frequency=2, squash=1.0, squash_frequency=2)
@@ -409,7 +409,7 @@ def tiles(name, w, h, c1, c2, grout, rough=0.12, offset=0.5, mortar=0.0025, wavy
     lk(nt, vec, br.inputs["Vector"])
     col = br.outputs["Color"]
     nz = node(nt, "ShaderNodeTexNoise")
-    nz.inputs["Scale"].default_value = 18
+    nz.inputs["Scale"].default_value = nscale
     nz.inputs["Detail"].default_value = 5
     lk(nt, vec, nz.inputs["Vector"])
     if var_scale:
@@ -670,7 +670,7 @@ M["oak"] = wood("Масивен дъб", "#C9A27A", "#9A7350", axis="X", rough=0
 M["oak_flute"] = wood("Дъб рифелован", "#C7A07A", "#96704E", axis="X", rough=0.5)
 M["subfloor"] = simple("Фуга", "#3A2C21", 0.9)
 M["subway"] = tiles("Метро плочки", 0.15, 0.075, "#F4F2EC", "#ECE9E1", "#D9D4CB", 0.08, 0.5, 0.0022, 0.02, 0.25)
-M["zellige"] = tiles("Зелиж шалвия", 0.10, 0.10, "#93A894", "#7E967F", "#E4E0D6", 0.06, 0.0, 0.0025, 0.18, 0.9)
+M["zellige"] = tiles("Зелиж шалвия", 0.10, 0.10, "#97AB97", "#86A087", "#E4E0D6", 0.06, 0.0, 0.0025, 0.22, 0.10, 0.9, 70)
 M["bathfloor"] = checker_tiles("Под баня шах", 0.20, "#E2B7A8", "#F1E9DE", "#D8CFC4")
 M["wallpaper"] = image_mat("Тапет ботанически", os.path.join(TEX, "wallpaper.png"), (0.53, 0.53), 0.85)
 M["bedding"] = image_mat("Спално бельо", os.path.join(TEX, "bedding.png"), (0.6, 0.6), 0.9, 0.6)
@@ -838,6 +838,11 @@ for args in ((0, 0.008, 0, 1.04, 0, 1.20), (0, 0.008, 1.04, 1.84, 0, 2.25), (0, 
              (0, 1.24, 1.832, 1.84, 0, 2.25), (1.232, 1.24, 1.04, 1.84, 0, 2.25), (1.24, 2.04, 1.032, 1.04, 0, 1.20),
              (2.032, 2.04, 0, 0.15, 0, 1.20), (2.032, 2.04, 0.78, 1.04, 0, 1.20)):
     box("Зелиж", *args, M["zellige"], wuv=True)
+M["bath_paint"] = paint("Баня пудра", "#E5C9BF", 0.6, 0.02)
+for args in ((0, 0.008, 0, 1.04, 1.20, H), (0, 0.008, 1.04, 1.84, 2.25, H), (0, 2.04, 0, 0.008, 1.20, H),
+             (0, 1.24, 1.832, 1.84, 2.25, H), (1.232, 1.24, 1.04, 1.84, 2.25, H), (1.24, 2.04, 1.032, 1.04, 1.20, H),
+             (2.032, 2.04, 0, 0.15, 1.20, H), (2.032, 2.04, 0.78, 1.04, 1.20, H), (2.032, 2.04, 0.15, 0.78, 2.02, H)):
+    box("Баня боя", *args, M["bath_paint"])
 
 
 # ---------------------------------------------------------------- windows
@@ -1392,14 +1397,11 @@ box("Бутон", 0.20, 0.206, 0.54, 0.70, 0.88, 1.00, M["brass"], bevel=0.004)
 box("Шкаф мивка", 0.95, 1.45, 0.0, 0.42, 0.52, 0.80, M["oak"], bevel=0.004, wuv=True)
 for i in range(16):
     cyl("Рифел мивка", 0.0075, 0.26, (0.965 + i * 0.031, 0.425, 0.66), M["oak"], segs=12, wuv=True)
-basin = box("Мивка баня", 0.98, 1.42, 0.04, 0.38, 0.80, 0.92, M["ceramic"], bevel=0.02, seg=4)
-cut = box("cut", 1.00, 1.40, 0.06, 0.36, 0.83, 1.0, M["ceramic"], bevel=0.015, seg=4)
-cut.hide_render = True
-cut.hide_viewport = True
-bo = basin.modifiers.new("bool", "BOOLEAN")
-bo.operation = "DIFFERENCE"
-bo.object = cut
-basin.modifiers.move(1, 0) if len(basin.modifiers) > 1 else None
+# vessel basin built from real walls (no boolean)
+box("Мивка дъно", 0.99, 1.41, 0.05, 0.37, 0.80, 0.83, M["ceramic"], bevel=0.008, seg=3)
+for a, b, c, d in ((0.98, 1.0, 0.04, 0.38), (1.40, 1.42, 0.04, 0.38), (0.98, 1.42, 0.04, 0.06), (0.98, 1.42, 0.36, 0.38)):
+    box("Мивка стена", a, b, c, d, 0.80, 0.92, M["ceramic"], bevel=0.006, seg=3)
+cyl("Сифон мивка", 0.02, 0.004, (1.20, 0.21, 0.832), M["brass"])
 tube("Чучур", [(1.20, 0.0, 1.03), (1.20, 0.10, 1.03), (1.20, 0.17, 1.02)], 0.011, M["brass"])
 cyl("Розетка", 0.03, 0.01, (1.20, 0.005, 1.03), M["brass"], axis="Y")
 cyl("Кран", 0.025, 0.03, (1.20, 0.015, 1.13), M["brass"], axis="Y")
