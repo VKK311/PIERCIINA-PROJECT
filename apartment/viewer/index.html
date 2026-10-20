@@ -43,6 +43,7 @@ button{font:inherit;color:inherit}
 #roomNote{color:var(--text);opacity:.85;font-size:13px;line-height:1.5;text-shadow:0 1px 10px rgba(0,0,0,.6)}
 .rooms{display:flex;gap:6px;flex-wrap:wrap}
 .rooms button{border:1px solid var(--line);background:var(--glass);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12.5px;font-weight:600;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.rooms button[aria-pressed="true"]{background:var(--rose);color:var(--ink);border-color:var(--rose)}
 .rooms button[aria-current="true"]{background:var(--sage);color:var(--ink);border-color:var(--sage)}
 #mini{position:fixed;z-index:15;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
   width:132px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--glass);box-shadow:0 10px 30px rgba(0,0,0,.35)}
@@ -120,6 +121,7 @@ dd{margin:0;font-size:13.5px;line-height:1.5}
   <div id="roomName">Входно антре</div>
   <div id="roomNote"></div>
   <div class="rooms" id="rooms"></div>
+  <div class="rooms"><button id="eveBtn" hidden aria-pressed="false">Вечерно осветление</button></div>
 </div>
 <div id="mini"><img id="miniImg" src="plan.jpg" alt="План с позицията ви"><svg id="miniSvg" viewBox="0 0 450 900" preserveAspectRatio="none"></svg></div>
 <div id="hint">Влачете, за да се оглеждате · щракнете върху кръг на пода, за да влезете</div>
@@ -205,15 +207,16 @@ const hotGroup = new THREE.Group(); scene.add(hotGroup);
 const ringGeo = new THREE.RingGeometry(0.16, 0.22, 48), dotGeo = new THREE.CircleGeometry(0.13, 40);
 const loader = new THREE.TextureLoader();
 const cache = {};
-function tex(id) {
-  if (!cache[id]) cache[id] = new Promise(res => loader.load(D.panos[id].src, t => {
+function tex(id, eve) {
+  const src = eve && D.panos[id].eve ? D.panos[id].eve : D.panos[id].src;
+  if (!cache[src]) cache[src] = new Promise(res => loader.load(src, t => {
     t.encoding = THREE.sRGBEncoding; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false;
     t.anisotropy = renderer.capabilities.getMaxAnisotropy(); res(t);
   }));
-  return cache[id];
+  return cache[src];
 }
 
-const state = { id: D.start, yaw: 0, pitch: -0.05, fov: 75 };
+const state = { id: D.start, yaw: 0, pitch: -0.05, fov: 75, eve: false };
 function buildHotspots() {
   hotGroup.clear();
   const P = D.panos[state.id];
@@ -232,7 +235,7 @@ async function go(id, keepView) {
   const fade = $('#fade');
   const prev = D.panos[state.id];
   fade.style.opacity = 1;
-  const [t] = await Promise.all([tex(id), new Promise(r => setTimeout(r, 260))]);
+  const [t] = await Promise.all([tex(id, state.eve), new Promise(r => setTimeout(r, 260))]);
   const P = D.panos[id];
   if (!keepView && prev && id !== state.id) state.yaw = Math.atan2(P.x - prev.x, P.y - prev.y);   // keep walking direction
   if (P.yaw !== undefined && !keepView && (!prev || id === state.id)) state.yaw = P.yaw;
@@ -240,7 +243,7 @@ async function go(id, keepView) {
   sphereMat.map = t; sphereMat.needsUpdate = true;
   buildHotspots(); updateUI();
   fade.style.opacity = 0;
-  for (const l of P.links) tex(l);   // preload neighbours
+  for (const l of P.links) tex(l, state.eve);   // preload neighbours
 }
 
 function updateUI() {
@@ -248,10 +251,13 @@ function updateUI() {
   $('#roomName').textContent = P.name;
   $('#roomNote').textContent = P.note || '';
   $('#rooms').querySelectorAll('button').forEach(b => b.setAttribute('aria-current', b.dataset.id === state.id));
+  $('#eveBtn').hidden = !P.eve;
+  $('#eveBtn').setAttribute('aria-pressed', state.eve && !!P.eve);
   drawPlanSvg($('#miniSvg'), { cone: true });
   drawPlanSvg($('#planSvg'), { labels: true });
 }
 $('#rooms').innerHTML = Object.entries(D.panos).map(([id, p]) => `<button data-id="${id}">${p.short}</button>`).join('');
+$('#eveBtn').addEventListener('click', () => { state.eve = !state.eve; go(state.id, true); });
 $('#rooms').addEventListener('click', e => { const b = e.target.closest('button'); if (b) go(b.dataset.id); });
 
 function resize() {
