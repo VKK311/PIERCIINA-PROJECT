@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pierciina Admin</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<main class="wide">
+  <div class="brand"><img src="/assets/logo.svg" alt=""><span>PIERCIINA · ADMIN</span></div>
+
+  <!-- Вход -->
+  <form id="login" class="hidden" novalidate>
+    <h1>Вход</h1>
+    <label for="email">Имейл</label>
+    <input id="email" type="email" value="pierciina1@gmail.com" autocomplete="username">
+    <label for="password">Парола</label>
+    <input id="password" type="password" autocomplete="current-password">
+    <div class="error" id="login-error"></div>
+    <button type="submit">Вход</button>
+  </form>
+
+  <div id="app" class="hidden">
+    <div class="tabs">
+      <button data-tab="scan" class="active">Скенер</button>
+      <button data-tab="clients">Клиенти</button>
+      <button id="logout" class="secondary" style="flex:0 0 auto;width:auto">Изход</button>
+    </div>
+
+    <!-- Скенер -->
+    <section id="tab-scan">
+      <div id="reader"></div>
+      <button id="start" style="margin-top:12px">Включи камерата</button>
+
+      <div id="result" class="card result hidden">
+        <div class="muted" id="r-name"></div>
+        <div class="big" id="r-message"></div>
+        <div class="stars" id="r-stars"></div>
+        <div class="row" style="margin-top:12px" id="r-actions"></div>
+      </div>
+    </section>
+
+    <!-- Клиенти -->
+    <section id="tab-clients" class="hidden">
+      <input type="search" id="search" placeholder="Търси по име, телефон или имейл">
+      <p class="muted" id="count"></p>
+      <table>
+        <thead><tr><th>Име</th><th>Телефон</th><th>Звезди</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </div>
+</main>
+
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script type="module">
+  import { renderStars } from '/assets/stars.js';
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: () => { try { return localStorage.getItem('pierciina-admin'); } catch { return null; } },
+    set: (v) => { try { v ? localStorage.setItem('pierciina-admin', v) : localStorage.removeItem('pierciina-admin'); } catch {} },
+  };
+  let token = store.get();
+
+  async function api(path, body) {
+    const res = await fetch(`/api/admin/${path}`, {
+      method: body ? 'POST' : 'GET',
+      headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    if (res.status === 401) { logout(); throw new Error('unauthorized'); }
+    return { status: res.status, body: await res.json() };
+  }
+
+  function showApp(on) {
+    $('login').classList.toggle('hidden', on);
+    $('app').classList.toggle('hidden', !on);
+  }
+  function logout() {
+    token = null;
+    store.set(null);
+    stopScanner();
+    showApp(false);
+  }
+
+  $('login').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    $('login-error').textContent = '';
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: $('email').value, password: $('password').value }),
+    });
+    if (!res.ok) { $('login-error').textContent = 'Грешен имейл или парола.'; return; }
+    token = (await res.json()).token;
+    store.set(token);
+    showApp(true);
+  });
+  $('logout').addEventListener('click', logout);
+
+  // ---- Табове
+  document.querySelectorAll('[data-tab]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-tab]').forEach((b) => b.classList.toggle('active', b === btn));
+      $('tab-scan').classList.toggle('hidden', btn.dataset.tab !== 'scan');
+      $('tab-clients').classList.toggle('hidden', btn.dataset.tab !== 'clients');
+      if (btn.dataset.tab === 'clients') { stopScanner(); loadClients(); }
+    }),
+  );
+
+  // ---- Скенер: едно сканиране = един печат; камерата спира, докато админът не натисне „Следващ“.
+  let scanner = null;
+  let busy = false;
+
+  async function startScanner() {
+    $('result').classList.add('hidden');
+    $('start').classList.add('hidden');
+    scanner ??= new Html5Qrcode('reader');
+    try {
+      await scanner.start({ facingMode: 'environment' }, { fps: 10, qrbox: 240 }, onScan);
+    } catch {
+      $('start').classList.remove('hidden');
+      alert('Няма достъп до камерата. Разрешете камерата за този сайт.');
+    }
+  }
+  async function stopScanner() {
+    if (scanner?.isScanning) await scanner.stop().catch(() => {});
+    $('start').classList.remove('hidden');
+  }
+  $('start').addEventListener('click', startScanner);
+
+  async function onScan(code) {
+    if (busy) return;
+    busy = true;
+    await stopScanner();
+    $('start').classList.add('hidden');
+    try {
+      const { status, body } = await api('scan', { code });
+      if (status === 400) showResult('bad', '', 'Това не е карта на Pierciina.', null);
+      else if (status === 404) showResult('bad', '', 'Картата не е намерена или е заменена с нова.', null);
+      else if (status !== 200) showResult('bad', '', 'Грешка. Опитайте отново.', null);
+      else showOutcome(body);
+    } catch {
+      showResult('bad', '', 'Няма връзка. Опитайте отново.', null);
+    } finally {
+      busy = false;
+    }
+  }
+
+  const MESSAGES = {
+    stamped: ['ok', (c) => `+1 звезда · ${c.stamps}/5`],
+    reward_unlocked: ['ok', () => '+1 звезда · 5/5 — наградата е отключена!'],
+    reward_ready: ['warn', () => '5/5 — 50% за този пиърсинг'],
+    redeemed: ['ok', () => 'Наградата е използвана · 0/5'],
+    removed: ['warn', (c) => `Звездата е премахната · ${c.stamps}/5`],
+    nothing_to_remove: ['warn', () => 'Няма звезди за премахване'],
+    reward_not_ready: ['warn', (c) => `Наградата още не е отключена · ${c.stamps}/5`],
+  };
+
+  function showOutcome({ result, client }) {
+    const [kind, text] = MESSAGES[result];
+    showResult(kind, client.name, text(client), client, result);
+  }
+
+  function showResult(kind, name, message, client, result) {
+    $('result').className = `card result ${kind}`;
+    $('r-name').textContent = name;
+    $('r-message').textContent = message;
+    if (client) renderStars($('r-stars'), client.stamps); else $('r-stars').innerHTML = '';
+
+    const actions = $('r-actions');
+    actions.innerHTML = '';
+    const add = (label, cls, fn) => {
+      const b = document.createElement('button');
+      b.textContent = label;
+      if (cls) b.className = cls;
+      b.addEventListener('click', fn);
+      actions.append(b);
+    };
+    if (result === 'reward_ready') {
+      add('Наградата е използвана', '', () => act(client.serial, 'redeem'));
+    }
+    if (result === 'stamped' || result === 'reward_unlocked') {
+      add('Отмени звездата', 'danger', () => act(client.serial, 'remove'));
+    }
+    add('Следващо сканиране', 'secondary', startScanner);
+  }
+
+  async function act(serial, action) {
+    const { status, body } = await api('action', { serial, action });
+    if (status === 200) showOutcome(body);
+    else showResult('bad', '', 'Грешка. Опитайте отново.', null);
+  }
+
+  // ---- Клиенти
+  let searchTimer;
+  $('search').addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(loadClients, 250);
+  });
+
+  async function loadClients() {
+    const { body } = await api(`clients?q=${encodeURIComponent($('search').value)}`);
+    $('count').textContent = `${body.clients.length} клиента`;
+    const rows = $('rows');
+    rows.innerHTML = '';
+    for (const c of body.clients) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td></td><td></td><td>${c.stamps}/5</td><td class="row"></td>`;
+      tr.children[0].textContent = c.name;
+      tr.children[1].textContent = c.phone;
+      const cell = tr.children[3];
+      const btn = (label, action, cls = 'secondary') => {
+        const b = document.createElement('button');
+        b.textContent = label;
+        b.className = cls;
+        b.addEventListener('click', async () => {
+          if (action === 'redeem' && !confirm(`Да се използва наградата на ${c.name}?`)) return;
+          await api('action', { serial: c.serial, action });
+          loadClients();
+        });
+        cell.append(b);
+      };
+      if (c.stamps >= 5) btn('Използвай 50%', 'redeem', '');
+      else btn('+1', 'stamp');
+      btn('−1', 'remove');
+      rows.append(tr);
+    }
+  }
+
+  showApp(Boolean(token));
+</script>
+</body>
+</html>

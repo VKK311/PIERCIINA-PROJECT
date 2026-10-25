@@ -1,0 +1,21 @@
+{
+  "name": "pierciina-loyalty-card",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pierciina Loyalty Card: Apple Wallet / Google Wallet stamp card with a single admin account.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "netlify dev"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "jsonwebtoken": "^9.0.2",
+    "passkit-generator": "^3.1.11",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.33.5"
+  }
+}

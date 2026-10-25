@@ -1,0 +1,15 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["sharp"]
+  included_files = ["pass-assets/**"]
+
+# Админ страницата не трябва да се индексира.
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Cache-Control = "no-store"

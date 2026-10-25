@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pierciina Loyalty Card</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<main>
+  <div class="brand"><img src="/assets/logo.svg" alt=""><span>PIERCIINA</span></div>
+
+  <h1>Pierciina Loyalty Card</h1>
+  <p class="sub">5 звезди = 50% отстъпка за 6-ия пиърсинг.<br>5 stars = 50% off your 6th piercing.</p>
+
+  <form id="form" novalidate>
+    <label for="name">Име / Name</label>
+    <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
+    <div class="error" data-for="name"></div>
+
+    <label for="email">Имейл / Email</label>
+    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120">
+    <div class="error" data-for="email"></div>
+
+    <label for="phone">Телефон / Phone</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="0888 123 456" required>
+    <div class="error" data-for="phone"></div>
+
+    <div class="hp" aria-hidden="true">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <label class="check">
+      <input id="consent" name="consent" type="checkbox" required>
+      <span>Съгласен/на съм Pierciina да съхранява името, имейла и телефона ми за програмата за лоялност
+        (<a href="/privacy.html" target="_blank">Политика за поверителност</a>).</span>
+    </label>
+    <div class="error" data-for="consent"></div>
+
+    <button type="submit" id="submit">Вземи картата / Get my card</button>
+    <div class="error" id="form-error"></div>
+  </form>
+</main>
+
+<script type="module">
+  const form = document.getElementById('form');
+  const submit = document.getElementById('submit');
+  const fields = form.elements; // form.name е името на самата форма, затова полетата са през elements
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    document.querySelectorAll('.error').forEach((el) => (el.textContent = ''));
+    submit.disabled = true;
+    try {
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name: fields.name.value,
+          email: fields.email.value,
+          phone: fields.phone.value,
+          consent: fields.consent.checked,
+          website: fields.website.value,
+        }),
+      });
+      const body = await res.json();
+      if (res.ok) {
+        location.href = `/card.html?id=${body.serial}`;
+        return;
+      }
+      for (const [field, message] of Object.entries(body.fields ?? {})) {
+        document.querySelector(`[data-for="${field}"]`).textContent = message;
+      }
+      if (!body.fields) document.getElementById('form-error').textContent = 'Нещо се обърка. Опитайте отново.';
+    } catch {
+      document.getElementById('form-error').textContent = 'Няма връзка. Опитайте отново.';
+    } finally {
+      submit.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Pierciina Card</title>
+  <meta name="theme-color" content="#111111">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<main>
+  <div class="brand"><img src="/assets/logo.svg" alt=""><span>PIERCIINA</span></div>
+
+  <div id="loading" class="muted">Loading…</div>
+  <div id="missing" class="hidden">
+    <h1>Card not found</h1>
+    <p class="sub"><a href="/" style="color:var(--accent)">Register again</a></p>
+  </div>
+
+  <div id="content" class="hidden">
+    <h1>Pierciina Loyalty Card</h1>
+    <p class="sub" id="hello"></p>
+
+    <div class="card">
+      <div class="stars" id="stars"></div>
+      <div class="muted" id="progress"></div>
+    </div>
+
+    <a class="btn wallet hidden" id="apple" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/></svg>
+      Add to Apple Wallet
+    </a>
+    <a class="btn wallet hidden" id="google" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/></svg>
+      Add to Google Wallet
+    </a>
+    <p class="muted" style="margin-top:20px">Show the card's QR code at the studio to collect a star.<br>
+      Покажете QR кода на картата в студиото, за да получите звезда.</p>
+  </div>
+</main>
+
+<script type="module">
+  import { renderStars } from '/assets/stars.js';
+
+  const show = (id) => document.getElementById(id).classList.remove('hidden');
+  const serial = new URLSearchParams(location.search).get('id');
+
+  try {
+    const res = serial ? await fetch(`/api/card/${encodeURIComponent(serial)}`) : null;
+    if (!res?.ok) throw new Error('missing');
+    const card = await res.json();
+
+    document.getElementById('hello').textContent = `Hi, ${card.name}!`;
+    renderStars(document.getElementById('stars'), card.stamps, card.total);
+    const left = card.total - card.stamps;
+    document.getElementById('progress').textContent = card.rewardReady
+      ? '50% OFF your next piercing ✦'
+      : `${card.stamps}/${card.total} stars · ${left} more to 50% off`;
+
+    // На iPhone показваме Apple Wallet, на Android — Google Wallet, на компютър — двата.
+    const ua = navigator.userAgent;
+    const isApple = /iPhone|iPad|iPod|Macintosh/.test(ua);
+    const isAndroid = /Android/.test(ua);
+    if (!isAndroid) {
+      document.getElementById('apple').href = card.appleUrl;
+      show('apple');
+    }
+    if (card.googleUrl && !isApple) {
+      document.getElementById('google').href = card.googleUrl;
+      show('google');
+    }
+    show('content');
+  } catch {
+    show('missing');
+  } finally {
+    document.getElementById('loading').classList.add('hidden');
+  }
+</script>
+</body>
+</html>
